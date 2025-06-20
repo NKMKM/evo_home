@@ -1,0 +1,339 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
+import left_decoration from '../assets/images/leftside_black_decoration.png'
+import right_decoration from '../assets/images/rightside_black_decoration.png'
+
+// mosaic photo imports
+import image1 from '../assets/images/works/mosaic/image1.png'
+import image2 from '../assets/images/works/mosaic/image2.png'
+import image3 from '../assets/images/works/mosaic/image3.png'
+import image4 from '../assets/images/works/mosaic/image4.png'
+import image5 from '../assets/images/works/mosaic/image5.png'
+import image6 from '../assets/images/works/mosaic/image6.png'
+import image7 from '../assets/images/works/mosaic/image7.png'
+import image8 from '../assets/images/works/mosaic/image8.png'
+
+import ImageComparisonSlider from '../components/ImageComparisonSlider'
+
+import before_after_3 from '../assets/images/before_after_3.png'
+import before_after_4 from '../assets/images/before_after_4.png'
+import toilet_before from '../assets/images/works/comparison/toilet_before.png'
+import toilet_after from '../assets/images/works/comparison/toilet_after.png'
+import botique_before from '../assets/images/works/comparison/botique_before.png'
+import botique_after from '../assets/images/works/comparison/botique_after.png'
+
+// icons imports
+import roof_icon from '../assets/icons/works/roof.png'
+import bottle_icon from '../assets/icons/works/bottle.png'
+import fontain_icon from '../assets/icons/works/fontain.png'
+import food_icon from '../assets/icons/works/food.png'
+import keys_icon from '../assets/icons/works/keys.png'
+
+// vectors imort
+import vector_1 from '../assets/images/works/bg_vector1.png'
+import vector_2 from '../assets/images/works/bg_vector2.png'
+
+import stages from '../assets/icons/works/stages.png'
+import one from '../assets/icons/works/one.png'
+
+import Reviews from '../components/mainpage_components/Reviews'
+const OurWorks = () => {
+  return (
+    <div className='flex flex-col'>
+        {/* about us block */}
+        <div className='w-[1656px] h-[1900px]  mx-auto mt-20 flex flex-col justify-between'>
+            {/* header */}
+            <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center '>
+                <img src={left_decoration} className='w-[276px] h-[83px] '/>
+                <div className=''>
+                    <h1 className='font-bold text-center text-[70px]'>Проекты EVO HOME</h1>
+
+                </div>
+                <img src={right_decoration} className='w-[276px] h-[83px]'/>
+            </div>
+
+
+            {/* info + photos */}
+            <div className='w-[1641px]  mx-auto my-20 '>
+                {/* text */}
+                <div className=' flex flex-col w-[1639px] h-[336px] text-[28px] justify-between mb-10'>
+                    <p>Добро пожаловать в галерею EvoHome, где каждое изображение отражает нашу страсть к качеству и инновациям. Здесь вы найдете фотографии и видео наших завершенных проектов по ремонту в Риме: <span className='text-[#F9B33B]'>современные квартиры</span>,   элегантные дома, функциональные офисы и дизайнерские <span className='text-[#F9B33B]'>коммерческие помещения</span> . Каждая деталь учитывается для обеспечения безупречных результатов.</p>
+                    <p>Познакомьтесь с нашей работой и вдохновитесь креативностью и опытом нашей команды. EvoHome — идеальный партнер для любых нужд по ремонту. Узнайте, как мы можем превратить ваши пространства в функциональные произведения искусства.</p>
+                </div>
+
+                {/* photos */}
+
+                <div className='w-[1640px] h-[1223px] flex flex-row space-x-6'>
+                    {/* column 1  */}
+                    <div className='flex flex-col space-y-[27px]'>
+                        {/* row 1 */}
+                        <div className=' w-[806px] h-[389px]'>
+                            <img src={image1} className='w-full h-full object-cover mosaic-image-scale-hover'/>    
+                        </div>
+
+                        {/* row 2 */}
+                        <div className='h-[389px]  flex flex-row space-x-[29px]'>
+                            {/* image 1 */}
+                            <div className=' w-[389px] h-[389px] '><img src={image2} className='mosaic-image-scale-hover'/></div>
+                            
+                            {/* image 2 */}
+                            <div className=' w-[389px] h-[389px] '><img src={image3} className='mosaic-image-scale-hover'/></div>
+                        </div>
+
+                        {/* row 3 */}
+                        <div className=' w-[806px] h-[389px]'>
+                            <img src={image4} className='mosaic-image-scale-hover'/>
+                        </div>
+                    </div>
+
+                    {/* column 2 */}
+                    <div className=' flex flex-col space-y-6 '>
+                        {/* row 1 */}
+                        <div className=' flex flex-row space-x-6'>
+                            {/* column 1 */}
+                            <div className=' w-[389px] h-[802px] '>
+                                <img src={image5} className='mosaic-image-scale-hover'/>
+                            </div>
+
+                            {/* column 2 */}
+                            <div className='flex flex-col h-[806px] space-y-[29px]'>
+                                {/* row 1 */}
+                                <div className=' w-[389px] h-[389px] '><img src={image6} className='mosaic-image-scale-hover'/></div>
+
+                                {/* row 2 */}
+                                <div className=' w-[389px] h-[389px]'><img src={image7} className='mosaic-image-scale-hover'/></div>
+                            </div>
+                        </div>
+
+                        {/* row 2 */}
+                        <div className=' w-[806px] h-[389px]'>
+                            <img src={image8} className='mosaic-image-scale-hover'/>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            
+            
+            <div className='w-[1640px] h-[67px]  flex flex-row items-center mx-auto'>
+
+                <div className='h-[1px] w-[625.5px] bg-[#F9B33B]'></div>
+
+                <Link to="/contacts" className="w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">ЗАКАЗАТЬ</Link>
+
+                <div className='h-[1px] w-[625.5px] bg-[#F9B33B]'></div>
+            </div>
+
+
+        </div>
+        
+        {/* before and after block */}
+        <div className=' w-[1656px] flex flex-col justify-between h-[2045px] mx-auto my-20'>
+            {/* header */}
+            <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center '>
+                <img src={left_decoration} className='w-[276px] h-[83px] '/>
+                <div className=''>
+                    <h1 className='font-bold text-center text-[70px]'>Интерьеры ДО и ПОСЛЕ</h1>
+
+                </div>
+                <img src={right_decoration} className='w-[276px] h-[83px]'/>
+            </div>
+
+            {/* comparison examples */}
+            <div className='w-[1656px] h-[1741px] flex flex-col justify-between '>
+                {/* 1 */}
+                <div className='h-[536px] w-[1641px] flex flex-row justify-between '>
+                    <div className='w-[806px] h-[536px]'>
+                        <ImageComparisonSlider beforeSrc={before_after_3} afterSrc={before_after_4}/>
+                    </div>
+
+                    <div className='w-[806px] h-full  flex flex-col justify-between'>
+                        <div>
+                            <h1 className='text-[50px] font-bold'>КУХНЯ</h1>
+                            <h2 className='text-[40px] font-light italic'>В Стиле Современный Минимализм</h2>
+                        </div>
+
+                        <div className='w-[748px] h-[374px] flex flex-col text-[30px] justify-between'>
+                            <p><span className='font-bold'>До:</span>  Устаревшие фасады, плохое освещение и недостаток рабочей зоны.</p>
+                            <p><span className='font-bold'>После:</span> Светлая, эргономичная кухня с лаконичным дизайном и встроенной техникой.</p>
+                            <p>Полная реконструкция: теперь кухня не только красива, но и функциональна — продуман каждый сантиметр.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* 2 */}
+                <div className='h-[536px] w-[1641px] flex flex-row-reverse justify-between '>
+                    <div className='w-[806px] h-[536px]'>
+                        <ImageComparisonSlider beforeSrc={toilet_before} afterSrc={toilet_after}/>
+                    </div>
+
+                    <div className='w-[806px] h-full  flex flex-col justify-between'>
+                        <div>
+                            <h1 className='text-[50px] font-bold'>ТУАЛЕТ</h1>
+                            <h2 className='text-[40px] font-light italic'>В Стиле Современная Классика</h2>
+                        </div>
+
+                        <div className='w-[748px] h-[374px] flex flex-col text-[30px] justify-between'>
+                            <p><span className='font-bold'>До:</span>  Тесное пространство с устаревшей плиткой и сантехникой.</p>
+                            <p><span className='font-bold'>После:</span> Элегантная трансформация в стильное помещение с продуманной эргономикой.</p>
+                            <p>Грамотное использование пространства и современные материалы превращают обыденное помещение в комфортную зону.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* 3 */}
+                <div className='h-[536px] w-[1641px] flex flex-row justify-between '>
+                    <div className='w-[806px] h-[536px]'>
+                        <ImageComparisonSlider beforeSrc={botique_before} afterSrc={botique_after}/>
+                    </div>
+
+                    <div className='w-[806px] h-full  flex flex-col justify-between'>
+                        <div>
+                            <h1 className='text-[50px] font-bold'>ПАРФЮМЕРНЫЙ БУТИК</h1>
+                            <h2 className='text-[40px] font-light italic'>В Стиле Промышленная Роскошь</h2>
+                        </div>
+
+                        <div className='w-[748px] h-[374px] flex flex-col text-[30px] justify-between'>
+                            <p><span className='font-bold'>До:</span> Пустое помещение с голыми стенами и строительными конструкциями.</p>
+                            <p><span className='font-bold'>После:</span> Теплые кирпичные арки, мягкое освещение стратегически расположенные витрины.</p>
+                            <p>Сочетание индустриальных элементов с уютными акцентами делает бутик не просто магазином, а местом для ценителей изысканных ароматов.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div className='w-[1640px] h-[67px]  flex flex-row items-center mx-auto'>
+
+                <div className='h-[1px] w-[625.5px] bg-[#F9B33B]'></div>
+
+                <Link to="/contacts" className="w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">ЗАКАЗАТЬ</Link>
+
+                <div className='h-[1px] w-[625.5px] bg-[#F9B33B]'></div>
+            </div>
+
+        </div>
+
+        {/* stages of work block */}
+
+        <div className='relative border w-full h-[4700px] flex flex-col justify-between works-stages-bg-image bg-cover mb-22'>
+            <div className='w-[58px] h-[58px] absolute top-[400px] z-10'><img src={one} className='w-full h-full'/></div>
+            <div className='w-[58px] absolute top-[458px] z-10'><img src={stages} className=''/></div>
+
+            {/* 1 */}
+            <div className='works-first-stage-bg-image bg-cover relative  flex flex-row bg-blue-300/80 w-full h-[849px]'>
+                {/* vector */}
+                <div className='absolute '><img src={vector_1}/></div>
+
+                <div className='absolute w-[806px] h-auto left-[150px] bottom-[80px]'>
+                    <h1 className='text-white font-bold justify-center flex flex-row items-center text-[50px] mb-10'><img src={roof_icon} className='w-[65px] h-[65px] mr-10'/> Ремонт крыши</h1>
+
+                    <div className='w-[806px] h-[564px] bg-white/85 text-[31px] flex flex-col justify-between px-5 py-10'>
+                        <p>Мы даем новую жизнь коммерческим помещениям с помощью индивидуального ремонта. Узнайте, как мы превратили этот парфюмерный магазин в элегантное и функциональное пространство, идеально подходящее для приема клиентов в самом сердце Рима</p>
+                        <p>Посмотрите видео для получения подробной информации о проекте и свяжитесь с нами, чтобы создать ваше уникальное пространство!</p>
+                    </div>
+                </div>
+
+                <div className='w-[698px] absolute right-[150px] top-[80px]'>
+                    <div className='w-[698px] h-[540px] border-[5px] border-[#F9B33B] bg-gray-600 mb-10'>video</div>
+                    
+                    <div className='flex  justify-center w-[698px] h-[67px] text-black text-[30px] font-bold text-center bg-[#F9B33B] items-center'>Ремонт крыши Рим (район Аурелия, Рим)</div>
+                </div>
+            </div>
+
+            {/* 2 */}
+            <div className='works-second-stage-bg-image bg-cover relative  bg-blue-300/80 w-full h-[849px]'>
+                {/* vector */}
+                <div className='absolute '><img src={vector_2}/></div>
+
+                <div className='absolute w-[806px] h-auto right-[150px] top-[80px]'>
+                    <h1 className='text-white font-bold justify-center flex flex-row items-center text-[50px] mb-10'><img src={bottle_icon} className='w-[65px] h-[65px] mr-10'/> Магазин парфюмерии</h1>
+
+                    <div className='w-[806px] h-[564px] bg-white/85 text-[31px] flex flex-col justify-between px-5 py-10'>
+                        <p>Мы даем новую жизнь коммерческим помещениям с помощью индивидуального ремонта. Узнайте, как мы превратили этот парфюмерный магазин в элегантное и функциональное пространство, идеально подходящее для приема клиентов в самом сердце Рима.</p>
+                        <p>Посмотрите видео для получения подробной информации о проекте и свяжитесь с нами, чтобы создать ваше уникальное пространство!</p>
+                    </div>
+                </div>
+
+                <div className='w-[698px] absolute  left-[150px] bottom-[80px]'>
+                    <div className='w-[698px] h-[540px] border-[5px] border-[#F9B33B] bg-gray-600 mb-10'>video</div>
+                    
+                    <div className='flex  justify-center w-[698px] h-[67px] text-black text-[30px] font-bold text-center bg-[#F9B33B] items-center'> Исторический центр Рима – via Vittoria 3b</div>
+                </div>
+            </div>
+            {/* 3 */}
+            <div className='works-third-stage-bg-image bg-cover relative  flex flex-row bg-blue-300/80 w-full h-[849px]'>
+                {/* vector */}
+                <div className='absolute '><img src={vector_1}/></div>
+
+                <div className='absolute w-[806px] h-auto left-[150px] bottom-[80px]'>
+                    <h1 className='text-white font-bold justify-center flex flex-row items-center text-[50px] mb-10'><img src={fontain_icon} className='w-[65px] h-[65px] mr-10'/> Реконструкция фонтана</h1>
+
+                    <div className='w-[806px] h-[564px] bg-white/85 text-[31px] flex flex-col justify-between px-5 py-10'>
+                        <p>Мы возвращаем фонтанам красоту и функциональность с помощью профессиональных реставрационных работ. Узнайте, как мы превратили этот фонтан в уникальный декоративный элемент, сочетающий традиции и современность</p>
+                        <p>Посмотрите видео, чтобы узнать подробности нашей работы, и свяжитесь с нами, чтобы украсить ваши помещения стильно и точно!</p>
+                    </div>
+                </div>
+
+                <div className='w-[698px] absolute right-[150px] top-[80px]'>
+                    <div className='w-[698px] h-[540px] border-[5px] border-[#F9B33B] bg-gray-600 mb-10'>video</div>
+                    
+                    <div className='flex  justify-center w-[698px] h-[67px] text-black text-[30px] font-bold text-center bg-[#F9B33B] items-center'>Реконструкция фонтана – Рим (район Аурелия)</div>
+                </div>
+            </div>
+            {/* 4 */}
+            <div className='works-fourth-stage-bg-image bg-cover relative  bg-blue-300/80 w-full h-[849px]'>
+                {/* vector */}
+                <div className='absolute '><img src={vector_2}/></div>
+
+                <div className='absolute w-[806px] h-auto right-[150px] top-[80px]'>
+                    <h1 className='text-white font-bold justify-center flex flex-row items-center text-[50px] mb-10'><img src={food_icon} className='w-[65px] h-[65px] mr-10'/> Рестайлинг ресторана</h1>
+
+                    <div className='w-[806px] h-[564px] bg-white/85 text-[31px] flex flex-col justify-between px-5 py-10'>
+                        <p>Мы преображаем пространства с помощью эксклюзивного дизайна и изысканных деталей. Узнайте, как мы отремонтировали эту винодельню, создав гостеприимное и элегантное пространство, идеально подходящее для любого случая.</p>
+                        <p>Посмотрите видео, чтобы полюбоваться результатом, и свяжитесь с нами, чтобы вдохнуть новую жизнь в ваше помещение со стилем и качеством!</p>
+                    </div>
+                </div>
+
+                <div className='w-[698px] absolute  left-[150px] bottom-[80px]'>
+                    <div className='w-[698px] h-[540px] border-[5px] border-[#F9B33B] bg-gray-600 mb-10'>video</div>
+                    
+                    <div className='flex  justify-center w-[698px] h-[67px] text-black text-[30px] font-bold text-center bg-[#F9B33B] items-center'> Sentori Vineria del Quartiere (Рим)</div>
+                </div>
+            </div>
+
+            {/* 5 */}
+            <div className='works-third-stage-bg-image bg-cover relative  flex flex-row bg-blue-300/80 w-full h-[849px]'>
+                {/* vector */}
+                <div className='absolute '><img src={vector_1}/></div>
+
+                <div className='absolute w-[806px] h-auto left-[150px] bottom-[80px]'>
+                    <h1 className='text-white font-bold justify-center flex flex-row items-center text-[50px] mb-10'><img src={keys_icon} className='w-[65px] h-[65px] mr-10'/>Трехкомнатная квартира</h1>
+
+                    <div className='w-[806px] h-[564px] bg-white/85 text-[31px] flex flex-col justify-between px-5 py-10'>
+                        <p>Мы модернизируем жилые помещения с помощью индивидуальных и функциональных решений. Узнайте, как мы преобразили эту трехкомнатную квартиру , объединив комфорт и дизайн, чтобы удовлетворить все потребности.</p>
+                        <p>Посмотрите видео, чтобы узнать подробности проекта, и свяжитесь с нами, чтобы отремонтировать ваш дом стильно и профессионально!</p>
+                    </div>
+                </div>
+
+                <div className='w-[698px] absolute right-[150px] top-[80px]'>
+                    <div className='w-[698px] h-[540px] border-[5px] border-[#F9B33B] bg-gray-600 mb-10'>video</div>
+                    
+                    <div className='flex  justify-center w-[698px] h-[67px] text-black text-[30px] font-bold text-center bg-[#F9B33B] items-center'>Ремонт квартиры — Рим, район Сан Паоло</div>
+                </div>
+            </div>
+
+        </div>
+
+        {/* reviews */}
+
+        <Reviews/>
+    </div>
+  )
+}
+
+export default OurWorks

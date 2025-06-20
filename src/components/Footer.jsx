@@ -1,0 +1,148 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
+
+import logo from '../assets/icons/logo.png'
+import facebook from '../assets/icons/facebook.png'
+import instagram from '../assets/icons/instagram.png'
+import google from '../assets/icons/google.png'
+import whatsap from '../assets/icons/whatsap.png'
+import YellowSquare from './YellowSquare'
+
+const Footer = () => {
+  return (
+    <div className='relative footer-bg-image w-full h-[800px] '>
+        <div className=' w-[1641px] h-[635px] mt-20 mx-auto flex flex-col justify-between py-5'>
+            {/* logo and links */}
+            <div className='flex flex-row justify-between mb-20'>
+                <div className='w-[357px] h-[57px] button-scale-hover'><img src={logo} className='w-full h-full'/></div>
+
+                <ul className='w-[389px] h-[57px] flex flex-row justify-between '>
+                    <li className='button-scale-hover'><img src={facebook} className='w-full h-full'/></li>
+                    <li className='button-scale-hover'><img src={instagram} className='w-full h-full'/></li>
+                    <li className='button-scale-hover'><img src={google} className='w-full h-full'/></li>
+                    <li className='button-scale-hover'><img src={whatsap} className='w-full h-full'/></li>
+                </ul>
+            </div>
+
+            {/* links */}
+
+            <div className='flex flex-row justify-between font-semibold'>
+                
+              {/* first block */}
+              <div className=' flex flex-col justify-between'>
+                  {/* top list(reparation by key and room repair) */}
+                  <div className='flex flex-row space-x-10'>
+                    {/* repair by key */}
+                    <div>
+                      <Link to={'/turnkey_renovation'} className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare style="mr-2 group-hover:w-[345px] "/><span className="transition-colors duration-300 z-20 pl-3">РЕМОНТ КВАРТИР ПОД КЛЮЧ</span> </Link>
+                      <ul className='text-[18px] flex flex-col space-y-3 pl-4'>
+                        <Link to={'/turnkey_renovation/designer_renovation'} className='hover:text-[#F9B33B] transition duration-200'>Дизайнерский ремонт</Link>
+                        <Link to={'/turnkey_renovation/exclusive_renovation'} className='hover:text-[#F9B33B] transition duration-200'>Эксклюзивный ремонт</Link>
+                        <Link to={'/turnkey_renovation/studio'} className='hover:text-[#F9B33B] transition duration-200'>Ремонт квартир-студий</Link>
+                        <Link to={'/turnkey_renovation/tworoom_apartments'} className='hover:text-[#F9B33B] transition duration-200'>Ремонт двухкомнатных квартир</Link>
+                        <Link to={'/turnkey_renovation/threeroom_apartments'} className='hover:text-[#F9B33B] transition duration-200'>Ремонт трехкомнатных квартир</Link>
+                        <Link to={'/turnkey_renovation/fourroom_apartments'} className='hover:text-[#F9B33B] transition duration-200'>Ремонт четырехкомнатных квартир</Link>
+                        <Link to={'/turnkey_renovation/twostory_apartments'} className='hover:text-[#F9B33B] transition duration-200'>Ремонт двухэтажных квартир</Link>
+                      </ul>
+                    </div>
+
+                    {/* room repair */}
+                    <div>
+                    <Link to={'/room_renovation'} className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare style="mr-2 group-hover:w-[210px] "/><span className="transition-colors duration-300 z-20 pl-3">РЕМОНТ КОМНАТ</span> </Link>
+                      <ul className='text-[18px] flex flex-col space-y-3 pl-4'>
+                        <Link to={'/room_renovation/living_room'}  className='hover:text-[#F9B33B] transition duration-200'>Ремонт гостинных</Link>
+                        <Link to={'/room_renovation/bedroom'}  className='hover:text-[#F9B33B] transition duration-200'>Ремонт спальных комнат</Link>
+                        <Link to={'/room_renovation/children_room'}  className='hover:text-[#F9B33B] transition duration-200'>Ремонт детских комнат</Link>
+                        <Link to={'/room_renovation/corridor'}  className='hover:text-[#F9B33B] transition duration-200'>Ремонт коридора</Link>
+                        <Link to={'/room_renovation/kitchen'}  className='hover:text-[#F9B33B] transition duration-200'>Ремонт кухни</Link>
+                        <Link to={'/room_renovation/bathroom'}  className='hover:text-[#F9B33B] transition duration-200'>Ремонт ванных комнат</Link>
+                        <Link to={'/room_renovation/stairs'}  className='hover:text-[#F9B33B] transition duration-200'>Ремонт лестниц</Link>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* contacts */}
+                  <div>
+                  <Link className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare style="mr-2 group-hover:w-[142px] "/><span className="transition-colors duration-300 z-20 pl-3">КОНТАКТЫ</span> </Link>
+                    <div className='grid grid-cols-2 gap-2 pl-4'>
+                      <p>Тел: +39 327 986 6412</p>
+                      <p>Почта: info@evohome.it</p>
+                      <p>Тел: + 39 06 69353277</p>
+                    </div>
+                  </div>
+              </div>
+
+
+              {/* second block */}
+              <div className='w-[400px] h-auto  flex flex-col justify-between'>
+                {/* commercial premises */}
+                <div>
+                <Link to={'/commercial_premises'} className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare style="mr-2 group-hover:w-[348px] "/><span className="transition-colors duration-300 z-20 pl-3">КОММЕРЧЕСКИЕ ПОМЕЩЕНИЯ</span> </Link>
+                  <ul className='pl-4 text-[18px] flex flex-col space-y-3'>
+                    <Link to={'/commercial_premises/business_center'} className='hover:text-[#F9B33B] transition duration-200'>Ремонт бизнес-центров</Link>
+                    <Link to={'/commercial_premises/restaurant'} className='hover:text-[#F9B33B] transition duration-200'>Ремонт баров и ресторанов</Link>
+                    <Link to={'/commercial_premises/commercial_premises_renovation'} className='hover:text-[#F9B33B] transition duration-200'>Ремонт коммерческих помещений</Link>
+                    <Link to={'/commercial_premises/office'} className='hover:text-[#F9B33B] transition duration-200'>Ремонт офисов</Link>
+                    <Link to={'/commercial_premises/warehouse'} className='hover:text-[#F9B33B] transition duration-200'>Ремонт складов</Link>
+                    <Link to={'/commercial_premises/fitness_club'} className='hover:text-[#F9B33B] transition duration-200'>Ремонт фитнес-клубов</Link>
+                    <Link to={'/commercial_premises/hotel'} className='hover:text-[#F9B33B] transition duration-200'>Ремонт отелей</Link>
+                  </ul>
+                </div>
+                
+                {/* adress */}
+                <div>
+                <Link className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare style="mr-2 group-hover:w-[112px] "/><span className="transition-colors duration-300 z-20 pl-3">АДРЕСС</span> </Link>
+                  <p className='ml-4'>00162 РИМ<br/>Кольцевая дорога Номентана, 214</p>
+                </div>
+              </div>
+              
+
+              {/* third block  */}
+              <div className='flex flex-col w-[528px] h-auto  justify-between'>
+                
+                <div className='flex flex-row mb-10 justify-between'>
+                  {/* systems */}
+                  <div>
+                  <Link to={'/systems'} className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare style="mr-2 group-hover:w-[135px] "/><span className="transition-colors duration-300 z-20 pl-3">СИСТЕМЫ</span> </Link>
+                    <ul className='space-y-3 flex flex-col'>
+                      <Link to={'/systems/electrical_system'} className='hover:text-[#F9B33B] transition duration-200'>Электрическая система</Link>
+                      <Link to={'/systems/gas_system'} className='hover:text-[#F9B33B] transition duration-200'>Газовая система</Link>
+                      <Link to={'/systems/floor_heating'} className='hover:text-[#F9B33B] transition duration-200'>Подогрев пола</Link>
+                      <Link to={'/systems/sewage'} className='hover:text-[#F9B33B] transition duration-200'>Система дренажа и канализации</Link>
+                      <Link to={'/systems/climate_control'} className='hover:text-[#F9B33B] transition duration-200'>Кондиционирования и климат контроль</Link>
+                    </ul>
+                  </div>
+
+                  {/* main */}
+
+                  <div>
+                  <Link to={'/'} className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare style="mr-2 group-hover:w-[125px] "/><span className="transition-colors duration-300 z-20 pl-3">ГЛАВНАЯ</span> </Link>
+                    <ul className='pl-4 flex flex-col space-y-3'>
+                      <Link to={'/about_us'} className='hover:text-[#F9B33B] transition duration-200'>Кто мы </Link>
+                      <Link to={'/our_works'} className='hover:text-[#F9B33B] transition duration-200'>Наши работы</Link>
+                      <Link to={'/reviews'} className='hover:text-[#F9B33B] transition duration-200'>Отзывы</Link>
+                      <Link to={'contacts'} className='hover:text-[#F9B33B] transition duration-200'>Контакты</Link>
+                    </ul>
+                  </div>
+
+                </div>
+
+
+                {/* google map iframe */}
+
+                <div>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d504.97865238958366!2d12.526491450045123!3d41.91998840756314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880b544c576ff2bd%3A0x3fc93aeeff10730d!2sEvo%20Home%20Ristrutturazioni!5e0!3m2!1sru!2s!4v1748799349742!5m2!1sru!2s" width="528" height="216" className='border-white border-[4px]'  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+              </div>
+
+
+            </div>
+
+        </div>
+
+        <p className='text-[20px] absolute bottom-1 text-white left-[500px] '>© Авторские права 2025 | СТРОИТЕЛЬНАЯ КОМПАНИЯ MCSrl | НДС 17325141004 |<a href='https://www.evohome.it/cookie-policy-privacy-policy/' className='text-[#F9B33B]'>Cookie & Privacy Policy</a> </p>
+    </div>
+  )
+}
+
+export default Footer

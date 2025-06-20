@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+body{
+  font-family: 'Roboto', sans-serif;
+  color: #222222;
+}
+
+.navbar-underline-animate-hover{
+  position: relative;
+  cursor: pointer;
+}
+
+.navbar-underline-animate-hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 100%;  
+  height: 3px;
+  border-radius: 10px;
+  width: 0;
+  background-color: #F9B33B;
+  transition: width 0.3s ease;
+}
+
+.navbar-underline-animate-hover:hover::after {
+  width: 100%;
+}
+
+.scale-animate-hover {
+  transition: transform 0.3s ease;
+}
+
+.scale-animate-hover:hover{
+  transform: scale(1.1);
+}
+
+.nav-cover{
+  z-index: 10;
+}
+
+.home-start-bg-image{
+  background-image: url('./assets/images/home_start_bg.jpg');
+}
+
+.home-calculator-bg-image{
+  background-image: url('./assets/images/calculator_bg_img.jpg');
+}
+
+.home-reviews-bg-image{
+  background-image: url('./assets/images/reviews_bg.jpg');
+}
+
+.footer-bg-image{
+  background-image: url('./assets//images/footer_bg.jpg');
+}
+
+.contact-form-bg-image{
+  background-image: url('./assets//images//contact_form_bg.jpg');
+}
+
+.review-form-bg-image{
+  background-image: url('./assets//images//review_form_bg.jpg');
+}
+
+.works-stages-bg-image{
+  background-image: url('./assets/images/works/bg_lines.png');
+}
+
+.works-first-stage-bg-image{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  url('./assets/images/works/stages_bg/first_stage.png');
+  background-blend-mode: darken;
+  background-size: cover;
+  background-position: center;
+
+}
+
+.works-second-stage-bg-image{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  url('./assets/images/works/stages_bg/second_stage.jpg');
+  background-blend-mode: darken;
+  background-size: cover;
+  background-position: center;
+
+}
+
+.works-third-stage-bg-image{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  url('./assets/images/works/stages_bg/third_stage.jpg');
+  background-blend-mode: darken;
+  background-size: cover;
+  background-position: center;
+
+}
+
+.works-fourth-stage-bg-image{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  url('./assets/images/works/stages_bg/fourth_stage.jpg');
+  background-blend-mode: darken;
+  background-size: cover;
+  background-position: center;
+
+}
+
+.p-light{
+  font-weight: thin;
+}
+
+.mosaic-image-scale-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+}
+
+.mosaic-image-scale-hover:hover {
+  transform: scale(1.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.clip-path-triangle {
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+option{
+  color: black;
+  background-color: #FFD286;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.button-scale-hover{
+  display: inline-block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button-scale-hover:hover{
+  transform: scale(1.1);
+}
