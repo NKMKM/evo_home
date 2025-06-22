@@ -7,79 +7,79 @@ import time from '../../assets/icons/time.png'
 
 const Guarantees = () => {
   return (
-    <div className='relative mb-40  h-[826px]'>
+    <div className='relative md:mb-40 sm:h-[2900px] md:h-[826px]'>
         {/* vector 1 */}
-        <div className='w-[515px] h-[823px] absolute '><img src={vector1} className='w-full h-full'/></div>
+        <div className='sm:bottom-[400px] sm:scale-150 md:scale-100 md:bottom-auto w-[515px] h-[823px] absolute '><img src={vector1} className='w-full h-full'/></div>
 
 
         {/* header text         */}
-        <div className='w-[754px] h-[136px] mx-auto mb-40 '>
+        <div className='sm:w-full md:w-[754px] h-[136px] mx-auto mb-40 '>
             <h1 className='text-[70px] font-bold text-center'>Наши гарантии</h1>
             <p className='text-[30px] italic text-center '>"EVO HOME – надежность, подтвержденная делом!"</p>
         </div>
         
         {/* list of Guarantees */}
-        <div className='w-[1650px] mx-auto'>
+        <div className=' md:w-[1650px] mx-auto'>
 
-            <ul className='flex flex-row justify-between'>
+            <ul className=' sm:h-[2500px] flex sm:flex-col md:flex-row justify-between'>
                 {/* 1 */}
-                <li className=' relative w-[278px] h-[420px] bg-linear-to-t from-[#83b1d6]  to-[#fcfdfe] shadow-2xl'>
+                <li className=' relative sm:w-[90%] sm:mx-auto md:mx-0 md:w-[278px] h-[420px] bg-linear-to-t from-[#83b1d6]  to-[#fcfdfe] shadow-2xl'>
                     <div className='flex flex-col justify-between h-full w-full py-10'>
-                        <div className='w-[64px] h-[64px] mx-auto '><img src={bill} className='w-full h-full'/></div>
-                        <h1 className='text-[22px] font-semibold text-center'>ГАРАНТИЯ <br/> КАЧЕСТВА</h1>
-                        <p className='bg-[#d7e4ef] w-full h-[117px] p-4 text-center '>Используем проверенные материалы и современные технологии, контролируем каждый этап работ</p>
+                        <div className='sm:w-[100px] sm:h-[100px] md:w-[64px] md:h-[64px] mx-auto '><img src={bill} className='w-full h-full'/></div>
+                        <h1 className='sm:text-[30px] md:text-[22px] font-semibold text-center'>ГАРАНТИЯ <br/> КАЧЕСТВА</h1>
+                        <p className='bg-[#d7e4ef] sm:text-[22px] md:text-[17px] w-full h-[117px] p-3 text-center '>Используем проверенные материалы и современные технологии, контролируем каждый этап работ</p>
 
                     </div>
 
-                    <div className='absolute top-[385px] left-[90px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>1</p> </div>
+                    <div className='absolute top-[385px] sm:left-[270px] md:left-[90px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>1</p> </div>
                 </li>
 
                 {/* 2 */}
-                <li className=' relative w-[278px] h-[420px] bg-linear-to-t from-[#83b1d6]  to-[#fcfdfe] shadow-2xl'>
+                <li className=' relative sm:w-[90%] sm:mx-auto md:mx-0 md:w-[278px] h-[420px] bg-linear-to-t from-[#83b1d6]  to-[#fcfdfe] shadow-2xl'>
                     <div className='flex flex-col justify-between h-full w-full py-10'>
-                        <div className='w-[64px] h-[64px] mx-auto '><img src={hands} className='w-full h-full'/></div>
-                        <h1 className='text-[22px] font-semibold text-center'>ПРОФФЕСИОНАЛЬНЫЙ ПОДХОД</h1>
-                        <p className='bg-[#d7e4ef] w-full h-[117px] p-4 text-center'>Команда опытных специалистов с вниманием к деталям и стандартам</p>
+                        <div className='sm:w-[100px] sm:h-[100px] md:w-[64px] md:h-[64px] mx-auto '><img src={hands} className='w-full h-full'/></div>
+                        <h1 className='sm:text-[30px] md:text-[22px] font-semibold text-center'>ПРОФЕССИОНАЛЬНЫЙ <br/> ПОДХОД</h1>
+                        <p className='bg-[#d7e4ef] sm:text-[22px] md:text-[17px] w-full h-[117px] p-4 text-center '>Команда опытных специалистов с вниманием к деталям и стандартам</p>
 
                     </div>
 
-                    <div className='absolute top-[385px] left-[90px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>2</p> </div>
+                    <div className='absolute top-[385px] sm:left-[270px] md:left-[90px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>2</p> </div>
                 </li>
 
                 {/* 3 */}
-                <li className=' relative w-[278px] h-[420px] bg-linear-to-t from-[#83b1d6]  to-[#fcfdfe] shadow-2xl'>
+                <li className=' relative sm:w-[90%] sm:mx-auto md:mx-0 md:w-[278px] h-[420px] bg-linear-to-t from-[#83b1d6]  to-[#fcfdfe] shadow-2xl'>
                     <div className='flex flex-col justify-between h-full w-full py-10'>
-                        <div className='w-[64px] h-[64px] mx-auto '><img src={time} className='w-full h-full'/></div>
-                        <h1 className='text-[22px] font-semibold text-center'>СОБЛЮДЕНИЕ <br/> СРОКОВ</h1>
-                        <p className='bg-[#d7e4ef] w-full h-[117px] p-4 text-center'>Четкий график работ и выполнение проекта в установленные сроки</p>
+                        <div className='sm:w-[100px] sm:h-[100px] md:w-[64px] md:h-[64px] mx-auto '><img src={time} className='w-full h-full'/></div>
+                        <h1 className='sm:text-[30px] md:text-[22px] font-semibold text-center'>СОБЛЮДЕНИЕ <br/> СРОКОВ</h1>
+                        <p className='bg-[#d7e4ef] sm:text-[22px] md:text-[17px] w-full h-[117px] p-4 text-center '>Четкий график работ и выполнение проекта в установленные сроки</p>
 
                     </div>
 
-                    <div className='absolute top-[385px] left-[90px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>3</p> </div>
+                    <div className='absolute top-[385px] sm:left-[270px] md:left-[90px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>3</p> </div>
                 </li>
 
                 {/* 4 */}
-                <li className=' relative w-[278px] h-[420px] bg-linear-to-t from-[#83b1d6]  to-[#fcfdfe] shadow-2xl'>
+                <li className=' relative sm:w-[90%] sm:mx-auto md:mx-0 md:w-[278px] h-[420px] bg-linear-to-t from-[#83b1d6]  to-[#fcfdfe] shadow-2xl'>
                     <div className='flex flex-col justify-between h-full w-full py-10'>
-                        <div className='w-[64px] h-[64px] mx-auto '><img src={hands} className='w-full h-full'/></div>
-                        <h1 className='text-[22px] font-semibold text-center'>ЮРИДИЧЕСКАЯ <br/> ЗАЩИТА </h1>
-                        <p className='bg-[#d7e4ef] w-full h-[117px] p-4 text-center'>Работаем по официальному договору, фиксируем все условия</p>
+                        <div className='sm:w-[100px] sm:h-[100px] md:w-[64px] md:h-[64px] mx-auto '><img src={hands} className='w-full h-full'/></div>
+                        <h1 className='sm:text-[30px] md:text-[22px] font-semibold text-center'>ЮРИДИЧЕСКАЯ <br/> ЗАЩИТА</h1>
+                        <p className='bg-[#d7e4ef] sm:text-[22px] md:text-[17px] w-full h-[117px] p-4 text-center '>Работаем по официальному договору, фиксируем все условия</p>
 
                     </div>
 
-                    <div className='absolute top-[385px] left-[90px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>4</p> </div>
+                    <div className='absolute top-[385px] sm:left-[270px] md:left-[90px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>4</p> </div>
                 </li>
 
                 {/* 5 */}
-                <li className=' relative w-[278px] h-[420px] bg-linear-to-t from-[#83b1d6]/100  to-[#fcfdfe] shadow-2xl'>
+                <li className=' relative sm:w-[90%] sm:mx-auto md:mx-0 md:w-[278px] h-[420px] bg-linear-to-t from-[#83b1d6]  to-[#fcfdfe] shadow-2xl'>
                     <div className='flex flex-col justify-between h-full w-full py-10'>
-                        <div className='w-[64px] h-[64px] mx-auto '><img src={time} className='w-full h-full'/></div>
-                        <h1 className='text-[22px] font-semibold text-center'>ПРОЗРАЧНОСТЬ <br/> ЦЕН</h1>
-                        <p className='bg-[#d7e4ef] w-full h-[117px] p-4 text-center'>Фиксированная смета без скрытых платежей и неожиданных доплат</p>
+                        <div className='sm:w-[100px] sm:h-[100px] md:w-[64px] md:h-[64px] mx-auto '><img src={time} className='w-full h-full'/></div>
+                        <h1 className='sm:text-[30px] md:text-[22px] font-semibold text-center'>ПРОЗРАЧНОСТЬ  <br/> ЦЕН</h1>
+                        <p className='bg-[#d7e4ef] sm:text-[22px] md:text-[17px] w-full h-[117px] p-4 text-center '>Фиксированная смета без скрытых платежей и неожиданных доплат</p>
 
                     </div>
 
-                    <div className='absolute top-[385px] left-[90px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>5</p> </div>
+                    <div className='absolute top-[385px] sm:left-[270px] md:left-[90px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>5</p> </div>
                 </li>
 
 
@@ -87,7 +87,7 @@ const Guarantees = () => {
         </div>
 
         {/* vector 2 */}
-        <div className='w-[806px] h-[804px] right-0 top-0 absolute -z-10 '><img src={vector2} className='w-full h-full'/></div>
+        <div className='w-[806px] h-[804px] sm:scale-125 md:scale-100 right-0 sm:top-[300px] md:top-0 absolute -z-10 '><img src={vector2} className='w-full h-full'/></div>
 
     </div>
   )

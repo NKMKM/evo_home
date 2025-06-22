@@ -8,7 +8,7 @@ import right_decoration from '../../assets/images/rightside_black_decoration.png
 import image from '../../assets/images/turnkey_renovation/twostory_apartment/image.png'
 
 import arrow_1 from '../../assets/images/room_renovation/room_renovation/arrow_1.png'
-import arrow_2 from '../../assets/images/room_renovation/stairs/arrow_2.png'
+import arrow_2 from '../../assets/images/room_renovation/room_renovation/arrow_2.png'
 
 // process images imports
 import first_step from '../../assets/images/turnkey_renovation/twostory_apartment/process/first_step.jpg'
