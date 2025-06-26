@@ -49,7 +49,7 @@ const Nav = () => {
         <img
           src={Logo}
           alt="logo"
-          className=" h-[30px] md:w-[280px] md:h-[44px] scale-animate-hover cursor-pointer"
+          className=" h-[30px] lg:w-[280px] lg:h-[44px] scale-animate-hover cursor-pointer"
           onClick={goToHome}
         />
 
@@ -83,7 +83,7 @@ const Nav = () => {
             <KeyboardArrowDownIcon className="cursor-pointer hidden sm:hidden md:block" />
 
             {/* Burger icon for sm */}
-            <div className="md:hidden ml-2">
+            <div className=" lg:hidden ml-2">
               <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
                 {isMenuOpen ? <CloseIcon sx={{ fontSize: 32 }} /> : <MenuIcon sx={{ fontSize: 32 }} />}
               </button>

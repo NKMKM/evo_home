@@ -18,7 +18,7 @@ const Projects = () => {
         <div className=' h-[170px] w-full mx-auto flex flex-row justify-between items-center  '>
             <img src={left_decoration} className='w-[276px] h-[83px] sm:hidden md:block '/>
             <div className='sm:mx-auto md:mx-0'>
-                <h1 className='font-bold text-center text-[70px]'>Проекты EVO HOME</h1>
+                <h1 className='font-bold text-center text-[70px] sm:px-4 md:px-0'>Проекты EVO HOME</h1>
 
             </div>
             <img src={right_decoration} className='w-[276px] h-[83px] sm:hidden md:block '/>

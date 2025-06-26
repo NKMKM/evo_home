@@ -131,7 +131,7 @@ const Calculator = () => {
             <PercentIcon className='absolute top-[285px] right-[40px] w-[20px] h-[20px]' />
           </div>
 
-          <button className="w-[315px] h-[55px] mx-auto bg-[#F9B33B] button-scale-hover  text-white font-bold py-2 rounded-[10px] mt-4">
+          <button className="sm:w-full md:w-[315px] h-[55px] mx-auto bg-[#F9B33B] button-scale-hover  text-white font-bold py-2 rounded-[10px] mt-4">
             РАССЧИТАТЬ СТОИМОСТЬ
           </button>
         </form>

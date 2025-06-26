@@ -10,14 +10,14 @@ const HomeStart = () => {
         <ul className="text-[#222222]  md:space-y-10  md:text-6xl font-semibold  md:text-start sm:text-5xl">
           <li className="">Мы хотим превратить</li>
           <li>
-            ваши <span className=" md:text-white">идеи</span> в
+            ваши <span className="  md:text-white">идеи</span> в
           </li>
           <li>
             необыкновенные пространства для <span className= " md:text-white">жизни</span> 
           </li>
         </ul>
 
-        <button className="sm:w-[400px] sm:h-[100px] sm:mt-[50px]  md:w-[432px] md:h-[83px] bg-[#F9B33B] rounded-[10px] md:mt-[110px] text-3xl font-bold cursor-pointer button-scale-hover">
+        <button className="sm:w-[400px] sm:h-[100px] sm:mt-[20px]  md:w-[432px] md:h-[83px] bg-[#F9B33B] rounded-[10px] md:mt-[110px] text-3xl font-bold cursor-pointer button-scale-hover">
           ЗАПРОСИТЬ РАСЦЕНКИ
         </button>
       </div>

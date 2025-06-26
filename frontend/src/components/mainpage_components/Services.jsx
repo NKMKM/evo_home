@@ -17,7 +17,7 @@ import system from '../../assets/images/services_images/system.jpg'
 const Services = () => {
   return (
     <>
-        <div className=' sm:h-[4400px] md:h-[1385px]  sm:flex sm:flex-col sm:justify-between md:block my-20 sm:w-full md:w-[1641px] mx-auto'>
+        <div className=' sm:h-[4500px] md:h-[1385px]  sm:flex sm:flex-col sm:justify-between md:block my-20 sm:w-full md:w-[1641px] mx-auto'>
             {/* header section */}
             
             <div className=' md:h-[170px] w-full mx-auto flex flex-row justify-between items-center md:mb-20 '>
@@ -29,7 +29,7 @@ const Services = () => {
                 <img src={right_decoration} className='w-[276px] h-[83px] sm:hidden md:block'/>
             </div>
 
-            <p className='sm:w-full md:w-[1410px] h-[76px] mx-auto text-[32px] text-center font-[100] italic mb-20'>"EVO HOME  выполнит ремонт квартир любой сложности – от легкого косметического обновления до капитального ремонта с перепланировкой."</p>
+            <p className='sm:w-full md:w-[1410px] sm:h-[150px] md:h-[76px] mx-auto text-[32px] text-center font-[100] italic mb-20'>"EVO HOME  выполнит ремонт квартир любой сложности – от легкого косметического обновления до капитального ремонта с перепланировкой."</p>
             
             {/* list of services */}
             <div className=' sm:w-full md:w-[1641px] '>
@@ -87,7 +87,7 @@ const Services = () => {
                             <div className=' h-1/2 overflow-hidden '><img src={system} className='object-cover overflow-hidden' /></div>
                             <div className='h-1/2  text-center items-center pt-5 space-y-5'>
                                 <img src={gears} className='sm:w-[120px] sm:h-[120px] md:w-[79px] md:h-[79px] mx-auto'/>
-                                <p className='sm:text-[34px] md:text-[22px]'>Монтаж и обслуживание электрики, сантехники, отопления, вентиляции. Надежные решения для вашего комфорта и безопасности.</p>
+                                <p className='sm:text-[30px] md:text-[22px]'>Монтаж и обслуживание электрики, сантехники, отопления, вентиляции. Надежные решения для вашего комфорта и безопасности.</p>
                             </div>
                         </div>
 

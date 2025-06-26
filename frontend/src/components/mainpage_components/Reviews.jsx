@@ -27,12 +27,12 @@ const Reviews = () => {
         <div className='sm:w-full md:w-[1650px] h-[170px]  mx-auto flex flex-row justify-between items-center sm:mb-10 md:mb-0  '>
             <img src={left_decoration} className='w-[276px] h-[83px] sm:hidden md:block '/>
             <div className=''>
-                <h1 className='font-bold text-center text-[70px] '>Отзывы наших клиентов</h1>
+                <h1 className='font-bold text-center sm:text-[60px] md:text-[70px] '>Отзывы наших клиентов</h1>
 
             </div>
             <img src={right_decoration} className='w-[276px] h-[83px] sm:hidden md:block '/>
         </div>
-        <p className='text-white text-[32px] italic font-light md:w-[600px] mx-auto text-center mb-9'>"Реальные отзывы о работе EVO HOME"</p>
+        <p className='text-white sm:text-[30px] md:text-[32px] italic font-light md:w-[600px] mx-auto text-center mb-9'>"Реальные отзывы о работе EVO HOME"</p>
 
 
         <div className='sm:w-full sm:h-[1900px]  md:h-auto md:w-[1641px] mx-auto flex sm:flex-col md:flex-row items-center justify-between'>

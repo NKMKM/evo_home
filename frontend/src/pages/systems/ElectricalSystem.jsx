@@ -22,26 +22,27 @@ const ElectricalSystem = () => {
   return (
     <div>
         {/* first step */}
-        <div className=' w-[1641px] h-[1370px]  mx-auto my-20 flex flex-col justify-between'>
+        <div className=' lg:w-[1641px] lg:h-[1370px]  mx-auto my-20 flex flex-col justify-between'>
             {/* header */}
-            <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center '>
-                <img src={left_decoration} className='w-[276px] h-[83px] '/>
+            <div className='h-[83px] md:w-full mx-auto flex flex-row justify-between items-center '>
+                <img src={left_decoration} className='w-[276px] h-[83px] sm:hidden md:block  '/>
                 <div className=''>
-                    <h1 className='font-bold text-center text-[57px]'>Электросистема</h1>
+                    <h1 className='font-bold text-center sm:text-[50px] md:text-[57px]'>Электросистемы</h1>
 
                 </div>
-                <img src={right_decoration} className='w-[276px] h-[83px]'/>
+                <img src={right_decoration} className='w-[276px] h-[83px] sm:hidden md:block'/>
             </div>
+
             {/* main content */}
             <div className=' space-y-10 '>
                 {/* header */}
-                <div className='w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
-                    <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center mr-10'>1.</div>
-                    <h1 className='text-[50px] font-bold'>Установка электросистем от EVO HOME</h1>
+                <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
+                    <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>1.</div>
+                    <h1 className='sm:text-[28px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>Установка электросистем от EVO HOME</h1>
                 </div>
 
                 {/* text */}
-                <div className='text-[30px] w-[1641px]  h-[274px] flex flex-col justify-around '>
+                <div className='text-[30px] lg:w-[1641px]  lg:h-[274px] flex flex-col justify-around '>
                     <p>Evo Home — компания с более чем 17-летним опытом установки и обслуживания электросистем в Риме. Наши высококвалифицированные специалисты предлагают профессиональные решения для квартир , домов, офисов и промышленных сооружений всех типов. Благодаря использованию сертифицированных материалов и строгому соблюдению правил электробезопасности мы гарантируем надежный и безопасный сервис, всегда учитывающий потребности клиента, ставя на первое место наш опыт и профессионализм.</p>
 
                 </div>

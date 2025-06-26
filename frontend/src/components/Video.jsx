@@ -9,11 +9,11 @@ const Video = ({text}) => {
         <h1 className='text-[50px] font-bold text-center'>{text}</h1>
 
         {/* videos(instead of them just a div with any bg color) */}
-        <div className='w-full h-[696px] relative flex flex-row'>
+        <div className='w-full  h-[696px] relative flex flex-row'>
             <div className='absolute  h-[853px] bottom-0 -z-10'><img src={vector_about_us_1} className='w-full h-full'/></div>
-            <div className='w-[1641px] h-[696px] flex flex-row justify-between mx-auto'>
-                <div className='w-[1227px] h-[696px] bg-[#f5ab32] text-center mx-auto shadow-2xl '>
-                  <iframe width="1227px" height="696px" src="https://www.youtube.com/embed/4hUYRlP9iGM?si=EbQXomtpUSifbO4J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div className='sm:w-full  lg:w-[1641px] h-[696px] flex flex-row justify-between mx-auto'>
+                <div className='sm:w-full lg:w-[1227px] h-[696px] bg-[#f5ab32] text-center mx-auto shadow-2xl '>
+                  <iframe className='w-full h-full' src="https://www.youtube.com/embed/4hUYRlP9iGM?si=EbQXomtpUSifbO4J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
 

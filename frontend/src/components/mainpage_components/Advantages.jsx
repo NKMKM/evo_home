@@ -20,7 +20,7 @@ const Advantages = () => {
   <div className=' md:w-full sm:h-[2750px] sm:flex sm:flex-col sm:justify-between  md:h-[1100px]  md:mb-[630px] '>
           
           {/* header */}
-          <div className=' md:w-[1418px]  h-[184px] text-center mx-auto mt-20 md:mb-20 font-bold text-[#222222] items-center md:border-r-[12px]  md:border-r-[#E0E0E0] md:border-l-[12px] md:border-l-[#E0E0E0]'>
+          <div className=' md:w-[1418px]  h-[184px] text-center mx-auto mt-20 sm:mb-30 md:mb-20 font-bold text-[#222222] items-center md:border-r-[12px]  md:border-r-[#E0E0E0] md:border-l-[12px] md:border-l-[#E0E0E0]'>
             <h1 className='sm:text-[50px] md:text-[60px] '>Профессиональный ремонт,</h1>
             <div className="flex flex-row justify-between">
               <div className='w-[155px] h-[12px] bg-[#E0E0E0] sm:hidden md:block'></div>
