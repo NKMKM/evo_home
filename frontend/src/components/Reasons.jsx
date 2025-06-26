@@ -4,7 +4,7 @@ import vector from '../assets/images/room_renovation/room_renovation/vector.png'
 
 const Reasons = () => {
   return (
-    <div className='relative  w-full lg:h-[1098px] lg:my-20'>     
+    <div className='relative  w-full lg:h-[1098px] sm:my-10 lg:my-20'>     
         {/* header */}
         <div className='lg:w-[1640px] mx-auto h-[74px] bg-[#F9B33B] flex flex-row sm:mb-20'>
             <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-7 lg:mr-10'>3.</div>

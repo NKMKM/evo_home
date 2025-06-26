@@ -5,7 +5,7 @@ import vector_about_us_2 from'../assets/videos/abouts_us/vector2.png'
 
 const Video = ({text}) => {
   return (
-    <div className=' w-full h-[950px] flex flex-col justify-between  mt-20 mx-auto'>
+    <div className=' w-full sm:h-[1100px] lg:h-[950px] flex flex-col justify-between  mt-20 mx-auto'>
         <h1 className='text-[50px] font-bold text-center'>{text}</h1>
 
         {/* videos(instead of them just a div with any bg color) */}
@@ -21,13 +21,13 @@ const Video = ({text}) => {
         </div>
 
         
-        <div className='w-[1640px]  h-[67px]  flex flex-row items-center mx-auto'>
+        <div className='sm:w-full md:w-[1640px] h-[67px]  flex flex-row items-center mx-auto'>
 
-            <div className='h-[1px] w-[625.5px] bg-[#F9B33B]'></div>
+            <div className='sm:h-[3px] md:h-[1px] sm:w-[30%] md:w-[625.5px] bg-[#F9B33B]'></div>
 
-            <Link to="/contacts" className="w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">ЗАКАЗАТЬ</Link>
+            <Link to="/contacts" className="sm:w-[40%] md:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">ЗАКАЗАТЬ</Link>
 
-            <div className='h-[1px] w-[625.5px] bg-[#F9B33B]'></div>
+            <div className='sm:h-[3px] md:h-[1px] sm:w-[30%] md:w-[625.5px] bg-[#F9B33B]'></div>
         </div>
 
 

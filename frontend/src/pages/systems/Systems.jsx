@@ -30,7 +30,7 @@ const System = () => {
   return (
     <div>
         {/* first step */}
-        <div className='sm:w-full  lg:w-[1641px] sm:h-[1500px] lg:h-[1677px] mx-auto sm:mt-10 lg:mt-20 mb-30 flex flex-col justify-between'>
+        <div className='sm:w-full lg:w-[1641px] sm:h-[1500px] lg:h-[1677px] mx-auto sm:mt-10 lg:mt-20 mb-30 flex flex-col justify-between'>
             {/* header */}
             <div className='h-[83px] md:w-full mx-auto flex flex-row justify-between items-center '>
                 <img src={left_decoration} className='w-[276px] h-[83px] sm:hidden md:block  '/>
@@ -42,7 +42,7 @@ const System = () => {
             </div>
             
             {/* main content */}
-            <div className='sm:h-[1400px] lg:h-[1577px] flex flex-col justify-between  '>
+            <div className='sm:h-[1400px] lg:h-[1510px] flex flex-col justify-between  '>
                 {/* header */}
                 <div className='lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center mr-10'>1.</div>
