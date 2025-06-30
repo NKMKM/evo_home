@@ -83,136 +83,136 @@ const System = () => {
 
 
 
-               {/* list of steps */}
-                <div className=' sm:h-[6600px] lg:h-auto relative mx-auto  my-30'>
-                    <div className='w-[1377px] h-[646px] scale-x-80 absolute top-[347px] left-[220px] sm:hidden lg:block'><img src={arrow_1} className='w-full h-full ' /></div>
-    
-                    <ul className='sm:h-[6700px]  lg:h-[3213px] sm:w-full lg:w-[1641px]  flex flex-col justify-between space-y-20'>
-                        {/* 1 */}
-                        <li className='sm:w-[85%] lg:w-full  sm:ml-[5%] lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row  justify-between '>
-                            {/* process photo */}
-                            <div className=' sm:w-full lg:w-[667px] h-full border-[5px] border-[#F9B33B]'><img src={first_step} className='w-full h-full object-cover'/></div>
-    
-                            {/* info */}
-                            <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 lg:px-5 '>
-                                <div>
-                                    <h1 className='font-bold text-[46px]'>ЭЛЕКТРИЧЕСКАЯ СИСТЕМА</h1>
-                                </div>
-    
-                                <p className='sm:text-[24px] lg:text-[27px] p-light'>Бытовые электросистемы подчиняются строгим нормам, регламентирующим их проектирование, установку и испытания, что обеспечивает высокую производительность и безопасность. Компания Evo Home проектирует и устанавливает электрические системы в соответствии с регламентом CEI 64-8 и выдачей декларации о соответствии.</p>
+            {/* list of steps */}
+            <div className=' sm:h-[6600px] lg:h-auto relative mx-auto  my-30'>
+                <div className='w-[1377px] h-[646px] scale-x-80 absolute top-[347px] left-[220px] sm:hidden lg:block'><img src={arrow_1} className='w-full h-full ' /></div>
+
+                <ul className='sm:h-[6700px]  lg:h-[3213px] sm:w-full lg:w-[1641px]  flex flex-col justify-between space-y-20'>
+                    {/* 1 */}
+                    <li className='sm:w-[85%] lg:w-full  sm:ml-[5%] lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row  justify-between '>
+                        {/* process photo */}
+                        <div className=' sm:w-full lg:w-[667px] h-full border-[5px] border-[#F9B33B]'><img src={first_step} className='w-full h-full object-cover'/></div>
+
+                        {/* info */}
+                        <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 lg:px-5 '>
+                            <div>
+                                <h1 className='font-bold text-[46px]'>ЭЛЕКТРИЧЕСКАЯ СИСТЕМА</h1>
                             </div>
 
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Бытовые электросистемы подчиняются строгим нормам, регламентирующим их проектирование, установку и испытания, что обеспечивает высокую производительность и безопасность. Компания Evo Home проектирует и устанавливает электрические системы в соответствии с регламентом CEI 64-8 и выдачей декларации о соответствии.</p>
+                        </div>
 
-                        </li>
-    
-                        {/* 2 */}
-                        <li className='sm:w-[85%] lg:w-full  sm:ml-[5%] lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row-reverse  justify-between '>
-                            {/* process photo */}
-                            <div className=' sm:w-full lg:w-[667px] h-full border-[5px] border-[#F9B33B]'><img src={second_step} className='w-full h-full object-cover'/></div>
-    
-                            {/* info */}
-                            <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5  '>
-                                <div>
-                                    <h1 className='font-bold text-[46px]'>ГАЗОВАЯ СИСТЕМА</h1>
-                                </div>
-    
-                                <p className='sm:text-[24px] lg:text-[27px] p-light'>Установка газовых систем требует передовых технических навыков и соблюдения правил безопасности. Наша команда гарантирует профессиональный монтаж, уделяя максимальное внимание герметизации стыков и целостности труб, обеспечивая идеальную герметичность системы.</p>
+
+                    </li>
+
+                    {/* 2 */}
+                    <li className='sm:w-[85%] lg:w-full  sm:ml-[5%] lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row-reverse  justify-between '>
+                        {/* process photo */}
+                        <div className=' sm:w-full lg:w-[667px] h-full border-[5px] border-[#F9B33B]'><img src={second_step} className='w-full h-full object-cover'/></div>
+
+                        {/* info */}
+                        <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5  '>
+                            <div>
+                                <h1 className='font-bold text-[46px]'>ГАЗОВАЯ СИСТЕМА</h1>
                             </div>
 
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Установка газовых систем требует передовых технических навыков и соблюдения правил безопасности. Наша команда гарантирует профессиональный монтаж, уделяя максимальное внимание герметизации стыков и целостности труб, обеспечивая идеальную герметичность системы.</p>
+                        </div>
 
-                        </li>
-    
-                        {/* 3 */}
-                        <li className='sm:w-[85%] lg:w-full  sm:ml-[5%] lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row  justify-between '>
-                            {/* process photo */}
-                            <div className=' sm:w-full lg:w-[667px] h-full border-[5px] border-[#F9B33B]'><img src={third_step} className='w-full h-full object-cover'/></div>
-    
-                            {/* info */}
-                            <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
-                                <div>
-                                    <h1 className='font-bold text-[46px]'>ПОДОГРЕВ ПОЛА</h1>
-                                </div>
-    
-                                <p className='sm:text-[24px] lg:text-[27px] p-light'>Теплый пол — одно из самых популярных решений для нового строительства и ремонта. Эта система не только гарантирует исключительный комфорт благодаря равномерному распределению тепла, но и позволяет существенно экономить электроэнергию, особенно в сочетании с возобновляемыми источниками энергии.</p>
+
+                    </li>
+
+                    {/* 3 */}
+                    <li className='sm:w-[85%] lg:w-full  sm:ml-[5%] lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row  justify-between '>
+                        {/* process photo */}
+                        <div className=' sm:w-full lg:w-[667px] h-full border-[5px] border-[#F9B33B]'><img src={third_step} className='w-full h-full object-cover'/></div>
+
+                        {/* info */}
+                        <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
+                            <div>
+                                <h1 className='font-bold text-[46px]'>ПОДОГРЕВ ПОЛА</h1>
                             </div>
 
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Теплый пол — одно из самых популярных решений для нового строительства и ремонта. Эта система не только гарантирует исключительный комфорт благодаря равномерному распределению тепла, но и позволяет существенно экономить электроэнергию, особенно в сочетании с возобновляемыми источниками энергии.</p>
+                        </div>
 
-                        </li>
-    
-                        {/* 4 */}
-                        <li className='sm:w-[85%] lg:w-full  sm:ml-[5%] lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row-reverse  justify-between '>
-                            {/* process photo */}
-                            <div className=' sm:w-full lg:w-[667px] h-full border-[5px] border-[#F9B33B]'><img src={fourth_step} className='w-full h-full object-cover'/></div>
-    
-                            {/* info */}
-                            <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
-                                <div>
-                                    <h1 className='font-bold text-[46px]'>СИСТЕМА ДРЕНАЖА И КАНАЛИЗАЦИИ</h1>
-                                </div>
-    
-                                <p className='sm:text-[24px] lg:text-[27px] p-light'>Системы дренажа и канализации являются важнейшим компонентом надлежащего управления сточными водами. Наша компания проектирует и устанавливает дренажные системы, подключаемые к основной канализационной системе, обеспечивая оптимальную эффективность и максимальную безопасность.</p>
+
+                    </li>
+
+                    {/* 4 */}
+                    <li className='sm:w-[85%] lg:w-full  sm:ml-[5%] lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row-reverse  justify-between '>
+                        {/* process photo */}
+                        <div className=' sm:w-full lg:w-[667px] h-full border-[5px] border-[#F9B33B]'><img src={fourth_step} className='w-full h-full object-cover'/></div>
+
+                        {/* info */}
+                        <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
+                            <div>
+                                <h1 className='font-bold text-[46px]'>СИСТЕМА ДРЕНАЖА И КАНАЛИЗАЦИИ</h1>
                             </div>
 
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Системы дренажа и канализации являются важнейшим компонентом надлежащего управления сточными водами. Наша компания проектирует и устанавливает дренажные системы, подключаемые к основной канализационной системе, обеспечивая оптимальную эффективность и максимальную безопасность.</p>
+                        </div>
 
-                        </li>
-    
-                        {/* 5 */}
-                        <li className='sm:w-[85%] lg:w-full  sm:ml-[5%] lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row  justify-between '>
-                            {/* process photo */}
-                            <div className=' sm:w-full lg:w-[667px] h-full border-[5px] border-[#F9B33B]'><img src={fifth_step} className='w-full h-full object-cover'/></div>
-    
-                            {/* info */}
-                            <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 lg:px-5 '>
-                                <div>
-                                    <h1 className='font-bold text-[42px]'>ТЕРОМГИДРАВЛИЧЕСКАЯ СИСТЕМА</h1>
-                                </div>
-    
-                                <p className='sm:text-[24px] lg:text-[27px] p-light'>Термогидравлические системы предназначены для кондиционирования помещений как летом, так и зимой. В качестве теплоносителя они используют горячую воду, что обеспечивает эффективный нагрев. Компания Evo Home проектирует и устанавливает термогидравлические системы, обеспечивающие не только комфорт проживания, но и значительную экономию энерги.</p>
+
+                    </li>
+
+                    {/* 5 */}
+                    <li className='sm:w-[85%] lg:w-full  sm:ml-[5%] lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row  justify-between '>
+                        {/* process photo */}
+                        <div className=' sm:w-full lg:w-[667px] h-full border-[5px] border-[#F9B33B]'><img src={fifth_step} className='w-full h-full object-cover'/></div>
+
+                        {/* info */}
+                        <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 lg:px-5 '>
+                            <div>
+                                <h1 className='font-bold text-[42px]'>ТЕРОМГИДРАВЛИЧЕСКАЯ СИСТЕМА</h1>
                             </div>
 
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Термогидравлические системы предназначены для кондиционирования помещений как летом, так и зимой. В качестве теплоносителя они используют горячую воду, что обеспечивает эффективный нагрев. Компания Evo Home проектирует и устанавливает термогидравлические системы, обеспечивающие не только комфорт проживания, но и значительную экономию энерги.</p>
+                        </div>
 
-                        </li>
 
-                        {/* 6 */}
-                        <li className='sm:w-[85%] lg:w-full  sm:ml-[5%] lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row-reverse  justify-between '>
-                            {/* process photo */}
-                            <div className=' sm:w-full lg:w-[667px] h-full border-[5px] border-[#F9B33B]'><img src={sixth_step} className='w-full h-full object-cover'/></div>
-    
-                            {/* info */}
-                            <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
-                                <div>
-                                    <h1 className='font-bold text-[46px]'>СИСТЕМА КЛИМАТ КОНТРОЛЯ</h1>
-                                </div>
-    
-                                <p className='sm:text-[24px] lg:text-[27px] p-light'>Климат-контроль необходим для обеспечения комфорта в различных помещениях, как жилых, так и коммерческих. Необходимость использования современных систем управления качеством воздуха зависит от характеристик помещений и климата региона.</p>
+                    </li>
+
+                    {/* 6 */}
+                    <li className='sm:w-[85%] lg:w-full  sm:ml-[5%] lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row-reverse  justify-between '>
+                        {/* process photo */}
+                        <div className=' sm:w-full lg:w-[667px] h-full border-[5px] border-[#F9B33B]'><img src={sixth_step} className='w-full h-full object-cover'/></div>
+
+                        {/* info */}
+                        <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
+                            <div>
+                                <h1 className='font-bold text-[46px]'>СИСТЕМА КЛИМАТ КОНТРОЛЯ</h1>
                             </div>
 
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Климат-контроль необходим для обеспечения комфорта в различных помещениях, как жилых, так и коммерческих. Необходимость использования современных систем управления качеством воздуха зависит от характеристик помещений и климата региона.</p>
+                        </div>
 
-                        </li>
 
-                        {/* 7*/}
-                        <li className='sm:w-[85%] lg:w-full  sm:ml-[5%] lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row  justify-between '>
-                            {/* process photo */}
-                            <div className=' sm:w-full lg:w-[667px] h-full border-[5px] border-[#F9B33B]'><img src={seventh_step} className='w-full h-full object-cover'/></div>
-    
-                            {/* info */}
-                            <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
-                                <div>
-                                    <h1 className='font-bold text-[46px]'>СЕТИ, СВЯЗИ И СИСТЕМЫ НИЗКОГО НАПРЯЖЕНИЯ</h1>
-                                </div>
-    
-                                <p className='sm:text-[24px] lg:text-[27px] p-light'>Коммуникационные сети, необходимые для коммерческой деятельности, устанавливаются после прокладки основных инфраструктур завода. Прокладка линий низкого напряжения включает в себя прокладку кабелей, соединяющих отдельные счетчики с необходимым оборудованием.</p>
+                    </li>
+
+                    {/* 7*/}
+                    <li className='sm:w-[85%] lg:w-full  sm:ml-[5%] lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row  justify-between '>
+                        {/* process photo */}
+                        <div className=' sm:w-full lg:w-[667px] h-full border-[5px] border-[#F9B33B]'><img src={seventh_step} className='w-full h-full object-cover'/></div>
+
+                        {/* info */}
+                        <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
+                            <div>
+                                <h1 className='font-bold text-[46px]'>СЕТИ, СВЯЗИ И СИСТЕМЫ НИЗКОГО НАПРЯЖЕНИЯ</h1>
                             </div>
 
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Коммуникационные сети, необходимые для коммерческой деятельности, устанавливаются после прокладки основных инфраструктур завода. Прокладка линий низкого напряжения включает в себя прокладку кабелей, соединяющих отдельные счетчики с необходимым оборудованием.</p>
+                        </div>
 
-                        </li>
 
-                    </ul>
-    
-    
-                    <div className='w-[1604px] h-[627px]  absolute top-[1320px] left-0 sm:hidden lg:block'><img src={arrow_2} className='w-full h-full' /></div>
-                    <div className='w-[1604px] h-[627px]  absolute top-[2260px] left-0 sm:hidden lg:block'><img src={arrow_2} className='w-full h-full' /></div>
-                </div> 
+                    </li>
+
+                </ul>
+
+
+                <div className='w-[1604px] h-[627px]  absolute top-[1320px] left-0 sm:hidden lg:block'><img src={arrow_2} className='w-full h-full' /></div>
+                <div className='w-[1604px] h-[627px]  absolute top-[2260px] left-0 sm:hidden lg:block'><img src={arrow_2} className='w-full h-full' /></div>
+            </div> 
 
 
 

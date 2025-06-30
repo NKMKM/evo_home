@@ -23,7 +23,7 @@ const Hotel = () => {
   return (
     <div>
         {/* first step */}
-        <div className='lg:w-[1641px] sm:w-full lg:h-[1500px] mx-auto my-20 flex flex-col justify-between'>
+        <div className='lg:w-[1641px] sm:w-full lg:h-[1425px] mx-auto my-20 flex flex-col justify-between'>
             {/* header */}
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
                 <img src={left_decoration} className='w-[276px] h-[83px] sm:hidden md:block' />

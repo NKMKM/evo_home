@@ -60,92 +60,92 @@ const BusinessCenter = () => {
         </div>
 
         {/* process */}
-      <div className='lg:w-full lg:h-[3688px]  flex flex-col justify-between'>
-        {/* header */}
-        <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
-            <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>2.</div>
-            <h1 className='sm:text-[26px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>Подробнее о ремонте бизнес-центра</h1>
+        <div className='lg:w-full lg:h-[3688px]  flex flex-col justify-between'>
+            {/* header */}
+            <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
+                <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>2.</div>
+                <h1 className='sm:text-[26px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>Подробнее о ремонте бизнес-центра</h1>
+            </div>
+
+            <p className='sm:w-full lg:w-[1640px] sm:px-4 lg:px-0 text-[32px] mx-auto my-20 sm:text-center lg:text-start'>Реновация бизнес-центра требует соблюдения многочисленных правил безопасности и стандартов качества. Среди основных требований CVI:</p>
+
+            {/* list of steps */}
+            <div className='sm:h-[5550px] lg:h-[2260px] sm:w-full lg:w-auto relative mx-auto '>
+                <div className='lg:w-[1377px] lg:h-[646px] scale-x-80 absolute top-[347px] left-[220px] sm:hidden lg:block'><img src={arrow_1} className='w-full h-full' /></div>
+
+                <ul className='sm:h-[5550px] lg:h-full sm:w-full lg:w-[1641px] flex flex-col justify-between space-y-20'>
+                    {/* 1 */}
+                    <li className='sm:w-[85%] sm:ml-[7%] lg:w-full lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row justify-between'>
+                        {/* process photo  */}
+                        <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={first_step} className='w-full h-full object-cover' /></div>
+                        {/* info */}
+                        <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
+                            <h1 className='font-bold sm:text-[42px] lg:text-[44px]'>СИСТЕМЫ СВЯЗИ И ВЕНТИЛЯЦИИ</h1>
+
+                            <p className='text-[26px] pb-5'>Установка высокоэффективных систем HVAC (отопления, вентиляции и кондиционирования воздуха) для обеспечения комфортной среды в любое время года.Автоматическое пожаротушение:<br className='lg:block'/>
+                            Внедрение систем обнаружения дыма и тепла.
+                            Предоставление автоматических систем пожаротушения, таких как спринклеры и системы инертного газа.</p>
+                        </div>
+                    </li>
+
+                    {/* 2 */}
+                    <li className='sm:w-[85%] sm:ml-[7%] lg:w-full lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row-reverse justify-between'>
+                        {/* process photo  */}
+                        <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={second_step} className='w-full h-full object-cover' /></div>
+                        {/* info */}
+                        <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6 lg:px-0 '>
+                            <h1 className='font-bold sm:text-[42px] lg:text-[44px]'>СТРОИТЕЛЬНЫЕ МАТЕРИАЛЫ</h1>
+
+                            <p className='text-[26px] pb-5'>Сертификаты качества: Использование сертифицированных CE материалов для обеспечения соответствия европейским стандартам.
+                            Выбор экологически чистых и устойчивых материалов.Прочность и долговечность: Использование материалов с высокой огнестойкостью, таких как обработанная сталь и огнестойкая штукатурка.</p>
+                        </div>
+                    </li>
+
+                    {/* 3 */}
+                    <li className='sm:w-[85%] sm:ml-[7%] lg:w-full lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row justify-between'>
+                        {/* process photo  */}
+                        <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={third_step} className='w-full h-full object-cover' /></div>
+                        {/* info */}
+                        <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
+                            <h1 className='font-bold sm:text-[42px] lg:text-[44px]'>ПОЖАРНАЯ БЕЗОПАСНОСТЬ</h1>
+                            <p className='text-[26px] pb-5'>Системы обнаружения пожара: Установка дымовых и тепловых извещателей. Подключение к централизованным системам мониторинга.Системы сигнализации и эвакуации: Внедрение систем звукового и визуального оповещения для быстрой эвакуации. Системы спринклерного пожаротушения: Монтаж систем водяного, газового или пенного пожаротушения</p>
+                        </div>
+                    </li>
+
+                    {/* 4 */}
+                    <li className='sm:w-[85%] sm:ml-[7%] lg:w-full lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row-reverse justify-between'>
+                        {/* process photo  */}
+                        <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={fourth_step} className='w-full h-full object-cover' /></div>
+                        {/* info */}
+                        <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 sm:px-6 lg:px-0'>
+                            <h1 className='font-bold sm:text-[42px] lg:text-[44px]'>ТЕХНОЛОГИЧЕСКИЕ ИНФРАСТРУКТУРЫ</h1>
+                            <p className='text-[26px] pb-5'>ИТ-сети и связь: Проектирование и монтаж высокоскоростных проводных и беспроводных сетей. Внедрение систем кибербезопасности для защиты данных компании. Автоматизация зданий: Использование систем автоматизации для управления освещением, климатом и безопасностью.
+                            </p>
+                        </div>
+                    </li>
+
+                    {/* 5 */}
+                    <li className='sm:w-[85%] sm:ml-[7%] lg:w-full lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row justify-between'>
+                        {/* process photo  */}
+                        <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={fifth_step} className='w-full h-full object-cover' /></div>
+                        {/* info */}
+                        <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
+                            <h1 className='font-bold sm:text-[42px] lg:text-[44px]'>СОБЛЮДЕНИЕ НОРМАТИВНЫХ ТРЕБОВАНИЙ</h1>
+                            
+                            <p className='text-[26px] pb-5'>Строительные нормы:Соблюдение местных и национальных строительных норм.
+                                Получение всех необходимых разрешений перед началом работ.Правила безопасности:Соблюдение правил техники безопасности на рабочем месте и правил эксплуатации электросистем.
+                                Обучение персонала действиям в чрезвычайных ситуациях и протоколам безопасности.</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <div className='w-[1604px] h-[627px] absolute top-[1310px] left-0 sm:hidden lg:block'><img src={arrow_2} className='w-full h-full' /></div>
+            </div>
+
+            <div className='mb-10'>
+                <Video text={'Реновация бизнес-центра от EVO HOME'} />
+            </div>
         </div>
-
-        <p className='sm:w-full lg:w-[1640px] sm:px-4 lg:px-0 text-[32px] mx-auto my-20 sm:text-center lg:text-start'>Реновация бизнес-центра требует соблюдения многочисленных правил безопасности и стандартов качества. Среди основных требований CVI:</p>
-
-        {/* list of steps */}
-        <div className='sm:h-[5550px] lg:h-[2260px] sm:w-full lg:w-auto relative mx-auto '>
-            <div className='lg:w-[1377px] lg:h-[646px] scale-x-80 absolute top-[347px] left-[220px] sm:hidden lg:block'><img src={arrow_1} className='w-full h-full' /></div>
-
-            <ul className='sm:h-[5550px] lg:h-full sm:w-full lg:w-[1641px] flex flex-col justify-between space-y-20'>
-                {/* 1 */}
-                <li className='sm:w-[85%] sm:ml-[7%] lg:w-full lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row justify-between'>
-                    {/* process photo  */}
-                    <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={first_step} className='w-full h-full object-cover' /></div>
-                    {/* info */}
-                    <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                        <h1 className='font-bold sm:text-[42px] lg:text-[44px]'>СИСТЕМЫ СВЯЗИ И ВЕНТИЛЯЦИИ</h1>
-
-                        <p className='text-[26px] pb-5'>Установка высокоэффективных систем HVAC (отопления, вентиляции и кондиционирования воздуха) для обеспечения комфортной среды в любое время года.Автоматическое пожаротушение:<br className='lg:block'/>
-                        Внедрение систем обнаружения дыма и тепла.
-                        Предоставление автоматических систем пожаротушения, таких как спринклеры и системы инертного газа.</p>
-                    </div>
-                </li>
-
-                {/* 2 */}
-                <li className='sm:w-[85%] sm:ml-[7%] lg:w-full lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row-reverse justify-between'>
-                    {/* process photo  */}
-                    <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={second_step} className='w-full h-full object-cover' /></div>
-                    {/* info */}
-                    <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 '>
-                        <h1 className='font-bold sm:text-[42px] lg:text-[44px]'>СТРОИТЕЛЬНЫЕ МАТЕРИАЛЫ</h1>
-
-                        <p className='text-[26px] pb-5'>Сертификаты качества: Использование сертифицированных CE материалов для обеспечения соответствия европейским стандартам.
-                        Выбор экологически чистых и устойчивых материалов.Прочность и долговечность: Использование материалов с высокой огнестойкостью, таких как обработанная сталь и огнестойкая штукатурка.</p>
-                    </div>
-                </li>
-
-                {/* 3 */}
-                <li className='sm:w-[85%] sm:ml-[7%] lg:w-full lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row justify-between'>
-                    {/* process photo  */}
-                    <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={third_step} className='w-full h-full object-cover' /></div>
-                    {/* info */}
-                    <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                        <h1 className='font-bold sm:text-[42px] lg:text-[44px]'>ПОЖАРНАЯ БЕЗОПАСНОСТЬ</h1>
-                        <p className='text-[26px] pb-5'>Системы обнаружения пожара: Установка дымовых и тепловых извещателей. Подключение к централизованным системам мониторинга.Системы сигнализации и эвакуации: Внедрение систем звукового и визуального оповещения для быстрой эвакуации. Системы спринклерного пожаротушения: Монтаж систем водяного, газового или пенного пожаротушения</p>
-                    </div>
-                </li>
-
-                {/* 4 */}
-                <li className='sm:w-[85%] sm:ml-[7%] lg:w-full lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row-reverse justify-between'>
-                    {/* process photo  */}
-                    <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={fourth_step} className='w-full h-full object-cover' /></div>
-                    {/* info */}
-                    <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                        <h1 className='font-bold sm:text-[42px] lg:text-[44px]'>ТЕХНОЛОГИЧЕСКИЕ ИНФРАСТРУКТУРЫ</h1>
-                        <p className='text-[26px] pb-5'>ИТ-сети и связь: Проектирование и монтаж высокоскоростных проводных и беспроводных сетей. Внедрение систем кибербезопасности для защиты данных компании. Автоматизация зданий: Использование систем автоматизации для управления освещением, климатом и безопасностью.
-                        </p>
-                    </div>
-                </li>
-
-                {/* 5 */}
-                <li className='sm:w-[85%] sm:ml-[7%] lg:w-full lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row justify-between'>
-                    {/* process photo  */}
-                    <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={fifth_step} className='w-full h-full object-cover' /></div>
-                    {/* info */}
-                    <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                        <h1 className='font-bold sm:text-[42px] lg:text-[44px]'>СОБЛЮДЕНИЕ НОРМАТИВНЫХ ТРЕБОВАНИЙ</h1>
-                        
-                        <p className='text-[26px] pb-5'>Строительные нормы:Соблюдение местных и национальных строительных норм.
-                            Получение всех необходимых разрешений перед началом работ.Правила безопасности:Соблюдение правил техники безопасности на рабочем месте и правил эксплуатации электросистем.
-                            Обучение персонала действиям в чрезвычайных ситуациях и протоколам безопасности.</p>
-                    </div>
-                </li>
-            </ul>
-
-            <div className='w-[1604px] h-[627px] absolute top-[1310px] left-0 sm:hidden lg:block'><img src={arrow_2} className='w-full h-full' /></div>
-        </div>
-
-        <div className='mb-10'>
-          <Video text={'Реновация бизнес-центра от EVO HOME'} />
-        </div>
-      </div>
 
         <CommercialPremisesLayoutCollection/>
 
