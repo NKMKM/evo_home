@@ -49,13 +49,13 @@ const ServicesDropdown = () => {
 
   return (
     <div
-      className="relative select-none"
+      className="relative select-none z-999"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <div className="flex items-center cursor-pointer">
         <p className="navbar-underline-animate-hover">УСЛУГИ <KeyboardArrowDownIcon/></p>
-      </div>
+      </div>  
 
       {isDropdownVisible && (
         <div className="absolute top-full left-0 mt-2 w-[468px] bg-white shadow-2xl  z-50 transition-opacity duration-300">

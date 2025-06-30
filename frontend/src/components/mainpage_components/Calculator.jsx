@@ -88,9 +88,9 @@ const Calculator = () => {
                     max="300"
                     value={rangeValue}
                     onChange={(e) => setRangeValue(e.target.value)}
-                    className='w-full'
+                    className='w-full accent-blue-500 '
                   />
-                  <div className="bg-yellow-500 text-black px-2 py-1 rounded text-sm">
+                  <div className="bg-[#F9B33B] text-black px-2 py-1 rounded text-sm">
                     {rangeValue}
                   </div>
                 </div>
