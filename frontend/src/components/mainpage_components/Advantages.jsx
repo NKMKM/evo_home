@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 // image imports
 import achieve from '../../assets/icons/achieve.png'
@@ -95,7 +96,7 @@ const Advantages = () => {
                   </div>
                 </div>
             
-                <button className='sm:w-[500px] sm:ml-[25%] md:w-[734px] h-[67px]  md:mx-auto bg-[#F9B33B] rounded-[10px]  md:mt-[110px] text-3xl font-bold cursor-pointer md:button-scale-hover'>ЗАПРОСИТЬ РАСЦЕНКИ</button>
+                <Link to="/contacts" className='sm:w-[500px] sm:ml-[25%] md:w-[734px] h-[67px] flex justify-center items-center md:mx-auto bg-[#F9B33B] rounded-[10px]  md:mt-[110px] text-3xl font-bold cursor-pointer hover:scale-110 transition duration-300'>ЗАПРОСИТЬ РАСЦЕНКИ</Link>
 
             </div>
 

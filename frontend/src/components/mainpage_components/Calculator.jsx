@@ -20,7 +20,8 @@ const Calculator = () => {
   };
 
   return (
-    <div className='mt-20 w-full sm:h-[1630px] md:h-[865px] border-2 home-calculator-bg-image bg-center bg-cover py-10'>
+    // Добавлены классы 'relative' и 'z-10' для корректного z-index
+    <div className='mt-20 w-full sm:h-[1630px] md:h-[865px] border-2 home-calculator-bg-image bg-center bg-cover py-10 relative z-10'>
       {/* Заголовок */}
       <div className=' sm:px-5 flex md:flex-row items-center sm:w-full md:w-[1252px] md:h-[85px] text-white mx-auto space-x-10'>
         <img src={calculator} className='w-[64px] h-[64px]' />

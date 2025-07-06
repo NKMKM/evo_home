@@ -6,12 +6,12 @@ import SystemProjects from './SystemProjects'
 
 const SystemLayoutCollection = () => {
   return (
-    <div className='flex flex-col'>
-        <FiveReasons/>
-        <Calculator/>
-        <Reasons/>
-        <SystemProjects/>
-    </div>
+    <>
+      <FiveReasons/>
+      <Calculator/>
+      <Reasons/>
+      <SystemProjects/>    
+    </>
   )
 }
 

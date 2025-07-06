@@ -20,7 +20,7 @@ const FiveReasons = () => {
         </div>
         
         {/* list of Guarantees */}
-        <div className='sm:h-[2750px] lg:w-[1650px] mx-auto'>
+        <div className='sm:h-[2750px]  lg:w-[1650px] mx-auto'>
 
             <ul className='flex sm:flex-col sm:w-[90%] sm:h-[2750px] lg:w-[1650px] lg:h-auto  sm:mx-auto lg:mx-0 lg:flex-row justify-between'>
                 {/* 1 */}

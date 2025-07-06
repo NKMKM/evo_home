@@ -165,7 +165,7 @@ const OurWorks = () => {
                 </div>
 
                 {/* 2 */}
-                <div className=' sm:h-[1150px] lg:h-[536px] lg:w-[1641px] flex sm:flex-col lg:flex-row justify-between '>
+                <div className=' sm:h-[1150px] lg:h-[536px] lg:w-[1641px] flex sm:flex-col lg:flex-row-reverse justify-between '>
                     <div className='sm:h-1/3 lg:w-[806px] lg:h-[536px] sm:px-4 lg:px-0'>
                         <ImageComparisonSlider beforeSrc={toilet_before} afterSrc={toilet_after}/>
                     </div>

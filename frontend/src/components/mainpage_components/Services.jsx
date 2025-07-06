@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 // icons import
 import left_decoration from '../../assets/images/leftside_yellow_decoration.png'
 import right_decoration from '../../assets/images/rightside_yellow_decoration.png'
@@ -6,6 +8,8 @@ import keys from '../../assets/icons/keys.png'
 import gears from '../../assets/icons/gears.png'
 import botique from '../../assets/icons/botique.png'
 import room from '../../assets/icons/room.png'
+
+
 
 // photo import
 
@@ -46,7 +50,7 @@ const Services = () => {
                             </div>
                         </div>
 
-                        <button className='h-[67px] bg-[#F9B33B] font-semibold text-[30px] shadow-2xl button-scale-hover'>УЗНАТЬ ПОДРОБНЕЕ</button>
+                        <Link to={"/turnkey_renovation"} className='h-[67px] bg-[#F9B33B] flex justify-center items-center hover:scale-110 transition duration-300 font-semibold text-[30px] shadow-2xl'>УЗНАТЬ ПОДРОБНЕЕ</Link>
                     </li>
 
                     {/* second element */}
@@ -61,7 +65,7 @@ const Services = () => {
                             </div>
                         </div>
 
-                        <button className='h-[67px] bg-[#F9B33B] font-semibold text-[30px] shadow-2xl button-scale-hover'>УЗНАТЬ ПОДРОБНЕЕ</button>
+                        <Link to="/room_renovation" className='h-[67px] bg-[#F9B33B] flex hover:scale-110 transition duration-300 font-semibold text-[30px] shadow-2xl button-scale-hover'>УЗНАТЬ ПОДРОБНЕЕ</Link>
                     </li>
 
                     {/* third element */}
@@ -76,7 +80,7 @@ const Services = () => {
                             </div>
                         </div>
 
-                        <button className='h-[67px] bg-[#F9B33B] font-semibold text-[30px] shadow-2xl mt-[10px] button-scale-hover'>УЗНАТЬ ПОДРОБНЕЕ</button>
+                        <Link to={'/commercial_premises'} className='h-[67px] bg-[#F9B33B] flex justify-center items-center hover:scale-110 transition duration-300 font-semibold text-[30px] shadow-2xl mt-[10px] button-scale-hover'>УЗНАТЬ ПОДРОБНЕЕ</Link>
                     </li>
 
                     {/* fourth element */}
@@ -91,7 +95,7 @@ const Services = () => {
                             </div>
                         </div>
 
-                        <button className='h-[67px] bg-[#F9B33B] font-semibold text-[30px] shadow-2xl button-scale-hover'>УЗНАТЬ ПОДРОБНЕЕ</button>
+                        <Link to="/systems" className='h-[67px] bg-[#F9B33B] flex justify-center items-center hover:scale-110 transition duration-300 font-semibold text-[30px] shadow-2xl button-scale-hover'>УЗНАТЬ ПОДРОБНЕЕ</Link>
                     </li>
 
 

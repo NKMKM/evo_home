@@ -1,5 +1,9 @@
 import React from 'react'
 import LayoutCollection from '../../components/room_renovation_components/LayoutCollection'
+import FiveReasons from '../../components/FiveReasons'
+import Calculator from '../../components/mainpage_components/Calculator'
+import Reasons from '../../components/Reasons'
+import Projects from '../../components/room_renovation_components/Projects'
 import Video from '../../components/Video'
 import { Link } from 'react-router-dom'
 
@@ -143,16 +147,12 @@ const LivingRoom = () => {
             </div>
         </div>
 
-        <LayoutCollection/>
-
-
-
-
-
-
-
-
-
+        <div className='flex flex-col'>
+            <FiveReasons/>
+            <Calculator/>
+            <Reasons/>
+            <Projects/>
+        </div>
 
 
 

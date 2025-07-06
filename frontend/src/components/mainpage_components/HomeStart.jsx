@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HomeStart = () => {
   return (
@@ -17,9 +18,9 @@ const HomeStart = () => {
           </li>
         </ul>
 
-        <button className="sm:w-[400px] sm:h-[100px] sm:mt-[20px]  md:w-[432px] md:h-[83px] bg-[#F9B33B] rounded-[10px] md:mt-[110px] text-3xl font-bold cursor-pointer button-scale-hover">
+        <Link to="/contacts" className="sm:w-[400px] sm:h-[100px] sm:mt-[20px]  md:w-[432px] md:h-[83px] bg-[#F9B33B] flex justify-center items-center hover:scale-110 transittion duration-300 rounded-[10px] md:mt-[110px] text-3xl font-bold cursor-pointer">
           ЗАПРОСИТЬ РАСЦЕНКИ
-        </button>
+        </Link>
       </div>
     </div>
   );
