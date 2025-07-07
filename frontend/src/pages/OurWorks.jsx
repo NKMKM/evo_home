@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import left_decoration from '../assets/images/leftside_black_decoration.png'
 import right_decoration from '../assets/images/rightside_black_decoration.png'
+import { Helmet } from 'react-helmet'
 
 // mosaic photo imports
 import image1 from '../assets/images/works/mosaic/image1.png'
@@ -40,16 +41,20 @@ import Reviews from '../components/mainpage_components/Reviews'
 const OurWorks = () => {
   return (
     <div className='flex flex-col'>
+        <Helmet>
+            <title>Наши Работы</title>
+            <meta name="description" content="Works and projects made by EVO Home" />
+        </Helmet>
         {/* about us block */}
-        <div className='sm:w-full lg:w-[1656px] lg:h-[1900px]  mx-auto mt-20 flex flex-col justify-between'>
+        <header className='sm:w-full lg:w-[1656px] lg:h-[1900px]  mx-auto mt-20 flex flex-col justify-between'>
             {/* header */}
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center '>
-                <img src={left_decoration} className='w-[276px] h-[83px] sm:hidden lg:block'/>
+                <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block'/>
                 <div className='sm:mx-auto lg:mx-0'>
                     <h1 className='font-bold text-center sm:text-[60px] lg:text-[70px]'>Проекты EVO HOME</h1>
 
                 </div>
-                <img src={right_decoration} className='w-[276px] h-[83px] sm:hidden lg:block'/>
+                <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block'/>
             </div>
 
 
@@ -68,21 +73,21 @@ const OurWorks = () => {
                     <div className='flex flex-col   sm:w-full sm:h-[1120px] lg:h-auto lg:w-auto space-y-[27px]'>
                         {/* row 1 */}
                         <div className=' lg:w-[806px] h-[389px]'>
-                            <img src={image1} className='w-full h-full object-cover mosaic-image-scale-hover'/>    
+                            <img src={image1} alt='image 1' loading="lazy" className='w-full h-full object-cover mosaic-image-scale-hover'/>    
                         </div>
 
                         {/* row 2 */}
                         <div className='lg:h-[389px]  flex flex-row space-x-[29px]'>
                             {/* image 1 */}
-                            <div className=' w-[389px] lg:h-[389px] '><img src={image2} className='mosaic-image-scale-hover'/></div>
+                            <div className=' w-[389px] lg:h-[389px] '><img src={image2} alt='image 2' loading="lazy" className='mosaic-image-scale-hover'/></div>
                             
                             {/* image 2 */}
-                            <div className=' w-[389px] lg:h-[389px] '><img src={image3} className='mosaic-image-scale-hover'/></div>
+                            <div className=' w-[389px] lg:h-[389px] '><img src={image3} alt='image 3' loading="lazy" className='mosaic-image-scale-hover'/></div>
                         </div>
 
                         {/* row 3 */}
                         <div className=' lg:w-[806px] sm:h-[375px] lg:h-[389px]'>
-                            <img src={image4} className='w-full h-full object-cover mosaic-image-scale-hover'/>
+                            <img src={image4} alt='image 4' loading="lazy" className='w-full h-full object-cover mosaic-image-scale-hover'/>
                         </div>
                     </div>
 
@@ -92,22 +97,22 @@ const OurWorks = () => {
                         <div className=' flex flex-row space-x-6'>
                             {/* column 1 */}
                             <div className=' lg:w-[389px] sm:h-[807px] lg:h-[802px] '>
-                                <img src={image5} className='w-full h-full object-cover mosaic-image-scale-hover'/>
+                                <img src={image5} alt='image 5' loading="lazy" className='w-full h-full object-cover mosaic-image-scale-hover'/>
                             </div>
 
                             {/* column 2 */}
                             <div className='flex flex-col lg:h-[806px] space-y-[29px]'>
                                 {/* row 1 */}
-                                <div className=' w-[389px] h-[389px] '><img src={image6} className='mosaic-image-scale-hover'/></div>
+                                <div className=' w-[389px] h-[389px] '><img src={image6} alt='image 6' loading="lazy" className='mosaic-image-scale-hover'/></div>
 
                                 {/* row 2 */}
-                                <div className=' w-[389px] h-[389px]'><img src={image7} className='mosaic-image-scale-hover'/></div>
+                                <div className=' w-[389px] h-[389px]'><img src={image7} alt='image 7' loading="lazy" className='mosaic-image-scale-hover'/></div>
                             </div>
                         </div>
 
                         {/* row 2 */}
                         <div className='sm:w-full  lg:w-[806px] lg:h-[389px]'>
-                            <img src={image8} className='mosaic-image-scale-hover w-full h-full'/>
+                            <img src={image8} alt='image 8' loading="lazy" className='mosaic-image-scale-hover w-full h-full'/>
                         </div>
 
                     </div>
@@ -128,18 +133,18 @@ const OurWorks = () => {
             </div>
 
 
-        </div>
+        </header>
         
         {/* before and after block */}
-        <div className=' sm:w-full lg:w-[1656px] flex flex-col justify-between sm:h-[3800px] lg:h-[2045px] mx-auto sm:my-30 lg:my-20'>
+        <main className=' sm:w-full lg:w-[1656px] flex flex-col justify-between sm:h-[3800px] lg:h-[2045px] mx-auto sm:my-30 lg:my-20'>
             {/* header */}
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center '>
-                <img src={left_decoration} className='w-[276px] h-[83px] sm:hidden lg:block '/>
+                <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block '/>
                 <div className=''>
-                    <h1 className='font-bold text-center text-[70px]'>Интерьеры ДО и ПОСЛЕ</h1>
+                    <h2 className='font-bold text-center text-[70px]'>Интерьеры ДО и ПОСЛЕ</h2>
 
                 </div>
-                <img src={right_decoration} className='w-[276px] h-[83px] sm:hidden lg:block'/>
+                <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block'/>
             </div>
 
             {/* comparison examples */}
@@ -152,8 +157,8 @@ const OurWorks = () => {
 
                     <div className='lg:w-[806px] sm:h-2/3 h-full sm:px-4 lg:px-0 flex flex-col sm:justify-around lg:justify-between'>
                         <div>
-                            <h1 className='text-[50px] font-bold'>КУХНЯ</h1>
-                            <h2 className='text-[40px] font-light italic'>В Стиле Современный Минимализм</h2>
+                            <h2 className='text-[50px] font-bold'>КУХНЯ</h2>
+                            <h3 className='text-[40px] font-light italic'>В Стиле Современный Минимализм</h3>
                         </div>
 
                         <div className='lg:w-[748px] h-[374px] flex flex-col text-[30px] justify-between'>
@@ -172,8 +177,8 @@ const OurWorks = () => {
 
                     <div className='lg:w-[806px] sm:h-2/3 h-full sm:px-4 lg:px-0 flex flex-col sm:justify-around lg:justify-between sm:text-end lg:text-start'>
                         <div>
-                            <h1 className='text-[50px] font-bold'>ТУАЛЕТ</h1>
-                            <h2 className='text-[40px] font-light italic'>В Стиле Современная Классика</h2>
+                            <h2 className='text-[50px] font-bold'>ТУАЛЕТ</h2>
+                            <h3 className='text-[40px] font-light italic'>В Стиле Современная Классика</h3>
                         </div>
 
                         <div className='lg:w-[748px] h-[374px] flex flex-col text-[30px] justify-between'>
@@ -192,8 +197,8 @@ const OurWorks = () => {
 
                     <div className='lg:w-[806px] sm:h-2/3 h-full sm:px-4 lg:px-0 flex flex-col sm:justify-around lg:justify-between'>
                         <div>
-                            <h1 className='text-[50px] font-bold'>ПАРФЮМЕРНЫЙ БУТИК</h1>
-                            <h2 className='text-[40px] font-light italic'>В Стиле Промышленная Роскошь</h2>
+                            <h2 className='text-[50px] font-bold'>ПАРФЮМЕРНЫЙ БУТИК</h2>
+                            <h3 className='text-[40px] font-light italic'>В Стиле Промышленная Роскошь</h3>
                         </div>
 
                         <div className='lg:w-[748px] h-[374px] flex flex-col text-[30px] justify-between'>
@@ -216,21 +221,21 @@ const OurWorks = () => {
                 <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
             </div>
 
-        </div>
+        </main>
 
         {/* stages of work block */}
 
         <div className='relative border w-full sm:h-[7400px] lg:h-[4700px] flex flex-col justify-between works-stages-bg-image bg-cover mb-22'>
-            <div className='w-[58px] h-[58px] absolute top-[400px] z-10 sm:hidden lg:block '><img src={one} className='w-full h-full'/></div>
-            <div className='w-[58px] absolute top-[458px] z-10 sm:hidden lg:block'><img src={stages} className=''/></div>
+            <div className='w-[58px] h-[58px] absolute top-[400px] z-10 sm:hidden lg:block '><img src={one} alt='1' loading="lazy" className='w-full h-full'/></div>
+            <div className='w-[58px] absolute top-[458px] z-10 sm:hidden lg:block'><img src={stages} alt='stages' loading="lazy" className=''/></div>
 
             {/* 1 */}
             <div className='works-first-stage-bg-image bg-cover relative sm:pt-10 lg:pt-0 sm:pb-20 flex sm:flex-col lg:flex-row bg-blue-300/80 w-full sm:h-[1450px] lg:h-[849px]'>
                 {/* vector */}
-                <div className='absolute sm:hidden lg:block '><img src={vector_1}/></div>
+                <div className='absolute sm:hidden lg:block '><img src={vector_1} alt='vector 1' loading="lazy"/></div>
 
                 <div className='absolute sm:w-full lg:w-[806px] sm:px-4 lg:px-0 h-auto lg:left-[150px] sm:bottom-[10px] lg:bottom-[80px]'>
-                    <h1 className='text-white font-bold justify-center flex flex-row items-center text-[50px] mb-10'><img src={roof_icon} className='w-[65px] h-[65px] mr-10'/> Ремонт крыши</h1>
+                    <h2 className='text-white font-bold justify-center flex flex-row items-center text-[50px] mb-10'><img src={roof_icon} alt='roof icon' loading="lazy" className='w-[65px] h-[65px] mr-10'/> Ремонт крыши</h2>
 
                     <div className='sm:w-full lg:w-[806px] h-[564px] bg-white/85 sm:text-[27px] lg:text-[31px] flex flex-col justify-between px-5 py-10'>
                         <p>Мы даем новую жизнь коммерческим помещениям с помощью индивидуального ремонта. Узнайте, как мы превратили этот парфюмерный магазин в элегантное и функциональное пространство, идеально подходящее для приема клиентов в самом сердце Рима</p>
@@ -248,10 +253,10 @@ const OurWorks = () => {
             {/* 2 */}
             <div className='works-second-stage-bg-image bg-cover relative sm:pt-10 lg:pt-0 sm:pb-20 flex sm:flex-col lg:flex-row bg-blue-300/80 w-full sm:h-[1400px] lg:h-[849px]'>
                 {/* vector */}
-                <div className='absolute sm:hidden lg:block '><img src={vector_2}/></div>
+                <div className='absolute sm:hidden lg:block '><img src={vector_2} alt='vector 2' loading="lazy"/></div>
 
                 <div className='absolute sm:w-full lg:w-[806px] sm:px-4 lg:px-0 h-auto lg:left-[150px] sm:bottom-[10px] lg:bottom-[80px]'>
-                    <h1 className='text-white font-bold justify-center flex flex-row items-center sm:text-[45px] lg:text-[50px] mb-10'><img src={bottle_icon} className='w-[65px] h-[65px] mr-10'/> Магазин парфюмерии</h1>
+                    <h2 className='text-white font-bold justify-center flex flex-row items-center sm:text-[45px] lg:text-[50px] mb-10'><img src={bottle_icon} alt='bottle icon 'loading="lazy" className='w-[65px] h-[65px] mr-10'/> Магазин парфюмерии</h2>
 
                     <div className='sm:w-full lg:w-[806px] h-[564px] bg-white/85 sm:text-[27px] lg:text-[31px] flex flex-col justify-between px-5 py-10'>
                         <p>Мы даем новую жизнь коммерческим помещениям с помощью индивидуального ремонта. Узнайте, как мы превратили этот парфюмерный магазин в элегантное и функциональное пространство, идеально подходящее для приема клиентов в самом сердце Рима.</p>
@@ -268,10 +273,10 @@ const OurWorks = () => {
             {/* 3 */}
             <div className='works-third-stage-bg-image bg-cover relative sm:pt-10 lg:pt-0 sm:pb-20 flex sm:flex-col lg:flex-row bg-blue-300/80 w-full sm:h-[1400px] lg:h-[849px]'>
                 {/* vector */}
-                <div className='absolute sm:hidden lg:block '><img src={vector_1}/></div>
+                <div className='absolute sm:hidden lg:block '><img src={vector_1} alt='vector 1' loading="lazy"/></div>
 
                 <div className='absolute sm:w-full lg:w-[806px] sm:px-4 lg:px-0 h-auto lg:left-[150px] sm:bottom-[10px] lg:bottom-[80px]'>
-                    <h1 className='text-white font-bold justify-center flex flex-row items-center sm:text-[40px] lg:text-[50px] mb-10'><img src={fontain_icon} className='w-[65px] h-[65px] mr-10'/> Реконструкция фонтана</h1>
+                    <h2 className='text-white font-bold justify-center flex flex-row items-center sm:text-[40px] lg:text-[50px] mb-10'><img src={fontain_icon} alt='fontain icon' loading="lazy" className='w-[65px] h-[65px] mr-10'/> Реконструкция фонтана</h2>
 
                     <div className='sm:w-full lg:w-[806px] h-[564px] bg-white/85 sm:text-[27px] lg:text-[31px] flex flex-col justify-between px-5 py-10'>
                         <p>Мы возвращаем фонтанам красоту и функциональность с помощью профессиональных реставрационных работ. Узнайте, как мы превратили этот фонтан в уникальный декоративный элемент, сочетающий традиции и современность</p>
@@ -288,10 +293,10 @@ const OurWorks = () => {
             {/* 4 */}
             <div className='works-fourth-stage-bg-image bg-cover relative sm:pt-10 lg:pt-0 sm:pb-20 flex sm:flex-col lg:flex-row bg-blue-300/80 w-full sm:h-[1400px] lg:h-[849px]'>
                 {/* vector */}
-                <div className='absolute sm:hidden lg:block  '><img src={vector_2}/></div>
+                <div className='absolute sm:hidden lg:block  '><img src={vector_2} alt='vector 2' loading="lazy"/></div>
 
                 <div className='absolute sm:w-full lg:w-[806px] sm:px-4 lg:px-0 h-auto lg:left-[150px] sm:bottom-[10px] lg:bottom-[80px]'>
-                    <h1 className='text-white font-bold justify-center flex flex-row items-center sm:text-[40px] lg:text-[50px] mb-10'><img src={food_icon} className='w-[65px] h-[65px] mr-10'/> Рестайлинг ресторана</h1>
+                    <h2 className='text-white font-bold justify-center flex flex-row items-center sm:text-[40px] lg:text-[50px] mb-10'><img src={food_icon} alt='food 'loading="lazy" className='w-[65px] h-[65px] mr-10'/> Рестайлинг ресторана</h2>
 
                     <div className='sm:w-full lg:w-[806px] h-[564px] bg-white/85 sm:text-[27px] lg:text-[31px] flex flex-col justify-between px-5 py-10'>
                         <p>Мы преображаем пространства с помощью эксклюзивного дизайна и изысканных деталей. Узнайте, как мы отремонтировали эту винодельню, создав гостеприимное и элегантное пространство, идеально подходящее для любого случая.</p>
@@ -309,10 +314,10 @@ const OurWorks = () => {
             {/* 5 */}
             <div className='works-third-stage-bg-image bg-cover relative sm:pt-10 lg:pt-0 sm:pb-20 flex sm:flex-col lg:flex-row bg-blue-300/80 w-full sm:h-[1400px] lg:h-[849px]'>
                 {/* vector */}
-                <div className='absolute sm:hidden lg:block  '><img src={vector_1}/></div>
+                <div className='absolute sm:hidden lg:block  '><img src={vector_1} alt='vector 1' loading="lazy"/></div>
 
                 <div className='absolute sm:w-full lg:w-[806px] sm:px-4 lg:px-0 h-auto lg:left-[150px] sm:bottom-[10px] lg:bottom-[80px]'>
-                    <h1 className='text-white font-bold justify-center flex flex-row items-center sm:text-[40px] lg:text-[50px] mb-10'><img src={keys_icon} className='w-[65px] h-[65px] mr-10'/>Трехкомнатная квартира</h1>
+                    <h2 className='text-white font-bold justify-center flex flex-row items-center sm:text-[40px] lg:text-[50px] mb-10'><img src={keys_icon} alt='keys' loading="lazy" className='w-[65px] h-[65px] mr-10'/>Трехкомнатная квартира</h2>
 
                     <div className='sm:w-full lg:w-[806px] h-[564px] bg-white/85 sm:text-[27px] lg:text-[31px] flex flex-col justify-between px-5 py-10'>
                         <p>Мы модернизируем жилые помещения с помощью индивидуальных и функциональных решений. Узнайте, как мы преобразили эту трехкомнатную квартиру , объединив комфорт и дизайн, чтобы удовлетворить все потребности.</p>

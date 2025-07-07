@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
+
+import { useTranslation } from 'react-i18next';
+
 import Logo from '../assets/icons/logo.png';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import Russian_flag from '../assets/icons/russian_flag_icon.png';
 import { Link, useNavigate } from 'react-router-dom';
 import ServicesDropdown from './ServicesDropdown';
+import LanguageSelector from './LanguageSelector';
+
+
 
 const Nav = () => {
+  const {t} = useTranslation('components/Nav')
   const navigate = useNavigate();
   const goToHome = () => {
     navigate('/');
@@ -56,10 +61,10 @@ const Nav = () => {
         {/* Main Links */}
         <ul className="hidden lg:flex lg:flex-row space-x-12 items-center px-1 lg:w-[650px] font-[500] text-[#222222]">
           <ServicesDropdown />
-          <Link to="/about_us" className="navbar-underline-animate-hover">КТО МЫ</Link>
-          <Link to="/our_works" className="navbar-underline-animate-hover">НАШИ РАБОТЫ</Link>
-          <Link to="/reviews" className="navbar-underline-animate-hover">ОТЗЫВЫ</Link>
-          <Link to="/contacts" className="navbar-underline-animate-hover">КОНТАКТЫ</Link>
+          <Link to="/about_us" className="navbar-underline-animate-hover">{t('list.second')}</Link>
+          <Link to="/our_works" className="navbar-underline-animate-hover">{t('list.third')}</Link>
+          <Link to="/reviews" className="navbar-underline-animate-hover">{t('list.fourth')}</Link>
+          <Link to="/contacts" className="navbar-underline-animate-hover">{t('list.fifth')}</Link>
         </ul>
 
         {/* Contact & Language + Burger */}
@@ -68,19 +73,14 @@ const Nav = () => {
           <div className="hidden sm:hidden lg:flex bg-[#f9b33b]  lg:w-[216px] h-[58px] justify-center rounded-lg items-center scale-animate-hover">
             <PhoneInTalkIcon sx={{ fontSize: 36 }} className="mr-1" />
             <div>
-              <h1 className="font-[500]">ЗАКАЗАТЬ ЗВОНОК</h1>
+              <h1 className="font-[500]">{t('call_text')}</h1>
               <h3 className="font-bold italic">+ 39 06 69353277</h3>
             </div>
           </div>
 
           {/* Language + Burger */}
           <div className="flex flex-row items-center space-x-2">
-            <img
-              src={Russian_flag}
-              alt="russian flag"
-              className="w-[45px] h-[30px] bg-slate-400 shadow-md object-cover"
-            />
-            <KeyboardArrowDownIcon className="cursor-pointer hidden sm:hidden lg:block" />
+            <LanguageSelector/>
 
             {/* Burger icon for sm */}
             <div className=" lg:hidden ml-2">
@@ -96,11 +96,11 @@ const Nav = () => {
       {isMenuOpen && (
         <div className="fixed inset-0 bg-black/20 bg-opacity-70 flex justify-center items-center z-40">
           <div className="flex flex-col bg-white rounded-lg p-8 w-11/12 max-w-md text-center space-y-6 text-xl font-semibold">
-            <Link to="/services" onClick={() => setIsMenuOpen(false)}>УСЛУГИ</Link>
-            <Link to="/about_us" onClick={() => setIsMenuOpen(false)}>КТО МЫ</Link>
-            <Link to="/our_works" onClick={() => setIsMenuOpen(false)}>НАШИ РАБОТЫ</Link>
-            <Link to="/reviews" onClick={() => setIsMenuOpen(false)}>ОТЗЫВЫ</Link>
-            <Link to="/contacts" onClick={() => setIsMenuOpen(false)}>КОНТАКТЫ</Link>
+            <Link to="/services" onClick={() => setIsMenuOpen(false)}>{t('list.first')}</Link>
+            <Link to="/about_us" onClick={() => setIsMenuOpen(false)}>{t('list.second')}</Link>
+            <Link to="/our_works" onClick={() => setIsMenuOpen(false)}>{t('list.third')}</Link>
+            <Link to="/reviews" onClick={() => setIsMenuOpen(false)}>{t('list.fourth')}</Link>
+            <Link to="/contacts" onClick={() => setIsMenuOpen(false)}>{t('list.fifth')}</Link>
             <div className="mt-4">
               <div className="bg-[#f9b33b] py-3 px-6 rounded-lg inline-flex items-center justify-center">
                 <PhoneInTalkIcon className="" />

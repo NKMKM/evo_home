@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import HomeStart from '../components/mainpage_components/HomeStart'
 import Advantages from '../components/mainpage_components/Advantages'
 import Calculator from '../components/mainpage_components/Calculator'
@@ -11,6 +12,10 @@ import Reviews from '../components/mainpage_components/Reviews'
 const Main = () => {
   return (
     <>
+        <Helmet>
+            <title>Главная страница</title>
+            <meta name="description" content="Home page with all info about EVO Home" />
+        </Helmet>
         <HomeStart/>
         <Advantages/>
         <Calculator/>

@@ -1,6 +1,7 @@
 
 import './App.css'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 import ScrollToTop from './components/ScrollToTop'
 import Nav from './components/Nav'
@@ -55,12 +56,8 @@ import CommercialPremisesServices from './pages/servises/CommercialPremisesServi
 import SystemsServices from './pages/servises/SystemsServices';
 
 function App() {
-
-  
-
   return (
     
-
     <BrowserRouter>
         <ScrollToTop/>
         <Nav />

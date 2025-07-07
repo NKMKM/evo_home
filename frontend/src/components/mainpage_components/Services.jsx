@@ -21,31 +21,31 @@ import system from '../../assets/images/services_images/system.jpg'
 const Services = () => {
   return (
     <>
-        <div className=' sm:h-[4500px] lg:h-[1385px]  sm:flex sm:flex-col sm:justify-between lg:block my-20 sm:w-full lg:w-[1641px] mx-auto'>
+        <main className=' sm:h-[4500px] lg:h-[1385px]  sm:flex sm:flex-col sm:justify-between lg:block my-20 sm:w-full lg:w-[1641px] mx-auto'>
             {/* header section */}
             
-            <div className=' lg:h-[170px] w-full mx-auto flex flex-row justify-between items-center lg:mb-20 '>
-                <img src={left_decoration} className='w-[276px] h-[83px] sm:hidden lg:block'/>
+            <header className=' lg:h-[170px] w-full mx-auto flex flex-row justify-between items-center lg:mb-20 '>
+                <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block'/>
                 <div className='sm:w-full sm:px-4 lg:w-auto lg:px-0'>
                     <h1 className='font-bold text-center sm:text-[50px] lg:text-[60px]'>Ваш дом в надежных руках</h1>
                     <h1 className='font-bold text-center sm:text-[70px] lg:text-[70px]'>Наши услуги</h1>
                 </div>
-                <img src={right_decoration} className='w-[276px] h-[83px] sm:hidden lg:block'/>
-            </div>
+                <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block'/>
+            </header>
 
             <p className='sm:w-full lg:w-[1410px] sm:h-[150px] lg:h-[76px] mx-auto text-[32px] text-center font-[100] italic mb-20'>"EVO HOME  выполнит ремонт квартир любой сложности – от легкого косметического обновления до капитального ремонта с перепланировкой."</p>
             
             {/* list of services */}
-            <div className=' sm:w-full lg:w-[1641px] '>
+            <section className=' sm:w-full lg:w-[1641px] '>
                 <ul className='sm:h-[3900px]  sm:w-full lg:w-[1641px] mx-auto flex sm:flex-col lg:flex-row justify-between '>
                     {/* first element */}
                     <li className='sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[389px] h-[933px]  flex flex-col justify-between py-2'>
-                        <h1 className='text-center font-semibold text-[32px]'>РЕМОНТ КВАРТИР</h1>
+                        <h2 className='text-center font-semibold text-[32px]'>РЕМОНТ КВАРТИР</h2>
 
                         <div className='w h-[778px]  flex flex-col shadow-xl'>
-                            <div className=' h-1/2 bg-red-400 '><img src={room1} className='w-full h-full' /></div>
+                            <div className=' h-1/2 bg-red-400 '><img src={room1} alt='room 1' loading="lazy" className='w-full h-full' /></div>
                             <div className='h-1/2  text-center items-center pt-5 space-y-5'>
-                                <img src={keys} className='sm:w-[120px] sm:h-[120px] lg:w-[79px] lg:h-[79px] mx-auto'/>
+                                <img src={keys} alt='keys' loading="lazy" className='sm:w-[120px] sm:h-[120px] lg:w-[79px] lg:h-[79px] mx-auto'/>
                                 <p className='sm:text-[30px] lg:text-[22px]'>Выполняем косметический, капитальный и дизайнерский ремонт с заменой всех коммуникаций. Качество, сроки, гарантия!</p>
                             </div>
                         </div>
@@ -55,12 +55,12 @@ const Services = () => {
 
                     {/* second element */}
                     <li className='sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[389px]  h-[933px]  flex flex-col justify-between py-2'>
-                        <h1 className='text-center font-semibold text-[32px]'>РЕМОНТ КОМНАТ</h1>
+                        <h2 className='text-center font-semibold text-[32px]'>РЕМОНТ КОМНАТ</h2>
 
                         <div className='w h-[778px]  flex flex-col shadow-xl'>
-                            <div className=' h-1/2 bg-red-400'><img src={room2} className='w-full h-full' /></div>
+                            <div className=' h-1/2 bg-red-400'><img src={room2} alt='room 2' loading="lazy" className='w-full h-full' /></div>
                             <div className='h-1/2  text-center items-center pt-5 space-y-5'>
-                                <img src={room} className='sm:w-[120px] sm:h-[120px] lg:w-[79px] lg:h-[79px] mx-auto'/>
+                                <img src={room} alt='room' loading="lazy" className='sm:w-[120px] sm:h-[120px] lg:w-[79px] lg:h-[79px] mx-auto'/>
                                 <p className='sm:text-[30px] lg:text-[22px]'>Обновим интерьер вашей гостиной, спальни, кухни или ванной. Быстро и качественно выполним отделку, монтаж полов, освещение, натяжные потолки.</p>
                             </div>
                         </div>
@@ -70,12 +70,12 @@ const Services = () => {
 
                     {/* third element */}
                     <li className='sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[389px]  h-[933px]  flex flex-col justify-between pb-[12px]'>
-                        <h1 className='text-center font-semibold text-3xl'>КОММЕРЧЕСКИЕ ПОМЕЩЕНИЯ</h1>
+                        <h2 className='text-center font-semibold text-3xl'>КОММЕРЧЕСКИЕ ПОМЕЩЕНИЯ</h2>
 
                         <div className='w h-[778px]  flex flex-col shadow-xl'>
-                            <div className=' h-1/2 object-fill'><img src={basement} className='w-full h-full'/></div>
+                            <div className=' h-1/2 object-fill'><img src={basement} alt='basement' loading="lazy" className='w-full h-full'/></div>
                             <div className='h-1/2  text-center items-center pt-5 space-y-5'>
-                                <img src={botique} className='sm:w-[120px] sm:h-[120px] lg:w-[79px] lg:h-[79px] mx-auto'/>
+                                <img src={botique} alt='botique icon' loading="lazy" className='sm:w-[120px] sm:h-[120px] lg:w-[79px] lg:h-[79px] mx-auto'/>
                                 <p className='sm:text-[30px] lg:text-[22px]'>Создаем стильные и функциональные офисы, магазины, рестораны, салоны. Разрабатываем дизайн, выполняем отделку и подключаем инженерные системы.</p>
                             </div>
                         </div>
@@ -85,12 +85,12 @@ const Services = () => {
 
                     {/* fourth element */}
                     <li className='sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[389px]  h-[933px]  flex flex-col justify-between py-2'>
-                        <h1 className='text-center font-semibold text-[33px]'>СИСТЕМЫ</h1>
+                        <h2 className='text-center font-semibold text-[33px]'>СИСТЕМЫ</h2>
 
                         <div className='w h-[778px]  flex flex-col shadow-xl'>
-                            <div className=' h-1/2 overflow-hidden '><img src={system} className='object-cover overflow-hidden' /></div>
+                            <div className=' h-1/2 overflow-hidden '><img src={system} alt='systems' loading="lazy" className='object-cover overflow-hidden' /></div>
                             <div className='h-1/2  text-center items-center pt-5 space-y-5'>
-                                <img src={gears} className='sm:w-[120px] sm:h-[120px] lg:w-[79px] lg:h-[79px] mx-auto'/>
+                                <img src={gears} alt='gears icon' loading="lazy" className='sm:w-[120px] sm:h-[120px] lg:w-[79px] lg:h-[79px] mx-auto'/>
                                 <p className='sm:text-[30px] lg:text-[22px]'>Монтаж и обслуживание электрики, сантехники, отопления, вентиляции. Надежные решения для вашего комфорта и безопасности.</p>
                             </div>
                         </div>
@@ -100,8 +100,8 @@ const Services = () => {
 
 
                 </ul>
-            </div>
-        </div>
+            </section>
+        </main>
 
     </>
   )

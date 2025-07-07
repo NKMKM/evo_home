@@ -1,36 +1,40 @@
 import React, { useState, useRef } from 'react';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-const services = [
-  {
-    name: 'Ремонт квартир под ключ',
-    main_menu_href:'/turnkey_renovation',
-    submenu: ['Дизайнерский ремонт', 'Эксклюзивный ремонт','Ремонт квартир-студий','Ремонт двухкомнатных квартир','Ремонт трехкомнатных квартир','Ремонт четырехкомнатных квартир','Ремонт двуэтажных квартир'],
-    submenu_href:['/turnkey_renovation/designer_renovation','/turnkey_renovation/exclusive_renovation','/turnkey_renovation/studio','/turnkey_renovation/tworoom_apartments','/turnkey_renovation/threeroom_apartments','/turnkey_renovation/fourroom_apartments','/turnkey_renovation/twostory_apartments']
-  },
-  {
-    name: 'Ремонт комнат',
-    main_menu_href:'/room_renovation',
-    submenu: ['Ремонт гостинных', 'Ремонт спальных комнат', 'Ремонт детских комнат','Ремонт коридора','Ремонт кухни','Ремонт ванных комнат','Ремонт лестниц'],
-    submenu_href:['/room_renovation/living_room','/room_renovation/bedroom','/room_renovation/children_room','/room_renovation/corridor','/room_renovation/kitchen','/room_renovation/bathroom','/room_renovation/stairs']
-  },
-  {
-    name: 'Коммерческие помещения',
-    main_menu_href:'/commercial_premises',
-    submenu: ['Ремонт бизнес-центров','Ремонт баров и ресторанов','Ремонт коммерческих помещений','Ремонт офисов','Ремонт складов','Ремонт фитнес-клубов','Ремонт отелей'],
-    submenu_href:['/commercial_premises/business_center','/commercial_premises/restaurant','/commercial_premises/commercial_premises_renovation','/commercial_premises/office','/commercial_premises/warehouse','/commercial_premises/fitness_club','/commercial_premises/hotel']
-  },
-  {
-    name: 'Системы',
-    main_menu_href:'/systems',
-    submenu: ['Электрическая система','Газовая система','Подогрев пола','Система дренажа и канализации','Кондиционирования и климат контроль'],
-    submenu_href:['/systems/electrical_system','/systems/gas_system','/systems/floor_heating','/systems/sewage','/systems/climate_control']
-
-  },
-];
 
 const ServicesDropdown = () => {
+  const {t} = useTranslation('components/ServicesDropdown')
+
+  const services = [
+    {
+      name: t('first_element.h'),
+      main_menu_href:'/turnkey_renovation',
+      submenu: [t('first_element.list_of_services.first'), t('first_element.list_of_services.second'),t('first_element.list_of_services.third'),t('first_element.list_of_services.fourth'),t('first_element.list_of_services.fifth'),t('first_element.list_of_services.sixth'),t('first_element.list_of_services.seventh')],
+      submenu_href:['/turnkey_renovation/designer_renovation','/turnkey_renovation/exclusive_renovation','/turnkey_renovation/studio','/turnkey_renovation/tworoom_apartments','/turnkey_renovation/threeroom_apartments','/turnkey_renovation/fourroom_apartments','/turnkey_renovation/twostory_apartments']
+    },
+    {
+      name: t('second_element.h'),
+      main_menu_href:'/room_renovation',
+      submenu: [t('second_element.list_of_services.first'), t('second_element.list_of_services.second'),t('second_element.list_of_services.third'),t('second_element.list_of_services.fourth'),t('second_element.list_of_services.fifth'),t('second_element.list_of_services.sixth'),t('second_element.list_of_services.seventh')],
+      submenu_href:['/room_renovation/living_room','/room_renovation/bedroom','/room_renovation/children_room','/room_renovation/corridor','/room_renovation/kitchen','/room_renovation/bathroom','/room_renovation/stairs']
+    },
+    {
+      name: t('third_element.h'),
+      main_menu_href:'/commercial_premises',
+      submenu: [t('third_element.list_of_services.first'), t('third_element.list_of_services.second'),t('third_element.list_of_services.third'),t('third_element.list_of_services.fourth'),t('third_element.list_of_services.fifth'),t('third_element.list_of_services.sixth'),t('third_element.list_of_services.seventh')],
+      submenu_href:['/commercial_premises/business_center','/commercial_premises/restaurant','/commercial_premises/commercial_premises_renovation','/commercial_premises/office','/commercial_premises/warehouse','/commercial_premises/fitness_club','/commercial_premises/hotel']
+    },
+    {
+      name: t('fourth_element.h'),
+      main_menu_href:'/systems',
+      submenu: [t('fourth_element.list_of_services.first'), t('fourth_element.list_of_services.second'),t('fourth_element.list_of_services.third'),t('fourth_element.list_of_services.fourth'),t('fourth_element.list_of_services.fifth')],
+      submenu_href:['/systems/electrical_system','/systems/gas_system','/systems/floor_heating','/systems/sewage','/systems/climate_control']
+  
+    },
+  ];
+
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const hideTimeoutRef = useRef(null);
@@ -54,7 +58,7 @@ const ServicesDropdown = () => {
       onMouseLeave={handleMouseLeave}
     >
       <div className="flex items-center cursor-pointer">
-        <p className="navbar-underline-animate-hover">УСЛУГИ <KeyboardArrowDownIcon/></p>
+        <p className="navbar-underline-animate-hover">{t('h')} <KeyboardArrowDownIcon/></p>
       </div>  
 
       {isDropdownVisible && (
