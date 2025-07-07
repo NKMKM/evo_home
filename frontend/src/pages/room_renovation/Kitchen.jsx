@@ -2,6 +2,7 @@ import React from 'react'
 import Video from '../../components/Video'
 import LayoutCollection from '../../components/room_renovation_components/LayoutCollection'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 import left_decoration from '../../assets/images/leftside_black_decoration.png'
 import right_decoration from '../../assets/images/rightside_black_decoration.png'
@@ -21,15 +22,19 @@ import fifth_step from '../../assets/images/room_renovation/kitchen/process/fift
 const Kitchen = () => {
   return (
     <div>
+        <Helmet>
+            <title>Реновация кухни</title>
+            <meta name="description" content="Renovation of kitchens by EVO Home" />
+        </Helmet>
         {/* first step */}
-        <div className='lg:w-[1641px] sm:w-full lg:h-[1450px] mx-auto my-20 flex flex-col justify-between'>
+        <header className='lg:w-[1641px] sm:w-full lg:h-[1450px] mx-auto my-20 flex flex-col justify-between'>
             {/* header */}
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
-                <img src={left_decoration} className='w-[276px] h-[83px] sm:hidden md:block' />
+                <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
 
                 <h1 className='font-bold mx-auto text-center sm:text-[60px] lg:text-[57px]'>Ремонт кухни</h1>
 
-                <img src={right_decoration} className='w-[276px] h-[83px] sm:hidden md:block' />
+                <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
             </div>
             
             {/* main content */}
@@ -37,7 +42,7 @@ const Kitchen = () => {
                 {/* header */}
                 <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>1.</div>
-                    <h1 className='sm:text-[30px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>Ремонт кухни от EVO HOME</h1>
+                    <h2 className='sm:text-[30px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>Ремонт кухни от EVO HOME</h2>
                 </div>
 
                 {/* text */}
@@ -47,38 +52,38 @@ const Kitchen = () => {
                 </div>
 
                 {/* image */}
-                <div className='sm:w-full lg:w-[1641px] lg:h-[661px] bg-blue-600/20'><img src={image} className='w-full h-full object-cover' /></div>
+                <div className='sm:w-full lg:w-[1641px] lg:h-[661px] bg-blue-600/20'><img src={image} alt='kitchen' loading="lazy" className='w-full h-full object-cover' /></div>
 
-                <div className='sm:w-full md:w-[1640px] h-[67px] flex flex-row items-center mx-auto'>
-                    <div className='sm:h-[3px] md:h-[1px] sm:w-[30%] md:w-[625.5px] bg-[#F9B33B]'></div>
+                <div className='sm:w-full lg:w-[1640px] h-[67px] flex flex-row items-center mx-auto'>
+                    <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
 
-                    <Link to="/contacts" className="sm:w-[40%] md:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">ЗАКАЗАТЬ</Link>
+                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">ЗАКАЗАТЬ</Link>
 
-                    <div className='sm:h-[3px] md:h-[1px] sm:w-[30%] md:w-[625.5px] bg-[#F9B33B]'></div>
+                    <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
                 </div>
             </div>
-        </div>
+        </header>
 
         {/* process */}
-      <div className='sm:h-[6600px]  lg:w-full lg:h-[3588px] flex flex-col justify-between'>
+      <main className='sm:h-[6600px]  lg:w-full lg:h-[3588px] flex flex-col justify-between'>
         {/* header */}
         <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
             <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>2.</div>
-            <h1 className='sm:text-[27px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>Подробнее о ремонте кухни от EVO HOME </h1>
+            <h2 className='sm:text-[27px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>Подробнее о ремонте кухни от EVO HOME </h2>
         </div>
 
         {/* list of steps */}
         <div className='sm:h-[5100px]  lg:h-[2260px] sm:w-full lg:w-auto relative mx-auto '>
-            <div className='lg:w-[1377px] lg:h-[646px] scale-x-80 absolute top-[347px] left-[220px] sm:hidden lg:block'><img src={arrow_1} className='w-full h-full' /></div>
+            <div className='lg:w-[1377px] lg:h-[646px] scale-x-80 absolute top-[347px] left-[220px] sm:hidden lg:block'><img src={arrow_1} alt='arrow 1' loading="lazy" className='w-full h-full' /></div>
 
             <ul className='sm:h-[5100px]  lg:h-full sm:w-full lg:w-[1641px] flex flex-col justify-between space-y-20'>
                 {/* 1 */}
                 <li className='sm:w-[85%] sm:ml-[7%] lg:w-full lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row justify-between'>
                     {/* process photo  */}
-                    <div className='sm:w-full sm:h-[358px] lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={first_step} className='w-full h-full object-cover' /></div>
+                    <div className='sm:w-full sm:h-[358px] lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={first_step} alt='first step' loading="lazy" className='w-full h-full object-cover' /></div>
                     {/* info */}
                     <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                        <h1 className='font-bold sm:text-[42px] lg:text-[44px]'>ОПТИМАЛЬНОЕ ЗОНИРОВАНИЕ</h1>
+                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>ОПТИМАЛЬНОЕ ЗОНИРОВАНИЕ</h2>
 
                         <p className='text-[26px] pb-5'>Данный подход включает в себя создание четко определенных зон для различных функций: подготовки пищи, приготовления пищи и уборки.Такая компоновка оптимизирует рабочий процесс и повышает эффективность приготовления пищи.</p>
                     </div>
@@ -87,10 +92,10 @@ const Kitchen = () => {
                 {/* 2 */}
                 <li className='sm:w-[85%] sm:ml-[7%] lg:w-full lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row-reverse justify-between'>
                     {/* process photo  */}
-                    <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={second_step} className='w-full h-full object-cover' /></div>
+                    <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={second_step} alt='second step' loading="lazy" className='w-full h-full object-cover' /></div>
                     {/* info */}
                     <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 sm:px-6 lg:px-0 '>
-                        <h1 className='font-bold sm:text-[42px] lg:text-[44px]'>ВЫБОР МАТЕРИАЛОВ</h1>
+                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>ВЫБОР МАТЕРИАЛОВ</h2>
 
                         <p className='text-[26px] pb-5'>Выбор материалов при ремонте кухни имеет решающее значение не только с точки зрения эстетики, но и с точки зрения функциональности и долговечности.Такие материалы для столешниц, как гранит, кварц и мрамор, часто выбирают из-за их прочности и красоты, а также из-за того, что поверхность устойчива к порезам и царапинам и проста в уходе.</p>
                     </div>
@@ -99,10 +104,10 @@ const Kitchen = () => {
                 {/* 3 */}
                 <li className='sm:w-[85%] sm:ml-[7%] lg:w-full lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row justify-between'>
                     {/* process photo  */}
-                    <div className='sm:w-full sm:h-[378px] lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={third_step} className='w-full h-full object-cover' /></div>
+                    <div className='sm:w-full sm:h-[378px] lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={third_step} alt='third step' loading="lazy" className='w-full h-full object-cover' /></div>
                     {/* info */}
                     <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                        <h1 className='font-bold sm:text-[42px] lg:text-[44px]'>СОВРЕМЕННЫЕ ТЕХНОЛОГИИ</h1>
+                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>СОВРЕМЕННЫЕ ТЕХНОЛОГИИ</h2>
                         <p className='text-[26px] pb-5'>Помимо традиционных материалов, мы также планируем использовать современные технологии, такие как антибактериальные поверхности или интегрированные столешницы с зонами беспроводной зарядки для мобильных устройств, которые могут еще больше повысить функциональность кухни.</p>
                     </div>
                 </li>
@@ -110,10 +115,10 @@ const Kitchen = () => {
                 {/* 4 */}
                 <li className='sm:w-[85%] sm:ml-[7%] lg:w-full lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row-reverse justify-between'>
                     {/* process photo  */}
-                    <div className='sm:w-full sm:h-[378px] lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={fourth_step} className='w-full h-full object-cover' /></div>
+                    <div className='sm:w-full sm:h-[378px] lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={fourth_step} alt='fourth step' loading="lazy" className='w-full h-full object-cover' /></div>
                     {/* info */}
                     <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                        <h1 className='font-bold sm:text-[42px] lg:text-[44px]'>НАПОЛЬНОЕ ПОКРЫТИЕ</h1>
+                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>НАПОЛЬНОЕ ПОКРЫТИЕ</h2>
                         <p className='text-[26px] pb-5'>Каждый материал выбирается не только с учетом его функциональности и долговечности, но и с учетом того, как он вписывается в общий дизайн кухни.Такие материалы, как керамика, фарфор и натуральный камень, выбираются из-за их износостойкости и простоты очистки.</p>
                     </div>
                 </li>
@@ -121,35 +126,25 @@ const Kitchen = () => {
                 {/* 5 */}
                 <li className='sm:w-[85%] sm:ml-[7%] lg:w-full lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row justify-between'>
                     {/* process photo  */}
-                    <div className='sm:w-full sm:h-[378px] lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={fifth_step} className='w-full h-full object-cover' /></div>
+                    <div className='sm:w-full sm:h-[378px] lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={fifth_step} alt='fifth step' loading="lazy" className='w-full h-full object-cover' /></div>
                     {/* info */}
                     <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                        <h1 className='font-bold sm:text-[42px] lg:text-[44px]'>ШКАФЫ И ОТДЕЛКА</h1>
+                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>ШКАФЫ И ОТДЕЛКА</h2>
                         
                         <p className='text-[26px] pb-5'>Массив дерева, лакированный МДФ и ламинат известны своей универсальностью и разнообразием доступных отделок.Каждый материал выбирается не только с учетом его функциональности и долговечности, но и с учетом того, как он вписывается в общий дизайн кухни, гарантируя, что каждый аспект проекта будет соответствовать вашему эстетическому и практическому видению.</p>
                     </div>
                 </li>
             </ul>
 
-            <div className='w-[1604px] h-[627px] absolute top-[1310px] left-0 sm:hidden lg:block'><img src={arrow_2} className='w-full h-full' /></div>
+            <div className='w-[1604px] h-[627px] absolute top-[1310px] left-0 sm:hidden lg:block'><img src={arrow_2} alt='arrow 2' loading="lazy" className='w-full h-full' /></div>
         </div>
 
         <div className='mb-10 '>
           <Video text={'Ремонт кухни от EVO HOME'} />
         </div>
-      </div>
+      </main>
 
         <LayoutCollection/>
-
-
-
-
-
-
-
-
-
-
 
 
     </div>

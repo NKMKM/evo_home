@@ -41,7 +41,7 @@ const Nav = () => {
     <>
       {/* Navbar */}
       <nav
-        className={`top-0 z-20 flex h-[128px] sm:w-full md:w-full items-center sm:px-4 sm:justify-between md:justify-around shadow-2xl bg-white transition-transform duration-300 ease-in-out ${
+        className={`top-0 z-20 flex h-[128px] sm:w-full lg:w-full items-center sm:px-4 sm:justify-between lg:justify-around shadow-2xl bg-white transition-transform duration-300 ease-in-out ${
           showNavbar ? 'translate-y-0' : '-translate-y-full'
         } fixed`}
       >
@@ -49,12 +49,12 @@ const Nav = () => {
         <img
           src={Logo}
           alt="logo"
-          className=" h-[30px] lg:w-[280px] lg:h-[44px] scale-animate-hover cursor-pointer"
+          className=" h-[30px] lg:w-[280px] md:h-[44px] scale-animate-hover cursor-pointer"
           onClick={goToHome}
         />
 
         {/* Main Links */}
-        <ul className="hidden md:flex md:flex-row space-x-12 items-center px-1 md:w-[650px] font-[500] text-[#222222]">
+        <ul className="hidden lg:flex lg:flex-row space-x-12 items-center px-1 lg:w-[650px] font-[500] text-[#222222]">
           <ServicesDropdown />
           <Link to="/about_us" className="navbar-underline-animate-hover">КТО МЫ</Link>
           <Link to="/our_works" className="navbar-underline-animate-hover">НАШИ РАБОТЫ</Link>
@@ -63,9 +63,9 @@ const Nav = () => {
         </ul>
 
         {/* Contact & Language + Burger */}
-        <div className="flex flex-row items-center space-x-6 md:space-x-20">
+        <div className="flex flex-row items-center space-x-6 lg:space-x-20">
           {/* Call button - hidden on small screens */}
-          <div className="hidden sm:hidden md:flex bg-[#f9b33b]  md:w-[216px] h-[58px] justify-center rounded-lg items-center scale-animate-hover">
+          <div className="hidden sm:hidden lg:flex bg-[#f9b33b]  lg:w-[216px] h-[58px] justify-center rounded-lg items-center scale-animate-hover">
             <PhoneInTalkIcon sx={{ fontSize: 36 }} className="mr-1" />
             <div>
               <h1 className="font-[500]">ЗАКАЗАТЬ ЗВОНОК</h1>
@@ -80,7 +80,7 @@ const Nav = () => {
               alt="russian flag"
               className="w-[45px] h-[30px] bg-slate-400 shadow-md object-cover"
             />
-            <KeyboardArrowDownIcon className="cursor-pointer hidden sm:hidden md:block" />
+            <KeyboardArrowDownIcon className="cursor-pointer hidden sm:hidden lg:block" />
 
             {/* Burger icon for sm */}
             <div className=" lg:hidden ml-2">

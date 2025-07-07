@@ -13,28 +13,28 @@ import basement from '../../assets/images/services_images/basement.jpg'
 
 const Projects = () => {
   return (
-    <div className=' sm:flex sm:flex-col sm:justify-between md:block sm:mb-30 md:mb-20 sm:w-full sm:h-[3200px] md:h-[1250px] md:w-[1641px] mx-auto'>
+    <div className=' sm:flex sm:flex-col sm:justify-between lg:block sm:mb-30 lg:mb-20 sm:w-full sm:h-[3200px] lg:h-[1250px] lg:w-[1641px] mx-auto'>
         {/* header section */}
-        <div className=' h-[170px] w-full mx-auto flex flex-row justify-between items-center  '>
-            <img src={left_decoration} className='w-[276px] h-[83px] sm:hidden md:block '/>
-            <div className='sm:mx-auto md:mx-0'>
-                <h1 className='font-bold text-center text-[70px] sm:px-4 md:px-0'>Проекты EVO HOME</h1>
+        <header className=' h-[170px] w-full mx-auto flex flex-row justify-between items-center  '>
+            <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block '/>
+            <div className='sm:mx-auto lg:mx-0'>
+                <h1 className='font-bold text-center text-[70px] sm:px-4 lg:px-0'>Проекты EVO HOME</h1>
 
             </div>
-            <img src={right_decoration} className='w-[276px] h-[83px] sm:hidden md:block '/>
-        </div>
+            <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block '/>
+        </header>
 
-        <p className='sm:w-full md:w-[1410px] h-[76px] mx-auto text-[32px] text-center font-[100] italic '>"Ваш дом – наша работа"</p>
+        <p className='sm:w-full lg:w-[1410px] h-[76px] mx-auto text-[32px] text-center font-[100] italic '>"Ваш дом – наша работа"</p>
         
         {/* grid section with projects */}
-        <div className=' sm:flex sm:flex-col sm:justify-between sm:h-[2800px] md:h-[900px] md:grid md:grid-cols-3 md:grid-rows-2 md:gap-y-4 mb-10'>
+        <div className=' sm:flex sm:flex-col sm:justify-between sm:h-[2800px] lg:h-[900px] lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:gap-y-4 mb-10'>
 
             {/* first element */}
-            <div className='relative sm:w-[90%] sm:mx-auto md:mx-0 md:w-[528px] h-[407px] group '>
-                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={bar} className='w-full h-full'/></div>
+            <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group '>
+                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={bar} alt='bar' loading="lazy" className='w-full h-full'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h1 className='text-[32px]'>Дизайнерский ремонт</h1>
+                    <h2 className='text-[32px]'>Дизайнерский ремонт</h2>
                 </div>
 
                 <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
@@ -45,11 +45,11 @@ const Projects = () => {
 
             </div>
             {/* second element */}
-            <div className='relative sm:w-[90%] sm:mx-auto md:mx-0 md:w-[528px] h-[407px] group'>
-                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={basement} className='w-full h-full'/></div>
+            <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
+                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={basement} alt='basement' loading="lazy" className='w-full h-full'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h1 className='text-[32px]'>Эксклюзивный ремонт</h1>
+                    <h2 className='text-[32px]'>Эксклюзивный ремонт</h2>
                 </div>
 
                 <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
@@ -60,11 +60,11 @@ const Projects = () => {
 
             </div>
             {/* third element */}
-            <div className='relative sm:w-[90%] sm:mx-auto md:mx-0 md:w-[528px] h-[407px] group'>
-                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={bath} className='w-full h-full'/></div>
+            <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
+                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={bath} alt='bath' loading="lazy" className='w-full h-full'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h1 className='text-[32px]'>Ремонт квартиры - студии</h1>
+                    <h2 className='text-[32px]'>Ремонт квартиры - студии</h2>
                 </div>
 
                 <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
@@ -75,11 +75,11 @@ const Projects = () => {
 
             </div>
             {/* fouirth element */}
-            <div className='relative sm:w-[90%] sm:mx-auto md:mx-0 md:w-[528px] h-[407px] group'>
-                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={kitchen} className='w-full h-full'/></div>
+            <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
+                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={kitchen} alt='kitchen' loading="lazy" className='w-full h-full'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h1 className='text-[32px]'>Ремонт двухкомнатных квартир</h1>
+                    <h2 className='text-[32px]'>Ремонт двухкомнатных квартир</h2>
                 </div>
 
                 <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
@@ -90,11 +90,11 @@ const Projects = () => {
 
             </div>
             {/* fifth element */}
-            <div className='relative sm:w-[90%] sm:mx-auto md:mx-0 md:w-[528px] h-[407px] group'>
-                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={tatto_studio} className='w-full h-full' /></div>
+            <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
+                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={tatto_studio} alt='tattto studio' loading="lazy" className='w-full h-full' /></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h1 className='text-[32px]'>Ремонт трехкомнатных квартир</h1>
+                    <h2 className='text-[32px]'>Ремонт трехкомнатных квартир</h2>
                 </div>
 
                 <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
@@ -105,11 +105,11 @@ const Projects = () => {
 
             </div>
             {/* sixth element */}
-            <div className='relative sm:w-[90%] sm:mx-auto md:mx-0 md:w-[528px] h-[407px] group'>
-                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={hall} className='w-full h-full'/></div>
+            <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
+                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={hall} alt='hall' loading="lazy" className='w-full h-full'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h1 className='text-[32px]'>Ремонт двухэтажных квартир</h1>
+                    <h2 className='text-[32px]'>Ремонт двухэтажных квартир</h2>
                 </div>
 
                 <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
@@ -122,13 +122,13 @@ const Projects = () => {
 
         </div>
 
-        <div className='sm:w-full md:w-[1641px] flex flex-row items-center mx-auto'>
+        <div className='sm:w-full lg:w-[1641px] flex flex-row items-center mx-auto'>
 
-            <div className='h-[1px] w-[625.5px] bg-[#F9B33B] sm:hidden md:block'></div>
+            <div className='h-[1px] w-[625.5px] bg-[#F9B33B] sm:hidden lg:block'></div>
 
-            <button className='sm:mx-auto md:mx-0 w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold'>ПОДРОБНЕЕ</button>
+            <button className='sm:mx-auto lg:mx-0 w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold'>ПОДРОБНЕЕ</button>
 
-            <div className='h-[1px] w-[625.5px] bg-[#F9B33B] sm:hidden md:block'></div>
+            <div className='h-[1px] w-[625.5px] bg-[#F9B33B] sm:hidden lg:block'></div>
         </div>
 
         

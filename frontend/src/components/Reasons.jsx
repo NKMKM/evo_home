@@ -6,14 +6,14 @@ const Reasons = () => {
   return (
     <div className='relative  w-full lg:h-[1098px] sm:my-10 lg:my-20'>     
         {/* header */}
-        <div className='lg:w-[1640px] mx-auto h-[74px] bg-[#F9B33B] flex flex-row sm:mb-20'>
+        <header className='lg:w-[1640px] mx-auto h-[74px] bg-[#F9B33B] flex flex-row sm:mb-20'>
             <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-7 lg:mr-10'>3.</div>
             <h1 className='sm:text-[39px] lg:text-[50px] font-bold'>Почему стоит выбрать нас</h1>
-        </div>
+        </header>
 
         {/* vector */}
 
-        <div className='absolute w-[1261px] h-[1418px] -z-10 bottom-[559px] right-[1300px]'><img src={vector}/></div>
+        <div className='absolute w-[1261px] h-[1418px] -z-10 bottom-[559px] right-[1300px]'><img src={vector} alt='vector' loading="lazy"/></div>
 
         {/* reasons */}
         <ul className='sm:w-full lg:w-[1641px] lg:h-[900px] flex flex-col justify-between  mx-auto '>

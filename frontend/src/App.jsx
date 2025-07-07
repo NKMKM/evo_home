@@ -46,6 +46,14 @@ import Warehouse from './pages/commercial_premises/Warehouse';
 import FitnessClub from './pages/commercial_premises/FitnessClub';
 import Hotel from './pages/commercial_premises/Hotel';
 
+import NotFound from './pages/NotFound';
+
+import ServisesPhone from './pages/servises/ServisesPhone';
+import TurnkeyRenovationServices from './pages/servises/TurnkeyRenovationServices';
+import RoomRenovationServices from './pages/servises/RoomRenovationServices';
+import CommercialPremisesServices from './pages/servises/CommercialPremisesServices';
+import SystemsServices from './pages/servises/SystemsServices';
+
 function App() {
 
   
@@ -98,6 +106,15 @@ function App() {
           <Route path='/commercial_premises/fitness_club' element={<FitnessClub />} />
           <Route path='/commercial_premises/hotel' element={<Hotel />} />
 
+          <Route path='/*' element={<NotFound />} />
+
+          <Route path='/services' element={<ServisesPhone />} />
+          <Route path='/services/turnkey_renovation' element={<TurnkeyRenovationServices />} />
+          <Route path='/services/room_renovation' element={<RoomRenovationServices />} />
+          <Route path='/services/commercial_premises' element={<CommercialPremisesServices />} />
+          <Route path='/services/systems' element={<SystemsServices />} />
+
+        
 
 
         </Routes>

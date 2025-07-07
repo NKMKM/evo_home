@@ -81,7 +81,7 @@ const OurWorks = () => {
                         </div>
 
                         {/* row 3 */}
-                        <div className=' lg:w-[806px] sm:h-[375px] lg:h-[325px]'>
+                        <div className=' lg:w-[806px] sm:h-[375px] lg:h-[389px]'>
                             <img src={image4} className='w-full h-full object-cover mosaic-image-scale-hover'/>
                         </div>
                     </div>
