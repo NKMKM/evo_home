@@ -1,0 +1,10 @@
+{
+    "list":{
+        "first":"SERVICES",
+        "second":"ABOUT US",
+        "third":"OUR WORKS",
+        "fourth":"REVIEWS",
+        "fifth":"CONTACTS"
+    },
+    "call_text":"ORDER A CALL"
+}

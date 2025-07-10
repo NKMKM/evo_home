@@ -1,0 +1,17 @@
+{
+    "title":"Home",
+    "list": {
+      "first_stroke": "We want to transform",
+      "second_stroke": {
+        "text_1": "your ",
+        "span": "ideas",
+        "text_2": " into"
+      },
+      "third_stroke": {
+        "text": "extraordinary spaces for ",
+        "span": "living"
+      }
+    },
+    "button": "REQUEST A QUOTE"
+}
+  

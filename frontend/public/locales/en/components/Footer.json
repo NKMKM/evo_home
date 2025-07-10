@@ -1,0 +1,57 @@
+{
+    "turnkey_renovation_h": "TURNKEY APARTMENT RENOVATION",
+    "turnkey_renovation_ul": {
+      "li1": "Designer Renovation",
+      "li2": "Exclusive Renovation",
+      "li3": "Studio Apartment Renovation",
+      "li4": "Two-Room Apartment Renovation",
+      "li5": "Three-Room Apartment Renovation",
+      "li6": "Four-Room Apartment Renovation",
+      "li7": "Two-Level Apartment Renovation"
+    },
+    "room_renovation_h": "ROOM RENOVATION",
+    "room_renovation_ul": {
+      "li1": "Living Room Renovation",
+      "li2": "Bedroom Renovation",
+      "li3": "Children’s Room Renovation",
+      "li4": "Hallway Renovation",
+      "li5": "Kitchen Renovation",
+      "li6": "Bathroom Renovation",
+      "li7": "Staircase Renovation"
+    },
+    "commercial_premises_h": "COMMERCIAL SPACES",
+    "commercial_premises_ul": {
+      "li1": "Business Center Renovation",
+      "li2": "Bar and Restaurant Renovation",
+      "li3": "Commercial Property Renovation",
+      "li4": "Office Renovation",
+      "li5": "Warehouse Renovation",
+      "li6": "Fitness Club Renovation",
+      "li7": "Hotel Renovation"
+    },
+    "systems_h": "SYSTEMS",
+    "systems_ul": {
+      "li1": "Electrical System",
+      "li2": "Gas System",
+      "li3": "Underfloor Heating",
+      "li4": "Drainage and Sewerage System",
+      "li5": "Air Conditioning and Climate Control"
+    },
+    "main_h": "MAIN",
+    "main_ul": {
+      "li1": "Who We Are",
+      "li2": "Our Projects",
+      "li3": "Reviews",
+      "li4": "Contacts"
+    },
+    "adress_h": "ADDRESS",
+    "adress_p1": "00162 ROME",
+    "adress_p2": "Nomentana Ring Road, 214",
+    "contacts_h": "CONTACTS",
+    "contacts_p1": "Phone: +39 327 986 6412",
+    "contacts_p2": "Phone: +39 06 69353277",
+    "contacts_p3": "Email: info@evohome.it",
+    "copyright":"© Copyright 2025 | CONSTRUCTION COMPANY MCSrl | VAT 17325141004 |",
+    "cookies":"Cookie & Privacy Policy"
+  }
+  

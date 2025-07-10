@@ -1,0 +1,50 @@
+{
+    "h": "Renovation Cost Calculator",
+    "p": "Once you complete the calculator, our specialist will contact you to clarify the details and provide an accurate project cost estimate. We’ll consider your preferences and offer the best solution within your budget!",
+    "left_form": {
+      "first_row": {
+        "first_section": {
+          "h": "BUILDING TYPE",
+          "selection": {
+            "first_option": "New Building",
+            "second_option": "Resale Property"
+          }
+        },
+        "second_section": {
+          "h": "PROPERTY TYPE",
+          "selection": {
+            "first_option": "Apartment",
+            "second_option": "House"
+          }
+        },
+        "third_section": {
+          "h": "RENOVATION TYPE",
+          "selection": {
+            "first_option": "Cosmetic Renovation",
+            "second_option": "Major Renovation"
+          }
+        }
+      },
+      "second_row": {
+        "first_section": "AREA (M²)",
+        "second_section": {
+          "h": "URGENCY",
+          "selection": {
+            "first_option": "Standard",
+            "second_option": "Urgent"
+          }
+        }
+      },
+      "third_row": {
+        "h": "ADDITIONAL INFORMATION",
+        "placeholder": "Enter any extra details"
+      }
+    },
+    "right_form": {
+      "first_input": "Name",
+      "second_input": "Phone",
+      "third_input": "Promo Code",
+      "button":"CALCULATE THE COST"
+    }
+  }
+  

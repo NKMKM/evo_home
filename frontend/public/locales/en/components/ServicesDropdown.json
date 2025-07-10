@@ -1,0 +1,50 @@
+{
+    "h": "SERVICES",
+    "first_element": {
+      "h": "Turnkey Apartment Renovation",
+      "list_of_services": {
+        "first": "Designer Renovation",
+        "second": "Exclusive Renovation",
+        "third": "Studio Apartment Renovation",
+        "fourth": "Two-Room Apartment Renovation",
+        "fifth": "Three-Room Apartment Renovation",
+        "sixth": "Four-Room Apartment Renovation",
+        "seventh": "Two-Level Apartment Renovation"
+      }
+    },
+    "second_element": {
+      "h": "Room Renovation",
+      "list_of_services": {
+        "first": "Living Room Renovation",
+        "second": "Bedroom Renovation",
+        "third": "Children’s Room Renovation",
+        "fourth": "Hallway Renovation",
+        "fifth": "Kitchen Renovation",
+        "sixth": "Bathroom Renovation",
+        "seventh": "Staircase Renovation"
+      }
+    },
+    "third_element": {
+      "h": "Commercial Spaces",
+      "list_of_services": {
+        "first": "Business Center Renovation",
+        "second": "Bar and Restaurant Renovation",
+        "third": "Commercial Property Renovation",
+        "fourth": "Office Renovation",
+        "fifth": "Warehouse Renovation",
+        "sixth": "Fitness Club Renovation",
+        "seventh": "Hotel Renovation"
+      }
+    },
+    "fourth_element": {
+      "h": "Systems",
+      "list_of_services": {
+        "first": "Electrical System",
+        "second": "Gas System",
+        "third": "Underfloor Heating",
+        "fourth": "Drainage and Sewerage System",
+        "fifth": "Air Conditioning and Climate Control"
+      }
+    }
+}
+  

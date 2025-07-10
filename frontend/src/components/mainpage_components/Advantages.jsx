@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 // image imports
 import achieve from '../../assets/icons/achieve.png'
@@ -16,103 +18,104 @@ import before_after_2 from '../../assets/images/before_after_2.png'
 import ImageComparisonSlider from '../ImageComparisonSlider'
 
 const Advantages = () => {
+  const {t} = useTranslation('home/Advantages')
   return (
-  <div className=' md:w-full sm:h-[2750px] sm:flex sm:flex-col sm:justify-between  md:h-[1100px]  md:mb-[630px] '>
+  <div className=' lg:w-full sm:h-[2750px] sm:flex sm:flex-col sm:justify-between  lg:h-[1100px]  lg:mb-[630px] '>
           
           {/* header */}
-          <div className=' md:w-[1418px]  h-[184px] text-center mx-auto mt-20 md:mb-20 font-bold text-[#222222] items-center md:border-r-[12px]  md:border-r-[#E0E0E0] md:border-l-[12px] md:border-l-[#E0E0E0]'>
-            <h1 className='sm:text-[50px] md:text-[60px] '>Профессиональный ремонт,</h1>
+          <header className=' lg:w-[1418px]  h-[184px] text-center mx-auto mt-20 sm:mb-30 lg:mb-20 font-bold text-[#222222] items-center lg:border-r-[12px]  lg:border-r-[#E0E0E0] lg:border-l-[12px] lg:border-l-[#E0E0E0]'>
+            <h1 className='sm:text-[50px] lg:text-[60px] '>{t('header.first_stroke')}</h1>
             <div className="flex flex-row justify-between">
-              <div className='w-[155px] h-[12px] bg-[#E0E0E0] sm:hidden md:block'></div>
-              <div className='w-[155px] h-[12px] bg-[#E0E0E0] sm:hidden md:block'></div>
+              <div className='w-[155px] h-[12px] bg-[#E0E0E0] sm:hidden lg:block'></div>
+              <div className='w-[155px] h-[12px] bg-[#E0E0E0] sm:hidden lg:block'></div>
             </div>
-            <h1 className='sm:text-[50px] md:text-[60px] mb-2'> которому можно доверять!</h1>
-          </div>
+            <h1 className='sm:text-[50px] lg:text-[60px] mb-2'>{t('header.second_stroke')}</h1>
+          </header>
 
           {/* main info */}
 
-          <div className='flex sm:flex-col md:flex-row sm:h-[2000px] md:h-[1166px]  sm:w-full md:w-[1655px] mx-auto  justify-between'>
+          <main className='flex sm:flex-col lg:flex-row sm:h-[2000px] lg:h-[1166px]  sm:w-full lg:w-[1655px] mx-auto  justify-between'>
 
             {/* info */}
 
-            <div className='relative grid sm:grid-cols-2 md:grid-cols-2 md:grid-rows-3 sm:gap-y-[80px] md:gap-x-[100px] md:gap-y-[30px] md:w-[735px] items-center sm:h-[800px] md:h-auto md:my-auto  '>
+            <div className='relative grid sm:grid-cols-2 lg:grid-cols-2 lg:grid-rows-3 sm:gap-y-[80px] lg:gap-x-[100px] lg:gap-y-[30px] lg:w-[735px] items-center sm:h-[800px] lg:h-auto lg:my-auto  '>
                 <div className='flex flex-col items-center'>
-                  <h1 className='text-[32px] font-[500]'>ОПЫТ</h1>
-                  <img src={right_arrow} className='z-10 absolute top-[155px] left-[215px] scale-[0.6] sm:hidden md:block'/>
+                  <h2 className='text-[32px] font-[500]'>{t('advantages.first_step.h')}</h2>
+                  <img src={right_arrow} alt='right arrow' loading="lazy" className='z-10 absolute md:top-[150px] md:left-[33.6%] lg:top-[155px] lg:left-[215px] scale-[0.6] sm:hidden md:block'/>
                   <div className='flex flex-col items-center text-center space-y-2 px-4 w-[312px] h-[250px] rounded-[10px] border-[#F9B33B] border-[5px]'>
-                    <img src={achieve} className='w-[74px] h-[74px] mt-4' />
-                    <p className='text-[22px]'>Более 10 лет на рынке, сотни успешно завершенных проектов и довольных клиентов</p>
+                    <img src={achieve} alt='achievment' loading="lazy"  className='w-[74px] h-[74px] mt-4' />
+                    <p className='text-[21px]'>{t('advantages.first_step.p')}</p>
                   </div>
                 </div>
 
 
                 <div className='flex flex-col items-center'>
-                  <h1 className='text-[32px] font-[500]'>КАЧЕСТВО</h1>
-                  <img src={bottom_arrow} className='z-10 absolute sm:right-[10px] sm:top-[240px] md:top-[227px] md:right-[10px] scale-[0.6]'/>
+                  <h2 className='text-[32px] font-[500]'>{t('advantages.second_step.h')}</h2>
+                  <img src={bottom_arrow} alt='bottom arrow' loading="lazy" className='z-10 absolute sm:right-[10px] sm:top-[240px] md:right-[7%] lg:top-[227px] lg:right-[10px] scale-[0.6]'/>
                   <div className='flex flex-col items-center text-center space-y-2 px-4 w-[312px] h-[250px] rounded-[10px] border-[#F9B33B] border-[5px]'>
-                    <img src={bill} className='w-[74px] h-[74px] mt-4' />
-                    <p className='text-[22px]'>Используем только сертифицированные материалы и современные технологии</p>
+                    <img src={bill} alt='bill' loading="lazy" className='w-[74px] h-[74px] mt-4' />
+                    <p className='text-[22px]'>{t('advantages.second_step.p')}</p>
                   </div>
                 </div>
 
 
                 <div className='flex flex-col items-center'>
-                  <h1 className='text-[32px] font-[500]'>НАДЕЖНОСТЬ</h1>
-                  <img src={left_arrow} className='z-10 absolute top-[450px] left-[215px] scale-[0.6] sm:hidden md:block'/>
+                  <h2 className='text-[32px] font-[500]'>{t('advantages.third_step.h')}</h2>
+                  <img src={left_arrow} alt='left arrow' loading="lazy" className='z-10 absolute lg:top-[450px] lg:left-[215px] scale-[0.6] sm:hidden md:block'/>
                   <div className='flex flex-col items-center text-center space-y-2 px-4 w-[312px] h-[250px] rounded-[10px] border-[#F9B33B] border-[5px]'>
-                    <img src={hands} className='w-[74px] h-[74px] mt-4' />
-                    <p className='text-[22px]'>Работаем строго по договору, фиксированные цены без скрытых доплат</p>
+                    <img src={hands} alt='hands' loading="lazy" className='w-[74px] h-[74px] mt-4' />
+                    <p className='text-[22px]'>{t('advantages.third_step.p')}</p>
                   </div>
                 </div>
 
 
                 <div className='flex flex-col items-center'>
-                  <h1 className='text-[32px] font-[500]'>ЭКОНОМИЯ</h1>
+                  <h2 className='text-[32px] font-[500]'>{t('advantages.fourth_step.h')}</h2>
 
                   <div className='flex flex-col items-center text-center space-y-2 px-4 w-[312px] h-[250px] rounded-[10px] border-[#F9B33B] border-[5px]'>
-                    <img src={money} className='w-[74px] h-[74px] mt-4' />
-                    <p className='text-[22px]'>Оптимизируем затраты без потери качества, подбираем лучшие решения под ваш бюджет</p>
+                    <img src={money} alt='money' loading="lazy" className='w-[74px] h-[74px] mt-4' />
+                    <p className='text-[22px]'>{t('advantages.fourth_step.p')}</p>
                   </div>
 
                   
                 </div>
                 <div className='flex flex-col items-center'>
-                  <h1 className='text-[32px] font-[500]'>СРОКИ</h1>
-                  <img src={bottom_arrow} className='z-10 absolute sm:top-[620px] sm:left-[15px] md:top-[540px] md:left-[10px] scale-[0.6]'/>
+                  <h2 className='text-[32px] font-[500]'>{t('advantages.fifth_step.h')}</h2>
+                  <img src={bottom_arrow} alt='bottom arrow' loading="lazy" className='z-10 absolute sm:top-[620px] sm:left-[15px] md:left-[7.5%] lg:top-[540px] lg:left-[10px] scale-[0.6]'/>
                   <div className='flex flex-col items-center text-center space-y-2 px-4 w-[312px] h-[250px] rounded-[10px] border-[#F9B33B] border-[5px]'>
-                    <img src={time} className='w-[74px] h-[74px] mt-4' />
-                    <p className='text-[22px]'>Гарантированные сроки со штрафными санкциями за каждый день просрочки</p>
+                    <img src={time} alt='time' loading="lazy" className='w-[74px] h-[74px] mt-4' />
+                    <p className='text-[22px]'>{t('advantages.fifth_step.p')}</p>
                   </div>
                 </div>
 
 
                 <div className='flex flex-col items-center'>
-                  <h1 className='text-[32px] font-[500]'>ПОМОЩЬ</h1>
-                  <img src={right_arrow} className='z-10 absolute top-[810px] left-[215px] scale-[0.55] sm:hidden md:block'/>
+                  <h2 className='text-[32px] font-[500]'>{t('advantages.sixth_step.h')}</h2>
+                  <img src={right_arrow} alt='right arrow' loading="lazy" className='z-10 absolute md:top-[900px] md:left-[33.6%] lg:top-[810px] lg:left-[215px] scale-[0.55] sm:hidden md:block'/>
                   <div className='flex flex-col items-center text-center space-y-2 px-4 w-[312px] h-[250px] rounded-[10px] border-[#F9B33B] border-[5px]'>
-                    <img src={communication} className='w-[74px] h-[74px] mt-4' />
-                    <p className='text-[22px]'>Консультируем на каждом этапе, помогаем с выбором материалов и проектными решениями</p>
+                    <img src={communication} alt='communication' loading="lazy" className='w-[74px] h-[74px] mt-4' />
+                    <p className='text-[22px]'>{t('advantages.sixth_step.p')}</p>
                   </div>
                 </div>
             
-                <button className='sm:w-[500px] sm:ml-[25%] md:w-[734px] h-[67px]  md:mx-auto bg-[#F9B33B] rounded-[10px]  md:mt-[110px] text-3xl font-bold cursor-pointer md:button-scale-hover'>ЗАПРОСИТЬ РАСЦЕНКИ</button>
+                <Link to="/contacts" className='sm:w-[500px] sm:ml-[25%] md:ml-[50%] lg:w-[734px] h-[67px] flex justify-center items-center lg:mx-auto bg-[#F9B33B] rounded-[10px]  lg:mt-[110px] text-3xl font-bold cursor-pointer hover:scale-110 transition duration-300'>{t('button')}</Link>
 
             </div>
 
             {/* image with slider  before/after*/}
 
-            <div className='flex  sm:w-full md:w-[820px] md:h-[1156px] sm:h-[700px] sm:px-10 md:mt-0 sm:mt-[100px]'>
+            <div className='flex  sm:w-full lg:w-[820px] lg:h-[1156px] sm:h-[700px] sm:px-10 lg:mt-0 sm:mt-[100px]'>
                 <ImageComparisonSlider 
                   beforeSrc={before_after_1}
                   afterSrc={before_after_2}
                 />
             </div>
 
-          </div>
+          </main>
 
 
 
-          <p className='font-[400] sm:text-center sm:text-[36px] md:text-[32px] sm:w-full md:w-[1640px] mx-auto md:my-20 '>Команда квалифицированных специалистов и  постоянная приверженность к качеству позволяют нам удовлитворить все ваши потребности в ремонте, гарантируя обговоренные сроки.</p>
+          <p className='font-[400] sm:text-center sm:text-[36px] md:text-[32px] sm:w-full lg:w-[1640px] mx-auto md:my-20 '>{t('p')}</p>
           <div className='sm:hidden md:w-[1640px] h-[1px] mx-auto mb-20 bg-[#828282]'></div>
     </div>
   )
