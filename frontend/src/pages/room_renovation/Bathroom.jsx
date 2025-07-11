@@ -3,6 +3,7 @@ import Video from '../../components/Video'
 import LayoutCollection from '../../components/room_renovation_components/LayoutCollection'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 
 import left_decoration from '../../assets/images/leftside_black_decoration.png'
 import right_decoration from '../../assets/images/rightside_black_decoration.png'
@@ -21,10 +22,11 @@ import fifth_step from '../../assets/images/room_renovation/bathroom/process/fif
 
 
 const Bathroom = () => {
+  const {t} = useTranslation('room_renovation/Bathroom')
   return (
     <div>
         <Helmet>
-            <title>Реновация ванной комнаты</title>
+            <title>{t('title')}</title>
             <meta name="description" content="Renovation of bathrooms by EVO Home" />
         </Helmet>
         {/* first step */}
@@ -33,7 +35,7 @@ const Bathroom = () => {
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
 
-                <h1 className='font-bold mx-auto text-center sm:text-[60px] lg:text-[57px]'>Ремонт ванной комнаты</h1>
+                <h1 className='font-bold mx-auto text-center sm:text-[60px] lg:text-[57px]'>{t('h')}</h1>
 
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
             </div>
@@ -43,13 +45,13 @@ const Bathroom = () => {
                 {/* header */}
                 <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>1.</div>
-                    <h2 className='sm:text-[30px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>Ремонт ванной комнаты от EVO HOME</h2>
+                    <h2 className='sm:text-[30px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('header.h')}</h2>
                 </div>
 
                 {/* text */}
                 <div className='text-[28px] sm:text-center lg:text-start sm:px-5 lg:px-0 flex flex-col space-y-5'>
-                    <p>Вы планируете сделать ремонт в ванной комнате? Компания Evo Home, лидер в сфере ремонта в Риме и его окрестностях, предлагает высококачественные услуги по цене от 7000 евро . Обладая более чем 17-летним опытом, мы стремимся преобразить вашу ванную комнату, гарантируя долгосрочные результаты с минимальной гарантией на 3 года .</p>
-                    <p>Каждый проект создается с максимальным вниманием к деталям и с использованием только лучших материалов, чтобы ваша ванная комната была не только красивой, но и функциональной. Независимо от того, хотите ли вы обновить внешний вид своей квартиры-студии или полностью отремонтировать ванную комнату в большой четырехкомнатной квартире, Evo Home — это правильный выбор, который выполнит работу безупречно. Свяжитесь с нами, чтобы узнать, как мы можем помочь вам создать ванную комнату вашей мечты, оптимизировав пространство и улучшив любую обстановку.</p>
+                    <p>{t('header.p1')}</p>
+                    <p>{t('header.p2')}</p>
                 </div>
 
                 {/* image */}
@@ -58,7 +60,7 @@ const Bathroom = () => {
                 <div className='sm:w-full lg:w-[1640px] h-[67px] flex flex-row items-center mx-auto'>
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
 
-                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">ЗАКАЗАТЬ</Link>
+                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">{t('header.button')}</Link>
 
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
                 </div>
@@ -70,7 +72,7 @@ const Bathroom = () => {
         {/* header */}
         <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
             <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>2.</div>
-            <h1 className='sm:text-[22px] lg:text-[50px] font-bold sm:mt-5.5 lg:mt-0'>Подробнее о ремонте ванной комнаты от EVO HOME </h1>
+            <h1 className='sm:text-[22px] lg:text-[50px] font-bold sm:mt-5.5 lg:mt-0'>{t('process.h')}</h1>
         </div>
 
         {/* list of steps */}
@@ -84,9 +86,9 @@ const Bathroom = () => {
                     <div className='sm:w-full sm:h-[358px] lg:w-[667px] lg:h-full border-y-[5px] border-[#F9B33B]'><img src={first_step} alt='first step' loading="lazy" className='w-full h-full object-cover' /></div>
                     {/* info */}
                     <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>СНОС И ПОДГОТОВКА</h2>
+                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.1.h')}</h2>
 
-                        <p className='text-[26px] pb-5'>Первый этап процесса реконструкции включает удаление старой сантехники, труб и плитки. Это также включает удаление любой старой отделки, такой как известковая штукатурка, которую необходимо полностью удалить перед началом новой установки.Далее мы приступаем к установке новых труб для воды и канализации. </p>
+                        <p className='text-[26px] pb-5'>{t('process.ul.1.p')}</p>
                     </div>
                 </li>
 
@@ -96,9 +98,9 @@ const Bathroom = () => {
                     <div className='sm:w-full sm:h-[378px] lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={second_step} alt='second step' loading="lazy" className='w-full h-full object-cover' /></div>
                     {/* info */}
                     <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 sm:px-6 lg:px-0 '>
-                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>ЭЛЕКТРИЧЕСКАЯ СИСТЕМА</h2>
+                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.2.h')}</h2>
 
-                        <p className='text-[26px] pb-5'>Модернизация вашей электрической системы необходима для поддержки новых приборов и осветительных приборов. Все электроустановки должны соответствовать действующим нормам для обеспечения безопасности и функциональности.</p>
+                        <p className='text-[26px] pb-5'>{t('process.ul.2.p')}</p>
                     </div>
                 </li>
 
@@ -108,8 +110,8 @@ const Bathroom = () => {
                     <div className='sm:w-full sm:h-[378px] lg:w-[667px] lg:h-full border-y-[5px] border-[#F9B33B]'><img src={third_step} alt='third step' loading="lazy" className='w-full h-full object-cover' /></div>
                     {/* info */}
                     <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>ОТДЕЛКА ПОТОЛКА</h2>
-                        <p className='text-[26px] pb-5'>Материал, используемый для отделки потолка, варьируется в зависимости от бюджета и личных предпочтений. Такие материалы, как гипсокартон, могут быть экономичным и в то же время эстетически приятным выбором.</p>
+                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.3.h')}</h2>
+                        <p className='text-[26px] pb-5'>{t('process.ul.3.p')}</p>
                     </div>
                 </li>
 
@@ -119,8 +121,8 @@ const Bathroom = () => {
                     <div className='sm:w-full sm:h-[378px] lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={fourth_step} alt='fourth step' loading="lazy" className='w-full h-full object-cover' /></div>
                     {/* info */}
                     <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 sm:px-6 lg:px-0'>
-                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>УКЛАДКА ПЛИТКИ</h2>
-                        <p className='text-[26px] pb-5'>Выбор плитки имеет решающее значение для обеспечения ее долговечности и простоты ухода. Керамика, благодаря своим гидрофобным свойствам, идеально подходит для влажных помещений ванной комнаты.</p>
+                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.4.h')}</h2>
+                        <p className='text-[26px] pb-5'>{t('process.ul.4.p')}</p>
                     </div>
                 </li>
 
@@ -130,9 +132,9 @@ const Bathroom = () => {
                     <div className='sm:w-full sm:h-[378px] lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={fifth_step} alt='fifth step' loading="lazy" className='w-full h-full object-cover' /></div>
                     {/* info */}
                     <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>УСТАНОВКА АКСЕССУАРОВ</h2>
+                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.5.h')}</h2>
                         
-                        <p className='text-[26px] pb-5'>Заключительный этап включает установку аксессуаров, таких как зеркала, полотенцесушители и другие функциональные и декоративные элементы.</p>
+                        <p className='text-[26px] pb-5'>{t('process.ul.5.p')}</p>
                     </div>
                 </li>
             </ul>
@@ -141,7 +143,7 @@ const Bathroom = () => {
         </div>
 
         <div className='mb-10 '>
-          <Video text={'Ремонт ванной комнаты от EVO HOME'} />
+          <Video text={t('process.video_text')} />
         </div>
       </main>
 

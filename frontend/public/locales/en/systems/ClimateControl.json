@@ -1,0 +1,36 @@
+{
+    "title": "Climate Control System",
+    "h": "Climate Control System",
+    "header": {
+      "h": "Climate Control System Installation by EVO HOME",
+      "p1": "Our company, Evo Home, has over 17 years of experience installing ventilation and air conditioning systems in Rome, offering tailored and innovative solutions for all needs. We specialize in installations both in residential spaces such as apartments and private homes, and in commercial premises, including offices, stores, and corporate facilities. We guarantee the execution of projects of any complexity, always ensuring certified quality, fast turnaround times, and a fully personalized approach to best meet the needs of our clients.",
+      "button": "ORDER"
+    },
+    "process": {
+      "h": "More about climate control system installation",
+      "ul": {
+        "1": {
+          "h": "INSTALLATION OF WALL-MOUNTED AIR CONDITIONERS",
+          "p": "We install wall-mounted air conditioners and multi-split systems, ensuring even air distribution, energy efficiency, and optimal comfort for residential spaces of any size."
+        },
+        "2": {
+          "h": "INSTALLATION OF CASSETTE AIR CONDITIONERS",
+          "p": "Ideal for offices and commercial spaces, cassette air conditioners provide even airflow through their integrated and discreet design suited for modular and suspended ceilings."
+        },
+        "3": {
+          "h": "SITE INSPECTION",
+          "p": "We conduct professional inspections to assess specific needs, ensure proper system selection, and optimize air conditioning systems based on the environment and thermal load."
+        },
+        "4": {
+          "h": "FLOOR-CEILING AIR CONDITIONERS",
+          "p": "These versatile systems are ideal for areas with design constraints or complex layouts, offering effective solutions for both residential and commercial premises."
+        },
+        "5": {
+          "h": "AIR CONDITIONING SYSTEMS",
+          "p": "We design and install advanced systems for apartments, villas, offices, and large commercial spaces, optimizing comfort, energy efficiency, and climate control."
+        }
+      },
+      "video_text": "Climate Control System Installation by EVO HOME"
+    }
+}
+  

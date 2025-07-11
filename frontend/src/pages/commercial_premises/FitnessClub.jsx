@@ -3,6 +3,7 @@ import Video from '../../components/Video'
 import CommercialPremisesLayoutCollection from '../../components/commercial_premises_components/CommercialPremisesLayoutCollection'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 
 import left_decoration from '../../assets/images/leftside_black_decoration.png'
 import right_decoration from '../../assets/images/rightside_black_decoration.png'
@@ -20,10 +21,11 @@ import fifth_step from '../../assets/images/commercial_premises/fitness_club/pro
 
 
 const FitnessClub = () => {
+  const {t} = useTranslation('commercial_premises/FitnessClub')
   return (
     <div>
         <Helmet>
-            <title>Реновация фитнес-клубов</title>
+            <title>{t('title')}</title>
             <meta name="description" content="Renovation of fitness clubs by EVO Home" />
         </Helmet>
         {/* first step */}
@@ -32,7 +34,7 @@ const FitnessClub = () => {
             <div className='h-[83px] lg:w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block  '/>
                 <div className=''>
-                    <h1 className='font-bold text-center sm:text-[50px] lg:text-[57px]'>Реновация фитнес-клуба</h1>
+                    <h1 className='font-bold text-center sm:text-[50px] lg:text-[57px]'>{t('h')}</h1>
 
                 </div>
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block'/>
@@ -43,13 +45,13 @@ const FitnessClub = () => {
                 {/* header */}
                 <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>1.</div>
-                    <h2 className='sm:text-[28px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>Реновация фитнес-клуба от EVO HOME</h2>
+                    <h2 className='sm:text-[28px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('header.h')}</h2>
                 </div>
 
                 {/* text */}
                 <div className='text-[30px] lg:w-[1641px]  lg:h-[454px] sm:text-center lg:text-start flex flex-col justify-around '>
-                    <p>Реновация фитнес-клуба в настоящее время является не только насущной необходимостью, но и конкурентным преимуществом. Светлое и просторное помещение с хорошо функционирующим оборудованием производит положительное впечатление и улучшает впечатления клиентов от тренировок.</p>
-                    <p>Компания EvoHome, работающая в сфере ремонта в Риме более 17 лет, предлагает экономичные и практичные решения для ремонта вашего фитнес-клуба, гарантируя высокое качество работы и своевременную доставку. Будь то косметический ремонт или полная реконструкция с перепланировкой пространства, мы стремимся обеспечить превосходный результат, как указано в договоре. Стоимость варьируется в зависимости от первоначального состояния здания, целей проекта и первоначального разделения пространств.</p>
+                    <p>{t('header.p1')}</p>
+                    <p>{t('header.p2')}</p>
 
                 </div>
 
@@ -60,7 +62,7 @@ const FitnessClub = () => {
 
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
 
-                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">ЗАКАЗАТЬ</Link>
+                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">{t('header.button')}</Link>
 
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
                 </div>
@@ -76,7 +78,7 @@ const FitnessClub = () => {
             {/* header */}
             <div className='sm:w-full lg:w-[1640px]  h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>2.</div>
-                <h2 className='sm:text-[28px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>Подробнее о реновации фитнес-клуба</h2>
+                <h2 className='sm:text-[28px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('process.h')}</h2>
             </div>
 
 
@@ -93,13 +95,13 @@ const FitnessClub = () => {
                             {/* info */}
                             <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 lg:px-5 '>
                                 <div>   
-                                    <h2 className='font-bold sm:text-[42px] lg:text-[46px]'>РАБОТЫ ПО СНОСУ И ВЫЗОВУ</h2>
+                                    <h2 className='font-bold sm:text-[42px] lg:text-[46px]'>{t('process.ul.1.h')}</h2>
                                 </div>
     
                                 <ul className='list-disc text-[28px] px-7'>
-                                  <li>Удаление покрытий : Демонтаж старых напольных покрытий, плитки, штукатурки и настенных покрытий.</li>
-                                  <li>Снос стен : снос ненесущих перегородок для перепланировки внутренних пространств</li>
-                                  <li>Демонтаж окон : демонтаж старых окон и дверей.</li>
+                                  <li>{t('process.ul.1.li1')}</li>
+                                  <li>{t('process.ul.1.li2')}</li>
+                                  <li>{t('process.ul.1.li3')}</li>
                                 </ul>
                             </div>
 
@@ -114,11 +116,11 @@ const FitnessClub = () => {
                             {/* info */}
                             <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5  '>
                                 <div>
-                                    <h2 className='font-bold sm:text-[42px] lg:text-[46px] '>ПРОМЕЖУТОЧНЫЕ ОТДЕЛОЧНЫЕ РАБОТЫ</h2>
+                                    <h2 className='font-bold sm:text-[42px] lg:text-[46px] '>{t('process.ul.2.h')}</h2>
                                 </div>
                                 <ul className='list-disc text-[28px] px-7'>
-                                  <li>Штукатурка и выравнивание : нанесение штукатурки на стены и потолки для получения гладкой, ровной поверхности.</li>
-                                  <li>Базовая краска : Первый слой краски для подготовки поверхности к окончательной отделке.</li>
+                                  <li>{t('process.ul.2.li1')}</li>
+                                  <li>{t('process.ul.2.li2')}</li>
                                 </ul>
                             </div>
 
@@ -133,13 +135,13 @@ const FitnessClub = () => {
                             {/* info */}
                             <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 lg:px-5 '>
                                 <div>
-                                    <h2 className='font-bold sm:text-[42px] lg:text-[46px]'>ЭЛЕКТРИКА И САНТЕХНИКА</h2>
+                                    <h2 className='font-bold sm:text-[42px] lg:text-[46px]'>{t('process.ul.3.h')}</h2>
                                 </div>
     
                                 <ul className='list-disc text-[28px] px-7'>
-                                  <li>Электрика : Установка и подключение новых электрических систем, включая розетки, выключатели и освещение.</li>
-                                  <li>Сантехника : Монтаж труб горячего и холодного водоснабжения, канализации и сантехнического оборудования.</li>
-                                  <li>Технологические подключения : подключения для аудио, видео и систем контроля доступа.</li>
+                                  <li>{t('process.ul.3.li1')}</li>
+                                  <li>{t('process.ul.3.li2')}</li>
+                                  <li>{t('process.ul.3.li3')}</li>
                                 </ul>
                             </div>
 
@@ -154,10 +156,10 @@ const FitnessClub = () => {
                             {/* info */}
                             <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5  '>
                                 <div>
-                                    <h2 className='font-bold sm:text-[42px] lg:text-[46px] '>ФИТНЕС-ОБОРУДОВАНИЕ</h2>
+                                    <h2 className='font-bold sm:text-[42px] lg:text-[46px] '>{t('process.ul.4.h')}</h2>
                                 </div>
     
-                                <p className='text-[26px] pb-5'>Сборка и ремонт фитнес-оборудования, такого как тренажеры, свободные веса и оборудование для функциональных тренировок.</p>
+                                <p className='text-[26px] pb-5'>{t('process.ul.4.p')}</p>
                             </div>
 
                         </li>
@@ -170,13 +172,13 @@ const FitnessClub = () => {
                             {/* info */}
                             <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-4  py-5 lg:px-5 '>
                                 <div>
-                                    <h2 className='font-bold sm:text-[42px] lg:text-[46px]'>ОСВЕЩЕНИЕ И МЕБЛИРОВКА</h2>
+                                    <h2 className='font-bold sm:text-[42px] lg:text-[46px]'>{t('process.ul.5.h')}</h2>
                                 </div>
     
                                 <ul className='list-disc text-[25px] px-7'>
-                                  <li>Освещение : Установите соответствующие системы освещения для каждой зоны фитнес-клуба.</li>
-                                  <li>Меблировка : Поставка и монтаж мебели для приемных, зон отдыха и раздевалок</li>
-                                  <li>Декоративные элементы : Нанесение настенных украшений, установка штор и ставней.</li>
+                                  <li>{t('process.ul.5.li1')}</li>
+                                  <li>{t('process.ul.5.li2')}</li>
+                                  <li>{t('process.ul.5.li3')}</li>
                                 </ul>
                             </div>
 
@@ -193,7 +195,7 @@ const FitnessClub = () => {
 
             {/* video */}
             <div className='mb-10'>
-                <Video text={'Реновация фитнес-клуба от EVO HOME'}/>
+                <Video text={t('process.video_text')}/>
             </div>
 
 

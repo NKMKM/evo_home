@@ -22,7 +22,7 @@ import seventh_step from '../../assets/images/systems/systems/process/seventh_st
 
 import Calculator from '../../components/mainpage_components/Calculator'
 import Reasons from '../../components/Reasons'
-import SystemProjects from '../../components/systems_components/SystemProjects'
+import CommercialPremisesProjects from '../../components/commercial_premises_components/CommercialPremisesProjects'
 
 
 
@@ -267,7 +267,7 @@ const System = () => {
 
 
         {/* projects */}
-        <SystemProjects/>
+        <CommercialPremisesProjects/>
 
     </div>
   )

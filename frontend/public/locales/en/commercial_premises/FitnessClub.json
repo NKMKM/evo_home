@@ -1,0 +1,43 @@
+{
+    "title": "Fitness Club Renovation",
+    "h": "Fitness Club Renovation",
+    "header": {
+      "h": "Fitness Club Renovation by EVO HOME",
+      "p1": "Renovating a fitness club today is not just a necessity, but also a competitive advantage. A bright and spacious space with well-functioning equipment makes a great impression and enhances the training experience for clients.",
+      "p2": "EvoHome, with over 17 years of experience in renovations across Rome, offers cost-effective and practical solutions for renovating your fitness club, ensuring high-quality work and timely delivery. Whether it’s a cosmetic refresh or a complete restructuring with space redistribution, we aim to deliver exceptional results as outlined in the contract. The cost depends on the initial condition of the building, project goals, and the existing layout.",
+      "button": "ORDER NOW"
+    },
+    "process": {
+      "h": "More About Fitness Club Renovation",
+      "ul": {
+        "1": {
+          "h": "DEMOLITION AND DISMANTLING WORK",
+          "li1": "Surface removal: Dismantling old flooring, tiles, plaster, and wall coverings.",
+          "li2": "Wall removal: Demolition of non-load-bearing partitions to reorganize interior spaces.",
+          "li3": "Window dismantling: Removal of old windows and doors."
+        },
+        "2": {
+          "h": "INTERMEDIATE FINISHING WORK",
+          "li1": "Plastering and leveling: Applying plaster to walls and ceilings for a smooth, even surface.",
+          "li2": "Base paint: Applying the first coat of paint to prepare the surface for the final finish."
+        },
+        "3": {
+          "h": "ELECTRICAL AND PLUMBING",
+          "li1": "Electrical: Installation and connection of new electrical systems, including outlets, switches, and lighting.",
+          "li2": "Plumbing: Installation of hot and cold water pipes, drainage systems, and plumbing fixtures.",
+          "li3": "Tech connections: Wiring for audio, video, and access control systems."
+        },
+        "4": {
+          "h": "FITNESS EQUIPMENT",
+          "p": "Assembly and repair of fitness equipment, including machines, free weights, and functional training gear."
+        },
+        "5": {
+            "h": "LIGHTING AND FURNISHING",
+            "li1": "Lighting: Installation of appropriate lighting systems for each zone of the fitness club.",
+            "li2": "Furnishing: Supply and installation of furniture for reception areas, lounges, and changing rooms.",
+            "li3": "Decorative elements: Application of wall decorations, installation of curtains and shutters."
+        }
+      },
+      "video_text": "Fitness Club Renovation by EVO HOME"
+    }
+}

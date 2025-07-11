@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 
 import left_decoration from '../../assets/images/leftside_black_decoration.png'
 import right_decoration from '../../assets/images/rightside_black_decoration.png'
@@ -28,10 +29,11 @@ import CommercialPremisesProjects from '../../components/commercial_premises_com
 
 
 const CommercialPremises = () => {
+  const {t} = useTranslation('commercial_premises/CommercialPremises')
   return (
     <div>
         <Helmet>
-            <title>Коммерческие помещения</title>
+            <title>{t('title')}</title>
             <meta name="description" content="Renovation of commercial premises by EVO Home" />
         </Helmet>
         {/* first step */}
@@ -40,7 +42,7 @@ const CommercialPremises = () => {
             <div className='h-[83px] lg:w-full sm:my-10 lg:my-0 mx-auto flex flex-row justify-between items-center '>
                 <img src={left_decoration} alt='left decoratioin' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block  '/>
                 <div className=''>
-                    <h1 className='font-bold text-center  sm:text-[50px] lg:text-[57px]'>Коммерческие помещения</h1>
+                    <h1 className='font-bold text-center  sm:text-[50px] lg:text-[57px]'>{t('h')}</h1>
 
                 </div>
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block'/>
@@ -51,14 +53,13 @@ const CommercialPremises = () => {
                 {/* header */}
                 <div className='lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-5 lg:mr-10'>1.</div>
-                    <h2 className='sm:text-[29px] sm:mt-4 lg:mt-0 lg:text-[50px] font-bold'>Реновация коммерческих помещений</h2>
+                    <h2 className='sm:text-[29px] sm:mt-4 lg:mt-0 lg:text-[50px] font-bold'>{t('header.h')}</h2>
                 </div>
 
                 {/* text */}
                 <div className='sm:text-[28px] lg:text-[32px] sm:w-full sm:px-4 lg:px-0 sm:text-center lg:text-start lg:w-[1641px] sm:h-[950px] lg:h-[504px] flex flex-col justify-between '>
-                    <p>Ремонт коммерческих помещений поднимает ряд важных вопросов: как рассчитать смету? У какого поставщика мне следует покупать материалы и у кого мне следует приобретать системы? Какую компанию выбрать для закупки стекла и как правильно выполнить монтаж? Эти и многие другие вопросы требуют точных ответов. Компания Evo Home, имеющая более чем 17-летний опыт работы в Риме, является идеальным решением для решения этих задач.
-                    Наш подход гарантирует результат, отражающий ваши ожидания и требования, поскольку мы можем предложить выгодные условия, высокое качество услуг и 3-летнюю гарантию .</p>
-                    <p>Реновация коммерческих помещений от EVO HOME – это комплексное обновление офисов, магазинов, ресторанов и других коммерческих пространств. Мы создаем современные, стильные и функциональные интерьеры, повышая комфорт и эффективность вашего бизнеса. Полный цикл работ: от дизайна до реализации.</p>
+                    <p>{t('header.p1')}</p>
+                    <p>{t('header.p2')}</p>
 
                 </div>
 
@@ -69,7 +70,7 @@ const CommercialPremises = () => {
 
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
 
-                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">ЗАКАЗАТЬ</Link>
+                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">{t('header.button')}</Link>
 
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
                 </div>
@@ -87,7 +88,7 @@ const CommercialPremises = () => {
             {/* header */}
             <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-5 lg:mr-10'>2.</div>
-                <h2 className='sm:text-[26px] lg:text-[50px] font-bold'>Подробнее о ремонте коммерческих помещений</h2>
+                <h2 className='sm:text-[26px] lg:text-[50px] font-bold'>{t('process.h')}</h2>
             </div>
 
 
@@ -105,10 +106,10 @@ const CommercialPremises = () => {
                             {/* info */}
                             <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 lg:px-5 '>
                                 <div>
-                                    <h2 className='font-bold text-[46px]'>РЕНОВАЦИЯ БИЗНЕС ЦЕНТРА</h2>
+                                    <h2 className='font-bold text-[46px]'>{t('process.ul.1.h')}</h2>
                                 </div>
     
-                                <p className='sm:text-[24px] lg:text-[27px] p-light'>Реновация бизнес-центров требует особого внимания к функциональности и эффективности рабочих пространств. Крайне важно создать среду, способствующую производительности и благополучию сотрудников. Наши мероприятия включают оптимизацию общих зон, создание коворкинг-пространств, модернизацию технологической инфраструктуры и создание офисов.</p>
+                                <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.1.p')}</p>
                             </div>
 
 
@@ -122,11 +123,10 @@ const CommercialPremises = () => {
                             {/* info */}
                             <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5  '>
                                 <div>
-                                    <h2 className='font-bold text-[46px]'>КОММЕРЧЕСКИЕ ПОМЕЩЕНИЯ</h2>
+                                    <h2 className='font-bold text-[46px]'>{t('process.ul.2.h')}</h2>
                                 </div>
     
-                                <p className='sm:text-[24px] lg:text-[27px] p-light'>Мы заботимся обо всех аспектах: от проектирования планировки до выбора наиболее подходящих материалов для создания уютной и функциональной среды. Наши решения включают реорганизацию выставочных пространств, установку современных систем освещения и внедрение технологических решений для улучшения качества обслуживания клиентов и увеличения продаж.
-                                </p>
+                                <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.2.p')}</p>
                             </div>
 
 
@@ -140,10 +140,10 @@ const CommercialPremises = () => {
                             {/* info */}
                             <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
                                 <div>
-                                    <h2 className='font-bold text-[46px]'>РЕМОНТ ОФИСА</h2>
+                                    <h2 className='font-bold text-[46px]'>{t('process.ul.3.h')}</h2>
                                 </div>
     
-                                <p className='sm:text-[24px] lg:text-[27px] p-light'>Мы предлагаем индивидуальные решения по разделению пространства, созданию технологически продвинутых конференц-залов и интеграции систем управления энергопотреблением для снижения эксплуатационных расходов.</p>
+                                <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.3.p')}</p>
                             </div>
 
 
@@ -157,10 +157,10 @@ const CommercialPremises = () => {
                             {/* info */}
                             <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
                                 <div>
-                                    <h2 className='font-bold text-[46px]'>РЕНОВАЦИЯ БАРОВ И РЕСТОРАНОВ</h2>
+                                    <h2 className='font-bold text-[46px]'>{t('process.ul.4.h')}</h2>
                                 </div>
     
-                                <p className='sm:text-[24px] lg:text-[27px] p-light'>Реновация баров и ресторанов имеет решающее значение для создания атмосферы, которая привлекает клиентов и способствует приятному времяпрепровождению. Мы занимаемся дизайном интерьера, выбором прочных и легкоочищаемых материалов, установкой систем вентиляции и кондиционирования. Каждый проект направлен на улучшение индивидуальности помещения.</p>
+                                <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.4.p')}</p>
                             </div>
 
 
@@ -174,11 +174,10 @@ const CommercialPremises = () => {
                             {/* info */}
                             <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 lg:px-5 '>
                                 <div>
-                                    <h2 className='font-bold text-[42px]'>РЕНОВАЦИЯ СКЛАДОВ</h2>
+                                    <h2 className='font-bold text-[42px]'>{t('process.ul.5.h')}</h2>
                                 </div>
     
-                                <p className='sm:text-[24px] lg:text-[27px] p-light'>Реконструкция склада требует тщательного планирования для оптимизации эффективности работы и обеспечения безопасности работников. Мы предлагаем решения по реорганизации складских помещений, установке современных стеллажных систем и созданию функциональных погрузочно-разгрузочных зон.
-                                </p>
+                                <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.5.p')}</p>
                             </div>
 
 
@@ -192,10 +191,10 @@ const CommercialPremises = () => {
                             {/* info */}
                             <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
                                 <div>
-                                    <h2 className='font-bold text-[46px]'>РЕНОВАЦИЯ ФИТНЕС КЛУБОВ</h2>
+                                    <h2 className='font-bold text-[46px]'>{t('process.ul.6.h')}</h2>
                                 </div>
     
-                                <p className='sm:text-[24px] lg:text-[27px] p-light'>Реновация фитнес-клуба необходима для создания стимулирующей и комфортной обстановки для клиентов. Мы проектируем пространства, способствующие физической активности и благополучию, уделяя особое внимание расположению оборудования, качеству используемых материалов и эстетике среды.</p>
+                                <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.6.p')}</p>
                             </div>
 
 
@@ -209,10 +208,10 @@ const CommercialPremises = () => {
                             {/* info */}
                             <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
                                 <div>
-                                    <h2 className='font-bold text-[46px]'>РЕНОВАЦИЯ ГОСТИННИЦЫ</h2>
+                                    <h2 className='font-bold text-[46px]'>{t('process.ul.7.h')}</h2>
                                 </div>
     
-                                <p className='sm:text-[24px] lg:text-[27px] p-light'>Реновация гостиницы — сложный процесс, направленный на улучшение обслуживания гостей и повышение привлекательности объекта. Мы предлагаем полный спектр услуг: от дизайна помещений до создания элегантных и функциональных мест общего пользования.</p>
+                                <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.7.p')}</p>
                             </div>
 
 
@@ -229,7 +228,7 @@ const CommercialPremises = () => {
 
             {/* video */}
             <div className='sm:mb-20 lg:mb-0'>
-                <Video text={'Реновация коммерческих помещений от EVO HOME'}/>
+                <Video text={t('process.video_text')}/>
             </div>
 
 

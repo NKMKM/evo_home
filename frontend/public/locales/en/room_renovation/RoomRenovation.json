@@ -1,0 +1,49 @@
+{
+    "title": "Room Renovation",
+    "h": "Room Renovation",
+    "header": {
+      "h": "Room Renovation with EVO HOME",
+      "p1": "Are you looking for a reliable solution for renovating rooms in your home? EvoHome, with over 17 years of experience in the construction and renovation sector, is ready to transform any space, guaranteeing exceptional results with a 3-year warranty.",
+      "p2": "Whether it's renovating the living room to make it more cozy and functional, redesigning the bedroom to turn it into a relaxing and comfortable oasis, updating a kid's room with smart solutions for studying and playing, renovating the hallway to make your home more welcoming, modernizing the staircase to ensure safety and style, or completely transforming bathrooms and kitchens to match the latest design trends and technologies — EvoHome is your ideal partner.",
+      "p3": "Our company offers room renovation services starting from €5000 and is committed to delivering high-quality solutions in Rome and surrounding areas. Choosing our team means an expert-based approach with professional project management from the initial phase to final implementation, ensuring a precise and reliable match to your specific needs.",
+      "button": "ORDER"
+    },
+    "process": {
+      "h": "Room Renovation Process with EvoHome",
+      "ul": {
+        "1": {
+          "h": "LIVING ROOM RENOVATION",
+          "p": "Living room renovation includes removing existing coverings, preparing the walls, laying new flooring, and installing designer ceilings, as well as updating the electrical system to adapt the space to modern needs. Additional work can be carried out upon request."
+        },
+        "2": {
+          "h": "BEDROOM RENOVATION",
+          "p": "Bedroom renovation focuses on creating a calm, relaxing environment, including floor replacement, wall and ceiling treatment, and window upgrades for better insulation and comfort. Additional work may be added at the client's request."
+        },
+        "3": {
+          "h": "KID'S ROOM RENOVATION",
+          "p": "This project aims to create a safe and stimulating space by removing old flooring, preparing walls and ceiling for finishing, and installing appropriate lighting solutions. Additional work can be included upon request."
+        },
+        "4": {
+          "h": "HALLWAY RENOVATION",
+          "p": "Hallway updates include laying durable flooring, installing new ceiling bases, and wall finishes, as well as updating the electrical system to create a bright and warm atmosphere. Custom work can be added upon request."
+        },
+        "5": {
+          "h": "KITCHEN RENOVATION",
+          "p": "Kitchen renovation requires special attention to wiring and plumbing, removing old finishes, preparing walls and ceilings, and installing new floors and windows to create a functional and cozy space. Additional work available on request."
+        },
+        "6": {
+          "h": "BATHROOM RENOVATION",
+          "p": "This type of renovation is among the most complex due to the need for reliable plumbing, electrical system replacement, application of moisture-resistant materials on walls and floors, and installation of effective ventilation systems. Extra work can be added on demand."
+        }
+      },
+      "video_text": "Turnkey Apartment Renovation by EVO HOME",
+      "video_p": "EvoHome is committed to transforming your apartment into a comfortable, functional, and stylish environment, meeting your timeline and budget. Our experience, quality guarantee, and personalized approach make us the ideal partner for your renovation in Rome and surrounding areas. Contact us today to start your project with EvoHome.",
+      "step1": "STEP 1",
+      "step2": "STEP 2",
+      "step3": "STEP 3",
+      "step4": "STEP 4",
+      "step5": "STEP 5",
+      "step6": "STEP 6"
+    }
+  }
+  

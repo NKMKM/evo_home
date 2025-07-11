@@ -1,13 +1,13 @@
 import React from 'react'
+import Guarantees from '../mainpage_components/Guarantees'
 import Projects from './Projects'
-import FiveReasons from '../FiveReasons'
 import Calculator from '../mainpage_components/Calculator'
 import Reasons from '../Reasons'
 
 const LayoutCollection = () => {
   return (
     <div className='flex flex-col'>
-        <FiveReasons/>
+        <Guarantees/>
         <Calculator/>
         <Reasons/>
         <Projects/>

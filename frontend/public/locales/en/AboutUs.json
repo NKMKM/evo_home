@@ -1,0 +1,63 @@
+{
+    "title":"About Us",
+    "header": {
+      "h": "About the Construction Company — Evo Home",
+      "p1": "Welcome to Evo Home — your reliable partner in the world of construction and renovation. Over the course of ",
+      "span1": "more than 17 years ",
+      "p2": "our company has established itself as a leader in providing high-quality construction and renovation services in",
+      "span2": " Rome and the surrounding areas.",
+      "p3": "At Evo Home, we believe that building or renovating your home, apartment, or office should leave you with only positive memories. That’s why we avoid standard solutions and offer an",
+      "span3": " individual approach to every project.",
+      "p4": "Our surveyors carefully assess the unique features of your property when preparing the estimate, eliminating unexpected costs. Our designers listen closely to your vision to bring it to life, and our builders strictly follow the plan to meet — and exceed — your expectations.",
+      "button": "ORDER NOW"
+    },
+    "our_team": {
+      "h": "The EVO Home Team",
+      "ul": {
+        "li1": {
+          "h": "Pietro Bostan",
+          "h2": "Director & Founder of EVO HOME",
+          "p": "The visionary behind the company. Oversees all project stages — from concept to final result. Over 17 years of experience in construction and design."
+        },
+        "li2": {
+          "h": "Anna Verdini",
+          "h2": "Lead Interior Designer",
+          "p": "Creates exclusive concepts and visualizations. Specializes in space optimization and the balance of style and functionality."
+        },
+        "li3": {
+          "h": "Marco Lombardi",
+          "h2": "Project Manager",
+          "p": "Supervises the execution process — from planning to project delivery. Ensures deadlines, client communication, and quality standards are met."
+        },
+        "li4": {
+          "h": "Fabio Cecci",
+          "h2": "Chief Civil Engineer",
+          "p": "Responsible for the technical implementation of projects. An expert in modern construction technologies and engineering solutions."
+        }
+      },
+      "button": "CONTACT US"
+    },
+    "achievements": {
+      "h": "Our Achievements",
+      "p1": "Our team includes over 30 highly qualified professionals, including planners, architectural designers, engineers, and builders.",
+      "p2": "We manage more than 7 projects simultaneously, covering a total managed surface area of over 1,000 m².",
+      "p3": "Over 30 tons of construction materials are delivered monthly to various job sites.",
+      "p4": "Over the years, we’ve successfully completed more than 100 projects."
+    },
+    "trust": {
+      "h": "Why Clients Trust Us",
+      "main_p_1": "17+",
+      "p1": "Years of experience",
+      "main_p_2": "100",
+      "p2": "Completed projects",
+      "main_p_3": "95%",
+      "p3": "Satisfied clients",
+      "main_p_4": "Rome",
+      "p4": "+ surrounding area"
+    },
+    "section": {
+      "h": "Build with EVO HOME",
+      "button": "ORDER NOW"
+    }
+  }
+  

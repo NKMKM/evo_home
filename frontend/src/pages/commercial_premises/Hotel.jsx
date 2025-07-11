@@ -3,6 +3,7 @@ import Video from '../../components/Video'
 import CommercialPremisesLayoutCollection from '../../components/commercial_premises_components/CommercialPremisesLayoutCollection'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 
 import left_decoration from '../../assets/images/leftside_black_decoration.png'
 import right_decoration from '../../assets/images/rightside_black_decoration.png'
@@ -21,10 +22,11 @@ import fifth_step from '../../assets/images/commercial_premises/hotel/process/fi
 
 
 const Hotel = () => {
+  const {t} = useTranslation('commercial_premises/Hotel')
   return (
     <div>
         <Helmet>
-            <title>Реновация отелей</title>
+            <title>{t('title')}</title>
             <meta name="description" content="Renovation of hotels by EVO Home" />
         </Helmet>
         {/* first step */}
@@ -33,7 +35,7 @@ const Hotel = () => {
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
                 <img src={left_decoration} alt='left decoration' loading="lazy"  className='w-[276px] h-[83px] sm:hidden lg:block' />
 
-                <h1 className='font-bold mx-auto text-center sm:text-[60px] lg:text-[57px]'>Реновация отеля</h1>
+                <h1 className='font-bold mx-auto text-center sm:text-[60px] lg:text-[57px]'>{t('h')}</h1>
 
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
             </div>
@@ -43,13 +45,13 @@ const Hotel = () => {
                 {/* header */}
                 <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>1.</div>
-                    <h2 className='sm:text-[30px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>Реновация отеля от EVO HOME</h2>
+                    <h2 className='sm:text-[30px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('header.h')}</h2>
                 </div>
 
                 {/* text */}
                 <div className='text-[28px] sm:text-center lg:text-start sm:px-5 lg:px-0 flex flex-col space-y-4'>
-                    <p>В Риме гостиничный бизнес постоянно расширяется благодаря постоянному потоку туристов со всего мира. Однако поддержание высокого уровня комфорта и гостеприимства требует постоянного обслуживания и периодического ремонта. Конкуренция высока, и для отельеров качество обстановки имеет решающее значение, поскольку оно гарантирует положительные отзывы и лояльность клиентов.</p>
-                    <p>Реновация — это не только вопрос эстетики, она напрямую влияет на качество обслуживания гостей. Сегодня как никогда ранее владельцам отелей необходимо следить за тем, чтобы помещения были современными, функциональными и находились в идеальном состоянии. Не только номера, но и общие зоны, рестораны, спа-салоны и каждый уголок отеля вносят свой вклад в общий имидж и привлекательность объекта.</p>
+                    <p>{t('header.p1')}</p>
+                    <p>{t('header.p2')}</p>
                 </div>
 
                 {/* image */}
@@ -58,7 +60,7 @@ const Hotel = () => {
                 <div className='sm:w-full lg:w-[1640px] h-[67px] flex flex-row items-center mx-auto'>
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
 
-                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">ЗАКАЗАТЬ</Link>
+                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">{t('header.button')}</Link>
 
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
                 </div>
@@ -70,7 +72,7 @@ const Hotel = () => {
         {/* header */}
         <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
             <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>2.</div>
-            <h2 className='sm:text-[30px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>Подробнее о реновации отеля </h2>
+            <h2 className='sm:text-[30px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('process.h')}</h2>
         </div>
 
         {/* list of steps */}
@@ -84,15 +86,15 @@ const Hotel = () => {
                     <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={first_step} alt='first step' loading="lazy"  className='w-full h-full object-cover' /></div>
                     {/* info */}
                     <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-6 py-5 px-6'>
-                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>ЭСТЕТИЧЕСКАЯ РЕНОВАЦИЯ</h2>
+                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.1.h')}</h2>
                         
                         <div>
-                            <p className='text-[26px] pb-5'>Идеально подходит для тех, кто хочет обновить облик отеля без инвазивного структурного вмешательства.</p>
+                            <p className='text-[26px] pb-5'>{t('process.ul.1.p')}</p>
                             <ul className='text-[26px] list-disc px-10'>
-                                <li>Покраска и окрашивание</li>
-                                <li>Замена полов и покрытий</li>
-                                <li>Новое освещение и небольшие изменения дизайна</li>
-                                <li>Цены от 500 €/м²</li>
+                                <li>{t('process.ul.1.li1')}</li>
+                                <li>{t('process.ul.1.li2')}</li>
+                                <li>{t('process.ul.1.li3')}</li>
+                                <li>{t('process.ul.1.li4')}</li>
                             </ul>
                         </div>
 
@@ -105,14 +107,14 @@ const Hotel = () => {
                     <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={second_step} alt='second step' loading="lazy"  className='w-full h-full object-cover' /></div>
                     {/* info */}
                     <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 '>
-                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>ПОЛНАЯ РЕНОВАЦИЯ</h2>
+                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.2.h')}</h2>
 
                         <div>
-                            <p className='text-[26px] pb-5'>Этот вариант подразумевает более сложные работы, которые могут включать изменение планировки этажей и модернизацию систем.Ремонт электрических и сантехнических систем</p>
+                            <p className='text-[26px] pb-5'>{t('process.ul.2.p')}</p>
                             <ul className='text-[26px] list-disc px-10'>
-                                <li>Замена окон и дверей</li>
-                                <li>Ремонт ванной комнаты и кухни</li>
-                                <li>Цены от 1000 €/м²</li>
+                                <li>{t('process.ul.2.li1')}</li>
+                                <li>{t('process.ul.2.li2')}</li>
+                                <li>{t('process.ul.2.li3')}</li>
                             </ul>
                         </div>
                     </div>
@@ -124,14 +126,14 @@ const Hotel = () => {
                     <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={third_step} alt='third step' loading="lazy"  className='w-full h-full object-cover' /></div>
                     {/* info */}
                     <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-5 py-5 px-6'>
-                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>РОСКОШНЫЙ РЕМОНТ</h2>
+                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.3.h')}</h2>
 
                         <div>
-                            <p className='text-[26px] pb-5'>Для тех, кто хочет предложить своим гостям эксклюзивные впечатления, мы можем создать элегантные пространства.</p>
+                            <p className='text-[26px] pb-5'>{t('process.ul.3.p')}</p>
                             <ul className='text-[26px] list-disc px-10'>
-                                <li>Использование роскошных материалов, таких как мрамор и ценные породы дерева</li>
-                                <li>Дизайн функциональных и современных пространств</li>
-                                <li>Цены от 1750 €/м²</li>
+                                <li>{t('process.ul.3.li1')}</li>
+                                <li>{t('process.ul.3.li2')}</li>
+                                <li>{t('process.ul.3.li3')}</li>
                             </ul>
 
                         </div>
@@ -144,8 +146,8 @@ const Hotel = () => {
                     <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={fourth_step} alt='fourth step' loading="lazy"  className='w-full h-full object-cover' /></div>
                     {/* info */}
                     <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 '>
-                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>ВЫСОКОКАЧЕСТВЕННЫЕ МАТЕРИАЛЫ</h2>
-                        <p className='text-[26px] pb-5'>Мы используем только высококачественные материалы, чтобы гарантировать долговечные и прочные результаты.</p>
+                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.4.h')}</h2>
+                        <p className='text-[26px] pb-5'>{t('process.ul.4.p')}</p>
                     </div>
                 </li>
 
@@ -155,9 +157,9 @@ const Hotel = () => {
                     <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={fifth_step} alt='fifth step' loading="lazy"  className='w-full h-full object-cover' /></div>
                     {/* info */}
                     <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>СОБЛЮДЕНИЕ СРОКОВ</h2>
+                        <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.5.h')}</h2>
                         
-                        <p className='text-[26px] pb-5'>Мы знаем, насколько важно как можно скорее открыть двери отеля, и мы стремимся соблюдать согласованные сроки.</p>
+                        <p className='text-[26px] pb-5'>{t('process.ul.5.p')}</p>
                     </div>
                 </li>
             </ul>
@@ -166,7 +168,7 @@ const Hotel = () => {
         </div>
 
         <div className='mb-10'>
-          <Video text={'Реновация отеля от EVO HOME'} />
+          <Video text={t('process.video_text')} />
         </div>
       </main>
 

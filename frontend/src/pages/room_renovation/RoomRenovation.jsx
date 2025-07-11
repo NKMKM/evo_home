@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Reasons from '../../components/Reasons'
 import Projects from '../../components/room_renovation_components/Projects'
 import { Helmet } from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 
 import left_decoration from '../../assets/images/leftside_black_decoration.png'
 import right_decoration from '../../assets/images/rightside_black_decoration.png'
@@ -23,10 +24,11 @@ import Calculator from '../../components/mainpage_components/Calculator'
 
 
 const RoomRenovation = () => {
+  const {t} = useTranslation('room_renovation/RoomRenovation')
   return (
     <div>
         <Helmet>
-            <title>Реновация комнат</title>
+            <title>{t('title')}</title>
             <meta name="description" content="Room renovation by EVO Home" />
         </Helmet>
         {/* first step */}
@@ -35,7 +37,7 @@ const RoomRenovation = () => {
             <div className='h-[83px] lg:w-full sm:my-10 lg:my-0 mx-auto flex flex-row justify-between items-center '>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block  '/>
                 <div className=''>
-                    <h1 className='font-bold text-center  sm:text-[50px] lg:text-[57px]'>Ремонт комнат</h1>
+                    <h1 className='font-bold text-center  sm:text-[50px] lg:text-[57px]'>{t('h')}</h1>
 
                 </div>
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block'/>
@@ -46,14 +48,14 @@ const RoomRenovation = () => {
                 {/* header */}
                 <div className='lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-5 lg:mr-10'>1.</div>
-                    <h2 className='sm:text-[29px] sm:mt-4 lg:mt-0 lg:text-[50px] font-bold'>Ремонт комнат с EVO HOME</h2>
+                    <h2 className='sm:text-[29px] sm:mt-4 lg:mt-0 lg:text-[50px] font-bold'>{t('header.h')}</h2>
                 </div>
 
                 {/* text */}
                 <div className='sm:text-[28px] lg:text-[32px] sm:w-full sm:px-4 lg:px-0 sm:text-center lg:text-start lg:w-[1641px] sm:h-[1350px] lg:h-[704px] flex flex-col justify-between '>
-                    <p>Вы ищете надежное решение для ремонта комнат в вашем доме? Компания EvoHome, имеющая более чем 17-летний опыт работы в секторе строительства и ремонта, готова преобразить любое помещение, гарантируя вам исключительные результаты с 3-летней гарантией.</p>
-                    <p>Будь то ремонт гостиной, чтобы сделать ее более уютной и функциональной, переделка спальни, чтобы превратить ее в оазис отдыха и комфорта, обновление спальни новыми интеллектуальными решениями для учебы и игр, ремонт коридора, чтобы сделать ваш дом более гостеприимным, модернизация лестницы, чтобы обеспечить безопасность и стиль, или полная трансформация ванных комнат и кухонь, чтобы адаптировать их к последним тенденциям дизайна и технологий, EvoHome станет для вас идеальным партнером.</p>
-                    <p>Наша компания специализируется на предоставлении высококачественных услуг по ремонту помещений, начиная от 5000 евро, в Риме и прилегающих районах.Выбирая нашу команду, вы получаете экспертный подход к управлению проектом на всех этапах — от планирования до реализации. Мы гарантируем точное и надежное соответствие результата вашим индивидуальным требованиям.</p>
+                    <p>{t('header.p1')}</p>
+                    <p>{t('header.p2')}</p>
+                    <p>{t('header.p3')}</p>
 
                 </div>
 
@@ -64,7 +66,7 @@ const RoomRenovation = () => {
 
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
 
-                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">ЗАКАЗАТЬ</Link>
+                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">{t('header.button')}</Link>
 
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
                 </div>
@@ -79,7 +81,7 @@ const RoomRenovation = () => {
             {/* header */}
             <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row mx-auto mb-20'>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center mr-10'>2.</div>
-                <h2 className='sm:text-[28px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>Процесс ремонта комнат с EvoHome</h2>
+                <h2 className='sm:text-[28px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('process.h')}</h2>
             </div>
 
             <div className=' sm:h-[5500px] lg:h-[2813px] relative mx-auto '>
@@ -94,14 +96,13 @@ const RoomRenovation = () => {
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
                             <div>
-                                <h2 className='font-bold text-[46px]'>РЕМОНТ ГОСТИННОЙ</h2>
+                                <h2 className='font-bold text-[46px]'>{t('process.ul.1.h')}</h2>
                             </div>
 
-                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Реставрация гостиной включает в себя удаление существующих покрытий, подготовку стен, укладку новых полов и установку дизайнерских потолков, а также замену электросистемы для адаптации помещения к современным потребностям. По желанию заказчика могут быть выполнены и другие работы.</p>
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.1.p')}</p>
                         </div>
 
-                        <div className='absolute sm:top-[150px] lg:top-[190px] left-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white'>ЭТАП 1
-                            <div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
+                        <div className='absolute sm:top-[150px] lg:top-[190px] left-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white'>{t('process.step1')}<div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
                         </div>
 
                     </li>
@@ -114,16 +115,15 @@ const RoomRenovation = () => {
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 sm:px-5 lg:px-0  '>
                             <div>
-                                <h2 className='font-bold text-[46px]'>РЕМОНТ СПАЛЬНИ</h2>
+                                <h2 className='font-bold text-[46px]'>{t('process.ul.2.h')}</h2>
                             </div>
 
-                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Ремонт спальни направлен на создание спокойной, расслабляющей обстановки, включая замену полов, обработку стен и потолков, а также обновление окон для лучшей изоляции и комфорта. По желанию заказчика могут быть добавлены дополнительные работы.</p>
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.2.p')}</p>
 
                             
                         </div>
 
-                        <div className='absolute sm:top-[1070px] sm:right-[200px] lg:top-[620px] lg:right-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white'>ЭТАП 2
-                            <div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
+                        <div className='absolute sm:top-[1070px] sm:right-[200px] lg:top-[620px] lg:right-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white'>{t('process.step2')}<div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
                         </div>
 
                     </li>
@@ -136,15 +136,14 @@ const RoomRenovation = () => {
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
                             <div>
-                                <h2 className='font-bold text-[46px]'>РЕМОНТ ДЕТСКОЙ КОМНАТЫ</h2>
+                                <h2 className='font-bold text-[46px]'>{t('process.ul.3.h')}</h2>
                             </div>
 
-                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Этот проект направлен на создание безопасного и стимулирующего пространства путем удаления старых полов, подготовки стен и потолка к отделке и установки подходящих решений по освещению. Возможны дополнительные работы по желанию заказчика.</p>
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.3.p')}</p>
                         </div>
 
                         
-                        <div className='absolute sm:top-[1970px] lg:top-[1120px] left-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white'>ЭТАП 3
-                            <div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
+                        <div className='absolute sm:top-[1970px] lg:top-[1120px] left-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white'>{t('process.step3')}<div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
                         </div>
 
 
@@ -158,14 +157,13 @@ const RoomRenovation = () => {
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 sm:px-5 lg:px-5 '>
                             <div>
-                                <h2 className='font-bold text-[46px]'>РЕМОНТ КОРИДОРА</h2>
+                                <h2 className='font-bold text-[46px]'>{t('process.ul.4.h')}</h2>
                             </div>
 
-                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Обновление коридора включает в себя укладку прочных напольных покрытий, установку новых потолочных оснований и отделку стен, а также замену электросистемы для создания яркой и теплой атмосферы. По запросу могут быть выполнены и другие индивидуальные работы.</p>
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.4.p')}</p>
                         </div>
 
-                        <div className='absolute sm:top-[2920px] sm:right-[190px] lg:top-[1590px] lg:right-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white'>ЭТАП 4
-                            <div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
+                        <div className='absolute sm:top-[2920px] sm:right-[190px] lg:top-[1590px] lg:right-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white'>{t('process.step4')}<div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
                         </div>
 
 
@@ -179,14 +177,13 @@ const RoomRenovation = () => {
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
                             <div>
-                                <h2 className='font-bold text-[42px]'>РЕМОНТ КУХНИ</h2>
+                                <h2 className='font-bold text-[42px]'>{t('process.ul.5.h')}</h2>
                             </div>
 
-                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Преобразование кухни требует особого внимания к электропроводке и сантехнике, удалению старой отделки, подготовке стен и потолков, а также установке новых полов и окон для создания функционального и уютного пространства. Возможность дополнительных работ по желанию заказчика.</p>
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.5.p')}</p>
                         </div>
 
-                        <div className='absolute sm:top-[3860px] sm:right-[190px] lg:top-[2090px] lg:left-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white'>ЭТАП 5
-                            <div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
+                        <div className='absolute sm:top-[3860px] sm:right-[190px] lg:top-[2090px] lg:left-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white'>{t('process.step5')}<div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
                         </div>
 
                     </li>
@@ -199,14 +196,13 @@ const RoomRenovation = () => {
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 sm:px-5 lg:px-0 '>
                             <div>
-                                <h2 className='font-bold text-[46px]'>РЕМОНТ ВАННОЙ КОМНАТЫ</h2>
+                                <h2 className='font-bold text-[46px]'>{t('process.ul.6.h')}</h2>
                             </div>
 
-                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Этот тип ремонта является одним из самых сложных, учитывая необходимость надежной сантехники, замены электросистем, нанесения влагостойких материалов на стены и полы, а также установку эффективных систем вентиляции. По запросу могут быть добавлены дополнительные работы.</p>
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.6.p')}</p>
                         </div>
 
-                        <div className='absolute sm:top-[4760px] sm:right-[190px] lg:top-[2560px] lg:right-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white'>ЭТАП 6
-                            <div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
+                        <div className='absolute sm:top-[4760px] sm:right-[190px] lg:top-[2560px] lg:right-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white'>{t('process.step6')}<div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
                         </div>
 
 
@@ -223,7 +219,7 @@ const RoomRenovation = () => {
 
             {/* video */}
             <div className=' w-full sm:h-[1600px] lg:h-[1050px] flex flex-col justify-between  my-20 mx-auto'>
-                <h2 className='text-[50px] font-bold text-center'>Ремонт комнат от EVO HOME</h2>
+                <h2 className='text-[50px] font-bold text-center'>{t('process.video_text')}</h2>
     
                 {/* videos(instead of them just a div with any bg color) */}
                 <div className='w-full  h-[696px] relative flex flex-row'>
@@ -236,14 +232,14 @@ const RoomRenovation = () => {
                 </div>
 
                 <div className='lg:w-[1641px] lg:h-[336px] sm:text-center lg:text-start flex flex-col space-y-5 my-10 mx-auto text-[30px]'>
-                    <p>Компания EvoHome стремится превратить вашу квартиру в комфортную, функциональную и стильную среду, соблюдая установленные сроки и бюджет. Наш опыт, гарантия качества и индивидуальный подход делают нас идеальным партнером для вашего ремонта в Риме и его окрестностях. Свяжитесь с нами сегодня, чтобы начать свой проект с EvoHome.</p>
+                    <p>{t('process.video_p')}</p>
                 </div>
                 
                 <div className='sm:w-full lg:w-[1640px] h-[67px]  flex flex-row items-center mx-auto'>
 
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
 
-                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">ЗАКАЗАТЬ</Link>
+                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">{t('header.button')}</Link>
 
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
                 </div>

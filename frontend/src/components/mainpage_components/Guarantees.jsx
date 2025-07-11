@@ -9,7 +9,7 @@ import time from '../../assets/icons/time.png'
 const Guarantees = () => {
   const {t} = useTranslation('home/Guarantees')
   return (
-    <div className='relative lg:mb-40 sm:h-[2900px] lg:h-[826px]'>
+    <div className='relative lg:my-20 sm:h-[2900px] lg:h-[826px]'>
         {/* vector 1 */}
         <div className='sm:bottom-[400px] sm:scale-150 lg:scale-100 lg:bottom-auto w-[515px] h-[823px] absolute '><img src={vector1} alt='vector 1' loading="lazy" className='w-full h-full'/></div>
 

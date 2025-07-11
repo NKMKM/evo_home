@@ -1,0 +1,34 @@
+{
+    "title": "Staircase Renovation",
+    "h": "Staircase Renovation",
+    "header": {
+      "h": "Staircase Renovation by EVO HOME",
+      "p1": "Does your home's or building’s staircase need professional restoration? Staircase renovation is important not only in terms of functionality but also in terms of aesthetics and safety. With over 17 years of experience, Evo Home offers high-quality services in the construction sector.",
+      "p2": "Our interventions, starting from €5,000, guarantee long-lasting results through the use of premium materials and advanced techniques. Over time, stairs may suffer damage such as chips, cracks, wear, and creaking. During renovation, we address these issues with precision and professionalism, providing a 3-year warranty on our work. The complexity of the restoration depends on the staircase material and the type of damage, but with Evo Home, you can be sure of excellent service.",
+      "button": "ORDER"
+    },
+    "process": {
+      "h": "More About Staircase Renovation by EVO HOME",
+      "p": "Before beginning any restoration work, a detailed inspection of the staircase is necessary to identify defects and understand the causes of deterioration. This preliminary stage allows us to assess the extent of the damage and accurately plan the necessary interventions.",
+      "ul": {
+        "1": {
+          "h": "METAL STAIRCASES",
+          "p": "Crack repair through specialized welding: targeted interventions to fix cracks and splits. Anti-corrosion treatment: application of anti-corrosive products to prevent rust and extend lifespan. Protective painting: use of special paints to shield the metal from weather exposure."
+        },
+        "2": {
+          "h": "CONCRETE STAIRCASES",
+          "p": "Repair of cracks and chips using special solutions: application of mortars and resins. Structural reinforcement with rebar: insertion of steel rods or other reinforcing materials to increase stability. Cladding with materials like porcelain stoneware: application of durable and decorative coverings."
+        },
+        "3": {
+          "h": "WOODEN STAIRCASES",
+          "p": "Repair of damaged steps: replacement or restoration of damaged treads. Protective coatings: application of paints and treatments to prevent moisture and wear damage. Replacement of irreparable parts: removal and substitution of parts that are too damaged to repair."
+        },
+        "4": {
+          "h": "STONE STAIRCASES",
+          "p": "Cleaning and surface restoration: removal of dirt and stains. Chip repair: filling and reconstruction of damaged areas to restore the integrity of the stone. Stone preservation treatment: application of special products to protect against erosion and weather effects."
+        }
+      },
+      "video_text": "Staircase Renovation by EVO HOME"
+    }
+}
+  

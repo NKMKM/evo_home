@@ -1,0 +1,73 @@
+{
+    "title": "Our Work",
+    "header": {
+      "h": "EVO HOME Projects",
+      "p1": "Welcome to the Evo Home gallery, where every image reflects our passion for quality and innovation. Here you’ll find photos and videos of our completed renovation projects in Rome: ",
+      "span1": "modern apartments",
+      "p2": ", elegant houses, functional offices, and designer",
+      "span2": " commercial spaces",
+      "p3": ". Every detail is considered to ensure flawless results.",
+      "p4": "Get to know our work and be inspired by the creativity and experience of our team. Evo Home is the perfect partner for all your renovation needs. Discover how we can transform your space into a functional work of art."
+    },
+    "comparison": {
+      "h": "Interiors: BEFORE & AFTER",
+      "li1": {
+        "name": "KITCHEN",
+        "style": "Modern Minimalism",
+        "span": "Before:",
+        "p1": " Outdated cabinets, poor lighting, and lack of workspace.",
+        "span2": "After:",
+        "p2": " A bright, ergonomic kitchen with a clean design and built-in appliances. Complete reconstruction: now the kitchen is not only beautiful but also functional — every centimeter is thoughtfully used."
+      },
+      "li2": {
+        "name": "BATHROOM",
+        "style": "Modern Classic",
+        "span": "Before:",
+        "p1": " Cramped space with outdated tiles and fixtures.",
+        "span2": "After:",
+        "p2": " An elegant transformation into a stylish room with smart ergonomics. Efficient use of space and modern materials turn an ordinary room into a comfortable zone."
+      },
+      "li3": {
+        "name": "PERFUME BOUTIQUE",
+        "style": "Industrial Luxury",
+        "span": "Before:",
+        "p1": " An empty space with bare walls and construction structures.",
+        "span2": "After:",
+        "p2": " Warm brick arches, soft lighting, and strategically placed displays. The combination of industrial elements with cozy touches makes the boutique more than just a store — it becomes a destination for fragrance lovers."
+      },
+      "button": "ORDER NOW"
+    },
+    "steps": {
+      "1": {
+        "h": "Roof Renovation",
+        "type": "Roof renovation – Aurelia district, Rome",
+        "p1": "We breathe new life into commercial spaces through custom renovation. Discover how we transformed this perfume store into an elegant and functional area, perfect for welcoming clients in the heart of Rome.",
+        "p2": "Watch the video for project details and contact us to create your own unique space!"
+      },
+      "2": {
+        "h": "Perfume Store",
+        "type": "Historic Center of Rome – Via Vittoria 3b",
+        "p1": "We breathe new life into commercial spaces through custom renovation. Discover how we transformed this perfume store into an elegant and functional area, perfect for welcoming clients in the heart of Rome.",
+        "p2": "Watch the video for project details and contact us to create your own unique space!"
+      },
+      "3": {
+        "h": "Fountain Restoration",
+        "type": "Fountain restoration – Aurelia district, Rome",
+        "p1": "We restore fountains to their beauty and functionality through professional renovation work. See how we turned this fountain into a unique decorative element, blending tradition and modernity.",
+        "p2": "Watch the video to learn more about the process and contact us to enhance your space with style and precision!"
+      },
+      "4": {
+        "h": "Restaurant Restyling",
+        "type": "Sentori Vineria del Quartiere (Rome)",
+        "p1": "We transform spaces with exclusive design and refined details. Discover how we renovated this wine bar to create a welcoming and elegant space, perfect for any occasion.",
+        "p2": "Watch the video to admire the result and contact us to breathe new life into your space with style and quality!"
+      },
+      "5": {
+        "h": "Three-Room Apartment",
+        "type": "Apartment renovation — Rome, San Paolo district",
+        "p1": "We modernize residential spaces with personalized and functional solutions. Learn how we transformed this three-room apartment by combining comfort and design to meet all needs.",
+        "p2": "Watch the video to explore project details and contact us to renovate your home with style and professionalism!"
+      }
+    }
+}
+  

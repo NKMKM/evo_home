@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 import left_decoration from '../../assets/images/leftside_black_decoration.png'
@@ -12,19 +12,20 @@ import kitchen from '../../assets/images/projects_images/kitchen.jpg'
 import basement from '../../assets/images/services_images/basement.jpg'
 
 const Projects = () => {
+  const {t} = useTranslation('commercial_premises/CommercialPremisesProjects')
   return (
     <div className=' sm:flex sm:flex-col sm:justify-between lg:block sm:mb-30 lg:mb-20 sm:w-full sm:h-[3200px] lg:h-[1250px] lg:w-[1641px] mx-auto'>
         {/* header section */}
         <header className=' h-[170px] w-full mx-auto flex flex-row justify-between items-center  '>
             <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block '/>
             <div className='sm:mx-auto lg:mx-0'>
-                <h1 className='font-bold text-center text-[70px] sm:px-4 lg:px-0'>Проекты EVO HOME</h1>
+                <h1 className='font-bold text-center text-[70px] sm:px-4 lg:px-0'>{t('h')}</h1>
 
             </div>
             <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block '/>
         </header>
 
-        <p className='sm:w-full lg:w-[1410px] h-[76px] mx-auto text-[32px] text-center font-[100] italic '>"Ваш дом – наша работа"</p>
+        <p className='sm:w-full lg:w-[1410px] h-[76px] mx-auto text-[32px] text-center font-[100] italic '>{t('p')}</p>
         
         {/* grid section with projects */}
         <div className=' sm:flex sm:flex-col sm:justify-between sm:h-[2800px] lg:h-[900px] lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:gap-y-4 mb-10'>
@@ -34,12 +35,12 @@ const Projects = () => {
                 <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={bar} alt='bar' loading="lazy" className='w-full h-full'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>Дизайнерский ремонт</h2>
+                    <h2 className='text-[32px]'>{t('p1')}</h2>
                 </div>
 
                 <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
                     <Link to="/our_works" className="bg-[#F9B33B] text-black font-bold text-[30px] flex justify-center items-center" style={{ width: '251px', height: '67px' }}>
-                        ПОСМОТРЕТЬ
+                        {t('button')}
                     </Link>
                 </div>
 
@@ -49,12 +50,12 @@ const Projects = () => {
                 <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={basement} alt='basement' loading="lazy" className='w-full h-full'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>Эксклюзивный ремонт</h2>
+                    <h2 className='text-[32px]'>{t('p2')}</h2>
                 </div>
 
                 <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
                     <Link to="/our_works" className="bg-[#F9B33B] text-black font-bold text-[30px] flex justify-center items-center" style={{ width: '251px', height: '67px' }}>
-                        ПОСМОТРЕТЬ
+                    {t('button')}
                     </Link>
                 </div>
 
@@ -64,12 +65,12 @@ const Projects = () => {
                 <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={bath} alt='bath' loading="lazy" className='w-full h-full'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>Ремонт квартиры - студии</h2>
+                    <h2 className='text-[32px]'>{t('p3')}</h2>
                 </div>
 
                 <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
                     <Link to="/our_works" className="bg-[#F9B33B] text-black font-bold text-[30px] flex justify-center items-center" style={{ width: '251px', height: '67px' }}>
-                        ПОСМОТРЕТЬ
+                    {t('button')}
                     </Link>
                 </div>
 
@@ -79,12 +80,12 @@ const Projects = () => {
                 <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={kitchen} alt='kitchen' loading="lazy" className='w-full h-full'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>Ремонт двухкомнатных квартир</h2>
+                    <h2 className='text-[32px]'>{t('p4')}</h2>
                 </div>
 
                 <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
                     <Link to="/our_works" className="bg-[#F9B33B] text-black font-bold text-[30px] flex justify-center items-center" style={{ width: '251px', height: '67px' }}>
-                        ПОСМОТРЕТЬ
+                    {t('button')}
                     </Link>
                 </div>
 
@@ -94,12 +95,12 @@ const Projects = () => {
                 <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={tatto_studio} alt='tattto studio' loading="lazy" className='w-full h-full' /></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>Ремонт трехкомнатных квартир</h2>
+                    <h2 className='text-[32px]'>{t('p5')}</h2>
                 </div>
 
                 <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
                     <Link to="/our_works" className="bg-[#F9B33B] text-black font-bold text-[30px] flex justify-center items-center" style={{ width: '251px', height: '67px' }}>
-                        ПОСМОТРЕТЬ
+                    {t('button')}
                     </Link>
                 </div>
 
@@ -109,12 +110,12 @@ const Projects = () => {
                 <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={hall} alt='hall' loading="lazy" className='w-full h-full'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>Ремонт двухэтажных квартир</h2>
+                    <h2 className='text-[32px]'>{t('p6')}</h2>
                 </div>
 
                 <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
                     <Link to="/our_works" className="bg-[#F9B33B] text-black font-bold text-[30px] flex justify-center items-center" style={{ width: '251px', height: '67px' }}>
-                        ПОСМОТРЕТЬ
+                    {t('button')}
                     </Link>
                 </div>
 
@@ -126,7 +127,7 @@ const Projects = () => {
 
             <div className='h-[1px] w-[625.5px] bg-[#F9B33B] sm:hidden lg:block'></div>
 
-            <button className='sm:mx-auto lg:mx-0 w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold'>ПОДРОБНЕЕ</button>
+            <button className='sm:mx-auto lg:mx-0 w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold'>{t('button')}</button>
 
             <div className='h-[1px] w-[625.5px] bg-[#F9B33B] sm:hidden lg:block'></div>
         </div>
