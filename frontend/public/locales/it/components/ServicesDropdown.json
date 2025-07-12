@@ -1,0 +1,49 @@
+{
+  "h": "SERVIZI",
+  "first_element": {
+    "h": "Ristrutturazione Appartamenti Chiavi in Mano",
+    "list_of_services": {
+      "first": "Ristrutturazione con Progetto d'Interni",
+      "second": "Ristrutturazione Esclusiva",
+      "third": "Ristrutturazione Monolocale",
+      "fourth": "Ristrutturazione Bilocale",
+      "fifth": "Ristrutturazione Trilocale",
+      "sixth": "Ristrutturazione Quadrilocale",
+      "seventh": "Ristrutturazione Appartamento su Due Livelli"
+    }
+  },
+  "second_element": {
+    "h": "Ristrutturazione Stanze",
+    "list_of_services": {
+      "first": "Ristrutturazione Soggiorno",
+      "second": "Ristrutturazione Camera da Letto",
+      "third": "Ristrutturazione Cameretta",
+      "fourth": "Ristrutturazione Ingresso e Corridoio",
+      "fifth": "Ristrutturazione Cucina",
+      "sixth": "Ristrutturazione Bagno",
+      "seventh": "Ristrutturazione Scala"
+    }
+  },
+  "third_element": {
+    "h": "Spazi Commerciali",
+    "list_of_services": {
+      "first": "Ristrutturazione Business Center",
+      "second": "Ristrutturazione Bar e Ristoranti",
+      "third": "Ristrutturazione Immobili Commerciali",
+      "fourth": "Ristrutturazione Uffici",
+      "fifth": "Ristrutturazione Magazzini",
+      "sixth": "Ristrutturazione Palestre",
+      "seventh": "Ristrutturazione Hotel"
+    }
+  },
+  "fourth_element": {
+    "h": "Impianti",
+    "list_of_services": {
+      "first": "Impianto Elettrico",
+      "second": "Impianto Gas",
+      "third": "Riscaldamento a Pavimento",
+      "fourth": "Impianto di Drenaggio e Fognatura",
+      "fifth": "Climatizzazione e Controllo Clima"
+    }
+  }
+}

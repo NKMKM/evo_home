@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import vector_about_us_1 from'../assets/videos/abouts_us/vector1.png'
 import vector_about_us_2 from'../assets/videos/abouts_us/vector2.png'
 
 const Video = ({text}) => {
+  const {t} = useTranslation('commercial_premises/CommercialPremises')
   return (
     <div className=' w-full sm:h-[1100px] lg:h-[950px] flex flex-col justify-between  mt-20 mx-auto'>
         <h1 className='text-[50px] font-bold text-center'>{text}</h1>
@@ -25,7 +27,7 @@ const Video = ({text}) => {
 
             <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
 
-            <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">ЗАКАЗАТЬ</Link>
+            <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">{t('process.video_button')}</Link>
 
             <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
         </div>

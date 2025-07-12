@@ -1,0 +1,45 @@
+{
+    "title": "Electrical System",
+    "h": "Electrical System",
+    "header": {
+      "h": "Electrical System Installation by EVO HOME",
+      "p1": "Evo Home is a company with over 17 years of experience in installing and maintaining electrical systems in Rome. Our highly qualified specialists offer professional solutions for apartments, houses, offices, and industrial facilities of all types. By using certified materials and strictly following electrical safety regulations, we guarantee a reliable and secure service, always considering the client's needs and prioritizing our experience and professionalism.",
+      "button": "ORDER"
+    },
+    "process": {
+      "h": "More about electrical system installation",
+      "p": "An efficient and safe electrical system requires not only precision in installing outlets and switches but also in-depth knowledge of the main electrical components used in residential and commercial spaces.",
+      "ul": {
+        "1": {
+          "h": "INSTALLATION OF ELECTRICAL EQUIPMENT",
+          "li1": "Complete electrical installation in homes and offices.",
+          "li2": "Partial or full system replacement to improve energy efficiency and safety.",
+          "li3": "Diagnostics and troubleshooting of electrical equipment for fast and reliable service."
+        },
+        "2": {
+          "h": "INSTALLATION OF OUTLETS AND SWITCHES",
+          "p": "Latest-generation electrical outlets and switches, temperature regulators for heating and cooling systems, integrated lighting systems: from traditional chandeliers to LED solutions, connection of high-efficiency household appliances such as ovens and induction cooktops."
+        },
+        "3": {
+          "h": "ELECTRICAL PANELS AND SAFETY SYSTEMS",
+          "li1": "Assembly and maintenance of electrical panels to manage the facility.",
+          "li2": "Replacement of circuit breakers and meters to ensure proper operation and prevent overloads.",
+          "p": "Installation of grounding systems for protection against short circuits."
+        },
+        "4": {
+          "h": "DESIGN AND INSPECTION OF THE SYSTEM",
+          "li1": "Custom design of electrical systems, from routing to cable installation.",
+          "li2": "Testing and inspections to ensure compliance with CEI standards and legal regulations.",
+          "li3": "Scheduled maintenance to maintain system efficiency over time."
+        },
+        "5": {
+          "h": "SAFETY AND ENERGY EFFICIENCY",
+          "li1": "Level 1 (Basic): a system with the minimum necessary equipment.",
+          "li2": "Level 2 (Standard): a higher level of safety and living comfort.",
+          "li3": "Level 3 (Home Automation): maximum performance for smart homes."
+        }
+      },
+      "video_text": "Electrical System Installation by EVO HOME"
+    }
+}
+  

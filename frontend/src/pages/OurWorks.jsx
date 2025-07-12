@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import left_decoration from '../assets/images/leftside_black_decoration.png'
 import right_decoration from '../assets/images/rightside_black_decoration.png'
 import { Helmet } from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 
 // mosaic photo imports
 import image1 from '../assets/images/works/mosaic/image1.png'
@@ -39,10 +40,11 @@ import one from '../assets/icons/works/one.png'
 
 import Reviews from '../components/mainpage_components/Reviews'
 const OurWorks = () => {
+  const {t} = useTranslation('OurWorks')
   return (
     <div className='flex flex-col'>
         <Helmet>
-            <title>Наши Работы</title>
+            <title>{t("title")}</title>
             <meta name="description" content="Works and projects made by EVO Home" />
         </Helmet>
         {/* about us block */}
@@ -51,7 +53,7 @@ const OurWorks = () => {
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center '>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block'/>
                 <div className='sm:mx-auto lg:mx-0'>
-                    <h1 className='font-bold text-center sm:text-[60px] lg:text-[70px]'>Проекты EVO HOME</h1>
+                    <h1 className='font-bold text-center sm:text-[60px] lg:text-[70px]'>{t('header.h')}</h1>
 
                 </div>
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block'/>
@@ -62,8 +64,8 @@ const OurWorks = () => {
             <div className='sm:w-full lg:w-[1641px] sm:h-[3050px]  mx-auto sm:my-10 lg:my-20 '>
                 {/* text */}
                 <div className='flex flex-col sm:w-full lg:w-[1639px] sm:h-[720px] md:h-[660px]  lg:h-[336px] text-[28px] sm:px-4 lg:px-0 sm:text-center lg:text-start justify-between mb-10'>
-                    <p>Добро пожаловать в галерею EvoHome, где каждое изображение отражает нашу страсть к качеству и инновациям. Здесь вы найдете фотографии и видео наших завершенных проектов по ремонту в Риме: <span className='text-[#F9B33B]'>современные квартиры</span>,   элегантные дома, функциональные офисы и дизайнерские <span className='text-[#F9B33B]'>коммерческие помещения</span> . Каждая деталь учитывается для обеспечения безупречных результатов.</p>
-                    <p>Познакомьтесь с нашей работой и вдохновитесь креативностью и опытом нашей команды. EvoHome — идеальный партнер для любых нужд по ремонту. Узнайте, как мы можем превратить ваши пространства в функциональные произведения искусства.</p>
+                    <p>{t('header.p1')}<span className='text-[#F9B33B]'>{t('header.span1')}</span>{t('header.p2')}<span className='text-[#F9B33B]'>{t('header.span2')}</span> {t('header.p3')}</p>
+                    <p>{t('header.p4')}</p>
                 </div>
 
                 {/* photos */}
@@ -141,7 +143,7 @@ const OurWorks = () => {
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center '>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block '/>
                 <div className=''>
-                    <h2 className='font-bold text-center text-[70px]'>Интерьеры ДО и ПОСЛЕ</h2>
+                    <h2 className='font-bold text-center text-[70px]'>{t('comparison.h')}</h2>
 
                 </div>
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block'/>
@@ -157,14 +159,13 @@ const OurWorks = () => {
 
                     <div className='lg:w-[806px] sm:h-2/3 h-full sm:px-4 lg:px-0 flex flex-col sm:justify-around lg:justify-between'>
                         <div>
-                            <h2 className='text-[50px] font-bold'>КУХНЯ</h2>
-                            <h3 className='text-[40px] font-light italic'>В Стиле Современный Минимализм</h3>
+                            <h2 className='text-[50px] font-bold'>{t('comparison.li1.name')}</h2>
+                            <h3 className='text-[40px] font-light italic'>{t('comparison.li1.style')}</h3>
                         </div>
 
                         <div className='lg:w-[748px] h-[374px] flex flex-col text-[30px] justify-between'>
-                            <p><span className='font-bold'>До:</span>  Устаревшие фасады, плохое освещение и недостаток рабочей зоны.</p>
-                            <p><span className='font-bold'>После:</span> Светлая, эргономичная кухня с лаконичным дизайном и встроенной техникой.</p>
-                            <p>Полная реконструкция: теперь кухня не только красива, но и функциональна — продуман каждый сантиметр.</p>
+                            <p><span className='font-bold'>{t('comparison.li1.span')}</span>  {t('comparison.li1.p1')}</p>
+                            <p><span className='font-bold'>{t('comparison.li1.span2')}</span> {t('comparison.li1.p2')}</p>
                         </div>
                     </div>
                 </div>
@@ -177,14 +178,13 @@ const OurWorks = () => {
 
                     <div className='lg:w-[806px] sm:h-2/3 h-full sm:px-4 lg:px-0 flex flex-col sm:justify-around lg:justify-between sm:text-end lg:text-start'>
                         <div>
-                            <h2 className='text-[50px] font-bold'>ТУАЛЕТ</h2>
-                            <h3 className='text-[40px] font-light italic'>В Стиле Современная Классика</h3>
+                            <h2 className='text-[50px] font-bold'>{t('comparison.li2.name')}</h2>
+                            <h3 className='text-[40px] font-light italic'>{t('comparison.li2.style')}</h3>
                         </div>
 
                         <div className='lg:w-[748px] h-[374px] flex flex-col text-[30px] justify-between'>
-                            <p><span className='font-bold'>До:</span>  Тесное пространство с устаревшей плиткой и сантехникой.</p>
-                            <p><span className='font-bold'>После:</span> Элегантная трансформация в стильное помещение с продуманной эргономикой.</p>
-                            <p>Грамотное использование пространства и современные материалы превращают обыденное помещение в комфортную зону</p>
+                            <p><span className='font-bold'>{t('comparison.li1.span')}</span>  {t('comparison.li2.p1')}</p>
+                            <p><span className='font-bold'>{t('comparison.li1.span2')}</span> {t('comparison.li2.p2')}</p>
                         </div>
                     </div>
                 </div>
@@ -197,14 +197,14 @@ const OurWorks = () => {
 
                     <div className='lg:w-[806px] sm:h-2/3 h-full sm:px-4 lg:px-0 flex flex-col sm:justify-around lg:justify-between'>
                         <div>
-                            <h2 className='text-[50px] font-bold'>ПАРФЮМЕРНЫЙ БУТИК</h2>
-                            <h3 className='text-[40px] font-light italic'>В Стиле Промышленная Роскошь</h3>
+                            <h2 className='text-[50px] font-bold'>{t('comparison.li3.name')}</h2>
+                            <h3 className='text-[40px] font-light italic'>{t('comparison.li3.style')}</h3>
                         </div>
 
                         <div className='lg:w-[748px] h-[374px] flex flex-col text-[30px] justify-between'>
-                            <p><span className='font-bold'>До:</span>  Пустое помещение с голыми стенами и строительными конструкциями.</p>
-                            <p><span className='font-bold'>После:</span> Теплые кирпичные арки, мягкое освещение стратегически расположенные витрины</p>
-                            <p>Сочетание индустриальных элементов с уютными акцентами делает бутик не просто магазином, а местом для ценителей изысканных ароматов.</p>
+                            <p><span className='font-bold'>{t('comparison.li1.span')}</span>  {t('comparison.li3.p1')}</p>
+                            <p><span className='font-bold'>{t('comparison.li1.span2')}</span> {t('comparison.li3.p2')}</p>
+
                         </div>
                     </div>
                 </div>
@@ -216,7 +216,7 @@ const OurWorks = () => {
 
                 <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
 
-                <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">ЗАКАЗАТЬ</Link>
+                <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">{t('comparison.button')}</Link>
 
                 <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
             </div>
@@ -234,19 +234,22 @@ const OurWorks = () => {
                 {/* vector */}
                 <div className='absolute sm:hidden lg:block '><img src={vector_1} alt='vector 1' loading="lazy"/></div>
 
+                
                 <div className='absolute sm:w-full lg:w-[806px] sm:px-4 lg:px-0 h-auto lg:left-[150px] sm:bottom-[10px] lg:bottom-[80px]'>
-                    <h2 className='text-white font-bold justify-center flex flex-row items-center text-[50px] mb-10'><img src={roof_icon} alt='roof icon' loading="lazy" className='w-[65px] h-[65px] mr-10'/> Ремонт крыши</h2>
+                    <h2 className='text-white font-bold justify-center flex flex-row items-center text-[50px] mb-10'><img src={roof_icon} alt='roof icon' loading="lazy" className='w-[65px] h-[65px] mr-10'/>{t('steps.1.h')}</h2>
 
                     <div className='sm:w-full lg:w-[806px] h-[564px] bg-white/85 sm:text-[27px] lg:text-[31px] flex flex-col justify-between px-5 py-10'>
-                        <p>Мы даем новую жизнь коммерческим помещениям с помощью индивидуального ремонта. Узнайте, как мы превратили этот парфюмерный магазин в элегантное и функциональное пространство, идеально подходящее для приема клиентов в самом сердце Рима</p>
-                        <p>Посмотрите видео для получения подробной информации о проекте и свяжитесь с нами, чтобы создать ваше уникальное пространство!</p>
+                        <p>{t('steps.1.p1')}</p>
+                        <p>{t('steps.1.p2')}</p>
                     </div>
                 </div>
 
                 <div className='sm:w-full lg:w-[698px] sm:px-4 lg:px-0 absolute lg:right-[150px] sm:top- lg:top-[80px]'>
-                    <div className='sm:w-full lg:w-[698px] h-[540px] border-[5px] border-[#F9B33B] bg-gray-600 mb-10'>video</div>
+                    <div className='sm:w-full lg:w-[698px] h-[540px] border-[5px] border-[#F9B33B] bg-gray-600 mb-10'>
+                        <iframe className='w-full h-full' src="https://www.youtube.com/embed/1ajIodgloag?si=mE1cbMB4_w6vIztU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                     
-                    <div className='flex  justify-center sm:w-full lg:w-[698px] h-[67px] text-black sm:text-[28px] lg:text-[30px] font-bold text-center bg-[#F9B33B] items-center'>Ремонт крыши Рим (район Аурелия, Рим)</div>
+                    <div className='flex  justify-center sm:w-full lg:w-[698px] h-[67px] text-black sm:text-[28px] lg:text-[30px] font-bold text-center bg-[#F9B33B] items-center'>{t('steps.1.type')}</div>
                 </div>
             </div>
 
@@ -254,21 +257,23 @@ const OurWorks = () => {
             <div className='works-second-stage-bg-image bg-cover relative sm:pt-10 lg:pt-0 sm:pb-20 flex sm:flex-col lg:flex-row bg-blue-300/80 w-full sm:h-[1400px] lg:h-[849px]'>
                 {/* vector */}
                 <div className='absolute sm:hidden lg:block '><img src={vector_2} alt='vector 2' loading="lazy"/></div>
+                <div className='sm:w-full lg:w-[698px] sm:px-4 lg:px-0 absolute lg:right-[150px] sm:top- lg:top-[80px]'>
+                    <div className='sm:w-full lg:w-[698px] h-[540px] border-[5px] border-[#F9B33B] bg-gray-600 mb-10'>
+                        <iframe className='w-full h-full' src="https://www.youtube.com/embed/pFrTK5z9B24?si=mE1cbMB4_w6vIztU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    
+                    <div className='flex  justify-center sm:w-full lg:w-[698px] h-[67px] text-black sm:text-[28px] lg:text-[30px] font-bold text-center bg-[#F9B33B] items-center'> {t('steps.2.type')}</div>
+                </div>
 
                 <div className='absolute sm:w-full lg:w-[806px] sm:px-4 lg:px-0 h-auto lg:left-[150px] sm:bottom-[10px] lg:bottom-[80px]'>
-                    <h2 className='text-white font-bold justify-center flex flex-row items-center sm:text-[45px] lg:text-[50px] mb-10'><img src={bottle_icon} alt='bottle icon 'loading="lazy" className='w-[65px] h-[65px] mr-10'/> Магазин парфюмерии</h2>
+                    <h2 className='text-white font-bold justify-center flex flex-row items-center sm:text-[45px] lg:text-[50px] mb-10'><img src={bottle_icon} alt='bottle icon 'loading="lazy" className='w-[65px] h-[65px] mr-10'/> {t('steps.2.h')}</h2>
 
                     <div className='sm:w-full lg:w-[806px] h-[564px] bg-white/85 sm:text-[27px] lg:text-[31px] flex flex-col justify-between px-5 py-10'>
-                        <p>Мы даем новую жизнь коммерческим помещениям с помощью индивидуального ремонта. Узнайте, как мы превратили этот парфюмерный магазин в элегантное и функциональное пространство, идеально подходящее для приема клиентов в самом сердце Рима.</p>
-                        <p>Посмотрите видео для получения подробной информации о проекте и свяжитесь с нами, чтобы создать ваше уникальное пространство!</p>
+                        <p>{t('steps.2.p1')}</p>
+                        <p>{t('steps.2.p2')}</p>
                     </div>
                 </div>
 
-                <div className='sm:w-full lg:w-[698px] sm:px-4 lg:px-0 absolute lg:right-[150px] sm:top- lg:top-[80px]'>
-                    <div className='sm:w-full lg:w-[698px] h-[540px] border-[5px] border-[#F9B33B] bg-gray-600 mb-10'>video</div>
-                    
-                    <div className='flex  justify-center sm:w-full lg:w-[698px] h-[67px] text-black sm:text-[28px] lg:text-[30px] font-bold text-center bg-[#F9B33B] items-center'> Исторический центр Рима – via Vittoria 3b</div>
-                </div>
             </div>
             {/* 3 */}
             <div className='works-third-stage-bg-image bg-cover relative sm:pt-10 lg:pt-0 sm:pb-20 flex sm:flex-col lg:flex-row bg-blue-300/80 w-full sm:h-[1400px] lg:h-[849px]'>
@@ -276,38 +281,42 @@ const OurWorks = () => {
                 <div className='absolute sm:hidden lg:block '><img src={vector_1} alt='vector 1' loading="lazy"/></div>
 
                 <div className='absolute sm:w-full lg:w-[806px] sm:px-4 lg:px-0 h-auto lg:left-[150px] sm:bottom-[10px] lg:bottom-[80px]'>
-                    <h2 className='text-white font-bold justify-center flex flex-row items-center sm:text-[40px] lg:text-[50px] mb-10'><img src={fontain_icon} alt='fontain icon' loading="lazy" className='w-[65px] h-[65px] mr-10'/> Реконструкция фонтана</h2>
+                    <h2 className='text-white font-bold justify-center flex flex-row items-center sm:text-[40px] lg:text-[50px] mb-10'><img src={fontain_icon} alt='fontain icon' loading="lazy" className='w-[65px] h-[65px] mr-10'/> {t('steps.3.h')}</h2>
 
                     <div className='sm:w-full lg:w-[806px] h-[564px] bg-white/85 sm:text-[27px] lg:text-[31px] flex flex-col justify-between px-5 py-10'>
-                        <p>Мы возвращаем фонтанам красоту и функциональность с помощью профессиональных реставрационных работ. Узнайте, как мы превратили этот фонтан в уникальный декоративный элемент, сочетающий традиции и современность</p>
-                        <p>Посмотрите видео, чтобы узнать подробности нашей работы, и свяжитесь с нами, чтобы украсить ваши помещения стильно и точно!</p>
+                        <p>{t('steps.3.p1')}</p>
+                        <p>{t('steps.3.p2')}</p>
                     </div>
                 </div>
 
                 <div className='sm:w-full lg:w-[698px] sm:px-4 lg:px-0 absolute lg:right-[150px] sm:top- lg:top-[80px]'>
-                    <div className='sm:w-full lg:w-[698px] h-[540px] border-[5px] border-[#F9B33B] bg-gray-600 mb-10'>video</div>
+                    <div className='sm:w-full lg:w-[698px] h-[540px] border-[5px] border-[#F9B33B] bg-gray-600 mb-10'>
+                        <iframe className='w-full h-full' src="https://www.youtube.com/embed/ejCkepsLR1s?si=mE1cbMB4_w6vIztU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                     
-                    <div className='flex  justify-center sm:w-full lg:w-[698px] h-[67px] text-black sm:text-[26px] lg:text-[30px] font-bold text-center bg-[#F9B33B] items-center'>Реконструкция фонтана – Рим (район Аурелия)</div>
+                    <div className='flex  justify-center sm:w-full lg:w-[698px] h-[67px] text-black sm:text-[26px] lg:text-[30px] font-bold text-center bg-[#F9B33B] items-center'>{t('steps.3.type')}</div>
                 </div>
             </div>
             {/* 4 */}
-            <div className='works-fourth-stage-bg-image bg-cover relative sm:pt-10 lg:pt-0 sm:pb-20 flex sm:flex-col lg:flex-row bg-blue-300/80 w-full sm:h-[1400px] lg:h-[849px]'>
+            <div className='works-fourth-stage-bg-image bg-cover relative sm:pt-10 lg:pt-0 sm:pb-20 flex sm:flex-col lg:flex-row-reverse bg-blue-300/80 w-full sm:h-[1400px] lg:h-[849px]'>
                 {/* vector */}
                 <div className='absolute sm:hidden lg:block  '><img src={vector_2} alt='vector 2' loading="lazy"/></div>
 
                 <div className='absolute sm:w-full lg:w-[806px] sm:px-4 lg:px-0 h-auto lg:left-[150px] sm:bottom-[10px] lg:bottom-[80px]'>
-                    <h2 className='text-white font-bold justify-center flex flex-row items-center sm:text-[40px] lg:text-[50px] mb-10'><img src={food_icon} alt='food 'loading="lazy" className='w-[65px] h-[65px] mr-10'/> Рестайлинг ресторана</h2>
+                    <h2 className='text-white font-bold justify-center flex flex-row items-center sm:text-[40px] lg:text-[50px] mb-10'><img src={food_icon} alt='food 'loading="lazy" className='w-[65px] h-[65px] mr-10'/> {t('steps.4.h')}</h2>
 
                     <div className='sm:w-full lg:w-[806px] h-[564px] bg-white/85 sm:text-[27px] lg:text-[31px] flex flex-col justify-between px-5 py-10'>
-                        <p>Мы преображаем пространства с помощью эксклюзивного дизайна и изысканных деталей. Узнайте, как мы отремонтировали эту винодельню, создав гостеприимное и элегантное пространство, идеально подходящее для любого случая.</p>
-                        <p>Посмотрите видео, чтобы полюбоваться результатом, и свяжитесь с нами, чтобы вдохнуть новую жизнь в ваше помещение со стилем и качеством!</p>
+                        <p>{t('steps.4.p1')}</p>
+                        <p>{t('steps.4.p2')}</p>
                     </div>
                 </div>
 
                 <div className='sm:w-full lg:w-[698px] sm:px-4 lg:px-0 absolute lg:right-[150px] sm:top- lg:top-[80px]'>
-                    <div className='sm:w-full lg:w-[698px] h-[540px] border-[5px] border-[#F9B33B] bg-gray-600 mb-10'>video</div>
+                    <div className='sm:w-full lg:w-[698px] h-[540px] border-[5px] border-[#F9B33B] bg-gray-600 mb-10'>
+                        <iframe className='w-full h-full' src="https://www.youtube.com/embed/l0PAzZ2V3Cs?si=mE1cbMB4_w6vIztU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>\
+                    </div>
                     
-                    <div className='flex  justify-center sm:w-full lg:w-[698px] h-[67px] text-black sm:text-[26px] lg:text-[30px] font-bold text-center bg-[#F9B33B] items-center'> Sentori Vineria del Quartiere (Рим)</div>
+                    <div className='flex  justify-center sm:w-full lg:w-[698px] h-[67px] text-black sm:text-[26px] lg:text-[30px] font-bold text-center bg-[#F9B33B] items-center'> {t('steps.4.type')}</div>
                 </div>
             </div>
 
@@ -317,18 +326,20 @@ const OurWorks = () => {
                 <div className='absolute sm:hidden lg:block  '><img src={vector_1} alt='vector 1' loading="lazy"/></div>
 
                 <div className='absolute sm:w-full lg:w-[806px] sm:px-4 lg:px-0 h-auto lg:left-[150px] sm:bottom-[10px] lg:bottom-[80px]'>
-                    <h2 className='text-white font-bold justify-center flex flex-row items-center sm:text-[40px] lg:text-[50px] mb-10'><img src={keys_icon} alt='keys' loading="lazy" className='w-[65px] h-[65px] mr-10'/>Трехкомнатная квартира</h2>
+                    <h2 className='text-white font-bold justify-center flex flex-row items-center sm:text-[40px] lg:text-[50px] mb-10'><img src={keys_icon} alt='keys' loading="lazy" className='w-[65px] h-[65px] mr-10'/>{t('steps.5.h')}</h2>
 
                     <div className='sm:w-full lg:w-[806px] h-[564px] bg-white/85 sm:text-[27px] lg:text-[31px] flex flex-col justify-between px-5 py-10'>
-                        <p>Мы модернизируем жилые помещения с помощью индивидуальных и функциональных решений. Узнайте, как мы преобразили эту трехкомнатную квартиру , объединив комфорт и дизайн, чтобы удовлетворить все потребности.</p>
-                        <p>Посмотрите видео, чтобы узнать подробности проекта, и свяжитесь с нами, чтобы отремонтировать ваш дом стильно и профессионально!</p>
+                        <p >{t('steps.5.p1')}</p>
+                        <p>{t('steps.5.p2')}</p>
                     </div>
                 </div>
 
                 <div className='sm:w-full lg:w-[698px] sm:px-4 lg:px-0 absolute lg:right-[150px] sm:top- lg:top-[80px]'>
-                    <div className='sm:w-full lg:w-[698px] h-[540px] border-[5px] border-[#F9B33B] bg-gray-600 mb-10'>video</div>
+                    <div className='sm:w-full lg:w-[698px] h-[540px] border-[5px] border-[#F9B33B] bg-gray-600 mb-10'>
+                        <iframe className='w-full h-full' src="https://www.youtube.com/embed/i7l3dHfEA6c?si=mE1cbMB4_w6vIztU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>\
+                    </div>
                     
-                    <div className='flex  justify-center sm:w-full lg:w-[698px] h-[67px] text-black sm:text-[26px] lg:text-[30px] font-bold text-center bg-[#F9B33B] items-center'>Ремонт квартиры — Рим, район Сан Паоло</div>
+                    <div className='flex  justify-center sm:w-full lg:w-[698px] h-[67px] text-black sm:text-[26px] lg:text-[30px] font-bold text-center bg-[#F9B33B] items-center'>{t('steps.5.type')}</div>
                 </div>
             </div>
 

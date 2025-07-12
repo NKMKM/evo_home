@@ -127,7 +127,7 @@ const SystemProjects = () => {
 
             <div className='h-[1px] w-[625.5px] bg-[#F9B33B] sm:hidden lg:block'></div>
 
-            <Link to="/our_works" className='sm:mx-auto lg:mx-0 w-[389px] h-[67px] flex justify-center items-center bg-[#F9B33B] text-[30px] font-semibold'>ПОДРОБНЕЕ</Link>
+                <Link to="/our_works" className='sm:mx-auto lg:mx-0 w-[389px] h-[67px] flex justify-center items-center bg-[#F9B33B] text-[30px] font-semibold hover:scale-110 transition duration-300'>ПОДРОБНЕЕ</Link>
 
             <div className='h-[1px] w-[625.5px] bg-[#F9B33B] sm:hidden lg:block'></div>
         </div>

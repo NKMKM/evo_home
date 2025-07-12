@@ -1,14 +1,16 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 import vector from '../assets/images/room_renovation/room_renovation/vector.png'
 
 const Reasons = () => {
+  const {t} = useTranslation('components/Reasons')
   return (
     <div className='relative  w-full lg:h-[1098px] sm:my-10 lg:my-20'>     
         {/* header */}
         <header className='lg:w-[1640px] mx-auto h-[74px] bg-[#F9B33B] flex flex-row sm:mb-20'>
             <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-7 lg:mr-10'>3.</div>
-            <h1 className='sm:text-[39px] lg:text-[50px] font-bold'>Почему стоит выбрать нас</h1>
+            <h1 className='sm:text-[39px] lg:text-[50px] font-bold'>{t('h')}</h1>
         </header>
 
         {/* vector */}
@@ -18,39 +20,103 @@ const Reasons = () => {
         {/* reasons */}
         <ul className='sm:w-full lg:w-[1641px] lg:h-[900px] flex flex-col justify-between  mx-auto '>
             
-            <li className='w-full lg:h-[100px] border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row'>
-                <div className='text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[550px] h-[96px] bg-[#222222]'>ЛОЯЛЬНЫЕ ЦЕНЫ</div>
-                <p className='text-[30px] px-3 '>Мы предлагаем комплексные услуги по ремонту от 500 евро/м2, гарантируя отличное соотношение цены и качества.</p>
+            <li className="w-full border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row items-stretch">
+
+                {/* Левая часть — фиксированная ширина */}
+                <div className="text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[25%] bg-[#222222]">
+                {t('ul.1.h')}
+                </div>
+
+                {/* Правая часть — обязательно flex-1 */}
+                <div className="flex-1 text-[30px] px-3 py-4 leading-snug">
+                {t('ul.1.p')}
+                </div>
+
             </li>
 
-            <li className='w-full lg:h-[100px] border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row'>
-                <div className='text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[650px] h-[96px] bg-[#222222]'>ДЕСЯТИЛЕТИЯ ОПЫТА</div>
-                <p className='text-[30px] px-3 '>Имея более чем 17-летний опыт работы в сфере ремонта, наша команда профессионалов готова воплотить в жизнь любое ваше желание.</p>
+
+            <li className="w-full border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row items-stretch">
+
+                {/* Левая часть — фиксированная ширина */}
+                <div className="text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[25%] bg-[#222222]">
+                {t('ul.2.h')}
+                </div>
+
+                {/* Правая часть — обязательно flex-1 */}
+                <div className="flex-1 text-[30px] px-3 py-4 leading-snug">
+                {t('ul.2.p')}
+                </div>
+
             </li>
 
-            <li className='w-full lg:h-[100px] border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row'>
-                <div className='text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[610px] h-[96px] bg-[#222222]'>ГАРАНТИЯ КАЧЕСТВА</div>
-                <p className='text-[30px] px-3 '>Мы предоставляем 3-летнюю гарантию на каждую выполненную работу, гарантируя ваше полное удовлетворение и спокойствие.</p>
+            <li className="w-full border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row items-stretch">
+
+                {/* Левая часть — фиксированная ширина */}
+                <div className="text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[25%] bg-[#222222]">
+                {t('ul.3.h')}
+                </div>
+
+                {/* Правая часть — обязательно flex-1 */}
+                <div className="flex-1 text-[30px] px-3 py-4 leading-snug">
+                {t('ul.3.p')}
+                </div>
+
             </li>
 
-            <li className='w-full lg:h-[100px] border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row'>
-                <div className='text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[540px] h-[96px] bg-[#222222]'>ГЕОГРАФИЧЕСКОЕ ПОКРЫТИЕ</div>
-                <p className='text-[30px] px-3 '>Мы работаем в Риме и его живописных окрестностях, гарантируя широкий спектр услуг и индивидуальный подход.</p>
+            <li className="w-full border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row items-stretch">
+
+                {/* Левая часть — фиксированная ширина */}
+                <div className="text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[25%] bg-[#222222]">
+                {t('ul.4.h')}
+                </div>
+
+                {/* Правая часть — обязательно flex-1 */}
+                <div className="flex-1 text-[30px] px-3 py-4 leading-snug">
+                {t('ul.4.p')}
+                </div>
+
             </li>
 
-            <li className='w-full lg:h-[100px] border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row'>
-                <div className='text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[470px] h-[96px] bg-[#222222]'>ОПЛАТА ПО ЗАВЕРШЕНИЮ</div>
-                <p className='text-[30px] px-3 '>Оплата производится только по завершении работы, что гарантирует ваше полное удовлетворение.</p>
+            <li className="w-full border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row items-stretch">
+
+                {/* Левая часть — фиксированная ширина */}
+                <div className="text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[25%] bg-[#222222]">
+                {t('ul.5.h')}
+                </div>
+
+                {/* Правая часть — обязательно flex-1 */}
+                <div className="flex-1 text-[32px] px-3 py-4 leading-snug">
+                {t('ul.5.p')}
+                </div>
+
             </li>
 
-            <li className='w-full lg:h-[100px] border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row'>
-                <div className='text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[500px] h-[96px] bg-[#222222]'>РАССРОЧКА БЕЗ ПРОЦЕНТОВ</div>
-                <p className='text-[30px] px-3 '>Мы предлагаем возможность беспроцентной рассрочки для облегчения финансирования вашего проекта.</p>
+            <li className="w-full border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row items-stretch">
+
+                {/* Левая часть — фиксированная ширина */}
+                <div className="text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[25%] bg-[#222222]">
+                {t('ul.6.h')}
+                </div>
+
+                {/* Правая часть — обязательно flex-1 */}
+                <div className="flex-1 text-[32px] px-3 py-4 leading-snug">
+                {t('ul.6.p')}
+                </div>
+
             </li>
 
-            <li className='w-full lg:h-[100px] border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row'>
-                <div className='text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[630px] h-[96px] bg-[#222222]'>ОФИЦИАЛЬНЫЙ ДОГОВОР</div>
-                <p className='text-[30px] px-3 '>Каждое соглашение закрепляется официальным договором, что обеспечивает прозрачность и безопасность на каждом этапе работы.</p>
+            <li className="w-full border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row items-stretch">
+
+                {/* Левая часть — фиксированная ширина */}
+                <div className="text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[25%] bg-[#222222]">
+                {t('ul.7.h')}
+                </div>
+
+                {/* Правая часть — обязательно flex-1 */}
+                <div className="flex-1 text-[30px] px-3 py-4 leading-snug">
+                {t('ul.7.p')}
+                </div>
+
             </li>
 
         </ul>

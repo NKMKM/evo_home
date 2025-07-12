@@ -1,0 +1,50 @@
+{
+  "title": "Contatti",
+  "header": {
+    "h": "Contatti EVO HOME",
+    "p": "Siamo sempre pronti ad ascoltarti! Qui sotto troverai tutti i dettagli necessari per discutere il tuo progetto con noi, fare domande o lasciare un feedback."
+  },
+  "contacts": {
+    "1": {
+      "h": "INDIRIZZO",
+      "p1": "00162 ROMA",
+      "p2": "Grande Raccordo Anulare Nomentana, 214"
+    },
+    "2": {
+      "h": "CONTATTI TELEFONICI"
+    },
+    "3": {
+      "h": "E-MAIL",
+      "p1": "evohomeroma@gmail.com",
+      "p2": "evohome@gmail.com"
+    },
+    "4": {
+      "h": "ORARI DI LAVORO",
+      "p1": "Lunedì – Venerdì:",
+      "p2": "Sabato:"
+    },
+    "5": {
+      "h": "I NOSTRI SOCIAL MEDIA"
+    }
+  },
+  "form": {
+    "h": "Contattaci",
+    "first_section": {
+      "h": "Nome",
+      "placeholder": "Il tuo nome..."
+    },
+    "second_section": {
+      "h": "E-MAIL",
+      "placeholder": "La tua email..."
+    },
+    "third_section": {
+      "h": "Città",
+      "placeholder": "La tua città..."
+    },
+    "fourth_section": {
+      "h": "Informazioni aggiuntive",
+      "placeholder": "Scrivi informazioni aggiuntive..."
+    },
+    "button": "INVIA"
+  }
+}

@@ -1,0 +1,51 @@
+{
+    "title": "Contacts",
+    "header": {
+      "h": "EVO HOME Contacts",
+      "p": "We’re always ready to hear from you! Below you’ll find all the necessary contact details to discuss your project with us, ask questions, or leave feedback."
+    },
+    "contacts": {
+      "1": {
+        "h": "ADDRESS",
+        "p1": "00162 ROME",
+        "p2": "Nomentana Ring Road, 214"
+      },
+      "2": {
+        "h": "PHONE CONTACTS"
+      },
+      "3": {
+        "h": "E-MAIL",
+        "p1": "evohomeroma@gmail.com",
+        "p2": "evohome@gmail.com"
+      },
+      "4": {
+        "h": "WORKING HOURS",
+        "p1": "Monday – Friday:",
+        "p2": "Saturday:"
+      },
+      "5": {
+        "h": "OUR SOCIAL MEDIA"
+      }
+    },
+    "form": {
+      "h": "Get in Touch",
+      "first_section": {
+        "h": "Name",
+        "placeholder": "Your name..."
+      },
+      "second_section": {
+        "h": "E-MAIL",
+        "placeholder": "Your email..."
+      },
+      "third_section": {
+        "h": "City",
+        "placeholder": "Your city..."
+      },
+      "fourth_section": {
+        "h": "Additional Info",
+        "placeholder": "Write additional information..."
+      },
+      "button": "SUBMIT"
+    }
+}
+  

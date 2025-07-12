@@ -1,0 +1,43 @@
+{
+  "title": "Ristrutturazione di Centri Fitness",
+  "h": "Ristrutturazione di Centri Fitness",
+  "header": {
+    "h": "Ristrutturazione di Centri Fitness con EVO HOME",
+    "p1": "Ristrutturare un centro fitness oggi non è solo una necessità, ma anche un vantaggio competitivo. Spazi luminosi, ampi e dotati di attrezzature ben funzionanti lasciano un’ottima impressione e migliorano l’esperienza di allenamento dei clienti.",
+    "p2": "EvoHome, con oltre 17 anni di esperienza nel settore delle ristrutturazioni a Roma, offre soluzioni pratiche ed economicamente vantaggiose per il rinnovo del tuo centro fitness, garantendo lavori di alta qualità e consegna nei tempi previsti. Che si tratti di un semplice restyling o di una ristrutturazione completa con ridistribuzione degli spazi, ci impegniamo a raggiungere risultati eccellenti secondo quanto concordato nel contratto. Il costo varia in base alle condizioni iniziali della struttura, agli obiettivi progettuali e alla disposizione esistente.",
+    "button": "ORDINA"
+  },
+  "process": {
+    "h": "Dettagli sulla Ristrutturazione del Centro Fitness",
+    "ul": {
+      "1": {
+        "h": "LAVORI DI DEMOLIZIONE E SMANTELLAMENTO",
+        "li1": "Rimozione superfici: Smantellamento di pavimentazioni, piastrelle, intonaci e rivestimenti murali esistenti.",
+        "li2": "Demolizione pareti: Rimozione di tramezzi non portanti per riorganizzare gli spazi interni.",
+        "li3": "Rimozione infissi: Smontaggio di finestre e porte obsolete."
+      },
+      "2": {
+        "h": "LAVORI DI FINITURA INTERMEDI",
+        "li1": "Intonacatura e livellamento: Applicazione di intonaco su pareti e soffitti per ottenere superfici lisce e uniformi.",
+        "li2": "Mano di fondo: Prima mano di pittura preparatoria per la finitura definitiva."
+      },
+      "3": {
+        "h": "IMPIANTI ELETTRICI E IDRAULICI",
+        "li1": "Impianto elettrico: Installazione e collegamento di impianti elettrici, prese, interruttori e illuminazione.",
+        "li2": "Impianto idraulico: Posa di tubazioni per acqua calda e fredda, scarichi e sanitari.",
+        "li3": "Collegamenti tecnici: Cablaggio per impianti audio, video e controllo accessi."
+      },
+      "4": {
+        "h": "ATTREZZATURE FITNESS",
+        "p": "Montaggio e riparazione di attrezzature sportive: macchinari, pesi liberi e attrezzatura per allenamento funzionale."
+      },
+      "5": {
+        "h": "ILLUMINAZIONE E ARREDAMENTO",
+        "li1": "Illuminazione: Installazione di sistemi luminosi adeguati per ogni zona del centro fitness.",
+        "li2": "Arredamento: Fornitura e montaggio di arredi per reception, aree relax e spogliatoi.",
+        "li3": "Elementi decorativi: Applicazione di decorazioni murali, tende e tapparelle."
+      }
+    },
+    "video_text": "Ristrutturazione di Centri Fitness con EVO HOME"
+  }
+}

@@ -1,12 +1,9 @@
 import React from 'react'
 import LayoutCollection from '../../components/room_renovation_components/LayoutCollection'
-import FiveReasons from '../../components/FiveReasons'
-import Calculator from '../../components/mainpage_components/Calculator'
-import Reasons from '../../components/Reasons'
-import Projects from '../../components/room_renovation_components/Projects'
 import Video from '../../components/Video'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 
 import left_decoration from '../../assets/images/leftside_black_decoration.png'
 import right_decoration from '../../assets/images/rightside_black_decoration.png'
@@ -25,10 +22,11 @@ import fifth_step from '../../assets/images/room_renovation/living_room/process/
 
 
 const LivingRoom = () => {
+  const {t} = useTranslation('room_renovation/LivingRoom')
   return (
     <div>
         <Helmet>
-            <title>Реновация гостинной</title>
+            <title>{t('title')}</title>
             <meta name="description" content="Renovation of living rooms by EVO Home" />
         </Helmet>
 
@@ -38,7 +36,7 @@ const LivingRoom = () => {
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
 
-                <h1 className='font-bold mx-auto text-center sm:text-[50px] lg:text-[57px]'>Ремонт гостиной </h1>
+                <h1 className='font-bold mx-auto text-center sm:text-[50px] lg:text-[57px]'>{t('h')}</h1>
 
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
             </div>
@@ -48,14 +46,13 @@ const LivingRoom = () => {
                 {/* header */}
                 <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>1.</div>
-                    <h2 className='sm:text-[26px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>Ремонт гостиной  от EVO HOME</h2>
+                    <h2 className='sm:text-[26px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('header.h')}</h2>
                 </div>
 
                 {/* text */}
                 <div className='text-[28px] sm:text-center lg:text-start sm:px-5 lg:px-0 flex flex-col space-y-10'>
-                    <p>Добро пожаловать в EvoHome — ваш выбор совершенства в сфере дизайнерского ремонта.
-                    Вы ищете решение для преображения своей гостиной, сочетающее в себе элегантность, функциональность и инновации? Благодаря компании EvoHome, работающей в Риме и его окрестностях, вам доступны варианты ремонта гостиной стоимостью всего от 10 000 евро . Имея более чем 17-летний опыт работы в сфере ремонта, мы готовы помочь вам создать гостиную вашей мечты, гарантируя вам безупречный сервис с гарантией на результат не менее 3 лет</p>
-                    <p>Независимо от того , есть ли у вас студия , однокомнатная , двухкомнатная , четырехкомнатная или двухуровневая квартира , EvoHome предлагает широкий спектр услуг для удовлетворения потребностей в ремонте различных типов квартир, гарантируя индивидуальные решения для любого размера и образа жизни.</p>
+                    <p>{t('header.p1')}</p>
+                    <p>{t('header.p2')}</p>
                 </div>
 
                 {/* image */}
@@ -64,7 +61,7 @@ const LivingRoom = () => {
                 <div className='sm:w-full lg:w-[1640px] h-[67px] flex flex-row items-center mx-auto'>
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
 
-                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">ЗАКАЗАТЬ</Link>
+                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">{t('header.button')}</Link>
 
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
                 </div>
@@ -76,10 +73,10 @@ const LivingRoom = () => {
             {/* header */}
             <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>2.</div>
-                <h2 className='sm:text-[28px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>Подробнее о ремонте гостинной</h2>
+                <h2 className='sm:text-[28px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('process.h')}</h2>
             </div>
 
-            <p className='sm:w-full lg:w-[1640px] sm:px-4 lg:px-0 text-[32px] mx-auto my-20 sm:text-center lg:text-start'>Ремонт гостиной преследует одну большую цель: сделать пространство не только эстетически привлекательным, но и функциональным, особенно при наличии небольших комнат.</p>
+            <p className='sm:w-full lg:w-[1640px] sm:px-4 lg:px-0 text-[32px] mx-auto my-20 sm:text-center lg:text-start'>{t('process.p')}</p>
 
             {/* list of steps */}
             <div className='sm:h-[5550px] lg:h-[2260px] sm:w-full lg:w-auto relative mx-auto '>
@@ -92,9 +89,9 @@ const LivingRoom = () => {
                         <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={first_step} alt='first step' loading="lazy" className='w-full h-full object-cover' /></div>
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>ВСЕ НАЧИНАЕТСЯ С ПРОСТОГО КОНТАКТА</h2>
+                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.1.h')}</h2>
 
-                            <p className='text-[26px] pb-5'>Вы решили вдохнуть новую жизнь в свою гостиную? Свяжитесь с нами по телефону или заполнив онлайн-форму. Один из наших специалистов перезвонит вам в течение 5-10 минут, чтобы провести предварительную консультацию, сориентировать по срокам реализации и предложить предварительную оценку стоимости.</p>
+                            <p className='text-[26px] pb-5'>{t('process.ul.1.p')}</p>
                         </div>
                     </li>
 
@@ -104,9 +101,9 @@ const LivingRoom = () => {
                         <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={second_step} alt='second step' loading="lazy" className='w-full h-full object-cover' /></div>
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6 lg:px-0 '>
-                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>БЕСПЛАТНЫЙ ВИЗИТ ИНЖИНЕРА</h2>
+                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.2.h')}</h2>
 
-                            <p className='text-[26px] pb-5'>Для обеспечения максимальной точности сметы мы организуем бесплатный визит одного из наших инженеров-проектировщиков прямо к вам домой. Давайте вместе согласуем наиболее подходящее время для встречи; Если ваш запрос поступит до 13:00, мы сможем направить специалиста в тот же день. Эта услуга абсолютно бесплатна и ни к чему вас не обязывает.</p>
+                            <p className='text-[26px] pb-5'>{t('process.ul.2.p')}</p>
                         </div>
                     </li>
 
@@ -116,8 +113,8 @@ const LivingRoom = () => {
                         <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={third_step} alt='third step' loading="lazy" className='w-full h-full object-cover' /></div>
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>ИНДИВИДУАЛЬНАЯ СМЕТА</h2>
-                            <p className='text-[26px] pb-5'>На месте мы проведем все необходимые обследования и на основании замеров составим подробную смету работ. Наш инженер будет в вашем распоряжении, чтобы проконсультировать вас по выбору материалов, различным этапам проекта и тому, как оптимизировать бюджет, не жертвуя качеством конечного результата.</p>
+                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.3.h')}</h2>
+                            <p className='text-[26px] pb-5'>{t('process.ul.3.p')}</p>
                         </div>
                     </li>
 
@@ -127,8 +124,8 @@ const LivingRoom = () => {
                         <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={fourth_step} alt='fourth step' loading="lazy" className='w-full h-full object-cover' /></div>
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 sm:px-6 lg:px-0'>
-                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>ВСТРЕЧА С РУКОВОДИТЕЛЕМ ОБЪЕКТА</h2>
-                            <p className='text-[26px] pb-5'>Перед началом работ у вас будет возможность встретиться с руководителем объекта, который проверит полноту и точность сметы, выслушает ваши дополнительные пожелания и, при необходимости, внесет необходимые изменения в смету. После утверждения окончательной сметы мы совместно определим условия договора, установив сроки завершения и дату начала работ.</p>
+                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.4.h')}</h2>
+                            <p className='text-[26px] pb-5'>{t('process.ul.4.p')}</p>
                         </div>
                     </li>
 
@@ -138,9 +135,9 @@ const LivingRoom = () => {
                         <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={fifth_step} alt='fifth step' loading="lazy" className='w-full h-full object-cover' /></div>
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>НАЧАЛО РАБОТЫ</h2>
+                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.5.h')}</h2>
                             
-                            <p className='text-[26px] pb-5'>Начало преображения вашей гостиной. Наша команда следует четкому плану работ, начиная с этапов сноса и подготовки, затем черновых работ и заканчивая отделкой. На протяжении всего процесса мы обеспечиваем еженедельное обновление данных, выпуская отчеты о выполненных работах, обеспечивая прозрачное управление платежами, разделенными по этапам.</p>
+                            <p className='text-[26px] pb-5'>{t('process.ul.5.p')}</p>
                         </div>
                     </li>
                 </ul>
@@ -149,16 +146,11 @@ const LivingRoom = () => {
             </div>
 
             <div className='mb-10'>
-                <Video text={'Ремонт гостинной от EVO HOME'} />
+                <Video text={t('process.video_text')} />
             </div>
         </main>
 
-        <div className='flex flex-col'>
-            <FiveReasons/>
-            <Calculator/>
-            <Reasons/>
-            <Projects/>
-        </div>
+        <LayoutCollection/>
 
 
 

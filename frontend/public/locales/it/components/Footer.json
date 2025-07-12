@@ -1,0 +1,56 @@
+{
+  "turnkey_renovation_h": "RISTRUTTURAZIONE APPARTAMENTI CHIAVI IN MANO",
+  "turnkey_renovation_ul": {
+    "li1": "Ristrutturazione con progetto di design",
+    "li2": "Ristrutturazione esclusiva",
+    "li3": "Ristrutturazione monolocale",
+    "li4": "Ristrutturazione bilocale",
+    "li5": "Ristrutturazione trilocale",
+    "li6": "Ristrutturazione quadrilocale",
+    "li7": "Ristrutturazione appartamento su due livelli"
+  },
+  "room_renovation_h": "RISTRUTTURAZIONE LOCALI",
+  "room_renovation_ul": {
+    "li1": "Ristrutturazione soggiorno",
+    "li2": "Ristrutturazione camera da letto",
+    "li3": "Ristrutturazione cameretta",
+    "li4": "Ristrutturazione ingresso",
+    "li5": "Ristrutturazione cucina",
+    "li6": "Ristrutturazione bagno",
+    "li7": "Ristrutturazione scala"
+  },
+  "commercial_premises_h": "SPAZI COMMERCIALI",
+  "commercial_premises_ul": {
+    "li1": "Ristrutturazione business center",
+    "li2": "Ristrutturazione bar e ristoranti",
+    "li3": "Ristrutturazione locali commerciali",
+    "li4": "Ristrutturazione uffici",
+    "li5": "Ristrutturazione magazzini",
+    "li6": "Ristrutturazione fitness club",
+    "li7": "Ristrutturazione hotel"
+  },
+  "systems_h": "IMPIANTI",
+  "systems_ul": {
+    "li1": "Impianto elettrico",
+    "li2": "Impianto gas",
+    "li3": "Riscaldamento a pavimento",
+    "li4": "Impianto di drenaggio e fognatura",
+    "li5": "Climatizzazione e controllo clima"
+  },
+  "main_h": "PRINCIPALE",
+  "main_ul": {
+    "li1": "Chi siamo",
+    "li2": "I nostri progetti",
+    "li3": "Recensioni",
+    "li4": "Contatti"
+  },
+  "adress_h": "INDIRIZZO",
+  "adress_p1": "00162 ROMA",
+  "adress_p2": "Grande Raccordo Anulare Nomentana, 214",
+  "contacts_h": "CONTATTI",
+  "contacts_p1": "Telefono: +39 327 986 6412",
+  "contacts_p2": "Telefono: +39 06 69353277",
+  "contacts_p3": "Email: info@evohome.it",
+  "copyright": "© Copyright 2025 | IMPRESA EDILE MCSrl | Partita IVA 17325141004 |",
+  "cookies": "Cookie & Politica sulla Privacy"
+}

@@ -1,0 +1,47 @@
+{
+  "title": "Sistemi",
+  "h": "Sistemi",
+  "header": {
+    "h": "Sistemi by EVO HOME",
+    "p1": "Durante la ristrutturazione di un appartamento, una casa o uno spazio commerciale, spesso è necessario intervenire sui sistemi dell’edificio. Che si tratti di impianti idraulici, elettrici o di condizionamento, una progettazione adeguata è essenziale per garantire la sicurezza e la funzionalità della casa o dei locali commerciali.",
+    "p2": "Evo Home, con oltre 17 anni di esperienza in questo campo, si impegna a realizzare i sistemi più moderni che rispettano sempre le normative vigenti e forniscono tutte le certificazioni richieste dalla legge. Siamo specializzati nell’installazione, manutenzione e ammodernamento di sistemi complessi che migliorano la qualità della vita e aumentano il valore dell’immobile.",
+    "button": "ORDINA"
+  },
+  "process": {
+    "h": "Maggiori informazioni sui sistemi",
+    "ul": {
+      "1": {
+        "h": "IMPIANTO ELETTRICO",
+        "p": "Gli impianti elettrici residenziali sono soggetti a rigide normative che regolano progettazione, installazione e collaudo per garantire alte prestazioni e sicurezza. Evo Home progetta e installa impianti elettrici conformi alla norma CEI 64-8, rilasciando dichiarazione di conformità."
+      },
+      "2": {
+        "h": "IMPIANTO GAS",
+        "p": "L’installazione di impianti a gas richiede competenze tecniche avanzate e rigoroso rispetto delle norme di sicurezza. Il nostro team garantisce un’installazione professionale, prestando massima attenzione alla sigillatura delle giunture e all’integrità delle tubazioni per assicurare la perfetta tenuta del sistema."
+      },
+      "3": {
+        "h": "RISCALDAMENTO A PAVIMENTO",
+        "p": "Il riscaldamento a pavimento è una delle soluzioni più apprezzate nelle nuove costruzioni e nelle ristrutturazioni. Questo sistema non solo assicura un comfort eccezionale grazie alla distribuzione uniforme del calore, ma permette anche significativi risparmi energetici, soprattutto se abbinato a fonti di energia rinnovabile."
+      },
+      "4": {
+        "h": "IMPIANTO DI DRENAGGIO E FOGNATURA",
+        "p": "Gli impianti di drenaggio e fognatura sono componenti fondamentali per una corretta gestione delle acque reflue. La nostra azienda progetta e installa sistemi di drenaggio collegati alla rete fognaria principale, garantendo efficienza ottimale e massima sicurezza."
+      },
+      "5": {
+        "h": "IMPIANTI TERMO-IDRAULICI",
+        "p": "Gli impianti termo-idraulici sono progettati per il controllo climatico sia in estate che in inverno. Utilizzano acqua calda come vettore termico, fornendo un riscaldamento efficiente. Evo Home progetta e installa impianti termo-idraulici che garantiscono non solo comfort abitativo ma anche notevoli risparmi energetici."
+      },
+      "6": {
+        "h": "CONDIZIONAMENTO E CONTROLLO CLIMATICO",
+        "p": "Il controllo climatico è essenziale per garantire comfort sia negli ambienti residenziali che commerciali. La necessità di sistemi moderni di gestione della qualità dell’aria dipende dalle caratteristiche dello spazio e dal clima locale."
+      },
+      "7": {
+        "h": "RETI DI COMUNICAZIONE E IMPIANTI A BASSA TENSIONE",
+        "p": "Le reti di comunicazione, essenziali per le attività commerciali, sono installate dopo la posa delle infrastrutture principali dell’impianto. La posa delle linee a bassa tensione include il passaggio dei cavi che collegano i singoli contatori con le apparecchiature necessarie."
+      }
+    },
+    "video_text": "Installazione sistemi by EVO HOME",
+    "video_p1": "Scegliendo Evo Home scegli un partner affidabile con oltre 17 anni di esperienza nei sistemi e nelle ristrutturazioni. Offriamo un servizio completo certificato per installazione, manutenzione e ammodernamento degli impianti domestici a Roma, garantendo sempre sicurezza, efficienza e conformità alle normative.",
+    "video_p2": "Contattaci oggi al +39 327 986 6412 per una consulenza gratuita o per richiedere un preventivo personalizzato.",
+    "video_button": "ORDINA"
+  }
+}

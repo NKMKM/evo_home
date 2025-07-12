@@ -1,0 +1,42 @@
+{
+    "title": "Drainage and Sewer System",
+    "h": "Drainage and Sewer System",
+    "header": {
+      "h": "Installation of Drainage and Sewer Systems by EVO HOME",
+      "p1": "Our company, Evo Home, has been working in the field of drainage and sewer system installation in Rome for over 17 years. We are leaders in applying advanced technologies and complying with current regulations, offering customized solutions to meet the specific needs of each client.",
+      "p2": "A properly designed drainage and sewer system is a crucial element of safety, durability, and functionality for any building—residential or commercial. A carefully planned structure ensures efficient wastewater management while minimizing the risk of issues.",
+      "button": "ORDER"
+    },
+    "process": {
+      "h": "More about drainage and sewer system installation",
+      "ul": {
+        "1": {
+          "h": "PLANNING AND DESIGN",
+          "li1": "Site analysis and evaluation of the property's specific needs.",
+          "li2": "Detailed pipeline system design ensuring proper flow and space optimization."
+        },
+        "2": {
+          "h": "PIPE INSTALLATION",
+          "li1": "Laying pipes at an optimal slope for wastewater removal.",
+          "li2": "Sealed connections and pressure testing to prevent leaks."
+        },
+        "3": {
+          "h": "SPECIAL COMPONENTS",
+          "li1": "Installation of lifting pumps for areas with unfavorable gradients.",
+          "li2": "Installation of collection tanks and filtration systems for wastewater treatment."
+        },
+        "4": {
+          "h": "PUBLIC SEWER CONNECTION",
+          "li1": "Check local regulations and required permits.",
+          "li2": "Safe connection to external networks, ensuring compatibility and functionality."
+        },
+        "5": {
+          "h": "TESTING AND VERIFICATION",
+          "li1": "Inspect all components to ensure optimal performance.",
+          "li2": "Provision of technical documentation and post-installation support."
+        }
+      },
+      "video_text": "Drainage and Sewer System Installation by EVO HOME"
+    }
+}
+  

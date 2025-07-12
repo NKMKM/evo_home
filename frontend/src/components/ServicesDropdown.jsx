@@ -53,7 +53,7 @@ const ServicesDropdown = () => {
 
   return (
     <div
-      className="relative select-none z-999"
+      className="relative select-none z-999 "
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -62,7 +62,7 @@ const ServicesDropdown = () => {
       </div>  
 
       {isDropdownVisible && (
-        <div className="absolute top-full left-0 mt-2 w-[468px] bg-white shadow-2xl  z-50 transition-opacity duration-300">
+        <div className="absolute top-full left-0 mt-2 w-[468px] bg-white   z-50 transition-opacity duration-300 shadow-xl">
           {services.map((service ,index) => (
             <div
               key={index}
@@ -79,7 +79,7 @@ const ServicesDropdown = () => {
 
               {/* Уникальное подменю */}
               {hoveredIndex === index && service.submenu.length > 0 && (
-                <div className="absolute top-0 left-full ml-1 w-[468px] bg-white shadow-lg  z-50">
+                <div className="absolute top-0 left-full ml-1 w-[468px] bg-white  z-50 shadow-xl">
                   {service.submenu.map((item, subIdx) => (
                     <Link
                       key={subIdx}

@@ -3,6 +3,7 @@ import Video from '../../components/Video'
 import CommercialPremisesLayoutCollection from '../../components/commercial_premises_components/CommercialPremisesLayoutCollection'
 import { Link } from 'react-router-dom'
 import { Helmet } from "react-helmet";
+import { useTranslation } from 'react-i18next';
 
 import left_decoration from '../../assets/images/leftside_black_decoration.png'
 import right_decoration from '../../assets/images/rightside_black_decoration.png'
@@ -20,10 +21,11 @@ import fifth_step from '../../assets/images/commercial_premises/business_center/
 
 
 const BusinessCenter = () => {
+  const {t} = useTranslation('commercial_premises/BusinessCenter')
   return (
     <div>
         <Helmet>
-            <title>Реновация бизнес центра</title>
+            <title>{t('title')}</title>
             <meta name="description" content="Renovation of business centers by EVO Home" />
         </Helmet>
         {/* first step */}
@@ -32,7 +34,7 @@ const BusinessCenter = () => {
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
 
-                <h1 className='font-bold mx-auto text-center sm:text-[50px] lg:text-[57px]'>Реновация бизнес-центра</h1>
+                <h1 className='font-bold mx-auto text-center sm:text-[50px] lg:text-[57px]'>{t('h')}</h1>
 
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
             </div>
@@ -42,13 +44,13 @@ const BusinessCenter = () => {
                 {/* header */}
                 <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>1.</div>
-                    <h2 className='sm:text-[26px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>Реновация бизнес-центра от EVO HOME</h2>
+                    <h2 className='sm:text-[26px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('header.h')}</h2>
                 </div>
 
                 {/* text */}
                 <div className='text-[28px] sm:text-center lg:text-start sm:px-5 lg:px-0 flex flex-col space-y-4'>
-                    <p>Успех бизнес-центра во многом зависит от его внешнего вида и функциональности. Грамотно спланированный и выполненный рестайлинг улучшает не только эстетику, но и безопасность и комфорт, тем самым повышая привлекательность для потенциальных арендаторов и посетителей.</p>
-                    <p>Компания Evo Home предлагает комплексные услуги по ремонту «под ключ» бизнес-центров в Риме, гарантируя превосходные результаты благодаря более чем 17-летнему опыту работы в этом секторе.</p>
+                    <p>{t('header.p1')}</p>
+                    <p>{t('header.p2')}</p>
                 </div>
 
                 {/* image */}
@@ -57,7 +59,7 @@ const BusinessCenter = () => {
                 <div className='sm:w-full lg:w-[1640px] h-[67px] flex flex-row items-center mx-auto'>
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
 
-                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">ЗАКАЗАТЬ</Link>
+                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">{t('header.button')}</Link>
 
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
                 </div>
@@ -69,10 +71,10 @@ const BusinessCenter = () => {
             {/* header */}
             <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>2.</div>
-                <h2 className='sm:text-[26px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>Подробнее о ремонте бизнес-центра</h2>
+                <h2 className='sm:text-[26px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('process.h')}</h2>
             </div>
 
-            <p className='sm:w-full lg:w-[1640px] sm:px-4 lg:px-0 text-[32px] mx-auto my-20 sm:text-center lg:text-start'>Реновация бизнес-центра требует соблюдения многочисленных правил безопасности и стандартов качества. Среди основных требований CVI:</p>
+            <p className='sm:w-full lg:w-[1640px] sm:px-4 lg:px-0 text-[32px] mx-auto my-20 sm:text-center lg:text-start'>{t('process.p')}</p>
 
             {/* list of steps */}
             <div className='sm:h-[5550px] lg:h-[2260px] sm:w-full lg:w-auto relative mx-auto '>
@@ -85,11 +87,9 @@ const BusinessCenter = () => {
                         <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={first_step} alt='first step' loading="lazy" className='w-full h-full object-cover' /></div>
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>СИСТЕМЫ СВЯЗИ И ВЕНТИЛЯЦИИ</h2>
+                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.1.h')}</h2>
 
-                            <p className='text-[26px] pb-5'>Установка высокоэффективных систем HVAC (отопления, вентиляции и кондиционирования воздуха) для обеспечения комфортной среды в любое время года.Автоматическое пожаротушение:<br className='lg:block'/>
-                            Внедрение систем обнаружения дыма и тепла.
-                            Предоставление автоматических систем пожаротушения, таких как спринклеры и системы инертного газа.</p>
+                            <p className='text-[26px] pb-5'>{t('process.ul.1.p')}</p>
                         </div>
                     </li>
 
@@ -99,10 +99,9 @@ const BusinessCenter = () => {
                         <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={second_step} alt='second step' loading="lazy" className='w-full h-full object-cover' /></div>
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6 lg:px-0 '>
-                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>СТРОИТЕЛЬНЫЕ МАТЕРИАЛЫ</h2>
+                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.2.h')}</h2>
 
-                            <p className='text-[26px] pb-5'>Сертификаты качества: Использование сертифицированных CE материалов для обеспечения соответствия европейским стандартам.
-                            Выбор экологически чистых и устойчивых материалов.Прочность и долговечность: Использование материалов с высокой огнестойкостью, таких как обработанная сталь и огнестойкая штукатурка.</p>
+                            <p className='text-[26px] pb-5'>{t('process.ul.2.p')}</p>
                         </div>
                     </li>
 
@@ -112,8 +111,8 @@ const BusinessCenter = () => {
                         <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={third_step} alt='third step' loading="lazy" className='w-full h-full object-cover' /></div>
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>ПОЖАРНАЯ БЕЗОПАСНОСТЬ</h2>
-                            <p className='text-[26px] pb-5'>Системы обнаружения пожара: Установка дымовых и тепловых извещателей. Подключение к централизованным системам мониторинга.Системы сигнализации и эвакуации: Внедрение систем звукового и визуального оповещения для быстрой эвакуации. Системы спринклерного пожаротушения: Монтаж систем водяного, газового или пенного пожаротушения</p>
+                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.3.h')}</h2>
+                            <p className='text-[26px] pb-5'>{t('process.ul.3.p')}</p>
                         </div>
                     </li>
 
@@ -123,9 +122,8 @@ const BusinessCenter = () => {
                         <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={fourth_step} alt='fouth_step' loading="lazy" className='w-full h-full object-cover' /></div>
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 sm:px-6 lg:px-0'>
-                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>ТЕХНОЛОГИЧЕСКИЕ ИНФРАСТРУКТУРЫ</h2>
-                            <p className='text-[26px] pb-5'>ИТ-сети и связь: Проектирование и монтаж высокоскоростных проводных и беспроводных сетей. Внедрение систем кибербезопасности для защиты данных компании. Автоматизация зданий: Использование систем автоматизации для управления освещением, климатом и безопасностью.
-                            </p>
+                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.4.h')}</h2>
+                            <p className='text-[26px] pb-5'>{t('process.ul.4.p')}</p>
                         </div>
                     </li>
 
@@ -135,11 +133,9 @@ const BusinessCenter = () => {
                         <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={fifth_step} alt='fifth_step' loading="lazy" className='w-full h-full object-cover' /></div>
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>СОБЛЮДЕНИЕ НОРМАТИВНЫХ ТРЕБОВАНИЙ</h2>
+                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.5.h')}</h2>
                             
-                            <p className='text-[26px] pb-5'>Строительные нормы:Соблюдение местных и национальных строительных норм.
-                                Получение всех необходимых разрешений перед началом работ.Правила безопасности:Соблюдение правил техники безопасности на рабочем месте и правил эксплуатации электросистем.
-                                Обучение персонала действиям в чрезвычайных ситуациях и протоколам безопасности.</p>
+                            <p className='text-[26px] pb-5'>{t('process.ul.5.p')}</p>
                         </div>
                     </li>
                 </ul>
@@ -148,7 +144,7 @@ const BusinessCenter = () => {
             </div>
 
             <div className='mb-10'>
-                <Video text={'Реновация бизнес-центра от EVO HOME'} />
+                <Video text={t('process.video_text')} />
             </div>
         </main>
 

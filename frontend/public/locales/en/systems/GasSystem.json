@@ -1,0 +1,38 @@
+{
+    "title": "Gas System",
+    "h": "Gas System",
+    "header": {
+      "h": "Gas System Installation by EVO HOME",
+      "p1": "Installing gas systems is a crucial step in managing residential and commercial buildings. A system designed and installed in accordance with safety standards not only ensures proper methane distribution but also guarantees maximum user safety. With over 17 years of experience, Evo Home is the ideal partner for installing and maintaining gas systems in Rome, thanks to its team of specialized and certified professionals.",
+      "p2": "Methane is widely used in residential properties for heating, cooking, and hot water. However, since it is a flammable fuel, it is vital that the system is installed according to current regulations. Evo Home is committed to ensuring that every system complies with the latest safety standards, minimizing the risk of leaks or malfunctions.",
+      "button": "ORDER"
+    },
+    "process": {
+      "h": "More about gas system installation",
+      "p": "A properly designed and installed gas system consists of several key elements, each of which must be carefully selected and positioned. In addition to residential properties, gas technologies are widely used in commercial spaces such as restaurants, hotels, offices, and gyms, where the demands for energy efficiency and safety are particularly high. Below is a detailed overview of the main components with specific examples of their applications.",
+      "ul": {
+        "1": {
+          "h": "METER",
+          "p": "The gas meter is the access point to energy within the building. It measures the volume of gas consumed and can be installed either indoors or outdoors. In commercial spaces such as restaurants or industrial kitchens, a higher-capacity meter is often required to handle increased energy usage."
+        },
+        "2": {
+          "h": "USER DEVICES",
+          "p": "The appliances connected to the gas system may vary depending on whether they are used for residential or commercial purposes. In addition to traditional gas stoves and boilers commonly found in homes, there are more advanced devices widely used in commercial facilities."
+        },
+        "3": {
+          "h": "MODERN CONTROL SYSTEMS",
+          "p": "In commercial settings, gas systems often require advanced management. Evo Home installs automation and monitoring systems that allow real-time consumption tracking, leak detection, and optimization of energy efficiency. This is especially important for businesses such as restaurants and hotels."
+        },
+        "4": {
+          "h": "UNI CIG 7129 COMPLIANCE GUARANTEE",
+          "p": "All gas systems must comply with UNI CIG 7129, which regulates installations beyond the gas meter. This legislation includes specific safety measures for the system and its users. Evo Home strictly adheres to these standards and issues a Declaration of Conformity upon project completion, which is required to activate the system."
+        },
+        "5": {
+          "h": "FULL RANGE OF SERVICES",
+          "p": "In addition to installation, Evo Home offers maintenance and support services to ensure the gas system remains efficient and safe over time."
+        }
+      },
+      "video_text": "Gas System Installation by EVO HOME"
+    }
+}
+  

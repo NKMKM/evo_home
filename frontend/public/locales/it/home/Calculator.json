@@ -1,0 +1,49 @@
+{
+  "h": "Calcolatore del Costo di Ristrutturazione",
+  "p": "Una volta completato il calcolatore, un nostro specialista ti contatterà per definire i dettagli e fornirti un preventivo preciso per il progetto. Terremo conto delle tue preferenze e ti proporremo la soluzione migliore entro il tuo budget!",
+  "left_form": {
+    "first_row": {
+      "first_section": {
+        "h": "TIPO DI EDIFICIO",
+        "selection": {
+          "first_option": "Nuova Costruzione",
+          "second_option": "Immobile di Seconda Mano"
+        }
+      },
+      "second_section": {
+        "h": "TIPO DI IMMOBILE",
+        "selection": {
+          "first_option": "Appartamento",
+          "second_option": "Casa"
+        }
+      },
+      "third_section": {
+        "h": "TIPO DI RISTRUTTURAZIONE",
+        "selection": {
+          "first_option": "Ristrutturazione Estetica",
+          "second_option": "Ristrutturazione Completa"
+        }
+      }
+    },
+    "second_row": {
+      "first_section": "SUPERFICIE (M²)",
+      "second_section": {
+        "h": "URGENZA",
+        "selection": {
+          "first_option": "Standard",
+          "second_option": "Urgente"
+        }
+      }
+    },
+    "third_row": {
+      "h": "INFORMAZIONI AGGIUNTIVE",
+      "placeholder": "Inserisci eventuali dettagli extra"
+    }
+  },
+  "right_form": {
+    "first_input": "Nome",
+    "second_input": "Telefono",
+    "third_input": "Codice Promozionale",
+    "button": "CALCOLA IL COSTO"
+  }
+}

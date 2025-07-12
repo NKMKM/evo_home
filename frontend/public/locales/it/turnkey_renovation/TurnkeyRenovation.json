@@ -1,0 +1,83 @@
+{
+  "title": "Ristrutturazione Appartamento Chiavi in Mano",
+  "h": "Ristrutturazione Appartamento Chiavi in Mano",
+  "header": {
+    "h": "Ristrutturazione Appartamento con EVO HOME",
+    "p1": "Benvenuti da EvoHome — il vostro partner di fiducia per servizi di ristrutturazione appartamenti chiavi in mano, offrendo soluzioni affidabili e di alta qualità per trasformare la vostra proprietà. Con oltre 17 anni di esperienza nel settore delle ristrutturazioni, EvoHome è un leader di mercato, offrendo servizi impeccabili a prezzi competitivi a partire da soli €500/m². Situati nel cuore di Roma e operativi in tutto il suo affascinante hinterland, siamo la scelta ideale per chi cerca professionalità, efficienza e risultati garantiti.",
+    "p2": "La ristrutturazione di un appartamento è un processo complesso e multifaccettato che richiede un approccio professionale. EVO HOME gestisce ogni fase — dalla progettazione fino alla consegna finale. Non dovrete cercare appaltatori, acquistare materiali o supervisionare i lavoratori — ci occupiamo di tutto noi!",
+    "button": "ORDINA"
+  },
+  "process": {
+    "h": "Il processo di ristrutturazione con EvoHome",
+    "ul": {
+      "1": {
+        "h": "PREPARAZIONE",
+        "li1": "Incontro con un architetto e rilievo dell'appartamento.",
+        "li2": "Preparazione di un preventivo preliminare (accuratezza al 90%).",
+        "li3": "Consultazione e incontro con un interior designer.",
+        "li4": "Sviluppo del progetto di interior design dell'appartamento.",
+        "li5": "Preparazione di un preventivo dettagliato dei lavori (prezzo fisso)."
+      },
+      "2": {
+        "h": "LAVORI DI RISTRUTTURAZIONE",
+        "li1": "Approvvigionamento e consegna dei materiali grezzi.",
+        "li2": "Demolizione e smaltimento.",
+        "li3": "Costruzione di pareti divisorie.",
+        "li4": "Installazione dell'impianto elettrico.",
+        "li5": "Installazione dell'impianto di climatizzazione.",
+        "li6": "Intonacatura di pareti e soffitti.",
+        "li7": "Posa di pavimenti / rivestimenti e battiscopa.",
+        "li8": "Imbiancatura di soffitti e pareti.",
+        "li9": "Installazione di porte interne.",
+        "li10": "Pulizia e rimozione dei detriti da cantiere."
+      },
+      "3": {
+        "h": "CONSEGNA FINALE",
+        "li1": "Installazione di apparecchi di illuminazione.",
+        "li2": "Rubinetteria e accessori sanitari.",
+        "li3": "Acquisto e montaggio di mobili, elettronica e accessori.",
+        "li4": "Disposizione dell'appartamento secondo il progetto.",
+        "li5": "Pulizia finale effettuata da un servizio professionale.",
+        "li6": "Consegna della ristrutturazione completata al cliente."
+      }
+    },
+    "video_text": "Ristrutturazione Appartamento Chiavi in Mano by EVO HOME",
+    "video_p": "EvoHome mira a trasformare il tuo appartamento in un ambiente confortevole, funzionale e di stile, rispettando tempi e budget concordati. La nostra esperienza, la garanzia di qualità e l'approccio personalizzato ci rendono il partner ideale per il tuo progetto di ristrutturazione a Roma e dintorni. Contattaci oggi per iniziare il tuo progetto con EvoHome.",
+    "step1": "FASE 1",
+    "step2": "FASE 2",
+    "step3": "FASE 3"
+  },
+  "reasons": {
+    "h": "Perché scegliere EvoHome per la tua ristrutturazione?",
+    "ul": {
+      "1": {
+        "h": "PREZZI ONESTI",
+        "p": "Offriamo servizi di ristrutturazione completi a partire da €500/m², garantendo un ottimo rapporto qualità-prezzo."
+      },
+      "2": {
+        "h": "ANNI DI ESPERIENZA",
+        "p": "Con oltre 17 anni di esperienza nel settore delle ristrutturazioni, il nostro team di professionisti è pronto a realizzare ogni tua visione."
+      },
+      "3": {
+        "h": "GARANZIA DI QUALITÀ",
+        "p": "Forniamo una garanzia di 3 anni su tutti i lavori completati, assicurandoti piena soddisfazione e tranquillità."
+      },
+      "4": {
+        "h": "COPERTURA GEOGRAFICA",
+        "p": "Operiamo a Roma e nelle sue pittoresche zone limitrofe, offrendo una vasta gamma di servizi e un approccio personalizzato."
+      },
+      "5": {
+        "h": "PAGAMENTO A FINE LAVORI",
+        "p": "Il pagamento avviene solo al termine dei lavori, garantendo la tua completa soddisfazione."
+      },
+      "6": {
+        "h": "RATEIZZAZIONE SENZA INTERESSI",
+        "p": "Offriamo la possibilità di piani di pagamento rateali senza interessi per facilitare il finanziamento del tuo progetto."
+      },
+      "7": {
+        "h": "CONTRATTO UFFICIALE",
+        "p": "Ogni accordo è formalizzato con un contratto ufficiale, assicurando trasparenza e sicurezza in ogni fase."
+      }
+    }
+  }
+}

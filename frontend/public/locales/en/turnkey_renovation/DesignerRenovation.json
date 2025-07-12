@@ -1,0 +1,37 @@
+{
+  "title": "Designer Apartment Renovation",
+  "h": "Designer Apartment Renovation",
+  "header": {
+    "h": "Designer Renovation by EVO HOME",
+    "p1": "Welcome to EvoHome — your choice for excellence in designer renovations. With over 17 years of experience and a passion for transforming spaces, EvoHome is a leader in designer apartment renovations in Rome and the surrounding areas. We offer a full range of services that combine refined aesthetics, enhanced functionality, and a 3-year quality guarantee on completed work, all at competitive prices starting from just €500/m².",
+    "p2": "Designer apartment renovation by EVO HOME is a blend of style, comfort, and functionality. We create unique interiors that reflect each client’s individuality. We develop exclusive design projects using modern technologies and premium materials. Our full-cycle service includes every stage — from concept development and drawings to final decoration and furnishing. Our experts meticulously monitor each phase to ensure impeccable quality and strict adherence to deadlines.",
+    "button": "ORDER"
+  },
+  "process": {
+    "h": "More About Designer Renovation",
+    "p": "Our specialist takes precise on-site measurements. If the project involves remodeling spaces, we determine which walls can be modified while ensuring compliance with current regulations and maximum safety.",
+    "ul": {
+      "1": {
+        "h": "DESIGN PROJECT DEVELOPMENT",
+        "p": "Space planning: tailored solutions to optimize available space. Engineering plans: detailed blueprints for lighting, air conditioning, heating, and security systems. 3D visualization: printed and digital graphics that bring the desired design to life."
+      },
+      "2": {
+        "h": "DETAILED ESTIMATE",
+        "p": "A detailed estimate is a comprehensive document outlining all the work, materials, and costs required for the renovation. We create the estimate based on the client’s individual preferences, providing a clear understanding of the project’s budget. Our goal is to make the renovation as convenient and predictable as possible."
+      },
+      "3": {
+        "h": "HIGH-QUALITY FINISHING",
+        "p": "High-quality finishing is the final stage of renovation that gives the interior its aesthetic appeal, comfort, and durability. We use only trusted materials, professional equipment, and modern technologies to achieve a flawless result. From ceilings to walls, from flooring to designer bathrooms and kitchens — every detail is perfected."
+      },
+      "4": {
+        "h": "HOME AUTOMATION SYSTEM INSTALLATION",
+        "p": "A home automation system is a set of modern technologies that make your home convenient, safe, and energy-efficient. We integrate smart solutions that allow you to control lighting, climate, security, and household devices via smartphone or voice commands."
+      },
+      "5": {
+        "h": "FURNITURE & ACCESSORIES",
+        "p": "Properly selected furniture and accessories create a harmonious space that reflects the owner’s personality. We offer comprehensive solutions for selecting, manufacturing, and arranging furniture, as well as stylish decorative elements."
+      }
+    },
+    "video_text": "Designer Apartment Renovation by EVO HOME"
+  }
+}

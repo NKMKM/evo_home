@@ -1,0 +1,62 @@
+{
+  "title": "Chi Siamo",
+  "header": {
+    "h": "Informazioni sull’azienda di costruzioni — Evo Home",
+    "p1": "Benvenuti in Evo Home — il vostro partner affidabile nel mondo delle costruzioni e ristrutturazioni. Nel corso di ",
+    "span1": "oltre 17 anni ",
+    "p2": "la nostra azienda si è affermata come leader nella fornitura di servizi di costruzione e ristrutturazione di alta qualità a ",
+    "span2": "Roma e nelle aree circostanti.",
+    "p3": "In Evo Home crediamo che costruire o ristrutturare la vostra casa, appartamento o ufficio debba lasciarvi solo ricordi positivi. Per questo evitiamo soluzioni standard e offriamo un ",
+    "span3": "approccio individuale a ogni progetto.",
+    "p4": "I nostri rilevatori valutano attentamente le caratteristiche uniche della vostra proprietà durante la preparazione del preventivo, eliminando costi imprevisti. I nostri designer ascoltano attentamente la vostra visione per realizzarla, e i nostri costruttori seguono rigorosamente il piano per soddisfare — e superare — le vostre aspettative.",
+    "button": "ORDINA ORA"
+  },
+  "our_team": {
+    "h": "Il Team di EVO Home",
+    "ul": {
+      "li1": {
+        "h": "Pietro Bostan",
+        "h2": "Direttore e Fondatore di EVO HOME",
+        "p": "La mente visionaria dietro l’azienda. Supervisiona tutte le fasi del progetto — dal concept al risultato finale. Oltre 17 anni di esperienza in costruzione e design."
+      },
+      "li2": {
+        "h": "Anna Verdini",
+        "h2": "Responsabile Interior Designer",
+        "p": "Crea concetti esclusivi e visualizzazioni. Specializzata nell’ottimizzazione dello spazio e nell’equilibrio tra stile e funzionalità."
+      },
+      "li3": {
+        "h": "Marco Lombardi",
+        "h2": "Project Manager",
+        "p": "Supervisiona l’esecuzione — dalla pianificazione alla consegna del progetto. Garantisce il rispetto delle scadenze, la comunicazione con il cliente e gli standard di qualità."
+      },
+      "li4": {
+        "h": "Fabio Cecci",
+        "h2": "Ingegnere Civile Capo",
+        "p": "Responsabile dell’implementazione tecnica dei progetti. Esperto in tecnologie costruttive moderne e soluzioni ingegneristiche."
+      }
+    },
+    "button": "CONTATTACI"
+  },
+  "achievements": {
+    "h": "I Nostri Risultati",
+    "p1": "Il nostro team include oltre 30 professionisti altamente qualificati, tra pianificatori, architetti, ingegneri e costruttori.",
+    "p2": "Gestiamo più di 7 progetti contemporaneamente, coprendo una superficie totale gestita di oltre 1.000 m².",
+    "p3": "Ogni mese vengono consegnate oltre 30 tonnellate di materiali da costruzione in vari cantieri.",
+    "p4": "Negli anni abbiamo completato con successo più di 100 progetti."
+  },
+  "trust": {
+    "h": "Perché i Clienti si Fidano di Noi",
+    "main_p_1": "17+",
+    "p1": "Anni di esperienza",
+    "main_p_2": "100",
+    "p2": "Progetti completati",
+    "main_p_3": "95%",
+    "p3": "Clienti soddisfatti",
+    "main_p_4": "Roma",
+    "p4": "+ area circostante"
+  },
+  "section": {
+    "h": "Costruisci con EVO HOME",
+    "button": "ORDINA ORA"
+  }
+}

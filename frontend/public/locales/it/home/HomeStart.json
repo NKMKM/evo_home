@@ -1,0 +1,16 @@
+{
+  "title": "Home",
+  "list": {
+    "first_stroke": "Vogliamo trasformare",
+    "second_stroke": {
+      "text_1": "le tue ",
+      "span": "idee",
+      "text_2": " in"
+    },
+    "third_stroke": {
+      "text": "spazi straordinari per ",
+      "span": "abitare"
+    }
+  },
+  "button": "RICHIEDI UN PREVENTIVO"
+}

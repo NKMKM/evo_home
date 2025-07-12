@@ -6,17 +6,25 @@ import english_flag from '../assets/icons/english_flag_icon.png';
 import italian_flag from '../assets/icons/italian_flag_icon.png';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-const languages = {
-  en: { label: 'English', flag: english_flag },
-  ru: { label: 'Russian', flag: russian_flag },
-  it: { label: 'Italian', flag: italian_flag },
-};
-
 const LanguageSelector = () => {
-  const { i18n } = useTranslation();
-  const [currentLang, setCurrentLang] = useState('en');
+  const { i18n } = useTranslation('Languages');
+  
+  // Инициализируем язык из localStorage или дефолтный 'it'
+  const storedLang = localStorage.getItem('language') || 'it';
+  const [currentLang, setCurrentLang] = useState(storedLang);
   const [isOpen, setIsOpen] = useState(false);
   const selectorRef = useRef(null);
+
+  const languages = {
+    en: { label: 'English', flag: english_flag },
+    ru: { label: 'Russian', flag: russian_flag },
+    it: { label: 'Italian', flag: italian_flag },
+  };
+
+  useEffect(() => {
+    // При загрузке синхронизируем i18n с языком из localStorage
+    i18n.changeLanguage(storedLang);
+  }, [i18n, storedLang]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -33,6 +41,7 @@ const LanguageSelector = () => {
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
     setCurrentLang(lng);
+    localStorage.setItem('language', lng); // сохраняем язык в localStorage
     setIsOpen(false);
   };
 
