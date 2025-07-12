@@ -1,0 +1,51 @@
+{
+  "title": "Testimonianze",
+  "header": {
+    "h": "I Nostri Clienti Soddisfatti",
+    "p1": "Per noi, la ristrutturazione non riguarda solo finiture e design. È la storia della tua casa — una storia in cui mettiamo il cuore. Ogni progetto è un viaggio personale, dove tutto conta: i tuoi desideri, il tuo stile di vita, le tue emozioni. Crediamo davvero che un interno debba riflettere il tuo carattere e creare uno spazio in cui vivere, sognare e rilassarsi.",
+    "span1": "Da EVO HOME",
+    "p2": " puntiamo a una qualità impeccabile, prestiamo attenzione a ogni dettaglio e costruiamo le nostre partnership sulla base di onestà e rispetto. Non svolgiamo solo il lavoro — guidiamo, supportiamo, consigliamo e restiamo al tuo fianco anche dopo la fine del progetto. Prendersi cura dei nostri clienti non è un’opzione — è il nostro fondamento. Vogliamo che ogni persona che ci sceglie si senta sicura e tranquilla in ogni fase del percorso. Per questo la vera misura del nostro successo non sono solo gli interni belli, ma le parole di gratitudine di chi ha vissuto questa esperienza con noi.",
+    "p3": "Qui sotto troverai",
+    "span2": " recensioni reali dai nostri clienti",
+    "p4": " — emozioni genuine, impressioni e risultati di cui siamo orgogliosi."
+  },
+  "reviews": {
+    "h": "EVO HOME Attraverso gli Occhi dei Nostri Clienti",
+    "1": {
+      "p1": "Abbiamo affidato a Evo Home la ristrutturazione completa del nostro appartamento e siamo rimasti estremamente soddisfatti del loro lavoro. Pietro e il suo team sono veri professionisti, capaci di gestire ogni compito con precisione e puntualità.",
+      "p2": "Siamo stati particolarmente colpiti dalla loro capacità di affrontare situazioni impreviste, offrendo sempre soluzioni efficaci, oltre che dall’organizzazione e dalla pulizia in cantiere — elementi essenziali per un risultato finale eccellente. La comunicazione è stata costante durante tutto il processo e sono sempre stati disponibili.",
+      "p3": "Li sceglieremmo ancora mille volte! 💯"
+    },
+    "2": {
+      "p1": "Abbiamo scelto la società di costruzioni EvoHome e non ce ne siamo mai pentiti! Siamo assolutamente soddisfatti! Approccio incredibilmente professionale al lavoro! Un eccellente team di costruzione — veloce, abile e preciso!",
+      "p2": "I materiali erano di alta qualità e il team educato, ordinato e responsabile! Grazie per l’ottimo lavoro! Altamente raccomandati!"
+    },
+    "3": {
+      "p1": "Di recente abbiamo affidato a Evo Home la ristrutturazione del nostro ristorante e siamo molto contenti della nostra scelta. Il team ha svolto un ottimo lavoro, rispettando rigorosamente le scadenze concordate. Durante il processo sono emerse alcune questioni impreviste, ma sono state gestite in modo professionale e tempestivo. Questo ha dimostrato la loro capacità di adattarsi e risolvere problemi con competenza. Dietro questa società c’è Pietro — una persona davvero onesta, professionale e affidabile.",
+      "p2": "Se cerchi un team di ristrutturazione che mantenga le promesse e ottenga grandi risultati, non cercare oltre!"
+    },
+    "4": {
+      "p1": "Un’esperienza fantastica... Un’azienda seria e puntuale con un team di lavoratori eccezionali. Yuri (il capocantiere), che si è occupato della posa del pavimento e dei lavori in bagno e cucina, è un vero maestro — ha creato un capolavoro, artigianato genuino... Anche il ragazzo che ha gestito la pittura e i lavori di cartongesso è stato eccellente. E cosa dire di Pietro, il capo — una persona seria, affidabile e gentile... tutti sono stati fantastici! Sono molto soddisfatto."
+    }
+  },
+  "form": {
+    "h": "Lascia la Tua Recensione",
+    "first_section": {
+      "h": "Nome",
+      "placeholder": "Il tuo nome..."
+    },
+    "second_section": {
+      "h": "E-MAIL",
+      "placeholder": "La tua email..."
+    },
+    "third_section": {
+      "h": "Città",
+      "placeholder": "La tua città..."
+    },
+    "fourth_section": {
+      "h": "La Tua Recensione",
+      "placeholder": "Scrivi la tua recensione..."
+    },
+    "button": "INVIA"
+  }
+}

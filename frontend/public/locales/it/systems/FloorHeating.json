@@ -1,0 +1,37 @@
+{
+  "title": "Impianto di Riscaldamento a Pavimento",
+  "h": "Impianto di Riscaldamento a Pavimento",
+  "header": {
+    "h": "Installazione dell'Impianto di Riscaldamento a Pavimento by EVO HOME",
+    "p1": "La nostra azienda, Evo Home, vanta oltre 17 anni di esperienza nel settore edilizio a Roma e si specializza nella progettazione e installazione di sistemi di riscaldamento a pavimento. Offriamo soluzioni moderne e di alta qualità, ideali per ogni tipo di ambiente residenziale, garantendo comfort e ottimizzazione dei consumi energetici.",
+    "p2": "I sistemi di riscaldamento a pavimento funzionano distribuendo il calore in modo uniforme. A differenza dei tradizionali radiatori che generano calore disomogeneo e secco, il riscaldamento a pavimento assicura un calore costante in tutto l’ambiente, rendendo l’ambiente più confortevole. Con acqua calda che circola attraverso tubi installati sotto il pavimento, il calore si diffonde naturalmente — mantenendo i piedi caldi e l’aria piacevolmente fresca.",
+    "button": "ORDINA"
+  },
+  "process": {
+    "h": "Maggiori informazioni sull’installazione dell’impianto di riscaldamento a pavimento",
+    "p": "Un sistema di riscaldamento a pavimento progettato e installato correttamente è composto da diversi componenti chiave, ognuno dei quali deve essere selezionato e posizionato con grande cura. Oltre alle abitazioni residenziali, la tecnologia del riscaldamento a pavimento è ampiamente utilizzata in spazi commerciali come ristoranti, hotel, uffici e palestre, dove l’efficienza energetica e la sicurezza sono di fondamentale importanza. Di seguito una panoramica più dettagliata delle fasi principali e delle loro applicazioni.",
+    "ul": {
+      "1": {
+        "h": "CONSULENZA INIZIALE E VALUTAZIONE",
+        "p": "Analizziamo le caratteristiche dell’immobile e discutiamo con il cliente le esigenze di riscaldamento. In questa fase conduciamo un’analisi termica per calcolare correttamente le dimensioni dell’impianto."
+      },
+      "2": {
+        "h": "PROGETTAZIONE DETTAGLIATA",
+        "p": "Realizziamo una planimetria accurata con il posizionamento di tubazioni, unità di controllo e isolamento termico. Questa fase è cruciale per prevenire dispersioni di calore e garantire le migliori prestazioni del sistema."
+      },
+      "3": {
+        "h": "RISCALDAMENTO IDRONICO",
+        "p": "Il riscaldamento a pavimento ad acqua utilizza tubi in plastica durevoli incassati sotto il pavimento e coperti da massetto. L’acqua calda, generata da una caldaia o pompa di calore, circola nel sistema distribuendo il calore uniformemente nell’ambiente."
+      },
+      "4": {
+        "h": "RISCALDAMENTO ELETTRICO",
+        "p": "Il riscaldamento a pavimento elettrico utilizza cavi riscaldanti posati direttamente nel massetto o fissati a reti preformate. Il sistema è alimentato dalla rete elettrica domestica e la temperatura è regolata tramite un termostato programmabile per un controllo preciso del calore."
+      },
+      "5": {
+        "h": "COLLAUDI E REGOLAZIONI FINALI",
+        "p": "Prima della consegna eseguiamo test funzionali per garantire che il sistema rispetti gli standard e funzioni in modo efficiente. Forniamo inoltre istruzioni per il corretto utilizzo e manutenzione."
+      }
+    },
+    "video_text": "Installazione del Riscaldamento a Pavimento by EVO HOME"
+  }
+}

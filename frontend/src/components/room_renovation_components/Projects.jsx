@@ -127,8 +127,7 @@ const Projects = () => {
 
             <div className='h-[1px] w-[625.5px] bg-[#F9B33B] sm:hidden lg:block'></div>
 
-            <button className='sm:mx-auto lg:mx-0 w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold'>{t('button')}</button>
-
+            <Link to={'/our_works'} className='sm:mx-auto lg:mx-0 w-[389px] flex justify-center items-center h-[67px] bg-[#F9B33B] text-[30px] font-semibold hover:scale-110 transition duration-300'>{t('button')}</Link>
             <div className='h-[1px] w-[625.5px] bg-[#F9B33B] sm:hidden lg:block'></div>
         </div>
 

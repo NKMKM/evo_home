@@ -1,0 +1,34 @@
+{
+  "header": {
+    "first_stroke": "Ristrutturazione professionale,",
+    "second_stroke": " di cui puoi fidarti!"
+  },
+  "advantages": {
+    "first_step": {
+      "h": "ESPERIENZA",
+      "p": "Oltre 10 anni sul mercato, centinaia di progetti completati con successo e clienti soddisfatti"
+    },
+    "second_step": {
+      "h": "QUALITÀ",
+      "p": "Utilizziamo solo materiali certificati e le tecnologie più avanzate"
+    },
+    "third_step": {
+      "h": "RISPARMIO",
+      "p": "Ottimizzazione dei costi senza compromessi sulla qualità, selezionando le soluzioni migliori per il tuo budget"
+    },
+    "fourth_step": {
+      "h": "AFFIDABILITÀ",
+      "p": "Rispetto rigoroso dei contratti, prezzi fissi senza costi nascosti"
+    },
+    "fifth_step": {
+      "h": "TEMPI DI CONSEGNA",
+      "p": "Scadenze garantite con penali per ogni giorno di ritardo"
+    },
+    "sixth_step": {
+      "h": "ASSISTENZA",
+      "p": "Consulenze in ogni fase, supporto nella scelta di materiali e soluzioni di design"
+    }
+  },
+  "button": "RICHIEDI PREVENTIVO",
+  "p": "Il nostro team di specialisti qualificati e il costante impegno per la qualità garantiscono che tutte le tue esigenze di ristrutturazione siano soddisfatte, rispettando le scadenze concordate."
+}

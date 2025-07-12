@@ -39,13 +39,14 @@ const resources  = {
     }
 }
 
+const savedLng = localStorage.getItem('i18nextLng') || 'it';
+
 i18n
     .use(initReactI18next)
     .use(HttpBackend)
     .init({
         // resources,
-        lng: 'en',
-        fallbackLng: 'ru',
+        lng: savedLng,
         backend: {
             loadPath: '/locales/{{lng}}/{{ns}}.json', // путь к файлам
         },

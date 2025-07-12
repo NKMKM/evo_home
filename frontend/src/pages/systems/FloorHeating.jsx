@@ -35,7 +35,7 @@ const FloorHeating = () => {
         <div className='space-y-10'>
           <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
             <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>1.</div>
-            <h2 className='sm:text-[24px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('header.h')}</h2>
+            <h2 className='sm:text-[20px] lg:text-[40px] font-bold sm:mt-3 lg:mt-2'>{t('header.h')}</h2>
           </div>
 
           <div className='text-[28px] sm:text-center lg:text-start sm:px-5 lg:px-0 flex flex-col space-y-4'>
@@ -56,7 +56,7 @@ const FloorHeating = () => {
       <main className='lg:w-full lg:h-[4088px]  flex flex-col justify-between'>
         <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
           <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>2.</div>
-          <h2 className='sm:text-[24px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('process.h')}</h2>
+          <h2 className='sm:text-[24px] lg:text-[40px] font-bold sm:mt-4 lg:mt-0'>{t('process.h')}</h2>
         </div>
 
         <p className='sm:w-full lg:w-[1640px] sm:px-4 lg:px-0 text-[32px] mx-auto my-20 sm:text-center lg:text-start'>{t('process.p')}</p>

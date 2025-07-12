@@ -1,0 +1,48 @@
+{
+  "title": "Ristrutturazione Stanze",
+  "h": "Ristrutturazione Stanze",
+  "header": {
+    "h": "Ristrutturazione Stanze con EVO HOME",
+    "p1": "Cerchi una soluzione affidabile per ristrutturare le stanze di casa tua? EvoHome, con oltre 17 anni di esperienza nel settore edilizio e delle ristrutturazioni, è pronta a trasformare ogni ambiente, garantendo risultati eccezionali con una garanzia di 3 anni.",
+    "p2": "Che si tratti di rinnovare il soggiorno per renderlo più accogliente e funzionale, ridisegnare la camera da letto trasformandola in un’oasi rilassante e confortevole, aggiornare la stanza dei bambini con soluzioni intelligenti per studio e gioco, ristrutturare il corridoio per rendere la casa più accogliente, modernizzare la scala per garantire sicurezza e stile, o trasformare completamente bagni e cucine per adeguarli alle ultime tendenze di design e tecnologia — EvoHome è il partner ideale.",
+    "p3": "La nostra azienda offre servizi di ristrutturazione stanze a partire da €5000 ed è impegnata a fornire soluzioni di alta qualità a Roma e dintorni. Scegliere il nostro team significa affidarsi a un approccio esperto con gestione professionale del progetto dalla fase iniziale fino alla realizzazione finale, assicurando un risultato preciso e affidabile, in linea con le tue esigenze specifiche.",
+    "button": "ORDINA"
+  },
+  "process": {
+    "h": "Processo di Ristrutturazione Stanze con EvoHome",
+    "ul": {
+      "1": {
+        "h": "RISTRUTTURAZIONE SOGGIORNO",
+        "p": "La ristrutturazione del soggiorno include la rimozione delle coperture esistenti, la preparazione delle pareti, la posa di nuovi pavimenti e l’installazione di soffitti di design, oltre all’aggiornamento dell’impianto elettrico per adattare lo spazio alle esigenze moderne. Lavori aggiuntivi possono essere eseguiti su richiesta."
+      },
+      "2": {
+        "h": "RISTRUTTURAZIONE CAMERA DA LETTO",
+        "p": "La ristrutturazione della camera da letto si concentra sulla creazione di un ambiente calmo e rilassante, includendo la sostituzione del pavimento, il trattamento di pareti e soffitto e l’aggiornamento delle finestre per migliorare isolamento e comfort. Lavori aggiuntivi possono essere aggiunti su richiesta del cliente."
+      },
+      "3": {
+        "h": "RISTRUTTURAZIONE STANZA DEI BAMBINI",
+        "p": "Questo progetto mira a creare uno spazio sicuro e stimolante rimuovendo i vecchi pavimenti, preparando pareti e soffitto per la finitura e installando soluzioni di illuminazione adeguate. Lavori aggiuntivi possono essere inclusi su richiesta."
+      },
+      "4": {
+        "h": "RISTRUTTURAZIONE CORRIDOIO",
+        "p": "Gli aggiornamenti del corridoio includono la posa di pavimenti resistenti, l’installazione di nuove basi per soffitti e finiture murali, oltre all’aggiornamento dell’impianto elettrico per creare un’atmosfera luminosa e calda. Lavori personalizzati possono essere aggiunti su richiesta."
+      },
+      "5": {
+        "h": "RISTRUTTURAZIONE CUCINA",
+        "p": "La ristrutturazione della cucina richiede particolare attenzione a impianti elettrici e idraulici, la rimozione delle finiture vecchie, la preparazione di pareti e soffitti, e l’installazione di nuovi pavimenti e finestre per creare uno spazio funzionale e accogliente. Lavori aggiuntivi disponibili su richiesta."
+      },
+      "6": {
+        "h": "RISTRUTTURAZIONE BAGNO",
+        "p": "Questo tipo di ristrutturazione è tra i più complessi per la necessità di impianti idraulici affidabili, sostituzione dell’impianto elettrico, applicazione di materiali resistenti all’umidità su pareti e pavimenti e installazione di sistemi di ventilazione efficaci. Lavori extra possono essere aggiunti su richiesta."
+      }
+    },
+    "video_text": "Ristrutturazione Stanze by EVO HOME",
+    "video_p": "EvoHome si impegna a trasformare il tuo appartamento in un ambiente confortevole, funzionale e di stile, rispettando tempi e budget. La nostra esperienza, garanzia di qualità e approccio personalizzato ci rendono il partner ideale per la tua ristrutturazione a Roma e dintorni. Contattaci oggi per iniziare il tuo progetto con EvoHome.",
+    "step1": "FASE 1",
+    "step2": "FASE 2",
+    "step3": "FASE 3",
+    "step4": "FASE 4",
+    "step5": "FASE 5",
+    "step6": "FASE 6"
+  }
+}

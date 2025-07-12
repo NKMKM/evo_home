@@ -1,0 +1,36 @@
+{
+  "title": "Ristrutturazione Uffici",
+  "h": "Ristrutturazione Uffici",
+  "header": {
+    "h": "Ristrutturazione Uffici con EVO HOME",
+    "p1": "La ristrutturazione degli uffici rappresenta un passo fondamentale per migliorare l’ambiente lavorativo e aumentare la produttività. Se stai pianificando di rinnovare il tuo spazio di lavoro a Roma e dintorni, Evo Home è la scelta ideale per garantire risultati di alta qualità in tempi rapidi e a prezzi competitivi. Con oltre 17 anni di esperienza e più di 7.000 m² ristrutturati, offriamo una garanzia minima di 3 anni sul lavoro svolto.",
+    "p2": "Scegli Evo Home per la ristrutturazione del tuo ufficio a Roma e approfitta dell’esperienza e della professionalità del nostro team. Gestiamo ogni fase del processo, dalla demolizione alle finiture, assicurando risultati impeccabili grazie all’utilizzo di materiali di alta qualità provenienti da fornitori affidabili. Affidati a noi per trasformare il tuo ufficio in un ambiente funzionale, estetico e sicuro.",
+    "button": "ORDINA"
+  },
+  "process": {
+    "h": "Dettagli sulla Ristrutturazione Uffici",
+    "ul": {
+      "1": {
+        "h": "PROGETTAZIONE PERSONALIZZATA",
+        "p": "Sviluppo di un progetto dettagliato con visualizzazioni 3D e piani esecutivi."
+      },
+      "2": {
+        "h": "MATERIALI DI ALTA QUALITÀ",
+        "p": "Segmento economico: materiali accessibili ma di qualità, adatti a progetti con budget contenuti senza rinunciare a estetica e funzionalità. Segmento premium: materiali di fascia alta che garantiscono massima resa estetica, durata e prestazioni."
+      },
+      "3": {
+        "h": "TECNOLOGIE AVANZATE",
+        "p": "Integrazione di sistemi smart come domotica, illuminazione intelligente e soluzioni audiovisive."
+      },
+      "4": {
+        "h": "IMPIANTI ELETTRICI E VENTILAZIONE",
+        "p": "Installazione di impianti moderni di elettricità, ventilazione e riscaldamento. Ogni sistema è progettato per essere efficiente, sicuro e conforme alle normative vigenti."
+      },
+      "5": {
+        "h": "ARREDI SU MISURA",
+        "p": "Realizzazione di mobili e complementi d’arredo su misura per soddisfare le esigenze specifiche del cliente."
+      }
+    },
+    "video_text": "Ristrutturazione Uffici con EVO HOME"
+  }
+}

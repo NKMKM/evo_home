@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import LayoutCollection from '../../components/room_renovation_components/LayoutCollection'
 import Video from '../../components/Video'
 import { Helmet } from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 
 import left_decoration from '../../assets/images/leftside_black_decoration.png'
 import right_decoration from '../../assets/images/rightside_black_decoration.png'
@@ -21,10 +22,11 @@ import fifth_step from '../../assets/images/turnkey_renovation/designer_renovati
 
 
 const DesignerRenovation = () => {
+  const {t} = useTranslation('turnkey_renovation/DesignerRenovation')
   return (
     <div>
         <Helmet>
-            <title>Дизайнерский ремонт</title>
+            <title>{t('title')}</title>
             <meta name="description" content="Designer renovation by EVO Home" />
         </Helmet>
         {/* first step */}
@@ -33,7 +35,7 @@ const DesignerRenovation = () => {
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
 
-                <h1 className='font-bold mx-auto text-center sm:text-[50px] lg:text-[57px]'>Дизайнерский ремонт квартир </h1>
+                <h1 className='font-bold mx-auto text-center sm:text-[50px] lg:text-[57px]'>{t('h')}</h1>
 
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
             </div>
@@ -43,14 +45,13 @@ const DesignerRenovation = () => {
                 {/* header */}
                 <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>1.</div>
-                    <h2 className='sm:text-[26px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>Дизайнерский ремонт от EVO HOME</h2>
+                    <h2 className='sm:text-[26px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('header.h')}</h2>
                 </div>
 
                 {/* text */}
                 <div className='text-[28px] sm:text-center lg:text-start sm:px-5 lg:px-0 flex flex-col space-y-10'>
-                    <p>Добро пожаловать в EvoHome — ваш выбор совершенства в сфере дизайнерского ремонта.
-                    Обладая более чем 17-летним опытом и страстью к преобразованию пространств, компания EvoHome является лидером в области дизайнерского ремонта квартир в Риме и его окрестностях. Мы предлагаем полный спектр услуг, сочетающий в себе изысканную эстетику, расширенную функциональность и 3-летнюю гарантию качества на выполненные работы в течение 3 лет, по конкурентоспособным ценам, начиная всего от 500 евро/м².</p>
-                    <p>Дизайнерский ремонт квартир от EVO HOME – это сочетание стиля, комфорта и функциональности. Мы создаем уникальные интерьеры, отражающие индивидуальность каждого клиента. Разрабатываем эксклюзивные дизайн-проекты, используя современные технологии и премиальные материалы. Полный цикл работ включает все этапы – от разработки концепции и чертежей до финального декора и меблировки. Наши специалисты тщательно контролируют каждый процесс, чтобы гарантировать безупречное качество и строгое соблюдение сроков</p>
+                    <p>{t('header.p1')}</p>
+                    <p>{t('header.p2')}</p>
                 </div>
 
                 {/* image */}
@@ -59,7 +60,7 @@ const DesignerRenovation = () => {
                 <div className='sm:w-full lg:w-[1640px] h-[67px] flex flex-row items-center mx-auto'>
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
 
-                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">ЗАКАЗАТЬ</Link>
+                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">{t('header.button')}</Link>
 
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
                 </div>
@@ -71,10 +72,10 @@ const DesignerRenovation = () => {
             {/* header */}
             <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>2.</div>
-                <h2 className='sm:text-[28px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>Подробнее о дизайнерском ремонте</h2>
+                <h2 className='sm:text-[28px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('process.h')}</h2>
             </div>
 
-            <p className='sm:w-full lg:w-[1640px] sm:px-4 lg:px-0 text-[32px] mx-auto my-20 sm:text-center lg:text-start'>Наш специалист проводит точные измерения непосредственно на месте. Если проект предусматривает реконструкцию помещений, мы определяем, какие стены можно модифицировать, обеспечивая при этом соблюдение действующих норм и максимальную безопасность.</p>
+            <p className='sm:w-full lg:w-[1640px] sm:px-4 lg:px-0 text-[32px] mx-auto my-20 sm:text-center lg:text-start'>{t('process.p')}</p>
 
             {/* list of steps */}
             <div className='sm:h-[5000px] lg:h-[2260px] sm:w-full lg:w-auto relative mx-auto '>
@@ -87,11 +88,9 @@ const DesignerRenovation = () => {
                         <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={first_step} alt='first step' loading="lazy" className='w-full h-full object-cover' /></div>
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>РАЗРАБОТКА ДИЗАЙН-ПРОЕКТА</h2>
+                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.1.h')}</h2>
 
-                            <p className='text-[26px] pb-5'>Планирование пространства: индивидуальные решения, которые оптимизируют имеющееся пространство.
-                            Инженерные проекты: детальные проекты по строительству систем освещения, кондиционирования, отопления и безопасности.
-                            3D-визуализация: графические материалы, как печатные, так и цифровые, позволяющие воплотить в жизнь желаемый дизайн</p>
+                            <p className='text-[26px] pb-5'>{t('process.ul.1.p')}</p>
                         </div>
                     </li>
 
@@ -101,9 +100,9 @@ const DesignerRenovation = () => {
                         <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={second_step} alt='second step' loading="lazy" className='w-full h-full object-cover' /></div>
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6 lg:px-0 '>
-                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>ПОДРОБНАЯ СМЕТА</h2>
+                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.2.h')}</h2>
 
-                            <p className='text-[26px] pb-5'>Подробная смета – это детализированный документ, в котором отражены все работы, материалы и затраты, необходимые для ремонта. Мы составляем смету с учетом индивидуальных пожеланий клиента, предоставляя четкое представление о бюджете проекта.Наша цель – сделать ремонт максимально удобным и прогнозируемым. </p>
+                            <p className='text-[26px] pb-5'>{t('process.ul.2.p')}</p>
                         </div>
                     </li>
 
@@ -113,8 +112,8 @@ const DesignerRenovation = () => {
                         <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={third_step} alt='third step' loading="lazy" className='w-full h-full object-cover' /></div>
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>КАЧЕСТВЕННАЯ ОТДЕЛКА</h2>
-                            <p className='text-[26px] pb-5'>Качественная отделка – это завершающий этап ремонта, который придает интерьеру эстетичный вид, комфорт и долговечность. Мы используем только проверенные материалы, профессиональное оборудование и современные технологии, чтобы добиться идеального результата.От потолка до стен, от укладки полов до создания дизайнерских ванных комнат и кухонь — каждая деталь совершенна</p>
+                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.3.h')}</h2>
+                            <p className='text-[26px] pb-5'>{t('process.ul.3.p')}</p>
                         </div>
                     </li>
 
@@ -124,8 +123,8 @@ const DesignerRenovation = () => {
                         <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={fourth_step} alt='fourth step' loading="lazy"  className='w-full h-full object-cover' /></div>
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 sm:px-6 lg:px-0'>
-                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>УСТАНОВКА СИСТЕМЫ АВТОМАТИЗАЦИИ</h2>
-                            <p className='text-[26px] pb-5'>Система автоматизации – это комплекс современных технологий, который делает ваш дом удобным, безопасным и энергоэффективным. Мы интегрируем интеллектуальные решения, позволяющие управлять освещением, климатом, безопасностью и бытовыми устройствами через смартфон или голосовые команды.</p>
+                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.4.h')}</h2>
+                            <p className='text-[26px] pb-5'>{t('process.ul.4.p')}</p>
                         </div>
                     </li>
 
@@ -135,9 +134,9 @@ const DesignerRenovation = () => {
                         <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={fifth_step} alt='fifth step' loading="lazy" className='w-full h-full object-cover' /></div>
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>МЕБЕЛЬ И АКСЕССУАРЫ</h2>
+                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.5.h')}</h2>
                             
-                            <p className='text-[26px] pb-5'>Правильно подобранная мебель и аксессуары создают гармоничное пространство, отражающее индивидуальность владельца. Мы предлагаем комплексные решения по подбору, изготовлению и расстановке мебели, а также стильных декоративных элементов.</p>
+                            <p className='text-[26px] pb-5'>{t('process.ul.5.p')}</p>
                         </div>
                     </li>
                 </ul>
@@ -146,7 +145,7 @@ const DesignerRenovation = () => {
             </div>
 
             <div className='mb-10'>
-                <Video text={'Дизайнерский ремонт квартир от EVO HOME'} />
+                <Video text={t('process.video_text')} />
             </div>
         </main>
 

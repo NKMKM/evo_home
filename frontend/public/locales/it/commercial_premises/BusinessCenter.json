@@ -1,0 +1,37 @@
+{
+  "title": "Ristrutturazione di un Business Center",
+  "h": "Ristrutturazione di un Business Center",
+  "header": {
+    "h": "Ristrutturazione di Business Center a cura di EVO HOME",
+    "p1": "Il successo di un business center dipende in gran parte dal suo aspetto e dalla sua funzionalità. Una ristrutturazione ben pianificata e realizzata da professionisti migliora non solo l'estetica, ma anche la sicurezza e il comfort, aumentando così il suo appeal per potenziali affittuari e visitatori.",
+    "p2": "Evo Home offre servizi completi di ristrutturazione chiavi in mano per business center a Roma, garantendo risultati eccellenti grazie a oltre 17 anni di esperienza nel settore.",
+    "button": "ORDINA"
+  },
+  "process": {
+    "h": "Maggiori informazioni sulla ristrutturazione di Business Center",
+    "p": "La ristrutturazione di un business center richiede il rispetto di numerose normative sulla sicurezza e standard di qualità. I principali requisiti CVI includono:",
+    "ul": {
+      "1": {
+        "h": "IMPIANTI DI COMUNICAZIONE E VENTILAZIONE",
+        "p": "Installazione di sistemi HVAC ad alta efficienza (riscaldamento, ventilazione e condizionamento) per garantire un ambiente confortevole tutto l'anno. \nSpegnimento automatico degli incendi: Implementazione di sistemi di rilevamento fumo e calore. Installazione di sistemi automatici antincendio come sprinkler e sistemi a gas inerti."
+      },
+      "2": {
+        "h": "MATERIALI DA COSTRUZIONE",
+        "p": "Certificazioni di qualità: Utilizzo di materiali certificati CE per garantire la conformità agli standard europei. Selezione di materiali ecologici e sostenibili. \nResistenza e durata: Impiego di materiali ignifughi come acciaio trattato e intonaco resistente al fuoco."
+      },
+      "3": {
+        "h": "SICUREZZA ANTINCENDIO",
+        "p": "Sistemi di rilevamento incendi: Installazione di rilevatori di fumo e calore. Collegamento a sistemi di monitoraggio centralizzati. \nSistemi di allarme ed evacuazione: Implementazione di sistemi di allarme acustici e visivi per un'evacuazione rapida. \nSpegnimento con sprinkler: Installazione di sistemi antincendio ad acqua, gas o schiuma."
+      },
+      "4": {
+        "h": "INFRASTRUTTURA TECNOLOGICA",
+        "p": "Reti IT e comunicazioni: Progettazione e installazione di reti cablate e wireless ad alta velocità. Implementazione di sistemi di cybersecurity per proteggere i dati aziendali. \nDomotica: Utilizzo di sistemi automatizzati per il controllo di illuminazione, clima e sicurezza."
+      },
+      "5": {
+        "h": "CONFORMITÀ NORMATIVA",
+        "p": "Regolamenti edilizi: Rispetto delle norme locali e nazionali. Ottenimento di tutte le autorizzazioni necessarie prima dell'inizio dei lavori. \nNormative sulla sicurezza: Adempimento agli standard di sicurezza sul lavoro e alle linee guida per gli impianti elettrici. Formazione del personale sui protocolli di emergenza e sulle procedure di sicurezza."
+      }
+    },
+    "video_text": "Ristrutturazione di Business Center a cura di EVO HOME"
+  }
+}

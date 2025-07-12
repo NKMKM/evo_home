@@ -1,0 +1,46 @@
+{
+  "title": "Ristrutturazione di Hotel",
+  "h": "Ristrutturazione di Hotel",
+  "header": {
+    "h": "Ristrutturazione di Hotel con EVO HOME",
+    "p1": "A Roma, il settore dell’ospitalità è in costante crescita grazie al continuo afflusso di turisti da tutto il mondo. Tuttavia, mantenere elevati standard di comfort e accoglienza richiede interventi di manutenzione costante e ristrutturazioni periodiche. La concorrenza è agguerrita, e per gli albergatori la qualità degli ambienti è fondamentale per ottenere recensioni positive e fidelizzare i clienti.",
+    "p2": "La ristrutturazione non è solo una questione estetica — incide direttamente sulla qualità dell’esperienza degli ospiti. Oggi più che mai, è essenziale offrire spazi moderni, funzionali e impeccabili. Non solo le camere, ma anche le aree comuni, i ristoranti, le spa e ogni angolo della struttura contribuiscono all’immagine complessiva dell’hotel.",
+    "button": "ORDINA"
+  },
+  "process": {
+    "h": "Dettagli sulla Ristrutturazione di Hotel",
+    "ul": {
+      "1": {
+        "h": "RINNOVO ESTETICO",
+        "p": "Ideale per chi desidera rinfrescare l’aspetto dell’hotel senza interventi strutturali invasivi.",
+        "li1": "Tinteggiatura e rifiniture",
+        "li2": "Sostituzione di pavimenti e rivestimenti",
+        "li3": "Nuovi punti luce e aggiornamenti di design",
+        "li4": "Prezzi a partire da 500 €/m²"
+      },
+      "2": {
+        "h": "RISTRUTTURAZIONE COMPLETA",
+        "p": "Prevede interventi più articolati, inclusi il rifacimento degli impianti e la redistribuzione degli spazi.",
+        "li1": "Sostituzione di infissi e porte",
+        "li2": "Ristrutturazione di bagni e cucine",
+        "li3": "Prezzi a partire da 1000 €/m²"
+      },
+      "3": {
+        "h": "RISTRUTTURAZIONE DI LUSSO",
+        "p": "Per chi desidera offrire un’esperienza esclusiva ai propri ospiti, creiamo ambienti eleganti e raffinati.",
+        "li1": "Utilizzo di materiali pregiati come marmo e legni nobili",
+        "li2": "Progettazione di ambienti funzionali e contemporanei",
+        "li3": "Prezzi a partire da 1750 €/m²"
+      },
+      "4": {
+        "h": "MATERIALI DI ALTA QUALITÀ",
+        "p": "Utilizziamo solo materiali selezionati per garantire risultati duraturi e di pregio."
+      },
+      "5": {
+        "h": "CONSEGNA PUNTUALE",
+        "p": "Sappiamo quanto sia importante riaprire l’hotel in tempi brevi e ci impegniamo a rispettare le scadenze concordate."
+      }
+    },
+    "video_text": "Ristrutturazione di Hotel con EVO HOME"
+  }
+}

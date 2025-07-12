@@ -1,0 +1,41 @@
+{
+  "title": "Sistema di Drenaggio e Fognatura",
+  "h": "Sistema di Drenaggio e Fognatura",
+  "header": {
+    "h": "Installazione di Sistemi di Drenaggio e Fognatura by EVO HOME",
+    "p1": "La nostra azienda, Evo Home, opera nel campo dell’installazione di sistemi di drenaggio e fognatura a Roma da oltre 17 anni. Siamo leader nell’applicazione di tecnologie avanzate e nel rispetto delle normative vigenti, offrendo soluzioni personalizzate per soddisfare le esigenze specifiche di ogni cliente.",
+    "p2": "Un sistema di drenaggio e fognatura progettato correttamente è un elemento cruciale per la sicurezza, la durata e la funzionalità di qualsiasi edificio, sia residenziale che commerciale. Una struttura pianificata con cura garantisce una gestione efficiente delle acque reflue, minimizzando il rischio di problematiche.",
+    "button": "ORDINA"
+  },
+  "process": {
+    "h": "Maggiori informazioni sull’installazione di sistemi di drenaggio e fognatura",
+    "ul": {
+      "1": {
+        "h": "PIANIFICAZIONE E PROGETTAZIONE",
+        "li1": "Analisi del sito e valutazione delle esigenze specifiche della proprietà.",
+        "li2": "Progettazione dettagliata del sistema di tubazioni per garantire un corretto flusso e ottimizzazione dello spazio."
+      },
+      "2": {
+        "h": "INSTALLAZIONE DELLE TUBAZIONI",
+        "li1": "Posa delle tubazioni con pendenza ottimale per l’allontanamento delle acque reflue.",
+        "li2": "Connessioni sigillate e test di pressione per prevenire perdite."
+      },
+      "3": {
+        "h": "COMPONENTI SPECIALI",
+        "li1": "Installazione di pompe di sollevamento per aree con pendenze sfavorevoli.",
+        "li2": "Installazione di vasche di raccolta e sistemi di filtrazione per il trattamento delle acque reflue."
+      },
+      "4": {
+        "h": "COLLEGAMENTO ALLA FOGNATURA PUBBLICA",
+        "li1": "Verifica delle normative locali e dei permessi richiesti.",
+        "li2": "Collegamento sicuro alle reti esterne, garantendo compatibilità e funzionalità."
+      },
+      "5": {
+        "h": "TEST E VERIFICA",
+        "li1": "Ispezione di tutti i componenti per garantire prestazioni ottimali.",
+        "li2": "Fornitura di documentazione tecnica e supporto post-installazione."
+      }
+    },
+    "video_text": "Installazione di Sistemi di Drenaggio e Fognatura by EVO HOME"
+  }
+}

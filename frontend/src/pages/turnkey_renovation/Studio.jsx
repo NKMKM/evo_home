@@ -3,6 +3,7 @@ import LayoutCollection from '../../components/room_renovation_components/Layout
 import Video from '../../components/Video'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 
 import left_decoration from '../../assets/images/leftside_black_decoration.png'
 import right_decoration from '../../assets/images/rightside_black_decoration.png'
@@ -21,10 +22,11 @@ import sixth_step from '../../assets/images/turnkey_renovation/studio/process/si
 
 
 const Studio = () => {
+  const {t} = useTranslation('turnkey_renovation/Studio')
   return (
     <div>
         <Helmet>
-            <title>Ремонт квартир студий</title>
+            <title>{t('title')}</title>
             <meta name="description" content="Renovation of studio apartments by EVO Home" />
         </Helmet>
         {/* first step */}
@@ -33,7 +35,7 @@ const Studio = () => {
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
 
-                <h1 className='font-bold mx-auto text-center sm:text-[50px] lg:text-[57px]'>Ремонт квартир-студий</h1>
+                <h1 className='font-bold mx-auto text-center sm:text-[50px] lg:text-[57px]'>{t('h')}</h1>
 
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
             </div>
@@ -43,14 +45,14 @@ const Studio = () => {
                 {/* header */}
                 <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>1.</div>
-                    <h2 className='sm:text-[26px] lg:text-[50px] font-bold sm:mt-4.5 lg:mt-0'>Ремонт квартир-студий от EVO HOME</h2>
+                    <h2 className='sm:text-[26px] lg:text-[50px] font-bold sm:mt-4.5 lg:mt-0'>{t('header.h')}</h2>
                 </div>
 
                 {/* text */}
                 <div className='text-[28px] sm:text-center lg:text-start sm:px-5 lg:px-0 flex flex-col space-y-10'>
-                    <p>Ремонт квартир-студий от EVO HOME – это стильные и функциональные решения для небольшого пространства. Мы создаем уютные интерьеры, оптимизируем зонирование и используем современные материалы, чтобы ваша студия стала максимально комфортной и стильной.</p>
-                    <p>Компания EvoHome, лидер в секторе ремонта квартир-студий, предлагает индивидуальные решения, которые превратят ваше пространство в уникальную, функциональную и стильную среду. Имея более чем 17-летний опыт работы в сфере строительства и ремонта, EvoHome является идеальным партнером для тех, кто ищет качество, надежность и персонализированное обслуживание.</p>
-                    <p>Работая в Риме и его ближайших окрестностях, мы гарантируем профессиональный и эффективный подход, который позволит превратить ваш дом в настоящую мечту по конкурентоспособной цене, начиная всего от 500 евро за квадратный метр.</p>
+                    <p>{t('header.p1')}</p>
+                    <p>{t('header.p2')}</p>
+                    <p>{t('header.p3')}</p>
                 </div>
 
                 {/* image */}
@@ -59,7 +61,7 @@ const Studio = () => {
                 <div className='sm:w-full lg:w-[1640px] h-[67px] flex flex-row items-center mx-auto'>
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
 
-                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">ЗАКАЗАТЬ</Link>
+                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">{t('header.button')}</Link>
 
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
                 </div>
@@ -71,10 +73,10 @@ const Studio = () => {
             {/* header */}
             <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row mx-auto '>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center mr-10'>2.</div>
-                <h2 className='sm:text-[28px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>Подробнее о ремонте студий</h2>
+                <h2 className='sm:text-[28px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('process.h')}</h2>
             </div>
 
-            <p className='sm:w-full lg:w-[1640px] sm:px-4 lg:px-0 text-[32px] mx-auto my-20 sm:text-center lg:text-start'>Каждый проект по ремонту с EvoHome начинается с тщательного планирования и точного проектирования с учетом ваших потребностей и желаний с целью максимальной оптимизации пространства вашей квартиры-студии.</p>
+            <p className='sm:w-full lg:w-[1640px] sm:px-4 lg:px-0 text-[32px] mx-auto my-20 sm:text-center lg:text-start'>{t('process.p')}</p>
 
             <div className=' sm:h-[5600px] lg:h-[2813px] relative mx-auto '>
                 <div className='w-[1557px] h-[690px] scale-x-80 absolute top-[347px] left-[220px] sm:hidden lg:block '><img src={arrow_1} alt='arrow 1' loading="lazy" className='w-full h-full ' /></div>
@@ -88,10 +90,10 @@ const Studio = () => {
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-1  py-5 px-5 '>
                             <div>
-                                <h2 className='font-bold text-[46px]'>ПРОФЕССИОНАЛЬНОЕ КОНСУЛЬТИРОВАНИЕ</h2>
+                                <h2 className='font-bold text-[46px]'>{t('process.ul.1.h')}</h2>
                             </div>
 
-                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Наши специалисты помогут разработать оптимальный план ремонта квартиры-студии, учитывая эргономику, стиль и бюджет. Мы подскажем, как эффективно зонировать пространство, выбрать материалы, освещение и мебель для создания уютного и функционального интерьера. EVO HOME – экспертный подход к каждому проекту.</p>
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.1.p')}</p>
                         </div>
 
 
@@ -105,10 +107,10 @@ const Studio = () => {
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 sm:px-5 lg:px-0  '>
                             <div>
-                                <h2 className='font-bold text-[46px]'>ПЕРВОКЛАССНЫЕ МАТЕРИАЛЫ</h2>
+                                <h2 className='font-bold text-[46px]'>{t('process.ul.2.h')}</h2>
                             </div>
 
-                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Мы используем только проверенные и премиальные материалы, обеспечивающие надежность, экологичность и эстетическую привлекательность. В нашей работе – износостойкие покрытия, натуральные отделочные материалы, инновационные технологии и передовые решения для максимального комфорта и долговечности вашего интерьера.</p>
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.2.p')}</p>
 
                             
                         </div>
@@ -124,10 +126,10 @@ const Studio = () => {
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
                             <div>
-                                <h2 className='font-bold text-[46px]'>ИНДВИДУАЛЬНЫЕ РЕШЕНИЯ</h2>
+                                <h2 className='font-bold text-[46px]'>{t('process.ul.3.h')}</h2>
                             </div>
 
-                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Мы разрабатываем уникальные проекты, учитывая стиль, пожелания и особенности пространства. Каждое решение – это гармония эстетики, функциональности и комфорта. От планировки до подбора материалов и декора – все детали прорабатываются индивидуально, чтобы создать интерьер, отражающий вашу личность.</p>
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.3.p')}</p>
                         </div>
 
 
@@ -141,10 +143,10 @@ const Studio = () => {
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 sm:px-5 lg:px-0 lg:pr-5'>
                             <div>
-                                <h2 className='font-bold text-[46px]'>ПРОЗРАЧНОСТЬ И НАДЕЖНОСТЬ</h2>
+                                <h2 className='font-bold text-[46px]'>{t('process.ul.4.h')}</h2>
                             </div>
 
-                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Прозрачность лежит в основе нашей философии. В EvoHome мы стремимся предоставлять вам понятные и подробные сметы, гарантируя, что стоимость ремонта всегда будет прозрачной и свободной от сюрпризов. При ценах от 500 евро за квадратный метр мы предлагаем доступные решения без ущерба качеству.</p>
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.4.p')}</p>
                         </div>
 
 
@@ -159,10 +161,10 @@ const Studio = () => {
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
                             <div>
-                                <h2 className='font-bold text-[42px]'>ОПЫТ И ГАРАНТИЯ</h2>
+                                <h2 className='font-bold text-[42px]'>{t('process.ul.5.h')}</h2>
                             </div>
 
-                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Имея более чем 17-летний опыт работы, мы даем 3-летнюю гарантию на каждый ремонт, что свидетельствует о надежности и долговечности нашей работы. Выбирая EvoHome, вы доверяете профессионалам отрасли, способным преобразовать любое пространство в соответствии с вашими потребностями.</p>
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.5.p')}</p>
                         </div>
 
 
@@ -176,10 +178,10 @@ const Studio = () => {
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 sm:px-5 lg:px-0 '>
                             <div>
-                                <h2 className='font-bold text-[46px]'>РЕМОНТ В РИМЕ И ОКРЕСТНОСТЯХ</h2>
+                                <h2 className='font-bold text-[46px]'>{t('process.ul.6.h')}</h2>
                             </div>
 
-                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Наша сфера деятельности охватывает город Рим и его ближайшие окрестности, что позволяет нам предлагать быстрое и эффективное обслуживание. Независимо от того, живете ли вы в самом центре столицы или в ее окрестностях, с командой EvoHome вы сможете превратить свою квартиру-студию в шедевр комфорта и дизайна.</p>
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.6.p')}</p>
                         </div>
 
 
@@ -195,7 +197,7 @@ const Studio = () => {
 
 
             {/* video */}
-            <Video text={'Ремонт квартир-студий от EVO HOME'}/>
+            <Video text={t('process.video_text')}/>
 
 
         </main>

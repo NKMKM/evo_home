@@ -1,0 +1,35 @@
+{
+  "title": "Sistema di Controllo del Clima",
+  "h": "Sistema di Controllo del Clima",
+  "header": {
+    "h": "Installazione del Sistema di Controllo del Clima by EVO HOME",
+    "p1": "La nostra azienda, Evo Home, vanta oltre 17 anni di esperienza nell'installazione di sistemi di ventilazione e aria condizionata a Roma, offrendo soluzioni personalizzate e innovative per tutte le esigenze. Siamo specializzati in installazioni sia in spazi residenziali come appartamenti e abitazioni private, sia in locali commerciali, inclusi uffici, negozi e strutture aziendali. Garantiamo l'esecuzione di progetti di qualsiasi complessità, assicurando sempre qualità certificata, tempi rapidi e un approccio completamente personalizzato per soddisfare al meglio le esigenze dei nostri clienti.",
+    "button": "ORDINA"
+  },
+  "process": {
+    "h": "Maggiori informazioni sull'installazione del sistema di controllo del clima",
+    "ul": {
+      "1": {
+        "h": "INSTALLAZIONE DI CONDIZIONATORI A PARETE",
+        "p": "Installiamo condizionatori a parete e sistemi multi-split, garantendo una distribuzione uniforme dell'aria, efficienza energetica e comfort ottimale per spazi residenziali di qualsiasi dimensione."
+      },
+      "2": {
+        "h": "INSTALLAZIONE DI CONDIZIONATORI A CASSETTA",
+        "p": "Ideali per uffici e spazi commerciali, i condizionatori a cassetta offrono un flusso d'aria uniforme grazie al loro design integrato e discreto, adatto per soffitti modulari e sospesi."
+      },
+      "3": {
+        "h": "ISPEZIONE SUL POSTO",
+        "p": "Effettuiamo ispezioni professionali per valutare le esigenze specifiche, garantire la corretta selezione del sistema e ottimizzare gli impianti di aria condizionata in base all'ambiente e al carico termico."
+      },
+      "4": {
+        "h": "CONDIZIONATORI PAVIMENTO- SOFFITTO",
+        "p": "Questi sistemi versatili sono ideali per aree con vincoli di design o layout complessi, offrendo soluzioni efficaci sia per spazi residenziali che commerciali."
+      },
+      "5": {
+        "h": "IMPIANTI DI ARIA CONDIZIONATA",
+        "p": "Progettiamo e installiamo sistemi avanzati per appartamenti, ville, uffici e grandi spazi commerciali, ottimizzando comfort, efficienza energetica e controllo climatico."
+      }
+    },
+    "video_text": "Installazione del Sistema di Controllo del Clima by EVO HOME"
+  }
+}

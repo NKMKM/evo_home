@@ -1,0 +1,45 @@
+{
+  "title": "Spazi Commerciali",
+  "h": "Spazi Commerciali",
+  "header": {
+      "h":"Ristrutturazione di locali commerciali",
+      "p1": "La ristrutturazione di spazi commerciali solleva molte domande importanti: come calcolare il budget? Da quale fornitore acquistare i materiali? A chi affidare gli impianti? Quale azienda scegliere per la fornitura e posa del vetro? Queste e molte altre domande richiedono risposte chiare. Con oltre 17 anni di esperienza a Roma, Evo Home è il partner ideale per gestire questi compiti. Il nostro approccio garantisce risultati allineati alle vostre aspettative, offrendo condizioni vantaggiose, servizi di alta qualità e una garanzia di 3 anni.",
+      "p2": "La ristrutturazione di spazi commerciali con EVO HOME significa una trasformazione completa di uffici, negozi, ristoranti e altri ambienti business. Creiamo interni moderni, eleganti e funzionali che migliorano il comfort e l'efficienza della tua attività. Dal progetto alla realizzazione - ci occupiamo dell'intero ciclo.",
+      "button": "ORDINA"
+  },
+  "process": {
+    "h": "Scopri di più sulla Ristrutturazione Commerciale",
+    "ul": {
+      "1": {
+        "h": "RISTRUTTURAZIONE BUSINESS CENTER",
+        "p": "La ristrutturazione di business center richiede particolare attenzione alla funzionalità e all'efficienza degli spazi lavorativi. È essenziale creare un ambiente che favorisca la produttività e il benessere dei dipendenti. I nostri servizi includono l'ottimizzazione delle aree comuni, la creazione di zone coworking, l'ammodernamento delle infrastrutture tecnologiche e la costruzione di uffici."
+      },
+      "2": {
+        "h": "SPAZI COMMERCIALI",
+        "p": "Ci occupiamo di tutto: dalla pianificazione degli spazi alla scelta dei materiali più adatti per creare un ambiente accogliente e funzionale. Le nostre soluzioni includono il redesign delle aree espositive, l'installazione di sistemi di illuminazione moderni e l'implementazione di soluzioni tech che migliorano il servizio clienti e aumentano le vendite."
+      },
+      "3": {
+        "h": "RISTRUTTURAZIONE UFFICI",
+        "p": "Offriamo soluzioni su misura per la zonizzazione degli spazi, la creazione di sale conferenze high-tech e l'integrazione di sistemi a risparmio energetico per ridurre i costi operativi."
+      },
+      "4": {
+        "h": "RISTRUTTURAZIONE RISTORANTI & BAR",
+        "p": "Ristrutturare ristoranti e bar è fondamentale per creare un'atmosfera che attiri i clienti e favorisca un'esperienza piacevole. Ci occupiamo di interior design, selezione di materiali resistenti e facili da pulire, installazione di sistemi di ventilazione e condizionamento - tutto finalizzato a rafforzare l'identità unica del locale."
+      },
+      "5": {
+        "h": "RISTRUTTURAZIONE MAGAZZINI",
+        "p": "Il remodeling dei magazzini richiede una pianificazione meticolosa per migliorare l'efficienza del flusso di lavoro e la sicurezza degli operatori. Forniamo soluzioni per l'ottimizzazione degli spazi, l'installazione di moderni sistemi di scaffalatura e la creazione di aree efficienti per carico e scarico."
+      },
+      "6": {
+        "h": "RISTRUTTURAZIONE FITNESS CLUB",
+        "p": "Ristrutturare un fitness club è essenziale per creare un ambiente motivante e confortevole. Progettiamo spazi che supportano l'attività fisica e il benessere, con particolare attenzione al layout delle attrezzature, alla qualità dei materiali e all'estetica complessiva."
+      },
+      "7": {
+        "h": "RISTRUTTURAZIONE HOTEL",
+        "p": "La ristrutturazione di un hotel è un processo complesso volto a migliorare l'esperienza degli ospiti e l'appeal della struttura. Offriamo un servizio completo - dalla progettazione delle camere alla creazione di aree comuni eleganti e funzionali."
+      }
+    },
+    "video_text": "Ristrutturazione Commerciale by EVO HOME",
+    "video_button": "ORDINA"
+  }
+}

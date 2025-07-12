@@ -1,0 +1,36 @@
+{
+  "title": "Ristrutturazione Bagno",
+  "h": "Ristrutturazione Bagno",
+  "header": {
+    "h": "Ristrutturazione Bagno by EVO HOME",
+    "p1": "Stai pensando di ristrutturare il tuo bagno? Evo Home, leader nelle ristrutturazioni a Roma e dintorni, offre servizi di alta qualità a partire da 7.000 €. Con oltre 17 anni di esperienza, ci impegniamo a trasformare il tuo bagno garantendo risultati duraturi con una garanzia minima di 3 anni.",
+    "p2": "Ogni progetto è realizzato con la massima cura dei dettagli e utilizzando solo materiali di prima scelta, per un bagno non solo bello ma anche funzionale. Che tu voglia rinnovare un bagno di un monolocale o rifare completamente quello di un ampio appartamento con quattro stanze, Evo Home è la scelta giusta per un lavoro impeccabile. Contattaci per scoprire come possiamo aiutarti a creare il bagno dei tuoi sogni, ottimizzando gli spazi e valorizzando ogni ambiente.",
+    "button": "ORDINA"
+  },
+  "process": {
+    "h": "Approfondimenti sulla Ristrutturazione Bagno by EVO HOME",
+    "ul": {
+      "1": {
+        "h": "DEMOLIZIONE E PREPARAZIONE",
+        "p": "La prima fase della ristrutturazione comprende la rimozione degli impianti idraulici vecchi, tubature e piastrelle. Si eliminano anche tutte le finiture precedenti, come l’intonaco a calce, che deve essere completamente rimosso prima di iniziare le nuove installazioni. Successivamente si procede con il montaggio di nuove tubature per acqua e scarichi."
+      },
+      "2": {
+        "h": "IMPIANTO ELETTRICO",
+        "p": "L’aggiornamento dell’impianto elettrico è fondamentale per supportare nuovi apparecchi e sistemi di illuminazione. Tutte le installazioni sono eseguite secondo le normative vigenti, garantendo sicurezza e funzionalità."
+      },
+      "3": {
+        "h": "RIFINITURA DEL SOFFITTO",
+        "p": "Il materiale per la finitura del soffitto varia in base al budget e alle preferenze personali. Materiali come il cartongesso rappresentano una scelta economica ma esteticamente valida."
+      },
+      "4": {
+        "h": "POSA DELLE PIASTRELLE",
+        "p": "La scelta delle piastrelle è fondamentale per garantire durata e facilità di manutenzione. Le piastrelle in ceramica, grazie alle loro proprietà idrorepellenti, sono ideali per ambienti umidi come il bagno."
+      },
+      "5": {
+        "h": "INSTALLAZIONE DEGLI ACCESSORI",
+        "p": "La fase finale prevede il montaggio di accessori quali specchi, scaldasalviette e altri elementi funzionali e decorativi."
+      }
+    },
+    "video_text": "Ristrutturazione Bagno by EVO HOME"
+  }
+}

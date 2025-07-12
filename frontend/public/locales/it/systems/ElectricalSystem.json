@@ -1,0 +1,44 @@
+{
+  "title": "Impianto Elettrico",
+  "h": "Impianto Elettrico",
+  "header": {
+    "h": "Installazione dell'Impianto Elettrico by EVO HOME",
+    "p1": "Evo Home è un'azienda con oltre 17 anni di esperienza nell'installazione e manutenzione di impianti elettrici a Roma. I nostri specialisti altamente qualificati offrono soluzioni professionali per appartamenti, abitazioni, uffici e strutture industriali di ogni tipo. Utilizzando materiali certificati e rispettando rigorosamente le normative di sicurezza elettrica, garantiamo un servizio affidabile e sicuro, considerando sempre le esigenze del cliente e privilegiando la nostra esperienza e professionalità.",
+    "button": "ORDINA"
+  },
+  "process": {
+    "h": "Maggiori informazioni sull'installazione dell'impianto elettrico",
+    "p": "Un impianto elettrico efficiente e sicuro richiede non solo precisione nell'installazione di prese e interruttori, ma anche una conoscenza approfondita dei principali componenti elettrici utilizzati negli spazi residenziali e commerciali.",
+    "ul": {
+      "1": {
+        "h": "INSTALLAZIONE DELLE ATTREZZATURE ELETTRICHE",
+        "li1": "Installazione elettrica completa in abitazioni e uffici.",
+        "li2": "Sostituzione parziale o totale dell'impianto per migliorare efficienza energetica e sicurezza.",
+        "li3": "Diagnostica e risoluzione guasti delle apparecchiature elettriche per un servizio rapido e affidabile."
+      },
+      "2": {
+        "h": "INSTALLAZIONE DI PRESE E INTERRUTTORI",
+        "p": "Prese e interruttori di ultima generazione, regolatori di temperatura per impianti di riscaldamento e raffreddamento, sistemi di illuminazione integrati: dai lampadari tradizionali alle soluzioni LED, collegamento di elettrodomestici ad alta efficienza come forni e piani a induzione."
+      },
+      "3": {
+        "h": "QUADRI E SISTEMI DI SICUREZZA",
+        "li1": "Assemblaggio e manutenzione dei quadri elettrici per la gestione dell'impianto.",
+        "li2": "Sostituzione di interruttori automatici e contatori per garantire il corretto funzionamento e prevenire sovraccarichi.",
+        "p": "Installazione di sistemi di messa a terra per la protezione contro cortocircuiti."
+      },
+      "4": {
+        "h": "PROGETTAZIONE E ISPEZIONE DELL'IMPIANTO",
+        "li1": "Progettazione personalizzata degli impianti elettrici, dalla posa dei cavi all'installazione.",
+        "li2": "Test e ispezioni per garantire la conformità alle norme CEI e alla legislazione vigente.",
+        "li3": "Manutenzione programmata per mantenere l'efficienza dell'impianto nel tempo."
+      },
+      "5": {
+        "h": "SICUREZZA ED EFFICIENZA ENERGETICA",
+        "li1": "Livello 1 (Base): un impianto con l'attrezzatura minima necessaria.",
+        "li2": "Livello 2 (Standard): un livello superiore di sicurezza e comfort abitativo.",
+        "li3": "Livello 3 (Domotica): massime prestazioni per case intelligenti."
+      }
+    },
+    "video_text": "Installazione dell'Impianto Elettrico by EVO HOME"
+  }
+}

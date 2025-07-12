@@ -16,7 +16,10 @@ import google from '../assets/icons/google.png'
 import whatsap from '../assets/icons/whatsap.png'
 
 const Contacts = () => {
-  const {t} = useTranslation('Contacts')
+    function handleImageClick(url) {
+        window.location.href = url;
+        }
+    const {t} = useTranslation('Contacts')
   return (
     // all content
     <div>
@@ -99,10 +102,10 @@ const Contacts = () => {
 
                     <div className='flex items-center justify-end sm:w-full lg:w-[951px] h-[163px] border-[4px] border-[#F9B33B]'>
                         <ul className='sm:w-full lg:w-[834px] h-[92px] flex flex-row justify-between sm:px-4 lg:px-0 lg:pr-4  '>
-                            <li className='w-[92px] h-[92px]'><img src={facebook} alt='facebook' loading="lazy" className='w-full h-full'/></li>
-                            <li className='w-[92px] h-[92px]'><img src={instagram} alt='instagram' loading="lazy" className='w-full h-full'/></li>
-                            <li className='w-[92px] h-[92px]'><img src={google} alt='google' loading="lazy" className='w-full h-full'/></li>
-                            <li className='w-[92px] h-[92px]'><img src={whatsap} alt='whatsapp' loading="lazy" className='w-full h-full'/></li>
+                            <li className='w-[92px] h-[92px] hover:scale-110 transition duration-300'><img src={facebook} alt='facebook' loading="lazy" className='w-full h-full ' onClick={()=>handleImageClick('https://www.facebook.com/people/Evo-Home/100087325255144/')}/></li>
+                            <li className='w-[92px] h-[92px] hover:scale-110 transition duration-300'><img src={instagram} alt='instagram' loading="lazy" className='w-full h-full ' onClick={()=>handleImageClick('https://www.instagram.com/evohome_impresa_edile')}/></li>
+                            <li className='w-[92px] h-[92px] hover:scale-110 transition duration-300'><img src={google} alt='google' loading="lazy" className='w-full h-full ' onClick={()=>handleImageClick('https://www.google.com/maps/place/Evo+Home+Ristrutturazioni/@41.9207852,12.5263142,17z/data=!3m1!4b1!4m6!3m5!1s0x880b544c576ff2bd:0x3fc93aeeff10730d!8m2!3d41.9207852!4d12.5263142!16s%2Fg%2F11vplxvk71?entry=ttu&g_ep=EgoyMDI1MDcwOS4wIKXMDSoASAFQAw%3D%3D')}/></li>
+                            <li className='w-[92px] h-[92px] hover:scale-110 transition duration-300'><img src={whatsap} alt='whatsapp' loading="lazy" className='w-full h-full ' onClick={()=>handleImageClick('https://wa.me/+393279866412')}/></li>
                         </ul>
                     </div>
                 </div>

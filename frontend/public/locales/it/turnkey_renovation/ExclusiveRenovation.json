@@ -1,0 +1,33 @@
+{
+  "title": "Ristrutturazione Appartamento Esclusivo",
+  "h": "Ristrutturazione Appartamento Esclusivo",
+  "header": {
+    "h": "Ristrutturazione Esclusiva by EVO HOME",
+    "p1": "Benvenuti da EvoHome — il vostro partner ideale per ristrutturazioni esclusive di appartamenti a Roma e dintorni. Creiamo interni che sottolineano l’individualità e lo status del proprietario, utilizzando soluzioni innovative ed elementi decorativi esclusivi. Con oltre 17 anni di esperienza in questo settore, EvoHome è leader di mercato specializzato nel restyling immobiliare, con particolare attenzione alla qualità e all’eleganza. La nostra missione è trasformare ogni spazio abitativo in un ambiente unico e personalizzato che rispecchi pienamente i desideri e le esigenze di ciascun cliente.",
+    "p2": "Lavoriamo con i migliori artigiani e designer per trasformare la vostra casa in una vera opera d’arte. EVO HOME – creare spazi che ispirano.",
+    "button": "ORDINA"
+  },
+  "process": {
+    "h": "Maggiori informazioni sulla ristrutturazione esclusiva",
+    "p": "Il nostro specialista esegue misurazioni accurate direttamente in loco. Se il progetto prevede la ristrutturazione dei locali, definiamo quali muri possono essere modificati, garantendo piena conformità alle normative e massima sicurezza.",
+    "ul": {
+      "1": {
+        "h": "SVILUPPO DEL PROGETTO DI DESIGN",
+        "p": "Pianificazione degli spazi: soluzioni personalizzate che ottimizzano lo spazio disponibile. Piani ingegneristici: progetti dettagliati per illuminazione, condizionamento, riscaldamento e sistemi di sicurezza. Visualizzazione 3D: grafica stampata e digitale che dà vita al design desiderato."
+      },
+      "2": {
+        "h": "PREVENTIVO DETTAGLIATO DEI COSTI",
+        "p": "Un preventivo dettagliato è un documento completo che elenca tutti i lavori, i materiali e le spese necessarie per la ristrutturazione. Prepariamo il preventivo in base alle esigenze individuali del cliente, offrendo una chiara panoramica del budget del progetto. Il nostro obiettivo è rendere il processo di ristrutturazione il più comodo e prevedibile possibile."
+      },
+      "3": {
+        "h": "FINITURE DI ALTA QUALITÀ",
+        "p": "Le finiture di alta qualità rappresentano la fase finale della ristrutturazione che conferisce all’interno un aspetto estetico, comfort e durata. Usiamo solo materiali certificati, strumenti professionali e tecnologie moderne per ottenere un risultato impeccabile. Dal soffitto alle pareti, dai pavimenti ai bagni e cucine su misura — ogni dettaglio è perfezionato."
+      },
+      "4": {
+        "h": "INSTALLAZIONE DI SISTEMI DOMOTICI",
+        "p": "Il sistema di automazione è un insieme di tecnologie moderne che rendono la tua casa confortevole, sicura ed efficiente dal punto di vista energetico. Integramo soluzioni intelligenti che permettono di controllare illuminazione, clima, sicurezza e elettrodomestici tramite smartphone o comandi vocali."
+      }
+    },
+    "video_text": "Ristrutturazione Appartamento Esclusivo by EVO HOME"
+  }
+}

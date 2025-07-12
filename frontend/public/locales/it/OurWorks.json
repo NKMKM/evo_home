@@ -1,0 +1,72 @@
+{
+  "title": "I Nostri Lavori",
+  "header": {
+    "h": "Progetti EVO HOME",
+    "p1": "Benvenuti nella galleria di Evo Home, dove ogni immagine riflette la nostra passione per la qualità e l’innovazione. Qui troverete foto e video dei nostri progetti di ristrutturazione completati a Roma: ",
+    "span1": "appartamenti moderni",
+    "p2": ", case eleganti, uffici funzionali e spazi commerciali ",
+    "span2": "di design",
+    "p3": ". Ogni dettaglio è curato per garantire risultati impeccabili.",
+    "p4": "Scoprite i nostri lavori e lasciatevi ispirare dalla creatività e dall’esperienza del nostro team. Evo Home è il partner ideale per tutte le vostre esigenze di ristrutturazione. Scoprite come possiamo trasformare il vostro spazio in un’opera d’arte funzionale."
+  },
+  "comparison": {
+    "h": "Interni: PRIMA & DOPO",
+    "li1": {
+      "name": "CUCINA",
+      "style": "Minimalismo Moderno",
+      "span": "Prima:",
+      "p1": " Mobili datati, scarsa illuminazione e mancanza di spazio di lavoro.",
+      "span2": "Dopo:",
+      "p2": " Una cucina luminosa ed ergonomica con design pulito e elettrodomestici integrati. Ricostruzione completa: ora la cucina non è solo bella, ma anche funzionale — ogni centimetro è pensato con cura."
+    },
+    "li2": {
+      "name": "BAGNO",
+      "style": "Classico Moderno",
+      "span": "Prima:",
+      "p1": " Spazio angusto con piastrelle e sanitari datati.",
+      "span2": "Dopo:",
+      "p2": " Una trasformazione elegante in una stanza raffinata con ergonomia intelligente. L’uso efficiente dello spazio e materiali moderni trasformano una stanza ordinaria in una zona confortevole."
+    },
+    "li3": {
+      "name": "BOUTIQUE DI PROFUMI",
+      "style": "Lusso Industriale",
+      "span": "Prima:",
+      "p1": " Uno spazio vuoto con pareti grezze e strutture da costruzione.",
+      "span2": "Dopo:",
+      "p2": " Calde volte in mattone, illuminazione soffusa e espositori posizionati strategicamente. La combinazione di elementi industriali con tocchi accoglienti rende la boutique più di un negozio — diventa una destinazione per gli amanti dei profumi."
+    },
+    "button": "ORDINA ORA"
+  },
+  "steps": {
+    "1": {
+      "h": "Ristrutturazione del Tetto",
+      "type": "Ristrutturazione del tetto – quartiere Aurelia, Roma",
+      "p1": "Ridiamo vita agli spazi commerciali tramite ristrutturazioni su misura. Scoprite come abbiamo trasformato questo negozio di profumi in un’area elegante e funzionale, perfetta per accogliere i clienti nel cuore di Roma.",
+      "p2": "Guarda il video per i dettagli del progetto e contattaci per creare il tuo spazio unico!"
+    },
+    "2": {
+      "h": "Negozio di Profumi",
+      "type": "Centro Storico di Roma – Via Vittoria 3b",
+      "p1": "Ridiamo vita agli spazi commerciali tramite ristrutturazioni su misura. Scoprite come abbiamo trasformato questo negozio di profumi in un’area elegante e funzionale, perfetta per accogliere i clienti nel cuore di Roma.",
+      "p2": "Guarda il video per i dettagli del progetto e contattaci per creare il tuo spazio unico!"
+    },
+    "3": {
+      "h": "Restauro della Fontana",
+      "type": "Restauro fontana – quartiere Aurelia, Roma",
+      "p1": "Restauriamo fontane riportandole a bellezza e funzionalità attraverso lavori di ristrutturazione professionali. Scoprite come abbiamo trasformato questa fontana in un elemento decorativo unico, che fonde tradizione e modernità.",
+      "p2": "Guarda il video per saperne di più sul processo e contattaci per valorizzare il tuo spazio con stile e precisione!"
+    },
+    "4": {
+      "h": "Restyling del Ristorante",
+      "type": "Sentori Vineria del Quartiere (Roma)",
+      "p1": "Trasformiamo gli spazi con design esclusivo e dettagli raffinati. Scoprite come abbiamo ristrutturato questo wine bar per creare un ambiente accogliente ed elegante, perfetto per ogni occasione.",
+      "p2": "Guarda il video per ammirare il risultato e contattaci per dare nuova vita al tuo spazio con stile e qualità!"
+    },
+    "5": {
+      "h": "Appartamento Trilocale",
+      "type": "Ristrutturazione appartamento — Roma, quartiere San Paolo",
+      "p1": "Modernizziamo gli spazi residenziali con soluzioni personalizzate e funzionali. Scoprite come abbiamo trasformato questo appartamento trilocale unendo comfort e design per soddisfare ogni esigenza.",
+      "p2": "Guarda il video per esplorare i dettagli del progetto e contattaci per ristrutturare la tua casa con stile e professionalità!"
+    }
+  }
+}

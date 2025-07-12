@@ -1,0 +1,86 @@
+{
+    "title": "Turnkey Apartment Renovation",
+    "h": "Turnkey Apartment Renovation",
+    "header": {
+      "h": "Apartment Renovation with EVO HOME",
+      "p1": "Welcome to EvoHome — your trusted partner for turnkey apartment renovation services, offering reliable and high-quality solutions to transform your property. With over 17 years of experience in the renovation industry, EvoHome is a market leader, delivering impeccable services at competitive prices starting from just €500/m². Located in the heart of Rome and operating throughout its charming surroundings, we are the ideal choice for those seeking professionalism, efficiency, and guaranteed results.",
+      "p2": "Apartment renovation is a complex and multifaceted process that requires a professional approach. EVO HOME handles every stage — from project design to final delivery. You won’t need to search for contractors, purchase materials, or supervise workers — we take care of everything for you!",
+      "button": "ORDER"
+    },
+    "process": {
+      "h": "The Apartment Renovation Process with EvoHome",
+      "ul": {
+        "1": {
+          "h": "PREPARATION",
+          "li1": "Meeting with an architect and measuring the apartment.",
+          "li2": "Preparation of a preliminary estimate (90% accuracy).",
+          "li3": "Consultation and meeting with an interior designer.",
+          "li4": "Development of the apartment’s interior design.",
+          "li5": "Preparation of a detailed work estimate (fixed price)."
+        },
+        "2": {
+          "h": "RENOVATION WORKS",
+          "li1": "Procurement and delivery of raw materials",
+          "li2": "Demolition and disposal",
+          "li3": "Construction of partitions",
+          "li4": "Installation of the electrical system",
+          "li5": "Installation of air conditioning system",
+          "li6": "Plastering of walls and ceilings",
+          "li7": "Installation of flooring / wall coverings and baseboards",
+          "li8": "Painting of ceilings and walls",
+          "li9": "Installation of interior doors",
+          "li10": "Cleaning and removal of construction debris"
+        },
+        "3": {
+          "h": "FINAL HANDOVER",
+          "li1": "Installation of lighting fixtures",
+          "li2": "Faucets and sanitary accessories",
+          "li3": "Purchase and assembly of furniture, electronics, and accessories",
+          "li4": "Apartment layout according to the project",
+          "li5": "Final cleaning by a professional cleaning service",
+          "li6": "Handover of the completed renovation to the client"
+        }
+      },
+      "video_text": "Turnkey Apartment Renovation by EVO HOME",
+      "video_p": "EvoHome aims to transform your apartment into a comfortable, functional, and stylish environment, all within the agreed timeframe and budget. Our experience, quality assurance, and personalized approach make us the ideal partner for your renovation project in Rome and its surroundings. Contact us today to start your project with EvoHome.",
+      "step1": "STEP 1",
+      "step2": "STEP 2",
+      "step3": "STEP 3"
+    },
+    "reasons": {
+        "h": "Why Choose EvoHome for Your Renovation?",
+        "ul": {
+            "1": {
+                "h": "FAIR PRICING",
+                "p": "We offer comprehensive renovation services starting from €500/m², ensuring excellent value for money."
+                },
+            "2": {
+                "h": "YEARS OF EXPERIENCE",
+                "p": "With over 17 years of experience in the renovation industry, our team of professionals is ready to bring any vision to life."
+                },
+            "3": {
+                "h": "QUALITY GUARANTEE",
+                "p": "We provide a 3-year warranty on all completed work, ensuring your full satisfaction and peace of mind."
+            },
+            "4": {
+                "h": "GEOGRAPHICAL COVERAGE",
+                "p": "We operate in Rome and its picturesque surroundings, offering a wide range of services and a personalized approach."
+            },
+            "5": {
+                "h": "PAYMENT UPON COMPLETION",
+                "p": "Payment is made only upon completion of the work, guaranteeing your complete satisfaction."
+            },
+            "6": {
+                "h": "INTEREST-FREE INSTALLMENTS",
+                "p": "We offer the possibility of interest-free installment plans to ease the financing of your project."
+            },
+            "7": {
+                "h": "OFFICIAL CONTRACT",
+                "p": "Each agreement is formalized with an official contract, ensuring transparency and security at every stage."
+            }
+        }
+    }
+
+
+}
+  

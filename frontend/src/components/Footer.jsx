@@ -10,6 +10,12 @@ import whatsap from '../assets/icons/whatsap.png'
 import YellowSquare from './YellowSquare'
 
 const Footer = () => {
+  const selectedLang = localStorage.getItem('language') || 'en';
+  
+
+  function handleImageClick(url) {
+    window.location.href = url;
+  }
   const {t} = useTranslation('components/Footer')
   return (
     <footer className='relative footer-bg-image w-full  sm:flex sm:flex-col sm:justify-between lg:block  sm:h-[700px] lg:h-[800px] '>
@@ -17,12 +23,13 @@ const Footer = () => {
             {/* logo and links */}
             <div className='flex sm:flex-col lg:flex-row justify-between mb-20 '>
                 <div className='w-[357px] h-[57px] button-scale-hover  '><img src={logo} className='w-full h-full sm:hidden lg:block'/></div>
+                {/* <button onClick={()=>{console.log(localStorage.getItem('language'));}}>click</button> */}
 
                 <ul className=' sm:w-full lg:w-[389px] sm:h-[80px] lg:h-[57px] flex flex-row justify-between '>
-                    <li className='button-scale-hover'><img src={facebook} className='w-full h-full'/></li>
-                    <li className='button-scale-hover'><img src={instagram} className='w-full h-full'/></li>
-                    <li className='button-scale-hover'><img src={google} className='w-full h-full'/></li>
-                    <li className='button-scale-hover'><img src={whatsap} className='w-full h-full'/></li>
+                    <li className='button-scale-hover'><img src={facebook} className='w-full h-full' onClick={()=>handleImageClick('https://www.facebook.com/people/Evo-Home/100087325255144/')}/></li>
+                    <li className='button-scale-hover'><img src={instagram} className='w-full h-full' onClick={()=>handleImageClick('https://www.instagram.com/evohome_impresa_edile')}/></li>
+                    <li className='button-scale-hover'><img src={google} className='w-full h-full' onClick={()=>handleImageClick('https://www.google.com/maps/place/Evo+Home+Ristrutturazioni/@41.9207852,12.5263142,17z/data=!3m1!4b1!4m6!3m5!1s0x880b544c576ff2bd:0x3fc93aeeff10730d!8m2!3d41.9207852!4d12.5263142!16s%2Fg%2F11vplxvk71?entry=ttu&g_ep=EgoyMDI1MDcwOS4wIKXMDSoASAFQAw%3D%3D')}/></li>
+                    <li className='button-scale-hover'><img src={whatsap} className='w-full h-full' onClick={()=>handleImageClick('https://wa.me/+393279866412')}/></li>
                 </ul>
             </div>
 
@@ -36,7 +43,7 @@ const Footer = () => {
                   <div className='flex sm:flex-col lg:flex-row space-x-10'>
                     {/* repair by key */}
                     <div>
-                      <Link to={'/turnkey_renovation'} className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare style="mr-2 group-hover:w-[345px] "/><span className="transition-colors duration-300 z-20 pl-3">{t('turnkey_renovation_h')}</span> </Link>
+                      <Link to={'/turnkey_renovation'} className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare   style={`mr-2 ${selectedLang === 'it'? 'h-[60px]' : '' } `}/><span className="transition-colors duration-300 z-20 pl-3">{t('turnkey_renovation_h')}</span> </Link>
                       <ul className='text-[18px] flex flex-col space-y-3 pl-4 sm:hidden lg:flex '>
                         <Link to={'/turnkey_renovation/designer_renovation'} className='hover:text-[#F9B33B] transition duration-200'>{t('turnkey_renovation_ul.li1')}</Link>
                         <Link to={'/turnkey_renovation/exclusive_renovation'} className='hover:text-[#F9B33B] transition duration-200'>{t('turnkey_renovation_ul.li2')}</Link>
@@ -50,7 +57,7 @@ const Footer = () => {
 
                     {/* room repair */}
                     <div>
-                    <Link to={'/room_renovation'} className='flex lg:flex-row text-[22px] mb-6 items-center group '> <YellowSquare style="mr-2 group-hover:w-[210px] "/><span className="transition-colors duration-300 z-20 pl-3">{t('room_renovation_h')}</span> </Link>
+                    <Link to={'/room_renovation'} className='flex lg:flex-row text-[22px] mb-6 items-center group '> <YellowSquare style={`mr-2 ${selectedLang === 'it'? 'h-[60px]' : '' }`}/><span className="transition-colors duration-300 z-20 pl-3">{t('room_renovation_h')}</span> </Link>
                       <ul className='text-[18px] flex flex-col space-y-3 pl-4 sm:hidden lg:flex'>
                         <Link to={'/room_renovation/living_room'}  className='hover:text-[#F9B33B] transition duration-200'>{t('room_renovation_ul.li1')}</Link>
                         <Link to={'/room_renovation/bedroom'}  className='hover:text-[#F9B33B] transition duration-200'>{t('room_renovation_ul.li2')}</Link>
@@ -65,7 +72,7 @@ const Footer = () => {
 
                   {/* contacts */}
                   <div>
-                  <Link to={'/contacts'} className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare style="mr-2 group-hover:w-[142px] "/><span className="transition-colors duration-300 z-20 pl-3">{t('contacts_h')}</span> </Link>
+                  <Link to={'/contacts'} className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare style="mr-2"/><span className="transition-colors duration-300 z-20 pl-3">{t('contacts_h')}</span> </Link>
                     <div className='grid grid-cols-2 gap-2 pl-4 sm:hidden lg:grid'>
                       <p>{t('contacts_p1')}</p>
                       <p>{t('contacts_p2')}</p>
@@ -79,7 +86,7 @@ const Footer = () => {
               <div className='w-[400px] h-auto  flex flex-col justify-between'>
                 {/* commercial premises */}
                 <div>
-                <Link to={'/commercial_premises'} className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare style="mr-2 group-hover:w-[348px] "/><span className="transition-colors duration-300 z-20 pl-3">{t('commercial_premises_h')}</span> </Link>
+                <Link to={'/commercial_premises'} className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare style={`mr-2`}/><span className="transition-colors duration-300 z-20 pl-3">{t('commercial_premises_h')}</span> </Link>
                   <ul className='pl-4 text-[18px] flex flex-col space-y-3 sm:hidden lg:flex'>
                     <Link to={'/commercial_premises/business_center'} className='hover:text-[#F9B33B] transition duration-200'>{t("commercial_premises_ul.li1")}</Link>
                     <Link to={'/commercial_premises/restaurant'} className='hover:text-[#F9B33B] transition duration-200'>{t("commercial_premises_ul.li2")}</Link>
@@ -93,7 +100,7 @@ const Footer = () => {
                 
                 {/* adress */}
                 <div>
-                <Link to="/contacts" className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare style="mr-2 group-hover:w-[112px] "/><span className="transition-colors duration-300 z-20 pl-3">{t('adress_h')}</span> </Link>
+                <Link to="/contacts" className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare style="mr-2 "/><span className="transition-colors duration-300 z-20 pl-3">{t('adress_h')}</span> </Link>
                   <p className='ml-4 sm:hidden lg:flex'>{t('adress_p1')}<br/>{t('adress_p2')}</p>
                 </div>
               </div>
@@ -105,7 +112,7 @@ const Footer = () => {
                 <div className='flex sm:flex-col lg:flex-row mb-10 justify-between'>
                   {/* systems */}
                   <div>
-                  <Link to={'/systems'} className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare style="mr-2 group-hover:w-[135px] "/><span className="transition-colors duration-300 z-20 pl-3">{t('systems_h')}</span> </Link>
+                  <Link to={'/systems'} className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare style="mr-2"/><span className="transition-colors duration-300 z-20 pl-3">{t('systems_h')}</span> </Link>
                     <ul className='space-y-3 flex flex-col sm:hidden lg:flex'>
                       <Link to={'/systems/electrical_system'} className='hover:text-[#F9B33B] transition duration-200'>{t('systems_ul.li1')}</Link>
                       <Link to={'/systems/gas_system'} className='hover:text-[#F9B33B] transition duration-200'>{t('systems_ul.li2')}</Link>
@@ -118,7 +125,7 @@ const Footer = () => {
                   {/* main */}
 
                   <div>
-                  <Link to={'/'} className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare style="mr-2 group-hover:w-[125px] "/><span className="transition-colors duration-300 z-20 pl-3">{t('main_h')}</span> </Link>
+                  <Link to={'/'} className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare style="mr-2 "/><span className="transition-colors duration-300 z-20 pl-3">{t('main_h')}</span> </Link>
                     <ul className='pl-4 flex flex-col space-y-3 sm:hidden lg:flex'>
                       <Link to={'/about_us'} className='hover:text-[#F9B33B] transition duration-200'>{t('main_ul.li1')}</Link>
                       <Link to={'/our_works'} className='hover:text-[#F9B33B] transition duration-200'>{t('main_ul.li2')}</Link>
