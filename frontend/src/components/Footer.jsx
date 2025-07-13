@@ -71,13 +71,13 @@ const Footer = () => {
                   </div>
 
                   {/* contacts */}
-                  <div>
-                  <Link to={'/contacts'} className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare style="mr-2"/><span className="transition-colors duration-300 z-20 pl-3">{t('contacts_h')}</span> </Link>
-                    <div className='grid grid-cols-2 gap-2 pl-4 sm:hidden lg:grid'>
-                      <p>{t('contacts_p1')}</p>
-                      <p>{t('contacts_p2')}</p>
-                      <p>{t('contacts_p3')}</p>
-                    </div>
+                  <div className=' w-full mt-10'>
+                  <Link to={'/contacts'} className='flex flex-row text-[22px] mb-5 items-center group '> <YellowSquare style="mr-2"/><span className="transition-colors duration-300 z-20 pl-3">{t('contacts_h')}</span> </Link>
+                    <ul className='grid-rows-2 grid-cols-2 space-x-10 pl-4 sm:hidden lg:grid '>
+                      <li>{t('contacts_p1')}</li>
+                      <li>{t('contacts_p3')}</li>
+                      <li className={`${selectedLang === 'it' ? 'ml-[73px]' :''}`}>{t('contacts_p2')}</li>
+                    </ul>
                   </div>
               </div>
 
@@ -107,12 +107,12 @@ const Footer = () => {
               
 
               {/* third block  */}
-              <div className='flex flex-col w-[528px] h-auto  justify-between'>
+              <div className={`flex flex-col ${selectedLang === 'it' ? 'w-[528px]' : 'w-[528px]'} h-auto  justify-between`}>
                 
                 <div className='flex sm:flex-col lg:flex-row mb-10 justify-between'>
                   {/* systems */}
-                  <div>
-                  <Link to={'/systems'} className='flex flex-row text-[22px] mb-6 items-center group '> <YellowSquare style="mr-2"/><span className="transition-colors duration-300 z-20 pl-3">{t('systems_h')}</span> </Link>
+                  <div className={``}>
+                  <Link to={'/systems'} className={`flex flex-row text-[22px] mb-6  items-center group `}> <YellowSquare style="mr-2"/><span className="transition-colors duration-300 z-20 pl-3">{t('systems_h')}</span> </Link>
                     <ul className='space-y-3 flex flex-col sm:hidden lg:flex'>
                       <Link to={'/systems/electrical_system'} className='hover:text-[#F9B33B] transition duration-200'>{t('systems_ul.li1')}</Link>
                       <Link to={'/systems/gas_system'} className='hover:text-[#F9B33B] transition duration-200'>{t('systems_ul.li2')}</Link>

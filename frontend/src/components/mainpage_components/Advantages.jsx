@@ -18,6 +18,7 @@ import before_after_2 from '../../assets/images/before_after_2.png'
 import ImageComparisonSlider from '../ImageComparisonSlider'
 
 const Advantages = () => {
+  const selectedLang = localStorage.getItem('language') || 'en';
   const {t} = useTranslation('home/Advantages')
   return (
   <div className=' lg:w-full sm:h-[2750px] sm:flex sm:flex-col sm:justify-between  lg:h-[1100px]  lg:mb-[630px] '>
@@ -38,7 +39,7 @@ const Advantages = () => {
 
             {/* info */}
 
-            <div className='relative grid sm:grid-cols-2 lg:grid-cols-2 lg:grid-rows-3 sm:gap-y-[80px] lg:gap-x-[100px] lg:gap-y-[30px] lg:w-[735px] items-center sm:h-[800px] lg:h-auto lg:my-auto  '>
+            <div className='relative grid sm:grid-cols-2 lg:grid-cols-2 lg:grid-rows-3 sm:gap-y-[80px] lg:gap-x-[100px] lg:gap-y-[50px] lg:w-[735px] lg:h-full items-center sm:h-[800px]  lg:my-auto '>
                 <div className='flex flex-col items-center'>
                   <h2 className='text-[32px] font-[500]'>{t('advantages.first_step.h')}</h2>
                   <img src={right_arrow} alt='right arrow' loading="lazy" className='z-10 absolute md:top-[150px] md:left-[33.6%] lg:top-[155px] lg:left-[215px] scale-[0.6] sm:hidden md:block'/>
@@ -59,20 +60,20 @@ const Advantages = () => {
                 </div>
 
 
-                <div className='flex flex-col items-center'>
+                <div className={`flex flex-col items-center  ${selectedLang === 'it' ? 'h-[340px]' : ''} `}>
                   <h2 className='text-[32px] font-[500]'>{t('advantages.third_step.h')}</h2>
                   <img src={left_arrow} alt='left arrow' loading="lazy" className='z-10 absolute lg:top-[450px] lg:left-[215px] scale-[0.6] sm:hidden md:block'/>
-                  <div className='flex flex-col items-center text-center space-y-2 px-4 w-[312px] h-[250px] rounded-[10px] border-[#F9B33B] border-[5px]'>
+                  <div className={`flex flex-col items-center text-center space-y-2 px-4 w-[312px] ${selectedLang === 'it' ? 'h-[290px]' : ''} rounded-[10px] border-[#F9B33B] border-[5px]`}>
                     <img src={hands} alt='hands' loading="lazy" className='w-[74px] h-[74px] mt-4' />
                     <p className='text-[22px]'>{t('advantages.third_step.p')}</p>
                   </div>
                 </div>
 
 
-                <div className='flex flex-col items-center'>
+                <div className={`flex flex-col items-center ${selectedLang === 'it' ? 'h-[340px]' : ''} `}>
                   <h2 className='text-[32px] font-[500]'>{t('advantages.fourth_step.h')}</h2>
 
-                  <div className='flex flex-col items-center text-center space-y-2 px-4 w-[312px] h-[250px] rounded-[10px] border-[#F9B33B] border-[5px]'>
+                  <div className={`flex flex-col items-center text-center space-y-2 px-4 w-[312px] ${selectedLang === 'it' ? 'h-[290px]' : ''} rounded-[10px] border-[#F9B33B] border-[5px]`}>
                     <img src={money} alt='money' loading="lazy" className='w-[74px] h-[74px] mt-4' />
                     <p className='text-[22px]'>{t('advantages.fourth_step.p')}</p>
                   </div>

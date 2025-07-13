@@ -14,6 +14,7 @@ import basement from '../../assets/images/services_images/basement.jpg'
 
 const Projects = () => {
   const {t} = useTranslation('home/Projects')
+  const selectedLang = localStorage.getItem('language') || 'en';
   return (
     <main className=' sm:flex sm:flex-col sm:justify-between lg:block sm:mb-30 lg:mb-20 sm:w-full sm:h-[3200px] lg:h-[1250px] lg:w-[1641px] mx-auto'>
         {/* header section */}
@@ -26,17 +27,17 @@ const Projects = () => {
             <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block '/>
         </header>
 
-        <p className='sm:w-full lg:w-[1410px] h-[76px] mx-auto text-[32px] text-center font-[100] italic '>{t('p')}</p>
+        <p className='sm:w-full lg:w-[1410px] h-[76px] mx-auto text-[32px] text-center font-[200] text-shadow-lg italic '>{t('p')}</p>
         
         {/* grid section with projects */}
         <section className=' sm:flex sm:flex-col sm:justify-between sm:h-[2800px] lg:h-[900px] lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:gap-y-4 mb-10'>
 
             {/* first element */}
             <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group '>
-                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={tatto_studio} alt='tatto studio' loading="lazy" className='w-full h-full'/></div>
+                <div className='w-full h-full  group-hover:brightness-50 transition duration-300 '><img src={tatto_studio} alt='tatto studio' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>{t('first_element.h')}</h2>
+                    <h2 className={`${selectedLang === 'it' ? 'text-[28px]' :'text-[32px]' }`}>{t('first_element.h')}</h2>
                     <p className='text-[18px]'>{t('first_element.p')}</p>
                 </div>
 
@@ -49,10 +50,10 @@ const Projects = () => {
             </div>
             {/* second element */}
             <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={bar} alt='bar' loading="lazy" className='w-full h-full'/></div>
+                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={bar} alt='bar' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>{t('second_element.h')}</h2>
+                    <h2 className={`${selectedLang === 'it' ? 'text-[28px]' :'text-[32px]' }`}>{t('second_element.h')}</h2>
                     <p className='text-[18px]'>{t('second_element.p')}</p>
                 </div>
 
@@ -65,10 +66,10 @@ const Projects = () => {
             </div>
             {/* third element */}
             <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={basement} alt='basement' loading="lazy" className='w-full h-full'/></div>
+                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={basement} alt='basement' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>{t('third_element.h')}</h2>
+                    <h2 className={`${selectedLang === 'it' ? 'text-[28px]' :'text-[32px]' }`}>{t('third_element.h')}</h2>
                     <p className='text-[18px]'>{t('third_element.p')}</p>
                 </div>
 
@@ -81,10 +82,10 @@ const Projects = () => {
             </div>
             {/* fouirth element */}
             <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={bath} alt='bath' loading="lazy" className='w-full h-full'/></div>
+                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={bath} alt='bath' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>{t('fourth_element.h')}</h2>
+                    <h2 className={`${selectedLang === 'it' ? 'text-[28px]' :'text-[32px]' }`}>{t('fourth_element.h')}</h2>
                     <p className='text-[18px]'>{t('fourth_element.p')}</p>
                 </div>
 
@@ -97,10 +98,10 @@ const Projects = () => {
             </div>
             {/* fifth element */}
             <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={kithcen} alt='kitchen' loading="lazy" className='w-full h-full' /></div>
+                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={kithcen} alt='kitchen' loading="lazy" className='w-full h-full rounded-[10px]' /></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>{t('fifth_element.h')}</h2>
+                    <h2 className={`${selectedLang === 'it' ? 'text-[28px]' :'text-[32px]' }`}>{t('fifth_element.h')}</h2>
                     <p className='text-[18px]'>{t('fifth_element.p')}</p>
                 </div>
 
@@ -113,10 +114,10 @@ const Projects = () => {
             </div>
             {/* sixth element */}
             <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={hall} alt='hall' loading="lazy" className='w-full h-full'/></div>
+                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={hall} alt='hall' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>{t('sixth_element.h')}</h2>
+                    <h2 className={`${selectedLang === 'it' ? 'text-[28px]' :'text-[32px]' }`}>{t('sixth_element.h')}</h2>
                     <p className='text-[18px]'>{t('sixth_element.p')}</p>
                 </div>
 

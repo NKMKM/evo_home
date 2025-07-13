@@ -62,7 +62,7 @@ const ServicesDropdown = () => {
       </div>  
 
       {isDropdownVisible && (
-        <div className="absolute top-full left-0 mt-2 w-[468px] bg-white   z-50 transition-opacity duration-300 shadow-xl">
+        <div className="absolute top-full left-0 mt-8 w-[468px] bg-white   z-50 transition-opacity duration-300 shadow-xl">
           {services.map((service ,index) => (
             <div
               key={index}

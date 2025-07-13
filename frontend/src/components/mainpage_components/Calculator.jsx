@@ -27,7 +27,7 @@ const Calculator = () => {
       {/* Заголовок */}
       <header className=' sm:px-5  flex lg:flex-row items-center justify-center sm:w-full lg:w-[1100px] lg:h-[85px] text-white mx-auto space-x-10'>
         <img src={calculator} alt='calculator' loading="lazy"  className='w-[64px] h-[64px]' />
-        <h1 className='font-[600] sm:text-[50px] lg:text-[60px] '>{t('h')}</h1>
+        <h1 className='font-[600] sm:text-[50px] lg:text-[52px] '>{t('h')}</h1>
       </header>
 
       {/* Подзаголовок */}

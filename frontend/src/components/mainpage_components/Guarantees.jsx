@@ -8,6 +8,7 @@ import time from '../../assets/icons/time.png'
 
 const Guarantees = () => {
   const {t} = useTranslation('home/Guarantees')
+  const selectedLang = localStorage.getItem('language') || 'en';	
   return (
     <div className='relative lg:my-20 sm:h-[2900px] lg:h-[826px]'>
         {/* vector 1 */}
@@ -33,7 +34,7 @@ const Guarantees = () => {
 
                     </div>
 
-                    <div className='absolute top-[385px] sm:left-[270px] md:left-[45%] lg:left-[90px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>1</p> </div>
+                    <div className='absolute top-[385px] sm:left-[270px] md:left-[45%] lg:left-[104px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>1</p> </div>
                 </li>
 
                 {/* 2 */}
@@ -45,7 +46,7 @@ const Guarantees = () => {
 
                     </div>
 
-                    <div className='absolute top-[385px] sm:left-[270px] md:left-[45%] lg:left-[90px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>2</p> </div>
+                    <div className='absolute top-[385px] sm:left-[270px] md:left-[45%] lg:left-[104px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>2</p> </div>
                 </li>
 
                 {/* 3 */}
@@ -57,7 +58,7 @@ const Guarantees = () => {
 
                     </div>
 
-                    <div className='absolute top-[385px] sm:left-[270px] md:left-[45%] lg:left-[90px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>3</p> </div>
+                    <div className='absolute top-[385px] sm:left-[270px] md:left-[45%] lg:left-[104px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>3</p> </div>
                 </li>
 
                 {/* 4 */}
@@ -69,19 +70,19 @@ const Guarantees = () => {
 
                     </div>
 
-                    <div className='absolute top-[385px] sm:left-[270px] md:left-[45%] lg:left-[90px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>4</p> </div>
+                    <div className='absolute top-[385px] sm:left-[270px] md:left-[45%] lg:left-[104px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>4</p> </div>
                 </li>
 
                 {/* 5 */}
                 <li className=' relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[278px] h-[420px] bg-linear-to-t from-[#83b1d6]  to-[#fcfdfe] shadow-2xl'>
                     <div className='flex flex-col justify-between h-full w-full py-10'>
                         <div className='sm:w-[100px] sm:h-[100px] lg:w-[64px] lg:h-[64px] mx-auto '><img src={time} alt='clock' loading="lazy" className='w-full h-full'/></div>
-                        <h2 className='sm:text-[30px] lg:text-[22px] font-semibold text-center'>{t('fifth_element.h')}</h2>
+                        <h2 className={`sm:text-[30px]  font-semibold text-center ${selectedLang === 'it' ? 'lg:text-[24px]' :'lg:text-[22px]'}  `}>{t('fifth_element.h')}</h2>
                         <p className='bg-[#d7e4ef] sm:text-[22px] lg:text-[17px] w-full h-[117px] p-4 text-center '>{t('fifth_element.p')}</p>
 
                     </div>
 
-                    <div className='absolute top-[385px] sm:left-[270px] md:left-[45%] lg:left-[90px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>5</p> </div>
+                    <div className='absolute top-[385px] sm:left-[270px] md:left-[45%] lg:left-[104px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>5</p> </div>
                 </li>
 
 
