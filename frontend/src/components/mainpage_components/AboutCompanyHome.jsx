@@ -36,7 +36,7 @@ const AboutCompanyHome = () => {
                 />
             </div>
 
-            <div className='sm:text-center lg:text-start flex flex-col sm:w-full lg:w-[836px] py-4 px-10 space-y-10'>
+            <div className='sm:text-center lg:text-start flex flex-col sm:w-full lg:w-[836px] py-4 pl-20 space-y-10'>
                 <p className='text-3xl'><span className='text-[#F9B33B]'>{t('text.span')} </span> {t('text.p1')}</p>
 
                 <ul className='list-disc text-2xl ml-5 '>
@@ -46,7 +46,7 @@ const AboutCompanyHome = () => {
                     <li>{t('ul.li4')}</li>
                 </ul>
 
-                <h1 className='text-5xl font-bold'><span className='text-[#F9B33B] '>{t('text.span')}</span>  {t('text.p2')}</h1>
+                <h1 className='text-[31px] font-bold'><span className='text-[#F9B33B] '>{t('text.span')}</span>  {t('text.p2')}</h1>
             </div>
 
         </div>

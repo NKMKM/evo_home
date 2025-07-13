@@ -58,7 +58,7 @@ const LanguageSelector = () => {
         <img
           src={languages[currentLang].flag}
           alt={languages[currentLang].label}
-          className="w-[45px] h-[30px] shadow-xl"
+          className="w-[45px] h-[30px] shadow-2xl"
           draggable={false}
         />
         <KeyboardArrowDownIcon />
@@ -77,12 +77,14 @@ const LanguageSelector = () => {
               aria-selected={false}
               className="flex items-center gap-2 px-3 py-1 cursor-pointer hover:bg-gray-100"
             >
-              <img
-                src={languages[lng].flag}
-                alt={languages[lng].label}
-                className="w-[45px] h-[30px] object-cover shadow-xl"
-                draggable={false}
-              />
+              <div className='w-[45px] h-[30px]'>
+                <img
+                  src={languages[lng].flag}
+                  alt={languages[lng].label}
+                  className="w-full h-full object-cover shadow-2xl"
+                  draggable={false}
+                />
+              </div>
               <span>{languages[lng].label}</span>
             </li>
           ))}

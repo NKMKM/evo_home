@@ -40,8 +40,10 @@ import Guarantees from '../components/mainpage_components/Guarantees'
 import vector_about_us_1 from'../assets/videos/abouts_us/vector1.png'
 import vector_about_us_2 from'../assets/videos/abouts_us/vector2.png'
 
+
 const AboutUs = () => {
-  const {t} = useTranslation('AboutUs')
+    const {t} = useTranslation('AboutUs')
+    const selectedLang = localStorage.getItem('language') || 'en';
   return (
     <div>
         <Helmet>
@@ -54,14 +56,14 @@ const AboutUs = () => {
             <div className='h-[83px] lg:w-full mx-auto flex flex-row justify-between items-center '>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block  '/>
                 <div className=''>
-                    <h1 className='font-bold text-center sm:text-[50px] lg:text-[53px]'>{t("header.h")}</h1>
+                    <h1 className={`font-bold text-center sm:text-[50px] ${selectedLang === 'it' ? 'lg:text-[45px]' : 'lg:text-[53px]'} `}>{t("header.h")}</h1>
 
                 </div>
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block'/>
             </div>
 
             <div className='flex sm:flex-col lg:flex-row lg:w-[1639px]  sm:h-[1950px] lg:h-[914px] justify-between text-[32px]'>
-                <div className=' flex flex-col sm:w-full lg:w-[804px] sm:h-[1200px] lg:h-[914px] sm:text-center lg:text-start  text-[30px] justify-between'>
+                <div className=' flex flex-col sm:w-full lg:w-[804px] sm:h-[1200px] lg:h-[914px] sm:text-center lg:text-start  text-[30px] justify-around'>
                     <p>{t("header.p1")}<span className='text-[#F9B33B]'>{t("header.span1")}</span>{t('header.p2')}<span className='text-[#F9B33B]'>{t("header.span2")}</span> </p>
 
                     <p>{t("header.p3")}<span className='text-[#F9B33B]'>{t("header.span3")}</span></p>
@@ -69,7 +71,7 @@ const AboutUs = () => {
                     <p>{t("header.p4")}</p>
                 </div>
 
-                <div className='sm:w-full lg:w-[806px] lg:h-[914px]'><img src={van} alt='van' loading="lazy" className='w-full h-full'/></div>
+                <div className='sm:w-full lg:w-[806px] lg:h-[914px]'><img src={van} alt='van' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
             </div>
             
             <div className='sm:w-full lg:w-[1640px] h-[67px]  flex flex-row items-center mx-auto'>
@@ -90,7 +92,7 @@ const AboutUs = () => {
         </div>
 
         {/* our team */}
-        <div className='sm:w-full lg:w-[1641px] lg:h-[1969px] mx-auto flex flex-col justify-between '>
+        <div className='sm:w-full lg:w-[1641px] lg:h-[2069px] mx-auto flex flex-col justify-between '>
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center  '>
                 <img src={left_yellow_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block '/>
                 <div className='sm:mx-auto lg:mx-0'>
@@ -101,14 +103,14 @@ const AboutUs = () => {
             </div>
             
             {/* list of empolyees */}
-            <div className='relative sm:mb-10 lg:mb-0'>
+            <div className='relative sm:mb-10 '>
                 <div className='sm:w-full lg:w-[1378px] sm:h-auto lg:h-[647px]  absolute top-[328px] left-[200px] sm:hidden lg:block'><img src={arrow_1} className='w-full h-full' /></div>
 
                 <ul className='h-auto  lg:w-[1641px] sm:px-10 lg:px-0  space-y-20'>
                     {/* 1 */}
                     <li className=' w-full  sm:h-[900px] lg:h-[376px] flex sm:flex-col lg:flex-row justify-between '>
                         {/* empolyee photo */}
-                        <div className='sm:w-full lg:w-[528px] h-[376px] border-[5px] border-[#F9B33B]'><img src={founder} alt='founder' loading="lazy" className='w-full h-full object-cover'/></div>
+                        <div className='sm:w-full lg:w-[528px] h-[376px] '><img src={founder} alt='founder' loading="lazy" className='w-full h-full object-cover'/></div>
 
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] lg:h-[376px]  flex flex-col space-y-10 '>
@@ -188,7 +190,7 @@ const AboutUs = () => {
 
         {/* our achievements */}
         
-        <div className='sm:w-full lg:w-[1640px] sm:h-[4400px] lg:h-[938px] mx-auto my-10'>
+        <div className='sm:w-full lg:w-[1640px] sm:h-[4400px] lg:h-[938px] mx-auto my-20'>
             {/* header */}
             <div className='relative  sm:w-full lg:w-[1418px] h-[132px] text-center mx-auto mb-6 font-bold text-[#222222] items-center lg:border-r-[12px]  lg:border-r-[#E0E0E0] lg:border-l-[12px] lg:border-l-[#E0E0E0]'>
                 <h2 className='sm:text-[66px] lg:text-[70px] absolute lg:top-[19px] lg:left-[410px] sm:px-5 lg:px-0 '>{t('achievements.h')}</h2>
@@ -204,7 +206,7 @@ const AboutUs = () => {
                 {/* 1 */}
                 <li className=' sm:w-full lg:w-[389px] lg:h-full '>
                     {/* photo */}
-                    <div className='lg:w-[389px] h-1/2 '><img src={first_image} alt='first image' loading="lazy"  className='w-full h-full'/></div>
+                    <div className='lg:w-[389px] h-1/2  '><img src={first_image} alt='first image' loading="lazy"  className='w-full h-full '/></div>
 
                     {/* text */}
                     <div className='flex flex-col lg:w-[389px] h-1/2 py-10 space-y-10 border-[3px] border-[#F9B33B]'>
@@ -262,7 +264,7 @@ const AboutUs = () => {
 
         {/* grid */}
 
-        <div className='relative lg:w-full lg:h-[1882px] sm:mt-20 lg:mt-0 mx-auto'>
+        <div className='relative lg:w-full lg:h-[1882px] sm:mt-40 lg:mt-0 mx-auto'>
             {/* vector */}
             <div className='absolute -z-10 top-[165px] h-[1727px] w-full overflow-hidden '><img src={vector} alt='vector' loading="lazy"  className='object-cover w-full h-full'/></div>
             
@@ -280,7 +282,7 @@ const AboutUs = () => {
 
                 {/* 1 */}
                 <div className='relative sm:w-full sm:h-fit lg:w-[806px] lg:h-[806px]'>
-                    <img src={image1} alt='image 1' loading="lazy"  className='w-full h-full '/> 
+                    <img src={image1} alt='image 1' loading="lazy"  className='w-full h-full rounded-[10px] '/> 
                     <div className='absolute flex flex-col justify-around w-[530px] h-[590px] text-center z-10 sm:top-0 sm:left-[3%] lg:top-[15%] lg:left-[17%]'>
                         <p className='  text-[#F9B33B] font-bold sm:text-[260px] lg:text-[280px]'>{t("trust.main_p_1")}</p>
                         <p className='  text-white sm:text-[50px] lg:text-[60px] mb-20 '>{t('trust.p1')}</p>
@@ -289,7 +291,7 @@ const AboutUs = () => {
                 
                 {/* 2 */}
                 <div className='relative sm:w-full sm:h-fit lg:w-[806px] lg:h-[806px]'>
-                    <img src={image2} alt='image 1' loading="lazy"  className='w-full h-full '/> 
+                    <img src={image2} alt='image 1' loading="lazy"  className='w-full h-full rounded-[10px] '/> 
                     <div className='absolute flex flex-col justify-around w-[530px] h-[590px] text-center z-10 sm:top-0 sm:left-[3%] lg:top-[15%] lg:left-[17%]'>
                         <p className='  text-[#F9B33B] font-bold sm:text-[260px] lg:text-[280px]'>{t("trust.main_p_2")}</p>
                         <p className='  text-white sm:text-[50px] lg:text-[60px] mb-20 '>{t('trust.p2')}</p>
@@ -298,7 +300,7 @@ const AboutUs = () => {
                 
                 {/* 3 */}
                 <div className='relative sm:w-full sm:h-fit lg:w-[806px] lg:h-[806px]'>
-                    <img src={image3} alt='image 1' loading="lazy"  className='w-full h-full '/> 
+                    <img src={image3} alt='image 1' loading="lazy"  className='w-full h-full  rounded-[10px]'/> 
                     <div className='absolute flex flex-col justify-around w-[530px] h-[590px] text-center z-10 sm:top-0 sm:left-[3%] lg:top-[15%] lg:left-[17%]'>
                         <p className='  text-[#F9B33B] font-bold sm:text-[260px] lg:text-[280px]'>{t("trust.main_p_3")}</p>
                         <p className='  text-white sm:text-[50px] lg:text-[60px] mb-20 '>{t('trust.p3')}</p>
@@ -307,7 +309,7 @@ const AboutUs = () => {
                 
                 {/* 4 */}
                 <div className='relative sm:w-full sm:h-fit lg:w-[806px] lg:h-[806px]'>
-                    <img src={image4} alt='image 1' loading="lazy"  className='w-full h-full '/> 
+                    <img src={image4} alt='image 1' loading="lazy"  className='w-full h-full rounded-[10px] '/> 
                     <div className='absolute flex flex-col justify-around w-[530px] h-[590px] text-center z-10 sm:top-0 sm:left-[3%] lg:top-[18%] lg:left-[17%]'>
                         <p className='  text-[#F9B33B] font-bold sm:text-[200px] lg:text-[200px] sm:mt-20 lg:mt-9'>{t("trust.main_p_4")}</p>
                         <p className='  text-white sm:text-[50px] lg:text-[60px] sm:mb-30 lg:mb-20 '>{t('trust.p4')}</p>
@@ -327,14 +329,14 @@ const AboutUs = () => {
             <div className='w-full sm:h-[2700px] lg:h-[696px] relative flex sm:flex-col lg:flex-row'>
                 <div className='absolute  h-[853px] sm:top-0 lg:bottom-0 -z-10'><img src={vector_about_us_1} alt='vector 1' loading="lazy"  className='w-full h-full'/></div>
                 <div className='sm:w-full  lg:w-[1641px] sm:h-[2250px] lg:h-[696px] flex sm:flex-col lg:flex-row justify-between mx-auto'>
-                    <div className='w-[527px] h-[696px] bg-[#f5ab32] text-center sm:mx-auto lg:mx-0'>
-                        <iframe className='w-full h-full' src="https://www.youtube.com/embed/4hUYRlP9iGM?si=EbQXomtpUSifbO4J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div className='w-[527px] h-[696px]  text-center sm:mx-auto lg:mx-0 '>
+                        <iframe className='w-full h-full rounded-[10px]' src="https://www.youtube.com/embed/4hUYRlP9iGM?si=EbQXomtpUSifbO4J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
-                    <div className='w-[527px] h-[696px] bg-[#f5ab32] text-center sm:mx-auto lg:mx-0'>
-                        <iframe className='w-full h-full' src="https://www.youtube.com/embed/1ajIodgloag?si=mE1cbMB4_w6vIztU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div className='w-[527px] h-[696px]  text-center sm:mx-auto lg:mx-0'>
+                        <iframe className='w-full h-full rounded-[10px]' src="https://www.youtube.com/embed/1ajIodgloag?si=mE1cbMB4_w6vIztU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
-                    <div className='w-[527px] h-[696px] bg-[#f5ab32] text-center sm:mx-auto lg:mx-0'>
-                        <iframe className='w-full h-full' src="https://www.youtube.com/embed/l0PAzZ2V3Cs?si=9gF9jbR6ECQOcfY-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div className='w-[527px] h-[696px]  text-center sm:mx-auto lg:mx-0'>
+                        <iframe className='w-full h-full rounded-[10px]' src="https://www.youtube.com/embed/l0PAzZ2V3Cs?si=9gF9jbR6ECQOcfY-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
 

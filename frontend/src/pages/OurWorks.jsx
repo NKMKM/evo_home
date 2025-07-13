@@ -63,7 +63,7 @@ const OurWorks = () => {
             {/* info + photos */}
             <div className='sm:w-full lg:w-[1641px] sm:h-[3050px]  mx-auto sm:my-10 lg:my-20 '>
                 {/* text */}
-                <div className='flex flex-col sm:w-full lg:w-[1639px] sm:h-[720px] md:h-[660px]  lg:h-[336px] text-[28px] sm:px-4 lg:px-0 sm:text-center lg:text-start justify-between mb-10'>
+                <div className='flex flex-col sm:w-full lg:w-[1639px] sm:h-[720px] md:h-[660px]  lg:h-[300px] text-[28px] sm:px-4 lg:px-0 sm:text-center lg:text-start justify-between mb-10'>
                     <p>{t('header.p1')}<span className='text-[#F9B33B]'>{t('header.span1')}</span>{t('header.p2')}<span className='text-[#F9B33B]'>{t('header.span2')}</span> {t('header.p3')}</p>
                     <p>{t('header.p4')}</p>
                 </div>

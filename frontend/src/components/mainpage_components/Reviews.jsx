@@ -22,8 +22,9 @@ import third_review_third_image from '../../assets/images/reviews_images/third_r
 
 const Reviews = () => {
   const {t} = useTranslation('home/Reviews')
+  const selectedLang = localStorage.getItem('language') || 'en';
   return (
-    <main className='home-reviews-bg-image w-full sm:h-[2450px] lg:h-[1030px] bg-cover mb-20 p-20'>
+    <main className={`home-reviews-bg-image w-full sm:h-[2450px] lg:h-[1100px] bg-cover mb-20 p-20 ${selectedLang === 'it' ? ' pb-30' : ''}`}>
         {/* header section */}
         <header className='sm:w-full lg:w-[1650px] h-[170px]  mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0  '>
             <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block '/>
@@ -76,7 +77,7 @@ const Reviews = () => {
             </div>
 
             {/* 2 */}
-            <div class="relative flex flex-col  lg:w-[667px] lg:h-[610px] bg-white  p-10 shadow-2xl space-y-10 ">
+            <div class={`relative flex flex-col  lg:w-[667px] lg:${selectedLang === 'it' ? 'h-[640px] mb-20' : ''} bg-white  p-10 shadow-2xl space-y-10   `}>
                 
                 <div className='flex flex-row space-x-5'>
                     <div className='bg-gray-300 rounded-full w-[100px] h-[100px]'><img src={avatar} alt='avatar' loading="lazy" className='w-full h-full' /></div>
@@ -112,7 +113,7 @@ const Reviews = () => {
             </div>
 
             {/* 3 */}
-            <div class="relative flex flex-col  sm:w-full sm:h-[500px] lg:w-[453px] lg:h-[415px] bg-white  p-10 shadow-2xl justify-between ">
+            <div class={`relative flex flex-col  sm:w-full sm:h-[500px] lg:w-[453px] lg:h-[415px] bg-white  p-10 shadow-2xl justify-between`}>
                 
                 <div className='flex flex-row space-x-5'>
                     <div className='bg-gray-300 rounded-full'><img src={avatar} avatar loading="lazy"/></div>
