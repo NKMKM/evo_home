@@ -32,7 +32,7 @@ const SystemProjects = () => {
 
             {/* first element */}
             <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group '>
-                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={first_image} alt='designer renovation' loading="lazy" className='w-full h-full'/></div>
+                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={first_image} alt='designer renovation' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
                     <h2 className='text-[32px]'>Дизайнерский ремонт</h2>
@@ -47,7 +47,7 @@ const SystemProjects = () => {
             </div>
             {/* second element */}
             <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={second_image} alt='exclusive renovation' loading="lazy" className='w-full h-full'/></div>
+                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={second_image} alt='exclusive renovation' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
                     <h2 className='text-[32px]'>Эксклюзивный ремонт</h2>
@@ -62,7 +62,7 @@ const SystemProjects = () => {
             </div>
             {/* third element */}
             <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={third_image} alt='studio renovation' loading="lazy" className='w-full h-full'/></div>
+                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={third_image} alt='studio renovation' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
                     <h2 className='text-[32px]'>Ремонт квартиры - студии</h2>
@@ -77,7 +77,7 @@ const SystemProjects = () => {
             </div>
             {/* fourth element */}
             <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={fourth_image} alt='tworoom apartment renovation' loading="lazy" className='w-full h-full'/></div>
+                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={fourth_image} alt='tworoom apartment renovation' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
                     <h2 className='text-[32px]'>Ремонт двухкомнатных квартир</h2>
@@ -92,7 +92,7 @@ const SystemProjects = () => {
             </div>
             {/* fifth element */}
             <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={fifth_image} alt='threeroom apartment renovation' loading="lazy" className='w-full h-full' /></div>
+                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={fifth_image} alt='threeroom apartment renovation' loading="lazy" className='w-full h-full rounded-[10px]' /></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
                     <h2 className='text-[32px]'>Ремонт трехкомнатных квартир</h2>
@@ -107,7 +107,7 @@ const SystemProjects = () => {
             </div>
             {/* sixth element */}
             <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={sixth_image} alt='twostory apartment renovation' className='w-full h-full'/></div>
+                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={sixth_image} alt='twostory apartment renovation' className='w-full h-full rounded-[10px]'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
                     <h2 className='text-[32px]'>Ремонт двухэтажных квартир</h2>

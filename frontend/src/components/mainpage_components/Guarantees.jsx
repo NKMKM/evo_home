@@ -2,7 +2,9 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import vector1 from '../../assets/images/vector1.png'
 import vector2 from '../../assets/images/vector2.png'
-import bill from '../../assets/icons/bill.png'
+import achieve from '../../assets/icons/achieve.png'
+import money from '../../assets/icons/money2.png'
+import contract from '../../assets/icons/contract.png'
 import hands from '../../assets/icons/hands.png'
 import time from '../../assets/icons/time.png'
 
@@ -28,7 +30,7 @@ const Guarantees = () => {
                 {/* 1 */}
                 <li className=' relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[278px] h-[420px] bg-linear-to-t from-[#83b1d6]  to-[#fcfdfe] shadow-2xl'>
                     <div className='flex flex-col justify-between h-full w-full py-10'>
-                        <div className='sm:w-[100px] sm:h-[100px] lg:w-[64px] lg:h-[64px] mx-auto '><img src={bill} alt='bill' loading="lazy" className='w-full h-full'/></div>
+                        <div className='sm:w-[100px] sm:h-[100px] lg:w-[64px] lg:h-[64px] mx-auto '><img src={contract} alt='bill' loading="lazy" className='w-full h-full'/></div>
                         <h2 className='sm:text-[30px] lg:text-[22px] font-semibold text-center'>{t('first_element.h')}</h2>
                         <p className='bg-[#d7e4ef] sm:text-[22px] lg:text-[17px] w-full h-[117px] p-3 text-center '>{t('first_element.p')}</p>
 
@@ -40,7 +42,7 @@ const Guarantees = () => {
                 {/* 2 */}
                 <li className=' relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[278px] h-[420px] bg-linear-to-t from-[#83b1d6]  to-[#fcfdfe] shadow-2xl'>
                     <div className='flex flex-col justify-between h-full w-full py-10'>
-                        <div className='sm:w-[100px] sm:h-[100px] lg:w-[64px] lg:h-[64px] mx-auto '><img src={hands} alt='hands' loading="lazy" className='w-full h-full'/></div>
+                        <div className='sm:w-[100px] sm:h-[100px] lg:w-[64px] lg:h-[64px] mx-auto '><img src={achieve} alt='hands' loading="lazy" className='w-full h-full'/></div>
                         <h2 className='sm:text-[30px] lg:text-[22px] font-semibold text-center'>{t('second_element.h')}</h2>
                         <p className='bg-[#d7e4ef] sm:text-[22px] lg:text-[17px] w-full h-[117px] p-4 text-center '>{t('second_element.p')}</p>
 
@@ -76,7 +78,7 @@ const Guarantees = () => {
                 {/* 5 */}
                 <li className=' relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[278px] h-[420px] bg-linear-to-t from-[#83b1d6]  to-[#fcfdfe] shadow-2xl'>
                     <div className='flex flex-col justify-between h-full w-full py-10'>
-                        <div className='sm:w-[100px] sm:h-[100px] lg:w-[64px] lg:h-[64px] mx-auto '><img src={time} alt='clock' loading="lazy" className='w-full h-full'/></div>
+                        <div className='sm:w-[100px] sm:h-[100px] lg:w-[64px] lg:h-[64px] mx-auto '><img src={money} alt='clock' loading="lazy" className='w-full h-full'/></div>
                         <h2 className={`sm:text-[30px]  font-semibold text-center ${selectedLang === 'it' ? 'lg:text-[24px]' :'lg:text-[22px]'}  `}>{t('fifth_element.h')}</h2>
                         <p className='bg-[#d7e4ef] sm:text-[22px] lg:text-[17px] w-full h-[117px] p-4 text-center '>{t('fifth_element.p')}</p>
 

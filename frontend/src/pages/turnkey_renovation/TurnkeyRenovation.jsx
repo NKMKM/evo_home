@@ -287,8 +287,8 @@ const TurnkeyRenovation = () => {
                 {/* videos(instead of them just a div with any bg color) */}
                 <div className='w-full  h-[696px] relative flex flex-row'>
                     <div className='absolute  h-[853px] bottom-0 -z-10'><img src={vector_about_us_1} alt='vector 1' loading="lazy" className='w-full h-full'/></div>
-                    <div className='sm:w-[80%] lg:w-[1227px]  lg:h-[696px] bg-[#f5ab32] text-center mx-auto shadow-2xl '>
-                        <iframe className='w-full h-full' src="https://www.youtube.com/embed/4hUYRlP9iGM?si=EbQXomtpUSifbO4J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div className='sm:w-[80%] lg:w-[1227px]  lg:h-[696px] text-center mx-auto shadow-2xl '>
+                        <iframe className='w-full h-full rounded-[10px]' src="https://www.youtube.com/embed/4hUYRlP9iGM?si=EbQXomtpUSifbO4J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
     
                     <div className='absolute h-[853px] bottom-0 right-0 -z-10'><img src={vector_about_us_2} alt='vector 2' loading="lazy" className='w-full h-full'/></div>
