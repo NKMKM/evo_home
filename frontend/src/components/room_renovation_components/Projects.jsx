@@ -32,7 +32,7 @@ const Projects = () => {
 
             {/* first element */}
             <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group '>
-                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={bar} alt='bar' loading="lazy" className='w-full h-full'/></div>
+                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={bar} alt='bar' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
                     <h2 className='text-[32px]'>{t('p1')}</h2>
@@ -47,7 +47,7 @@ const Projects = () => {
             </div>
             {/* second element */}
             <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={basement} alt='basement' loading="lazy" className='w-full h-full'/></div>
+                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={basement} alt='basement' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
                     <h2 className='text-[32px]'>{t('p2')}</h2>
@@ -62,7 +62,7 @@ const Projects = () => {
             </div>
             {/* third element */}
             <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={bath} alt='bath' loading="lazy" className='w-full h-full'/></div>
+                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={bath} alt='bath' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
                     <h2 className='text-[32px]'>{t('p3')}</h2>
@@ -77,7 +77,7 @@ const Projects = () => {
             </div>
             {/* fouirth element */}
             <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={kitchen} alt='kitchen' loading="lazy" className='w-full h-full'/></div>
+                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={kitchen} alt='kitchen' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
                     <h2 className='text-[32px]'>{t('p4')}</h2>
@@ -92,7 +92,7 @@ const Projects = () => {
             </div>
             {/* fifth element */}
             <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={tatto_studio} alt='tattto studio' loading="lazy" className='w-full h-full' /></div>
+                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={tatto_studio} alt='tattto studio' loading="lazy" className='w-full h-full rounded-[10px]' /></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
                     <h2 className='text-[32px]'>{t('p5')}</h2>
@@ -107,7 +107,7 @@ const Projects = () => {
             </div>
             {/* sixth element */}
             <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={hall} alt='hall' loading="lazy" className='w-full h-full'/></div>
+                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={hall} alt='hall' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
 
                 <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
                     <h2 className='text-[32px]'>{t('p6')}</h2>

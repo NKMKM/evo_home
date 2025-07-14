@@ -14,14 +14,14 @@ const ImageComparisonSlider = ({ beforeSrc, afterSrc }) => {
           <ReactCompareSliderImage
             src={beforeSrc}
             alt="До"
-            className="object-cover w-full h-full"
+            className="object-cover w-full h-full  rounded-[10px]"
           />
         }
         itemTwo={
           <ReactCompareSliderImage
             src={afterSrc}
             alt="После"
-            className="object-cover w-full h-full"
+            className="object-cover w-full h-full  rounded-[10px]"
           />
         }
         className="w-full h-full  shadow-lg overflow-hidden"

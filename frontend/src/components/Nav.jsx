@@ -72,7 +72,7 @@ const Nav = () => {
         <div className="flex flex-row items-center space-x-6 lg:space-x-20">
           {/* Call button - hidden on small screens */}
           <div className={`hidden sm:hidden lg:flex bg-[#f9b33b]  lg:w-[216px] h-[78px] justify-center rounded-lg items-center scale-animate-hover ${selectedLang === 'it' ? 'pl-3' :''}`}>
-            <PhoneInTalkIcon sx={{ fontSize: 36 }} className={`mr-1 ${selectedLang === 'it' ? 'mr-3' :''} `} />
+            <PhoneInTalkIcon sx={{ fontSize: 36 }} className={`mr-1 ${selectedLang === 'it' ? 'mr-3' :'' || selectedLang === 'en' ? 'mr-3' : ''} `} />
             <div>
               <h1 className="font-[500]">{t('call_text')}</h1>
               <h3 className="font-bold italic">+ 39 06 69353277</h3>
