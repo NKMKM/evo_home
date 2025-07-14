@@ -53,7 +53,7 @@ const Stairs = () => {
                 </div>
 
                 {/* image */}
-                <div className='sm:w-full lg:w-[1641px] lg:h-[661px] bg-blue-600/20'><img src={image} alt='stairs' loading="lazy" className='w-full h-full object-cover'/></div>
+                <div className='sm:w-full lg:w-[1641px] lg:h-[661px] bg-blue-600/20'><img src={image} alt='stairs' loading="lazy" className='w-full h-full object-cover rounded-[10px]'/></div>
             </div>
 
 

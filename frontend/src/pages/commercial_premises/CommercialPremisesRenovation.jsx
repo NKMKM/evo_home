@@ -55,7 +55,7 @@ const CommercialPremisesRenovation = () => {
                 </div>
 
                 {/* image */}
-                <div className='sm:w-full lg:w-[1641px] lg:h-[661px] bg-blue-600/20'><img src={image} alt='commercial premises' loading="lazy" className='w-full h-full object-cover' /></div>
+                <div className='sm:w-full lg:w-[1641px] lg:h-[661px] bg-blue-600/20'><img src={image} alt='commercial premises' loading="lazy" className='w-full h-full object-cover rounded-[10px]' /></div>
 
                 <div className='sm:w-full lg:w-[1640px] h-[67px] flex flex-row items-center mx-auto'>
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
