@@ -46,7 +46,7 @@ const Sewage = () => {
           </div>
 
           <div className="sm:w-full lg:w-[1641px] lg:h-[661px] bg-blue-600/20">
-            <img src={image} alt='sewage system' loading="lazy" className="w-full h-full object-cover" />
+            <img src={image} alt='sewage system' loading="lazy" className="w-full h-full object-cover rounded-[10px]" />
           </div>
 
           <div className="sm:w-full lg:w-[1640px] h-[67px] flex flex-row items-center mx-auto">
