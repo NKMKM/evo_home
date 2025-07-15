@@ -23,6 +23,7 @@ import fifth_step from '../../assets/images/systems/electrical_systems/process/f
 
 const ElectricalSystem = () => {
   const {t} = useTranslation('systems/ElectricalSystem')
+const selectedLang = localStorage.getItem('language') || 'en';
   return (
     <div>
         <Helmet>
@@ -35,7 +36,7 @@ const ElectricalSystem = () => {
             <div className='h-[83px] lg:w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block  '/>
                 <div className=''>
-                    <h1 className='font-bold text-center sm:text-[50px] lg:text-[57px]'>{t('h')}</h1>
+                    <h1 className={`font-bold text-center ${selectedLang === 'it' ? 'sm:text-[50px] ' : 'sm:text-[50px] '} lg:text-[57px]`}>{t('h')}</h1>
 
                 </div>
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block'/>
@@ -46,7 +47,7 @@ const ElectricalSystem = () => {
                 {/* header */}
                 <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>1.</div>
-                    <h2 className='sm:text-[28px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('header.h')}</h2>
+                    <h2 className={`${selectedLang === 'it' ? 'sm:text-[24px] ' : 'sm:text-[28px] '}  lg:text-[50px] font-bold sm:mt-4 lg:mt-0`}>{t('header.h')}</h2>
                 </div>
 
                 {/* text */}
@@ -78,7 +79,7 @@ const ElectricalSystem = () => {
             {/* header */}
             <div className='sm:w-full lg:w-[1640px]  h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>2.</div>
-                <h2 className='sm:text-[28px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('process.h')}</h2>
+                <h2 className={`${selectedLang === 'it' ? 'sm:text-[20px] ' : 'sm:text-[28px] '}  lg:text-[50px] font-bold sm:mt-4 lg:mt-0`}>{t('process.h')}</h2>
             </div>
 
             <p className='sm:w-full lg:w-[1640px] lg:h-[101px] sm:text-center lg:text-start sm:px-4 lg:px-0 text-[32px] mx-auto my-20'>{t('process.p')}</p>

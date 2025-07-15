@@ -21,6 +21,7 @@ import fourth_step from '../../assets/images/turnkey_renovation/twostory_apartme
 
 const TwostoryApartment = () => {
   const {t} = useTranslation('turnkey_renovation/TwolevelApartment')
+  const selectedLang = localStorage.getItem('language') || 'en';
   return (
     <div>
         <Helmet>
@@ -42,8 +43,8 @@ const TwostoryApartment = () => {
             <div className='space-y-10'>
                 {/* header */}
                 <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
-                    <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>1.</div>
-                    <h2 className='sm:text-[24px] lg:text-[50px] font-bold sm:mt-4.5 lg:mt-0'>{t('header.h')}</h2>
+                    <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 '>1.</div>
+                    <h2 className={`font-bold mx-auto text-center ${selectedLang === 'it' ? 'sm:text-[22px] sm:mt-5 lg:mt-0' : 'sm:text-[24px] sm:mt-0 lg:mt-0 '}  lg:text-[57px]`}>{t('header.h')}</h2>
                 </div>
 
                 {/* text */}
@@ -69,9 +70,9 @@ const TwostoryApartment = () => {
 
         <main className='lg:w-full lg:h-[3288px] flex flex-col justify-between'>
             {/* header */}
-            <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
+            <div className={`sm:w-full lg:w-[1640px] h-[74px] ${selectedLang === 'it' ? 'sm:mb-10 lg:mb-0' : 'sm:mb -0' } bg-[#F9B33B] mx-auto flex flex-row`}>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>2.</div>
-                <h2 className='sm:text-[24px] lg:text-[50px] font-bold sm:mt-5 lg:mt-0'>{t('process.h')}</h2>
+                <h2 className={`${selectedLang === 'it' ? 'sm:text-[22px]  sm:mt-5' : 'sm:text-[28px] sm:mt-4 '} lg:text-[50px] font-bold  lg:mt-0`}>{t('process.h')}</h2>
             </div>
 
             {/* list of steps */}

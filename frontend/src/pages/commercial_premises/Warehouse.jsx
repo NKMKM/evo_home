@@ -23,6 +23,7 @@ import fifth_step from '../../assets/images/commercial_premises/warehouse/proces
 
 const Warehouse = () => {
  const {t} = useTranslation('commercial_premises/Warehouse') 
+ const selectedLang = localStorage.getItem('language') || 'en';
  return (
     <div>
         <Helmet>
@@ -30,12 +31,12 @@ const Warehouse = () => {
             <meta name="description" content="Renovation of warehouses by EVO Home" />
         </Helmet>
         {/* first step */}
-        <header className='lg:w-[1641px] sm:w-full lg:h-[1350px] mx-auto my-20 flex flex-col justify-between'>
+        <header className={`lg:w-[1641px] sm:w-full ${selectedLang === 'it' ? 'lg:h-[1275px]' : 'lg:h-[1350px]'}  mx-auto my-20 flex flex-col justify-between`}>
             {/* header */}
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
 
-                <h1 className='font-bold mx-auto text-center sm:text-[60px] lg:text-[57px]'>{t('h')}</h1>
+                <h1 className={`font-bold mx-auto text-center ${selectedLang === 'it' ? 'sm:text-[50px] lg:text-[57px]' : 'sm:text-[60px] lg:text-[57px]' } `}>{t('h')}</h1>
 
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
             </div>
@@ -45,7 +46,7 @@ const Warehouse = () => {
                 {/* header */}
                 <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>1.</div>
-                    <h2 className='sm:text-[30px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('header.h')}</h2>
+                    <h2 className={`${selectedLang === 'it' ? 'sm:text-[28px]  sm:mt-4' : 'sm:text-[28px] sm:mt-4 '} lg:text-[50px] font-bold  lg:mt-0`}>{t('header.h')}</h2>
                 </div>
 
                 {/* text */}

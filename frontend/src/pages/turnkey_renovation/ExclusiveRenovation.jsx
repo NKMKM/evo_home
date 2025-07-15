@@ -21,6 +21,7 @@ import fourth_step from '../../assets/images/turnkey_renovation/exclusive_renova
  
 const ExclusiveRenovation = () => {
   const {t} = useTranslation('turnkey_renovation/ExclusiveRenovation')
+  const selectedLang = localStorage.getItem('language') || 'en';
   return (
     <div>
         <Helmet>
@@ -71,7 +72,7 @@ const ExclusiveRenovation = () => {
             {/* header */}
             <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>2.</div>
-                <h2 className='sm:text-[28px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('process.h')}</h2>
+                <h2 className={`${selectedLang === 'it' ? 'sm:text-[22px]  sm:mt-5' : 'sm:text-[28px] sm:mt-4 '} lg:text-[50px] font-bold  lg:mt-0`}>{t('process.h')}</h2>
             </div>
 
             <p className='sm:w-full lg:w-[1640px] sm:px-4 lg:px-0 text-[32px] mx-auto my-20 sm:text-center lg:text-start'>{t('process.p')}</p>

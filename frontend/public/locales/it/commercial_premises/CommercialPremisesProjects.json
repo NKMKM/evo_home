@@ -1,12 +1,11 @@
 {
-    "h": "Choose the Renovation You Love",
-    "p": "Your home – our work",
-    "p1": "Business Centers",
-    "p2": "Exclusive Renovation",
-    "p3": "Studio Apartment Renovation",
-    "p4": "Two-Room Apartment Renovation",
-    "p5": "Three-Room Apartment Renovation",
-    "p6": "Duplex Apartment Renovation",
-    "button":"LOOK"
+    "h": "Scegli la Ristrutturazione che Ami",
+    "p": "La tua casa - il nostro lavoro",
+    "p1": "Business Center",
+    "p2": "Ristrutturazione di Lusso",
+    "p3": "Ristrutturazione Monolocale",
+    "p4": "Ristrutturazione Bilocale",
+    "p5": "Ristrutturazione Trilocale",
+    "p6": "Ristrutturazione Attico/Duplex",
+    "button":"SCOPRI"
 }
-  

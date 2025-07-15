@@ -23,6 +23,7 @@ import fifth_step from '../../assets/images/commercial_premises/commercial_premi
 
 const CommercialPremisesRenovation = () => {
   const {t} = useTranslation('commercial_premises/CommercialSpaces')
+  const selectedLang = localStorage.getItem('language') || 'en';	
   return (
     <div>
         <Helmet>
@@ -30,7 +31,7 @@ const CommercialPremisesRenovation = () => {
             <meta name="description" content="Renovation of commercial premises by EVO Home" />
         </Helmet>
         {/* first step */}
-        <header className='lg:w-[1641px] sm:w-full lg:h-[1375px] mx-auto my-20 flex flex-col justify-between'>
+        <header className={`lg:w-[1641px] sm:w-full ${selectedLang === 'it' ? 'lg:h-[1275px] ' : 'lg:h-[1375px] '}  mx-auto my-20 flex flex-col justify-between`}>
             {/* header */}
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />

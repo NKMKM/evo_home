@@ -43,7 +43,7 @@ const Advantages = () => {
                 <div className='flex flex-col items-center'>
                   <h2 className='text-[32px] font-[500]'>{t('advantages.first_step.h')}</h2>
                   <img src={right_arrow} alt='right arrow' loading="lazy" className='z-10 absolute md:top-[150px] md:left-[33.6%] lg:top-[155px] lg:left-[215px] scale-[0.5] sm:hidden md:block'/>
-                  <div className='flex flex-col items-center text-center space-y-2 px-4 w-[312px] h-[250px] rounded-[10px] border-[#F9B33B] border-[5px]'>
+                  <div className='flex flex-col items-center text-center space-y-2 px-4 w-[312px] h-[250px]  border-[#F9B33B] border-[5px]'>
                     <img src={achieve} alt='achievment' loading="lazy"  className='w-[74px] h-[74px] mt-4' />
                     <p className='text-[21px]'>{t('advantages.first_step.p')}</p>
                   </div>
@@ -52,8 +52,8 @@ const Advantages = () => {
 
                 <div className='flex flex-col items-center'>
                   <h2 className='text-[32px] font-[500]'>{t('advantages.second_step.h')}</h2>
-                  <img src={bottom_arrow} alt='bottom arrow' loading="lazy" className='z-10 absolute sm:right-[10px] sm:top-[240px] md:right-[7%] lg:top-[210px] lg:right-[0px] scale-[0.5]'/>
-                  <div className='flex flex-col items-center text-center space-y-2 px-4 w-[312px] h-[250px] rounded-[10px] border-[#F9B33B] border-[5px]'>
+                  <img src={bottom_arrow} alt='bottom arrow' loading="lazy" className='z-10 absolute sm:right-[10px] sm:top-[240px] md:right-[7%] lg:top-[200px] lg:right-[0px] scale-[0.5]'/>
+                  <div className='flex flex-col items-center text-center space-y-2 px-4 w-[312px] h-[250px]  border-[#F9B33B] border-[5px]'>
                     <img src={bill} alt='bill' loading="lazy" className='w-[74px] h-[74px] mt-4' />
                     <p className='text-[22px]'>{t('advantages.second_step.p')}</p>
                   </div>
@@ -63,7 +63,7 @@ const Advantages = () => {
                 <div className={`flex flex-col items-center  ${selectedLang === 'it' ? 'h-[340px]' : ''} `}>
                   <h2 className='text-[32px] font-[500]'>{t('advantages.third_step.h')}</h2>
                   <img src={left_arrow} alt='left arrow' loading="lazy" className='z-10 absolute lg:top-[460px] lg:left-[215px] scale-[0.5] sm:hidden md:block'/>
-                  <div className={`flex flex-col items-center text-center space-y-2 px-4 w-[312px] ${selectedLang === 'it' ? 'h-[290px]' : ''} rounded-[10px] border-[#F9B33B] border-[5px]`}>
+                  <div className={`flex flex-col items-center text-center space-y-2 px-4 w-[312px] ${selectedLang === 'it' ? 'h-[290px]' : ''}  border-[#F9B33B] border-[5px]`}>
                     <img src={hands} alt='hands' loading="lazy" className='w-[74px] h-[74px] mt-4' />
                     <p className='text-[22px]'>{t('advantages.third_step.p')}</p>
                   </div>
@@ -73,7 +73,7 @@ const Advantages = () => {
                 <div className={`flex flex-col items-center ${selectedLang === 'it' ? 'h-[340px]' : ''} `}>
                   <h2 className='text-[32px] font-[500]'>{t('advantages.fourth_step.h')}</h2>
 
-                  <div className={`flex flex-col items-center text-center space-y-2 px-4 w-[312px] ${selectedLang === 'it' ? 'h-[290px]' : ''} rounded-[10px] border-[#F9B33B] border-[5px]`}>
+                  <div className={`flex flex-col items-center text-center space-y-2 px-4 w-[312px] ${selectedLang === 'it' ? 'h-[290px]' : ''}  border-[#F9B33B] border-[5px]`}>
                     <img src={money} alt='money' loading="lazy" className='w-[74px] h-[74px] mt-4' />
                     <p className='text-[22px]'>{t('advantages.fourth_step.p')}</p>
                   </div>
@@ -82,8 +82,8 @@ const Advantages = () => {
                 </div>
                 <div className='flex flex-col items-center'>
                   <h2 className='text-[32px] font-[500]'>{t('advantages.sixth_step.h')}</h2> 
-                  <img src={bottom_arrow} alt='bottom arrow' loading="lazy" className='z-10 absolute sm:top-[620px] sm:left-[15px] md:left-[7.5%] lg:top-[540px] lg:left-[10px] scale-[0.5]'/>
-                  <div className='flex flex-col items-center text-center space-y-2 px-4 w-[312px] h-[250px] rounded-[10px] border-[#F9B33B] border-[5px]'>
+                  <img src={bottom_arrow} alt='bottom arrow' loading="lazy" className={`z-10 absolute sm:top-[620px] sm:left-[15px] md:left-[7.5%] lg:top-[540px] lg:left-[10px] scale-[0.5] ${selectedLang === 'it' ? 'hidden' : 'block'}`}/>
+                  <div className='flex flex-col items-center text-center space-y-2 px-4 w-[312px] h-[250px]  border-[#F9B33B] border-[5px]'>
                     <img src={time} alt='time' loading="lazy" className='w-[74px] h-[74px] mt-4' />
                     <p className='text-[22px]'>{t('advantages.sixth_step.p')}</p> 
                   </div>
@@ -93,7 +93,7 @@ const Advantages = () => {
                 <div className='flex flex-col items-center'>
                   <h2 className='text-[32px] font-[500]'>{t('advantages.fifth_step.h')}</h2> 
                   <img src={right_arrow} alt='right arrow' loading="lazy" className='z-10 absolute md:top-[900px] md:left-[33.6%] lg:top-[810px] lg:left-[215px] scale-[0.5] sm:hidden md:block'/>
-                  <div className='flex flex-col items-center text-center space-y-2 px-4 w-[312px] h-[250px] rounded-[10px] border-[#F9B33B] border-[5px]'>
+                  <div className='flex flex-col items-center text-center space-y-2 px-4 w-[312px] h-[250px]  border-[#F9B33B] border-[5px]'>
                     <img src={communication} alt='communication' loading="lazy" className='w-[74px] h-[74px] mt-4' />
                     <p className='text-[22px]'>{t('advantages.fifth_step.p')}</p> 
                   </div>
