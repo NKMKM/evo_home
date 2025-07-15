@@ -14,6 +14,7 @@ import right_decoration from '../../assets/images/rightside_black_decoration.png
 
 const CommercialPremisesProjects = () => {
   const {t} = useTranslation('commercial_premises/CommercialPremisesProjects')
+  const selectedLang = localStorage.getItem('language') || 'en';
   return (
 
     <div className=' sm:flex sm:flex-col sm:justify-between lg:block sm:mb-30 lg:mb-20 sm:w-full sm:h-[3200px] lg:h-[1250px] lg:w-[1641px] mx-auto'>
@@ -21,7 +22,7 @@ const CommercialPremisesProjects = () => {
         <header className=' h-[170px] w-full mx-auto flex flex-row justify-between items-center  '>
             <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block '/>
             <div className='sm:mx-auto lg:mx-0'>
-                <h1 className='font-bold text-center text-[70px] sm:px-4 lg:px-0'>{t('h')}</h1>
+                <h1 className={`font-bold text-center ${selectedLang === 'it' ? 'sm:text-[50px] lg:text-[70px]' : 'sm:text-[50px] lg:text-[70px]'}  sm:px-4 lg:px-0`}>{t('h')}</h1>
 
             </div>
             <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block '/>

@@ -19,6 +19,7 @@ import fifth_step from '../../assets/images/systems/floor_heating/process/fifth_
 
 const FloorHeating = () => {
   const {t} = useTranslation('systems/FloorHeating')
+  const selectedLang = localStorage.getItem('language') || 'en';
   return (
     <div>
         <Helmet>
@@ -53,15 +54,15 @@ const FloorHeating = () => {
         </div>
       </header>
 
-      <main className='lg:w-full lg:h-[4088px]  flex flex-col justify-between'>
+      <main className='lg:w-full lg:h-[4088px]  flex flex-col justify-between '>
         <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
           <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>2.</div>
-          <h2 className='sm:text-[24px] lg:text-[40px] font-bold sm:mt-4 lg:mt-0'>{t('process.h')}</h2>
+          <h2 className={`${selectedLang === 'it' ? 'sm:text-[20px]  sm:mt-3' : 'sm:text-[28px] sm:mt-4 '} lg:text-[40px] font-bold  lg:mt-0`}>{t('process.h')}</h2>
         </div>
 
         <p className='sm:w-full lg:w-[1640px] sm:px-4 lg:px-0 text-[32px] mx-auto my-20 sm:text-center lg:text-start'>{t('process.p')}</p>
 
-        <div className='sm:h-[5450px] lg:h-[2310px]  sm:w-full lg:w-auto relative mx-auto lg:mb-30'>
+        <div className='sm:h-[4750px] lg:h-[2310px]  sm:w-full lg:w-auto relative mx-auto lg:mb-30'>
           <div className='lg:w-[1177px] lg:h-[646px]  absolute top-[380px] left-[420px] sm:hidden lg:block'><img src={arrow_1} alt='arrow 1' loading="lazy" className='w-full h-full' /></div>
 
           <ul className='sm:h-[4650px] lg:h-full sm:w-full lg:w-[1641px] flex flex-col justify-between '>

@@ -21,6 +21,7 @@ import third_step from '../../assets/images/turnkey_renovation/turnkey_renovatio
 
 const TurnkeyRenovation = () => {
   const {t} = useTranslation('turnkey_renovation/TurnkeyRenovation')
+  const selectedLang = localStorage.getItem('language') || 'en';
   return (
     <div>
         <Helmet>
@@ -28,12 +29,12 @@ const TurnkeyRenovation = () => {
             <meta name="description" content="Turnkey renovation by EVO Home" />
         </Helmet>
         {/* first step */}
-        <header className='lg:w-[1641px] sm:w-full lg:h-[1520px] mx-auto my-20 flex flex-col justify-between'>
+        <header className={`lg:w-[1641px] sm:w-full ${selectedLang === 'it' ? 'lg:h-[1420px]' : 'lg:h-[1520px]'}  mx-auto my-20 flex flex-col justify-between`}>
             {/* header */}
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
                 <img src={left_decoration} alt='left decoration 'loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
 
-                <h1 className='font-bold mx-auto text-center sm:text-[50px] lg:text-[57px]'>{t('h')}</h1>
+                <h1 className={`font-bold mx-auto text-center ${selectedLang === 'it' ? 'sm:text-[40px]' : 'sm:text-[50px]'} lg:text-[50px]`}>{t('h')}</h1>
 
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
             </div>
@@ -43,7 +44,7 @@ const TurnkeyRenovation = () => {
                 {/* header */}
                 <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>1.</div>
-                    <h2 className='sm:text-[32px] lg:text-[50px] font-bold sm:mt-3.5 lg:mt-0'>{t('header.h')}</h2>
+                    <h2 className={` lg:text-[50px] ${selectedLang === 'it' ? 'sm:text-[25px] sm:mt-5' : 'sm:text-[32px] sm:mt-3.5'} font-bold  lg:mt-0`}>{t('header.h')}</h2>
                 </div>
 
                 {/* text */}
@@ -70,7 +71,7 @@ const TurnkeyRenovation = () => {
             {/* header */}
             <div className='lg:w-[1640px] mx-auto h-[74px] bg-[#F9B33B] flex flex-row sm:mb-20'>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-7 lg:mr-10'>2.</div>
-                <h1 className='sm:text-[39px] lg:text-[50px] font-bold sm:mt-2 lg:mt-0'>{t("reasons.h")}</h1>
+                <h1 className={`${selectedLang === 'it' ? ' sm:text-[23px]' : 'sm:text-[39px]'}  lg:text-[50px] font-bold sm:mt-2 lg:mt-0`}>{t("reasons.h")}</h1>
             </div>
 
             {/* vector */}
@@ -197,7 +198,7 @@ const TurnkeyRenovation = () => {
             {/* header */}
             <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row lg:mb-20'>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>3.</div>
-                <h2 className='sm:text-[30px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('process.h')}</h2>
+                <h2 className={`${selectedLang === 'it' ? 'sm:text-[28px]' : 'sm:text-[30px]'}  lg:text-[50px] font-bold sm:mt-4 lg:mt-0`}>{t('process.h')}</h2>
             </div>
 
             {/* list of steps */}

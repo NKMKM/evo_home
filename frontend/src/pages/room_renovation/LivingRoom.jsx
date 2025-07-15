@@ -23,6 +23,7 @@ import fifth_step from '../../assets/images/room_renovation/living_room/process/
 
 const LivingRoom = () => {
   const {t} = useTranslation('room_renovation/LivingRoom')
+  const selectedLang = localStorage.getItem('language') || 'en';
   return (
     <div>
         <Helmet>
@@ -31,7 +32,7 @@ const LivingRoom = () => {
         </Helmet>
 
         {/* first step */}
-        <header className='lg:w-[1641px] sm:w-full lg:h-[1480px] mx-auto my-20 flex flex-col justify-between'>
+        <header className={`lg:w-[1641px] sm:w-full ${selectedLang === 'it' ? 'lg:h-[1380px]' : 'lg:h-[1480px]'}  mx-auto my-20 flex flex-col justify-between`}>
             {/* header */}
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />

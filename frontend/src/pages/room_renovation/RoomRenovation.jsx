@@ -25,6 +25,7 @@ import Calculator from '../../components/mainpage_components/Calculator'
 
 const RoomRenovation = () => {
   const {t} = useTranslation('room_renovation/RoomRenovation')
+  const selectedLang = localStorage.getItem('language') || 'en';
   return (
     <div>
         <Helmet>
@@ -81,7 +82,7 @@ const RoomRenovation = () => {
             {/* header */}
             <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row mx-auto mb-20'>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center mr-10'>2.</div>
-                <h2 className='sm:text-[28px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('process.h')}</h2>
+                <h2 className={`${selectedLang === 'it' ? 'sm:text-[23px]  sm:mt-3' : 'sm:text-[28px] sm:mt-4 '} lg:text-[50px] font-bold  lg:mt-0`}>{t('process.h')}</h2>
             </div>
 
             <div className=' sm:h-[5500px] lg:h-[2813px] relative mx-auto '>

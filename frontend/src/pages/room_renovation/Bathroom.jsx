@@ -23,6 +23,7 @@ import fifth_step from '../../assets/images/room_renovation/bathroom/process/fif
 
 const Bathroom = () => {
   const {t} = useTranslation('room_renovation/Bathroom')
+  const selectedLang = localStorage.getItem('language') || 'en';
   return (
     <div>
         <Helmet>
@@ -30,9 +31,9 @@ const Bathroom = () => {
             <meta name="description" content="Renovation of bathrooms by EVO Home" />
         </Helmet>
         {/* first step */}
-        <header className='lg:w-[1641px] sm:w-full  sm:h-[1700px] lg:h-[1450px] mx-auto my-20 flex flex-col justify-between'>
+        <header className={`lg:w-[1641px] sm:w-full    ${selectedLang === 'it' ? 'sm:h-[1400px] lg:h-[1360px] ' : 'sm:h-[1500px] lg:h-[1450px]'}  mx-auto my-20 flex flex-col justify-between`}>
             {/* header */}
-            <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
+            <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center '>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
 
                 <h1 className='font-bold mx-auto text-center sm:text-[60px] lg:text-[57px]'>{t('h')}</h1>
@@ -72,7 +73,7 @@ const Bathroom = () => {
         {/* header */}
         <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
             <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>2.</div>
-            <h1 className='sm:text-[22px] lg:text-[50px] font-bold sm:mt-5.5 lg:mt-0'>{t('process.h')}</h1>
+            <h1 className={`${selectedLang === 'it' ? 'sm:text-[21px]  sm:mt-3' : 'sm:text-[28px] sm:mt-4 '} lg:text-[50px] font-bold  lg:mt-0`}>{t('process.h')}</h1>
         </div>
 
         {/* list of steps */}

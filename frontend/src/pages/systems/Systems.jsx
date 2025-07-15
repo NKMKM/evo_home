@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 
 import left_decoration from '../../assets/images/leftside_black_decoration.png'
 import right_decoration from '../../assets/images/rightside_black_decoration.png'
@@ -28,36 +29,38 @@ import CommercialPremisesProjects from '../../components/commercial_premises_com
 
 
 const System = () => {
+  const {t} = useTranslation('systems/Systems')
+  const selectedLang = localStorage.getItem('language') || 'en';
   return (
     <div>
         <Helmet>
-            <title>Системы</title>
+            <title>{t('title')}</title>
             <meta name="description" content="Systems made by EVO Home" />
         </Helmet>
         {/* first step */}
-        <header className='sm:w-full lg:w-[1641px] sm:h-[1500px] lg:h-[1677px] mx-auto sm:mt-10 lg:mt-20 mb-30 flex flex-col justify-between'>
+        <header className={`sm:w-full lg:w-[1641px] sm:h-[1500px] ${selectedLang === 'it' ? 'lg:h-[1450px]' : 'lg:h-[1677px]'}  mx-auto sm:mt-10 lg:mt-20 mb-30 flex flex-col justify-between`}>
             {/* header */}
             <div className='h-[83px] lg:w-full mx-auto flex flex-row justify-between items-center '>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block  '/>
                 <div className=''>
-                    <h1 className='font-bold text-center sm:text-[50px] lg:text-[57px]'>Системы</h1>
+                    <h1 className='font-bold text-center sm:text-[50px] lg:text-[57px]'>{t('h')}</h1>
 
                 </div>
                 <img src={right_decoration} about='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block'/>
             </div>
             
             {/* main content */}
-            <div className='sm:h-[1400px] lg:h-[1510px] flex flex-col justify-between  '>
+            <div className={`sm:h-[1400px] ${selectedLang === 'it' ? 'lg:h-[1310px]' : 'lg:h-[1410px]'}  flex flex-col justify-between  `}>
                 {/* header */}
                 <div className='lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center mr-10'>1.</div>
-                    <h2 className='sm:text-[45px] lg:text-[50px] font-bold'>Системы от EVO HOME</h2>
+                    <h2 className='sm:text-[45px] lg:text-[50px] font-bold'>{t('header.h')}</h2>
                 </div>
 
                 {/* text */}
-                <div className='sm:text-[28px] lg:text-[32px] sm:w-full sm:px-4 lg:px-0 sm:text-center lg:text-start lg:w-[1641px] sm:h-[880px] lg:h-[504px] flex flex-col justify-between '>
-                    <p>При ремонте квартиры , дома или коммерческого помещения часто возникает необходимость вмешательства в системы здания . Будь то системы водоснабжения, электроснабжения или кондиционирования воздуха, их правильная конструкция имеет решающее значение для обеспечения безопасности и функциональности дома или коммерческого помещения.</p>
-                    <p>Компания Evo Home , имеющая более чем 17-летний опыт работы в этом секторе, стремится создавать самые современные системы, всегда соответствующие действующим нормам и выдающие все требуемые законом сертификаты. Мы специализируемся на установке, обслуживании и модернизации сложных систем, которые улучшают качество жизни и увеличивают стоимость недвижимости.</p>
+                <div className={`sm:text-[28px] lg:text-[32px] sm:w-full sm:px-4 lg:px-0 sm:text-center lg:text-start lg:w-[1641px] sm:h-[880px] ${selectedLang === 'it' ? 'lg:h-[300px]' : 'lg:h-[504px]'} lg:h-[504px] flex flex-col justify-around `}>
+                    <p>{t('header.p1')}</p>
+                    <p>{t('header.p2')}</p>
 
                 </div>
 
@@ -68,7 +71,7 @@ const System = () => {
 
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
 
-                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">ЗАКАЗАТЬ</Link>
+                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">{t('header.button')}</Link>
 
                     <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
                 </div>
@@ -83,7 +86,7 @@ const System = () => {
             {/* header */}
             <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-5 lg:mr-10'>2.</div>
-                <h2 className='sm:text-[45px] lg:text-[50px] font-bold'>Подробнее о системах</h2>
+                <h2 className={`${selectedLang === 'it' ? 'sm:text-[30px]  sm:mt-3' : 'sm:text-[45px] sm:mt-0 '} lg:text-[50px] font-bold  lg:mt-0`}>{t('process.h')}</h2>
             </div>
 
 
@@ -101,10 +104,10 @@ const System = () => {
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 lg:px-5 '>
                             <div>
-                                <h2 className='font-bold text-[46px]'>ЭЛЕКТРИЧЕСКАЯ СИСТЕМА</h2>
+                                <h2 className='font-bold text-[46px]'>{t('process.ul.1.h')}</h2>
                             </div>
 
-                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Бытовые электросистемы подчиняются строгим нормам, регламентирующим их проектирование, установку и испытания, что обеспечивает высокую производительность и безопасность. Компания Evo Home проектирует и устанавливает электрические системы в соответствии с регламентом CEI 64-8 и выдачей декларации о соответствии.</p>
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.1.p')}</p>
                         </div>
 
 
@@ -118,10 +121,10 @@ const System = () => {
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5  '>
                             <div>
-                                <h2 className='font-bold text-[46px]'>ГАЗОВАЯ СИСТЕМА</h2>
+                                <h2 className='font-bold text-[46px]'>{t('process.ul.2.h')}</h2>
                             </div>
 
-                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Установка газовых систем требует передовых технических навыков и соблюдения правил безопасности. Наша команда гарантирует профессиональный монтаж, уделяя максимальное внимание герметизации стыков и целостности труб, обеспечивая идеальную герметичность системы.</p>
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.2.p')}</p>
                         </div>
 
 
@@ -135,10 +138,10 @@ const System = () => {
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
                             <div>
-                                <h2 className='font-bold text-[46px]'>ПОДОГРЕВ ПОЛА</h2>
+                                <h2 className='font-bold text-[46px]'>{t('process.ul.3.h')}</h2>
                             </div>
 
-                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Теплый пол — одно из самых популярных решений для нового строительства и ремонта. Эта система не только гарантирует исключительный комфорт благодаря равномерному распределению тепла, но и позволяет существенно экономить электроэнергию, особенно в сочетании с возобновляемыми источниками энергии.</p>
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.3.p')}</p>
                         </div>
 
 
@@ -152,10 +155,10 @@ const System = () => {
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
                             <div>
-                                <h2 className='font-bold text-[46px]'>СИСТЕМА ДРЕНАЖА И КАНАЛИЗАЦИИ</h2>
+                                <h2 className='font-bold text-[46px]'>{t('process.ul.4.h')}</h2>
                             </div>
 
-                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Системы дренажа и канализации являются важнейшим компонентом надлежащего управления сточными водами. Наша компания проектирует и устанавливает дренажные системы, подключаемые к основной канализационной системе, обеспечивая оптимальную эффективность и максимальную безопасность.</p>
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.4.p')}</p>
                         </div>
 
 
@@ -169,10 +172,10 @@ const System = () => {
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 lg:px-5 '>
                             <div>
-                                <h2 className='font-bold text-[42px]'>ТЕРОМГИДРАВЛИЧЕСКАЯ СИСТЕМА</h2>
+                                <h2 className='font-bold text-[42px]'>{t('process.ul.5.h')}</h2>
                             </div>
 
-                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Термогидравлические системы предназначены для кондиционирования помещений как летом, так и зимой. В качестве теплоносителя они используют горячую воду, что обеспечивает эффективный нагрев. Компания Evo Home проектирует и устанавливает термогидравлические системы, обеспечивающие не только комфорт проживания, но и значительную экономию энерги.</p>
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.5.p')}</p>
                         </div>
 
 
@@ -186,10 +189,10 @@ const System = () => {
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
                             <div>
-                                <h2 className='font-bold text-[46px]'>СИСТЕМА КЛИМАТ КОНТРОЛЯ</h2>
+                                <h2 className='font-bold text-[46px]'>{t('process.ul.6.h')}</h2>
                             </div>
 
-                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Климат-контроль необходим для обеспечения комфорта в различных помещениях, как жилых, так и коммерческих. Необходимость использования современных систем управления качеством воздуха зависит от характеристик помещений и климата региона.</p>
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.6.p')}</p>
                         </div>
 
 
@@ -203,10 +206,10 @@ const System = () => {
                         {/* info */}
                         <div className='sm:w-full lg:w-[1082px] h-full  flex flex-col space-y-10  py-5 px-5 '>
                             <div>
-                                <h2 className='font-bold text-[46px]'>СЕТИ, СВЯЗИ И СИСТЕМЫ НИЗКОГО НАПРЯЖЕНИЯ</h2>
+                                <h2 className='font-bold text-[46px]'>{t('process.ul.7.h')}</h2>
                             </div>
 
-                            <p className='sm:text-[24px] lg:text-[27px] p-light'>Коммуникационные сети, необходимые для коммерческой деятельности, устанавливаются после прокладки основных инфраструктур завода. Прокладка линий низкого напряжения включает в себя прокладку кабелей, соединяющих отдельные счетчики с необходимым оборудованием.</p>
+                            <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.7.p')}</p>
                         </div>
 
 
@@ -223,7 +226,7 @@ const System = () => {
 
             {/* video */}
             <div className=' w-full lg:h-[1050px] flex flex-col justify-between  my-20 mx-auto'>
-                <h2 className='text-[50px] font-bold text-center'>Установка систем от EVO HOME</h2>
+                <h2 className='text-[50px] font-bold text-center'>{t('process.video_text')}</h2>
     
                 {/* videos(instead of them just a div with any bg color) */}
                 <div className='w-full  h-[696px] relative flex flex-row'>
@@ -236,8 +239,8 @@ const System = () => {
                 </div>
 
                 <div className='lg:w-[1641px] lg:h-[336px] sm:text-center lg:text-start flex flex-col space-y-5 my-10 mx-auto text-[30px]'>
-                    <p>Доверившись Evo Home , вы выбираете надежного партнера с более чем 17-летним опытом работы в сфере систем и ремонта. Мы предоставляем полный спектр сертифицированных услуг по установке, обслуживанию и модернизации бытовых систем в Риме, всегда гарантируя безопасность, эффективность и соответствие нормам.</p>
-                    <p>Свяжитесь с нами сегодня по телефону <br className='lg:hidden'/>  <span className='underline cursor-default'>+39 327 986 6412</span>, чтобы получить бесплатную консультацию или запросить персональное предложение.</p>
+                    <p>{t('process.video_p1')}</p>
+                    <p>{t('process.video_p2')}</p>
                 </div>
                 
                 <div className='sm:w-full lg:w-[1640px] h-[67px]  flex flex-row items-center mx-auto'>

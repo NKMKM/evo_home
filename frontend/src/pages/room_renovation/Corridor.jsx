@@ -22,6 +22,7 @@ import fifth_step from '../../assets/images/room_renovation/corridor/process/fif
 
 const Corridor = () => {
   const {t} = useTranslation('room_renovation/Corridor')
+  const selectedLang = localStorage.getItem('language') || 'en';
   return (
     <div>
         <Helmet>
@@ -29,7 +30,7 @@ const Corridor = () => {
             <meta name="description" content="Renovation of corridors by EVO Home" />
         </Helmet>
         {/* first step */}
-        <header className='lg:w-[1641px] sm:w-full lg:h-[1525px] mx-auto my-20 flex flex-col justify-between'>
+        <header className={`lg:w-[1641px] sm:w-full ${selectedLang === 'it' ? 'lg:h-[1450px]' : 'lg:h-[1525px]'}  mx-auto my-20 flex flex-col justify-between`}>
             {/* header */}
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
@@ -44,7 +45,7 @@ const Corridor = () => {
                 {/* header */}
                 <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>1.</div>
-                    <h1 className='sm:text-[32px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('header.h')}</h1>
+                    <h1 className={`${selectedLang === 'it' ? 'sm:text-[28px]  sm:mt-3' : 'sm:text-[28px] sm:mt-4 '} lg:text-[50px] font-bold  lg:mt-0`}>{t('header.h')}</h1>
                 </div>
 
                 {/* text */}
@@ -71,7 +72,7 @@ const Corridor = () => {
             {/* header */}
             <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>2.</div>
-                <h2 className='sm:text-[25px] lg:text-[50px] font-bold sm:mt-5 lg:mt-0'>{t('process.h')}</h2>
+                <h2 className={`${selectedLang === 'it' ? 'sm:text-[22px]  sm:mt-3' : 'sm:text-[28px] sm:mt-4 '} lg:text-[50px] font-bold  lg:mt-0`}>{t('process.h')}</h2>
             </div>
 
             <p className='sm:w-full lg:w-[1640px] sm:px-4 lg:px-0 text-[32px] mx-auto my-20 sm:text-center lg:text-start'>{t('process.p')}</p>
