@@ -16,7 +16,7 @@ const AboutCompanyHome = () => {
   return (
     <div className=' sm:flex sm:flex-col sm:justify-between sm:h-[1550px] lg:h-[900px] mb-20 sm:w-full lg:w-[1641px] mx-auto'>
         {/* header */}
-        <div className='h-[170px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-20 '>
+        <div className='h-[170px] w-full mx-auto flex flex-row justify-between items-center sm:mb-1 lg:mb-20 '>
             <img src={left_decoration} className='w-[276px] h-[83px] sm:hidden lg:block '/>
             <div className='mx-auto'>
                 <h1 className='font-bold text-center text-[70px]'>{t("h")}</h1>
@@ -36,7 +36,7 @@ const AboutCompanyHome = () => {
                 />
             </div>
 
-            <div className='sm:text-center lg:text-start flex flex-col sm:w-full lg:w-[836px] py-4 pl-20 space-y-10'>
+            <div className='sm:text-center lg:text-start flex flex-col sm:w-full lg:w-[836px] py-4 sm:px-10 lg:px-0 lg:pl-20 space-y-10'>
                 <p className='text-3xl'><span className='text-[#F9B33B]'>{t('text.span')} </span> {t('text.p1')}</p>
 
                 <ul className='list-disc text-2xl ml-5 '>

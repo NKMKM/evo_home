@@ -31,14 +31,14 @@ const Sewage = () => {
       <header className="lg:w-[1641px] sm:w-full lg:h-[1447px] mx-auto my-20 flex flex-col justify-between">
         <div className="h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0">
           <img src={left_decoration} alt='left decoration' loading="lazy" className="w-[276px] h-[83px] sm:hidden lg:block" />
-          <h1 className="font-bold text-center sm:text-[50px] lg:text-[57px]">{t('h')}</h1>
+          <h1 className="sm:px-4 lg:px-0 font-bold text-center sm:text-[50px] lg:text-[57px]">{t('h')}</h1>
           <img src={right_decoration} alt='right decoration' loading="lazy" className="w-[276px] h-[83px] sm:hidden lg:block" />
         </div>
 
         <div className="space-y-18">
           <div className="sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row">
             <div className="w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10">1.</div>
-            <h2 className={`${selectedLang === 'it' ? 'sm:text-[20px]  sm:mt-3' : 'sm:text-[28px] sm:mt-4 '} lg:text-[50px] font-bold  lg:mt-0`}>{t('header.h')}</h2>
+            <h2 className={`${selectedLang === 'it' ? 'sm:text-[20px]  sm:mt-3' : 'sm:text-[24px] sm:mt-1.5 '} lg:text-[50px] font-bold  lg:mt-0`}>{t('header.h')}</h2>
           </div>
 
           <div className="text-[28px] sm:text-center lg:text-start sm:px-5 lg:px-0 flex flex-col space-y-4">
@@ -61,7 +61,7 @@ const Sewage = () => {
       <main className="sm:h-[5650px] lg:h-auto lg:w-full flex flex-col ">
         <div className="sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto sm:mb-20  flex flex-row">
           <div className="w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10">2.</div>
-          <h2 className={`${selectedLang === 'it' ? 'sm:text-[20px]  sm:mt-3' : 'sm:text-[28px] sm:mt-4 '} lg:text-[43px] font-bold  lg:mt-0`}>{t('process.h')}</h2>
+          <h2 className={`${selectedLang === 'it' ? 'sm:text-[20px]  sm:mt-3' : 'sm:text-[24px] sm:mt-1.5 '} lg:text-[43px] font-bold  lg:mt-0`}>{t('process.h')}</h2>
         </div>
 
         <div className="sm:h-[5150px]  lg:h-[2470px]  sm:w-full lg:w-auto  relative mx-auto  lg:mb-30">

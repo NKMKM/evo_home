@@ -29,7 +29,7 @@ const TwostoryApartment = () => {
             <meta name="description" content="Renovation of twostory apartments by EVO Home" />
         </Helmet>
         {/* first step */}
-        <header className='lg:w-[1641px] sm:w-full lg:h-[1475px] mx-auto my-20 flex flex-col justify-between'>
+        <header className={`${selectedLang === 'it' ? 'lg:h-[1400px]' : ''} ${selectedLang === 'ru' ? 'lg:lg:h-[1475px]' : ''} ${selectedLang === 'en' ? 'lg:h-[1380px]' : ''} lg:w-[1641px] sm:w-full   mx-auto my-20 flex flex-col justify-between`}>
             {/* header */}
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
@@ -44,7 +44,7 @@ const TwostoryApartment = () => {
                 {/* header */}
                 <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 '>1.</div>
-                    <h2 className={`font-bold mx-auto text-center ${selectedLang === 'it' ? 'sm:text-[22px] sm:mt-5 lg:mt-0' : 'sm:text-[24px] sm:mt-0 lg:mt-0 '}  lg:text-[57px]`}>{t('header.h')}</h2>
+                    <h2 className={`font-bold  ${selectedLang === 'it' ? 'sm:text-[22px] sm:mt-5 lg:mt-0' : 'sm:text-[24px] sm:mt-5 lg:mt-0 '}  lg:text-[54px]`}>{t('header.h')}</h2>
                 </div>
 
                 {/* text */}
@@ -70,7 +70,7 @@ const TwostoryApartment = () => {
 
         <main className='lg:w-full lg:h-[3288px] flex flex-col justify-between'>
             {/* header */}
-            <div className={`sm:w-full lg:w-[1640px] h-[74px] ${selectedLang === 'it' ? 'sm:mb-10 lg:mb-0' : 'sm:mb -0' } bg-[#F9B33B] mx-auto flex flex-row`}>
+            <div className={`sm:w-full lg:w-[1640px] h-[74px] ${selectedLang === 'it' ? 'sm:mb-10 lg:mb-0' : 'sm:mb-10 lg:mb-10' } bg-[#F9B33B] mx-auto flex flex-row`}>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>2.</div>
                 <h2 className={`${selectedLang === 'it' ? 'sm:text-[22px]  sm:mt-5' : 'sm:text-[28px] sm:mt-4 '} lg:text-[50px] font-bold  lg:mt-0`}>{t('process.h')}</h2>
             </div>

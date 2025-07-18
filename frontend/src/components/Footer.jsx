@@ -18,7 +18,7 @@ const Footer = () => {
   }
   const {t} = useTranslation('components/Footer')
   return (
-    <footer className='relative footer-bg-image w-full  sm:flex sm:flex-col sm:justify-between lg:block  sm:h-[700px] lg:h-[800px] '>
+    <footer className={`${selectedLang === 'it' ? 'sm:px-12 lg:px-0' : ''} relative footer-bg-image w-full  sm:flex sm:flex-col sm:justify-between lg:block  sm:h-[700px] lg:h-[800px] `}>
         <div className=' lg:w-[1641px] h-[635px] lg:mt-20 mx-auto flex flex-col justify-between sm:py-0 lg:py-5'>
             {/* logo and links */}
             <div className='flex sm:flex-col lg:flex-row justify-between mb-20 '>
@@ -27,7 +27,7 @@ const Footer = () => {
 
                 <ul className=' sm:w-full lg:w-[389px] sm:h-[80px] lg:h-[57px] flex flex-row justify-between '>
                     <li className='button-scale-hover'><img src={facebook} className='w-full h-full' onClick={()=>handleImageClick('https://www.facebook.com/people/Evo-Home/100087325255144/')}/></li>
-                    <li className='button-scale-hover'><img src={instagram} className='w-full h-full' onClick={()=>handleImageClick('https://www.instagram.com/evohome_impresa_edile')}/></li>
+                    <li className='button-scale-hover'><img src={instagram} className='w-full h-full' onClick={()=>handleImageClick('https://www.instagram.com/evohome_ristrutturazioni?igsh=MWQyNmZkcWRtenR0MA%3D%3D&utm_source=qr')}/></li>
                     <li className='button-scale-hover'><img src={google} className='w-full h-full' onClick={()=>handleImageClick('https://www.google.com/maps/place/Evo+Home+Ristrutturazioni/@41.9207852,12.5263142,17z/data=!3m1!4b1!4m6!3m5!1s0x880b544c576ff2bd:0x3fc93aeeff10730d!8m2!3d41.9207852!4d12.5263142!16s%2Fg%2F11vplxvk71?entry=ttu&g_ep=EgoyMDI1MDcwOS4wIKXMDSoASAFQAw%3D%3D')}/></li>
                     <li className='button-scale-hover'><img src={whatsap} className='w-full h-full' onClick={()=>handleImageClick('https://wa.me/+393279866412')}/></li>
                 </ul>

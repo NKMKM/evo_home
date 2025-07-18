@@ -35,7 +35,7 @@ const Services = () => {
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block'/>
             </header>
 
-            <p className='sm:w-full lg:w-[1410px] sm:h-[150px] lg:h-[76px] mx-auto text-[32px] text-center font-[100] italic mb-20'>{t('p')}</p>
+            <p className='sm:w-full sm:px-7 lg:px-0 lg:w-[1410px] sm:h-[150px] lg:h-[76px] mx-auto text-[32px] text-center font-[100] italic mb-20'>{t('p')}</p>
             
             {/* list of services */}
             <section className=' sm:w-full lg:w-[1641px] '>
@@ -47,7 +47,7 @@ const Services = () => {
                         <div className='w h-[778px]  flex flex-col shadow-xl'>
                             <div className=' h-1/2  '><img src={room1} alt='room 1' loading="lazy" className='w-full h-full rounded-[10px]' /></div>
                             <div className='h-1/2  text-center items-center pt-5 space-y-5 '>
-                                <img src={keys} alt='keys' loading="lazy" className='sm:w-[120px] sm:h-[120px] lg:w-[79px] lg:h-[79px] mx-auto '/>
+                                <img src={keys} alt='keys' loading="lazy" className='sm:w-[100px] sm:h-[100px] lg:w-[79px] lg:h-[79px] mx-auto '/>
                                 <p className='sm:text-[30px] lg:text-[22px]'>{t("first_element.p")}</p>
                             </div>
                         </div>
@@ -62,7 +62,7 @@ const Services = () => {
                         <div className='w h-[778px]  flex flex-col shadow-xl'>
                             <div className=' h-1/2 '><img src={room2} alt='room 2' loading="lazy" className='w-full h-full rounded-[10px]' /></div>
                             <div className='h-1/2  text-center items-center pt-5 space-y-5'>
-                                <img src={room} alt='room' loading="lazy" className='sm:w-[120px] sm:h-[120px] lg:w-[79px] lg:h-[79px] mx-auto'/>
+                                <img src={room} alt='room' loading="lazy" className='sm:w-[100px] sm:h-[100px] lg:w-[79px] lg:h-[79px] mx-auto'/>
                                 <p className='sm:text-[30px] lg:text-[22px]'>{t("second_element.p")}</p>
                             </div>
                         </div>
@@ -77,7 +77,7 @@ const Services = () => {
                         <div className='w h-[778px]  flex flex-col shadow-xl'>
                             <div className=' h-1/2 object-fill'><img src={basement} alt='basement' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
                             <div className='h-1/2  text-center items-center pt-5 space-y-5'>
-                                <img src={botique} alt='botique icon' loading="lazy" className='sm:w-[120px] sm:h-[100px] lg:w-[79px] lg:h-[79px] mx-auto'/>
+                                <img src={botique} alt='botique icon' loading="lazy" className='sm:w-[100px] sm:h-[100px] lg:w-[79px] lg:h-[79px] mx-auto'/>
                                 <p className='sm:text-[30px] lg:text-[22px]'>{t("third_element.p")}</p>
                             </div>
                         </div>
@@ -92,7 +92,7 @@ const Services = () => {
                         <div className='w h-[778px]  flex flex-col shadow-xl'>
                             <div className=' h-1/2 overflow-hidden rounded-[10px] '><img src={system} alt='systems' loading="lazy" className='object-cover overflow-hidden rounded-[10px]' /></div>
                             <div className='h-1/2  text-center items-center pt-5 space-y-5'>
-                                <img src={gears} alt='gears icon' loading="lazy" className='sm:w-[120px] sm:h-[120px] lg:w-[79px] lg:h-[79px] mx-auto'/>
+                                <img src={gears} alt='gears icon' loading="lazy" className='sm:w-[100px] sm:h-[100px] lg:w-[79px] lg:h-[79px] mx-auto'/>
                                 <p className='sm:text-[30px] lg:text-[22px]'>{t("fourth_element.p")}</p>
                             </div>
                         </div>

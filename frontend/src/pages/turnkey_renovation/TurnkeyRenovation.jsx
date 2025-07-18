@@ -29,12 +29,12 @@ const TurnkeyRenovation = () => {
             <meta name="description" content="Turnkey renovation by EVO Home" />
         </Helmet>
         {/* first step */}
-        <header className={`lg:w-[1641px] sm:w-full ${selectedLang === 'it' ? 'lg:h-[1420px]' : 'lg:h-[1520px]'}  mx-auto my-20 flex flex-col justify-between`}>
+        <header className={`lg:w-[1641px] sm:w-full ${(selectedLang === 'it' || selectedLang === 'en') ? 'lg:h-[1420px]' : 'lg:h-[1520px]'}  mx-auto my-20 flex flex-col justify-between`}>
             {/* header */}
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
                 <img src={left_decoration} alt='left decoration 'loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
 
-                <h1 className={`font-bold mx-auto text-center ${selectedLang === 'it' ? 'sm:text-[40px]' : 'sm:text-[50px]'} lg:text-[50px]`}>{t('h')}</h1>
+                <h1 className={`font-bold mx-auto text-center ${(selectedLang === 'it' || selectedLang === 'en') ? 'sm:text-[40px]' : 'sm:text-[50px]'} lg:text-[50px]`}>{t('h')}</h1>
 
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
             </div>
@@ -44,7 +44,7 @@ const TurnkeyRenovation = () => {
                 {/* header */}
                 <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>1.</div>
-                    <h2 className={` lg:text-[50px] ${selectedLang === 'it' ? 'sm:text-[25px] sm:mt-5' : 'sm:text-[32px] sm:mt-3.5'} font-bold  lg:mt-0`}>{t('header.h')}</h2>
+                    <h2 className={` lg:text-[50px] ${(selectedLang === 'it' || selectedLang === 'en') ? 'sm:text-[25px] sm:mt-5' : 'sm:text-[32px] sm:mt-3.5'} font-bold  lg:mt-0`}>{t('header.h')}</h2>
                 </div>
 
                 {/* text */}
@@ -71,7 +71,7 @@ const TurnkeyRenovation = () => {
             {/* header */}
             <div className='lg:w-[1640px] mx-auto h-[74px] bg-[#F9B33B] flex flex-row sm:mb-20'>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-7 lg:mr-10'>2.</div>
-                <h1 className={`${selectedLang === 'it' ? ' sm:text-[23px]' : 'sm:text-[39px]'}  lg:text-[50px] font-bold sm:mt-2 lg:mt-0`}>{t("reasons.h")}</h1>
+                <h1 className={` ${selectedLang === 'it' ? ' sm:text-[23px]' : ''}  ${selectedLang === 'en' ? ' sm:text-[26px] sm:mt-5 lg:mt-0' : ''} ${selectedLang === 'ru' ? ' sm:text-[26px] ' : ''} lg:text-[50px] font-bold `}>{t("reasons.h")}</h1>
             </div>
 
             {/* vector */}
@@ -198,7 +198,7 @@ const TurnkeyRenovation = () => {
             {/* header */}
             <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row lg:mb-20'>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>3.</div>
-                <h2 className={`${selectedLang === 'it' ? 'sm:text-[28px]' : 'sm:text-[30px]'}  lg:text-[50px] font-bold sm:mt-4 lg:mt-0`}>{t('process.h')}</h2>
+                <h2 className={`${(selectedLang === 'it' || selectedLang === 'en') ? 'sm:text-[23px]' : 'sm:text-[30px]'}  lg:text-[50px] font-bold sm:mt-4 lg:mt-0`}>{t('process.h')}</h2>
             </div>
 
             {/* list of steps */}
@@ -250,7 +250,7 @@ const TurnkeyRenovation = () => {
                             </ul>
                         </div>
 
-                        <div className='absolute sm:top-[1390px] sm:right-[175px] lg:top-[640px] lg:right-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white'>{t('process.step2')}<div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
+                        <div className={`absolute ${(selectedLang === 'it' || selectedLang === 'en') ? 'sm:top-[1440px]' : 'sm:top-[1390px]'}  sm:right-[175px] lg:top-[640px] lg:right-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white`}>{t('process.step2')}<div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
                         </div>
                     </li>
 
@@ -272,7 +272,7 @@ const TurnkeyRenovation = () => {
                             </ul>
                         </div>
                         
-                        <div className='absolute sm:top-[2510px] lg:top-[1100px] left-[170px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white'>{t('process.step3')}<div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
+                        <div className={`absolute ${(selectedLang === 'it' || selectedLang === 'en') ? 'sm:top-[2560px]' : 'sm:top-[2510px]'}  lg:top-[1100px] left-[170px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white`}>{t('process.step3')}<div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
                         </div>
                     </li>
 
