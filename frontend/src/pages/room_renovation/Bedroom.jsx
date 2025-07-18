@@ -32,7 +32,7 @@ const Bedroom = () => {
             <meta name="description" content="Renovation of bedrooms by EVO Home" />
         </Helmet>
         {/* first step */}
-        <header className='lg:w-[1641px] sm:w-full lg:h-[1350px] mx-auto my-20 flex flex-col justify-between'>
+        <header className={`${selectedLang === 'en' ? 'lg:h-[1300px]' : 'lg:h-[1350px]'} lg:w-[1641px] sm:w-full  mx-auto my-20 flex flex-col justify-between`}>
             {/* header */}
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
@@ -74,7 +74,7 @@ const Bedroom = () => {
             {/* header */}
             <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>2.</div>
-                <h2 className={`${selectedLang === 'it' ? 'sm:text-[20px]  sm:mt-3' : 'sm:text-[28px] sm:mt-4 '} lg:text-[40px] font-bold  lg:mt-0`}>{t('process.h')}</h2>
+                <h2 className={`${selectedLang === 'it' ? 'sm:text-[20px]  sm:mt-3' : 'sm:text-[25px] sm:mt-4.5 '} lg:text-[40px] font-bold  lg:mt-0`}>{t('process.h')}</h2>
             </div>
 
             <p className='sm:w-full lg:w-[1640px] sm:px-4 lg:px-0 text-[32px] mx-auto my-20 sm:text-center lg:text-start'>{t('process.p')}</p>

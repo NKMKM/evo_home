@@ -29,7 +29,7 @@ const Stairs = () => {
             <meta name="description" content="Renovation of stairs by EVO Home" />
         </Helmet>
         {/* first step */}
-        <header className={`sm:w-full  lg:w-[1641px] sm:h-[1900px] ${selectedLang === 'it' ? 'lg:h-[1628px]' : 'lg:h-[1728px]'}  mx-auto my-20 flex flex-col justify-between`}>
+        <header className={`sm:w-full  lg:w-[1641px]  ${(selectedLang === 'it' || selectedLang === 'en') ? 'sm:h-[1500px] lg:h-[1328px]' : 'sm:h-[1800px] lg:h-[1528px]'}  mx-auto my-20 flex flex-col justify-between`}>
             {/* header */}
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center '>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block'/>
@@ -39,7 +39,7 @@ const Stairs = () => {
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block'/>
             </div>
             {/* main content */}
-            <div className=' space-y-10 '>
+            <div className=' space-y-3 '>
                 {/* header */}
                 <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center mr-10'>1.</div>
@@ -47,7 +47,7 @@ const Stairs = () => {
                 </div>
 
                 {/* text */}
-                <div className={`text-[30px] sm:w-full lg:w-[1641px]  sm:h-[1200px] ${selectedLang === 'it' ? 'lg:h-[500px] ' : 'lg:h-[550px] '} sm:text-center lg:text-start flex flex-col justify-around `}>
+                <div className={`text-[30px] sm:w-full lg:w-[1641px] ${selectedLang === 'ru' ? ' sm:h-[1200px] ' : '  sm:h-[900px] '} ${selectedLang === 'it' ? 'lg:h-[500px] ' : 'lg:h-[550px] '} sm:text-center lg:text-start flex flex-col justify-around `}>
                     <p>{t('header.p1')}</p>
                     <p>{t('header.p2')}</p>
 
@@ -74,7 +74,7 @@ const Stairs = () => {
             {/* header */}
             <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row mx-auto '>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-5 lg:mr-10'>2.</div>
-                <h2 className={`${selectedLang === 'it' ? 'sm:text-[20px]  sm:mt-3' : 'sm:text-[28px] sm:mt-4 '} lg:text-[50px] font-bold  lg:mt-0`}>{t('process.h')}</h2>
+                <h2 className={`${selectedLang === 'it' ? 'sm:text-[20px]  sm:mt-3' : 'sm:text-[24px] sm:mt-4 '} lg:text-[50px] font-bold  lg:mt-0`}>{t('process.h')}</h2>
             </div>
 
             <p className='sm:w-full lg:w-[1640px] sm:h-[450px] lg:h-[101px] sm:text-center lg:text-start text-[32px] mx-auto '>{t('process.p')}</p>

@@ -31,12 +31,12 @@ const Calculator = () => {
       </header>
 
       {/* Подзаголовок */}
-      <p className='sm:px-4 lg:px-0 text-white lg:w-[1518px] h-[76px] mx-auto text-center my-10 p-light italic text-xl'>
+      <p className='sm:px-7 lg:px-0 text-white lg:w-[1518px] h-[76px] mx-auto text-center my-10 p-light italic text-xl'>
         {t('p')}
       </p>
 
       {/* Основной контейнер */}
-      <main className='sm:w-full sm:h-[1200px]  border-white  lg:w-[1350px] lg:h-auto mx-auto flex sm:flex-col lg:flex-row sm:justify-between'>
+      <main className='sm:w-full sm:px-3 lg:px-0 sm:h-[1200px]  border-white  lg:w-[1350px] lg:h-auto mx-auto flex sm:flex-col lg:flex-row sm:justify-between '>
 
         {/* Левая форма */}
         <form className="lg:w-2/3 h-[490px]  p-6 rounded-lg text-white">

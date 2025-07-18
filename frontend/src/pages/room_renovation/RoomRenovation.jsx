@@ -53,7 +53,7 @@ const RoomRenovation = () => {
                 </div>
 
                 {/* text */}
-                <div className='sm:text-[28px] lg:text-[32px] sm:w-full sm:px-4 lg:px-0 sm:text-center lg:text-start lg:w-[1641px] sm:h-[1350px] lg:h-[704px] flex flex-col justify-between '>
+                <div className='sm:text-[28px] lg:text-[32px] sm:w-full sm:px-4 lg:px-0 sm:text-center lg:text-start lg:w-[1641px] sm:h-[1300px] lg:h-[704px] flex flex-col justify-between '>
                     <p>{t('header.p1')}</p>
                     <p>{t('header.p2')}</p>
                     <p>{t('header.p3')}</p>
@@ -81,8 +81,8 @@ const RoomRenovation = () => {
         <main className='w-full sm:h-[7400px] lg:h-[4283px]  flex flex-col justify-between '>
             {/* header */}
             <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row mx-auto mb-20'>
-                <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center mr-10'>2.</div>
-                <h2 className={`${selectedLang === 'it' ? 'sm:text-[23px]  sm:mt-3' : 'sm:text-[28px] sm:mt-4 '} lg:text-[50px] font-bold  lg:mt-0`}>{t('process.h')}</h2>
+                <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center mr-5'>2.</div>
+                <h2 className={`${(selectedLang === 'it' || selectedLang === 'en') ? 'sm:text-[23px]  sm:mt-5' : 'sm:text-[28px] sm:mt-4 '} lg:text-[50px] font-bold  lg:mt-0`}>{t('process.h')}</h2>
             </div>
 
             <div className=' sm:h-[5500px] lg:h-[2813px] relative mx-auto '>
@@ -103,7 +103,7 @@ const RoomRenovation = () => {
                             <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.1.p')}</p>
                         </div>
 
-                        <div className='absolute sm:top-[150px] lg:top-[190px] left-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white'>{t('process.step1')}<div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
+                        <div className='absolute sm:top-[150px] lg:top-[150px] left-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white'>{t('process.step1')}<div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
                         </div>
 
                     </li>
@@ -144,7 +144,7 @@ const RoomRenovation = () => {
                         </div>
 
                         
-                        <div className='absolute sm:top-[1970px] lg:top-[1120px] left-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white'>{t('process.step3')}<div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
+                        <div className={`absolute ${(selectedLang === 'it' || selectedLang === 'en') ? 'sm:top-[2040px]' : 'sm:top-[1970px]'}  lg:top-[1120px] left-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white`}>{t('process.step3')}<div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
                         </div>
 
 
@@ -164,7 +164,7 @@ const RoomRenovation = () => {
                             <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.4.p')}</p>
                         </div>
 
-                        <div className='absolute sm:top-[2920px] sm:right-[190px] lg:top-[1590px] lg:right-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white'>{t('process.step4')}<div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
+                        <div className={`${(selectedLang === 'it' || selectedLang === 'en') ? 'sm:top-[2970px]' : 'sm:top-[2920px]'} absolute  sm:right-[190px] lg:top-[1590px] lg:right-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white`}>{t('process.step4')}<div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
                         </div>
 
 
@@ -184,7 +184,7 @@ const RoomRenovation = () => {
                             <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.5.p')}</p>
                         </div>
 
-                        <div className='absolute sm:top-[3860px] sm:right-[190px] lg:top-[2090px] lg:left-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white'>{t('process.step5')}<div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
+                        <div className={`absolute ${(selectedLang === 'it' || selectedLang === 'en') ? 'sm:top-[3940px]' : 'sm:top-[3860px]'}   sm:right-[190px] lg:top-[2090px] lg:left-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white`}>{t('process.step5')}<div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
                         </div>
 
                     </li>
@@ -203,7 +203,7 @@ const RoomRenovation = () => {
                             <p className='sm:text-[24px] lg:text-[27px] p-light'>{t('process.ul.6.p')}</p>
                         </div>
 
-                        <div className='absolute sm:top-[4760px] sm:right-[190px] lg:top-[2560px] lg:right-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white'>{t('process.step6')}<div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
+                        <div className={`absolute ${(selectedLang === 'it' || selectedLang === 'en') ? 'sm:top-[4830px] ' : 'sm:top-[4760px] '}  sm:top-[4760px] sm:right-[190px] lg:top-[2560px] lg:right-[160px] w-[291px] h-[110px] justify-center font-bold text-[50px] items-center flex bg-white`}>{t('process.step6')}<div className='absolute bottom-0 right-0 w-[30px] h-[30px] bg-[#F9B33B] clip-path-triangle mb-2 mr-2' />
                         </div>
 
 

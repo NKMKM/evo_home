@@ -32,7 +32,7 @@ const Restaurant = () => {
         </Helmet>
 
         {/* first step */}
-        <header className={`lg:w-[1641px] sm:w-full ${selectedLang === 'it' ? 'lg:h-[1400px]' : 'lg:h-[1500px]'}  mx-auto my-20 flex flex-col justify-between`}>
+        <header className={`lg:w-[1641px] sm:w-full ${(selectedLang === 'it' || selectedLang === 'en') ? 'lg:h-[1400px]' : 'lg:h-[1500px]'}  mx-auto my-20 flex flex-col justify-between`}>
             {/* header */}
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
@@ -47,7 +47,7 @@ const Restaurant = () => {
                 {/* header */}
                 <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>1.</div>
-                    <h2 className={`${selectedLang === 'it' ? 'sm:text-[25px]  sm:mt-4' : 'sm:text-[28px] sm:mt-4 '} lg:text-[50px] font-bold  lg:mt-0`}>{t('header.h')}</h2>
+                    <h2 className={`${selectedLang === 'it' ? 'sm:text-[25px]  sm:mt-4' : 'sm:text-[25px] sm:mt-4 '} lg:text-[50px] font-bold  lg:mt-0`}>{t('header.h')}</h2>
                 </div>
 
                 {/* text */}

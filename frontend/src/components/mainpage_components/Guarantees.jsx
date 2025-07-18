@@ -14,11 +14,11 @@ const Guarantees = () => {
   return (
     <div className='relative lg:my-20 sm:h-[2900px] lg:h-[826px]'>
         {/* vector 1 */}
-        <div className='sm:bottom-[400px] sm:scale-150 lg:scale-100 lg:bottom-auto w-[515px] h-[823px] absolute '><img src={vector1} alt='vector 1' loading="lazy" className='w-full h-full'/></div>
+        <div className='sm:bottom-[400px] sm:scale-150 lg:scale-100 lg:bottom-auto lg:w-[515px] h-[823px] absolute '><img src={vector1} alt='vector 1' loading="lazy" className='w-full h-full overflow-hidden'/></div>
 
 
         {/* header text         */}
-        <header className='sm:w-full lg:w-[754px] h-[136px] mx-auto mb-40 '>
+        <header className='sm:w-full lg:w-[754px] h-[136px] mx-auto mb-40 px-10 '>
             <h1 className='text-[70px] font-bold text-center'>{t('h')}</h1>
             <p className='text-[30px] italic text-center '>{t('p')}</p>
         </header>
