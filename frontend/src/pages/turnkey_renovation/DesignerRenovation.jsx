@@ -31,7 +31,7 @@ const DesignerRenovation = () => {
             <meta name="description" content="Designer renovation by EVO Home" />
         </Helmet>
         {/* first step */}
-        <header className='lg:w-[1641px] sm:w-full lg:h-[1525px] mx-auto my-20 flex flex-col justify-between'>
+        <header className={`${selectedLang === 'en' ? 'lg:h-[1425px] ' : 'lg:h-[1525px] '} lg:w-[1641px]  sm:w-full mx-auto my-20 flex flex-col justify-between`}>
             {/* header */}
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />

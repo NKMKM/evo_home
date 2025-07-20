@@ -30,6 +30,7 @@ import CommercialPremisesProjects from '../../components/commercial_premises_com
 
 const CommercialPremises = () => {
   const {t} = useTranslation('commercial_premises/CommercialPremises')
+  const selectedLang = localStorage.getItem('language') || 'en';	
   return (
     <div>
         <Helmet>
@@ -88,7 +89,7 @@ const CommercialPremises = () => {
             {/* header */}
             <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
                 <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-5 lg:mr-10'>2.</div>
-                <h2 className='sm:text-[26px] lg:text-[50px] font-bold'>{t('process.h')}</h2>
+                <h2 className={`${selectedLang === 'en' ? 'sm:mt-5 lg:mt-0' : 'sm:mt-0'} sm:text-[26px] lg:text-[50px] font-bold`}>{t('process.h')}</h2>
             </div>
 
 

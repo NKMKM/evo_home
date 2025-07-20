@@ -56,7 +56,7 @@ const AboutUs = () => {
             <div className='h-[83px] lg:w-full mx-auto flex flex-row justify-between items-center '>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block  '/>
                 <div className=''>
-                    <h1 className={`font-bold text-center sm:text-[50px] ${selectedLang === 'it' ? 'lg:text-[45px]' : 'lg:text-[53px]'} `}>{t("header.h")}</h1>
+                    <h1 className={`font-bold text-center sm:text-[50px] ${(selectedLang === 'it' || selectedLang === 'en') ? 'lg:text-[45px]' : 'lg:text-[53px]'} `}>{t("header.h")}</h1>
 
                 </div>
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block'/>

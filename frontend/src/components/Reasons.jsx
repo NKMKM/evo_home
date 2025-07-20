@@ -11,7 +11,7 @@ const Reasons = () => {
         {/* header */}
         <header className='lg:w-[1640px] mx-auto h-[74px] bg-[#F9B33B] flex flex-row sm:mb-20'>
             <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-7 lg:mr-10'>3.</div>
-            <h1 className={`${selectedLang === 'it' ? 'sm:text-[25px]' : 'sm:text-[39px]'}  lg:text-[50px] font-bold`}>{t('h')}</h1>
+            <h1 className={`${selectedLang === 'it' ? 'sm:text-[25px]' : ''} ${selectedLang === 'en' ? 'sm:text-[26px] sm:mt-4 lg:mt-0' : ''}  ${selectedLang === 'ru' ? 'sm:text-[26px]' : ''} lg:text-[50px] font-bold`}>{t('h')}</h1>
         </header>
 
         {/* vector */}

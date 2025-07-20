@@ -38,7 +38,7 @@ const System = () => {
             <meta name="description" content="Systems made by EVO Home" />
         </Helmet>
         {/* first step */}
-        <header className={`sm:w-full lg:w-[1641px] sm:h-[1500px] ${selectedLang === 'it' ? 'lg:h-[1450px]' : 'lg:h-[1677px]'}  mx-auto sm:mt-10 lg:mt-20 mb-30 flex flex-col justify-between`}>
+        <header className={`sm:w-full lg:w-[1641px]  ${selectedLang === 'it' ? ' sm:h-[1100px] lg:h-[1450px]' : 'sm:h-[1500px] lg:h-[1577px]'}  mx-auto sm:mt-10 lg:mt-20 mb-30 flex flex-col justify-between`}>
             {/* header */}
             <div className='h-[83px] lg:w-full mx-auto flex flex-row justify-between items-center '>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block  '/>
@@ -50,7 +50,7 @@ const System = () => {
             </div>
             
             {/* main content */}
-            <div className={`sm:h-[1400px] ${selectedLang === 'it' ? 'lg:h-[1310px]' : 'lg:h-[1410px]'}  flex flex-col justify-between  `}>
+            <div className={`${(selectedLang === 'it' || selectedLang === 'en') ? ' sm:h-[1300px] lg:h-[1310px]' : 'sm:h-[1400px]  lg:h-[1410px]'}  flex flex-col justify-between  `}>
                 {/* header */}
                 <div className='lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center mr-10'>1.</div>
@@ -58,7 +58,7 @@ const System = () => {
                 </div>
 
                 {/* text */}
-                <div className={`sm:text-[28px] lg:text-[32px] sm:w-full sm:px-4 lg:px-0 sm:text-center lg:text-start lg:w-[1641px] sm:h-[880px] ${selectedLang === 'it' ? 'lg:h-[300px]' : 'lg:h-[504px]'} lg:h-[504px] flex flex-col justify-around `}>
+                <div className={`sm:text-[28px] lg:text-[32px] sm:w-full sm:px-4 lg:px-0 sm:text-center lg:text-start lg:w-[1641px]  ${(selectedLang === 'it' || selectedLang === 'en') ? 'sm:h-[700px] lg:h-[300px]' : 'sm:h-[880px] lg:h-[504px]'} lg:h-[504px] flex flex-col justify-around `}>
                     <p>{t('header.p1')}</p>
                     <p>{t('header.p2')}</p>
 

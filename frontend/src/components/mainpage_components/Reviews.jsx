@@ -37,9 +37,9 @@ const Reviews = () => {
         <p className='text-white sm:text-[30px] lg:text-[32px] italic font-light lg:w-[600px] mx-auto text-center mb-9'>{t('p')}</p>
 
 
-        <section className='sm:w-full sm:h-[1900px]  lg:h-auto lg:w-[1641px] mx-auto flex sm:flex-col lg:flex-row items-center justify-between'>
+        <section className='sm:w-full sm:h-[2000px] lg:h-auto lg:w-[1641px] mx-auto flex sm:flex-col lg:flex-row items-center justify-between'>
             {/* 1 */}
-            <div className="relative flex flex-col sm:w-full sm:h-[500px] lg:w-[453px] lg:h-[415px] bg-white  p-10 shadow-2xl justify-between ">
+            <div className="relative flex flex-col sm:w-full  sm:mb-20 lg:mb-0  sm:h-[500px] lg:w-[453px] lg:h-[415px] bg-white  p-10 shadow-2xl justify-between rounded-[10px] ">
                 
                 <div className='flex flex-row space-x-5'>
                     <div className='bg-gray-300 rounded-full'><img src={avatar} alt='avatar' loading="lazy" /></div>
@@ -77,7 +77,7 @@ const Reviews = () => {
             </div>
 
             {/* 2 */}
-            <div class={`relative flex flex-col  lg:w-[667px] lg:${selectedLang === 'it' ? 'h-[640px] mb-20' : ''} bg-white  p-10 shadow-2xl space-y-10   `}>
+            <div class={`relative flex flex-col  lg:w-[667px] lg:${selectedLang === 'it' ? 'h-[640px] mb-20' : ''} bg-white  p-10 shadow-2xl space-y-10  rounded-[10px] `}>
                 
                 <div className='flex flex-row space-x-5'>
                     <div className='bg-gray-300 rounded-full w-[100px] h-[100px]'><img src={avatar} alt='avatar' loading="lazy" className='w-full h-full' /></div>
@@ -100,10 +100,10 @@ const Reviews = () => {
 
                 <p className='text-[24.2px]'> {t("second_review")}</p>
 
-                <ul className='flex flex-row justify-between'>
-                    <li className='w-[167px] h-[132px] bg-violet-500 rounded-md'><img src={second_review_first_image} className='w-full h-full rounded-md 'loading="lazy"/></li>
-                    <li className='w-[167px] h-[132px] bg-violet-500 rounded-md'><img src={second_review_second_image} className='w-full h-full rounded-md'loading="lazy"/></li>
-                    <li className='w-[167px] h-[132px] bg-violet-500 rounded-md'><img src={second_review_third_image} className='w-full h-full rounded-md'loading="lazy"/></li>
+                <ul className='flex flex-row justify-between sm:space-x-4 lg:space-x-0'>
+                    <li className='sm:w-[150px] sm:h-[120px] lg:w-[167px] lg:h-[132px] bg-violet-500 rounded-md'><img src={second_review_first_image} className='w-full h-full rounded-md 'loading="lazy"/></li>
+                    <li className='sm:w-[150px] sm:h-[120px] lg:w-[167px] lg:h-[132px] bg-violet-500 rounded-md'><img src={second_review_second_image} className='w-full h-full rounded-md'loading="lazy"/></li>
+                    <li className='sm:w-[150px] sm:h-[120px] lg:w-[167px] lg:h-[132px] bg-violet-500 rounded-md'><img src={second_review_third_image} className='w-full h-full rounded-md'loading="lazy"/></li>
                 </ul>
                 <div class=" absolute bottom-[-60px] right-10 w-1 h-1
                             border-l-[100px] border-l-transparent 
@@ -113,7 +113,7 @@ const Reviews = () => {
             </div>
 
             {/* 3 */}
-            <div class={`relative flex flex-col  sm:w-full sm:h-[500px] lg:w-[453px] lg:h-[415px] bg-white  p-10 shadow-2xl justify-between`}>
+            <div class={`relative flex flex-col  sm:w-full sm:h-[500px] sm:mb-10 lg:mb-0 lg:w-[453px] lg:h-[415px] bg-white  p-10 shadow-2xl justify-between rounded-[10px]`}>
                 
                 <div className='flex flex-row space-x-5'>
                     <div className='bg-gray-300 rounded-full'><img src={avatar} avatar loading="lazy"/></div>

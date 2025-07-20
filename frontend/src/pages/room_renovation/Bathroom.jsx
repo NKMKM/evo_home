@@ -31,7 +31,7 @@ const Bathroom = () => {
             <meta name="description" content="Renovation of bathrooms by EVO Home" />
         </Helmet>
         {/* first step */}
-        <header className={`lg:w-[1641px] sm:w-full    ${selectedLang === 'it' ? 'sm:h-[1400px] lg:h-[1360px] ' : 'sm:h-[1500px] lg:h-[1450px]'}  mx-auto my-20 flex flex-col justify-between`}>
+        <header className={`lg:w-[1641px] sm:w-full  ${(selectedLang === 'it' || selectedLang === 'en') ? 'sm:h-[1400px] lg:h-[1360px] ' : 'sm:h-[1700px] lg:h-[1450px]'}  mx-auto my-20 flex flex-col justify-between`}>
             {/* header */}
             <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center '>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
@@ -46,7 +46,7 @@ const Bathroom = () => {
                 {/* header */}
                 <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
                     <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>1.</div>
-                    <h2 className='sm:text-[30px] lg:text-[50px] font-bold sm:mt-4 lg:mt-0'>{t('header.h')}</h2>
+                    <h2 className={`${selectedLang === 'ru' ? 'sm:text-[27px]' : 'sm:text-[30px]'}  lg:text-[50px] font-bold sm:mt-4 lg:mt-0`}>{t('header.h')}</h2>
                 </div>
 
                 {/* text */}
@@ -73,7 +73,7 @@ const Bathroom = () => {
         {/* header */}
         <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
             <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>2.</div>
-            <h1 className={`${selectedLang === 'it' ? 'sm:text-[21px]  sm:mt-3' : 'sm:text-[28px] sm:mt-4 '} lg:text-[50px] font-bold  lg:mt-0`}>{t('process.h')}</h1>
+            <h1 className={`${selectedLang === 'it' ? 'sm:text-[21px]  sm:mt-3' : 'sm:text-[23px] sm:mt-2 '} lg:text-[50px] font-bold  lg:mt-0`}>{t('process.h')}</h1>
         </div>
 
         {/* list of steps */}
