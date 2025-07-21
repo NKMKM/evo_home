@@ -51,19 +51,18 @@ const AboutUs = () => {
             <meta name="description" content="About EVO Home" />
         </Helmet>
         {/* about us block */}
-        <header className='sm:w-full sm:h-[2270px] lg:w-[1641px] lg:h-[1243px] sm:px-5 lg:px-0 mx-auto mt-20 flex flex-col justify-between'>
+        <header className='w-full max-w-screen-xl mx-auto mt-10 flex flex-col justify-between px-4 md:px-8'>
             {/* header */}
-            <div className='h-[83px] lg:w-full mx-auto flex flex-row justify-between items-center '>
-                <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block  '/>
-                <div className=''>
-                    <h1 className={`font-bold text-center sm:text-[50px] ${(selectedLang === 'it' || selectedLang === 'en') ? 'lg:text-[45px]' : 'lg:text-[53px]'} `}>{t("header.h")}</h1>
-
+            <div className='h-20 w-full flex flex-row justify-between items-center'>
+                <img src={left_decoration} alt='left decoration' loading="lazy" className='hidden md:block w-32 h-20'/>
+                <div className='flex-1 flex justify-center'>
+                    <h1 className={`font-bold text-center text-3xl md:text-5xl lg:text-6xl ${(selectedLang === 'it' || selectedLang === 'en') ? 'lg:text-[45px]' : 'lg:text-[53px]'}`}>{t("header.h")}</h1>
                 </div>
-                <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block'/>
+                <img src={right_decoration} alt='right decoration' loading="lazy" className='hidden md:block w-32 h-20'/>
             </div>
 
-            <div className='flex sm:flex-col lg:flex-row lg:w-[1639px]  sm:h-[1950px] lg:h-[914px] justify-between text-[32px]'>
-                <div className=' flex flex-col sm:w-full lg:w-[804px] sm:h-[1200px] lg:h-[914px] sm:text-center lg:text-start  text-[30px] justify-around'>
+            <div className='flex flex-col md:flex-row w-full justify-between text-lg md:text-2xl lg:text-3xl gap-8 md:gap-0'>
+                <div className='flex flex-col w-full md:w-1/2 text-center md:text-left justify-around gap-6'>
                     <p>{t("header.p1")}<span className='text-[#F9B33B]'>{t("header.span1")}</span>{t('header.p2')}<span className='text-[#F9B33B]'>{t("header.span2")}</span> </p>
 
                     <p>{t("header.p3")}<span className='text-[#F9B33B]'>{t("header.span3")}</span></p>
@@ -71,16 +70,13 @@ const AboutUs = () => {
                     <p>{t("header.p4")}</p>
                 </div>
 
-                <div className='sm:w-full lg:w-[806px] lg:h-[914px]'><img src={van} alt='van' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
+                <div className='w-full md:w-1/2 flex items-center justify-center'><img src={van} alt='van' loading="lazy" className='w-full max-w-md md:max-w-full h-auto rounded-[10px] object-cover'/></div>
             </div>
             
-            <div className='sm:w-full lg:w-[1640px] h-[67px]  flex flex-row items-center mx-auto'>
-
-                <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
-
-                <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">{t('header.button')}</Link>
-
-                <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
+            <div className='w-full flex flex-col md:flex-row items-center gap-4 my-6'>
+                <div className='h-1 w-full md:w-1/3 bg-[#F9B33B]'></div>
+                <Link to="/contacts" className="w-full md:w-1/3 h-14 bg-[#F9B33B] text-xl md:text-2xl font-semibold flex items-center justify-center hover:scale-105 transition duration-300">{t('header.button')}</Link>
+                <div className='h-1 w-full md:w-1/3 bg-[#F9B33B]'></div>
             </div>
 
 

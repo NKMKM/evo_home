@@ -7,3 +7,4 @@ const YellowSquare = ({ style = '' }) => {
 };
 
 export default YellowSquare;
+//made

@@ -1,38 +1,48 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import vector_about_us_1 from'../assets/videos/abouts_us/vector1.png'
-import vector_about_us_2 from'../assets/videos/abouts_us/vector2.png'
+import vector_about_us_1 from '../assets/videos/abouts_us/vector1.png'
+import vector_about_us_2 from '../assets/videos/abouts_us/vector2.png'
 
 const Video = ({text}) => {
   const {t} = useTranslation('commercial_premises/CommercialPremises')
   return (
-    <div className=' w-full sm:h-[1100px] lg:h-[950px] flex flex-col justify-between  mt-20 mx-auto'>
-        <h1 className='text-[50px] font-bold text-center'>{text}</h1>
+    <div className='w-full sm:h-auto lg:h-[950px] flex flex-col justify-between mt-10 mx-auto px-4'>
+        <h1 className='text-[32px] sm:text-[40px] lg:text-[50px] font-bold text-center'>{text}</h1>
 
-        {/* videos(instead of them just a div with any bg color) */}
-        <div className='w-full  h-[696px] relative flex flex-row'>
-            <div className='absolute  h-[853px] bottom-0 -z-10'><img src={vector_about_us_1} className='w-full h-full'/></div>
-            <div className='sm:w-full  lg:w-[1641px] h-[696px] flex flex-row justify-between mx-auto'>
-                <div className='sm:w-full lg:w-[1227px] h-[696px]  text-center mx-auto shadow-2xl '>
-                  <iframe className='w-full h-full rounded-[10px]' src="https://www.youtube.com/embed/4hUYRlP9iGM?si=EbQXomtpUSifbO4J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        {/* videos */}
+        <div className='w-full h-auto relative flex flex-col mt-6'>
+            <div className='absolute w-full h-full bottom-0 -z-10'>
+                <img src={vector_about_us_1} className='w-full h-full object-cover' alt="vector 1"/>
+            </div>
+            <div className='w-full max-w-[1641px] h-auto mx-auto'>
+                <div className='w-full h-[250px] sm:h-[400px] lg:h-[696px] text-center mx-auto shadow-2xl'>
+                    <iframe 
+                        className='w-full h-full rounded-[10px]' 
+                        src="https://www.youtube.com/embed/4hUYRlP9iGM?si=EbQXomtpUSifbO4J" 
+                        title="YouTube video player" 
+                        frameBorder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerPolicy="strict-origin-when-cross-origin" 
+                        allowFullScreen
+                    ></iframe>
                 </div>
             </div>
-
-            <div className='absolute h-[853px] bottom-0 right-0 -z-10'><img src={vector_about_us_2} className='w-full h-full'/></div>
+            <div className='absolute w-full h-full bottom-0 right-0 -z-10'>
+                <img src={vector_about_us_2} className='w-full h-full object-cover' alt="vector 2"/>
+            </div>
         </div>
 
-        
-        <div className='sm:w-full lg:w-[1640px] h-[67px]  flex flex-row items-center mx-auto'>
-
-            <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
-
-            <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">{t('process.video_button')}</Link>
-
-            <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
+        <div className='w-full max-w-[1640px] h-auto flex flex-col sm:flex-row items-center mx-auto mt-6 gap-4'>
+            <div className='h-[2px] w-full sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
+            <Link 
+                to="/contacts" 
+                className="w-full sm:w-[60%] lg:w-[389px] h-[50px] lg:h-[67px] bg-[#F9B33B] text-[20px] lg:text-[30px] font-semibold flex items-center justify-center hover:scale-105 transition duration-300"
+            >
+                {t('process.video_button')}
+            </Link>
+            <div className='h-[2px] w-full sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
         </div>
-
-
     </div>
   )
 }

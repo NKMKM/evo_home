@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Layout } from './Layout';
 import { SubmissionCard } from './SubmissionCard';
@@ -46,14 +46,14 @@ export function DashboardPage() {
       .then(data => {
         console.log('Raw API response:', data);
         // Minimal sanitization, only for missing fields
-        const sanitizedData = data.map((submission: Submission) => ({
+        const sanitizedData = data.map((submission: any) => ({
           ...submission,
-          buildingtype: submission.buildingtype ?? 'unknown',
-          roomtype: submission.roomtype ?? 'unknown',
-          repairtype: submission.repairtype ?? 'unknown',
+          buildingType: submission.buildingType ?? submission.buildingtype ?? 'unknown',
+          roomType: submission.roomType ?? submission.roomtype ?? 'unknown',
+          repairType: submission.repairType ?? submission.repairtype ?? 'unknown',
           urgency: submission.urgency ?? 'unknown',
-          additionalinfo: submission.additionalinfo ?? '',
-          promocode: submission.promocode ?? '',
+          additionalInfo: submission.additionalInfo ?? submission.additionalinfo ?? '',
+          promoCode: submission.promoCode ?? submission.promocode ?? '',
           area: Number.isFinite(submission.area) ? submission.area : 0, // Handle null or invalid area
         }));
         console.log('Sanitized data:', sanitizedData);
@@ -97,7 +97,7 @@ export function DashboardPage() {
       );
       console.log('handleFilter - buildingtype:', filters.buildingtype, 'Mapped to:', backendBuildingType);
       if (backendBuildingType) {
-        filtered = filtered.filter(s => s.buildingtype === backendBuildingType);
+        filtered = filtered.filter(s => s.buildingType === backendBuildingType);
       }
     }
 
@@ -107,7 +107,7 @@ export function DashboardPage() {
       );
       console.log('handleFilter - roomtype:', filters.roomtype, 'Mapped to:', backendRoomType);
       if (backendRoomType) {
-        filtered = filtered.filter(s => s.roomtype === backendRoomType);
+        filtered = filtered.filter(s => s.roomType === backendRoomType);
       }
     }
 
@@ -117,7 +117,7 @@ export function DashboardPage() {
       );
       console.log('handleFilter - repairtype:', filters.repairtype, 'Mapped to:', backendRepairType);
       if (backendRepairType) {
-        filtered = filtered.filter(s => s.repairtype === backendRepairType);
+        filtered = filtered.filter(s => s.repairType === backendRepairType);
       }
     }
 
@@ -137,7 +137,7 @@ export function DashboardPage() {
       filtered = filtered.filter(s => 
         s.name.toLowerCase().includes(searchLower) || 
         s.phone.includes(searchLower) || 
-        (s.additionalinfo && s.additionalinfo.toLowerCase().includes(searchLower))
+        (s.additionalInfo && s.additionalInfo.toLowerCase().includes(searchLower))
       );
     }
 

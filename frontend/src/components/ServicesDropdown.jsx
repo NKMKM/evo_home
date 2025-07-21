@@ -3,7 +3,6 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-
 const ServicesDropdown = () => {
   const {t} = useTranslation('components/ServicesDropdown')
 
@@ -31,7 +30,6 @@ const ServicesDropdown = () => {
       main_menu_href:'/systems',
       submenu: [t('fourth_element.list_of_services.first'), t('fourth_element.list_of_services.second'),t('fourth_element.list_of_services.third'),t('fourth_element.list_of_services.fourth'),t('fourth_element.list_of_services.fifth')],
       submenu_href:['/systems/electrical_system','/systems/gas_system','/systems/floor_heating','/systems/sewage','/systems/climate_control']
-  
     },
   ];
 
@@ -53,16 +51,16 @@ const ServicesDropdown = () => {
 
   return (
     <div
-      className="relative select-none z-999 "
+      className="relative select-none z-50"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="flex items-center cursor-pointer">
-        <p className="navbar-underline-animate-hover">{t('h')} <KeyboardArrowDownIcon/></p>
+      <div className="flex items-center cursor-pointer px-4 py-2">
+        <p className="navbar-underline-animate-hover text-[16px] sm:text-[18px] lg:text-[20px]">{t('h')} <KeyboardArrowDownIcon/></p>
       </div>  
 
       {isDropdownVisible && (
-        <div className="absolute top-full left-0 mt-8 w-[468px] bg-white   z-50 transition-opacity duration-300 shadow-xl">
+        <div className="absolute top-full left-0 mt-2 w-[300px] sm:w-[400px] lg:w-[468px] bg-white z-50 transition-opacity duration-300 shadow-xl">
           {services.map((service ,index) => (
             <div
               key={index}
@@ -72,19 +70,18 @@ const ServicesDropdown = () => {
             >
               <Link
                 to={service.main_menu_href}
-                className="flex px-4 py-2 h-[80px] hover:bg-[#F9B33B] text-[22px] items-center cursor-pointer"
+                className="flex px-4 py-2 h-[60px] sm:h-[70px] lg:h-[80px] hover:bg-[#F9B33B] text-[16px] sm:text-[18px] lg:text-[22px] items-center cursor-pointer"
               >
                 {service.name}
               </Link>
 
-              {/* Уникальное подменю */}
               {hoveredIndex === index && service.submenu.length > 0 && (
-                <div className="absolute top-0 left-full ml-1 w-[468px] bg-white  z-50 shadow-xl">
+                <div className="absolute top-0 left-full ml-1 w-[300px] sm:w-[400px] lg:w-[468px] bg-white z-50 shadow-xl">
                   {service.submenu.map((item, subIdx) => (
                     <Link
                       key={subIdx}
                       to={service.submenu_href?.[subIdx] || '#'}
-                      className="flex px-4 py-2 h-[80px] hover:bg-[#F9B33B] text-[22px] items-center cursor-pointer"
+                      className="flex px-4 py-2 h-[60px] sm:h-[70px] lg:h-[80px] hover:bg-[#F9B33B] text-[16px] sm:text-[18px] lg:text-[22px] items-center cursor-pointer"
                     >
                       {item}
                     </Link>
@@ -100,4 +97,3 @@ const ServicesDropdown = () => {
 };
 
 export default ServicesDropdown;
-

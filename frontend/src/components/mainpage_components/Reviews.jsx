@@ -1,161 +1,90 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-// icons import
-import left_decoration from '../../assets/images/leftside_black_decoration.png'
-import right_decoration from '../../assets/images/rightside_black_decoration.png'
-import golden_star from '../../assets/icons/golden_star.png'
-import gray_star from '../../assets/icons/gray_star.png'
-import avatar from '../../assets/icons/avatar.png'
-
-// reviews images imports
-import first_review_first_image from '../../assets/images/reviews_images/first_review/first_review_first_image.png'
-import first_review_second_image from '../../assets/images/reviews_images/first_review/first_review_second_image.png'
-import first_review_third_image from '../../assets/images/reviews_images/first_review/first_review_third_image.png'
-//----------------
-import second_review_first_image from '../../assets/images/reviews_images/second_review/second_review_first_image.jpg'
-import second_review_second_image from '../../assets/images/reviews_images/second_review/second_review_second_image.jpg'
-import second_review_third_image from '../../assets/images/reviews_images/second_review/second_review_third_image.jpg'
-//---------------
-import third_review_first_image from '../../assets/images/reviews_images/third_review/third_review_first_image.png'
-import third_review_second_image from '../../assets/images/reviews_images/third_review/third_review_second_image.png'
-import third_review_third_image from '../../assets/images/reviews_images/third_review/third_review_third_image.png'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import left_decoration from '../../assets/images/leftside_black_decoration.png';
+import right_decoration from '../../assets/images/rightside_black_decoration.png';
+import golden_star from '../../assets/icons/golden_star.png';
+import gray_star from '../../assets/icons/gray_star.png';
+import avatar from '../../assets/icons/avatar.png';
+import first_review_first_image from '../../assets/images/reviews_images/first_review/first_review_first_image.png';
+import first_review_second_image from '../../assets/images/reviews_images/first_review/first_review_second_image.png';
+import first_review_third_image from '../../assets/images/reviews_images/first_review/first_review_third_image.png';
+import second_review_first_image from '../../assets/images/reviews_images/second_review/second_review_first_image.jpg';
+import second_review_second_image from '../../assets/images/reviews_images/second_review/second_review_second_image.jpg';
+import second_review_third_image from '../../assets/images/reviews_images/second_review/second_review_third_image.jpg';
+import third_review_first_image from '../../assets/images/reviews_images/third_review/third_review_first_image.png';
+import third_review_second_image from '../../assets/images/reviews_images/third_review/third_review_second_image.png';
+import third_review_third_image from '../../assets/images/reviews_images/third_review/third_review_third_image.png';
 
 const Reviews = () => {
-  const {t} = useTranslation('home/Reviews')
+  const { t } = useTranslation('home/Reviews');
   const selectedLang = localStorage.getItem('language') || 'en';
+
   return (
-    <main className={`home-reviews-bg-image w-full sm:h-[2450px] lg:h-[1100px] bg-cover mb-20 p-20 ${selectedLang === 'it' ? ' pb-30' : ''}`}>
-        {/* header section */}
-        <header className='sm:w-full lg:w-[1650px] h-[170px]  mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0  '>
-            <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block '/>
-            <div className=''>
-                <h1 className='font-bold text-center sm:text-[60px] lg:text-[70px] '>{t('h')}</h1>
-
-            </div>
-            <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block '/>
-        </header>
-        <p className='text-white sm:text-[30px] lg:text-[32px] italic font-light lg:w-[600px] mx-auto text-center mb-9'>{t('p')}</p>
-
-
-        <section className='sm:w-full sm:h-[2000px] lg:h-auto lg:w-[1641px] mx-auto flex sm:flex-col lg:flex-row items-center justify-between'>
-            {/* 1 */}
-            <div className="relative flex flex-col sm:w-full  sm:mb-20 lg:mb-0  sm:h-[500px] lg:w-[453px] lg:h-[415px] bg-white  p-10 shadow-2xl justify-between rounded-[10px] ">
-                
-                <div className='flex flex-row space-x-5'>
-                    <div className='bg-gray-300 rounded-full'><img src={avatar} alt='avatar' loading="lazy" /></div>
-
-                    <div className='flex flex-col'>
-                        <h2 className='font-semibold'>Marco Bianchi</h2>
-                        <p>05.03.2024, 10:15</p>
-
-                        <ul className='flex flex-row space-x-1'>
-                            <li className='w-[14px] h-[14px]'><img src={golden_star} loading="lazy"/></li>
-                            <li className='w-[14px] h-[14px]'><img src={golden_star} loading="lazy"/></li>
-                            <li className='w-[14px] h-[14px]'><img src={golden_star} loading="lazy"/></li>
-                            <li className='w-[14px] h-[14px]'><img src={gray_star} loading="lazy"/></li>
-                            <li className='w-[14px] h-[14px]'><img src={gray_star} loading="lazy"/></li>
-
-
-                        </ul>
-                    </div>
-                </div>
-
-                <p className='sm:text-[20px] lg:text-[15px]'>{t('first_review')}</p>
-
-                <ul className='flex flex-row justify-between'>
-                    <li className='w-[114px] h-[90px] bg-violet-500 rounded-md'><img src={first_review_first_image} className='w-full h-full rounded-md' loading="lazy"/></li>
-                    <li className='w-[114px] h-[90px] bg-violet-500 rounded-md'><img src={first_review_second_image} className='w-full h-full rounded-md' loading="lazy"/></li>
-                    <li className='w-[114px] h-[90px] bg-violet-500 rounded-md'><img src={first_review_third_image} className='w-full h-full rounded-md' loading="lazy"/></li>
-
-
+    <main className={`home-reviews-bg-image w-full bg-cover px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 flex flex-col gap-6 sm:gap-8 lg:gap-10 ${selectedLang === 'it' ? 'pb-10 sm:pb-12 lg:pb-16' : ''}`}>
+      <header className="flex flex-row items-center justify-between w-full max-w-[165 Townsvillepx] mx-auto">
+        <img src={left_decoration} alt="left decoration" loading="lazy" className="w-[120px] sm:w-[180px] lg:w-[276px] h-auto sm:hidden lg:block" />
+        <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[70px] text-center px-4 sm:px-0">{t('h')}</h1>
+        <img src={right_decoration} alt="right decoration" loading="lazy" className="w-[120px] sm:w-[180px] lg:w-[276px] h-auto sm:hidden lg:block" />
+      </header>
+      <p className="text-white text-base sm:text-lg md:text-xl lg:text-[32px] italic font-light text-center max-w-[600px] mx-auto">{t('p')}</p>
+      <section className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8 justify-between w-full max-w-[1641px] mx-auto">
+        {[
+          {
+            name: 'Marco Bianchi',
+            date: '05.03.2024, 10:15',
+            stars: [golden_star, golden_star, golden_star, gray_star, gray_star],
+            text: 'first_review',
+            images: [first_review_first_image, first_review_second_image, first_review_third_image],
+            size: 'w-full sm:max-w-[453px] h-auto min-h-[400px] sm:min-h-[450px]',
+          },
+          {
+            name: 'Алексей Петров',
+            date: '12.02.2024, 14:37',
+            stars: [golden_star, golden_star, golden_star, golden_star, gray_star],
+            text: 'second_review',
+            images: [second_review_first_image, second_review_second_image, second_review_third_image],
+            size: `w-full sm:max-w-[667px] ${selectedLang === 'it' ? 'min-h-[500px] sm:min-h-[600px]' : 'min-h-[450px] sm:min-h-[500px]'}`,
+          },
+          {
+            name: 'Игорь Васильев',
+            date: '22.03.2024, 18:52',
+            stars: [golden_star, golden_star, golden_star, golden_star, gray_star],
+            text: 'third_review',
+            images: [third_review_first_image, third_review_second_image, third_review_third_image],
+            size: 'w-full sm:max-w-[453px] h-auto min-h-[400px] sm:min-h-[450px]',
+          },
+        ].map((review, index) => (
+          <div key={index} className={`relative flex flex-col ${review.size} bg-white p-4 sm:p-6 lg:p-8 shadow-2xl rounded-[10px] gap-4 sm:gap-6`}>
+            <div className="flex flex-row gap-3 sm:gap-4">
+              <div className="bg-gray-300 rounded-full w-10 sm:w-12 lg:w-[80px] h-10 sm:h-12 lg:h-[80px]">
+                <img src={avatar} alt="avatar" loading="lazy" className="w-full h-full object-cover" />
+              </div>
+              <div className="flex flex-col gap-1 sm:gap-2">
+                <h2 className="font-semibold text-sm sm:text-base lg:text-lg">{review.name}</h2>
+                <p className="text-xs sm:text-sm lg:text-base">{review.date}</p>
+                <ul className="flex flex-row gap-1 sm:gap-2">
+                  {review.stars.map((star, i) => (
+                    <li key={i} className="w-3 sm:w-4 lg:w-[14px] h-3 sm:h-4 lg:h-[14px]">
+                      <img src={star} alt="star" loading="lazy" className="w-full h-full" />
+                    </li>
+                  ))}
                 </ul>
-                <div className=" absolute bottom-[-60px] right-10 w-1 h-1
-                            border-l-[100px] border-l-transparent 
-                            border-r-[0px] border-r-transparent 
-                            border-t-[100px] border-white">
-                </div>
+              </div>
             </div>
-
-            {/* 2 */}
-            <div class={`relative flex flex-col  lg:w-[667px] lg:${selectedLang === 'it' ? 'h-[640px] mb-20' : ''} bg-white  p-10 shadow-2xl space-y-10  rounded-[10px] `}>
-                
-                <div className='flex flex-row space-x-5'>
-                    <div className='bg-gray-300 rounded-full w-[100px] h-[100px]'><img src={avatar} alt='avatar' loading="lazy" className='w-full h-full' /></div>
-
-                    <div className='flex flex-col space-y-2'>
-                        <h1 className='font-semibold'>Алексей Петров</h1>
-                        <p>12.02.2024, 14:37</p>
-
-                        <ul className='flex flex-row space-x-2'>
-                            <li className='w-[20px] h-[20px]'><img src={golden_star} className='w-full h-full' loading="lazy"/></li>
-                            <li className='w-[20px] h-[20px]'><img src={golden_star} className='w-full h-full' loading="lazy"/></li>
-                            <li className='w-[20px] h-[20px]'><img src={golden_star} className='w-full h-full' loading="lazy"/></li>
-                            <li className='w-[20px] h-[20px]'><img src={golden_star} className='w-full h-full' loading="lazy"/></li>
-                            <li className='w-[20px] h-[20px]'><img src={gray_star} className='w-full h-full'loading="lazy"/></li>
-
-
-                        </ul>
-                    </div>
-                </div>
-
-                <p className='text-[24.2px]'> {t("second_review")}</p>
-
-                <ul className='flex flex-row justify-between sm:space-x-4 lg:space-x-0'>
-                    <li className='sm:w-[150px] sm:h-[120px] lg:w-[167px] lg:h-[132px] bg-violet-500 rounded-md'><img src={second_review_first_image} className='w-full h-full rounded-md 'loading="lazy"/></li>
-                    <li className='sm:w-[150px] sm:h-[120px] lg:w-[167px] lg:h-[132px] bg-violet-500 rounded-md'><img src={second_review_second_image} className='w-full h-full rounded-md'loading="lazy"/></li>
-                    <li className='sm:w-[150px] sm:h-[120px] lg:w-[167px] lg:h-[132px] bg-violet-500 rounded-md'><img src={second_review_third_image} className='w-full h-full rounded-md'loading="lazy"/></li>
-                </ul>
-                <div class=" absolute bottom-[-60px] right-10 w-1 h-1
-                            border-l-[100px] border-l-transparent 
-                            border-r-[0px] border-r-transparent 
-                            border-t-[100px] border-white">
-                </div>
-            </div>
-
-            {/* 3 */}
-            <div class={`relative flex flex-col  sm:w-full sm:h-[500px] sm:mb-10 lg:mb-0 lg:w-[453px] lg:h-[415px] bg-white  p-10 shadow-2xl justify-between rounded-[10px]`}>
-                
-                <div className='flex flex-row space-x-5'>
-                    <div className='bg-gray-300 rounded-full'><img src={avatar} avatar loading="lazy"/></div>
-
-                    <div className='flex flex-col'>
-                        <h1 className='font-semibold'>Игорь Васильев</h1>
-                        <p>22.03.2024, 18:52</p>
-
-                        <ul className='flex flex-row space-x-1'>
-                            <li className='w-[14px] h-[14px]'><img src={golden_star} loading="lazy"/></li>
-                            <li className='w-[14px] h-[14px]'><img src={golden_star} loading="lazy"/></li>
-                            <li className='w-[14px] h-[14px]'><img src={golden_star} loading="lazy"/></li>
-                            <li className='w-[14px] h-[14px]'><img src={golden_star} loading="lazy"/></li>
-                            <li className='w-[14px] h-[14px]'><img src={gray_star} loading="lazy"/></li>
-
-
-                        </ul>
-                    </div>
-                </div>
-
-                <p className='sm:text-[20px] lg:text-[15px]'>{t('third_review')}</p>
-
-                <ul className='flex flex-row justify-between'>
-                    <li className='w-[114px] h-[90px] bg-violet-500 rounded-md'><img src={third_review_first_image} className='w-full h-full rounded-md' loading="lazy"/></li>
-                    <li className='w-[114px] h-[90px] bg-violet-500 rounded-md'><img src={third_review_second_image} className='w-full h-full rounded-md'loading="lazy"/></li>
-                    <li className='w-[114px] h-[90px] bg-violet-500 rounded-md'><img src={third_review_third_image} className='w-full h-full rounded-md' loading="lazy"/></li>
-
-
-                </ul>
-                <div class=" absolute bottom-[-60px] right-10 w-1 h-1
-                            border-l-[100px] border-l-transparent 
-                            border-r-[0px] border-r-transparent 
-                            border-t-[100px] border-white">
-                </div>
-            </div>
-
-
-        </section>
-
-
+            <p className="text-sm sm:text-base lg:text-[15px]">{t(review.text)}</p>
+            <ul className="flex flex-row justify-between gap-2 sm:gap-3 lg:gap-4">
+              {review.images.map((img, i) => (
+                <li key={i} className="w-[80px] sm:w-[120px] lg:w-[167px] h-[60px] sm:h-[90px] lg:h-[132px] bg-violet-500 rounded-md">
+                  <img src={img} alt={`review-${index + 1}-${i + 1}`} className="w-full h-full rounded-md object-cover" loading="lazy" />
+                </li>
+              ))}
+            </ul>
+            <div className="absolute bottom-[-40px] sm:bottom-[-50px] right-4 sm:right-6 lg:right-8 w-0 h-0 border-l-[60px] sm:border-l-[80px] lg:border-l-[100px] border-l-transparent border-r-0 border-r-transparent border-t-[60px] sm:border-t-[80px] lg:border-t-[100px] border-white" />
+          </div>
+        ))}
+      </section>
     </main>
-  )
-}
+  );
+};
 
-export default Reviews
+export default Reviews;

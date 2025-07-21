@@ -9,91 +9,67 @@ import hands from '../../assets/icons/hands.png'
 import time from '../../assets/icons/time.png'
 
 const Guarantees = () => {
-  const {t} = useTranslation('home/Guarantees')
-  const selectedLang = localStorage.getItem('language') || 'en';	
+  const { t } = useTranslation('home/Guarantees')
+  const selectedLang = localStorage.getItem('language') || 'en'
+
+  const guarantees = [
+    { icon: contract, title: t('first_element.h'), desc: t('first_element.p'), number: 1 },
+    { icon: achieve, title: t('second_element.h'), desc: t('second_element.p'), number: 2 },
+    { icon: time, title: t('third_element.h'), desc: t('third_element.p'), number: 3 },
+    { icon: hands, title: t('fourth_element.h'), desc: t('fourth_element.p'), number: 4 },
+    { icon: money, title: t('fifth_element.h'), desc: t('fifth_element.p'), number: 5 },
+  ]
+
   return (
-    <div className='relative lg:my-20 sm:h-[2900px] lg:h-[826px]'>
-        {/* vector 1 */}
-        <div className='sm:bottom-[400px] sm:scale-150 lg:scale-100 lg:bottom-auto lg:w-[515px] h-[823px] absolute '><img src={vector1} alt='vector 1' loading="lazy" className='w-full h-full overflow-hidden'/></div>
+    <div className="relative w-full max-w-[1650px] mx-auto px-4 py-16 sm:py-24 lg:py-28 overflow-hidden">
+      {/* vector 1 */}
+      <div className="absolute -z-10 left-[-20%] bottom-0 sm:left-[-10%] sm:bottom-[10%] lg:bottom-[5%] lg:left-0 w-[200px] sm:w-[350px] lg:w-[515px] opacity-50">
+        <img src={vector1} alt="vector 1" loading="lazy" className="w-full h-auto object-contain" />
+      </div>
 
+      {/* Header */}
+      <header className="text-center max-w-4xl mx-auto mb-16">
+        <h1 className="text-3xl sm:text-5xl lg:text-[70px] font-bold">{t('h')}</h1>
+        <p className="mt-4 text-lg sm:text-2xl lg:text-[30px] italic">{t('p')}</p>
+      </header>
 
-        {/* header text         */}
-        <header className='sm:w-full lg:w-[754px] h-[136px] mx-auto mb-40 px-10 '>
-            <h1 className='text-[70px] font-bold text-center'>{t('h')}</h1>
-            <p className='text-[30px] italic text-center '>{t('p')}</p>
-        </header>
-        
-        {/* list of Guarantees */}
-        <main className=' lg:w-[1650px] mx-auto'>
+      {/* Cards */}
+      <main>
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 justify-items-center">
+      {guarantees.map((item) => (
+            <li
+              key={item.number}
+              className="relative bg-gradient-to-t from-[#83b1d6] to-[#fcfdfe] shadow-2xl rounded-xl w-full max-w-[380px] lg:w-[278px] mx-auto p-6 pt-10 pb-16"
+            >
+              <div className="flex flex-col items-center gap-6">
+                <div className="w-20 h-20 lg:w-16 lg:h-16">
+                  <img src={item.icon} alt={`icon-${item.number}`} loading="lazy" className="w-full h-full object-contain" />
+                </div>
+                <h2
+                  className={`font-semibold text-center ${
+                    selectedLang === 'it' && item.number === 5 ? 'text-[24px]' : 'text-xl lg:text-[22px]'
+                  }`}
+                >
+                  {item.title}
+                </h2>
+                <p className="bg-[#d7e4ef] w-full text-center text-sm sm:text-lg lg:text-[17px] p-4 rounded-md">
+                  {item.desc}
+                </p>
+              </div>
 
-            <ul className=' sm:h-[2500px] lg:h-[430px] flex sm:flex-col lg:flex-row justify-between'>
-                {/* 1 */}
-                <li className=' relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[278px] h-[420px] bg-linear-to-t from-[#83b1d6]  to-[#fcfdfe] shadow-2xl'>
-                    <div className='flex flex-col justify-between h-full w-full py-10'>
-                        <div className='sm:w-[100px] sm:h-[100px] lg:w-[64px] lg:h-[64px] mx-auto '><img src={contract} alt='bill' loading="lazy" className='w-full h-full'/></div>
-                        <h2 className='sm:text-[30px] lg:text-[22px] font-semibold text-center'>{t('first_element.h')}</h2>
-                        <p className='bg-[#d7e4ef] sm:text-[22px] lg:text-[17px] w-full h-[117px] p-3 text-center '>{t('first_element.p')}</p>
+              {/* Number badge */}
+              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full flex items-center justify-center text-[40px] font-semibold">
+                {item.number}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </main>
 
-                    </div>
-
-                    <div className='absolute top-[385px] sm:left-[270px] md:left-[45%] lg:left-[104px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>1</p> </div>
-                </li>
-
-                {/* 2 */}
-                <li className=' relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[278px] h-[420px] bg-linear-to-t from-[#83b1d6]  to-[#fcfdfe] shadow-2xl'>
-                    <div className='flex flex-col justify-between h-full w-full py-10'>
-                        <div className='sm:w-[100px] sm:h-[100px] lg:w-[64px] lg:h-[64px] mx-auto '><img src={achieve} alt='hands' loading="lazy" className='w-full h-full'/></div>
-                        <h2 className='sm:text-[30px] lg:text-[22px] font-semibold text-center'>{t('second_element.h')}</h2>
-                        <p className='bg-[#d7e4ef] sm:text-[22px] lg:text-[17px] w-full h-[117px] p-4 text-center '>{t('second_element.p')}</p>
-
-                    </div>
-
-                    <div className='absolute top-[385px] sm:left-[270px] md:left-[45%] lg:left-[104px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>2</p> </div>
-                </li>
-
-                {/* 3 */}
-                <li className=' relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[278px] h-[420px] bg-linear-to-t from-[#83b1d6]  to-[#fcfdfe] shadow-2xl'>
-                    <div className='flex flex-col justify-between h-full w-full py-10'>
-                        <div className='sm:w-[100px] sm:h-[100px] lg:w-[64px] lg:h-[64px] mx-auto '><img src={time} alt='clock' loading="lazy" className='w-full h-full'/></div>
-                        <h2 className='sm:text-[30px] lg:text-[22px] font-semibold text-center'>{t('third_element.h')}</h2>
-                        <p className='bg-[#d7e4ef] sm:text-[22px] lg:text-[17px] w-full h-[117px] p-4 text-center '>{t('third_element.p')}</p>
-
-                    </div>
-
-                    <div className='absolute top-[385px] sm:left-[270px] md:left-[45%] lg:left-[104px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>3</p> </div>
-                </li>
-
-                {/* 4 */}
-                <li className=' relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[278px] h-[420px] bg-linear-to-t from-[#83b1d6]  to-[#fcfdfe] shadow-2xl'>
-                    <div className='flex flex-col justify-between h-full w-full py-10'>
-                        <div className='sm:w-[100px] sm:h-[100px] lg:w-[64px] lg:h-[64px] mx-auto '><img src={hands} alt='hands' loading="lazy" className='w-full h-full'/></div>
-                        <h2 className='sm:text-[30px] lg:text-[22px] font-semibold text-center'>{t('fourth_element.h')}</h2>
-                        <p className='bg-[#d7e4ef] sm:text-[22px] lg:text-[17px] w-full h-[117px] p-4 text-center '>{t('fourth_element.p')}</p>
-
-                    </div>
-
-                    <div className='absolute top-[385px] sm:left-[270px] md:left-[45%] lg:left-[104px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>4</p> </div>
-                </li>
-
-                {/* 5 */}
-                <li className=' relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[278px] h-[420px] bg-linear-to-t from-[#83b1d6]  to-[#fcfdfe] shadow-2xl'>
-                    <div className='flex flex-col justify-between h-full w-full py-10'>
-                        <div className='sm:w-[100px] sm:h-[100px] lg:w-[64px] lg:h-[64px] mx-auto '><img src={money} alt='clock' loading="lazy" className='w-full h-full'/></div>
-                        <h2 className={`sm:text-[30px]  font-semibold text-center ${selectedLang === 'it' ? 'lg:text-[24px]' :'lg:text-[22px]'}  `}>{t('fifth_element.h')}</h2>
-                        <p className='bg-[#d7e4ef] sm:text-[22px] lg:text-[17px] w-full h-[117px] p-4 text-center '>{t('fifth_element.p')}</p>
-
-                    </div>
-
-                    <div className='absolute top-[385px] sm:left-[270px] md:left-[45%] lg:left-[104px] w-[70px] h-[70px] border-[5px] border-white bg-[#F9BA4E] rounded-full text-center  '><p className='font-semibold text-[40px]'>5</p> </div>
-                </li>
-
-
-            </ul>
-        </main>
-
-        {/* vector 2 */}
-        <div className='sm:w-full sm:h-auto lg:w-[806px] lg:h-[804px] lg:scale-100 lg:right-0 sm:top-[300px] lg:top-0 absolute -z-10 '><img src={vector2} alt='vector 2' loading="lazy" className='w-full h-full object-cover'/></div>
-
+      {/* vector 2 */}
+      <div className="absolute -z-10 top-[5%] right-[-20%] sm:top-[10%] sm:right-[-10%] lg:top-0 lg:right-0 w-[250px] sm:w-[400px] lg:w-[806px] opacity-50">
+        <img src={vector2} alt="vector 2" loading="lazy" className="w-full h-auto object-contain" />
+      </div>
     </div>
   )
 }

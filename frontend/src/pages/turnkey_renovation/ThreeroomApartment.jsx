@@ -11,142 +11,122 @@ import image from '../../assets/images/turnkey_renovation/threeroom_apartment/im
 
 import arrow_1 from '../../assets/images/room_renovation/room_renovation/arrow_1.png'
 
-// process images imports
 import first_step from '../../assets/images/turnkey_renovation/threeroom_apartment/process/first_step.jpg'
 import second_step from '../../assets/images/turnkey_renovation/threeroom_apartment/process/second_step.jpg'
 import third_step from '../../assets/images/turnkey_renovation/threeroom_apartment/process/third_step.jpg'
 
-
 const ThreeroomApartment = () => {
-  const {t} = useTranslation('turnkey_renovation/ThreeroomApartment')
-  const selectedLang = localStorage.getItem('language') || 'en';
+  const { t } = useTranslation('turnkey_renovation/ThreeroomApartment')
+  const selectedLang = localStorage.getItem('language') || 'en'
   return (
-    <div>
-        <Helmet>
-            <title>{t('title')}</title>
-            <meta name="description" content="Renovation of threeroom apartments by EVO Home" />
-        </Helmet>
-        {/* first step */}
-        <header className='lg:w-[1641px] sm:w-full lg:h-[1520px] mx-auto my-20 flex flex-col justify-between'>
-            {/* header */}
-            <div className='h-[83px] w-full mx-auto flex flex-row justify-between items-center sm:mb-10 lg:mb-0'>
-                <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
+    <div className="w-full min-h-screen">
+      <Helmet>
+        <title>{t('title')}</title>
+        <meta name="description" content="Renovation of threeroom apartments by EVO Home" />
+      </Helmet>
 
-                <h1 className='font-bold mx-auto text-center sm:text-[50px] lg:text-[57px]'>{t('h')}</h1>
+      <header className="w-full max-w-[1641px] mx-auto my-6 sm:my-8 lg:my-10 flex flex-col justify-between px-4 lg:px-0">
+        <div className="w-full flex flex-row justify-between items-center mb-6 sm:mb-8 lg:mb-10">
+          <img src={left_decoration} alt='left decoration' loading="lazy" className="w-[200px] h-[60px] hidden lg:block" />
+          <h1 className="font-bold text-center text-[32px] sm:text-[40px] lg:text-[57px] mx-auto">{t('h')}</h1>
+          <img src={right_decoration} alt='right decoration' loading="lazy" className="w-[200px] h-[60px] hidden lg:block" />
+        </div>
 
-                <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block' />
-            </div>
-            
-            {/* main content */}
-            <div className='space-y-10'>
-                {/* header */}
-                <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] flex flex-row'>
-                    <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>1.</div>
-                    <h2 className='sm:text-[25px] lg:text-[50px] font-bold sm:mt-5 lg:mt-0'>{t('header.h')}</h2>
-                </div>
+        <div className="space-y-6 sm:space-y-8 lg:space-y-10">
+          <div className="w-full h-[60px] sm:h-[74px] bg-[#F9B33B] flex flex-row items-center">
+            <div className="w-[60px] sm:w-[74px] h-full bg-[#222222] text-white text-[40px] sm:text-[50px] text-center mr-3 lg:mr-10">1.</div>
+            <h2 className={`${selectedLang === 'it' ? 'text-[18px] sm:text-[20px]' : 'text-[20px] sm:text-[24px]'} lg:text-[50px] font-bold mt-1 lg:mt-0`}>{t('header.h')}</h2>
+          </div>
 
-                {/* text */}
-                <div className='text-[28px] sm:text-center lg:text-start sm:px-5 lg:px-0 flex flex-col space-y-10'>
-                    <p>{t('header.p1')}</p>
-                    <p>{t('header.p2')}</p>
-                </div>
+          <div className="text-[18px] sm:text-[22px] lg:text-[28px] text-center lg:text-left flex flex-col space-y-4">
+            <p>{t('header.p1')}</p>
+            <p>{t('header.p2')}</p>
+          </div>
 
-                {/* image */}
-                <div className='sm:w-full lg:w-[1641px] lg:h-[661px] bg-blue-600/20'><img src={image} alt='threeroom apartment' loading="lazy" className='w-full h-full object-cover rounded-[10px]' /></div>
+          <div className="w-full bg-blue-600/20 rounded-[10px] overflow-hidden">
+            <img src={image} alt='threeroom apartment' loading="lazy" className="w-full h-auto object-cover" />
+          </div>
 
-                <div className='sm:w-full lg:w-[1640px] h-[67px] flex flex-row items-center mx-auto'>
-                    <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
+          <div className="w-full h-[50px] sm:h-[67px] flex flex-row items-center mx-auto">
+            <div className="h-[2px] sm:h-[3px] lg:h-[1px] w-[30%] lg:w-[625.5px] bg-[#F9B33B]"></div>
+            <Link to="/contacts" className="w-[40%] lg:w-[389px] h-full bg-[#F9B33B] text-[20px] sm:text-[24px] lg:text-[30px] font-semibold flex items-center justify-center hover:scale-105 transition duration-300">{t('header.button')}</Link>
+            <div className="h-[2px] sm:h-[3px] lg:h-[1px] w-[30%] lg:w-[625.5px] bg-[#F9B33B]"></div>
+          </div>
+        </div>
+      </header>
 
-                    <Link to="/contacts" className="sm:w-[40%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">{t('header.button')}</Link>
+      <main className="w-full flex flex-col px-4 lg:px-0">
+        <div className="w-full max-w-[1640px] h-[60px] sm:h-[74px] bg-[#F9B33B] mx-auto mb-8 sm:mb-10 lg:mb-12 flex flex-row items-center">
+          <div className="w-[60px] sm:w-[74px] h-full bg-[#222222] text-white text-[40px] sm:text-[50px] text-center mr-3 lg:mr-10">2.</div>
+          <h2 className={`${selectedLang === 'it' ? 'text-[18px] sm:text-[20px]' : 'text-[20px] sm:text-[24px]'} lg:text-[42px] font-bold mt-1 lg:mt-0`}>{t('process.h')}</h2>
+        </div>
 
-                    <div className='sm:h-[3px] lg:h-[1px] sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
-                </div>
-            </div>
-        </header>
+        <p className="w-full max-w-[1640px] mx-auto text-[20px] sm:text-[24px] lg:text-[32px] text-center lg:text-left mb-8 sm:mb-10 lg:mb-12">{t('process.p')}</p>
 
-        {/* process */}
+        <div className="w-full max-w-[1641px] mx-auto mb-8 sm:mb-10 lg:mb-12 relative">
+          <div className="absolute top-[300px] sm:top-[347px] left-[180px] sm:left-[220px] w-[1100px] sm:w-[1377px] h-[500px] sm:h-[646px] scale-x-80 hidden lg:block">
+            <img src={arrow_1} alt='arrow 1' loading="lazy" className="w-full h-full object-contain" />
+          </div>
 
-        <main className='lg:w-full lg:h-[2700px] flex flex-col justify-between lg:mb-20'>
-            {/* header */}
-            <div className='sm:w-full lg:w-[1640px] h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
-                <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-3 lg:mr-10'>2.</div>
-                <h2 className={`${selectedLang === 'it' ? 'sm:text-[20px]  sm:mt-3' : 'sm:text-[26px]  '} lg:text-[42px] font-bold  lg:mt-0`}>{t('process.h')}</h2>
-            </div>
-
-            <p className='sm:w-full lg:w-[1640px] sm:px-4 lg:px-0 text-[32px] mx-auto my-20 sm:text-center lg:text-start'>{t('process.p')}</p>
-
-            {/* list of steps */}
-            <div className='sm:h-[2800px] lg:h-[1340px] sm:w-full lg:w-auto relative mx-auto '>
-                <div className='lg:w-[1377px] lg:h-[646px] scale-x-80 absolute top-[347px] left-[220px] sm:hidden lg:block'><img src={arrow_1} alt='arrow 1' loading="lazy" className='w-full h-full' /></div>
-
-                <ul className='sm:h-[2800px] lg:h-full sm:w-full lg:w-[1641px] flex flex-col justify-between space-y-20'>
-                    {/* 1 */}
-                    <li className='sm:w-[85%] sm:ml-[7%] lg:w-full lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row justify-between'>
-                        {/* process photo  */}
-                        <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={first_step} alt='first step' loading="lazy" className='w-full h-full object-cover' /></div>
-                        {/* info */}
-                        <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.1.h')}</h2>
-
-                            <ul className='list-disc text-[28px] pl-12'>
-                                  <li>{t('process.ul.1.li1')}</li>
-                                  <li>{t('process.ul.1.li2')}</li>
-                                  <li>{t('process.ul.1.li3')}</li>
-                                  <li>{t('process.ul.1.li4')}</li>
-                                  <li>{t('process.ul.1.li5')}</li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    {/* 2 */}
-                    <li className='sm:w-[85%] sm:ml-[7%] lg:w-full lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row-reverse justify-between'>
-                        {/* process photo  */}
-                        <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={second_step} alt='second step' loading="lazy" className='w-full h-full object-cover' /></div>
-                        {/* info */}
-                        <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-6 py-5 px-6 lg:px-0 '>
-                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.2.h')}</h2>
-
-                            <ul className='list-disc text-[28px] pl-12'>
-                                  <li>{t('process.ul.2.li1')}</li>
-                                  <li>{t('process.ul.2.li2')}</li>
-                                  <li>{t('process.ul.2.li3')}</li>
-                                  <li>{t('process.ul.2.li4')}</li>
-                                  <li>{t('process.ul.2.li5')}</li>
-                                  <li>{t('process.ul.2.li6')}</li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    {/* 3 */}
-                    <li className='sm:w-[85%] sm:ml-[7%] lg:w-full lg:ml-0 lg:h-[384px] flex sm:flex-col lg:flex-row justify-between'>
-                        {/* process photo  */}
-                        <div className='sm:w-full sm:h-auto lg:w-[667px] lg:h-full border-[5px] border-[#F9B33B]'><img src={third_step} alt='third step ' loading="lazy" className='w-full h-full object-cover' /></div>
-                        {/* info */}
-                        <div className='sm:w-full lg:w-[1082px] h-full flex flex-col space-y-8 py-5 px-6'>
-                            <h2 className='font-bold sm:text-[42px] lg:text-[44px]'>{t('process.ul.3.h')}</h2>
-
-                            <ul className='list-disc text-[28px] pl-12'>
-                                  <li>{t('process.ul.3.li1')}</li>
-                                  <li>{t('process.ul.3.li2')}</li>
-                                  <li>{t('process.ul.3.li3')}</li>
-                                  <li>{t('process.ul.3.li4')}</li>
-                                  <li>{t('process.ul.3.li5')}</li>
-                                  <li>{t('process.ul.3.li6')}</li>
-                            </ul>
-                        </div>
-                    </li>
-
+          <ul className="w-full max-w-[1641px] mx-auto flex flex-col space-y-8 sm:space-y-10 lg:space-y-12">
+            <li className="w-full sm:w-[90%] lg:w-full mx-auto flex flex-col lg:flex-row justify-between items-center">
+              <div className="w-full lg:w-[667px] border-[3px] sm:border-[5px] border-[#F9B33B]">
+                <img src={first_step} alt='first step' loading="lazy" className="w-full h-auto object-cover" />
+              </div>
+              <div className="w-full lg:w-[1082px] flex flex-col space-y-4 py-4 px-4 sm:px-6 lg:px-8">
+                <h2 className="font-bold text-[24px] sm:text-[28px] lg:text-[44px]">{t('process.ul.1.h')}</h2>
+                <ul className="list-disc text-[16px] sm:text-[20px] lg:text-[28px] pl-6 lg:pl-12">
+                  <li>{t('process.ul.1.li1')}</li>
+                  <li>{t('process.ul.1.li2')}</li>
+                  <li>{t('process.ul.1.li3')}</li>
+                  <li>{t('process.ul.1.li4')}</li>
+                  <li>{t('process.ul.1.li5')}</li>
                 </ul>
+              </div>
+            </li>
 
-            </div>
+            <li className="w-full sm:w-[90%] lg:w-full mx-auto flex flex-col lg:flex-row-reverse justify-between items-center">
+              <div className="w-full lg:w-[667px] border-[3px] sm:border-[5px] border-[#F9B33B]">
+                <img src={second_step} alt='second step' loading="lazy" className="w-full h-auto object-cover" />
+              </div>
+              <div className="w-full lg:w-[1082px] flex flex-col space-y-4 py-4 px-4 sm:px-6 lg:px-8">
+                <h2 className="font-bold text-[24px] sm:text-[28px] lg:text-[44px]">{t('process.ul.2.h')}</h2>
+                <ul className="list-disc text-[16px] sm:text-[20px] lg:text-[28px] pl-6 lg:pl-12">
+                  <li>{t('process.ul.2.li1')}</li>
+                  <li>{t('process.ul.2.li2')}</li>
+                  <li>{t('process.ul.2.li3')}</li>
+                  <li>{t('process.ul.2.li4')}</li>
+                  <li>{t('process.ul.2.li5')}</li>
+                  <li>{t('process.ul.2.li6')}</li>
+                </ul>
+              </div>
+            </li>
 
-            <div className='mb-10 '>
-                <Video text={t('process.video_text')} />
-            </div>
-        </main>
+            <li className="w-full sm:w-[90%] lg:w-full mx-auto flex flex-col lg:flex-row justify-between items-center">
+              <div className="w-full lg:w-[667px] border-[3px] sm:border-[5px] border-[#F9B33B]">
+                <img src={third_step} alt='third step' loading="lazy" className="w-full h-auto object-cover" />
+              </div>
+              <div className="w-full lg:w-[1082px] flex flex-col space-y-4 py-4 px-4 sm:px-6 lg:px-8">
+                <h2 className="font-bold text-[24px] sm:text-[28px] lg:text-[44px]">{t('process.ul.3.h')}</h2>
+                <ul className="list-disc text-[16px] sm:text-[20px] lg:text-[28px] pl-6 lg:pl-12">
+                  <li>{t('process.ul.3.li1')}</li>
+                  <li>{t('process.ul.3.li2')}</li>
+                  <li>{t('process.ul.3.li3')}</li>
+                  <li>{t('process.ul.3.li4')}</li>
+                  <li>{t('process.ul.3.li5')}</li>
+                  <li>{t('process.ul.3.li6')}</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
 
-        <LayoutCollection/>
-        
+        <div className="mb-8 sm:mb-10 lg:mb-12 px-4 lg:px-0">
+          <Video text={t('process.video_text')} />
+        </div>
+      </main>
+
+      <LayoutCollection />
     </div>
   )
 }

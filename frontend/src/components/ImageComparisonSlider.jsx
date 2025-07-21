@@ -39,3 +39,6 @@ const ImageComparisonSlider = ({ beforeSrc, afterSrc }) => {
 };
 
 export default ImageComparisonSlider;
+
+
+//made

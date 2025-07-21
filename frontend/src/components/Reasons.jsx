@@ -1,129 +1,35 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-
 import vector from '../assets/images/room_renovation/room_renovation/vector.png'
 
 const Reasons = () => {
   const {t} = useTranslation('components/Reasons')
   const selectedLang = localStorage.getItem('language') || 'en';
   return (
-    <div className='relative  w-full lg:h-[1098px] sm:my-10 lg:my-20'>     
-        {/* header */}
-        <header className='lg:w-[1640px] mx-auto h-[74px] bg-[#F9B33B] flex flex-row sm:mb-20'>
-            <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center sm:mr-7 lg:mr-10'>3.</div>
-            <h1 className={`${selectedLang === 'it' ? 'sm:text-[25px]' : ''} ${selectedLang === 'en' ? 'sm:text-[26px] sm:mt-4 lg:mt-0' : ''}  ${selectedLang === 'ru' ? 'sm:text-[26px]' : ''} lg:text-[50px] font-bold`}>{t('h')}</h1>
+    <div className='relative w-full h-auto my-10 px-4'>     
+        <header className='w-full max-w-[1640px] mx-auto h-auto bg-[#F9B33B] flex flex-row items-center mb-10'>
+            <div className='w-[50px] sm:w-[60px] lg:w-[74px] h-[50px] sm:h-[60px] lg:h-[74px] bg-[#222222] text-white text-[30px] sm:text-[40px] lg:text-[50px] text-center mr-4 sm:mr-7 lg:mr-10 flex items-center justify-center'>3.</div>
+            <h1 className={`text-[20px] sm:text-[26px] lg:text-[50px] font-bold ${selectedLang === 'it' ? 'text-[20px] sm:text-[25px]' : ''} ${selectedLang === 'en' ? 'mt-2 sm:mt-4 lg:mt-0' : ''}`}>{t('h')}</h1>
         </header>
 
-        {/* vector */}
+        <div className='hidden lg:block absolute w-full h-[600px] sm:h-[800px] lg:h-[1418px] -z-10 bottom-0 right-0'>
+            <img src={vector} alt='vector' loading="lazy" className='w-full h-full object-cover'/>
+        </div>
 
-        <div className='absolute w-[1261px] h-[1418px] -z-10 bottom-[559px] right-[1300px]'><img src={vector} alt='vector' loading="lazy"/></div>
-
-        {/* reasons */}
-        <ul className='sm:w-full lg:w-[1641px] lg:h-[900px] flex flex-col justify-between  mx-auto '>
-            
-            <li className="w-full border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row items-stretch">
-
-                {/* Левая часть — фиксированная ширина */}
-                <div className="text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[25%] bg-[#222222]">
-                {t('ul.1.h')}
-                </div>
-
-                {/* Правая часть — обязательно flex-1 */}
-                <div className="flex-1 text-[30px] px-3 py-4 leading-snug">
-                {t('ul.1.p')}
-                </div>
-
-            </li>
-
-
-            <li className="w-full border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row items-stretch">
-
-                {/* Левая часть — фиксированная ширина */}
-                <div className="text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[25%] bg-[#222222]">
-                {t('ul.2.h')}
-                </div>
-
-                {/* Правая часть — обязательно flex-1 */}
-                <div className="flex-1 text-[30px] px-3 py-4 leading-snug">
-                {t('ul.2.p')}
-                </div>
-
-            </li>
-
-            <li className="w-full border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row items-stretch">
-
-                {/* Левая часть — фиксированная ширина */}
-                <div className="text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[25%] bg-[#222222]">
-                {t('ul.3.h')}
-                </div>
-
-                {/* Правая часть — обязательно flex-1 */}
-                <div className="flex-1 text-[30px] px-3 py-4 leading-snug">
-                {t('ul.3.p')}
-                </div>
-
-            </li>
-
-            <li className="w-full border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row items-stretch">
-
-                {/* Левая часть — фиксированная ширина */}
-                <div className="text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[25%] bg-[#222222]">
-                {t('ul.4.h')}
-                </div>
-
-                {/* Правая часть — обязательно flex-1 */}
-                <div className="flex-1 text-[30px] px-3 py-4 leading-snug">
-                {t('ul.4.p')}
-                </div>
-
-            </li>
-
-            <li className="w-full border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row items-stretch">
-
-                {/* Левая часть — фиксированная ширина */}
-                <div className="text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[25%] bg-[#222222]">
-                {t('ul.5.h')}
-                </div>
-
-                {/* Правая часть — обязательно flex-1 */}
-                <div className="flex-1 text-[32px] px-3 py-4 leading-snug">
-                {t('ul.5.p')}
-                </div>
-
-            </li>
-
-            <li className="w-full border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row items-stretch">
-
-                {/* Левая часть — фиксированная ширина */}
-                <div className="text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[25%] bg-[#222222]">
-                {t('ul.6.h')}
-                </div>
-
-                {/* Правая часть — обязательно flex-1 */}
-                <div className="flex-1 text-[32px] px-3 py-4 leading-snug">
-                {t('ul.6.p')}
-                </div>
-
-            </li>
-
-            <li className="w-full border-[2px] border-[#F9B33B] flex sm:flex-col lg:flex-row items-stretch">
-
-                {/* Левая часть — фиксированная ширина */}
-                <div className="text-[24px] text-[#F9B33B] flex justify-center items-center font-bold sm:w-full lg:w-[25%] bg-[#222222]">
-                {t('ul.7.h')}
-                </div>
-
-                {/* Правая часть — обязательно flex-1 */}
-                <div className="flex-1 text-[30px] px-3 py-4 leading-snug">
-                {t('ul.7.p')}
-                </div>
-
-            </li>
-
+        <ul className='w-full max-w-[1640px] h-auto flex flex-col gap-4 mx-auto'>
+            {[...Array(7)].map((_, index) => (
+                <li key={index} className="w-full border-[2px] border-[#F9B33B] flex flex-col lg:flex-row items-stretch">
+                    <div className="text-[18px] sm:text-[20px] lg:text-[24px] text-[#F9B33B] flex justify-center items-center font-bold w-full lg:w-[25%] bg-[#222222] py-3 lg:py-0">
+                        {t(`ul.${index + 1}.h`)}
+                    </div>
+                    <div className="flex-1 text-[20px] sm:text-[24px] lg:text-[30px] px-3 py-4 leading-snug">
+                        {t(`ul.${index + 1}.p`)}
+                    </div>
+                </li>
+            ))}
         </ul>
 
-        <hr className='mt-20 w-[1641px] mx-auto sm:hidden lg:block'/>
-
+        <hr className='mt-10 w-full max-w-[1640px] mx-auto hidden lg:block'/>
     </div>
   )
 }

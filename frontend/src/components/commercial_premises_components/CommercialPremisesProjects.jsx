@@ -13,129 +13,88 @@ import left_decoration from '../../assets/images/leftside_black_decoration.png'
 import right_decoration from '../../assets/images/rightside_black_decoration.png'
 
 const CommercialPremisesProjects = () => {
-  const {t} = useTranslation('commercial_premises/CommercialPremisesProjects')
-  const selectedLang = localStorage.getItem('language') || 'en';
+  const { t } = useTranslation('commercial_premises/CommercialPremisesProjects')
+  const selectedLang = localStorage.getItem('language') || 'en'
+
   return (
+    <div className="w-full max-w-[1641px] mx-auto px-4 py-10">
+      {/* Header Section */}
+      <header className="flex flex-col lg:flex-row justify-between items-center mb-10">
+        <img
+          src={left_decoration}
+          alt="left decoration"
+          loading="lazy"
+          className="w-[276px] h-[83px] hidden lg:block"
+        />
+        <h1
+          className={`font-bold text-center ${
+            selectedLang === 'it' || selectedLang === 'ru'
+              ? 'text-4xl sm:text-5xl lg:text-[70px]'
+              : 'text-4xl sm:text-5xl lg:text-[70px]'
+          }`}
+        >
+          {t('h')}
+        </h1>
+        <img
+          src={right_decoration}
+          alt="right decoration"
+          loading="lazy"
+          className="w-[276px] h-[83px] hidden lg:block"
+        />
+      </header>
 
-    <div className=' sm:flex sm:flex-col sm:justify-between lg:block sm:mb-30 lg:mb-20 sm:w-full sm:h-[3200px] lg:h-[1250px] lg:w-[1641px] mx-auto'>
-        {/* header section */}
-        <header className=' h-[170px] w-full mx-auto flex flex-row justify-between items-center  '>
-            <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block '/>
-            <div className='sm:mx-auto lg:mx-0'>
-                <h1 className={`font-bold text-center ${selectedLang === 'it' ? 'sm:text-[50px] lg:text-[70px]' : 'sm:text-[50px] lg:text-[70px]'}  sm:px-4 lg:px-0`}>{t('h')}</h1>
+      {/* Subheading */}
+      <p className="text-center text-lg sm:text-2xl lg:text-[32px] italic mb-10 font-light max-w-[1410px] mx-auto">
+        {t('p')}
+      </p>
 
+      {/* Grid Section */}
+      <main className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-y-8 lg:gap-6 mb-12">
+        {[
+          { img: first_image, text: t('p1') },
+          { img: second_image, text: t('p2') },
+          { img: third_image, text: t('p3') },
+          { img: fourth_image, text: t('p4') },
+          { img: fifth_image, text: t('p5') },
+          { img: sixth_image, text: t('p6') },
+        ].map((item, index) => (
+          <div
+            key={index}
+            className="relative w-full max-w-[528px] h-[407px] mx-auto group rounded-[10px] overflow-hidden"
+          >
+            <img
+              src={item.img}
+              alt={`project ${index + 1}`}
+              loading="lazy"
+              className="w-full h-full object-cover group-hover:brightness-50 transition duration-300"
+            />
+            <div className="absolute bottom-5 left-0 right-0 text-white bg-gradient-to-r from-[#7393c7] to-[#7393c7]/0 p-4">
+              <h2 className="text-xl sm:text-2xl lg:text-[32px]">{item.text}</h2>
             </div>
-            <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block '/>
-        </header>
-
-        <p className='sm:w-full lg:w-[1410px] h-[76px] mx-auto text-[32px] text-center font-[100] italic '>{t('p')}</p>
-        
-        {/* grid section with projects */}
-        <main className=' sm:flex sm:flex-col sm:justify-between sm:h-[2800px] lg:h-[900px] lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:gap-y-4 mb-10'>
-
-            {/* first element */}
-            <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group '>
-                <div className='w-full h-full  group-hover:brightness-50 transition duration-300 rounded-[10px]'><img src={first_image} alt='designer renovation' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
-
-                <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>{t('p1')}</h2>
-                </div>
-
-                <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                    <Link to="/our_works" className="bg-[#F9B33B] text-black font-bold text-[30px] flex justify-center items-center" style={{ width: '251px', height: '67px' }}>
-                        {t('button')}
-                    </Link>
-                </div>
-
+            <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+              <Link
+                to="/our_works"
+                className="bg-[#F9B33B] text-black font-bold text-lg sm:text-xl lg:text-[30px] flex justify-center items-center rounded"
+                style={{ width: '251px', height: '67px' }}
+              >
+                {t('button')}
+              </Link>
             </div>
-            {/* second element */}
-            <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={second_image} alt='exclusive renovation' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
+          </div>
+        ))}
+      </main>
 
-                <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>{t('p2')}</h2>
-                </div>
-
-                <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                    <Link to="/our_works" className="bg-[#F9B33B] text-black font-bold text-[30px] flex justify-center items-center" style={{ width: '251px', height: '67px' }}>
-                        {t('button')}
-                    </Link>
-                </div>
-
-            </div>
-            {/* third element */}
-            <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={third_image} alt='studio renovation' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
-
-                <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>{t('p3')}</h2>
-                </div>
-
-                <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                    <Link to="/our_works" className="bg-[#F9B33B] text-black font-bold text-[30px] flex justify-center items-center" style={{ width: '251px', height: '67px' }}>
-                        {t('button')}
-                    </Link>
-                </div>
-
-            </div>
-            {/* fouirth element */}
-            <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={fourth_image} alt='tworoom apartment renovation' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
-
-                <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>{t('p4')}</h2>
-                </div>
-
-                <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                    <Link to="/our_works" className="bg-[#F9B33B] text-black font-bold text-[30px] flex justify-center items-center" style={{ width: '251px', height: '67px' }}>
-                        {t('button')}
-                    </Link>
-                </div>
-
-            </div>
-            {/* fifth element */}
-            <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={fifth_image} alt='threeroom apartment renovation' loading="lazy" className='w-full h-full rounded-[10px]' /></div>
-
-                <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>{t('p5')}</h2>
-                </div>
-
-                <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                    <Link to="/our_works" className="bg-[#F9B33B] text-black font-bold text-[30px] flex justify-center items-center" style={{ width: '251px', height: '67px' }}>
-                        {t('button')}
-                    </Link>
-                </div>
-
-            </div>
-            {/* sixth element */}
-            <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={sixth_image} alt='twostory apartment renovation' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
-
-                <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>{t('p6')}</h2>
-                </div>
-
-                <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                    <Link to="/our_works" className="bg-[#F9B33B] text-black font-bold text-[30px] flex justify-center items-center" style={{ width: '251px', height: '67px' }}>
-                        {t('button')}
-                    </Link>
-                </div>
-
-            </div>
-
-        </main>
-
-        <div className='sm:w-full lg:w-[1641px] flex flex-row items-center mx-auto'>
-
-            <div className='h-[1px] w-[625.5px] bg-[#F9B33B] sm:hidden lg:block'></div>
-
-            <Link to='/our_works' className='sm:mx-auto lg:mx-0 flex justify-center items-center w-[389px] h-[67px] bg-[#F9B33B] text-[30px] font-semibold hover:scale-110 transition duration-300'>{t('button')}</Link>
-
-            <div className='h-[1px] w-[625.5px] bg-[#F9B33B] sm:hidden lg:block'></div>
-        </div>
-
-        
+      {/* Bottom Button with Lines */}
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-4">
+        <div className="hidden lg:block h-[1px] w-[625.5px] bg-[#F9B33B]"></div>
+        <Link
+          to="/our_works"
+          className="w-[250px] sm:w-[320px] h-[60px] bg-[#F9B33B] text-[22px] sm:text-[26px] font-semibold flex items-center justify-center hover:scale-110 transition-transform duration-300"
+        >
+          {t('button')}
+        </Link>
+        <div className="hidden lg:block h-[1px] w-[625.5px] bg-[#F9B33B]"></div>
+      </div>
     </div>
   )
 }

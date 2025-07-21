@@ -3,6 +3,7 @@ import cors from 'cors';
 import session from 'express-session';
 import dotenv from 'dotenv';
 import { Pool } from 'pg';
+import bcrypt from 'bcrypt';
 
 dotenv.config();
 
@@ -35,33 +36,50 @@ app.use(cors({
 app.use(express.json());
 
 app.use(session({
-  secret: 'evo_home_app_secret_key',
+  secret: process.env.SESSION_SECRET || 'evo_home_app_secret_key',
   resave: false,
   saveUninitialized: false,
   cookie: {
     httpOnly: true,
-    secure: false,
-    maxAge: 24 * 60 * 60 * 1000
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    maxAge: 24 * 60 * 60 * 1000,
   }
 }));
 
-// Логин
+// 🔐 Логин
 app.post('/api/login', async (req, res) => {
   const { username, password } = req.body;
+
   try {
-    const result = await pool.query(
-      'SELECT * FROM users WHERE username = $1 AND password = $2',
-      [username, password]
-    );
-    if (result.rows.length > 0) {
-      req.session.user = { username: result.rows[0].username };
-      res.json({ success: true });
-    } else {
-      res.status(401).json({ success: false, message: 'Неверный логин или пароль' });
+    // 1. Проверка предустановленного логина
+    if (
+      username === process.env.ADMIN_USERNAME &&
+      await bcrypt.compare(password, process.env.ADMIN_PASSWORD_HASH || '')
+    ) {
+      req.session.user = { username, role: 'admin' };
+      return res.json({ success: true });
     }
+
+    // 2. Проверка в базе (если юзер не админ)
+    const result = await pool.query(
+      'SELECT * FROM users WHERE username = $1',
+      [username]
+    );
+
+    if (result.rows.length > 0) {
+      const valid = await bcrypt.compare(password, result.rows[0].password);
+      if (valid) {
+        req.session.user = { username: result.rows[0].username };
+        return res.json({ success: true });
+      }
+    }
+
+    res.status(401).json({ success: false, message: 'Неверный логин или пароль' });
+
   } catch (err) {
     console.error('Ошибка при логине:', err.message);
-    res.status(500).json({ success: false, message: 'Ошибка базы данных' });
+    res.status(500).json({ success: false, message: 'Ошибка сервера' });
   }
 });
 
@@ -81,7 +99,7 @@ app.post('/api/logout', (req, res) => {
   });
 });
 
-// Получить заявки
+// Получить заявки (только авторизованные)
 app.get('/api/submissions', async (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Не авторизован' });
@@ -95,19 +113,18 @@ app.get('/api/submissions', async (req, res) => {
   }
 });
 
-// Создание заявки
+// Создание заявки (без авторизации)
 app.post('/api/submissions', async (req, res) => {
   const {
     buildingType, roomType, repairType, area,
     urgency, additionalInfo, name, phone, promoCode
   } = req.body;
-  
-  // Валидация типов
+
   const validBuildingTypes = ['option1', 'option2'];
   const validRoomTypes = ['option1', 'option2'];
   const validRepairTypes = ['option1', 'option2'];
   const validUrgencies = ['option1', 'option2'];
-  
+
   if (!validBuildingTypes.includes(buildingType) ||
       !validRoomTypes.includes(roomType) ||
       !validRepairTypes.includes(repairType) ||
@@ -130,7 +147,7 @@ app.post('/api/submissions', async (req, res) => {
   }
 });
 
-// Удаление заявки по ID
+// Удаление заявки (только авторизованные)
 app.delete('/api/submissions/:id', async (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Не авторизован' });
@@ -145,11 +162,16 @@ app.delete('/api/submissions/:id', async (req, res) => {
   }
 });
 
+// Глобальный обработчик ошибок
 app.use((err, req, res, next) => {
   console.error('Глобальная ошибка:', err);
   res.status(500).json({ error: 'Внутренняя ошибка сервера' });
 });
 
+// Запуск сервера
 app.listen(PORT, () => {
   console.log(`🚀 Сервер запущен на http://localhost:${PORT}`);
 });
+
+
+

@@ -12,32 +12,28 @@ export function LoginPage() {
     e.preventDefault();
     setError('');
     setLoading(true);
-    console.log('🔁 handleSubmit старт');
 
     try {
       const res = await fetch('http://localhost:3001/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        credentials: 'include', // очень важно для сессий!
-        body: JSON.stringify({ username, password })
+        credentials: 'include',
+        body: JSON.stringify({ username, password }),
       });
-
-      console.log('📦 Ответ от сервера:', res.status);
 
       if (res.ok) {
         const json = await res.json();
-        console.log('✅ Успешный вход:', json);
+        console.log('✅ Вход выполнен:', json);
         window.location.href = '/dashboard';
       } else {
         const errText = await res.text();
-        console.warn('❌ Ошибка логина:', res.status, errText);
+        console.warn('❌ Ошибка входа:', res.status, errText);
         setError('Неверный логин или пароль');
       }
     } catch (err) {
-      console.error('🔥 Ошибка сети/сервер не отвечает:', err);
-      setError('Ошибка соединения с сервером');
+      console.error('🔥 Ошибка сервера:', err);
+      setError('Сервер недоступен');
     } finally {
-      console.log('⏹️ handleSubmit завершён');
       setLoading(false);
     }
   };

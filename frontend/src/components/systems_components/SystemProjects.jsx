@@ -13,126 +13,57 @@ import right_decoration from '../../assets/images/rightside_black_decoration.png
 
 const SystemProjects = () => {
   return (
-
-    <div className=' sm:flex sm:flex-col sm:justify-between lg:block sm:mb-30 lg:mb-20 sm:w-full sm:h-[3200px] lg:h-[1250px] lg:w-[1641px] mx-auto'>
+    <div className='w-full h-auto mx-auto px-4 mb-10 sm:mb-20 lg:mb-20'>
         {/* header section */}
-        <header className=' h-[170px] w-full mx-auto flex flex-row justify-between items-center  '>
-            <img src={left_decoration} alt='left decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block '/>
-            <div className='sm:mx-auto lg:mx-0'>
-                <h1 className='font-bold text-center text-[70px] sm:px-4 lg:px-0'>Проекты EVO HOME</h1>
-
+        <header className='h-auto w-full mx-auto flex flex-col lg:flex-row justify-between items-center'>
+            <img src={left_decoration} alt='left decoration' loading="lazy" className='hidden lg:block w-[200px] lg:w-[276px] h-[60px] lg:h-[83px] mb-4 lg:mb-0'/>
+            <div className='w-full lg:w-auto mx-auto lg:mx-0'>
+                <h1 className='font-bold text-center text-[28px] sm:text-[40px] lg:text-[70px] px-4'>Проекты EVO HOME</h1>
             </div>
-            <img src={right_decoration} alt='right decoration' loading="lazy" className='w-[276px] h-[83px] sm:hidden lg:block '/>
+            <img src={right_decoration} alt='right decoration' loading="lazy" className='hidden lg:block w-[200px] lg:w-[276px] h-[60px] lg:h-[83px] mt-4 lg:mt-0'/>
         </header>
 
-        <p className='sm:w-full lg:w-[1410px] h-[76px] mx-auto text-[32px] text-center font-[100] italic '>"Ваш дом – наша работа"</p>
+        <p className='w-full max-w-[1410px] h-auto mx-auto text-[18px] sm:text-[24px] lg:text-[32px] text-center font-[100] italic mt-4'>"Ваш дом – наша работа"</p>
         
         {/* grid section with projects */}
-        <div className=' sm:flex sm:flex-col sm:justify-between sm:h-[2800px] lg:h-[900px] lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:gap-y-4 mb-10'>
-
-            {/* first element */}
-            <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group '>
-                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={first_image} alt='designer renovation' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
-
-                <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>Дизайнерский ремонт</h2>
+        <div className='w-full h-auto flex flex-col lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:gap-4 mt-6 mb-10 gap-6'>
+            {[
+                { image: first_image, title: 'Дизайнерский ремонт' },
+                { image: second_image, title: 'Эксклюзивный ремонт' },
+                { image: third_image, title: 'Ремонт квартиры - студии' },
+                { image: fourth_image, title: 'Ремонт двухкомнатных квартир' },
+                { image: fifth_image, title: 'Ремонт трехкомнатных квартир' },
+                { image: sixth_image, title: 'Ремонт двухэтажных квартир' }
+            ].map((project, index) => (
+                <div key={index} className='relative w-full max-w-[528px] h-[300px] sm:h-[350px] lg:h-[407px] group mx-auto'>
+                    <div className='w-full h-full group-hover:brightness-50 transition duration-300'>
+                        <img src={project.image} alt={project.title.toLowerCase()} loading="lazy" className='w-full h-full rounded-[10px] object-cover'/>
+                    </div>
+                    <div className='absolute bottom-[15px] text-white bg-gradient-to-r from-[#7393c7] to-[#7393c7]/0 p-3 sm:p-4'>
+                        <h2 className='text-[18px] sm:text-[24px] lg:text-[32px]'>{project.title}</h2>
+                    </div>
+                    <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                        <Link 
+                            to="/our_works" 
+                            className="bg-[#F9B33B] text-black font-bold text-[18px] sm:text-[24px] lg:text-[30px] flex justify-center items-center w-[200px] sm:w-[220px] lg:w-[251px] h-[50px] lg:h-[67px]"
+                        >
+                            ПОСМОТРЕТЬ
+                        </Link>
+                    </div>
                 </div>
-
-                <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                    <Link to="/our_works" className="bg-[#F9B33B] text-black font-bold text-[30px] flex justify-center items-center" style={{ width: '251px', height: '67px' }}>
-                        ПОСМОТРЕТЬ
-                    </Link>
-                </div>
-
-            </div>
-            {/* second element */}
-            <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={second_image} alt='exclusive renovation' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
-
-                <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>Эксклюзивный ремонт</h2>
-                </div>
-
-                <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                    <Link to="/our_works" className="bg-[#F9B33B] text-black font-bold text-[30px] flex justify-center items-center" style={{ width: '251px', height: '67px' }}>
-                        ПОСМОТРЕТЬ
-                    </Link>
-                </div>
-
-            </div>
-            {/* third element */}
-            <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={third_image} alt='studio renovation' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
-
-                <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>Ремонт квартиры - студии</h2>
-                </div>
-
-                <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                    <Link to="/our_works" className="bg-[#F9B33B] text-black font-bold text-[30px] flex justify-center items-center" style={{ width: '251px', height: '67px' }}>
-                        ПОСМОТРЕТЬ
-                    </Link>
-                </div>
-
-            </div>
-            {/* fourth element */}
-            <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={fourth_image} alt='tworoom apartment renovation' loading="lazy" className='w-full h-full rounded-[10px]'/></div>
-
-                <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>Ремонт двухкомнатных квартир</h2>
-                </div>
-
-                <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                    <Link to="/our_works" className="bg-[#F9B33B] text-black font-bold text-[30px] flex justify-center items-center" style={{ width: '251px', height: '67px' }}>
-                        ПОСМОТРЕТЬ
-                    </Link>
-                </div>
-
-            </div>
-            {/* fifth element */}
-            <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full group-hover:brightness-50 transition duration-300'><img src={fifth_image} alt='threeroom apartment renovation' loading="lazy" className='w-full h-full rounded-[10px]' /></div>
-
-                <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>Ремонт трехкомнатных квартир</h2>
-                </div>
-
-                <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                    <Link to="/our_works" className="bg-[#F9B33B] text-black font-bold text-[30px] flex justify-center items-center" style={{ width: '251px', height: '67px' }}>
-                        ПОСМОТРЕТЬ
-                    </Link>
-                </div>
-
-            </div>
-            {/* sixth element */}
-            <div className='relative sm:w-[90%] sm:mx-auto lg:mx-0 lg:w-[528px] h-[407px] group'>
-                <div className='w-full h-full  group-hover:brightness-50 transition duration-300'><img src={sixth_image} alt='twostory apartment renovation' className='w-full h-full rounded-[10px]'/></div>
-
-                <div className='absolute bottom-[20px] text-white bg-linear-to-r from-[#7393c7] to-95% to-[#7393c7]/0 p-4'>
-                    <h2 className='text-[32px]'>Ремонт двухэтажных квартир</h2>
-                </div>
-
-                <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                    <Link to="/our_works" className="bg-[#F9B33B] text-black font-bold text-[30px] flex justify-center items-center" style={{ width: '251px', height: '67px' }}>
-                        ПОСМОТРЕТЬ
-                    </Link>
-                </div>
-
-            </div>
-
+            ))}
         </div>
 
-        <div className='sm:w-full lg:w-[1641px] flex flex-row items-center mx-auto'>
-
-            <div className='h-[1px] w-[625.5px] bg-[#F9B33B] sm:hidden lg:block'></div>
-
-                <Link to="/our_works" className='sm:mx-auto lg:mx-0 w-[389px] h-[67px] flex justify-center items-center bg-[#F9B33B] text-[30px] font-semibold hover:scale-110 transition duration-300'>ПОДРОБНЕЕ</Link>
-
-            <div className='h-[1px] w-[625.5px] bg-[#F9B33B] sm:hidden lg:block'></div>
+        <div className='w-full max-w-[1641px] flex flex-col sm:flex-row items-center mx-auto gap-4'>
+            <div className='h-[1px] w-full sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B] hidden sm:block'></div>
+            <Link 
+                to="/our_works" 
+                className='w-full max-w-[389px] h-[50px] lg:h-[67px] flex justify-center items-center bg-[#F9B33B] text-[20px] sm:text-[24px] lg:text-[30px] font-semibold hover:scale-105 transition duration-300 mx-auto'
+            >
+                ПОДРОБНЕЕ
+            </Link>
+            <div className='h-[1px] w-full sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B] hidden sm:block'></div>
         </div>
-
-        
     </div>
   )
 }
