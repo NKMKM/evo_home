@@ -9,6 +9,9 @@ const Calculator = () => {
   const [rangeValue, setRangeValue] = useState(0);
   const { t } = useTranslation('home/Calculator');
 
+  // Получение URL бэкенда из переменной окружения
+  const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -31,7 +34,7 @@ const Calculator = () => {
     console.log('Отправляем данные:', payload);
 
     try {
-      const res = await fetch('http://localhost:3001/api/submissions', {
+      const res = await fetch(`${backendUrl}/api/submissions`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -148,10 +151,10 @@ const Calculator = () => {
           </div>
         </div>
 
-{/* Разделитель */}
-<div className="hidden lg:flex w-[89px] h-[50px] border-r-[10px] border-l-[10px] border-yellow-500 items-center mt-[200px] mr-[20px]">
-  <div className="w-full h-[10px] bg-yellow-500"></div>
-</div>
+        {/* Разделитель */}
+        <div className="hidden lg:flex w-[89px] h-[50px] border-r-[10px] border-l-[10px] border-yellow-500 items-center mt-[200px] mr-[20px]">
+          <div className="w-full h-[10px] bg-yellow-500"></div>
+        </div>
 
         {/* Right Part */}
         <div className="w-full lg:w-[400px] bg-white border-[3px] border-yellow-500 rounded-[10px] p-6 space-y-6">

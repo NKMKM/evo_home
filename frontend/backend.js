@@ -5,17 +5,28 @@ import dotenv from 'dotenv';
 import { Pool } from 'pg';
 import bcrypt from 'bcrypt';
 
+// Загрузка переменных окружения
 dotenv.config();
 
+// Проверка наличия всех необходимых переменных окружения
+const requiredEnvVars = ['PGUSER', 'PGHOST', 'PGDATABASE', 'PGPASSWORD', 'PGPORT', 'SESSION_SECRET', 'ADMIN_USERNAME', 'ADMIN_PASSWORD_HASH', 'FRONTEND_URL_1', 'FRONTEND_URL_2'];
+const missingEnvVars = requiredEnvVars.filter(varName => !process.env[varName]);
+if (missingEnvVars.length > 0) {
+  console.error('❌ Ошибка: отсутствуют переменные окружения:', missingEnvVars.join(', '));
+  process.exit(1);
+}
+
+// Настройка пула подключений к PostgreSQL
 const pool = new Pool({
   user: process.env.PGUSER,
   host: process.env.PGHOST,
   database: process.env.PGDATABASE,
   password: process.env.PGPASSWORD,
   port: Number(process.env.PGPORT),
-  ssl: { rejectUnauthorized: false }
+  ssl: { rejectUnauthorized: false }, // Для продакшена лучше использовать сертификат
 });
 
+// Проверка подключения к базе данных
 pool.connect()
   .then(client => {
     console.log('✅ Подключение к базе успешно');
@@ -23,60 +34,68 @@ pool.connect()
   })
   .catch(err => {
     console.error('❌ Ошибка подключения к базе:', err.message);
+    process.exit(1); // Завершаем процесс при ошибке подключения
   });
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Настройка CORS
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174'],
+  origin: [process.env.FRONTEND_URL_1, process.env.FRONTEND_URL_2], // Укажите фронтенд-порты
   credentials: true,
 }));
 
+// Парсинг JSON
 app.use(express.json());
 
+// Настройка сессий
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'evo_home_app_secret_key',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
+    secure: process.env.NODE_ENV === 'production', // Для HTTPS в продакшене
     sameSite: 'lax',
-    maxAge: 24 * 60 * 60 * 1000,
-  }
+    maxAge: 24 * 60 * 60 * 1000, // 24 часа
+  },
 }));
 
-// 🔐 Логин
+// Маршрут логина
 app.post('/api/login', async (req, res) => {
   const { username, password } = req.body;
 
+  if (!username || !password) {
+    return res.status(400).json({ success: false, message: 'Логин и пароль обязательны' });
+  }
+
   try {
-    // 1. Проверка предустановленного логина
+    // Проверка админского логина
     if (
       username === process.env.ADMIN_USERNAME &&
-      await bcrypt.compare(password, process.env.ADMIN_PASSWORD_HASH || '')
+      await bcrypt.compare(password, process.env.ADMIN_PASSWORD_HASH)
     ) {
       req.session.user = { username, role: 'admin' };
       return res.json({ success: true });
     }
 
-    // 2. Проверка в базе (если юзер не админ)
+    // Проверка пользователя в базе
     const result = await pool.query(
       'SELECT * FROM users WHERE username = $1',
       [username]
     );
 
     if (result.rows.length > 0) {
-      const valid = await bcrypt.compare(password, result.rows[0].password);
+      const user = result.rows[0];
+      const valid = await bcrypt.compare(password, user.password);
       if (valid) {
-        req.session.user = { username: result.rows[0].username };
+        req.session.user = { username: user.username, role: 'user' };
         return res.json({ success: true });
       }
     }
 
     res.status(401).json({ success: false, message: 'Неверный логин или пароль' });
-
   } catch (err) {
     console.error('Ошибка при логине:', err.message);
     res.status(500).json({ success: false, message: 'Ошибка сервера' });
@@ -94,12 +113,16 @@ app.get('/api/check-auth', (req, res) => {
 
 // Логаут
 app.post('/api/logout', (req, res) => {
-  req.session.destroy(() => {
+  req.session.destroy(err => {
+    if (err) {
+      console.error('Ошибка при логауте:', err.message);
+      return res.status(500).json({ success: false, message: 'Ошибка при выходе' });
+    }
     res.json({ success: true });
   });
 });
 
-// Получить заявки (только авторизованные)
+// Получение заявок (только для авторизованных)
 app.get('/api/submissions', async (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Не авторизован' });
@@ -120,7 +143,7 @@ app.post('/api/submissions', async (req, res) => {
     urgency, additionalInfo, name, phone, promoCode
   } = req.body;
 
-  const validBuildingTypes = ['option1', 'option2'];
+  const validBuildingTypes = ['option1', 'option2']; // Замените на реальные значения
   const validRoomTypes = ['option1', 'option2'];
   const validRepairTypes = ['option1', 'option2'];
   const validUrgencies = ['option1', 'option2'];
@@ -147,14 +170,17 @@ app.post('/api/submissions', async (req, res) => {
   }
 });
 
-// Удаление заявки (только авторизованные)
+// Удаление заявки (только для авторизованных)
 app.delete('/api/submissions/:id', async (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Не авторизован' });
   }
   const { id } = req.params;
   try {
-    await pool.query('DELETE FROM submissions WHERE id = $1', [id]);
+    const result = await pool.query('DELETE FROM submissions WHERE id = $1 RETURNING id', [id]);
+    if (result.rowCount === 0) {
+      return res.status(404).json({ error: 'Заявка не найдена' });
+    }
     res.json({ success: true });
   } catch (err) {
     console.error('Ошибка при удалении заявки:', err.message);
@@ -164,7 +190,7 @@ app.delete('/api/submissions/:id', async (req, res) => {
 
 // Глобальный обработчик ошибок
 app.use((err, req, res, next) => {
-  console.error('Глобальная ошибка:', err);
+  console.error('Глобальная ошибка:', err.stack);
   res.status(500).json({ error: 'Внутренняя ошибка сервера' });
 });
 
@@ -172,6 +198,3 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`🚀 Сервер запущен на http://localhost:${PORT}`);
 });
-
-
-

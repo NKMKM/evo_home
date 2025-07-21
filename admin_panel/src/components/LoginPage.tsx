@@ -8,27 +8,31 @@ export function LoginPage() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
+  // Fix for Vite env type error
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL || 'http://localhost:3001';
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setLoading(true);
 
     try {
-      const res = await fetch('http://localhost:3001/api/login', {
+      const res = await fetch(`${backendUrl}/api/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
+        credentials: 'include', // Для отправки кук
         body: JSON.stringify({ username, password }),
       });
 
       if (res.ok) {
         const json = await res.json();
         console.log('✅ Вход выполнен:', json);
-        window.location.href = '/dashboard';
+        window.location.href = '/dashboard'; // Редирект на дашборд
       } else {
-        const errText = await res.text();
-        console.warn('❌ Ошибка входа:', res.status, errText);
-        setError('Неверный логин или пароль');
+        const data = await res.json();
+        console.warn('❌ Ошибка входа:', res.status, data.message);
+        setError(data.message || 'Неверный логин или пароль');
       }
     } catch (err) {
       console.error('🔥 Ошибка сервера:', err);
