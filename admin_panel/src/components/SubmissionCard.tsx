@@ -14,12 +14,14 @@ import {
   TrashIcon,
 } from 'lucide-react'
 import { Submission } from '../utils/types'
+
 interface SubmissionCardProps {
   submission: Submission
   isExpanded: boolean
   onToggle: () => void
-  onDelete?: () => void // теперь необязательный
+  onDelete?: () => void
 }
+
 export function SubmissionCard({
   submission,
   isExpanded,
@@ -27,19 +29,64 @@ export function SubmissionCard({
   onDelete,
 }: SubmissionCardProps) {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
+
+  // Map backend values to display text
+  const buildingTypeMap: { [key: string]: string } = {
+    option1: 'Новое здание',
+    option2: 'Вторичка',
+    unknown: 'Не указано'
+  }
+
+  const roomTypeMap: { [key: string]: string } = {
+    option1: 'Квартира',
+    option2: 'Дом',
+    unknown: 'Не указано'
+  }
+
+  const repairTypeMap: { [key: string]: string } = {
+    option1: 'Косметический',
+    option2: 'Капитальный',
+    unknown: 'Не указано'
+  }
+
+  const urgencyMap: { [key: string]: string } = {
+    option1: 'Обычная',
+    option2: 'Срочная',
+    unknown: 'Не указано'
+  }
+
+  // Detailed logging to debug the issue
+  console.log('SubmissionCard - Raw submission:', submission);
+  console.log('SubmissionCard - buildingType:', submission.buildingType, 'Mapped:', buildingTypeMap[submission.buildingType] || buildingTypeMap['unknown']);
+  console.log('SubmissionCard - roomType:', submission.roomType, 'Mapped:', roomTypeMap[submission.roomType] || roomTypeMap['unknown']);
+  console.log('SubmissionCard - repairType:', submission.repairType, 'Mapped:', repairTypeMap[submission.repairType] || repairTypeMap['unknown']);
+  console.log('SubmissionCard - urgency:', submission.urgency, 'Mapped:', urgencyMap[submission.urgency] || urgencyMap['unknown']);
+  console.log('SubmissionCard - additionalInfo:', submission.additionalInfo);
+  console.log('SubmissionCard - promoCode:', submission.promoCode);
+  console.log('SubmissionCard - area:', submission.area);
+
+  // Get display values with explicit checks
+  const displayBuildingType = buildingTypeMap[submission.buildingType] || buildingTypeMap['unknown']
+  const displayRoomType = roomTypeMap[submission.roomType] || roomTypeMap['unknown']
+  const displayRepairType = repairTypeMap[submission.repairType] || repairTypeMap['unknown']
+  const displayUrgency = urgencyMap[submission.urgency] || urgencyMap['unknown']
+
   const handleDeleteClick = (e: React.MouseEvent) => {
-    e.stopPropagation() // Prevent toggling the card when clicking delete
+    e.stopPropagation()
     setShowDeleteConfirm(true)
   }
+
   const handleCancelDelete = (e: React.MouseEvent) => {
-    e.stopPropagation() // Prevent toggling the card
+    e.stopPropagation()
     setShowDeleteConfirm(false)
   }
+
   const handleConfirmDelete = (e: React.MouseEvent) => {
-    e.stopPropagation() // Prevent toggling the card
+    e.stopPropagation()
     setShowDeleteConfirm(false)
     if (onDelete) onDelete()
   }
+
   return (
     <motion.div
       layout
@@ -76,11 +123,11 @@ export function SubmissionCard({
         <div className="flex items-center space-x-6">
           <div className="hidden md:block">
             <span className="text-xs text-gray-500">Тип здания</span>
-            <p className="text-sm text-gray-700">{submission.buildingType}</p>
+            <p className="text-sm text-gray-700">{displayBuildingType}</p>
           </div>
           <div className="hidden md:block">
             <span className="text-xs text-gray-500">Тип помещения</span>
-            <p className="text-sm text-gray-700">{submission.roomType}</p>
+            <p className="text-sm text-gray-700">{displayRoomType}</p>
           </div>
           <div className="hidden md:block">
             <span className="text-xs text-gray-500">Площадь</span>
@@ -88,7 +135,7 @@ export function SubmissionCard({
           </div>
           <div className="hidden md:block">
             <span className="text-xs text-gray-500">Срочность</span>
-            <p className="text-sm text-gray-700">{submission.urgency}</p>
+            <p className="text-sm text-gray-700">{displayUrgency}</p>
           </div>
           {showDeleteConfirm ? (
             <div
@@ -160,7 +207,7 @@ export function SubmissionCard({
                         Тип здания
                       </span>
                       <span className="text-sm text-gray-800">
-                        {submission.buildingType}
+                        {displayBuildingType}
                       </span>
                     </div>
                   </div>
@@ -176,20 +223,23 @@ export function SubmissionCard({
                         Тип помещения
                       </span>
                       <span className="text-sm text-gray-800">
-                        {submission.roomType}
+                        {displayRoomType}
                       </span>
                     </div>
                   </div>
                 </div>
                 <div className="bg-white p-3 rounded-md shadow-sm">
                   <div className="flex items-start">
-                    <div size={16} className="text-gray-400 mt-0.5 mr-2" />
+                    <SquareIcon
+                      size={16}
+                      className="text-gray-400 mt-0.5 mr-2"
+                    />
                     <div>
                       <span className="text-xs text-gray-500 block">
                         Тип ремонта
                       </span>
                       <span className="text-sm text-gray-800">
-                        {submission.repairType}
+                        {displayRepairType}
                       </span>
                     </div>
                   </div>
@@ -219,7 +269,7 @@ export function SubmissionCard({
                         Срочность
                       </span>
                       <span className="text-sm text-gray-800">
-                        {submission.urgency}
+                        {displayUrgency}
                       </span>
                     </div>
                   </div>
