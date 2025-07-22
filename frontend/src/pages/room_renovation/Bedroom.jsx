@@ -101,9 +101,6 @@ const Bedroom = () => {
         </p>
 
         <div className="w-full relative flex flex-col space-y-12 md:space-y-20">
-          <div className="hidden lg:block absolute top-[200px] left-[10%] w-[80%] max-w-[1377px] h-auto">
-            <img src={arrow_1} alt="arrow 1" loading="lazy" className="w-full h-auto" />
-          </div>
 
           <ul className="w-full flex flex-col space-y-12 md:space-y-20">
             <li className="w-full flex flex-col lg:flex-row justify-between items-center gap-6">
@@ -182,9 +179,6 @@ const Bedroom = () => {
             </li>
           </ul>
 
-          <div className="hidden lg:block absolute bottom-[10%] w-full max-w-[1604px] h-auto">
-            <img src={arrow_2} alt="arrow 2" loading="lazy" className="w-full h-auto" />
-          </div>
         </div>
 
         <div className="w-full my-6 md:my-10">

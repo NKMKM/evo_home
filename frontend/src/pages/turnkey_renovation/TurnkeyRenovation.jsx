@@ -56,14 +56,14 @@ const TurnkeyRenovation = () => {
           </div>
         </div>
       </header>
-
+{/* ------------------------ */}
       <div className="relative w-full mx-auto my-8 sm:my-10 lg:my-12 px-4 lg:px-0">
         <div className="w-full max-w-[1640px] h-[60px] sm:h-[74px] bg-[#F9B33B] mx-auto mb-8 sm:mb-10 lg:mb-12 flex flex-row items-center">
           <div className="w-[60px] sm:w-[74px] h-full bg-[#222222] text-white text-[40px] sm:text-[50px] text-center mr-3 lg:mr-10">2.</div>
           <h1 className={`${selectedLang === 'it' ? 'text-[18px] sm:text-[20px]' : 'text-[20px] sm:text-[24px]'} lg:text-[50px] font-bold mt-1 lg:mt-0`}>{t('reasons.h')}</h1>
         </div>
 
-        <div className="absolute w-[1000px] h-[1100px] scale-60 -z-10 bottom-0 -right-[200px] sm:-right-[400px] lg:-right-[800px] hidden lg:block">
+        <div className="absolute w-[1000px] h-[1100px] scale-60 -z-10 bottom-0  sm:-right-[400px] lg:-right-[100px] hidden lg:block">
           <img src={vector} alt='vector' loading="lazy" className="w-full h-full object-contain" />
         </div>
 
@@ -81,7 +81,7 @@ const TurnkeyRenovation = () => {
         </ul>
         <hr className="mt-8 sm:mt-10 lg:mt-12 w-full max-w-[1641px] mx-auto hidden lg:block" />
       </div>
-
+{/* --------------------- */}
       <div className="w-full max-w-[1641px] mx-auto mb-8 sm:mb-10 lg:mb-12 px-4 lg:px-0">
         <Calculator />
       </div>
@@ -94,7 +94,6 @@ const TurnkeyRenovation = () => {
 
         <div className="w-full max-w-[1641px] mx-auto mb-8 sm:mb-10 lg:mb-12 relative">
           <div className="absolute top-[300px] sm:top-[347px] left-[180px] sm:left-[220px] w-[1100px] sm:w-[1377px] h-[500px] sm:h-[646px] scale-x-80 hidden lg:block">
-            <img src={arrow_1} alt='arrow 1' loading="lazy" className="w-full h-full object-contain" />
           </div>
 
           <ul className="w-full max-w-[1641px] mx-auto flex flex-col space-y-8 sm:space-y-10 lg:space-y-12">
@@ -111,10 +110,6 @@ const TurnkeyRenovation = () => {
                   <li>{t('process.ul.1.li4')}</li>
                   <li>{t('process.ul.1.li5')}</li>
                 </ul>
-              </div>
-              <div className="absolute top-[120px] sm:top-[150px] left-[100px] sm:left-[160px] w-[200px] sm:w-[291px] h-[80px] sm:h-[110px] justify-center font-bold text-[32px] sm:text-[40px] items-center flex bg-white">
-                {t('process.step1')}
-                <div className="absolute bottom-0 right-0 w-[20px] sm:w-[30px] h-[20px] sm:h-[30px] bg-[#F9B33B] clip-path-triangle mb-1 sm:mb-2 mr-1 sm:mr-2" />
               </div>
             </li>
 
@@ -137,10 +132,6 @@ const TurnkeyRenovation = () => {
                   <li>{t('process.ul.2.li10')}</li>
                 </ul>
               </div>
-              <div className={`absolute ${selectedLang === 'it' || selectedLang === 'en' ? 'top-[900px] sm:top-[1100px]' : 'top-[850px] sm:top-[1050px]'} lg:top-[600px] right-[100px] sm:right-[175px] w-[200px] sm:w-[291px] h-[80px] sm:h-[110px] justify-center font-bold text-[32px] sm:text-[40px] items-center flex bg-white`}>
-                {t('process.step2')}
-                <div className="absolute bottom-0 right-0 w-[20px] sm:w-[30px] h-[20px] sm:h-[30px] bg-[#F9B33B] clip-path-triangle mb-1 sm:mb-2 mr-1 sm:mr-2" />
-              </div>
             </li>
 
             <li className="w-full sm:w-[90%] lg:w-full mx-auto flex flex-col lg:flex-row justify-between items-center relative">
@@ -157,10 +148,6 @@ const TurnkeyRenovation = () => {
                   <li>{t('process.ul.3.li5')}</li>
                   <li>{t('process.ul.3.li6')}</li>
                 </ul>
-              </div>
-              <div className={`absolute ${selectedLang === 'it' || selectedLang === 'en' ? 'top-[1700px] sm:top-[1900px]' : 'top-[1650px] sm:top-[1850px]'} lg:top-[1000px] left-[100px] sm:left-[170px] w-[200px] sm:w-[291px] h-[80px] sm:h-[110px] justify-center font-bold text-[32px] sm:text-[40px] items-center flex bg-white`}>
-                {t('process.step3')}
-                <div className="absolute bottom-0 right-0 w-[20px] sm:w-[30px] h-[20px] sm:h-[30px] bg-[#F9B33B] clip-path-triangle mb-1 sm:mb-2 mr-1 sm:mr-2" />
               </div>
             </li>
           </ul>

@@ -71,16 +71,13 @@ const CommercialPremises = () => {
             <Calculator/>
         </div>
 
-        <main className='w-full h-auto mb-10 sm:mb-20 lg:mb-20 px-4 flex flex-col justify-between'>
+        <main className='w-full h-auto mb-10 sm:mb-20 lg:mb-20 px-4 flex flex-col justify-between '>
             <div className='w-full max-w-[1640px] h-auto bg-[#F9B33B] mx-auto flex flex-row items-center'>
                 <div className='w-[50px] sm:w-[60px] lg:w-[74px] h-[50px] sm:h-[60px] lg:h-[74px] bg-[#222222] text-white text-[30px] sm:text-[40px] lg:text-[50px] text-center mr-4 sm:mr-5 lg:mr-10 flex items-center justify-center'>2.</div>
                 <h2 className={`text-[20px] sm:text-[24px] lg:text-[50px] font-bold ${selectedLang === 'en' ? 'mt-2 sm:mt-4 lg:mt-0' : 'mt-0'}`}>{t('process.h')}</h2>
             </div>
 
-            <div className='w-full max-w-[1641px] h-auto relative mx-auto'>
-                <div className='hidden lg:block w-full h-[300px] sm:h-[400px] lg:h-[646px] absolute top-[200px] sm:top-[250px] lg:top-[347px] left-0'>
-                    <img src={arrow_1} alt='arrow 1' loading="lazy" className='w-full h-full object-cover'/>
-                </div>
+            <div className='w-full max-w-[1641px] h-auto relative mx-auto lg:pt-10'>
     
                 <ul className='w-full h-auto flex flex-col justify-between gap-10 sm:gap-16 lg:gap-20 mx-auto'>
                     {[
@@ -104,12 +101,6 @@ const CommercialPremises = () => {
                     ))}
                 </ul>
     
-                <div className='hidden lg:block w-full h-[300px] sm:h-[400px] lg:h-[627px] absolute top-[1100px] sm:top-[1300px] lg:top-[1320px] left-0'>
-                    <img src={arrow_2} alt='arrow 2' loading="lazy" className='w-full h-full object-cover'/>
-                </div>
-                <div className='hidden lg:block w-full h-[300px] sm:h-[400px] lg:h-[627px] absolute top-[2000px] sm:top-[2300px] lg:top-[2260px] left-0'>
-                    <img src={arrow_2} alt='arrow 2' loading="lazy" className='w-full h-full object-cover'/>
-                </div>
             </div>
 
             <div className='mb-10 sm:mb-20 lg:mb-0'>

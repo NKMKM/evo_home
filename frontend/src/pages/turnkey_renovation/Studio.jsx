@@ -69,9 +69,6 @@ const Studio = () => {
         <p className="w-full max-w-[1640px] mx-auto text-[20px] sm:text-[24px] lg:text-[32px] text-center lg:text-left mb-8 sm:mb-10 lg:mb-12">{t('process.p')}</p>
 
         <div className="w-full max-w-[1641px] mx-auto mb-8 sm:mb-10 lg:mb-12 relative">
-          <div className="absolute top-[300px] sm:top-[347px] left-[180px] sm:left-[220px] w-[1100px] sm:w-[1557px] h-[500px] sm:h-[690px] scale-x-80 hidden lg:block">
-            <img src={arrow_1} alt='arrow 1' loading="lazy" className="w-full h-full object-contain" />
-          </div>
 
           <ul className="w-full max-w-[1641px] mx-auto flex flex-col space-y-8 sm:space-y-10 lg:space-y-12">
             <li className="w-full sm:w-[90%] lg:w-full mx-auto flex flex-col lg:flex-row justify-between items-center">
@@ -135,12 +132,6 @@ const Studio = () => {
             </li>
           </ul>
 
-          <div className="absolute top-[1100px] sm:top-[1275px] left-[180px] sm:left-[325px] w-[1100px] sm:w-[1370px] h-[500px] sm:h-[776px] scale-x-90 hidden lg:block">
-            <img src={arrow_1} alt='arrow 1' loading="lazy" className="w-full h-full object-contain" />
-          </div>
-          <div className="absolute top-[1900px] sm:top-[2270px] left-[180px] sm:left-[355px] w-[1100px] sm:w-[1303px] h-[400px] sm:h-[460px] scale-x-95 hidden lg:block">
-            <img src={arrow_2} alt='arrow 2' loading="lazy" className="w-full h-full object-contain" />
-          </div>
         </div>
 
         <div className="mb-8 sm:mb-10 lg:mb-12 px-4 lg:px-0">

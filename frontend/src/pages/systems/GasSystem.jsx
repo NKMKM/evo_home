@@ -69,12 +69,6 @@ const GasSystem = () => {
 
         <div className='w-full max-w-[1641px] mx-auto relative'>
           {/* Arrows hidden on mobile */}
-          <div className='hidden md:block absolute top-[347px] left-[220px] w-[1377px] h-[646px] scale-x-80'>
-            <img src={arrow_1} alt='arrow 1' loading="lazy" className='w-full h-full' />
-          </div>
-          <div className='hidden md:block absolute top-[1310px] left-0 w-[1604px] h-[627px]'>
-            <img src={arrow_2} alt='arrow 2' loading="lazy" className='w-full h-full' />
-          </div>
 
           <ul className='w-full flex flex-col space-y-12 md:space-y-20'>
             <li className='w-full flex flex-col md:flex-row justify-between'>

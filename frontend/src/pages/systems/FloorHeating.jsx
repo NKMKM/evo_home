@@ -99,9 +99,6 @@ const FloorHeating = () => {
         </p>
 
         <div className="w-full relative flex flex-col space-y-12 md:space-y-20">
-          <div className="hidden lg:block absolute top-[150px] left-[10%] w-[80%] max-w-[1177px] h-auto">
-            <img src={arrow_1} alt="arrow 1" loading="lazy" className="w-full h-auto" />
-          </div>
 
           <ul className="w-full flex flex-col space-y-12 md:space-y-20">
             {[
@@ -135,9 +132,6 @@ const FloorHeating = () => {
             ))}
           </ul>
 
-          <div className="hidden lg:block absolute bottom-[10%] w-full max-w-[1604px] h-auto">
-            <img src={arrow_2} alt="arrow 2" loading="lazy" className="w-full h-auto" />
-          </div>
         </div>
 
         <div className="w-full my-6 md:my-10">

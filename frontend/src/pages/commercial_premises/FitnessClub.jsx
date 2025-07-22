@@ -68,9 +68,6 @@ const FitnessClub = () => {
             </div>
 
             <div className='w-full max-w-[1641px] h-auto relative mx-auto'>
-                <div className='hidden lg:block w-full h-[300px] sm:h-[400px] lg:h-[646px] absolute top-[200px] sm:top-[250px] lg:top-[347px] left-0'>
-                    <img src={arrow_1} alt='arrow 1' loading="lazy" className='w-full h-full object-cover'/>
-                </div>
     
                 <ul className='w-full h-auto flex flex-col justify-between gap-10 sm:gap-16 lg:gap-20 mx-auto'>
                     {[
@@ -100,9 +97,6 @@ const FitnessClub = () => {
                     ))}
                 </ul>
     
-                <div className='hidden lg:block w-full h-[300px] sm:h-[400px] lg:h-[627px] absolute top-[1100px] sm:top-[1300px] lg:top-[1310px] left-0'>
-                    <img src={arrow_2} alt='arrow 2' loading="lazy" className='w-full h-full object-cover'/>
-                </div>
             </div>
 
             <div className='mb-10 sm:mb-20 lg:mb-10'>
