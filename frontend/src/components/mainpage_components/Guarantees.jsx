@@ -35,26 +35,24 @@ const Guarantees = () => {
 
       {/* Cards */}
       <main>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 justify-items-center">
-      {guarantees.map((item) => (
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 justify-items-center">
+          {guarantees.map((item) => (
             <li
               key={item.number}
-              className="relative bg-gradient-to-t from-[#83b1d6] to-[#fcfdfe] shadow-2xl rounded-xl w-full max-w-[380px] lg:w-[278px] mx-auto p-6 pt-10 pb-16"
+              className="relative bg-gradient-to-t from-[#83b1d6] to-[#fcfdfe] shadow-2xl rounded-xl w-[300px] max-w-[380px] min-h-[400px] mx-auto p-6 pt-10 pb-16 flex flex-col items-center"
             >
-              <div className="flex flex-col items-center gap-6">
+              <div className="flex flex-col items-center gap-6 flex-grow">
                 <div className="w-20 h-20 lg:w-16 lg:h-16">
                   <img src={item.icon} alt={`icon-${item.number}`} loading="lazy" className="w-full h-full object-contain" />
                 </div>
-                <h2
-                  className={`font-semibold text-center ${
-                    selectedLang === 'it' && item.number === 5 ? 'text-[24px]' : 'text-xl lg:text-[22px]'
-                  }`}
-                >
+                <h2 className="font-semibold text-center text-base lg:text-[16px]">
                   {item.title}
                 </h2>
-                <p className="bg-[#d7e4ef] w-full text-center text-sm sm:text-lg lg:text-[17px] p-4 rounded-md">
-                  {item.desc}
-                </p>
+                <div className="flex-grow flex items-center justify-center">
+                  <p className="bg-[#d7e4ef] text-center text-sm sm:text-lg lg:text-[17px] p-4 rounded-md h-[120px] flex items-center justify-center">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
 
               {/* Number badge */}
