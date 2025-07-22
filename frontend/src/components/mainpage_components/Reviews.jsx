@@ -20,8 +20,9 @@ const Reviews = () => {
   const selectedLang = localStorage.getItem('language') || 'en';
 
   return (
+    
     <main className={`home-reviews-bg-image w-full bg-cover px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 flex flex-col gap-6 sm:gap-8 lg:gap-10 ${selectedLang === 'it' ? 'pb-10 sm:pb-12 lg:pb-16' : ''}`}>
-      <header className="flex flex-row items-center justify-between w-full max-w-[1641px] mx-auto">
+      <header className="w-full max-w-[1641px] mx-auto my-10 px-4 sm:px-6  lg:px-0">
         <img src={left_decoration} alt="left decoration" loading="lazy" className="w-[120px] sm:w-[180px] lg:w-[276px] h-auto hidden lg:block" />
         <h1 className="font-bold text-2xl sm:text-2xl md:text-2xl lg:text-[50px] left-[20px] text-align">{t('h')}</h1>
         <img src={right_decoration} alt="right decoration" loading="lazy" className="w-[120px] sm:w-[180px] lg:w-[276px] h-auto hidden lg:block" />
