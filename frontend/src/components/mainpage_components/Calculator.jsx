@@ -158,38 +158,49 @@ const Calculator = () => {
 
         {/* Right Part */}
         <div className="w-full lg:w-[400px] bg-white border-[3px] border-yellow-500 rounded-[10px] p-6 space-y-6">
-          <div className="relative">
-            <label className="block text-end font-semibold text-[18px]">{t('right_form.first_input')}</label>
-            <input
-              name="name"
-              type="text"
-              className="w-full h-[50px] border-b border-gray-400 focus:outline-none"
-              required
-            />
-            <PersonIcon className="absolute top-[5px] right-[40px] text-gray-500" />
-          </div>
+        <div className="relative">
+        <label className="block text-start font-semibold text-base sm:text-lg lg:text-[18px] mb-1 text-black">
+          {t('right_form.first_input')}
+        </label>
+        <div className="relative">
+          <PersonIcon className="absolute left-0 top-1/2 transform -translate-y-1/2 text-gray-500" />
+          <input
+            name="name"
+            type="text"
+            className="w-full h-10 lg:h-12 border-b border-gray-400 focus:outline-none pl-10"
+            required
+          />
+        </div>
+      </div>
 
-          <div className="relative">
-            <label className="block text-end font-semibold text-[18px]">{t('right_form.second_input')}</label>
-            <input
-              name="phone"
-              type="tel"
-              className="w-full h-[50px] border-b border-gray-400 focus:outline-none"
-              required
-            />
-            <PhoneInTalkIcon className="absolute top-[5px] right-[70px] text-gray-500" />
-          </div>
+      <div className="relative">
+        <label className="block text-start font-semibold text-base sm:text-lg lg:text-[18px] mb-1 text-black">
+          {t('right_form.second_input')}
+        </label>
+        <div className="relative">
+          <PhoneInTalkIcon className="absolute left-0 top-1/2 transform -translate-y-1/2 text-gray-500" />
+          <input
+            name="phone"
+            type="tel"
+            className="w-full h-10 lg:h-12 border-b border-gray-400 focus:outline-none pl-10"
+            required
+          />
+        </div>
+      </div>
 
-          <div className="relative">
-            <label className="block text-end font-semibold text-[18px]">{t('right_form.third_input')}</label>
-            <input
-              name="promoCode"
-              type="text"
-              className="w-full h-[50px] border-b border-gray-400 focus:outline-none"
-            />
-            <PercentIcon className="absolute top-[5px] right-[90px] text-gray-500" />
-          </div>
-
+      <div className="relative">
+        <label className="block text-start font-semibold text-base sm:text-lg lg:text-[18px] mb-1 text-black">
+          {t('right_form.third_input')}
+        </label>
+        <div className="relative">
+          <PercentIcon className="absolute left-0 top-1/2 transform -translate-y-1/2 text-gray-500" />
+          <input
+            name="promoCode"
+            type="text"
+            className="w-full h-10 lg:h-12 border-b border-gray-400 focus:outline-none pl-10"
+          />
+        </div>
+        </div>
           <button
             type="submit"
             className="w-full h-[55px] bg-yellow-400 text-white font-bold rounded-[10px] mt-4 hover:bg-yellow-500 transition-colors"

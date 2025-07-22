@@ -55,7 +55,7 @@ const Services = () => {
                             {t('first_element.h')}
                         </h2>
                         <div className='w-full flex flex-col shadow-xl rounded-lg overflow-hidden'>
-                            <div className='w-full aspect-[4/3]'>
+                            <div className='w-full aspect-square max-w-[300px] sm:max-w-[350px] lg:max-w-[389px] max-h-[300px] sm:max-h-[350px] lg:max-h-[389px] mx-auto'>
                                 <img src={room1} alt='room 1' loading="lazy" 
                                      className='w-full h-full object-cover rounded-t-lg'/>
                             </div>
@@ -83,7 +83,7 @@ const Services = () => {
                             {t('second_element.h')}
                         </h2>
                         <div className='w-full flex flex-col shadow-xl rounded-lg overflow-hidden'>
-                            <div className='w-full aspect-[4/3]'>
+                            <div className='w-full aspect-square max-w-[300px] sm:max-w-[350px] lg:max-w-[389px] max-h-[300px] sm:max-h-[350px] lg:max-h-[389px] mx-auto'>
                                 <img src={room2} alt='room 2' loading="lazy" 
                                      className='w-full h-full object-cover rounded-t-lg'/>
                             </div>
@@ -111,7 +111,7 @@ const Services = () => {
                             {t('third_element.h')}
                         </h2>
                         <div className='w-full flex flex-col shadow-xl rounded-lg overflow-hidden'>
-                            <div className='w.things w-full aspect-[4/3]'>
+                            <div className='w-full aspect-square max-w-[300px] sm:max-w-[350px] lg:max-w-[389px] max-h-[300px] sm:max-h-[350px] lg:max-h-[389px] mx-auto'>
                                 <img src={basement} alt='basement' loading="lazy" 
                                      className='w-full h-full object-cover rounded-t-lg'/>
                             </div>
@@ -139,7 +139,7 @@ const Services = () => {
                             {t('fourth_element.h')}
                         </h2>
                         <div className='w-full flex flex-col shadow-xl rounded-lg overflow-hidden'>
-                            <div className='w-full aspect-[4/3]'>
+                            <div className='w-full aspect-square max-w-[300px] sm:max-w-[350px] lg:max-w-[389px] max-h-[300px] sm:max-h-[350px] lg:max-h-[389px] mx-auto'>
                                 <img src={system} alt='systems' loading="lazy" 
                                      className='w-full h-full object-cover rounded-t-lg'/>
                             </div>

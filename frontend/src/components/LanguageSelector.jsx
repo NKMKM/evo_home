@@ -48,7 +48,7 @@ const LanguageSelector = () => {
   const otherLanguages = Object.keys(languages).filter(lng => lng !== currentLang);
 
   return (
-    <div ref={selectorRef} className="relative inline-block cursor-pointer select-none">
+    <div ref={selectorRef} className="relative inline-block cursor-pointer select-none right-5">
       <div
         onClick={toggleMenu}
         className="flex items-center gap-1"

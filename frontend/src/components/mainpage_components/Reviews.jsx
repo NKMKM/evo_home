@@ -21,13 +21,13 @@ const Reviews = () => {
 
   return (
     <main className={`home-reviews-bg-image w-full bg-cover px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 flex flex-col gap-6 sm:gap-8 lg:gap-10 ${selectedLang === 'it' ? 'pb-10 sm:pb-12 lg:pb-16' : ''}`}>
-      <header className="flex flex-row items-center justify-between w-full max-w-[165 Townsvillepx] mx-auto">
-        <img src={left_decoration} alt="left decoration" loading="lazy" className="w-[120px] sm:w-[180px] lg:w-[276px] h-auto sm:hidden lg:block" />
-        <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[70px] text-center px-4 sm:px-0">{t('h')}</h1>
-        <img src={right_decoration} alt="right decoration" loading="lazy" className="w-[120px] sm:w-[180px] lg:w-[276px] h-auto sm:hidden lg:block" />
+      <header className="flex flex-row items-center justify-between w-full max-w-[1641px] mx-auto">
+        <img src={left_decoration} alt="left decoration" loading="lazy" className="w-[120px] sm:w-[180px] lg:w-[276px] h-auto hidden lg:block" />
+        <h1 className="font-bold text-2xl sm:text-2xl md:text-2xl lg:text-[50px] left-[20px] text-align">{t('h')}</h1>
+        <img src={right_decoration} alt="right decoration" loading="lazy" className="w-[120px] sm:w-[180px] lg:w-[276px] h-auto hidden lg:block" />
       </header>
       <p className="text-white text-base sm:text-lg md:text-xl lg:text-[32px] italic font-light text-center max-w-[600px] mx-auto">{t('p')}</p>
-      <section className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8 justify-between w-full max-w-[1641px] mx-auto">
+      <section className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8 justify-between w-full max-w-[1641px] mx-auto gap-y-15 sm:gap-y-15">
         {[
           {
             name: 'Marco Bianchi',
@@ -35,7 +35,7 @@ const Reviews = () => {
             stars: [golden_star, golden_star, golden_star, gray_star, gray_star],
             text: 'first_review',
             images: [first_review_first_image, first_review_second_image, first_review_third_image],
-            size: 'w-full sm:max-w-[453px] h-auto min-h-[400px] sm:min-h-[450px]',
+            size: 'w-full sm:max-w-[453px] h-auto min-h-[380px] sm:min-h-[450px]',
           },
           {
             name: 'Алексей Петров',
@@ -43,7 +43,7 @@ const Reviews = () => {
             stars: [golden_star, golden_star, golden_star, golden_star, gray_star],
             text: 'second_review',
             images: [second_review_first_image, second_review_second_image, second_review_third_image],
-            size: `w-full sm:max-w-[667px] ${selectedLang === 'it' ? 'min-h-[500px] sm:min-h-[600px]' : 'min-h-[450px] sm:min-h-[500px]'}`,
+            size: `w-full sm:max-w-[450px] sm:left-[335px] lg:left-0 ${selectedLang === 'it' ? 'min-h-[380px] sm:min-h-[380px]' : 'min-h-[380px] sm:min-h-[450px]'}`,
           },
           {
             name: 'Игорь Васильев',
@@ -51,11 +51,11 @@ const Reviews = () => {
             stars: [golden_star, golden_star, golden_star, golden_star, gray_star],
             text: 'third_review',
             images: [third_review_first_image, third_review_second_image, third_review_third_image],
-            size: 'w-full sm:max-w-[453px] h-auto min-h-[400px] sm:min-h-[450px]',
+            size: 'w-full sm:max-w-[453px] h-auto min-h-[380px] sm:min-h-[380px]',
           },
         ].map((review, index) => (
-          <div key={index} className={`relative flex flex-col ${review.size} bg-white p-4 sm:p-6 lg:p-8 shadow-2xl rounded-[10px] gap-4 sm:gap-6`}>
-            <div className="flex flex-row gap-3 sm:gap-4">
+          <div key={index} className={`relative flex flex-col ${review.size} bg-white p-4 sm:p-6 lg:p-8 shadow-2xl rounded-[10px] gap-5 sm:gap-6 bottom-3`}>
+            <div className="flex flex-row gap-3 sm:gap-4 bottom-5">
               <div className="bg-gray-300 rounded-full w-10 sm:w-12 lg:w-[80px] h-10 sm:h-12 lg:h-[80px]">
                 <img src={avatar} alt="avatar" loading="lazy" className="w-full h-full object-cover" />
               </div>
@@ -72,14 +72,14 @@ const Reviews = () => {
               </div>
             </div>
             <p className="text-sm sm:text-base lg:text-[15px]">{t(review.text)}</p>
-            <ul className="flex flex-row justify-between gap-2 sm:gap-3 lg:gap-4">
+            <ul className="flex flex-row justify- gap-2 sm:gap-3 lg:gap-4">
               {review.images.map((img, i) => (
-                <li key={i} className="w-[80px] sm:w-[120px] lg:w-[167px] h-[60px] sm:h-[90px] lg:h-[132px] bg-violet-500 rounded-md">
+                <li key={i} className="w-[120px] sm:w-[120px] lg:w-[167px] h-[120px] sm:h-[120px] lg:h-[132px] bg-violet-500 rounded-md">
                   <img src={img} alt={`review-${index + 1}-${i + 1}`} className="w-full h-full rounded-md object-cover" loading="lazy" />
                 </li>
               ))}
             </ul>
-            <div className="absolute bottom-[-40px] sm:bottom-[-50px] right-4 sm:right-6 lg:right-8 w-0 h-0 border-l-[60px] sm:border-l-[80px] lg:border-l-[100px] border-l-transparent border-r-0 border-r-transparent border-t-[60px] sm:border-t-[80px] lg:border-t-[100px] border-white" />
+            <div className="absolute bottom-[-30px] sm:bottom-[-40px] lg:bottom-[-50px] right-4 sm:right-6 lg:right-8 w-0 h-0 border-l-[40px] sm:border-l-[50px] lg:border-l-[60px] border-l-transparent border-r-0 border-r-transparent border-t-[40px] sm:border-t-[50px] lg:border-t-[60px] border-white" />
           </div>
         ))}
       </section>

@@ -68,20 +68,19 @@ const Nav = () => {
         </ul>
 
         {/* Контакты и язык + бургер-меню */}
-        <div className="flex flex-row items-center gap-4 sm:gap-6 lg:gap-8">
+        <div className="flex flex-row items-center gap-4 sm:gap-4 lg:gap-16">
           {/* Кнопка звонка, скрыта на маленьких экранах */}
-          <div className={`hidden lg:flex bg-[#f9b33b] rounded-lg items-center justify-center py-2 px-4 sm:px-6 gap-2 scale-animate-hover ${selectedLang === 'it' ? 'pl-3' : ''}`}>
-            <PhoneInTalkIcon sx={{ fontSize: { xs: 24, sm: 28, lg: 36 } }} className={`${selectedLang === 'it' || selectedLang === 'en' ? 'mr-3' : 'mr-1'}`} />
-            <div className="text-center">
-              <h1 className="font-medium text-sm lg:text-base">{t('call_text')}</h1>
-              <h3 className="font-bold italic text-sm lg:text-base">+39 06 69353277</h3>
+          <div className={`hidden lg:flex bg-[#f9b33b] rounded-lg items-center justify-center py-2 px-4 sm:px-6 gap-1 scale-animate-hover left-[-50px] ${selectedLang === 'it' ? 'pl-3' : ''}`}>
+              <PhoneInTalkIcon sx={{ fontSize: { xs: 24, sm: 28, lg: 36 } }} className={`${selectedLang === 'it' || selectedLang === 'en' ? 'mr-3' : 'mr-1'}`} />
+              <div className="text-center">
+                <h1 className="font-medium text-sm lg:text-base">{t('call_text')}</h1>
+                <h3 className="font-bold italic text-sm lg:text-base">+39 06 69353277</h3>
+              </div>
             </div>
-          </div>
-
           {/* Селектор языка и бургер-меню */}
-          <div className="flex flex-row items-center gap-2 sm:gap-4">
+          <div className="flex flex-row items-center gap-2 sm:gap-4 left-[90px]">
             <LanguageSelector />
-            <div className="lg:hidden">
+            <div className="lg:hidden ">
               <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
                 {isMenuOpen ? <CloseIcon sx={{ fontSize: { xs: 28, sm: 32 } }} /> : <MenuIcon sx={{ fontSize: { xs: 28, sm: 32 } }} />}
               </button>
