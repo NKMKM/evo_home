@@ -76,7 +76,7 @@ const Contacts = () => {
                 <div className="w-full bg-[#F9B33B] relative p-5">
                   <div className="flex flex-row justify-between items-center">
                     <h2 className="flex flex-row items-center text-xl sm:text-2xl lg:text-3xl font-semibold">
-                      <LocalPhoneIcon fontSize="large" className="mr-3 lg:mr-4" /> {t('contacts.2.h')}
+                      <LocalPhoneIcon size={30} fontSize="large" className="mr-3 lg:mr-4" /> {t('contacts.2.h')}
                     </h2>
                     <div className="absolute right-5 w-6 h-6 lg:w-9 lg:h-9 bg-white [clip-path:polygon(100%_0,100%_100%,0_0)]" />
                   </div>
@@ -106,8 +106,7 @@ const Contacts = () => {
                 <div className="w-full bg-[#F9B33B] relative p-5">
                   <div className="flex flex-row justify-between items-center">
                     <h2 className="flex flex-row items-center text-xl sm:text-2xl lg:text-3xl font-semibold">
-                      <AccessTimeIcon class//@language JSX
-Name className="scale-125 mr-3 lg:mr-4" /> {t('contacts.4.h')}
+                      <AccessTimeIcon size={30} className="mr-3 lg:mr-4" /> {t('contacts.4.h')}
                     </h2>
                     <div className="absolute right-5 w-6 h-6 lg:w-9 lg:h-9 bg-white [clip-path:polygon(100%_0,100%_100%,0_0)]" />
                   </div>
