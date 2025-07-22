@@ -57,7 +57,7 @@ const Office = () => {
         </div>
       </header>
 
-      <main className='w-full flex flex-col justify-between px-5'>
+      <main className='sm:w-full lg:w-[1650px] lg:mx-auto flex flex-col justify-between px-5'>
         <div className='w-full h-[74px] bg-[#F9B33B] mx-auto flex flex-row'>
           <div className='w-[74px] h-[74px] bg-[#222222] text-white text-[50px] text-center mr-3 lg:mr-10'>2.</div>
           <h2 className='text-[24px] sm:text-[30px] lg:text-[50px] font-bold mt-4 lg:mt-0'>{t('process.h')}</h2>

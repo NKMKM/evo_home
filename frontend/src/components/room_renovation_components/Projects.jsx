@@ -15,7 +15,7 @@ const Projects = () => {
   const {t} = useTranslation('commercial_premises/CommercialPremisesProjects')
   const selectedLang = localStorage.getItem('language') || 'en';	
   return (
-    <div className='w-full h-auto mx-auto px-4 mb-10 sm:mb-20 lg:mb-20'>
+    <div className='sm:w-full lg:w-[1650px]  h-auto mx-auto px-4 mb-10 sm:mb-20 lg:mb-20'>
         {/* header section */}
         <header className={`h-auto w-full mx-auto flex flex-col lg:flex-row justify-between items-center ${selectedLang === 'it' || selectedLang === 'en' ? 'sm:my-10 lg:my-0' : ''}`}>
             <img src={left_decoration} alt='left decoration' loading="lazy" className='hidden lg:block w-[200px] lg:w-[276px] h-[60px] lg:h-[83px] mb-4 lg:mb-0'/>

@@ -63,7 +63,6 @@ const TwostoryApartment = () => {
           <h2 className={`${selectedLang === 'it' ? 'text-[18px] sm:text-[20px]' : 'text-[20px] sm:text-[24px]'} lg:text-[50px] font-bold mt-1 lg:mt-0`}>{t('process.h')}</h2>
         </div>
 
-        <p className="w-full max-w-[1640px] mx-auto text-[20px] sm:text-[24px] lg:text-[32px] text-center lg:text-left mb-8 sm:mb-10 lg:mb-12">{t('process.p')}</p>
 
         <div className="w-full max-w-[1641px] mx-auto mb-8 sm:mb-10 lg:mb-12 relative">
 

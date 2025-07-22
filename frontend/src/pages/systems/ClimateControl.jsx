@@ -93,9 +93,6 @@ const ClimateControl = () => {
           </h2>
         </div>
 
-        <p className="w-full text-base sm:text-lg md:text-2xl lg:text-[32px] text-center lg:text-left mb-6 md:mb-10 break-words">
-          {t('process.p')}
-        </p>
 
         <div className="w-full relative flex flex-col space-y-12 md:space-y-20">
 

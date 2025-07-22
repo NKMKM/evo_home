@@ -177,9 +177,9 @@ const Footer = () => {
   </div>
 
   {/* Копирайт */}
-  <p className="text-base sm:text-lg lg:text-xl text-black lg:text-white lg:text-center mt-6">
+  <p className="text-base sm:text-lg lg:text-xl text-black lg:text-white lg:text-center lg:relative  lg:bottom-0  lg:top-10 lg:right-10">
     {t('copyright')} <br className="lg:hidden" />
-    <a href="https://www.evohome.it/cookie-policy-privacy-policy/" className="text-[#F9B33B] hover:underline">
+    <a href="https://www.evohome.it/cookie-policy-privacy-policy/" className="text-[#F9B33B] hover:underline top-[10px]">
       {t('cookies')}
     </a>
   </p>

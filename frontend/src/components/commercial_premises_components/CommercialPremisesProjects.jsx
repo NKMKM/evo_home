@@ -17,7 +17,7 @@ const CommercialPremisesProjects = () => {
   const selectedLang = localStorage.getItem('language') || 'en'
 
   return (
-    <div className="w-full max-w-[1641px] mx-auto px-4 py-10">
+    <div className="sm:w-full lg:w-[1650px]  max-w-[1641px] mx-auto px-4 py-10">
       {/* Header Section */}
       <header className="flex flex-col lg:flex-row justify-between items-center mb-10">
         <img

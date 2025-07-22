@@ -67,7 +67,7 @@ const Hotel = () => {
                 <h2 className='text-[20px] sm:text-[24px] lg:text-[50px] font-bold mt-2 sm:mt-4 lg:mt-0'>{t('process.h')}</h2>
             </div>
 
-            <div className='w-full max-w-[1641px] h-auto relative mx-auto'>
+            <div className='w-full max-w-[1641px] h-auto relative mx-auto lg:pt-10 sm:pt-0'>
 
                 <ul className='w-full h-auto flex flex-col justify-between gap-10 sm:gap-16 lg:gap-20 mx-auto'>
                     {[
