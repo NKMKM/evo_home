@@ -205,11 +205,11 @@ const OurWorks = () => {
         {/* comparison examples */}
         <div className="w-full max-w-[1641px] flex flex-col gap-8 lg:gap-12">
           {/* 1 */}
-          <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
+          <div className="flex flex-col lg:h-[600px] lg:flex-row gap-4 lg:gap-6 ">
             <div className="w-full lg:w-1/2">
               <ImageComparisonSlider beforeSrc={before_after_3} afterSrc={before_after_4} />
             </div>
-            <div className="w-full lg:w-1/2 flex flex-col justify-between gap-4 lg:gap-6">
+            <div className="w-full  lg:w-1/2 flex flex-col justify-around gap-4 lg:gap-6">
               <div>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">{t('comparison.li1.name')}</h2>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light italic">
@@ -228,11 +228,11 @@ const OurWorks = () => {
           </div>
 
           {/* 2 */}
-          <div className="flex flex-col lg:flex-row-reverse gap-4 lg:gap-6">
+          <div className="flex flex-col lg:h-[600px] lg:flex-row-reverse gap-4 lg:gap-6">
             <div className="w-full lg:w-1/2">
               <ImageComparisonSlider beforeSrc={toilet_before} afterSrc={toilet_after} />
             </div>
-            <div className="w-full lg:w-1/2 flex flex-col justify-between gap-4 lg:gap-6 text-right lg:text-left">
+            <div className="w-full lg:w-1/2 flex flex-col justify-around gap-4 lg:gap-6 text-right lg:text-left">
               <div>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">{t('comparison.li2.name')}</h2>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light italic">
@@ -251,11 +251,11 @@ const OurWorks = () => {
           </div>
 
           {/* 3 */}
-          <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
+          <div className="flex flex-col lg:h-[600px] lg:flex-row gap-4 lg:gap-6">
             <div className="w-full lg:w-1/2">
               <ImageComparisonSlider beforeSrc={botique_before} afterSrc={botique_after} />
             </div>
-            <div className="w-full lg:w-1/2 flex flex-col justify-between gap-4 lg:gap-6">
+            <div className="w-full lg:w-1/2 flex flex-col justify-around gap-4 lg:gap-6">
               <div>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">{t('comparison.li3.name')}</h2>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light italic">
@@ -300,7 +300,8 @@ const OurWorks = () => {
           <div className="absolute hidden lg:block">
             <img src={vector_1} alt="vector 1" loading="lazy" className="w-full h-full" />
           </div>
-          <div className="w-full max-w-[806px] mx-auto px-4 lg:px-8">
+{/* -------------------------------- */}
+          <div className="w-full max-w-[806px] mx-auto px-4 lg:px-8 z-10">
             <h2 className="text-white font-bold flex flex-row items-center justify-center text-3xl sm:text-4xl lg:text-5xl mb-6">
               <img src={roof_icon} alt="roof icon" loading="lazy" className="w-12 h-12 lg:w-16 lg:h-16 mr-4" />
               {t('steps.1.h')}
@@ -310,7 +311,8 @@ const OurWorks = () => {
               <p>{t('steps.1.p2')}</p>
             </div>
           </div>
-          <div className="w-full max-w-[698px] mx-auto px-4 lg:px-8">
+{/* ----------------------- */}
+          <div className="w-full max-w-[698px] mx-auto px-4 lg:px-8 z-10">
             <div className="w-full aspect-video border-4 border-[#F9B33B] bg-gray-600 mb-4">
               <iframe
                 className="w-full h-full"
@@ -333,7 +335,7 @@ const OurWorks = () => {
           <div className="absolute hidden lg:block">
             <img src={vector_2} alt="vector 2" loading="lazy" className="w-full h-full" />
           </div>
-          <div className="w-full max-w-[698px] mx-auto px-4 lg:px-8">
+          <div className="w-full max-w-[698px] mx-auto px-4 lg:px-8 z-10">
             <div className="w-full aspect-video border-4 border-[#F9B33B] bg-gray-600 mb-4">
               <iframe
                 className="w-full h-full"
@@ -349,7 +351,7 @@ const OurWorks = () => {
               {t('steps.2.type')}
             </div>
           </div>
-          <div className="w-full max-w-[806px] mx-auto px-4 lg:px-8">
+          <div className="w-full max-w-[806px] mx-auto px-4 lg:px-8 z-10">
             <h2 className="text-white font-bold flex flex-row items-center justify-center text-3xl sm:text-4xl lg:text-5xl mb-6">
               <img src={bottle_icon} alt="bottle icon" loading="lazy" className="w-12 h-12 lg:w-16 lg:h-16 mr-4" />
               {t('steps.2.h')}
@@ -366,7 +368,7 @@ const OurWorks = () => {
           <div className="absolute hidden lg:block">
             <img src={vector_1} alt="vector 1" loading="lazy" className="w-full h-full" />
           </div>
-          <div className="w-full max-w-[806px] mx-auto px-4 lg:px-8">
+          <div className="w-full max-w-[806px] mx-auto px-4 lg:px-8 z-10">
             <h2 className="text-white font-bold flex flex-row items-center justify-center text-3xl sm:text-4xl lg:text-5xl mb-6">
               <img src={fontain_icon} alt="fontain icon" loading="lazy" className="w-12 h-12 lg:w-16 lg:h-16 mr-4" />
               {t('steps.3.h')}
@@ -376,7 +378,7 @@ const OurWorks = () => {
               <p>{t('steps.3.p2')}</p>
             </div>
           </div>
-          <div className="w-full max-w-[698px] mx-auto px-4 lg:px-8">
+          <div className="w-full max-w-[698px] mx-auto px-4 lg:px-8 z-10">
             <div className="w-full aspect-video border-4 border-[#F9B33B] bg-gray-600 mb-4">
               <iframe
                 className="w-full h-full"
@@ -399,7 +401,7 @@ const OurWorks = () => {
           <div className="absolute hidden lg:block">
             <img src={vector_2} alt="vector 2" loading="lazy" className="w-full h-full" />
           </div>
-          <div className="w-full max-w-[806px] mx-auto px-4 lg:px-8">
+          <div className="w-full max-w-[806px] mx-auto px-4 lg:px-8 z-10">
             <h2 className="text-white font-bold flex flex-row items-center justify-center text-3xl sm:text-4xl lg:text-5xl mb-6">
               <img src={food_icon} alt="food icon" loading="lazy" className="w-12 h-12 lg:w-16 lg:h-16 mr-4" />
               {t('steps.4.h')}
@@ -409,7 +411,7 @@ const OurWorks = () => {
               <p>{t('steps.4.p2')}</p>
             </div>
           </div>
-          <div className="w-full max-w-[698px] mx-auto px-4 lg:px-8">
+          <div className="w-full max-w-[698px] mx-auto px-4 lg:px-8 z-10">
             <div className="w-full aspect-video border-4 border-[#F9B33B] bg-gray-600 mb-4">
               <iframe
                 className="w-full h-full"
@@ -429,10 +431,10 @@ const OurWorks = () => {
 
         {/* Stage 5 */}
         <div className="works-third-stage-bg-image bg-cover relative pt-8 pb-12 flex flex-col lg:flex-row bg-blue-300/80 w-full gap-6">
-          <div className="absolute hidden lg:block">
-            <img src={vector_1} alt="vector 1" loading="lazy" className="w-full h-full" />
+          <div className="absolute hidden lg:block w-full h-full">
+            <img src={vector_1} alt="vector 1" loading="lazy" className="w-full h-full overflow-hidden" />
           </div>
-          <div className="w-full max-w-[806px] mx-auto px-4 lg:px-8">
+          <div className="w-full max-w-[806px] mx-auto px-4 lg:px-8 z-10">
             <h2 className="text-white font-bold flex flex-row items-center justify-center text-3xl sm:text-4xl lg:text-5xl mb-6">
               <img src={keys_icon} alt="keys icon" loading="lazy" className="w-12 h-12 lg:w-16 lg:h-16 mr-4" />
               {t('steps.5.h')}
@@ -442,7 +444,7 @@ const OurWorks = () => {
               <p>{t('steps.5.p2')}</p>
             </div>
           </div>
-          <div className="w-full max-w-[698px] mx-auto px-4 lg:px-8">
+          <div className="w-full max-w-[698px] mx-auto px-4 lg:px-8 z-10">
             <div className="w-full aspect-video border-4 border-[#F9B33B] bg-gray-600 mb-4">
               <iframe
                 className="w-full h-full"

@@ -19,7 +19,7 @@ const Advantages = () => {
   const { t } = useTranslation('home/Advantages');
 
   return (
-    <div className="w-full max-w-[1655px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 flex flex-col gap-4 sm:gap-6 lg:gap-10">
+    <div className="w-full max-w-[1755px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 flex flex-col gap-4 sm:gap-6 lg:gap-10">
       {/* Header */}
       <header className="w-full max-w-[1418px] mx-auto text-center font-bold text-[#222222] lg:border-x-[12px] lg:border-[#E0E0E0]">
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[60px]">{t('header.first_stroke')}</h1>
@@ -33,25 +33,25 @@ const Advantages = () => {
       {/* Main Content */}
       <main className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-10 w-full justify-between">
         {/* Info Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-x-8 lg:gap-y-8 w-full lg:w-[735px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-x-18 lg:gap-y-4 w-full lg:w-[735px]">
         {[
             {
               title: 'first_step',
               icon: achieve,
               arrow: right_arrow,
-              arrowClass: 'absolute top-[120px] sm:top-[160px] left-[180px] sm:left-[215px] scale-[0.4] sm:scale-[0.5] hidden lg:block z-20',
+              arrowClass: 'absolute lg:top-[170px] sm:top-[160px] left-[180px] sm:left-[215px] lg:scale-[0.45]  sm:scale-[0.5] hidden lg:block z-20',
             },
             {
               title: 'second_step',
               icon: bill,
               arrow: bottom_arrow,
-              arrowClass: 'absolute top-[160px] sm:top-[280px] right-0 scale-[0.4] sm:scale-[0.5] hidden lg:block z-20',
+              arrowClass: 'absolute lg:top-[277px] sm:top-[280px] right-0 lg:scale-[0.4] sm:scale-[0.5] hidden lg:block z-20',
             },
             {
               title: 'third_step',
               icon: hands,
               arrow: left_arrow,
-              arrowClass: 'absolute top-[160px] sm:top-[160px] left-[180px] sm:left-[215px] scale-[0.4] sm:scale-[0.5] hidden lg:block z-20',
+              arrowClass: 'absolute top-[160px] sm:top-[160px] left-[180px] sm:left-[215px] lg:scale-[0.4] sm:scale-[0.5] hidden lg:block z-20',
             },
             {
               title: 'fourth_step',
@@ -63,13 +63,13 @@ const Advantages = () => {
               title: 'sixth_step',
               icon: time,
               arrow: bottom_arrow,
-              arrowClass: 'absolute top-[-110px] sm:bottom-[10px] left-[10px] scale-[0.4] sm:scale-[0.5] hidden lg:block z-20',
+              arrowClass: 'absolute lg:top-[-105px] sm:bottom-[10px] left-[10px] lg:scale-[0.4] sm:scale-[0.5] hidden lg:block z-20',
             },
             {
               title: 'fifth_step',
               icon: communication,
               arrow: right_arrow,
-              arrowClass: 'absolute top-[100px] sm:top-[170px] left-[160px] sm:left-[-170px] scale-[0.4] sm:scale-[0.5] hidden lg:block z-20',
+              arrowClass: 'absolute top-[100px] sm:top-[170px] left-[150px] sm:left-[-190px] lg:scale-[0.4] sm:scale-[0.5] hidden lg:block z-20',
             },
           ].map((step, index) => (
             <div key={index} className={`flex flex-col items-center relative ${selectedLang === 'it' && (step.title === 'third_step' || step.title === 'fourth_step') ? 'min-h-[240px] sm:min-h-[260px]' : ''}`}>
@@ -85,14 +85,14 @@ const Advantages = () => {
           ))}
           <Link
             to="/contacts"
-            className="w-full sm:w-[360px] lg:w-[500px] h-10 sm:h-12  lg:h-[67px] bg-[#F9B33B] flex justify-center items-center text-sm sm:text-base lg:text-2xl font-bold rounded-[10px] mt-4 sm:mt-6 lg:mt-10 hover:scale-105 transition duration-300 mx-auto"
+            className="w-full sm:w-[360px] lg:w-[730px] h-10 sm:h-12  lg:h-[67px] bg-[#F9B33B] flex justify-center items-center text-sm sm:text-base lg:text-2xl font-bold rounded-[10px] sm:mt-6 lg:mt-8  hover:scale-105 transition duration-300 mx-auto"
           >
             {t('button')}
           </Link>
         </div>
 
         {/* Image Comparison Slider */}
-        <div className="w-full lg:w-[820px] h-[300px] sm:h-[400px] lg:h-[800px] px-4 sm:px-6 lg:px-0 top-[10px]">
+        <div className=" lg:w-[820px] sm:h-[400px] lg:h-[1230px] px-4 sm:px-6 lg:px-0 sm:top-[10px]">
           <ImageComparisonSlider beforeSrc={before_after_1} afterSrc={before_after_2}  />
         </div>
       </main>

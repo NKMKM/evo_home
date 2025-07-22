@@ -46,7 +46,7 @@ const Nav = () => {
     <>
       {/* Навбар */}
       <nav
-        className={`fixed top-0 left-0 w-full z-20 flex h-16 sm:h-20 lg:h-[128px] items-center justify-between px-4 sm:px-6 lg:px-8 bg-white shadow-2xl transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 w-full z-[999] flex h-16 sm:h-20 lg:h-[128px] items-center justify-between px-4 sm:px-6 lg:px-8 bg-white shadow-2xl transition-transform duration-300 ease-in-out ${
           showNavbar ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
