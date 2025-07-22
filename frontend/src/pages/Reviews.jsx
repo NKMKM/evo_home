@@ -24,7 +24,7 @@ const ReviewsPage = () => {
       </Helmet>
 
       {/* our clients block */}
-      <div className="w-full max-w-[1641px] mx-auto mt-10 px-4 sm:px-6 lg:px-0">
+      <div className="w-full max-w-[1641px] mx-auto my-10 px-4 sm:px-6  lg:px-0">
         <div className="w-full flex flex-row justify-between items-center mb-8">
           <img
             src={left_decoration}
@@ -60,7 +60,7 @@ const ReviewsPage = () => {
       </div>
 
       {/* reviews section */}
-      <div className="relative w-full max-w-[1641px] mx-auto flex flex-col gap-12 lg:gap-16 px-4 sm:px-6 lg:px-0">
+      <div className="relative w-full max-w-[1641px] mx-auto flex flex-col gap-18 lg:gap-16 px-4 sm:px-6 lg:px-0">
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-6">
           {t('reviews.h')}
         </h2>
