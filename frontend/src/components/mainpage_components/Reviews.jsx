@@ -22,7 +22,7 @@ const Reviews = () => {
   return (
     
     <main className={`home-reviews-bg-image w-full bg-cover px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 flex flex-col gap-6 sm:gap-8 lg:gap-10 ${selectedLang === 'it' ? 'pb-10 sm:pb-12 lg:pb-16' : ''}`}>
-      <header className="w-full max-w-[1641px] mx-auto my-10 px-4 sm:px-6  lg:px-0">
+      <header className="w-full lg:flex lg:flex-row lg:justify-between max-w-[1641px] mx-auto my-10 px-4 sm:px-6  lg:px-0">
         <img src={left_decoration} alt="left decoration" loading="lazy" className="w-[120px] sm:w-[180px] lg:w-[276px] h-auto hidden lg:block" />
         <h1 className="font-bold text-2xl sm:text-2xl md:text-2xl lg:text-[50px] left-[20px] text-align">{t('h')}</h1>
         <img src={right_decoration} alt="right decoration" loading="lazy" className="w-[120px] sm:w-[180px] lg:w-[276px] h-auto hidden lg:block" />
@@ -33,23 +33,23 @@ const Reviews = () => {
           {
             name: 'Marco Bianchi',
             date: '05.03.2024, 10:15',
-            stars: [golden_star, golden_star, golden_star, gray_star, gray_star],
+            stars: [golden_star, golden_star, golden_star, golden_star, gray_star],
             text: 'first_review',
             images: [first_review_first_image, first_review_second_image, first_review_third_image],
             size: 'w-full sm:max-w-[453px] h-auto min-h-[380px] sm:min-h-[450px]',
           },
           {
-            name: 'Алексей Петров',
+            name: 'Matteo Romano',
             date: '12.02.2024, 14:37',
-            stars: [golden_star, golden_star, golden_star, golden_star, gray_star],
+            stars: [golden_star, golden_star, golden_star, golden_star, golden_star],
             text: 'second_review',
             images: [second_review_first_image, second_review_second_image, second_review_third_image],
             size: `w-full sm:max-w-[450px] sm:left-[335px] lg:left-0 ${selectedLang === 'it' ? 'min-h-[380px] sm:min-h-[380px]' : 'min-h-[380px] sm:min-h-[450px]'}`,
           },
           {
-            name: 'Игорь Васильев',
+            name: 'Valentina Russo',
             date: '22.03.2024, 18:52',
-            stars: [golden_star, golden_star, golden_star, golden_star, gray_star],
+            stars: [golden_star, golden_star, golden_star, golden_star, golden_star],
             text: 'third_review',
             images: [third_review_first_image, third_review_second_image, third_review_third_image],
             size: 'w-full sm:max-w-[453px] h-auto min-h-[380px] sm:min-h-[380px]',

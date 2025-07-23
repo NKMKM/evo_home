@@ -10,13 +10,13 @@ const Architect = () => {
     }
     const {t} = useTranslation('slider/Architect')
     return (
-    <div className="flex flex-col sm:pt-10 justify-around w-full min-h-screen md:min-h-[800px] architect-bg-image bg-cover">
+    <div className="flex flex-col sm:pt-10 justify-around w-full min-h-[900px]  md:min-h-[800px] architect-bg-image bg-cover">
       {/* Header */}
       <div className="flex flex-col md:flex-row h-[300px] md:h-[200px] lg:bg-black/55 pt-24 md:pt-0">
 
         {/* Header text */}
         <div className="relative flex-1 md:w-[75%] ">
-          <h1 className="bg-black/55 md:bg-transparent text-white text-center font-bold text-5xl sm:text-7xl md:text-[110px] absolute inset-0 flex items-center justify-center z-[100] text-shadow-lg">
+          <h1 className="bg-black/55 md:bg-transparent text-white text-center font-bold text-[34px]  sm:text-7xl md:text-[110px] absolute inset-0 flex items-center justify-center z-[100] text-shadow-lg">
             {t('h')}
           </h1>
           {/* Yellow bar */}

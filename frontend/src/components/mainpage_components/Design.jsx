@@ -10,7 +10,7 @@ const Design = () => {
         }
     const {t} = useTranslation('slider/Design')
     return (
-    <div className="flex flex-col sm:pt-10 justify-around w-full min-h-screen md:min-h-[800px] design-bg-image bg-cover">
+    <div className="flex flex-col sm:pt-10 justify-around w-full min-h-[900px]  md:min-h-[800px] design-bg-image bg-cover">
       {/* Header */}
       <div className="flex flex-col md:flex-row h-[300px] md:h-[200px] lg:bg-black/55 pt-24 md:pt-0">
 
