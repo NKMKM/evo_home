@@ -10,7 +10,7 @@ const Calculator = () => {
   const { t } = useTranslation('home/Calculator');
 
   // Получение URL бэкенда из переменной окружения
-  const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,7 +34,7 @@ const Calculator = () => {
     console.log('Отправляем данные:', payload);
 
     try {
-      const res = await fetch(`${backendUrl}/api/submissions`, {
+      const res = await fetch(`${backendUrl}/submissions`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

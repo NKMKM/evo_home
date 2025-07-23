@@ -10,7 +10,7 @@ export function LoginPage() {
 
   // Fix for Vite env type error
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL || 'http://localhost:3001';
+  const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ export function LoginPage() {
     setLoading(true);
 
     try {
-      const res = await fetch(`${backendUrl}/api/login`, {
+      const res = await fetch(`${backendUrl}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include', // Для отправки кук

@@ -5,10 +5,10 @@ import { DashboardPage } from './components/DashboardPage';
 
 export function App() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-
+  const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL;
   // Проверка авторизации при загрузке
   useEffect(() => {
-    fetch('http://localhost:3001/api/check-auth', {
+    fetch(`${backendUrl}/check-auth`, {
       credentials: 'include',
     })
       .then(res => res.json())
@@ -19,7 +19,7 @@ export function App() {
   // Логин через backend
   const handleLogin = async (username: string, password: string) => {
     try {
-      const res = await fetch('http://localhost:3001/api/login', {
+      const res = await fetch(`${backendUrl}/api/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -40,7 +40,7 @@ export function App() {
 
   // Логаут (можно вызвать из компонента Layout)
   const handleLogout = async () => {
-    await fetch('http://localhost:3001/api/logout', {
+    await fetch(`${backendUrl}/api/logout`, {
       method: 'POST',
       credentials: 'include',
     });

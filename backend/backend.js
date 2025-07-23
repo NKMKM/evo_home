@@ -40,11 +40,11 @@ pool.connect()
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Настройка CORS
 app.use(cors({
-  origin: [process.env.FRONTEND_URL_1, process.env.FRONTEND_URL_2], // Укажите фронтенд-порты
-  credentials: true,
+  origin: ['http://www.evohome.it', 'http://admin.evohome.it'],
+  credentials: true // если куки или авторизация
 }));
+
 
 // Парсинг JSON
 app.use(express.json());
@@ -63,7 +63,7 @@ app.use(session({
 }));
 
 // Маршрут логина
-app.post('/api/login', async (req, res) => {
+app.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
   if (!username || !password) {
@@ -103,7 +103,7 @@ app.post('/api/login', async (req, res) => {
 });
 
 // Проверка авторизации
-app.get('/api/check-auth', (req, res) => {
+app.get('/check-auth', (req, res) => {
   if (req.session.user) {
     res.json({ authenticated: true, user: req.session.user });
   } else {
@@ -112,7 +112,7 @@ app.get('/api/check-auth', (req, res) => {
 });
 
 // Логаут
-app.post('/api/logout', (req, res) => {
+app.post('/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) {
       console.error('Ошибка при логауте:', err.message);
@@ -123,7 +123,7 @@ app.post('/api/logout', (req, res) => {
 });
 
 // Получение заявок (только для авторизованных)
-app.get('/api/submissions', async (req, res) => {
+app.get('/submissions', async (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Не авторизован' });
   }
@@ -137,7 +137,7 @@ app.get('/api/submissions', async (req, res) => {
 });
 
 // Создание заявки (без авторизации)
-app.post('/api/submissions', async (req, res) => {
+app.post('/submissions', async (req, res) => {
   const {
     buildingType, roomType, repairType, area,
     urgency, additionalInfo, name, phone, promoCode
@@ -171,7 +171,7 @@ app.post('/api/submissions', async (req, res) => {
 });
 
 // Удаление заявки (только для авторизованных)
-app.delete('/api/submissions/:id', async (req, res) => {
+app.delete('/submissions/:id', async (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Не авторизован' });
   }
