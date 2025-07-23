@@ -85,7 +85,7 @@ const Advantages = () => {
           ))}
           <Link
             to="/contacts"
-            className="w-full sm:w-[360px] lg:w-[730px] h-10 sm:h-12  lg:h-[67px] bg-[#F9B33B] flex justify-center items-center text-sm sm:text-base lg:text-2xl font-bold rounded-[10px] sm:mt-6 lg:mt-8  hover:scale-105 transition duration-300 mx-auto"
+            className="w-full sm:w-[360px] lg:w-[730px] h-10 sm:h-12  lg:h-[67px] bg-[#F9B33B] flex justify-center items-center text-sm sm:text-base lg:text-2xl font-bold rounded-[10px] my-6 lg:mt-8  hover:scale-105 transition duration-300 mx-auto"
           >
             {t('button')}
           </Link>

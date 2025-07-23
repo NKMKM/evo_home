@@ -60,7 +60,7 @@ const ReviewsPage = () => {
       </div>
 
       {/* reviews section */}
-      <div className="relative w-full max-w-[1641px] mx-auto flex flex-col gap-18 lg:gap-16 px-4 sm:px-6 lg:px-0">
+      <div className="relative w-full max-w-[1641px] mx-auto flex flex-col gap-18 lg:gap-26 px-4 sm:px-6 lg:px-0">
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-6">
           {t('reviews.h')}
         </h2>
@@ -79,14 +79,13 @@ const ReviewsPage = () => {
                     <img src={avatar} alt="avatar" loading="lazy" className="w-12 h-12 lg:w-16 lg:h-16" />
                   </div>
                   <div>
-                    <p className="text-lg sm:text-xl lg:text-2xl">Annalisa</p>
-                    <p className="text-[#222222B2]/70 text-sm lg:text-base">6 месяцев назад</p>
+                    <p className="text-lg sm:text-xl lg:text-2xl">Giulia Bianchi</p>
                     <ul className="flex flex-row gap-1 w-[70px] lg:w-[94px] h-auto">
                       <li><img src={golden_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
                       <li><img src={golden_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
                       <li><img src={golden_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
                       <li><img src={golden_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
-                      <li><img src={gray_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
+                      <li><img src={golden_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
                     </ul>
                   </div>
                 </div>
@@ -115,14 +114,13 @@ const ReviewsPage = () => {
                     <img src={avatar} alt="avatar" loading="lazy" className="w-12 h-12 lg:w-16 lg:h-16" />
                   </div>
                   <div>
-                    <p className="text-lg sm:text-xl lg:text-2xl">Инна Чикурова</p>
-                    <p className="text-[#222222B2]/70 text-sm lg:text-base">4 месяцев назад</p>
+                    <p className="text-lg sm:text-xl lg:text-2xl">Alessia Greco</p>
                     <ul className="flex flex-row gap-1 w-[70px] lg:w-[94px] h-auto">
                       <li><img src={golden_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
                       <li><img src={golden_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
                       <li><img src={golden_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
                       <li><img src={golden_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
-                      <li><img src={gray_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
+                      <li><img src={golden_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
                     </ul>
                   </div>
                 </div>
@@ -151,13 +149,12 @@ const ReviewsPage = () => {
                   </div>
                   <div>
                     <p className="text-lg sm:text-xl lg:text-2xl">Sergiu Fana</p>
-                    <p className="text-[#222222B2]/70 text-sm lg:text-base">8 месяцев назад</p>
                     <ul className="flex flex-row gap-1 w-[70px] lg:w-[94px] h-auto">
                       <li><img src={golden_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
                       <li><img src={golden_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
                       <li><img src={golden_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
                       <li><img src={golden_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
-                      <li><img src={gray_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
+                      <li><img src={golden_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
                     </ul>
                   </div>
                 </div>
@@ -190,13 +187,12 @@ const ReviewsPage = () => {
                   </div>
                   <div>
                     <p className="text-lg sm:text-xl lg:text-2xl">Ubaldo Manfroncelli</p>
-                    <p className="text-[#222222B2]/70 text-sm lg:text-base">год назад</p>
                     <ul className="flex flex-row gap-1 w-[70px] lg:w-[94px] h-auto">
                       <li><img src={golden_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
                       <li><img src={golden_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
                       <li><img src={golden_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
-                      <li><img src={gray_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
-                      <li><img src={gray_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
+                      <li><img src={golden_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
+                      <li><img src={golden_star} loading="lazy" className="w-3 h-3 lg:w-4 lg:h-4" /></li>
                     </ul>
                   </div>
                 </div>

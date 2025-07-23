@@ -11,9 +11,14 @@
     "button": "I WANT A DISCOUNT",
     "condition": {
       "h": "Discount Conditions:",
-      "li1": "—Follow us on social media",
-      "li2": "—Like the post, leave a comment, and repost",
-      "li3": "—Get up to 10% off your first project"
+      "li1": "—Follow us on our",
+      "span1": " social media",
+      "li2": "—Contact us within",
+      "span2": " this week",
+      "li3": "—Get a discount",
+      "span3": " up to 10% ",
+      "li4": "on your first project"
     }
+    
   }
   
