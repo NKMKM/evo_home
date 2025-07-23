@@ -58,7 +58,7 @@ const Architect = () => {
         </div>
 
         {/* Conditions */}
-        <div className="w-full md:w-[500px] bg-black/35 border-4 md:border-6 border-[#f9b33b] rounded-lg text-white p-4 md:p-5 backdrop-blur-sm">
+        <div className="w-full md:w-[500px] bg-black/35 border-4 md:border-6 border-[#f9b33b] rounded-lg text-white px-4 md:px-5 md:py-14 backdrop-blur-sm">
           <p className="font-semibold text-xl md:text-3xl">{t('condition.h')}</p>
           <ul className="list-disc pl-6 pt-2 md:pt-4 text-base md:text-[22px]">
             <li>{t('condition.li1')}</li>
