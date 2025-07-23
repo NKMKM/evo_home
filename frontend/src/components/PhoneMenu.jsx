@@ -36,13 +36,13 @@ const PhoneMenu = () => {
             href="tel:+390123456789"
             className="block mb-2 font-bold text-black hover:text-[#F9B33B]"
           >
-            +39 012 345 6789
+            +39 327 986 6412
           </a>
           <a
             href="tel:+390987654321"
             className="block font-bold text-black hover:text-[#F9B33B]"
           >
-            +39 098 765 4321
+            +39 06 69353277
           </a>
         </div>
       )}

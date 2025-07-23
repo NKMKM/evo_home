@@ -1,22 +1,24 @@
 {
-    "h": "Progetto 3D",
-    "left_block": {
-      "p": "gratuito",
-      "strong": "In omaggio"
-    },
-    "comment": {
-      "p1": "Per ordini a partire da ",
-      "span1": "75.000 €",
-      "p2": " realizziamo un ",
-      "span2": "progetto 3D fotorealistico",
-      "p3": " del tuo futuro interno in omaggio! Promozione a tempo limitato – chiedi i dettagli al nostro consulente e blocca il tuo bonus!"
-    },
-    "button": "IL TUO OMAGGIO",
-    "condition": {
-      "h": "Come ottenere il bonus:",
-      "li1": "—Seguici sui social",
-      "li2": "—Metti like, commenta e condividi il post",
-      "li3": "—Ricevi gratuitamente il progetto 3D"
-    }
+  "h": "Progetto 3D",
+  "left_block": {
+    "p": "gratuitamente",
+    "strong": "In regalo"
+  },
+  "comment": {
+    "p1": "Per ordini a partire da ",
+    "span1": "75.000 €",
+    "p2": " – realizzeremo un ",
+    "span2": "progetto 3D",
+    "p3": " fotorealistico del tuo futuro interno in regalo! L'offerta è a tempo limitato – chiedi i dettagli al manager e blocca il tuo bonus!"
+  },
+  "button": "RICEVI IN REGALO",
+  "condition": {
+    "h": "Condizioni per lo sconto:",
+    "li1": "—Seguici sui nostri",
+    "span1": " social media",
+    "li2": "—Metti like, commenta il post e ",
+    "span2": "tagga 2 amici",
+    "li3": "—Ottieni uno sconto:",
+    "span3": " progetto 3D gratuito"
   }
-  
+}

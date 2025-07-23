@@ -1,22 +1,24 @@
 {
-    "h": "Sopralluogo dell’architetto",
-    "left_block": {
-      "p": "gratuito",
-      "strong": "In omaggio"
-    },
-    "comment": {
-      "p1": "Ti offriamo un ",
-      "span1": "sopralluogo gratuito con un architetto",
-      "p2": " direttamente presso il tuo immobile. Il professionista farà una prima consulenza, valuterà gli spazi, risponderà alle tue domande e ",
-      "span2": "proporrà una soluzione preliminare",
-      "p3": " per la ristrutturazione o la nuova distribuzione degli ambienti."
-    },
-    "button": "IL TUO OMAGGIO",
-    "condition": {
-      "h": "Come ottenere il codice promo:",
-      "li1": "—Seguici sui nostri social",
-      "li2": "—Metti like, commenta e condividi il post",
-      "li3": "—Ricevi il progetto 3D gratuitamente"
-    }
+  "h": "Visita dell'Architetto",
+  "left_block": {
+    "p": "In regalo",
+    "strong": "gratuitamente"
+  },
+  "comment": {
+    "p1": "Offriamo una ",
+    "span1": "visita gratuita dell'architetto",
+    "p2": "direttamente al tuo immobile. Lo specialista fornirà una consulenza iniziale, valuterà lo spazio, risponderà alle domande e ",
+    "span2": "proporrà una soluzione preliminare",
+    "p3": "per la disposizione o la ristrutturazione."
+  },
+  "button": "VISITA GRATUITA",
+  "condition": {
+    "h": "Condizioni per il codice promozionale:",
+    "li1": "—Iscriviti ai nostri",
+    "span1": " social media",
+    "li2": "—Lascia un",
+    "span2": " commento interessante",
+    "li3": "—Ricevi una",
+    "span3": " visita gratuita all'immobile"
   }
-  
+}

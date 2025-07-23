@@ -11,9 +11,13 @@
     "button": "VOGLIO LO SCONTO",
     "condition": {
       "h": "Come ottenere lo sconto:",
-      "li1": "Seguici sui social",
-      "li2": "Metti like, commenta e condividi il post",
-      "li3": "Ottieni fino al 10% di sconto sul tuo primo progetto"
+      "li1": "—Seguici ",
+      "span1":" reti sociali ",
+      "li2": "—Contattaci",
+      "span2":" questa settimana ",
+      "li3": "—Ottieni di sconto ",
+      "span3":" fino al 10% ",
+      "li4":"per il primo progetto"
     }
   }
   

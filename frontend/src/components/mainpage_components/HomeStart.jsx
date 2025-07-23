@@ -18,13 +18,13 @@ const HomeStart = () => {
   return (
     <div className="relative w-full">
       <Swiper
-        modules={[Autoplay]}
-        autoplay={{
-          delay: 4000,
-          disableOnInteraction: false,
-        }}
+        // modules={[Autoplay]}
+        // autoplay={{
+        //   delay: 4000,
+        //   disableOnInteraction: false,
+        // }}
         spaceBetween={20}
-        loop={true}
+        // loop={true}
         slidesPerView={1}
         className="w-full"
         breakpoints={{
