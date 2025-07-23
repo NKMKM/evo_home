@@ -52,7 +52,7 @@ const Services = () => {
                     {/* first element */}
                     <li className='w-full lg:h-[849px] max-w-[389px] mx-auto flex flex-col justify-between 
                                  gap-4 py-2'>
-                        <h2 className='text-center font-semibold text-xl sm:text-2xl md:text-3xl'>
+                        <h2 className={`text-center ${(selectedLang === 'it' || selectedLang === 'en') ? 'sm:text-2xl md:text-2xl lg:mb-4' : 'text-xl sm:text-2xl md:text-3xl lg:mb-0'} font-semibold `}>
                             {t('first_element.h')}
                         </h2>
                         <div className='w-full flex flex-col shadow-xl rounded-lg overflow-hidden'>
@@ -108,15 +108,16 @@ const Services = () => {
                     {/* third element */}
                     <li className='w-full lg:h-[849px] max-w-[389px] mx-auto flex flex-col justify-between 
                                  gap-4 py-2 '>
-                        <h2 className='text-center font-semibold text-xl sm:text-2xl md:text-xl'>
+                        <h2 className={`text-center font-semibold ${selectedLang === 'en' ? 'sm:text-2xl md:text-3xl' : ''} ${selectedLang === 'ru' ? 'sm:text-2xl md:text-2xl lg:mb-1' : ''} ${selectedLang === 'it' ? 'sm:text-2xl md:text-3xl lg:mb-4' : ''} `}>
                             {t('third_element.h')}
                         </h2>
+
                         <div className='w-full flex flex-col shadow-xl rounded-lg overflow-hidden '>
                             <div className='w-full aspect-square max-w-[300px] sm:max-w-[350px] lg:max-w-[389px] max-h-[300px] sm:max-h-[350px] lg:max-h-[389px] mx-auto bo'>
                                 <img src={basement} alt='basement' loading="lazy" 
                                      className='w-full h-full object-cover rounded-t-lg'/>
                             </div>
-                            <div className='flex-1 text-center items-center p-4 sm:p-5 space-y-4'>
+                            <div className='flex-1 text-center items-center p-4 sm:p-5 space-y-10'>
                                 <img src={botique} alt='botique icon' loading="lazy" 
                                      className='w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto'/>
                                 <p className='text-base sm:text-lg md:text-xl lg:text-[22px]'>

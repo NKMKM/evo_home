@@ -7,6 +7,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { Link, useNavigate } from 'react-router-dom';
 import ServicesDropdown from './ServicesDropdown';
 import LanguageSelector from './LanguageSelector';
+import PhoneMenu from './PhoneMenu';
 
 const Nav = () => {
   const { t } = useTranslation('components/Nav');
@@ -79,7 +80,10 @@ const Nav = () => {
             </div>
           {/* Селектор языка и бургер-меню */}
           <div className="flex flex-row items-center gap-2 sm:gap-4 left-[90px]">
-            <LanguageSelector />
+            <PhoneMenu className="lg:hidden"/>
+            <div className="hidden md:block">
+              <LanguageSelector  />
+            </div>
             <div className="lg:hidden ">
               <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
                 {isMenuOpen ? <CloseIcon sx={{ fontSize: { xs: 28, sm: 32 } }} /> : <MenuIcon sx={{ fontSize: { xs: 28, sm: 32 } }} />}
@@ -104,18 +108,8 @@ const Nav = () => {
             <Link to="/our_works" onClick={() => setIsMenuOpen(false)}>{t('list.third')}</Link>
             <Link to="/reviews" onClick={() => setIsMenuOpen(false)}>{t('list.fourth')}</Link>
             <Link to="/contacts" onClick={() => setIsMenuOpen(false)}>{t('list.fifth')}</Link>
-            <div className="mt-4">
-              <div className="bg-[#f9b33b] py-2 sm:py-3 px-4 sm:px-6 rounded-lg inline-flex items-center justify-center flex-col gap-2">
-                <div className='space-x-3'>
-                  <PhoneInTalkIcon sx={{ fontSize: { xs: 20, sm: 24 } }} />
-                  <a href='tel:+39 327 986 6412' className="text-sm sm:text-base">+39 327 986 6412</a>
-                </div>
-
-                <div className='space-x-3'>
-                  <PhoneInTalkIcon sx={{ fontSize: { xs: 20, sm: 24 } }} />
-                  <a href='tel:+39 06 69353277' className="text-sm sm:text-base">+39 06 69353277</a>
-                </div>
-              </div>
+            <div className="ml-16 mt-4">
+              <LanguageSelector/>
             </div>
           </div>
         </div>

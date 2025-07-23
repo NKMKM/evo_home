@@ -61,7 +61,7 @@ function App() {
     <BrowserRouter>
         <ScrollToTop/>
         <Nav />
-        <div className='h-[100px] lg:h-[128px]'></div>
+        <div className='h-[65px] lg:h-[128px]'></div>
         <Routes>
           <Route path='/' element={<Main />} />
           <Route path='/contacts' element={<Contacts />} />

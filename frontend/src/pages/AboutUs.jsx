@@ -8,9 +8,9 @@ import left_decoration from '../assets/images/leftside_black_decoration.png'
 import right_decoration from '../assets/images/rightside_black_decoration.png'
 import left_yellow_decoration from '../assets/images/leftside_yellow_decoration.png'
 import right_yellow_decoration from '../assets/images/rightside_yellow_decoration.png'
-import van from '../assets/images/van.png'
 import arrow_1 from '../assets/images/team_images/arrow_1.png'
 import arrow_2 from '../assets/images/team_images/arrow_2.png'
+import founder_main from '../assets/images/founder_main.png'
 
 import keys from '../assets/icons/keys.png'
 import gears from '../assets/icons/gears.png'
@@ -40,6 +40,9 @@ import Guarantees from '../components/mainpage_components/Guarantees'
 import vector_about_us_1 from'../assets/videos/abouts_us/vector1.png'
 import vector_about_us_2 from'../assets/videos/abouts_us/vector2.png'
 
+//gallery photos---------------------------------
+
+
 const AboutUs = () => {
     const {t} = useTranslation('AboutUs')
     const selectedLang = localStorage.getItem('language') || 'en';
@@ -67,7 +70,7 @@ const AboutUs = () => {
                     <p>{t("header.p4")}</p>
                 </div>
                 <div className='w-full md:w-1/2 flex items-center justify-center'>
-                    <img src={van} alt='van' loading="lazy" className='w-full max-w-[300px] sm:max-w-[400px] md:max-w-full h-auto rounded-[10px] object-cover'/>
+                    <img src={founder_main} alt='van' loading="lazy" className='w-full max-w-[300px] sm:max-w-[400px] md:max-w-full h-auto rounded-[10px] object-cover'/>
                 </div>
             </div>
             
@@ -95,25 +98,8 @@ const AboutUs = () => {
             
             {/* list of employees */}
             <div className='relative mb-10'>
-                <div className='absolute top-[200px] sm:top-[250px] lg:top-[328px] left-0 w-full h-[647px] hidden lg:block'>
-                    <img src={arrow_1} alt='arrow 1' className='w-full h-full object-contain' style={{ zIndex: 1 }} />
-                    <img src={arrow_2} alt='arrow 2' className='w-full h-full object-contain absolute top-200 left-0' style={{ zIndex: 2 }} />
-                </div>
 
                 <ul className='w-full space-y-12 sm:space-y-16 lg:space-y-20'>
-                    {/* 1 */}
-                    <li className='w-full flex flex-col lg:flex-row justify-between gap-6 lg:gap-0'>
-                        <div className='w-full lg:w-[528px] h-[300px] sm:h-[376px]'>
-                            <img src={founder} alt='founder' loading="lazy" className='w-full h-full object-cover rounded-[10px]'/>
-                        </div>
-                        <div className='w-full lg:w-[1082px] flex flex-col space-y-6 lg:space-y-10'>
-                            <div>
-                                <h2 className='font-bold text-3xl sm:text-4xl lg:text-[50px]'>{t('our_team.ul.li1.h')}</h2>
-                                <h3 className='font-light italic text-2xl sm:text-3xl lg:text-[40px]'>{t('our_team.ul.li1.h2')}</h3>
-                            </div>
-                            <p className='text-xl sm:text-2xl lg:text-[32px] font-light'>{t('our_team.ul.li1.p')}</p>
-                        </div>
-                    </li>
 
                     {/* 2 */}
                     <li className='w-full flex flex-col lg:flex-row-reverse justify-between gap-6 lg:gap-0 border-b border-gray-300 pb-6 lg:pb-0'>
@@ -134,7 +120,7 @@ const AboutUs = () => {
                         <div className='w-full lg:w-[528px] h-[300px] sm:h-[376px] border-[3px] lg:border-[5px] border-[#F9B33B]'>
                             <img src={project_manager} alt='project manager' loading="lazy" className='w-full h-full object-cover rounded-[10px]'/>
                         </div>
-                        <div className='w-full lg:w-[1082px] flex flex-col space-y-6 lg:space-y-10'>
+                        <div className='w-full lg:w-[1082px] flex flex-col space-y-6 lg:space-y-10 lg:pl-6'>
                             <div>
                                 <h2 className='font-bold text-3xl sm:text-4xl lg:text-[50px]'>{t('our_team.ul.li3.h')}</h2>
                                 <h3 className='font-light italic text-2xl sm:text-3xl lg:text-[40px]'>{t('our_team.ul.li3.h2')}</h3>

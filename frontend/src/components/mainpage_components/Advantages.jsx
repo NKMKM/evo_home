@@ -79,7 +79,7 @@ const Advantages = () => {
               )}
               <div className={`flex flex-col items-center justify-center text-center gap-2 sm:gap-3 px-4 w-full max-w-[240px] sm:w-[280px] lg:max-w-[312px] aspect-square max-h-[240px] sm:h-[280px] lg:max-h-[312px] border-[#F9B33B] border-[3px] sm:border-[5px] rounded-[10px]`}>
                 <img src={step.icon} alt={step.title} loading="lazy" className="w-10  sm:w-[10px] sm:h-16 lg:w-[74px] h-10  lg:h-[74px] mt-3 sm:mt-4" />
-                <p className=" sm:text-[36px] lg:text-[22px] px-2">{t(`advantages.${step.title}.p`)}</p>
+                <p className=" sm:text-[34px] lg:text-[20px]  px-2">{t(`advantages.${step.title}.p`)}</p>
               </div>
             </div>
           ))}

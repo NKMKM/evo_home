@@ -6,7 +6,7 @@
     },
     "comment": {
       "p1": "Per ordini a partire da ",
-      "span1": "50.000 €",
+      "span1": "75.000 €",
       "p2": " realizziamo un ",
       "span2": "progetto 3D fotorealistico",
       "p3": " del tuo futuro interno in omaggio! Promozione a tempo limitato – chiedi i dettagli al nostro consulente e blocca il tuo bonus!"
@@ -14,9 +14,9 @@
     "button": "IL TUO OMAGGIO",
     "condition": {
       "h": "Come ottenere il bonus:",
-      "li1": "Seguici sui social",
-      "li2": "Metti like, commenta e condividi il post",
-      "li3": "Ricevi gratuitamente il progetto 3D"
+      "li1": "—Seguici sui social",
+      "li2": "—Metti like, commenta e condividi il post",
+      "li3": "—Ricevi gratuitamente il progetto 3D"
     }
   }
   
