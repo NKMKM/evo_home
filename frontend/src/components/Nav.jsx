@@ -105,9 +105,16 @@ const Nav = () => {
             <Link to="/reviews" onClick={() => setIsMenuOpen(false)}>{t('list.fourth')}</Link>
             <Link to="/contacts" onClick={() => setIsMenuOpen(false)}>{t('list.fifth')}</Link>
             <div className="mt-4">
-              <div className="bg-[#f9b33b] py-2 sm:py-3 px-4 sm:px-6 rounded-lg inline-flex items-center justify-center gap-2">
-                <PhoneInTalkIcon sx={{ fontSize: { xs: 20, sm: 24 } }} />
-                <span className="text-sm sm:text-base">+39 06 69353277</span>
+              <div className="bg-[#f9b33b] py-2 sm:py-3 px-4 sm:px-6 rounded-lg inline-flex items-center justify-center flex-col gap-2">
+                <div className='space-x-3'>
+                  <PhoneInTalkIcon sx={{ fontSize: { xs: 20, sm: 24 } }} />
+                  <a href='tel:+39 327 986 6412' className="text-sm sm:text-base">+39 327 986 6412</a>
+                </div>
+
+                <div className='space-x-3'>
+                  <PhoneInTalkIcon sx={{ fontSize: { xs: 20, sm: 24 } }} />
+                  <a href='tel:+39 06 69353277' className="text-sm sm:text-base">+39 06 69353277</a>
+                </div>
               </div>
             </div>
           </div>
