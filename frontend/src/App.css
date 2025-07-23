@@ -66,15 +66,15 @@ body{
   background-image: url('./assets/images/works/bg_lines.png');
 }
 .discount-bg-image{
-  background-image: url('./assets/images/room_renovation/room_renovation/image.jpg');
+  background-image: url('./assets/images/discount.jpg');
 }
 
 .design-bg-image{
-  background-image: url('./assets/images/turnkey_renovation/designer_renovation/image.jpg');
+  background-image: url('./assets/images/design.jpg');
 }
 
 .architect-bg-image{
-  background-image: url('./assets/images/room_renovation/kitchen/image.png');
+  background-image: url('./assets/images/architector.jpg');
 }
 
 .works-first-stage-bg-image{
