@@ -130,8 +130,8 @@ const Contacts = () => {
             </div>
           </div>
 
-          <div className="w-full flex flex-col lg:flex-row gap-4 lg:gap-6">
-            <div className="w-full lg:w-[692px] bg-[#F9B33B] relative p-5">
+          <div className="w-full flex flex-col lg:flex-row lg:justify-between gap-4 lg:gap-6">
+            <div className="w-full lg:w-[800px] bg-[#F9B33B] relative p-5">
               <div className="flex flex-row justify-between items-center">
                 <h2 className="flex flex-row items-center text-xl sm:text-2xl lg:text-3xl font-semibold">
                   <LanguageIcon className="scale-125 mr-3 lg:mr-4" /> {t('contacts.5.h')}
@@ -140,7 +140,7 @@ const Contacts = () => {
               </div>
             </div>
 
-            <div className="w-full lg:w-[951px] h-[120px] lg:h-[163px] border-4 border-[#F9B33B] flex items-center justify-center lg:justify-end">
+            <div className="w-full lg:w-[805px] h-[120px] lg:h-[163px] border-4 border-[#F9B33B] flex items-center justify-center lg:justify-end">
               <ul className="w-full max-w-[834px] flex flex-row justify-between px-4 lg:pr-4">
                 <li className="w-16 h-16 lg:w-24 lg:h-24 hover:scale-110 transition duration-300">
                   <img
