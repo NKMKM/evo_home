@@ -65,6 +65,17 @@ body{
 .works-stages-bg-image{
   background-image: url('./assets/images/works/bg_lines.png');
 }
+.discount-bg-image{
+  background-image: url('./assets/images/room_renovation/room_renovation/image.jpg');
+}
+
+.design-bg-image{
+  background-image: url('./assets/images/turnkey_renovation/designer_renovation/image.jpg');
+}
+
+.architect-bg-image{
+  background-image: url('./assets/images/room_renovation/kitchen/image.png');
+}
 
 .works-first-stage-bg-image{
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),

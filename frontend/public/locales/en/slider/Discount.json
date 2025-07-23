@@ -1,0 +1,19 @@
+{
+    "h": "10% Discount",
+    "left_block": {
+      "p": "only",
+      "strong": "in 7 days"
+    },
+    "comment": {
+      "p": "Are you following us on social media? Then you have a chance to get an exclusive discount of up to 10% on the",
+      "span": "renovation of your choice!"
+    },
+    "button": "I WANT A DISCOUNT",
+    "condition": {
+      "h": "Discount Conditions:",
+      "li1": "Follow us on social media",
+      "li2": "Like the post, leave a comment, and repost",
+      "li3": "Get up to 10% off your first project"
+    }
+  }
+  

@@ -33,7 +33,7 @@ const Advantages = () => {
       {/* Main Content */}
       <main className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-10 w-full justify-between">
         {/* Info Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-x-18 lg:gap-y-4 w-full lg:w-[735px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-x-10 lg:gap-y-1 w-full lg:w-[735px]">
         {[
             {
               title: 'first_step',
@@ -45,7 +45,7 @@ const Advantages = () => {
               title: 'second_step',
               icon: bill,
               arrow: bottom_arrow,
-              arrowClass: 'absolute lg:top-[277px] sm:top-[280px] right-0 lg:scale-[0.4] sm:scale-[0.5] hidden lg:block z-20',
+              arrowClass: 'absolute lg:top-[252px] sm:top-[280px] right-5 lg:scale-[0.4] sm:scale-[0.5] hidden lg:block z-20',
             },
             {
               title: 'third_step',
@@ -63,13 +63,13 @@ const Advantages = () => {
               title: 'sixth_step',
               icon: time,
               arrow: bottom_arrow,
-              arrowClass: 'absolute lg:top-[-105px] sm:bottom-[10px] left-[10px] lg:scale-[0.4] sm:scale-[0.5] hidden lg:block z-20',
+              arrowClass: 'absolute lg:top-[-110px] sm:bottom-[10px] left-[40px] lg:scale-[0.4] sm:scale-[0.5] hidden lg:block z-20',
             },
             {
               title: 'fifth_step',
               icon: communication,
               arrow: right_arrow,
-              arrowClass: 'absolute top-[100px] sm:top-[170px] left-[150px] sm:left-[-190px] lg:scale-[0.4] sm:scale-[0.5] hidden lg:block z-20',
+              arrowClass: 'absolute top-[100px] sm:top-[170px] left-[150px] sm:left-[-172px] lg:scale-[0.4] sm:scale-[0.5] hidden lg:block z-20',
             },
           ].map((step, index) => (
             <div key={index} className={`flex flex-col items-center relative ${selectedLang === 'it' && (step.title === 'third_step' || step.title === 'fourth_step') ? 'min-h-[240px] sm:min-h-[260px]' : ''}`}>
@@ -92,7 +92,7 @@ const Advantages = () => {
         </div>
 
         {/* Image Comparison Slider */}
-        <div className=" lg:w-[820px] sm:h-[400px] lg:h-[1230px] px-4 sm:px-6 lg:px-0 sm:top-[10px]">
+        <div className=" lg:w-[820px] sm:h-[400px] lg:h-[1200px] px-4 sm:px-6 lg:px-0 lg:pb-5 sm:top-[10px]">
           <ImageComparisonSlider beforeSrc={before_after_1} afterSrc={before_after_2}  />
         </div>
       </main>
