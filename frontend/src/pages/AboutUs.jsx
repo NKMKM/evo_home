@@ -53,7 +53,7 @@ const AboutUs = () => {
             <meta name="description" content="About EVO Home" />
         </Helmet>
         {/* about us block */}
-        <header className='w-full max-w-screen-xl mx-auto mt-6 sm:mt-10 px-4 sm:px-6 md:px-8'>
+        <header className='w-full lg:w-[1640px]  mx-auto mt-6 sm:mt-10 px-4 sm:px-6 md:px-8'>
             {/* header */}
             <div className='w-full flex flex-row justify-between items-center mb-6 sm:mb-8'>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='hidden md:block w-24 sm:w-32 h-16 sm:h-20'/>
@@ -63,7 +63,7 @@ const AboutUs = () => {
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='hidden md:block w-24 sm:w-32 h-16 sm:h-20'/>
             </div>
 
-            <div className='flex flex-col md:flex-row w-full justify-between text-base sm:text-lg md:text-xl lg:text-2xl gap-6 md:gap-8'>
+            <div className='flex flex-col md:flex-row w-full justify-between text-base sm:text-lg md:text-xl lg:text-[30.5px] gap-6 md:gap-8'>
                 <div className='flex flex-col w-full md:w-1/2 text-center md:text-left justify-around gap-4 sm:gap-6'>
                     <p>{t("header.p1")}<span className='text-[#F9B33B]'>{t("header.span1")}</span>{t('header.p2')}<span className='text-[#F9B33B]'>{t("header.span2")}</span></p>
                     <p>{t("header.p3")}<span className='text-[#F9B33B]'>{t("header.span3")}</span></p>
@@ -160,8 +160,7 @@ const AboutUs = () => {
             <div className='relative w-full max-w-[1418px] mx-auto mb-6 text-center font-bold text-[#222222] border-x-8 lg:border-x-[12px] border-[#E0E0E0]'>
                 <h2 className='text-4xl sm:text-5xl md:text-6xl lg:text-[70px]'>{t('achievements.h')}</h2>
                 <div className="flex flex-row justify-between">
-                    <div className='hidden lg:block absolute top-[65px] w-[120px] sm:w-[155px] h-[8px] sm:h-[12px] bg-[#E0E0E0]'></div>
-                    <div className='hidden lg:block absolute top-[65px] right-0 w-[120px] sm:w-[155px] h-[8px] sm:h-[12px] bg-[#E0E0E0]'></div>
+                    
                 </div>
             </div>
 
