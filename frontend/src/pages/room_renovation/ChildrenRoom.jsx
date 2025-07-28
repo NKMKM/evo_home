@@ -25,7 +25,7 @@ const ChildrenRoom = () => {
     <div className="min-h-screen bg-white">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="Renovation of children rooms by EVO Home" />
+        <meta name="description" content="🏡 Ristrutturazione Stanza dei Bambini a Roma | Massima Sicurezza e Creatività" />
       </Helmet>
 
       <header className="w-full max-w-[1641px] mx-auto my-6 md:my-10 lg:my-20 flex flex-col items-center">

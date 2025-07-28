@@ -24,7 +24,7 @@ const ExclusiveRenovation = () => {
     <div className="w-full min-h-screen">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="Exclusive renovation by EVO Home" />
+        <meta name="description" content="👷‍♂️ Ristrutturazioni di lusso a prezzi accessibili nel cuore di Roma. Garantiamo finiture di alto livello. Inizia ora il tuo progetto! 📞 +39 327 986 6412" />
       </Helmet>
 
       <header className="w-full max-w-[1641px] mx-auto my-6 sm:my-8 lg:my-10 flex flex-col justify-between px-4 lg:px-0">

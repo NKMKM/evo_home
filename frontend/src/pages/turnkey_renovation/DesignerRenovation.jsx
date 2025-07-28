@@ -25,7 +25,7 @@ const DesignerRenovation = () => {
     <div className="w-full min-h-screen">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="Designer renovation by EVO Home" />
+        <meta name="description" content="🏬 Ristrutturazioni di alta qualità a Roma per il tuo appartamento di design. Realizza il tuo progetto ideale. 📞 +39 327 986 6412" />
       </Helmet>
 
       <header className="w-full max-w-[1641px] mx-auto my-6 sm:my-8 lg:my-10 flex flex-col justify-between px-4 lg:px-0">

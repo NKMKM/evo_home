@@ -27,7 +27,7 @@ const Warehouse = () => {
     <div className="min-h-screen bg-white">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="Renovation of warehouses by EVO Home" />
+        <meta name="description" content="🏬 Ristrutturazione di Magazzini a Roma | Qualità e Affidabilità Garantite" />
       </Helmet>
 
       {/* Header Section */}

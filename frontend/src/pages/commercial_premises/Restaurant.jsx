@@ -27,7 +27,7 @@ const Restaurant = () => {
     <div className="min-h-screen bg-white">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="Renovation of restaurants and bars by EVO Home" />
+        <meta name="description" content="Vuoi rinnovare il tuo bar o il tuo ristorante a Roma? Ristrutturazioni professionali. Qualità garantita. Collaborazione vantaggiosa. Contattaci subito 📞 +39 327 986 6412" />
       </Helmet>
 
       {/* Header Section */}

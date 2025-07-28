@@ -26,7 +26,7 @@ const LivingRoom = () => {
     <div className="min-h-screen bg-white">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="Renovation of living rooms by EVO Home" />
+        <meta name="description" content="uoi trasformare il tuo soggiorno? Ristrutturazioni efficienti e di stile a Roma. Affidati alla nostra esperienza. Contattaci 📞 +39 327 986 6412" />
       </Helmet>
 
       {/* Header Section */}

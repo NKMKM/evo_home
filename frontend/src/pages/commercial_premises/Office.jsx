@@ -24,7 +24,7 @@ const Office = () => {
     <div>
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="Renovation of offices by EVO Home" />
+        <meta name="description" content="Necessiti di una ristrutturazione degli uffici a Roma? Scegli la qualità e l’esperienza dei nostri professionisti per un ufficio funzionale e accogliente. 📞 +39 327 986 6412" />
       </Helmet>
 
       <header className={`max-w-[1641px] w-full ${selectedLang === 'it' || selectedLang === 'en' ? 'lg:h-[1350px]' : 'lg:h-[1440px]'} mx-auto my-20 flex flex-col justify-between px-5`}>

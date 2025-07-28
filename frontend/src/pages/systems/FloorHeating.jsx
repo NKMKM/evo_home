@@ -25,7 +25,7 @@ const FloorHeating = () => {
     <div className="min-h-screen bg-white">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="Floor heating systems made by EVO Home" />
+        <meta name="description" content="Vuoi risparmiare sui consumi? Offriamo riscaldamento a pavimento a Roma. Qualità e durata! Contattaci 📞 +39 327 986 6412" />
       </Helmet>
 
       <header className="w-full max-w-[1641px] mx-auto my-6 md:my-10 lg:my-20 flex flex-col items-center">

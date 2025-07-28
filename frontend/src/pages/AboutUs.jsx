@@ -50,7 +50,7 @@ const AboutUs = () => {
     <div className="w-full">
         <Helmet>
             <title>{t('title')}</title>
-            <meta name="description" content="About EVO Home" />
+            <meta name="description" content="La società di costruzioni a Roma Evo Home - il tuo partner affidabile nel mondo della costruzione e della ristrutturazione. Il tu progetto da sogno inizia qui." />
         </Helmet>
         {/* about us block */}
         <header className='w-full lg:w-[1640px]  mx-auto mt-6 sm:mt-10 px-4 sm:px-6 md:px-8'>

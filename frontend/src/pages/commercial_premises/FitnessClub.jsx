@@ -24,7 +24,7 @@ const FitnessClub = () => {
     <div className='w-full'>
         <Helmet>
             <title>{t('title')}</title>
-            <meta name="description" content="Renovation of fitness clubs by EVO Home" />
+            <meta name="description" content="Ristrutturazione di Fitness Club a Roma | Soluzioni di Qualità per il Tuo Spazio Fitness" />
         </Helmet>
         <header className='w-full max-w-[1641px] h-auto mx-auto mt-10 sm:mt-10 lg:mt-20 mb-10 sm:mb-20 lg:mb-20 px-4 flex flex-col justify-between gap-6'>
             <div className='h-auto w-full mx-auto flex flex-col lg:flex-row justify-between items-center mb-6 sm:mb-10 lg:mb-0'>

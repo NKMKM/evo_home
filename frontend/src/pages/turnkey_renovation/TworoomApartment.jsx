@@ -24,7 +24,7 @@ const TworoomApartment = () => {
     <div className="w-full min-h-screen">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="Renovation of tworoom apartments made by EVO Home" />
+        <meta name="description" content="Ristrutturazione di bilocali a Roma: scopri come trasformare il tuo spazio in un'opera d'arte. Contattaci per iniziare. 📞 +39 327 986 6412" />
       </Helmet>
 
       <header className="w-full max-w-[1641px] mx-auto my-6 sm:my-8 lg:my-10 flex flex-col justify-between px-4 lg:px-0">

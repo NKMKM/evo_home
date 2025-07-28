@@ -26,7 +26,7 @@ const Studio = () => {
     <div className="w-full min-h-screen">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="Renovation of studio apartments by EVO Home" />
+        <meta name="description" content="🏡 Cerchi una ristrutturazione di monolocali a Roma? Affidati a noi per qualità e professionalità. Contattaci per iniziare 📞 +39 327 986 6412" />
       </Helmet>
 
       <header className="w-full max-w-[1641px] mx-auto my-6 sm:my-8 lg:my-10 flex flex-col justify-between px-4 lg:px-0">
