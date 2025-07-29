@@ -33,7 +33,7 @@ const Advantages = () => {
       {/* Main Content */}
       <main className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-10 w-full justify-between">
         {/* Info Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-x-10 lg:gap-y-1 w-full lg:w-[735px]">
+        <div className="hide-on-mobile grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-x-10 lg:gap-y-1 w-full lg:w-[735px]">
         {[
             {
               title: 'first_step',
