@@ -21,9 +21,9 @@ const Discount = () => {
           <div className="bg-[#f9b33b] h-4 md:h-10 w-[90%] mx-auto absolute bottom-2 lg:bottom-6 md:bottom-8 left-0 right-0 md:left-[10px] z-[100]"></div>
 
           {/* Текст — самый верхний */}
-          <h1 className={`md:bg-transparent text-white text-center font-bold ${selectedLang === 'ru' ? 'text-[44px]' : 'text-[36px]'}  sm:text-2xl md:text-[140px] absolute inset-0 flex items-center justify-center z-[200] text-shadow-lg`}>
+          <h2 className={`md:bg-transparent text-white text-center font-bold ${selectedLang === 'ru' ? 'text-[44px]' : 'text-[36px]'}  sm:text-2xl md:text-[140px] absolute inset-0 flex items-center justify-center z-[200] text-shadow-lg`}>
             {t('h')}
-          </h1>
+          </h2>
         </div>
 
         {/* Days */}

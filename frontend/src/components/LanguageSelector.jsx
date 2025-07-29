@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { urlTranslations } from '../urlTranslation';
 
 import russian_flag from '../assets/icons/russian_flag_icon.png';
 import english_flag from '../assets/icons/english_flag_icon.png';

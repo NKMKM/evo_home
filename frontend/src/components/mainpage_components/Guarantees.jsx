@@ -29,7 +29,7 @@ const Guarantees = () => {
 
       {/* Header */}
       <header className="text-center max-w-4xl mx-auto mb-16">
-        <h1 className="text-3xl sm:text-5xl lg:text-[70px] font-bold">{t('h')}</h1>
+        <h2 className="text-3xl sm:text-5xl lg:text-[70px] font-bold">{t('h')}</h2>
         <p className="mt-4 text-lg sm:text-2xl lg:text-[30px] italic">{t('p')}</p>
       </header>
 

@@ -2,6 +2,7 @@
 import './App.css'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import { urlTranslations } from './urlTranslation';
 
 import ScrollToTop from './components/ScrollToTop'
 import Nav from './components/Nav'
@@ -56,6 +57,7 @@ import CommercialPremisesServices from './pages/servises/CommercialPremisesServi
 import SystemsServices from './pages/servises/SystemsServices';
 
 function App() {
+  const {i18n} = useTranslation();
   return (
     
     <BrowserRouter>
@@ -77,7 +79,9 @@ function App() {
           <Route path='/turnkey_renovation/threeroom_apartments' element={<ThreeroomApartment />} />
           <Route path='/turnkey_renovation/fourroom_apartments' element={<FourroomApartment />} />
           <Route path='/turnkey_renovation/twostory_apartments' element={<TwostoryApartment />} />
+          
 
+          
           <Route path='/room_renovation' element={<RoomRenovation />} />
           <Route path='/room_renovation/living_room' element={<LivingRoom />} />
           <Route path='/room_renovation/bedroom' element={<Bedroom />} />

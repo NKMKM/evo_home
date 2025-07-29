@@ -21,9 +21,9 @@ const Architect = () => {
           <div className="bg-[#f9b33b] h-4 md:h-10 w-[95%] mx-auto absolute bottom-5 lg:bottom-6 md:bottom-8 left-0 right-0 md:left-[10px] z-[600]"></div>
 
           {/* Текст — самый верхний */}
-          <h1 className=" md:bg-transparent text-white text-center font-bold text-[39px] sm:text-2xl md:text-[120px] absolute inset-0 flex items-center justify-center z-[700] text-shadow-lg">
+          <h2 className=" md:bg-transparent text-white text-center font-bold text-[39px] sm:text-2xl md:text-[120px] absolute inset-0 flex items-center justify-center z-[700] text-shadow-lg">
             {t('h')}
-          </h1>
+          </h2>
         </div>
 
         {/* Days */}

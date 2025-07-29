@@ -25,9 +25,6 @@ const Main = () => {
             <meta name="description" content="Home page with all info about EVO Home" />
         </Helmet>
         <HomeStart/> 
-        {/* <Design/> */}
-        {/* <Architect/>  */}
-        {/* <Discount/> */}
         <Advantages/>
         <Calculator/>
         <Services/>
