@@ -57,7 +57,7 @@ const Calculator = () => {
       {/* Header */}
       <header className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-10 px-4 text-white text-center">
         <img src={calculator} alt="calculator" loading="lazy" className="w-16 h-16 mx-auto sm:mx-0" />
-        <h1 className="text-4xl sm:text-5xl font-semibold">{t('h')}</h1>
+        <h2 className="text-4xl sm:text-5xl font-semibold">{t('h')}</h2>
       </header>
 
       {/* Description */}

@@ -2,42 +2,7 @@ import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import HttpBackend from 'i18next-http-backend';
 
-const resources  = {
-    en:{
-        'translation':{
-            list :{
-                first_stroke :'We want to transform',
-                second_stroke: {
-                    text_1: 'your ',
-                    span: 'ideas',
-                    text_2 : ' into'
-                },
-                third_stroke:{
-                    text:'extraordinary spaces for ',
-                    span: 'living'
-                }
-            },
-            button:'REQUEST A QUOTE',
-        },
-    },
-    ru: {
-        'translation':{
-            list :{
-                first_stroke :'Мы хотим превратить',
-                second_stroke: {
-                    text_1: 'ваши',
-                    span: 'идеи',
-                    text_2 : ' в'
-                },
-                third_stroke:{
-                    text:'необыкновенные пространства для ',
-                    span: 'жизни'
-                }
-            },
-            button:'ЗАПРОСИТЬ РАСЦЕНКИ',
-        },
-    }
-}
+
 
 const savedLng = localStorage.getItem('i18nextLng') || 'it';
 

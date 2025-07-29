@@ -29,12 +29,12 @@ const Services = () => {
                 <img src={left_decoration} alt='left decoration' loading="lazy" 
                      className='w-[150px] sm:w-[200px] md:w-[276px] h-auto hidden lg:block'/>
                 <div className='w-full text-center'>
-                    <h1 className='font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl'>
+                    <h2 className='font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl'>
                         {t('header_1')}
-                    </h1>
-                    <h1 className='font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl'>
+                    </h2>
+                    <h2 className='font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl'>
                         {t('header_2')}
-                    </h1>
+                    </h2>
                 </div>
                 <img src={right_decoration} alt='right decoration' loading="lazy" 
                      className='w-[150px] sm:w-[200px] md:w-[276px] h-auto hidden lg:block'/>

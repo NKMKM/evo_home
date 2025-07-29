@@ -14,7 +14,7 @@ const AboutCompanyHome = () => {
       {/* Заголовок с декорациями */}
       <div className="flex flex-row items-center justify-center w-full">
         <img src={left_decoration} alt="left decoration" className="w-[276px] h-auto hidden lg:block" loading="lazy" />
-        <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[70px] text-center px-4">{t("h")}</h1>
+        <h2 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[70px] text-center px-4">{t("h")}</h2>
         <img src={right_decoration} alt="right decoration" className="w-[276px] h-auto hidden lg:block" loading="lazy" />
       </div>
 
@@ -39,9 +39,9 @@ const AboutCompanyHome = () => {
             <li>{t('ul.li3')}</li>
             <li>{t('ul.li4')}</li>
           </ul>
-          <h1 className="text-lg sm:text-xl md:text-2xl lg:text-[31px] font-bold">
+          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-[31px] font-bold">
             <span className="text-[#F9B33B]">{t('text.span')}</span> {t('text.p2')}
-          </h1>
+          </h2>
         </div>
       </div>
 

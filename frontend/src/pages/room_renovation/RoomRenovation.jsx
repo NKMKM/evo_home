@@ -65,7 +65,7 @@ const RoomRenovation = () => {
           <div className="w-full flex flex-col space-y-4 text-base sm:text-lg md:text-2xl lg:text-[28px] text-center lg:text-left">
             <p className="break-words">{t('header.p1')}</p>
             <p className="break-words">{t('header.p2')}</p>
-            <p className="break-words">{t('header.p3 technologii')}</p>
+            {/* <p className="break-words">{t('header.p3 technologii')}</p> */}
           </div>
 
           <div className="w-full h-auto bg-blue-600/20 rounded-[10px] overflow-hidden">

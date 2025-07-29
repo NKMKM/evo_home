@@ -25,9 +25,6 @@ const Main = () => {
             <meta name="description" content="Hai bisogno di ristrutturare casa a Roma? Rivolgiti a professionisti del settore. EVO HOME è l'Impresa edile più affidabile per la ristrutturazione chiavi in mano di case, appartamenti, locali commerciali e soluzioni indipendenti." />
         </Helmet>
         <HomeStart/> 
-        {/* <Design/> */}
-        {/* <Architect/>  */}
-        {/* <Discount/> */}
         <Advantages/>
         <Calculator/>
         <Services/>

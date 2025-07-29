@@ -18,7 +18,7 @@ const Projects = () => {
     <main className="sm:w-full lg:w-[1650px]  max-w-[1641px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 flex flex-col gap-6 sm:gap-8 lg:gap-10">
       <header className="flex flex-row items-center justify-center w-full">
         <img src={left_decoration} alt="left decoration" loading="lazy" className="w-[276px] h-auto hidden lg:block" />
-        <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[70px] text-center px-4">{t('h')}</h1>
+        <h2 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[70px] text-center px-4">{t('h')}</h2>
         <img src={right_decoration} alt="right decoration" loading="lazy" className="w-[276px] h-auto hidden lg:block" />
       </header>
       <p className="text-lg sm:text-xl md:text-2xl lg:text-[32px] italic font-light text-center mx-auto max-w-[1410px]">{t('p')}</p>
