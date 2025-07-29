@@ -13,7 +13,7 @@ const FiveReasons = () => {
         </div>
 
         <div className='w-full max-w-[1353px] h-auto mx-auto mb-10 sm:mb-20 lg:mb-40'>
-            <h1 className='text-[30px] sm:text-[50px] lg:text-[70px] font-bold text-center'>5 причин разработать дизайн с EvoHome</h1>
+            <h2 className='text-[30px] sm:text-[50px] lg:text-[70px] font-bold text-center'>5 причин разработать дизайн с EvoHome</h2>
             <p className='text-[18px] sm:text-[24px] lg:text-[30px] italic text-center'>"EVO HOME – надежность, подтвержденная делом!"</p>
         </div>
         

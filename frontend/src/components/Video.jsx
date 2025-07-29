@@ -8,7 +8,7 @@ const Video = ({text}) => {
   const {t} = useTranslation('commercial_premises/CommercialPremises')
   return (
     <div className='w-full sm:h-auto lg:h-[950px] flex flex-col justify-between mt-10 mx-auto px-4'>
-        <h1 className='text-[32px] sm:text-[40px] lg:text-[50px] font-bold text-center'>{text}</h1>
+        <h2 className='text-[32px] sm:text-[40px] lg:text-[50px] font-bold text-center'>{text}</h2>
 
         {/* videos */}
         <div className='w-full h-auto relative flex flex-col mt-6'>
