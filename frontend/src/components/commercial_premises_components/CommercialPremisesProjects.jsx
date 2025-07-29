@@ -26,7 +26,7 @@ const CommercialPremisesProjects = () => {
           loading="lazy"
           className="w-[276px] h-[83px] hidden lg:block"
         />
-        <h1
+        <h2
           className={`font-bold text-center ${
             selectedLang === 'it' || selectedLang === 'ru'
               ? 'text-4xl sm:text-5xl lg:text-[70px]'
@@ -34,7 +34,7 @@ const CommercialPremisesProjects = () => {
           }`}
         >
           {t('h')}
-        </h1>
+        </h2>
         <img
           src={right_decoration}
           alt="right decoration"

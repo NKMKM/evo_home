@@ -20,7 +20,7 @@ const Projects = () => {
         <header className={`h-auto w-full mx-auto flex flex-col lg:flex-row justify-between items-center ${selectedLang === 'it' || selectedLang === 'en' ? 'sm:my-10 lg:my-0' : ''}`}>
             <img src={left_decoration} alt='left decoration' loading="lazy" className='hidden lg:block w-[200px] lg:w-[276px] h-[60px] lg:h-[83px] mb-4 lg:mb-0'/>
             <div className='w-full lg:w-auto mx-auto lg:mx-0'>
-                <h1 className='font-bold text-center text-[28px] sm:text-[40px] lg:text-[70px] px-4'>{t('h')}</h1>
+                <h2 className='font-bold text-center text-[28px] sm:text-[40px] lg:text-[70px] px-4'>{t('h')}</h2>
             </div>
             <img src={right_decoration} alt='right decoration' loading="lazy" className='hidden lg:block w-[200px] lg:w-[276px] h-[60px] lg:h-[83px] mt-4 lg:mt-0'/>
         </header>
