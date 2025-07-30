@@ -141,7 +141,7 @@ const RoomRenovation = () => {
         {/* Video Section */}
         <div className="w-full my-6 md:my-10 flex flex-col space-y-6 md:space-y-10">
           <h2 className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[50px] text-center break-words">
-            {t('process.video_text')}
+                          {t('video_text')}
           </h2>
           <div className="w-full relative">
             <div className="absolute bottom-0 -z-10">
@@ -162,9 +162,7 @@ const RoomRenovation = () => {
               <img src={vector_about_us_2} alt="vector 2" loading="lazy" className="w-full h-auto" />
             </div>
           </div>
-          <div className="w-full text-base sm:text-lg md:text-2xl lg:text-[30px] text-center lg:text-left">
-            <p className="break-words">{t('process.video_p')}</p>
-          </div>
+
           <div className="w-full flex flex-col md:flex-row items-center justify-center gap-4">
             <div className="hidden md:block h-[1px] w-full md:w-[30%] lg:w-[625.5px] bg-[#F9B33B]"></div>
             <LanguageLink

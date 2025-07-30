@@ -99,7 +99,7 @@ const Nav = () => {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Обновленные ссылки с использованием LanguageLink */}
-            <LanguageLink to="turnkeyRenovation" onClick={() => setIsMenuOpen(false)}>{t('list.first')}</LanguageLink>
+            <LanguageLink to="services" onClick={() => setIsMenuOpen(false)}>{t('list.services')}</LanguageLink>
             <LanguageLink to="aboutUs" onClick={() => setIsMenuOpen(false)}>{t('list.second')}</LanguageLink>
             <LanguageLink to="ourWorks" onClick={() => setIsMenuOpen(false)}>{t('list.third')}</LanguageLink>
             <LanguageLink to="reviews" onClick={() => setIsMenuOpen(false)}>{t('list.fourth')}</LanguageLink>

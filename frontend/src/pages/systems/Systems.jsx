@@ -146,7 +146,7 @@ const System = () => {
         </div>
 
         <div className="w-full max-w-[1641px] mx-auto mb-8 sm:mb-10 lg:mb-12 flex flex-col space-y-6 sm:space-y-8 lg:space-y-10 px-4 lg:px-0">
-          <h2 className="text-[32px] sm:text-[40px] lg:text-[50px] font-bold text-center">{t('process.video_text')}</h2>
+                          <h2 className="text-[32px] sm:text-[40px] lg:text-[50px] font-bold text-center">{t('video_text')}</h2>
 
           <div className="w-full relative">
             <div className="absolute bottom-0 w-[300px] sm:w-[400px] h-[600px] sm:h-[853px] -z-10">
@@ -161,8 +161,8 @@ const System = () => {
           </div>
 
           <div className="w-full text-[18px] sm:text-[22px] lg:text-[30px] text-center lg:text-left flex flex-col space-y-4">
-            <p>{t('process.video_p1')}</p>
-            <p>{t('process.video_p2')}</p>
+                          <p>{t('video_p1')}</p>
+              <p>{t('video_p2')}</p>
           </div>
 
           <div className="w-full h-[50px] sm:h-[67px] flex flex-row items-center mx-auto">

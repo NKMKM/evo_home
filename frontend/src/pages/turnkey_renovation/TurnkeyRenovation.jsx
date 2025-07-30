@@ -167,7 +167,6 @@ const TurnkeyRenovation = () => {
             </div>
           </div>
           <div className="w-full text-[18px] sm:text-[22px] lg:text-[30px] text-center lg:text-left">
-            <p>{t('process.video_p')}</p>
           </div>
           <div className="w-full h-[50px] sm:h-[67px] flex flex-row items-center mx-auto">
             <div className="h-[2px] sm:h-[3px] lg:h-[1px] w-[30%] lg:w-[625.5px] bg-[#F9B33B]"></div>
