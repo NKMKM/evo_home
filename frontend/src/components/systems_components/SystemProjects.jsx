@@ -1,15 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+// Не используется
 
-import first_image from '../../assets/images/systems/electrical_systems/grid_images/first_image.jpg'
-import second_image from '../../assets/images/systems/electrical_systems/grid_images/second_image.jpg'
-import third_image from '../../assets/images/systems/electrical_systems/grid_images/third_image.jpg'
-import fourth_image from '../../assets/images/systems/electrical_systems/grid_images/fourth_image.jpg'
-import fifth_image from '../../assets/images/systems/electrical_systems/grid_images/fifth_image.jpg'
-import sixth_image from '../../assets/images/systems/electrical_systems/grid_images/sixth_image.jpg'
+import first_image from '../../assets/images/systems/electrical_systems/grid_images/first_image.jpg';
+import second_image from '../../assets/images/systems/electrical_systems/grid_images/second_image.jpg';
+import third_image from '../../assets/images/systems/electrical_systems/grid_images/third_image.jpg';
+import fourth_image from '../../assets/images/systems/electrical_systems/grid_images/fourth_image.jpg';
+import fifth_image from '../../assets/images/systems/electrical_systems/grid_images/fifth_image.jpg';
+import sixth_image from '../../assets/images/systems/electrical_systems/grid_images/sixth_image.jpg';
 
-import left_decoration from '../../assets/images/leftside_black_decoration.png'
-import right_decoration from '../../assets/images/rightside_black_decoration.png'
+import left_decoration from '../../assets/images/leftside_black_decoration.png';
+import right_decoration from '../../assets/images/rightside_black_decoration.png';
+import LanguageLink from '../LanguageLink';
 
 const SystemProjects = () => {
   return (
@@ -43,12 +44,12 @@ const SystemProjects = () => {
                         <h2 className='text-[18px] sm:text-[24px] lg:text-[32px]'>{project.title}</h2>
                     </div>
                     <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                        <Link 
-                            to="/our_works" 
+                        <LanguageLink 
+                            to="ourWorks" 
                             className="bg-[#F9B33B] text-black font-bold text-[18px] sm:text-[24px] lg:text-[30px] flex justify-center items-center w-[200px] sm:w-[220px] lg:w-[251px] h-[50px] lg:h-[67px]"
                         >
                             ПОСМОТРЕТЬ
-                        </Link>
+                        </LanguageLink>
                     </div>
                 </div>
             ))}
@@ -56,16 +57,16 @@ const SystemProjects = () => {
 
         <div className='w-full max-w-[1641px] flex flex-col sm:flex-row items-center mx-auto gap-4'>
             <div className='h-[1px] w-full sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B] hidden sm:block'></div>
-            <Link 
-                to="/our_works" 
+            <LanguageLink 
+                to="ourWorks" 
                 className='w-full max-w-[389px] h-[50px] lg:h-[67px] flex justify-center items-center bg-[#F9B33B] text-[20px] sm:text-[24px] lg:text-[30px] font-semibold hover:scale-105 transition duration-300 mx-auto'
             >
                 ПОДРОБНЕЕ
-            </Link>
+            </LanguageLink>
             <div className='h-[1px] w-full sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B] hidden sm:block'></div>
         </div>
     </div>
-  )
-}
+  );
+};
 
-export default SystemProjects
+export default SystemProjects;

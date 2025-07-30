@@ -1,20 +1,21 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
+import React from 'react';
+// Не используется
+import { useTranslation } from 'react-i18next';
 
-import first_image from '../../assets/images/systems/electrical_systems/grid_images/first_image.jpg'
-import second_image from '../../assets/images/systems/electrical_systems/grid_images/second_image.jpg'
-import third_image from '../../assets/images/systems/electrical_systems/grid_images/third_image.jpg'
-import fourth_image from '../../assets/images/systems/electrical_systems/grid_images/fourth_image.jpg'
-import fifth_image from '../../assets/images/systems/electrical_systems/grid_images/fifth_image.jpg'
-import sixth_image from '../../assets/images/systems/electrical_systems/grid_images/sixth_image.jpg'
+import first_image from '../../assets/images/systems/electrical_systems/grid_images/first_image.jpg';
+import second_image from '../../assets/images/systems/electrical_systems/grid_images/second_image.jpg';
+import third_image from '../../assets/images/systems/electrical_systems/grid_images/third_image.jpg';
+import fourth_image from '../../assets/images/systems/electrical_systems/grid_images/fourth_image.jpg';
+import fifth_image from '../../assets/images/systems/electrical_systems/grid_images/fifth_image.jpg';
+import sixth_image from '../../assets/images/systems/electrical_systems/grid_images/sixth_image.jpg';
 
-import left_decoration from '../../assets/images/leftside_black_decoration.png'
-import right_decoration from '../../assets/images/rightside_black_decoration.png'
+import left_decoration from '../../assets/images/leftside_black_decoration.png';
+import right_decoration from '../../assets/images/rightside_black_decoration.png';
+import LanguageLink from '../LanguageLink';
 
 const CommercialPremisesProjects = () => {
-  const { t } = useTranslation('commercial_premises/CommercialPremisesProjects')
-  const selectedLang = localStorage.getItem('language') || 'en'
+  const { t } = useTranslation('commercial_premises/CommercialPremisesProjects');
+  const selectedLang = localStorage.getItem('language') || 'en';
 
   return (
     <div className="sm:w-full lg:w-[1650px]  max-w-[1641px] mx-auto px-4 py-10">
@@ -72,13 +73,13 @@ const CommercialPremisesProjects = () => {
               <h2 className="text-xl sm:text-2xl lg:text-[32px]">{item.text}</h2>
             </div>
             <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-              <Link
-                to="/our_works"
+              <LanguageLink
+                to="ourWorks"
                 className="bg-[#F9B33B] text-black font-bold text-lg sm:text-xl lg:text-[30px] flex justify-center items-center rounded"
                 style={{ width: '251px', height: '67px' }}
               >
                 {t('button')}
-              </Link>
+              </LanguageLink>
             </div>
           </div>
         ))}
@@ -87,16 +88,16 @@ const CommercialPremisesProjects = () => {
       {/* Bottom Button with Lines */}
       <div className="flex flex-col lg:flex-row items-center justify-center gap-4">
         <div className="hidden lg:block h-[1px] w-[625.5px] bg-[#F9B33B]"></div>
-        <Link
-          to="/our_works"
+        <LanguageLink
+          to="ourWorks"
           className="w-[250px] sm:w-[320px] h-[60px] bg-[#F9B33B] text-[22px] sm:text-[26px] font-semibold flex items-center justify-center hover:scale-110 transition-transform duration-300"
         >
           {t('button')}
-        </Link>
+        </LanguageLink>
         <div className="hidden lg:block h-[1px] w-[625.5px] bg-[#F9B33B]"></div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CommercialPremisesProjects
+export default CommercialPremisesProjects;

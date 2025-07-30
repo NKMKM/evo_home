@@ -1,7 +1,7 @@
 import React from 'react'
 import Video from '../../components/Video'
 import CommercialPremisesLayoutCollection from '../../components/commercial_premises_components/CommercialPremisesLayoutCollection'
-import { Link } from 'react-router-dom'
+import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from "react-helmet";
 import { useTranslation } from 'react-i18next';
 
@@ -81,12 +81,12 @@ const BusinessCenter = () => {
           {/* Button */}
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <div className="hidden sm:block h-[2px] flex-1 bg-[#F9B33B]"></div>
-            <Link 
-              to="/contacts" 
+            <LanguageLink 
+              to="contacts" 
               className="w-full sm:w-auto px-6 py-3 bg-[#F9B33B] text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-center hover:scale-105 transition duration-300 rounded-[10px]"
             >
               {t('header.button')}
-            </Link>
+            </LanguageLink>
             <div className="hidden sm:block h-[2px] flex-1 bg-[#F9B33B]"></div>
           </div>
         </div>

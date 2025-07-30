@@ -1,7 +1,7 @@
 import React from 'react'
 import Video from '../../components/Video'
 import SystemLayoutCollection from '../../components/systems_components/SystemLayoutCollection'
-import { Link } from 'react-router-dom'
+import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
 
@@ -25,7 +25,7 @@ const ClimateControl = () => {
     <div className="min-h-screen bg-white">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="Sistemi di controllo del clima a Roma. Comfort ideale per la tua casa o ufficio. 📞 +39 327 986 6412" />
+        <meta name="description" content="Sistemi di controllo del clima a Roma. Comfort ideale per la tua casa o ufficio. 📞 +39 327 986 641св" />
       </Helmet>
 
       <header className="w-full max-w-[1641px] mx-auto my-6 md:my-10 lg:my-20 flex flex-col items-center">
@@ -72,12 +72,12 @@ const ClimateControl = () => {
 
           <div className="w-full flex flex-col md:flex-row items-center justify-center gap-4">
             <div className="hidden md:block h-[1px] w-full md:w-[30%] lg:w-[625.5px] bg-[#F9B33B]"></div>
-            <Link
-              to="/contacts"
+            <LanguageLink
+              to="contacts"
               className="w-full sm:w-[300px] md:w-[389px] h-12 md:h-[67px] bg-[#F9B33B] text-base sm:text-lg md:text-2xl lg:text-[30px] font-semibold flex items-center justify-center hover:scale-105 transition duration-300 rounded"
             >
               {t('header.button')}
-            </Link>
+            </LanguageLink>
             <div className="hidden md:block h-[1px] w-full md:w-[30%] lg:w-[625.5px] bg-[#F9B33B]"></div>
           </div>
         </div>

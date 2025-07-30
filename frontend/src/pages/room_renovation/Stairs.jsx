@@ -2,7 +2,7 @@
 import React from 'react'
 import Video from '../../components/Video'
 import LayoutCollection from '../../components/room_renovation_components/LayoutCollection'
-import { Link } from 'react-router-dom'
+import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
 
@@ -73,12 +73,12 @@ const Stairs = () => {
 
           <div className="w-full flex flex-col md:flex-row items-center justify-center gap-4">
             <div className="hidden md:block h-[1px] w-full md:w-[30%] lg:w-[625.5px] bg-[#F9B33B]"></div>
-            <Link
-              to="/contacts"
+            <LanguageLink
+              to="contacts"
               className="w-full sm:w-[300px] md:w-[389px] h-12 md:h-[67px] bg-[#F9B33B] text-base sm:text-lg md:text-2xl lg:text-[30px] font-semibold flex items-center justify-center hover:scale-105 transition duration-300 rounded"
             >
               {t('header.button')}
-            </Link>
+            </LanguageLink>
             <div className="hidden md:block h-[1px] w-full md:w-[30%] lg:w-[625.5px] bg-[#F9B33B]"></div>
           </div>
         </div>

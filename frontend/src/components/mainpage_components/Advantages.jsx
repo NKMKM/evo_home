@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// Не используется
 import { useTranslation } from 'react-i18next';
 import achieve from '../../assets/icons/achieve.png';
 import bill from '../../assets/icons/bill.png';
@@ -13,6 +13,7 @@ import bottom_arrow from '../../assets/icons/arrow_to_bottom.png';
 import before_after_1 from '../../assets/images/before_after_1.png';
 import before_after_2 from '../../assets/images/before_after_2.png';
 import ImageComparisonSlider from '../ImageComparisonSlider';
+import LanguageLink from '../LanguageLink';
 
 const Advantages = () => {
   const selectedLang = localStorage.getItem('language') || 'en';
@@ -83,12 +84,12 @@ const Advantages = () => {
               </div>
             </div>
           ))}
-          <Link
-            to="/contacts"
+          <LanguageLink
+            to="contacts"
             className="w-full sm:w-[360px] lg:w-[730px] h-10 sm:h-12  lg:h-[67px] bg-[#F9B33B] flex justify-center items-center text-sm sm:text-base lg:text-2xl font-bold rounded-[10px] my-6 lg:mt-8  hover:scale-105 transition duration-300 mx-auto"
           >
             {t('button')}
-          </Link>
+          </LanguageLink>
         </div>
 
         {/* Image Comparison Slider */}

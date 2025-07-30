@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import LanguageLink from '../LanguageLink'
 import { useTranslation } from 'react-i18next'
 
 // icons import
@@ -68,13 +68,13 @@ const Services = () => {
                                 </p>
                             </div>
                         </div>
-                        <Link to="/turnkey_renovation" 
+                        <LanguageLink to="turnkeyRenovation" 
                               className='h-12 sm:h-14 md:h-16 bg-[#F9B33B] flex justify-center 
                                        items-center hover:scale-105 transition duration-300 
                                        font-semibold text-lg sm:text-xl md:text-2xl rounded-lg 
                                        shadow-lg'>
                             {t('button')}
-                        </Link>
+                        </LanguageLink>
                     </li>
 
                     {/* second element */}
@@ -96,13 +96,13 @@ const Services = () => {
                                 </p>
                             </div>
                         </div>
-                        <Link to="/room_renovation" 
+                        <LanguageLink to="roomRenovation" 
                               className='h-12 sm:h-14 md:h-16 bg-[#F9B33B] flex justify-center 
                                        items-center hover:scale-105 transition duration-300 
                                        font-semibold text-lg sm:text-xl md:text-2xl rounded-lg 
                                        shadow-lg'>
                             {t('button')}
-                        </Link>
+                        </LanguageLink>
                     </li>
 
                     {/* third element */}
@@ -125,13 +125,13 @@ const Services = () => {
                                 </p>
                             </div>
                         </div>
-                        <Link to="/commercial_premises" 
+                        <LanguageLink to="commercialPremises" 
                               className='h-12 sm:h-14 md:h-16 bg-[#F9B33B] flex justify-center 
                                        items-center hover:scale-105 transition duration-300 
                                        font-semibold text-lg sm:text-xl md:text-2xl rounded-lg 
                                        shadow-lg'>
                             {t('button')}
-                        </Link>
+                        </LanguageLink>
                     </li>
 
                     {/* fourth element */}
@@ -153,13 +153,13 @@ const Services = () => {
                                 </p>
                             </div>
                         </div>
-                        <Link to="/room_renovation" 
+                        <LanguageLink to="roomRenovation" 
                               className='h-12 sm:h-14 md:h-16 bg-[#F9B33B] flex justify-center 
                                        items-center hover:scale-105 transition duration-300 
                                        font-semibold text-lg sm:text-xl md:text-2xl rounded-lg 
                                        shadow-lg'>
                             {t('button')}
-                        </Link>
+                        </LanguageLink>
                     </li>
                 </ul>
             </section>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
 
@@ -56,12 +56,12 @@ const CommercialPremises = () => {
 
                 <div className='w-full max-w-[1640px] h-auto flex flex-col sm:flex-row items-center mx-auto gap-4'>
                     <div className='h-[2px] w-full sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
-                    <Link 
-                        to="/contacts" 
+                    <LanguageLink 
+                        to="contacts" 
                         className="w-full sm:w-[60%] lg:w-[389px] h-[50px] lg:h-[67px] bg-[#F9B33B] text-[20px] sm:text-[24px] lg:text-[30px] font-semibold flex items-center justify-center hover:scale-105 transition duration-300"
                     >
                         {t('header.button')}
-                    </Link>
+                    </LanguageLink>
                     <div className='h-[2px] w-full sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B]'></div>
                 </div>
             </div>

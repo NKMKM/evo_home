@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import left_decoration from '../../assets/images/leftside_black_decoration.png';
 import right_decoration from '../../assets/images/rightside_black_decoration.png';
@@ -9,6 +8,7 @@ import bath from '../../assets/images/projects_images/bath.jpg';
 import hall from '../../assets/images/projects_images/hall.jpg';
 import kitchen from '../../assets/images/projects_images/kitchen.jpg';
 import basement from '../../assets/images/services_images/basement.jpg';
+import LanguageLink from '../LanguageLink';
 
 const Projects = () => {
   const { t } = useTranslation('home/Projects');
@@ -40,24 +40,24 @@ const Projects = () => {
               <p className="text-sm sm:text-base lg:text-[18px]">{t(`${project.key}.p`)}</p>
             </div>
             <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-              <Link
-                to="/our_works"
+              <LanguageLink
+                to="ourWorks"
                 className="bg-[#F9B33B] text-black font-bold w-full text-lg sm:text-xl lg:text-[30px] flex justify-center items-center  sm:w-[251px] h-12 sm:h-[67px] rounded-[10px]"
               >
                 {t('button')}
-              </Link>
+              </LanguageLink>
             </div>
           </div>
         ))}
       </section>
       <div className="flex flex-row items-center justify-center gap-4 sm:gap-6 lg:gap-8 w-full">
         <div className="h-[1px] w-full sm:w-1/3 lg:w-[625.5px] bg-[#F9B33B] hidden lg:block"></div>
-        <Link
-          to="/our_works"
+        <LanguageLink
+          to="ourWorks"
           className="w-full sm:w-[389px] h-12 sm:h-[67px] bg-[#F9B33B] text-lg sm:text-xl lg:text-[30px] font-semibold flex items-center justify-center rounded-[10px] hover:scale-110 transition duration-300"
         >
           {t('button')}
-        </Link>
+        </LanguageLink>
         <div className="h-[1px] w-full sm:w-1/3 lg:w-[625.5px] bg-[#F9B33B] hidden lg:block"></div>
       </div>
     </main>

@@ -1,7 +1,7 @@
 import React from 'react'
 import Video from '../../components/Video'
 import CommercialPremisesLayoutCollection from '../../components/commercial_premises_components/CommercialPremisesLayoutCollection'
-import { Link } from 'react-router-dom'
+import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
 
@@ -51,7 +51,7 @@ const Office = () => {
 
           <div className='w-full h-[67px] flex flex-row items-center justify-between'>
             <div className='h-[3px] lg:h-[1px] w-[20%] bg-[#F9B33B]'></div>
-            <Link to="/contacts" className="w-[60%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[24px] sm:text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">{t('header.button')}</Link>
+            <LanguageLink to="contacts" className="w-[60%] lg:w-[389px] h-[67px] bg-[#F9B33B] text-[24px] sm:text-[30px] font-semibold flex items-center justify-center hover:scale-110 transition duration-300">{t('header.button')}</LanguageLink>
             <div className='h-[3px] lg:h-[1px] w-[20%] bg-[#F9B33B]'></div>
           </div>
         </div>
