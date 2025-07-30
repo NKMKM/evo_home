@@ -1,18 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import LanguageLink from '../../components/LanguageLink'
 import { useTranslation } from 'react-i18next'
 
 const TurnkeyRenovationServices = () => {
   const {t} = useTranslation('components/ServicesDropdown')
   return (
     <ul className='text-xl h-[600px] font-bold justify-between flex flex-col space-y-3 pl-16 my-26  '>
-        <Link to={'/turnkey_renovation/designer_renovation'} className='hover:text-[#F9B33B] transition duration-200'>{t('first_element.list_of_services.first')}</Link>
-        <Link to={'/turnkey_renovation/exclusive_renovation'} className='hover:text-[#F9B33B] transition duration-200'>{t('first_element.list_of_services.second')}</Link>
-        <Link to={'/turnkey_renovation/studio'} className='hover:text-[#F9B33B] transition duration-200'>{t('first_element.list_of_services.third')}</Link>
-        <Link to={'/turnkey_renovation/tworoom_apartments'} className='hover:text-[#F9B33B] transition duration-200'>{t('first_element.list_of_services.fourth')}</Link>
-        <Link to={'/turnkey_renovation/threeroom_apartments'} className='hover:text-[#F9B33B] transition duration-200'>{t('first_element.list_of_services.fifth')}</Link>
-        <Link to={'/turnkey_renovation/fourroom_apartments'} className='hover:text-[#F9B33B] transition duration-200'>{t('first_element.list_of_services.sixth')}</Link>
-        <Link to={'/turnkey_renovation/twostory_apartments'} className='hover:text-[#F9B33B] transition duration-200'>{t('first_element.list_of_services.seventh')}</Link>
+        <LanguageLink to={'designerRenovation'} className='hover:text-[#F9B33B] transition duration-200'>{t('first_element.list_of_services.first')}</LanguageLink>
+        <LanguageLink to={'exclusiveRenovation'} className='hover:text-[#F9B33B] transition duration-200'>{t('first_element.list_of_services.second')}</LanguageLink>
+        <LanguageLink to={'studio'} className='hover:text-[#F9B33B] transition duration-200'>{t('first_element.list_of_services.third')}</LanguageLink>
+        <LanguageLink to={'tworoomApartment'} className='hover:text-[#F9B33B] transition duration-200'>{t('first_element.list_of_services.fourth')}</LanguageLink>
+        <LanguageLink to={'threeroomApartment'} className='hover:text-[#F9B33B] transition duration-200'>{t('first_element.list_of_services.fifth')}</LanguageLink>
+        <LanguageLink to={'fourroomApartment'} className='hover:text-[#F9B33B] transition duration-200'>{t('first_element.list_of_services.sixth')}</LanguageLink>
+        <LanguageLink to={'twostoryApartment'} className='hover:text-[#F9B33B] transition duration-200'>{t('first_element.list_of_services.seventh')}</LanguageLink>
     </ul>
   )
 }

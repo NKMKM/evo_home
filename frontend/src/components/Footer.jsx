@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import LanguageLink from './LanguageLink'
 
 import logo from '../assets/icons/logo.png'
 import facebook from '../assets/icons/facebook.png'
@@ -50,45 +50,45 @@ const Footer = () => {
       <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 lg:gap-10">
         {/* Ремонт под ключ */}
         <div className="flex flex-col">
-          <Link to="/turnkey_renovation" className="flex flex-row items-center text-lg sm:text-xl lg:text-[22px] mb-4 group">
+          <LanguageLink to="turnkeyRenovation" className="flex flex-row items-center text-lg sm:text-xl lg:text-[22px] mb-4 group">
             <YellowSquare style={`mr-2 ${selectedLang === 'it' ? 'h-[60px]' : ''}`} />
             <span className="transition-colors duration-300 z-20 pl-3 group-hover:text-[#F9B33B]">{t('turnkey_renovation_h')}</span>
-          </Link>
+          </LanguageLink>
           <ul className="flex flex-col gap-3 pl-4 text-base sm:text-[18px] sm:hidden lg:flex">
-            <Link to="/turnkey_renovation/designer_renovation" className="hover:text-[#F9B33B] transition duration-200">{t('turnkey_renovation_ul.li1')}</Link>
-            <Link to="/turnkey_renovation/exclusive_renovation" className="hover:text-[#F9B33B] transition duration-200">{t('turnkey_renovation_ul.li2')}</Link>
-            <Link to="/turnkey_renovation/studio" className="hover:text-[#F9B33B] transition duration-200">{t('turnkey_renovation_ul.li3')}</Link>
-            <Link to="/turnkey_renovation/tworoom_apartments" className="hover:text-[#F9B33B] transition duration-200">{t('turnkey_renovation_ul.li4')}</Link>
-            <Link to="/turnkey_renovation/threeroom_apartments" className="hover:text-[#F9B33B] transition duration-200">{t('turnkey_renovation_ul.li5')}</Link>
-            <Link to="/turnkey_renovation/fourroom_apartments" className="hover:text-[#F9B33B] transition duration-200">{t('turnkey_renovation_ul.li6')}</Link>
-            <Link to="/turnkey_renovation/twostory_apartments" className="hover:text-[#F9B33B] transition duration-200">{t('turnkey_renovation_ul.li7')}</Link>
+            <LanguageLink to="designerRenovation" className="hover:text-[#F9B33B] transition duration-200">{t('turnkey_renovation_ul.li1')}</LanguageLink>
+            <LanguageLink to="exclusiveRenovation" className="hover:text-[#F9B33B] transition duration-200">{t('turnkey_renovation_ul.li2')}</LanguageLink>
+            <LanguageLink to="studio" className="hover:text-[#F9B33B] transition duration-200">{t('turnkey_renovation_ul.li3')}</LanguageLink>
+            <LanguageLink to="tworoomApartment" className="hover:text-[#F9B33B] transition duration-200">{t('turnkey_renovation_ul.li4')}</LanguageLink>
+            <LanguageLink to="threeroomApartment" className="hover:text-[#F9B33B] transition duration-200">{t('turnkey_renovation_ul.li5')}</LanguageLink>
+            <LanguageLink to="fourroomApartment" className="hover:text-[#F9B33B] transition duration-200">{t('turnkey_renovation_ul.li6')}</LanguageLink>
+            <LanguageLink to="twostoryApartment" className="hover:text-[#F9B33B] transition duration-200">{t('turnkey_renovation_ul.li7')}</LanguageLink>
           </ul>
         </div>
 
         {/* Ремонт комнат */}
         <div className="flex flex-col">
-          <Link to="/room_renovation" className="flex flex-row items-center text-lg sm:text-xl lg:text-[22px] mb-4 group">
+          <LanguageLink to="roomRenovation" className="flex flex-row items-center text-lg sm:text-xl lg:text-[22px] mb-4 group">
             <YellowSquare style={`mr-2 ${selectedLang === 'it' ? 'h-[60px]' : ''}`} />
             <span className="transition-colors duration-300 z-20 pl-3 group-hover:text-[#F9B33B]">{t('room_renovation_h')}</span>
-          </Link>
+          </LanguageLink>
           <ul className="flex flex-col gap-3 pl-4 text-base sm:text-[18px] sm:hidden lg:flex">
-            <Link to="/room_renovation/living_room" className="hover:text-[#F9B33B] transition duration-200">{t('room_renovation_ul.li1')}</Link>
-            <Link to="/room_renovation/bedroom" className="hover:text-[#F9B33B] transition duration-200">{t('room_renovation_ul.li2')}</Link>
-            <Link to="/room_renovation/children_room" className="hover:text-[#F9B33B] transition duration-200">{t('room_renovation_ul.li3')}</Link>
-            <Link to="/room_renovation/corridor" className="hover:text-[#F9B33B] transition duration-200">{t('room_renovation_ul.li4')}</Link>
-            <Link to="/room_renovation/kitchen" className="hover:text-[#F9B33B] transition duration-200">{t('room_renovation_ul.li5')}</Link>
-            <Link to="/room_renovation/bathroom" className="hover:text-[#F9B33B] transition duration-200">{t('room_renovation_ul.li6')}</Link>
-            <Link to="/room_renovation/stairs" className="hover:text-[#F9B33B] transition duration-200">{t('room_renovation_ul.li7')}</Link>
+            <LanguageLink to="livingRoom" className="hover:text-[#F9B33B] transition duration-200">{t('room_renovation_ul.li1')}</LanguageLink>
+            <LanguageLink to="bedroom" className="hover:text-[#F9B33B] transition duration-200">{t('room_renovation_ul.li2')}</LanguageLink>
+            <LanguageLink to="childrenRoom" className="hover:text-[#F9B33B] transition duration-200">{t('room_renovation_ul.li3')}</LanguageLink>
+            <LanguageLink to="corridor" className="hover:text-[#F9B33B] transition duration-200">{t('room_renovation_ul.li4')}</LanguageLink>
+            <LanguageLink to="kitchen" className="hover:text-[#F9B33B] transition duration-200">{t('room_renovation_ul.li5')}</LanguageLink>
+            <LanguageLink to="bathroom" className="hover:text-[#F9B33B] transition duration-200">{t('room_renovation_ul.li6')}</LanguageLink>
+            <LanguageLink to="stairs" className="hover:text-[#F9B33B] transition duration-200">{t('room_renovation_ul.li7')}</LanguageLink>
           </ul>
         </div>
       </div>
 
       {/* Контакты */}
       <div className="flex flex-col">
-        <Link to="/contacts" className="flex flex-row items-center text-lg sm:text-xl lg:text-[22px] mb-4 group">
+        <LanguageLink to="contacts" className="flex flex-row items-center text-lg sm:text-xl lg:text-[22px] mb-4 group">
           <YellowSquare style="mr-2" />
           <span className="transition-colors duration-300 z-20 pl-3 group-hover:text-[#F9B33B]">{t('contacts_h')}</span>
-        </Link>
+        </LanguageLink>
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 pl-4 text-base sm:text-[18px] sm:hidden lg:grid">
           <li>{t('contacts_p1')}</li>
           <li className={`${selectedLang === 'it' ? 'ml-[73px]' : ''}`}>{t('contacts_p2')}</li>
@@ -101,27 +101,27 @@ const Footer = () => {
     <div className="flex flex-col gap-6 sm:gap-8 w-full sm:w-auto">
       {/* Коммерческие помещения */}
       <div className="flex flex-col">
-        <Link to="/commercial_premises" className="flex flex-row items-center text-lg sm:text-xl lg:text-[22px] mb-4 group">
+        <LanguageLink to="commercialPremises" className="flex flex-row items-center text-lg sm:text-xl lg:text-[22px] mb-4 group">
           <YellowSquare style="mr-2" />
           <span className="transition-colors duration-300 z-20 pl-3 group-hover:text-[#F9B33B]">{t('commercial_premises_h')}</span>
-        </Link>
+        </LanguageLink>
         <ul className="flex flex-col gap-3 pl-4 text-base sm:text-[18px] sm:hidden lg:flex">
-          <Link to="/commercial_premises/business_center" className="hover:text-[#F9B33B] transition duration-200">{t('commercial_premises_ul.li1')}</Link>
-          <Link to="/commercial_premises/restaurant" className="hover:text-[#F9B33B] transition duration-200">{t('commercial_premises_ul.li2')}</Link>
-          <Link to="/commercial_premises/commercial_premises_renovation" className="hover:text-[#F9B33B] transition duration-200">{t('commercial_premises_ul.li3')}</Link>
-          <Link to="/commercial_premises/office" className="hover:text-[#F9B33B] transition duration-200">{t('commercial_premises_ul.li4')}</Link>
-          <Link to="/commercial_premises/warehouse" className="hover:text-[#F9B33B] transition duration-200">{t('commercial_premises_ul.li5')}</Link>
-          <Link to="/commercial_premises/fitness_club" className="hover:text-[#F9B33B] transition duration-200">{t('commercial_premises_ul.li6')}</Link>
-          <Link to="/commercial_premises/hotel" className="hover:text-[#F9B33B] transition duration-200">{t('commercial_premises_ul.li7')}</Link>
+          <LanguageLink to="businessCenter" className="hover:text-[#F9B33B] transition duration-200">{t('commercial_premises_ul.li1')}</LanguageLink>
+          <LanguageLink to="restaurant" className="hover:text-[#F9B33B] transition duration-200">{t('commercial_premises_ul.li2')}</LanguageLink>
+          <LanguageLink to="commercialPremisesRenovation" className="hover:text-[#F9B33B] transition duration-200">{t('commercial_premises_ul.li3')}</LanguageLink>
+          <LanguageLink to="office" className="hover:text-[#F9B33B] transition duration-200">{t('commercial_premises_ul.li4')}</LanguageLink>
+          <LanguageLink to="warehouse" className="hover:text-[#F9B33B] transition duration-200">{t('commercial_premises_ul.li5')}</LanguageLink>
+          <LanguageLink to="fitnessClub" className="hover:text-[#F9B33B] transition duration-200">{t('commercial_premises_ul.li6')}</LanguageLink>
+          <LanguageLink to="hotel" className="hover:text-[#F9B33B] transition duration-200">{t('commercial_premises_ul.li7')}</LanguageLink>
         </ul>
       </div>
 
       {/* Адрес */}
       <div className="flex flex-col">
-        <Link to="/contacts" className="flex flex-row items-center text-lg sm:text-xl lg:text-[22px] mb-4 group">
+        <LanguageLink to="contacts" className="flex flex-row items-center text-lg sm:text-xl lg:text-[22px] mb-4 group">
           <YellowSquare style="mr-2" />
           <span className="transition-colors duration-300 z-20 pl-3 group-hover:text-[#F9B33B]">{t('adress_h')}</span>
-        </Link>
+        </LanguageLink>
         <p className="pl-4 text-base sm:text-[18px] sm:hidden lg:flex">
           {t('adress_p1')}<br />{t('adress_p2')}
         </p>
@@ -133,30 +133,30 @@ const Footer = () => {
       <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 lg:gap-10">
         {/* Системы */}
         <div className="flex flex-col">
-          <Link to="/systems" className="flex flex-row items-center text-lg sm:text-xl lg:text-[22px] mb-4 group">
+          <LanguageLink to="systems" className="flex flex-row items-center text-lg sm:text-xl lg:text-[22px] mb-4 group">
             <YellowSquare style="mr-2" />
             <span className="transition-colors duration-300 z-20 pl-3 group-hover:text-[#F9B33B]">{t('systems_h')}</span>
-          </Link>
+          </LanguageLink>
           <ul className="flex flex-col gap-3 pl-4 text-base sm:text-[18px] sm:hidden lg:flex">
-            <Link to="/systems/electrical_system" className="hover:text-[#F9B33B] transition duration-200">{t('systems_ul.li1')}</Link>
-            <Link to="/systems/gas_system" className="hover:text-[#F9B33B] transition duration-200">{t('systems_ul.li2')}</Link>
-            <Link to="/systems/floor_heating" className="hover:text-[#F9B33B] transition duration-200">{t('systems_ul.li3')}</Link>
-            <Link to="/systems/sewage" className="hover:text-[#F9B33B] transition duration-200">{t('systems_ul.li4')}</Link>
-            <Link to="/systems/climate_control" className="hover:text-[#F9B33B] transition duration-200">{t('systems_ul.li5')}</Link>
+            <LanguageLink to="electricalSystem" className="hover:text-[#F9B33B] transition duration-200">{t('systems_ul.li1')}</LanguageLink>
+            <LanguageLink to="gasSystem" className="hover:text-[#F9B33B] transition duration-200">{t('systems_ul.li2')}</LanguageLink>
+            <LanguageLink to="floorHeating" className="hover:text-[#F9B33B] transition duration-200">{t('systems_ul.li3')}</LanguageLink>
+            <LanguageLink to="sewage" className="hover:text-[#F9B33B] transition duration-200">{t('systems_ul.li4')}</LanguageLink>
+            <LanguageLink to="climateControl" className="hover:text-[#F9B33B] transition duration-200">{t('systems_ul.li5')}</LanguageLink>
           </ul>
         </div>
 
         {/* Основное */}
         <div className="flex flex-col">
-          <Link to="/" className="flex flex-row items-center text-lg sm:text-xl lg:text-[22px] mb-4 group">
+          <LanguageLink to="home" className="flex flex-row items-center text-lg sm:text-xl lg:text-[22px] mb-4 group">
             <YellowSquare style="mr-2" />
             <span className="transition-colors duration-300 z-20 pl-3 group-hover:text-[#F9B33B]">{t('main_h')}</span>
-          </Link>
+          </LanguageLink>
           <ul className="flex flex-col gap-3 pl-4 text-base sm:text-[18px] sm:hidden lg:flex">
-            <Link to="/about_us" className="hover:text-[#F9B33B] transition duration-200">{t('main_ul.li1')}</Link>
-            <Link to="/our_works" className="hover:text-[#F9B33B] transition duration-200">{t('main_ul.li2')}</Link>
-            <Link to="/reviews" className="hover:text-[#F9B33B] transition duration-200">{t('main_ul.li3')}</Link>
-            <Link to="/contacts" className="hover:text-[#F9B33B] transition duration-200">{t('main_ul.li4')}</Link>
+            <LanguageLink to="aboutUs" className="hover:text-[#F9B33B] transition duration-200">{t('main_ul.li1')}</LanguageLink>
+            <LanguageLink to="ourWorks" className="hover:text-[#F9B33B] transition duration-200">{t('main_ul.li2')}</LanguageLink>
+            <LanguageLink to="reviews" className="hover:text-[#F9B33B] transition duration-200">{t('main_ul.li3')}</LanguageLink>
+            <LanguageLink to="contacts" className="hover:text-[#F9B33B] transition duration-200">{t('main_ul.li4')}</LanguageLink>
           </ul>
         </div>
       </div>

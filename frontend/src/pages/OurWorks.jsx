@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import LanguageLink from '../components/LanguageLink'
 import left_decoration from '../assets/images/leftside_black_decoration.png'
 import right_decoration from '../assets/images/rightside_black_decoration.png'
 import { Helmet } from 'react-helmet'
@@ -319,12 +319,12 @@ const OurWorks = () => {
 
         <div className="w-full max-w-[1640px] mx-auto flex flex-row items-center justify-center gap-4 lg:gap-6 my-8">
           <div className="h-[2px] w-1/4 lg:w-[625.5px] bg-[#F9B33B]"></div>
-          <Link
-            to="/contacts"
+          <LanguageLink
+            to="contacts"
             className="w-1/2 lg:w-[389px] h-12 lg:h-[67px] bg-[#F9B33B] text-lg lg:text-2xl font-semibold flex items-center justify-center hover:scale-105 transition duration-300"
           >
             {t('comparison.button')}
-          </Link>
+          </LanguageLink>
           <div className="h-[2px] w-1/4 lg:w-[625.5px] bg-[#F9B33B]"></div>
         </div>
       </main>

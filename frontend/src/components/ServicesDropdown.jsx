@@ -1,35 +1,96 @@
 import React, { useState, useRef } from 'react';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import LanguageLink from './LanguageLink';
+import { getUrlByKey } from '../urlTranslation';
 
 const ServicesDropdown = () => {
-  const {t} = useTranslation('components/ServicesDropdown')
+  const { t, i18n } = useTranslation('components/ServicesDropdown');
 
   const services = [
     {
       name: t('first_element.h'),
-      main_menu_href:'/turnkey_renovation',
-      submenu: [t('first_element.list_of_services.first'), t('first_element.list_of_services.second'),t('first_element.list_of_services.third'),t('first_element.list_of_services.fourth'),t('first_element.list_of_services.fifth'),t('first_element.list_of_services.sixth'),t('first_element.list_of_services.seventh')],
-      submenu_href:['/turnkey_renovation/designer_renovation','/turnkey_renovation/exclusive_renovation','/turnkey_renovation/studio','/turnkey_renovation/tworoom_apartments','/turnkey_renovation/threeroom_apartments','/turnkey_renovation/fourroom_apartments','/turnkey_renovation/twostory_apartments']
+      main_menu_key: 'turnkeyRenovation',
+      submenu: [
+        t('first_element.list_of_services.first'),
+        t('first_element.list_of_services.second'),
+        t('first_element.list_of_services.third'),
+        t('first_element.list_of_services.fourth'),
+        t('first_element.list_of_services.fifth'),
+        t('first_element.list_of_services.sixth'),
+        t('first_element.list_of_services.seventh'),
+      ],
+      submenu_keys: [
+        'designerRenovation',
+        'exclusiveRenovation',
+        'studio',
+        'tworoomApartment',
+        'threeroomApartment',
+        'fourroomApartment',
+        'twostoryApartment',
+      ],
     },
     {
       name: t('second_element.h'),
-      main_menu_href:'/room_renovation',
-      submenu: [t('second_element.list_of_services.first'), t('second_element.list_of_services.second'),t('second_element.list_of_services.third'),t('second_element.list_of_services.fourth'),t('second_element.list_of_services.fifth'),t('second_element.list_of_services.sixth'),t('second_element.list_of_services.seventh')],
-      submenu_href:['/room_renovation/living_room','/room_renovation/bedroom','/room_renovation/children_room','/room_renovation/corridor','/room_renovation/kitchen','/room_renovation/bathroom','/room_renovation/stairs']
+      main_menu_key: 'roomRenovation',
+      submenu: [
+        t('second_element.list_of_services.first'),
+        t('second_element.list_of_services.second'),
+        t('second_element.list_of_services.third'),
+        t('second_element.list_of_services.fourth'),
+        t('second_element.list_of_services.fifth'),
+        t('second_element.list_of_services.sixth'),
+        t('second_element.list_of_services.seventh'),
+      ],
+      submenu_keys: [
+        'livingRoom',
+        'bedroom',
+        'childrenRoom',
+        'corridor',
+        'kitchen',
+        'bathroom',
+        'stairs',
+      ],
     },
     {
       name: t('third_element.h'),
-      main_menu_href:'/commercial_premises',
-      submenu: [t('third_element.list_of_services.first'), t('third_element.list_of_services.second'),t('third_element.list_of_services.third'),t('third_element.list_of_services.fourth'),t('third_element.list_of_services.fifth'),t('third_element.list_of_services.sixth'),t('third_element.list_of_services.seventh')],
-      submenu_href:['/commercial_premises/business_center','/commercial_premises/restaurant','/commercial_premises/commercial_premises_renovation','/commercial_premises/office','/commercial_premises/warehouse','/commercial_premises/fitness_club','/commercial_premises/hotel']
+      main_menu_key: 'commercialPremises',
+      submenu: [
+        t('third_element.list_of_services.first'),
+        t('third_element.list_of_services.second'),
+        t('third_element.list_of_services.third'),
+        t('third_element.list_of_services.fourth'),
+        t('third_element.list_of_services.fifth'),
+        t('third_element.list_of_services.sixth'),
+        t('third_element.list_of_services.seventh'),
+      ],
+      submenu_keys: [
+        'businessCenter',
+        'restaurant',
+        'commercialPremisesRenovation',
+        'office',
+        'warehouse',
+        'fitnessClub',
+        'hotel',
+      ],
     },
     {
       name: t('fourth_element.h'),
-      main_menu_href:'/systems',
-      submenu: [t('fourth_element.list_of_services.first'), t('fourth_element.list_of_services.second'),t('fourth_element.list_of_services.third'),t('fourth_element.list_of_services.fourth'),t('fourth_element.list_of_services.fifth')],
-      submenu_href:['/systems/electrical_system','/systems/gas_system','/systems/floor_heating','/systems/sewage','/systems/climate_control']
+      main_menu_key: 'systems',
+      submenu: [
+        t('fourth_element.list_of_services.first'),
+        t('fourth_element.list_of_services.second'),
+        t('fourth_element.list_of_services.third'),
+        t('fourth_element.list_of_services.fourth'),
+        t('fourth_element.list_of_services.fifth'),
+      ],
+      submenu_keys: [
+        'electricalSystem',
+        'gasSystem',
+        'floorHeating',
+        'sewage',
+        'climateControl',
+      ],
     },
   ];
 
@@ -46,7 +107,7 @@ const ServicesDropdown = () => {
     hideTimeoutRef.current = setTimeout(() => {
       setIsDropdownVisible(false);
       setHoveredIndex(null);
-    }, 50);
+    }, 150);
   };
 
   return (
@@ -56,35 +117,37 @@ const ServicesDropdown = () => {
       onMouseLeave={handleMouseLeave}
     >
       <div className="flex items-center cursor-pointer px-4 py-2">
-        <p className="navbar-underline-animate-hover text-[16px] sm:text-[18px] lg:text-[20px]">{t('h')} <KeyboardArrowDownIcon/></p>
-      </div>  
+        <p className="navbar-underline-animate-hover text-[16px] sm:text-[18px] lg:text-[20px]">
+          {t('h')} <KeyboardArrowDownIcon />
+        </p>
+      </div>
 
       {isDropdownVisible && (
         <div className="absolute top-full left-0 mt-2 w-[300px] sm:w-[400px] lg:w-[468px] bg-white z-50 transition-opacity duration-300 shadow-xl">
-          {services.map((service ,index) => (
+          {services.map((service, index) => (
             <div
               key={index}
               className="relative"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <Link
-                to={service.main_menu_href}
+              <LanguageLink
+                to={service.main_menu_key}
                 className="flex px-4 py-2 h-[60px] sm:h-[70px] lg:h-[80px] hover:bg-[#F9B33B] text-[16px] sm:text-[18px] lg:text-[22px] items-center cursor-pointer"
               >
                 {service.name}
-              </Link>
+              </LanguageLink>
 
               {hoveredIndex === index && service.submenu.length > 0 && (
                 <div className="absolute top-0 left-full ml-1 w-[300px] sm:w-[400px] lg:w-[468px] bg-white z-50 shadow-xl">
                   {service.submenu.map((item, subIdx) => (
-                    <Link
+                    <LanguageLink
                       key={subIdx}
-                      to={service.submenu_href?.[subIdx] || '#'}
+                      to={service.submenu_keys?.[subIdx] || '#'}
                       className="flex px-4 py-2 h-[60px] sm:h-[70px] lg:h-[80px] hover:bg-[#F9B33B] text-[16px] sm:text-[18px] lg:text-[22px] items-center cursor-pointer"
                     >
                       {item}
-                    </Link>
+                    </LanguageLink>
                   ))}
                 </div>
               )}

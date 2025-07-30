@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import LanguageLink from '../components/LanguageLink'
 import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
 
@@ -76,7 +76,7 @@ const AboutUs = () => {
             
             <div className='w-full flex flex-col sm:flex-row items-center gap-4 my-6'>
                 <div className='h-1 w-full sm:w-1/3 bg-[#F9B33B]'></div>
-                <Link to="/contacts" className="w-full sm:w-1/3 h-12 sm:h-14 bg-[#F9B33B] text-lg sm:text-xl md:text-2xl font-semibold flex items-center justify-center hover:scale-105 transition duration-300">{t('header.button')}</Link>
+                <LanguageLink to="contacts" className="w-full sm:w-1/3 h-12 sm:h-14 bg-[#F9B33B] text-lg sm:text-xl md:text-2xl font-semibold flex items-center justify-center hover:scale-105 transition duration-300">{t('header.button')}</LanguageLink>
                 <div className='h-1 w-full sm:w-1/3 bg-[#F9B33B]'></div>
             </div>
         </header>
@@ -147,7 +147,7 @@ const AboutUs = () => {
 
             <div className='w-full max-w-[1640px] h-[50px] sm:h-[67px] flex flex-row items-center justify-center mx-auto gap-4'>
                 <div className='h-[2px] sm:h-[3px] w-[30%] sm:w-[625.5px] bg-[#F9B33B]'></div>
-                <Link to="/contacts" className="w-[40%] sm:w-[389px] h-[50px] sm:h-[67px] bg-[#F9B33B] text-xl sm:text-[30px] font-semibold flex items-center justify-center hover:scale-105 transition duration-300">{t('our_team.button')}</Link>
+                <LanguageLink to="contacts" className="w-[40%] sm:w-[389px] h-[50px] sm:h-[67px] bg-[#F9B33B] text-xl sm:text-[30px] font-semibold flex items-center justify-center hover:scale-105 transition duration-300">{t('our_team.button')}</LanguageLink>
                 <div className='h-[2px] sm:h-[3px] w-[30%] sm:w-[625.5px] bg-[#F9B33B]'></div>
             </div>
         </div>  
@@ -295,7 +295,7 @@ const AboutUs = () => {
             </div>
             <div className='w-full max-w-[1640px] h-[50px] sm:h-[67px] flex flex-row items-center justify-center mx-auto gap-4 mt-6 sm:mt-8'>
                 <div className='h-[2px] sm:h-[3px] w-[30%] sm:w-[625.5px] bg-[#F9B33B]'></div>
-                <Link to="/contacts" className="w-[40%] sm:w-[389px] h-[50px] sm:h-[67px] bg-[#F9B33B] text-xl sm:text-[30px] font-semibold flex items-center justify-center hover:scale-105 transition duration-300">{t('section.button')}</Link>
+                <LanguageLink to="contacts" className="w-[40%] sm:w-[389px] h-[50px] sm:h-[67px] bg-[#F9B33B] text-xl sm:text-[30px] font-semibold flex items-center justify-center hover:scale-105 transition duration-300">{t('section.button')}</LanguageLink>
                 <div className='h-[2px] sm:h-[3px] w-[30%] sm:w-[625.5px] bg-[#F9B33B]'></div>
             </div>
         </div>

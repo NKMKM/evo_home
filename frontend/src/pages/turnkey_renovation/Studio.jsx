@@ -1,7 +1,7 @@
 import React from 'react'
 import LayoutCollection from '../../components/room_renovation_components/LayoutCollection'
 import Video from '../../components/Video'
-import { Link } from 'react-router-dom'
+import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
 
@@ -54,7 +54,7 @@ const Studio = () => {
 
           <div className="w-full h-[50px] sm:h-[67px] flex flex-row items-center mx-auto">
             <div className="h-[2px] sm:h-[3px] lg:h-[1px] w-[30%] lg:w-[625.5px] bg-[#F9B33B]"></div>
-            <Link to="/contacts" className="w-[40%] lg:w-[389px] h-full bg-[#F9B33B] text-[20px] sm:text-[24px] lg:text-[30px] font-semibold flex items-center justify-center hover:scale-105 transition duration-300">{t('header.button')}</Link>
+            <LanguageLink to="contacts" className="w-[40%] lg:w-[389px] h-full bg-[#F9B33B] text-[20px] sm:text-[24px] lg:text-[30px] font-semibold flex items-center justify-center hover:scale-105 transition duration-300">{t('header.button')}</LanguageLink>
             <div className="h-[2px] sm:h-[3px] lg:h-[1px] w-[30%] lg:w-[625.5px] bg-[#F9B33B]"></div>
           </div>
         </div>

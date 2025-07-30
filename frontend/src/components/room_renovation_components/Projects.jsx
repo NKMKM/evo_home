@@ -1,19 +1,20 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-import left_decoration from '../../assets/images/leftside_black_decoration.png'
-import right_decoration from '../../assets/images/rightside_black_decoration.png'
-import tatto_studio from '../../assets/images/projects_images/tatto_studio.jpg'
-import bar from '../../assets/images/projects_images/bar.jpg'
-import bath from '../../assets/images/projects_images/bath.jpg'
-import hall from '../../assets/images/projects_images/hall.jpg'
-import kitchen from '../../assets/images/projects_images/kitchen.jpg'
-import basement from '../../assets/images/services_images/basement.jpg'
+import left_decoration from '../../assets/images/leftside_black_decoration.png';
+import right_decoration from '../../assets/images/rightside_black_decoration.png';
+import tatto_studio from '../../assets/images/projects_images/tatto_studio.jpg';
+import bar from '../../assets/images/projects_images/bar.jpg';
+import bath from '../../assets/images/projects_images/bath.jpg';
+import hall from '../../assets/images/projects_images/hall.jpg';
+import kitchen from '../../assets/images/projects_images/kitchen.jpg';
+import basement from '../../assets/images/services_images/basement.jpg';
+import LanguageLink from '../LanguageLink';
 
 const Projects = () => {
-  const {t} = useTranslation('commercial_premises/CommercialPremisesProjects')
-  const selectedLang = localStorage.getItem('language') || 'en';	
+  const { t } = useTranslation('commercial_premises/CommercialPremisesProjects');
+  const selectedLang = localStorage.getItem('language') || 'en';
+
   return (
     <div className='sm:w-full lg:w-[1650px]  h-auto mx-auto px-4 mb-10 sm:mb-20 lg:mb-20'>
         {/* header section */}
@@ -45,12 +46,12 @@ const Projects = () => {
                         <h2 className='text-[18px] sm:text-[24px] lg:text-[32px]'>{project.title}</h2>
                     </div>
                     <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                        <Link 
-                            to="/our_works" 
+                        <LanguageLink 
+                            to="ourWorks" 
                             className="bg-[#F9B33B] text-black font-bold text-[18px] sm:text-[24px] lg:text-[30px] flex justify-center items-center w-[200px] sm:w-[220px] lg:w-[251px] h-[50px] lg:h-[67px]"
                         >
                             {t('button')}
-                        </Link>
+                        </LanguageLink>
                     </div>
                 </div>
             ))}
@@ -58,16 +59,16 @@ const Projects = () => {
 
         <div className='w-full max-w-[1641px] flex flex-col sm:flex-row items-center mx-auto gap-4'>
             <div className='h-[1px] w-full sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B] hidden sm:block'></div>
-            <Link 
-                to="/our_works" 
+            <LanguageLink 
+                to="ourWorks" 
                 className='w-full max-w-[389px] h-[50px] lg:h-[67px] flex justify-center items-center bg-[#F9B33B] text-[20px] sm:text-[24px] lg:text-[30px] font-semibold hover:scale-105 transition duration-300 mx-auto'
             >
                 {t('button')}
-            </Link>
+            </LanguageLink>
             <div className='h-[1px] w-full sm:w-[30%] lg:w-[625.5px] bg-[#F9B33B] hidden sm:block'></div>
         </div>
     </div>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;

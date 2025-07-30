@@ -1,7 +1,7 @@
 import React from 'react'
 import Video from '../../components/Video'
 import SystemLayoutCollection from '../../components/systems_components/SystemLayoutCollection'
-import { Link } from 'react-router-dom'
+import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
 
@@ -52,7 +52,7 @@ const GasSystem = () => {
 
           <div className='w-full max-w-[1641px] h-[50px] md:h-[67px] flex flex-row items-center mx-auto'>
             <div className='h-[2px] md:h-[1px] w-[30%] md:w-[625.5px] bg-[#F9B33B]'></div>
-            <Link to="/contacts" className="w-[40%] md:w-[389px] h-full bg-[#F9B33B] text-xl md:text-[30px] font-semibold flex items-center justify-center hover:scale-105 transition duration-300">{t('header.button')}</Link>
+            <LanguageLink to="contacts" className="w-[40%] md:w-[389px] h-full bg-[#F9B33B] text-xl md:text-[30px] font-semibold flex items-center justify-center hover:scale-105 transition duration-300">{t('header.button')}</LanguageLink>
             <div className='h-[2px] md:h-[1px] w-[30%] md:w-[625.5px] bg-[#F9B33B]'></div>
           </div>
         </div>
