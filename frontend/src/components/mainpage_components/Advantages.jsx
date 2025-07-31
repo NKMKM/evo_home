@@ -99,8 +99,10 @@ const Advantages = () => {
       </main>
 
       {/* Footer Text */}
-      <div className="w-full max-w-[1640px] mx-auto">
-        <p className="font-normal text-base sm:text-lg lg:text-xl lg:text-[32px] text-center px-4 sm:px-6 lg:px-0">{t('p')}</p>
+      <div className="w-full max-w-[1640px] mx-auto ">
+      <p className="flex mt-10 sm:mt-6 lg:mt-0 translate-y-[20px] sm:translate-y-[20px] lg:translate-y-[0px] 2xl:translate-y-[0px] font-normal text-base sm:text-lg lg:text-xl lg:text-[32px] text-center px-4 sm:px-6 lg:px-0">
+  {t('p')}
+</p>
         <div className="w-full max-w-[1640px] h-[1px] bg-[#828282] mt-4 sm:mt-6 lg:mt-8 hidden lg:block"></div>
       </div>
     </div>
