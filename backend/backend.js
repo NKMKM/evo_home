@@ -34,20 +34,40 @@ pool.connect()
   })
   .catch(err => {
     console.error('❌ Ошибка подключения к базе:', err.message);
-    process.exit(1); // Завершаем процесс при ошибке подключения
+    process.exit(1);
   });
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors({
-  origin: ['http://www.evohome.it', 'http://admin.evohome.it'],
-  credentials: true // если куки или авторизация
-}));
+// Разрешённые фронтенды
+const allowedOrigins = [
+  'https://new.evohome.it',
+  'https://admin.evohome.it'
+];
 
+// Настройка CORS
+app.use(cors({
+  origin: (origin, callback) => {
+    console.log('CORS origin:', origin);
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, origin || true);
+    } else {
+      callback(new Error(`CORS error: origin ${origin} not allowed`));
+    }
+  },
+  credentials: true
+}));
 
 // Парсинг JSON
 app.use(express.json());
+
+// Отладка входящих куки
+app.use((req, res, next) => {
+  console.log('Request URL:', req.url);
+  console.log('Cookies:', req.headers.cookie);
+  next();
+});
 
 // Настройка сессий
 app.use(session({
@@ -56,10 +76,11 @@ app.use(session({
   saveUninitialized: false,
   cookie: {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production', // Для HTTPS в продакшене
-    sameSite: 'lax',
-    maxAge: 24 * 60 * 60 * 1000, // 24 часа
-  },
+    secure: true, // true в продакшене
+    sameSite: 'None',
+    domain: '.evohome.it',
+    maxAge: 24 * 60 * 60 * 1000
+  }
 }));
 
 // Маршрут логина
@@ -71,16 +92,15 @@ app.post('/login', async (req, res) => {
   }
 
   try {
-    // Проверка админского логина
     if (
       username === process.env.ADMIN_USERNAME &&
       await bcrypt.compare(password, process.env.ADMIN_PASSWORD_HASH)
     ) {
       req.session.user = { username, role: 'admin' };
+      console.log('Login success, session:', req.session.user);
       return res.json({ success: true });
     }
 
-    // Проверка пользователя в базе
     const result = await pool.query(
       'SELECT * FROM users WHERE username = $1',
       [username]
@@ -91,6 +111,7 @@ app.post('/login', async (req, res) => {
       const valid = await bcrypt.compare(password, user.password);
       if (valid) {
         req.session.user = { username: user.username, role: 'user' };
+        console.log('Login success, session:', req.session.user);
         return res.json({ success: true });
       }
     }
@@ -104,6 +125,7 @@ app.post('/login', async (req, res) => {
 
 // Проверка авторизации
 app.get('/check-auth', (req, res) => {
+  console.log('Check-auth session:', req.session.user);
   if (req.session.user) {
     res.json({ authenticated: true, user: req.session.user });
   } else {
@@ -143,7 +165,7 @@ app.post('/submissions', async (req, res) => {
     urgency, additionalInfo, name, phone, promoCode
   } = req.body;
 
-  const validBuildingTypes = ['option1', 'option2']; // Замените на реальные значения
+  const validBuildingTypes = ['option1', 'option2'];
   const validRoomTypes = ['option1', 'option2'];
   const validRepairTypes = ['option1', 'option2'];
   const validUrgencies = ['option1', 'option2'];

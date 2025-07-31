@@ -164,60 +164,62 @@ const AboutUs = () => {
                 </div>
             </div>
 
-            {/* list of achievements */}
             <ul className='w-full flex flex-col lg:flex-row justify-between gap-8 lg:gap-4 text-lg sm:text-xl text-center'>
-                {/* 1 */}
-                <li className='w-full lg:w-[389px]'>
-                    <div className='w-full aspect-square max-h-[300px] sm:max-h-[350px] lg:max-h-[389px]'>
-                        <img src={first_image} alt='first image' loading="lazy" className='w-full h-full object-cover rounded-[10px]'/>
-                    </div>
-                    <div className='flex flex-col w-full aspect-square max-h-[300px] sm:max-h-[350px] lg:max-h-[389px] py-4 sm:py-6 space-y-4 sm:space-y-6 border-[3px] border-[#F9B33B]'>
-                        <div className='w-[80px] sm:w-[100px] h-[80px] sm:h-[100px] mx-auto'>
-                            <img src={keys} alt='keys' loading="lazy" className='w-full h-full object-contain'/>
-                        </div>
-                        <p className='text-base sm:text-lg md:text-xl lg:text-[20px] px-4'>{t('achievements.p1')}</p>
-                    </div>  
-                </li>
 
-                {/* 2 */}
-                <li className='w-full lg:w-[389px]'>
-                    <div className='w-full aspect-square max-h-[300px] sm:max-h-[350px] lg:max-h-[389px]'>
-                        <img src={second_image} alt='second image' loading="lazy" className='w-full h-full object-cover rounded-[10px]'/>
-                    </div>
-                    <div className='flex flex-col w-full aspect-square max-h-[300px] sm:max-h-[350px] lg:max-h-[389px] py-4 sm:py-6 space-y-4 sm:space-y-6 border-[3px] border-[#F9B33B]'>
-                        <div className='w-[80px] sm:w-[100px] h-[80px] sm:h-[100px] mx-auto'>
-                            <img src={room} alt='room' loading="lazy" className='w-full h-full object-contain'/>
-                        </div>
-                        <p className='text-base sm:text-lg md:text-xl lg:text-[20px] px-4'>{t('achievements.p2')}</p>
-                    </div>
-                </li>
+  {/* 1 */}
+  <li className='w-full lg:w-[389px]'>
+    <div className='w-full aspect-square max-h-[300px] sm:max-h-[350px] lg:max-h-[389px]'>
+      <img src={first_image} alt='first image' loading="lazy" className='w-full h-full object-cover rounded-[10px]' />
+    </div>
+    <div className='flex flex-col justify-center sm:justify-start items-center sm:items-stretch text-center sm:text-start w-full aspect-square max-h-[300px] sm:max-h-[350px] lg:max-h-[389px] py-4 sm:py-6 space-y-4 sm:space-y-6 border-[3px] border-[#F9B33B]'>
+      <div className='w-[80px] sm:w-[100px] h-[80px] sm:h-[100px] mx-auto'>
+        <img src={keys} alt='keys' loading="lazy" className='w-full h-full object-contain' />
+      </div>
+      <p className='text-base sm:text-lg md:text-xl lg:text-[20px] px-4'>{t('achievements.p1')}</p>
+    </div>
+  </li>
 
-                {/* 3 */}
-                <li className='w-full lg:w-[389px]'>
-                    <div className='w-full aspect-square max-h-[300px] sm:max-h-[350px] lg:max-h-[389px]'>
-                        <img src={third_image} alt='third image' loading="lazy" className='w-full h-full object-cover rounded-[10px]'/>
-                    </div>
-                    <div className='flex flex-col w-full aspect-square max-h-[300px] sm:max-h-[350px] lg:max-h-[389px] py-4 sm:py-6 space-y-4 sm:space-y-6 border-[3px] border-[#F9B33B]'>
-                        <div className='w-[80px] sm:w-[100px] h-[80px] sm:h-[100px] mx-auto'>
-                            <img src={botique} alt='botique' loading="lazy" className='w-full h-full object-contain'/>
-                        </div>
-                        <p className='text-base sm:text-lg md:text-xl lg:text-[20px] px-4'>{t('achievements.p3')}</p>
-                    </div>
-                </li>
+  {/* 2 */}
+  <li className='w-full lg:w-[389px]'>
+    <div className='w-full aspect-square max-h-[300px] sm:max-h-[350px] lg:max-h-[389px]'>
+      <img src={second_image} alt='second image' loading="lazy" className='w-full h-full object-cover rounded-[10px]' />
+    </div>
+    <div className='flex flex-col justify-center sm:justify-start items-center sm:items-stretch text-center sm:text-start w-full aspect-square max-h-[300px] sm:max-h-[350px] lg:max-h-[389px] py-4 sm:py-6 space-y-4 sm:space-y-6 border-[3px] border-[#F9B33B]'>
+      <div className='w-[80px] sm:w-[100px] h-[80px] sm:h-[100px] mx-auto'>
+        <img src={room} alt='room' loading="lazy" className='w-full h-full object-contain' />
+      </div>
+      <p className='text-base sm:text-lg md:text-xl lg:text-[20px] px-4'>{t('achievements.p2')}</p>
+    </div>
+  </li>
 
-                {/* 4 */}
-                <li className='w-full lg:w-[389px]'>
-                    <div className='w-full aspect-square max-h-[300px] sm:max-h-[350px] lg:max-h-[389px]'>
-                        <img src={fourth_image} alt='fourth image' loading="lazy" className='w-full h-full object-cover rounded-[10px]'/>
-                    </div>
-                    <div className='flex flex-col w-full aspect-square max-h-[300px] sm:max-h-[350px] lg:max-h-[389px] py-4 sm:py-6 space-y-4 sm:space-y-6 border-[3px] border-[#F9B33B]'>
-                        <div className='w-[80px] sm:w-[100px] h-[80px] sm:h-[100px] mx-auto'>
-                            <img src={gears} alt='gears' loading="lazy" className='w-full h-full object-contain'/>
-                        </div>
-                        <p className='text-base sm:text-lg md:text-xl lg:text-[20px] px-4'>{t('achievements.p4')}</p>
-                    </div>
-                </li>
-            </ul>
+  {/* 3 */}
+  <li className='w-full lg:w-[389px]'>
+    <div className='w-full aspect-square max-h-[300px] sm:max-h-[350px] lg:max-h-[389px]'>
+      <img src={third_image} alt='third image' loading="lazy" className='w-full h-full object-cover rounded-[10px]' />
+    </div>
+    <div className='flex flex-col justify-center sm:justify-start items-center sm:items-stretch text-center sm:text-start w-full aspect-square max-h-[300px] sm:max-h-[350px] lg:max-h-[389px] py-4 sm:py-6 space-y-4 sm:space-y-6 border-[3px] border-[#F9B33B]'>
+      <div className='w-[80px] sm:w-[100px] h-[80px] sm:h-[100px] mx-auto'>
+        <img src={botique} alt='botique' loading="lazy" className='w-full h-full object-contain' />
+      </div>
+      <p className='text-base sm:text-lg md:text-xl lg:text-[20px] px-4'>{t('achievements.p3')}</p>
+    </div>
+  </li>
+
+  {/* 4 */}
+  <li className='w-full lg:w-[389px]'>
+    <div className='w-full aspect-square max-h-[300px] sm:max-h-[350px] lg:max-h-[389px]'>
+      <img src={fourth_image} alt='fourth image' loading="lazy" className='w-full h-full object-cover rounded-[10px]' />
+    </div>
+    <div className='flex flex-col justify-center sm:justify-start items-center sm:items-stretch text-center sm:text-start w-full aspect-square max-h-[300px] sm:max-h-[350px] lg:max-h-[389px] py-4 sm:py-6 space-y-4 sm:space-y-6 border-[3px] border-[#F9B33B]'>
+      <div className='w-[80px] sm:w-[100px] h-[80px] sm:h-[100px] mx-auto'>
+        <img src={gears} alt='gears' loading="lazy" className='w-full h-full object-contain' />
+      </div>
+      <p className='text-base sm:text-lg md:text-xl lg:text-[20px] px-4'>{t('achievements.p4')}</p>
+    </div>
+  </li>
+
+</ul>
+
         </div>
 
         {/* grid */}

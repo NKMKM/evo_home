@@ -1,20 +1,23 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
-import LanguageLink from '../LanguageLink';
-
-import design from '../../assets/images/design.jpg';
-import facebook from '../../assets/icons/facebook.png';
+import { Link } from 'react-router-dom';
 import instagram from '../../assets/icons/instagram.png';
+import facebook from '../../assets/icons/facebook.png';
+import { useTranslation } from 'react-i18next';
+
+
+
+
+
 
 const Design = () => {
-  const { t } = useTranslation('slider/Design');
+    function handleImageClick(url) {
+        window.location.href = url
+    }
+    const {t} = useTranslation('slider/Design')
+    return (
 
-  // Обработчик клика по иконкам соцсетей
-  function handleImageClick(url) {
-    window.location.href = url;
-  }
 
-  return (
+
     <div className="flex flex-col  justify-around w-full min-h-[480px]   md:min-h-[800px] design-bg-image bg-cover">
       {/* Header */}
       <div className="flex flex-row h-[80px] md:h-[200px] lg:bg-black/55 pt-4 md:pt-0">
@@ -46,14 +49,14 @@ const Design = () => {
       <div className="w-full  flex flex-col-reverse md:flex-row md:justify-around md:h-[270px] gap-6 lg:p-4 md:p-0">
         {/* Buttons */}
         <div className="flex flex-row md:flex-row md:items-center md:justify-between w-[300px] mx-auto lg:mx-0 md:w-[500px] gap-4">
-        <LanguageLink className="flex justify-center items-center 
+        <Link className="flex justify-center items-center 
             h-14 md:h-16 lg:h-20 
             w-full md:w-[300px] lg:w-[360px] 
             bg-[#f9b33b] font-medium
             text-xl md:text-3xl lg:text-2xl 
-            hover:scale-110 transition duration-300" to="contacts">
+            hover:scale-110 transition duration-300" to={'/contacts'}>
             {t('button')}
-        </LanguageLink>
+        </Link>
           <div className=" justify-center gap-4 hidden lg:flex lg:flex-row">
             <div className="w-14 h-14 md:w-16 md:h-16 rounded-lg shadow-lg hover:scale-110 transition duration-300 ">
               <img src={facebook} alt="facebook" className="w-full h-full object-contain" onClick={() => handleImageClick('https://www.facebook.com/people/Evo-Home/100087325255144/')} />
