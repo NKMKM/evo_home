@@ -230,7 +230,7 @@ const AboutUs = () => {
             <header className='w-full max-w-[1641px] mx-auto flex flex-row justify-between items-center mb-6 sm:mb-8'>
                 <img src={left_decoration} alt='left decoration' loading="lazy" className='hidden lg:block w-[150px] sm:w-[200px] lg:w-[276px] h-[50px] sm:h-[60px] lg:h-[83px]'/>
                 <div className='flex-1 text-center'>
-                    <h1 className='font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[57px]'>{t('trust.h')}</h1>
+                    <h2 className='font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[57px]'>{t('trust.h')}</h2>
                 </div>
                 <img src={right_decoration} alt='right decoration' loading="lazy" className='hidden lg:block w-[150px] sm:w-[200px] lg:w-[276px] h-[50px] sm:h-[60px] lg:h-[83px]'/>
             </header>
