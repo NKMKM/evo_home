@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /config/
+Disallow: /vendor/
+Disallow: /cgi-bin/
+Disallow: /api/
+Disallow: /graphql
+Disallow: /*&     
+Disallow: /*.php$
+Disallow: /*.ini$
+Disallow: /*.env$
+Disallow: /*.json$
+Disallow: /*.sql$
+Disallow: /*.bak$
+
