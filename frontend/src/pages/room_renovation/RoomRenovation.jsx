@@ -29,7 +29,7 @@ const RoomRenovation = () => {
     <div className="min-h-screen bg-white">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="🏡 Pensando di rinnovare la tua casa? Ristrutturazione delle stanze a Roma. Servizio chiavi in mano. Contattaci 📞 +39 327 986 6412" />
+        <meta name="description" content={t('description')} />
       </Helmet>
 
       {/* Header Section */}

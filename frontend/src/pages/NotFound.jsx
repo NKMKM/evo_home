@@ -8,7 +8,7 @@ const NotFound = () => {
     <>
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="Error 404: Pagina non trovata" />
+        <meta name="description" content={t('description')} />
       </Helmet>
       <div className="w-auto sm:h-[800px] lg:h-[765px] text-center flex flex-col justify-center items-center">
         <h1 className="text-[200px] font-bold">

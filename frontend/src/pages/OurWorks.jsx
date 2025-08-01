@@ -80,7 +80,7 @@ const OurWorks = () => {
     <div className="flex flex-col min-h-screen">
       <Helmet>
         <title>{t("title")}</title>
-        <meta name="description" content="Scopri la galleria EvoHome! Video e foto di ristrutturazioni complete: appartamenti, stanze singole, locali commerciali e altri progetti a Roma" />
+        <meta name="description" content={t('description')} />
       </Helmet>
       {/* about us block */}
       <header className="w-full max-w-[1656px] mx-auto mt-10 flex flex-col justify-between px-4 sm:px-6 lg:px-0">
