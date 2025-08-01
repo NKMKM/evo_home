@@ -25,7 +25,7 @@ const GasSystem = () => {
     <div className="font-sans">
       <Helmet>
           <title>{t('title')}</title>
-          <meta name="description" content="Servizi professionali per impianti gas a Roma. Qualità, sicurezza e soluzioni su misura. Contattaci 📞 +39 327 986 6412" />
+          <meta name="description" content={t('description')} />
       </Helmet>
       {/* First block */}
       <header className={`w-full mx-auto my-10 md:my-20 flex flex-col justify-between px-4 md:px-8`}>

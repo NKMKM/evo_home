@@ -27,7 +27,7 @@ const Bathroom = () => {
     <div className="min-h-screen bg-white">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="Hai bisogno di ristrutturare il bagno a Roma? Servizi professionali. Soluzioni su misura. Contattaci 📞 +39 327 986 6412" />
+        <meta name="description" content={t('description')} />
       </Helmet>
 
       {/* Header Section */}

@@ -24,7 +24,7 @@ const Contacts = () => {
     <div className="flex flex-col min-h-screen">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="Informazioni di contatto dell’ Impresa Edile a Roma Evo Home - L’ affidabilità, la qualità e l’ esperienza a cui puoi affidarti." />
+        <meta name="description" content={t('description')} />
       </Helmet>
 
       {/* contacts evo home */}

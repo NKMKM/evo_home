@@ -27,7 +27,7 @@ const Warehouse = () => {
     <div className="min-h-screen bg-white">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="🏬 Ristrutturazione di Magazzini a Roma | Qualità e Affidabilità Garantite" />
+        <meta name="description" content={t('description')} />
       </Helmet>
 
       {/* Header Section */}
