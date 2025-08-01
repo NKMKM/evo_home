@@ -24,7 +24,7 @@ const CommercialPremisesRenovation = () => {
     <div className='w-full'>
         <Helmet>
             <title>{t('title')}</title>
-            <meta name="description" content="Cerchi una ditta che si occupi della ristrutturazione di locali commerciali a Roma? Affidati ai nostri esperti. Trasforma il tuo locale con un tocco professionale. Contattaci 📞 +39 327 986 6412" />
+            <meta name="description" content={t('description')} />
         </Helmet>
         <header className='w-full max-w-[1641px] h-auto mx-auto mt-10 sm:mt-10 lg:mt-20 mb-10 sm:mb-20 lg:mb-20 px-4 flex flex-col justify-between gap-6'>
             <div className='h-auto w-full mx-auto flex flex-col lg:flex-row justify-between items-center mb-6 sm:mb-10 lg:mb-0'>
