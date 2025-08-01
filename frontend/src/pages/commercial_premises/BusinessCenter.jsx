@@ -26,7 +26,7 @@ const BusinessCenter = () => {
     <div className="w-full max-w-[1641px] mx-auto px-4 sm:px-6 lg:px-8">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="Renovation of business centers by EVO Home" />
+        <meta name="description" content={t('description')} />
       </Helmet>
 
       {/* Header Section */}
