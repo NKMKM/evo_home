@@ -4,6 +4,7 @@
   import { useTranslation } from 'react-i18next';
   import { urlTranslations } from './urlTranslation';
   import LanguageRouter from './components/LanguageRouter';
+  import { useState, useEffect } from 'react';
 
   import ScrollToTop from './components/ScrollToTop'
   import Nav from './components/Nav'
@@ -59,6 +60,23 @@
 
   function App() {
     const {i18n} = useTranslation();
+    const [isI18nInitialized, setIsI18nInitialized] = useState(false);
+    
+    useEffect(() => {
+      // Ждем инициализации i18n
+      if (i18n.isInitialized) {
+        setIsI18nInitialized(true);
+      } else {
+        const handleInitialized = () => setIsI18nInitialized(true);
+        i18n.on('initialized', handleInitialized);
+        return () => i18n.off('initialized', handleInitialized);
+      }
+    }, [i18n]);
+
+    // Показываем загрузку пока i18n не инициализирован
+    if (!isI18nInitialized) {
+      return <div className="flex justify-center items-center h-screen">Loading...</div>;
+    }
     
     return (
       <BrowserRouter>
