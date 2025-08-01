@@ -9,7 +9,7 @@ const Reasons = () => {
     <div className='relative w-full h-auto my-10 px-4'>     
         <header className='w-full max-w-[1640px] mx-auto h-auto bg-[#F9B33B] flex flex-row items-center mb-10'>
             <div className='w-[50px] sm:w-[60px] lg:w-[74px] h-[50px] sm:h-[60px] lg:h-[74px] bg-[#222222] text-white text-[30px] sm:text-[40px] lg:text-[50px] text-center mr-4 sm:mr-7 lg:mr-10 flex items-center justify-center'>3.</div>
-            <h1 className={`text-[20px] sm:text-[26px] lg:text-[50px] font-bold ${selectedLang === 'it' ? 'text-[20px] sm:text-[25px]' : ''} ${selectedLang === 'en' ? 'mt-2 sm:mt-4 lg:mt-0' : ''}`}>{t('h')}</h1>
+            <h2 className={`text-[20px] sm:text-[26px] lg:text-[50px] font-bold ${selectedLang === 'it' ? 'text-[20px] sm:text-[25px]' : ''} ${selectedLang === 'en' ? 'mt-2 sm:mt-4 lg:mt-0' : ''}`}>{t('h')}</h2>
         </header>
 
         <div className='hidden lg:block absolute w-full h-[600px] sm:h-[800px] lg:h-[1418px] -z-10 bottom-0 right-0'>

@@ -71,7 +71,7 @@ const Nav = () => {
           <div className={`hidden lg:flex bg-[#f9b33b] rounded-lg items-center justify-center py-2 px-4 sm:px-6 gap-1 scale-animate-hover left-[-50px] ${selectedLang === 'it' ? 'pl-3' : ''}`}>
             <PhoneInTalkIcon sx={{ fontSize: { xs: 24, sm: 28, lg: 36 } }} className={`${selectedLang === 'it' || selectedLang === 'en' ? 'mr-3' : 'mr-1'}`} />
             <div className="text-center">
-              <h1 className="font-medium text-sm lg:text-base">{t('call_text')}</h1>
+              <h2 className="font-medium text-sm lg:text-base">{t('call_text')}</h2>
               <h3 className="font-bold italic text-sm lg:text-base">+39 06 69353277</h3>
             </div>
           </div>

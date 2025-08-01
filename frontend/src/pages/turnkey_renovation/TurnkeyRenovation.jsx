@@ -60,7 +60,7 @@ const TurnkeyRenovation = () => {
       <div className="relative w-full mx-auto my-8 sm:my-10 lg:my-12 px-4 lg:px-0">
         <div className="w-full max-w-[1640px] h-[60px] sm:h-[74px] bg-[#F9B33B] mx-auto mb-8 sm:mb-10 lg:mb-12 flex flex-row items-center">
           <div className="w-[60px] sm:w-[74px] h-full bg-[#222222] text-white text-[40px] sm:text-[50px] text-center mr-3 lg:mr-10">2.</div>
-          <h1 className={`${selectedLang === 'it' ? 'text-[18px] sm:text-[20px]' : 'text-[20px] sm:text-[24px]'} lg:text-[50px] font-bold mt-1 lg:mt-0`}>{t('reasons.h')}</h1>
+          <h2 className={`${selectedLang === 'it' ? 'text-[18px] sm:text-[20px]' : 'text-[20px] sm:text-[24px]'} lg:text-[50px] font-bold mt-1 lg:mt-0`}>{t('reasons.h')}</h2>
         </div>
 
         <div className="absolute w-[1000px] h-[1100px] scale-60 -z-10 bottom-0  sm:-right-[400px] lg:-right-[100px] hidden lg:block">

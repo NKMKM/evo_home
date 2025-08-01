@@ -23,12 +23,12 @@ const Advantages = () => {
     <div className="w-full max-w-[1755px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 flex flex-col gap-4 sm:gap-6 lg:gap-10">
       {/* Header */}
       <header className="w-full max-w-[1418px] mx-auto text-center font-bold text-[#222222] lg:border-x-[12px] lg:border-[#E0E0E0]">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl lg:text-[60px]">{t('header.first_stroke')}</h1>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl lg:text-[60px]">{t('header.first_stroke')}</h2>
         <div className="flex flex-row justify-between mt-2 sm:mt-4">
           <div className="w-[80px] sm:w-[120px] lg:w-[155px] h-[8px] sm:h-[10px] lg:h-[12px] bg-[#E0E0E0] hidden lg:block"></div>
           <div className="w-[80px] sm:w-[120px] lg:w-[155px] h-[8px] sm:h-[10px] lg:h-[12px] bg-[#E0E0E0] hidden lg:block"></div>
         </div>
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl lg:text-[60px] mt-2 sm:mt-4">{t('header.second_stroke')}</h1>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl lg:text-[60px] mt-2 sm:mt-4">{t('header.second_stroke')}</h2>
       </header>
 
       {/* Main Content */}
