@@ -26,7 +26,7 @@ const Bedroom = () => {
     <div className="min-h-screen bg-white">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="Cerchi esperti in ristrutturazioni a Roma? Rinnova la tua camera da letto con professionalità e gusto! Contattaci 📞 +39 327 986 6412" />
+        <meta name="description" content={t('description')} />
       </Helmet>
 
       {/* Header Section */}

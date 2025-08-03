@@ -25,7 +25,7 @@ const ElectricalSystem = () => {
     <div className="min-h-screen bg-white">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="⚡ Impianti elettrici di qualità a Roma | Sicurezza e precisione per ogni ambiente" />
+        <meta name="description" content={t('description')} />
       </Helmet>
 
       <header className="w-full max-w-[1641px] mx-auto my-6 md:my-10 lg:my-20 flex flex-col items-center">

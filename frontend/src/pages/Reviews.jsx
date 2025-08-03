@@ -21,7 +21,7 @@ const ReviewsPage = () => {
     <div className="flex flex-col min-h-screen">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="Reviews about EVO Home" />
+        <meta name="description" content={t('description')} />
       </Helmet>
 
       {/* our clients block */}

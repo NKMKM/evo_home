@@ -24,7 +24,7 @@ const TurnkeyRenovation = () => {
     <div className="w-full min-h-screen">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="🏠 Trasforma il tuo appartamento a Roma con ristrutturazioni chiavi in mano. Servizio completo e personalizzato. 📞 +39 327 986 6412" />
+        <meta name="description" content={t('description')} />
       </Helmet>
 
       <header className="w-full max-w-[1641px] mx-auto my-6 sm:my-8 lg:my-10 flex flex-col justify-between px-4 lg:px-0">

@@ -25,7 +25,7 @@ const Sewage = () => {
     <div className="w-full min-h-screen">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="Servizi professionali per impianti fognari. Affidabilità e qualità a Roma. Contattaci 📞 +39 327 986 6412" />
+        <meta name="description" content={t('description')} />
       </Helmet>
 
       <header className="w-full max-w-[1641px] mx-auto my-6 sm:my-8 lg:my-10 flex flex-col justify-between">

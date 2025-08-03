@@ -28,7 +28,7 @@ const CommercialPremises = () => {
     <div className='w-full'>
         <Helmet>
             <title>{t('title')}</title>
-            <meta name="description" content="Renovation of commercial premises by EVO Home" />
+            <meta name="description" content={t('description')} />
         </Helmet>
         <header className='w-full max-w-[1641px] h-auto mx-auto mt-10 sm:mt-10 lg:mt-20 mb-10 sm:mb-20 lg:mb-30 px-4 flex flex-col justify-between'>
             <div className='h-auto w-full mx-auto flex flex-col lg:flex-row justify-between items-center mb-6 sm:mb-10 lg:mb-0'>

@@ -26,7 +26,7 @@ const LivingRoom = () => {
     <div className="min-h-screen bg-white">
       <Helmet>
         <title>{t('title')}</title>
-        <meta name="description" content="uoi trasformare il tuo soggiorno? Ristrutturazioni efficienti e di stile a Roma. Affidati alla nostra esperienza. Contattaci 📞 +39 327 986 6412" />
+        <meta name="description" content={t('description')} />
       </Helmet>
 
       {/* Header Section */}
