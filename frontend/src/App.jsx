@@ -7,8 +7,9 @@
   import { useState, useEffect } from 'react';
 
   import ScrollToTop from './components/ScrollToTop'
-  import Nav from './components/Nav'
-  import Footer from './components/Footer'
+import Nav from './components/Nav'
+import Footer from './components/Footer'
+import Breadcrumbs from './components/Breadcrumbs'
 
   import Main from './pages/Main'
   import Contacts from './pages/Contacts'
@@ -84,6 +85,7 @@
           <ScrollToTop/>
           <Nav />
           <div className='h-[65px] lg:h-[128px]'></div>
+          <Breadcrumbs />
           <Routes>
             {/* Главная страница */}
             <Route path={urlTranslations.home[i18n.language] || '/'} element={<Main />} />

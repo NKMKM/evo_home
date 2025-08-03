@@ -25,6 +25,7 @@ const Main = () => {
             <title>{t('title')}</title>
             <meta name="description" content={t('description')} />
         </Helmet>
+        <h1 className="sr-only">{t('title')}</h1>
         <HomeStart/> 
         <Projects/>
         <Advantages/>
