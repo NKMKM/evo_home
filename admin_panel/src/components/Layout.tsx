@@ -1,19 +1,49 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
-import { HomeIcon, LayoutDashboardIcon, SettingsIcon, LogOutIcon, MenuIcon, XIcon } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { 
+  HomeIcon, 
+  LayoutDashboardIcon, 
+  LogOutIcon, 
+  MenuIcon, 
+  XIcon,
+  ImageIcon,
+  PlayIcon,
+  TypeIcon,
+  ClipboardListIcon
+} from 'lucide-react';
 interface LayoutProps {
   children: React.ReactNode;
+  onLogout?: () => void;
 }
 export function Layout({
-  children
+  children,
+  onLogout
 }: LayoutProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  
   const handleLogout = () => {
-    // In a real app, you would clear auth tokens, etc.
-    navigate('/login');
+    if (onLogout) {
+      onLogout();
+    } else {
+      navigate('/login');
+    }
+  };
+
+  const navItems = [
+    { path: '/dashboard', icon: LayoutDashboardIcon, label: 'Dashboard' },
+    { path: '/dashboard/submissions', icon: ClipboardListIcon, label: 'Заявки' },
+    { path: '/dashboard/media', icon: ImageIcon, label: 'Изображения' },
+    { path: '/dashboard/videos', icon: PlayIcon, label: 'Видео' },
+    { path: '/dashboard/texts', icon: TypeIcon, label: 'Тексты' },
+  ];
+
+  const isActiveRoute = (path: string) => {
+    return location.pathname === path || 
+           (path !== '/dashboard' && location.pathname.startsWith(path));
   };
   return <div className="flex h-screen bg-gray-50">
       {/* Desktop Sidebar */}
@@ -40,12 +70,25 @@ export function Layout({
         </div>
         <nav className="flex-1 py-4">
           <ul className="space-y-1">
-            <li>
-              <a href="#" className="flex items-center px-4 py-2 text-gray-800 bg-blue-50 text-blue-600">
-                <LayoutDashboardIcon size={18} className="mr-3" />
-                {isSidebarOpen && <span>Dashboard</span>}
-              </a>
-            </li>
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = isActiveRoute(item.path);
+              return (
+                <li key={item.path}>
+                  <button
+                    onClick={() => navigate(item.path)}
+                    className={`w-full flex items-center px-4 py-2 transition-colors ${
+                      isActive 
+                        ? 'bg-blue-50 text-blue-600' 
+                        : 'text-gray-600 hover:bg-gray-50 hover:text-gray-800'
+                    }`}
+                  >
+                    <Icon size={18} className="mr-3" />
+                    {isSidebarOpen && <span>{item.label}</span>}
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         </nav>
         <div className="p-4 border-t border-gray-100">
@@ -86,24 +129,28 @@ export function Layout({
               </div>
               <nav className="py-4">
                 <ul className="space-y-1">
-                  <li>
-                    <a href="#" className="flex items-center px-4 py-2 text-gray-800 bg-blue-50 text-blue-600">
-                      <LayoutDashboardIcon size={18} className="mr-3" />
-                      <span>Dashboard</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-50">
-                      <HomeIcon size={18} className="mr-3" />
-                      <span>Home</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-50">
-                      <SettingsIcon size={18} className="mr-3" />
-                      <span>Settings</span>
-                    </a>
-                  </li>
+                  {navItems.map((item) => {
+                    const Icon = item.icon;
+                    const isActive = isActiveRoute(item.path);
+                    return (
+                      <li key={item.path}>
+                        <button
+                          onClick={() => {
+                            navigate(item.path);
+                            setIsMobileSidebarOpen(false);
+                          }}
+                          className={`w-full flex items-center px-4 py-2 transition-colors ${
+                            isActive 
+                              ? 'bg-blue-50 text-blue-600' 
+                              : 'text-gray-600 hover:bg-gray-50 hover:text-gray-800'
+                          }`}
+                        >
+                          <Icon size={18} className="mr-3" />
+                          <span>{item.label}</span>
+                        </button>
+                      </li>
+                    );
+                  })}
                 </ul>
               </nav>
               <div className="p-4 border-t border-gray-100">

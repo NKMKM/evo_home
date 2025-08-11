@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { UserIcon, LockIcon, ArrowRightIcon } from 'lucide-react';
 
-export function LoginPage() {
+interface LoginPageProps {
+  onLogin: (username: string, password: string) => Promise<boolean>;
+}
+
+export function LoginPage({ onLogin }: LoginPageProps) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-
-  // Fix for Vite env type error
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,24 +18,12 @@ export function LoginPage() {
     setLoading(true);
 
     try {
-      const res = await fetch(`${backendUrl}/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include', // Для отправки кук
-        body: JSON.stringify({ username, password }),
-      });
-
-      if (res.ok) {
-        const json = await res.json();
-        console.log('✅ Вход выполнен:', json);
-        window.location.href = '/dashboard'; // Редирект на дашборд
-      } else {
-        const data = await res.json();
-        console.warn('❌ Ошибка входа:', res.status, data.message);
-        setError(data.message || 'Неверный логин или пароль');
+      const success = await onLogin(username, password);
+      if (!success) {
+        setError('Неверный логин или пароль');
       }
     } catch (err) {
-      console.error('🔥 Ошибка сервера:', err);
+      console.error('🔥 Ошибка входа:', err);
       setError('Сервер недоступен');
     } finally {
       setLoading(false);

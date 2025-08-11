@@ -4,9 +4,16 @@ import session from 'express-session';
 import dotenv from 'dotenv';
 import { Pool } from 'pg';
 import bcrypt from 'bcrypt';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 // Загрузка переменных окружения
 dotenv.config();
+
+// Определяем __dirname для ES модулей
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Проверка наличия всех необходимых переменных окружения
 const requiredEnvVars = ['PGUSER', 'PGHOST', 'PGDATABASE', 'PGPASSWORD', 'PGPORT', 'SESSION_SECRET', 'ADMIN_USERNAME', 'ADMIN_PASSWORD_HASH', 'FRONTEND_URL_1', 'FRONTEND_URL_2'];
@@ -43,7 +50,11 @@ const PORT = process.env.PORT || 3001;
 // Разрешённые фронтенды
 const allowedOrigins = [
   'https://new.evohome.it',
-  'https://admin.evohome.it'
+  'https://admin.evohome.it',
+  'http://localhost:5173',  // Frontend development
+  'http://localhost:5174',  // Admin panel development
+  'http://localhost:3000',  // Alternative development ports
+  'http://localhost:3001'   // Backend development (for testing)
 ];
 
 // Настройка CORS
@@ -71,20 +82,20 @@ app.use((req, res, next) => {
 
 // Настройка сессий
 app.use(session({
-  secret: process.env.SESSION_SECRET,
+  secret: process.env.SESSION_SECRET || 'development-secret-key',
   resave: false,
   saveUninitialized: false,
   cookie: {
     httpOnly: true,
-    secure: true, // true в продакшене
-    sameSite: 'None',
-    domain: '.evohome.it',
+    secure: process.env.NODE_ENV === 'production', // true только в продакшене
+    sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
+    domain: process.env.NODE_ENV === 'production' ? '.evohome.it' : undefined,
     maxAge: 24 * 60 * 60 * 1000
   }
 }));
 
 // Маршрут логина
-app.post('/login', async (req, res) => {
+app.post('/api/login', async (req, res) => {
   const { username, password } = req.body;
 
   if (!username || !password) {
@@ -134,7 +145,7 @@ app.get('/check-auth', (req, res) => {
 });
 
 // Логаут
-app.post('/logout', (req, res) => {
+app.post('/api/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) {
       console.error('Ошибка при логауте:', err.message);
@@ -145,7 +156,7 @@ app.post('/logout', (req, res) => {
 });
 
 // Получение заявок (только для авторизованных)
-app.get('/submissions', async (req, res) => {
+app.get('/api/submissions', async (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Не авторизован' });
   }
@@ -193,7 +204,7 @@ app.post('/submissions', async (req, res) => {
 });
 
 // Удаление заявки (только для авторизованных)
-app.delete('/submissions/:id', async (req, res) => {
+app.delete('/api/submissions/:id', async (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Не авторизован' });
   }
@@ -207,6 +218,141 @@ app.delete('/submissions/:id', async (req, res) => {
   } catch (err) {
     console.error('Ошибка при удалении заявки:', err.message);
     res.status(500).json({ error: 'Ошибка базы данных' });
+  }
+});
+
+// Получение всех изображений из frontend проекта (только для авторизованных)
+app.get('/api/images/scan', async (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Не авторизован' });
+  }
+
+  try {
+    const frontendAssetsPath = path.join(__dirname, '../frontend/src/assets');
+    
+    function scanImages(dirPath, relativePath = '') {
+      const images = [];
+      
+      if (!fs.existsSync(dirPath)) {
+        return images;
+      }
+      
+      const items = fs.readdirSync(dirPath);
+      
+      for (const item of items) {
+        const itemPath = path.join(dirPath, item);
+        const relativeItemPath = relativePath ? `${relativePath}/${item}` : item;
+        const stat = fs.statSync(itemPath);
+        
+        if (stat.isDirectory()) {
+          // Рекурсивно сканируем подпапки
+          images.push(...scanImages(itemPath, relativeItemPath));
+        } else if (stat.isFile()) {
+          // Проверяем что это изображение
+          const ext = path.extname(item).toLowerCase();
+          if (['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg'].includes(ext)) {
+            const sizeKB = Math.round(stat.size / 1024);
+            const category = getCategoryFromPath(relativeItemPath);
+            
+            images.push({
+              id: Buffer.from(relativeItemPath).toString('base64'),
+              name: item,
+              path: relativeItemPath,
+              category: category,
+              size: `${sizeKB} KB`,
+              dimensions: { width: 0, height: 0 }, // Можно добавить определение размеров
+              fullPath: `frontend/src/assets/${relativeItemPath}`,
+              usedIn: [], // Можно добавить анализ использования
+              lastModified: stat.mtime.toISOString()
+            });
+          }
+        }
+      }
+      
+      return images;
+    }
+    
+    function getCategoryFromPath(imagePath) {
+      const pathParts = imagePath.split('/');
+      
+      if (pathParts.includes('our_works_gallery')) return 'Галерея работ';
+      if (pathParts.includes('team_images')) return 'Команда';
+      if (pathParts.includes('about_us_achievments')) return 'Достижения';
+      if (pathParts.includes('turnkey_renovation')) return 'Ремонт под ключ';
+      if (pathParts.includes('room_renovation')) return 'Ремонт комнат';
+      if (pathParts.includes('commercial_premises')) return 'Коммерческие помещения';
+      if (pathParts.includes('systems')) return 'Системы';
+      if (pathParts.includes('reviews')) return 'Отзывы';
+      if (pathParts.includes('projects')) return 'Проекты';
+      if (pathParts.includes('services')) return 'Услуги';
+      if (pathParts.includes('process')) return 'Процесс работ';
+      if (pathParts.includes('icons/works')) return 'Иконки работ';
+      if (pathParts.includes('icons')) return 'Иконки';
+      if (pathParts.includes('images') && pathParts.length === 2) return 'Основные';
+      if (imagePath.includes('vector')) return 'Векторы';
+      if (imagePath.includes('decoration')) return 'Декорации';
+      if (imagePath.includes('bg')) return 'Фоны';
+      if (imagePath.includes('star')) return 'Рейтинг';
+      if (imagePath.includes('arrow')) return 'Стрелки';
+      if (imagePath.includes('flag')) return 'Языки';
+      if (imagePath.includes('facebook') || imagePath.includes('instagram') || imagePath.includes('google') || imagePath.includes('whatsap')) return 'Социальные сети';
+      
+      return 'Разное';
+    }
+    
+    const allImages = scanImages(frontendAssetsPath);
+    
+    console.log(`Найдено изображений: ${allImages.length}`);
+    res.json(allImages);
+    
+  } catch (err) {
+    console.error('Ошибка при сканировании изображений:', err.message);
+    res.status(500).json({ error: 'Ошибка сканирования' });
+  }
+});
+
+// Статические файлы - доступ к изображениям frontend
+app.use('/frontend-assets', express.static(path.join(__dirname, '../frontend/src/assets')));
+
+// Создание бэкапа изображения перед заменой
+app.post('/api/images/backup', async (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Не авторизован' });
+  }
+
+  try {
+    const { imagePath } = req.body;
+    const originalPath = path.join(__dirname, '../frontend/src/assets', imagePath);
+    
+    if (!fs.existsSync(originalPath)) {
+      return res.status(404).json({ error: 'Файл не найден' });
+    }
+    
+    // Создаем папку бэкапов если не существует
+    const backupDir = path.join(__dirname, '../backups/images');
+    if (!fs.existsSync(backupDir)) {
+      fs.mkdirSync(backupDir, { recursive: true });
+    }
+    
+    // Создаем бэкап с временной меткой
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const fileName = path.basename(imagePath);
+    const fileExt = path.extname(fileName);
+    const fileBaseName = path.basename(fileName, fileExt);
+    const backupFileName = `${fileBaseName}_${timestamp}${fileExt}`;
+    const backupPath = path.join(backupDir, backupFileName);
+    
+    fs.copyFileSync(originalPath, backupPath);
+    
+    res.json({ 
+      success: true, 
+      backupPath: backupFileName,
+      message: 'Бэкап создан успешно' 
+    });
+    
+  } catch (err) {
+    console.error('Ошибка при создании бэкапа:', err.message);
+    res.status(500).json({ error: 'Ошибка создания бэкапа' });
   }
 });
 

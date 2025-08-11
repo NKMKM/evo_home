@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { LoginPage } from './components/LoginPage';
-import { DashboardPage } from './components/DashboardPage';
+import { CMSPage } from './components/CMSPage';
 
 export function App() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-  const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL;
+  const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL || 'http://localhost:3001';
   // Проверка авторизации при загрузке
   useEffect(() => {
     fetch(`${backendUrl}/check-auth`, {
@@ -54,8 +54,26 @@ export function App() {
   return <Router>
       <div className="w-full min-h-screen bg-gray-50 font-sans text-gray-800">
         <Routes>
-          <Route path="/login" element={isAuthenticated ? <Navigate to="/dashboard" /> : <LoginPage onLogin={handleLogin} />} />
-          <Route path="/dashboard" element={isAuthenticated ? <DashboardPage onLogout={handleLogout} /> : <Navigate to="/login" />} />
+          <Route
+            path="/login"
+            element={
+              isAuthenticated ? (
+                <Navigate to="/dashboard" />
+              ) : (
+                <LoginPage onLogin={handleLogin} />
+              )
+            }
+          />
+          <Route
+            path="/dashboard/*"
+            element={
+              isAuthenticated ? (
+                <CMSPage onLogout={handleLogout} />
+              ) : (
+                <Navigate to="/login" />
+              )
+            }
+          />
           <Route path="*" element={<Navigate to={isAuthenticated ? '/dashboard' : '/login'} />} />
         </Routes>
       </div>
