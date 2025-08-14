@@ -1,47 +1,51 @@
 {
-    "title": "🏬 Ремонт коммерческих помещений в Риме | Непревзойденные предложения для вашего бизнеса",
-    "description": "Looking for a company to renovate commercial spaces in Rome? Trust our experts. Transform your space with a professional touch. Contact us 📞 +39 327 986 6412",
-    "h": "Commercial Spaces",
-    "header": {
-        "h":"Renovation of commercial premises",
-        "p1": "Renovating commercial spaces raises many important questions: how to calculate the budget? Which supplier should I purchase materials from? Who should I trust with the systems? Which company should I choose for glass supply and proper installation? These and many other questions require clear answers. With over 17 years of experience in Rome, Evo Home is the ideal partner to handle these tasks. Our approach guarantees results that reflect your expectations and requirements, offering favorable conditions, high-quality services, and a 3-year warranty.",
-        "p2": "Commercial space renovation by EVO HOME means a full transformation of offices, shops, restaurants, and other business environments. We create modern, stylish, and functional interiors that enhance the comfort and efficiency of your business. From design to implementation – we handle the full cycle.",
-        "button": "ORDER NOW"
-    },
-    "process": {
-      "h": "More About Commercial Renovation",
-      "ul": {
-        "1": {
-          "h": "BUSINESS CENTER RENOVATION",
-          "p": "Renovating business centers requires special attention to functionality and workspace efficiency. It is essential to create an environment that promotes productivity and employee well-being. Our services include optimizing shared spaces, creating coworking areas, upgrading tech infrastructure, and building offices."
-        },
-        "2": {
-          "h": "COMMERCIAL SPACES",
-          "p": "We handle all aspects: from layout planning to selecting the most suitable materials to create a cozy and functional environment. Our solutions include redesigning display areas, installing modern lighting systems, and implementing tech features that enhance customer service and boost sales."
-        },
-        "3": {
-          "h": "OFFICE RENOVATION",
-          "p": "We offer customized solutions for space zoning, creating high-tech conference rooms, and integrating energy-saving systems to reduce operational costs."
-        },
-        "4": {
-          "h": "RESTAURANT & BAR RENOVATION",
-          "p": "Renovating restaurants and bars is crucial to creating an atmosphere that attracts guests and encourages a pleasant experience. We handle interior design, durable and easy-to-clean material selection, and ventilation and air-conditioning system installation – all aimed at strengthening the venue's unique identity."
-        },
-        "5": {
-          "h": "WAREHOUSE RENOVATION",
-          "p": "Warehouse remodeling requires meticulous planning to improve workflow efficiency and worker safety. We provide solutions for space optimization, modern shelving system installation, and creation of efficient loading and unloading areas."
-        },
-        "6": {
-          "h": "FITNESS CLUB RENOVATION",
-          "p": "Renovating a fitness club is essential to creating a motivating and comfortable environment. We design spaces that support physical activity and wellness, paying special attention to equipment layout, material quality, and overall aesthetic."
-        },
-        "7": {
-          "h": "HOTEL RENOVATION",
-          "p": "Hotel renovation is a complex process aimed at enhancing guest experiences and the facility's appeal. We offer a full range of services – from room design to the creation of elegant and functional common areas."
-        }
+  "title": "🏬 Ремонт коммерческих помещений в Риме | Непревзойденные предложения для вашего бизнеса",
+  "description": "Looking for a company to renovate commercial spaces in Rome? Trust our experts. Transform your space with a professional touch. Contact us 📞 +39 327 986 6412",
+  "h": "Commercial Spaces",
+  "header": {
+    "h": "Renovation of commercial premises",
+    "p1": "Renovating commercial spaces raises many important questions: how to calculate the budget? Which supplier should I purchase materials from? Who should I trust with the systems? Which company should I choose for glass supply and proper installation? These and many other questions require clear answers. With over 17 years of experience in Rome, Evo Home is the ideal partner to handle these tasks. Our approach guarantees results that reflect your expectations and requirements, offering favorable conditions, high-quality services, and a 3-year warranty.",
+    "p2": "Commercial space renovation by EVO HOME means a full transformation of offices, shops, restaurants, and other business environments. We create modern, stylish, and functional interiors that enhance the comfort and efficiency of your business. From design to implementation – we handle the full cycle.",
+    "button": "ORDER NOW"
+  },
+  "process": {
+    "h": "More About Commercial Renovation",
+    "ul": {
+      "1": {
+        "h": "BUSINESS CENTER RENOVATION",
+        "p": "Renovating business centers requires special attention to functionality and workspace efficiency. It is essential to create an environment that promotes productivity and employee well-being. Our services include optimizing shared spaces, creating coworking areas, upgrading tech infrastructure, and building offices."
       },
-      "video_text": "Commercial Renovation by EVO HOME",
-      "video_button": "ORDER NOW"
-    }
+      "2": {
+        "h": "COMMERCIAL SPACES",
+        "p": "We handle all aspects: from layout planning to selecting the most suitable materials to create a cozy and functional environment. Our solutions include redesigning display areas, installing modern lighting systems, and implementing tech features that enhance customer service and boost sales."
+      },
+      "3": {
+        "h": "OFFICE RENOVATION",
+        "p": "We offer customized solutions for space zoning, creating high-tech conference rooms, and integrating energy-saving systems to reduce operational costs."
+      },
+      "4": {
+        "h": "RESTAURANT & BAR RENOVATION",
+        "p": "Renovating restaurants and bars is crucial to creating an atmosphere that attracts guests and encourages a pleasant experience. We handle interior design, durable and easy-to-clean material selection, and ventilation and air-conditioning system installation – all aimed at strengthening the venue's unique identity."
+      },
+      "5": {
+        "h": "WAREHOUSE RENOVATION",
+        "p": "Warehouse remodeling requires meticulous planning to improve workflow efficiency and worker safety. We provide solutions for space optimization, modern shelving system installation, and creation of efficient loading and unloading areas."
+      },
+      "6": {
+        "h": "FITNESS CLUB RENOVATION",
+        "p": "Renovating a fitness club is essential to creating a motivating and comfortable environment. We design spaces that support physical activity and wellness, paying special attention to equipment layout, material quality, and overall aesthetic."
+      },
+      "7": {
+        "h": "HOTEL RENOVATION",
+        "p": "Hotel renovation is a complex process aimed at enhancing guest experiences and the facility's appeal. We offer a full range of services – from room design to the creation of elegant and functional common areas."
+      }
+    },
+    "video_text": "Commercial Renovation by EVO HOME",
+    "video_button": "ORDER NOW"
+  },
+  "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+  "ogTitle": "🏬 Ремонт коммерческих помещений в Риме | Непревзойденные предложения для вашего бизнеса",
+  "ogDescription": "Looking for a company to renovate commercial spaces in Rome? Trust our experts. Transform your space with a professional touch. Contact us 📞 +39 327 986 6412",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
 }
-  

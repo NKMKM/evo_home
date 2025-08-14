@@ -1,6 +1,6 @@
 {
   "title": "🏡 Ristrutturazioni Esclusive a Roma | Trasforma la Tua Casa con Stile",
-  "description":"👷‍♂️ Ristrutturazioni di lusso a prezzi accessibili nel cuore di Roma. Garantiamo finiture di alto livello. Inizia ora il tuo progetto! 📞 +39 327 986 6412",
+  "description": "👷‍♂️ Ristrutturazioni di lusso a prezzi accessibili nel cuore di Roma. Garantiamo finiture di alto livello. Inizia ora il tuo progetto! 📞 +39 327 986 6412",
   "h": "Ristrutturazione Appartamento Esclusivo",
   "header": {
     "h": "Ristrutturazione Esclusiva by EVO HOME",
@@ -30,5 +30,10 @@
       }
     },
     "video_text": "Ristrutturazione Appartamento Esclusivo by EVO HOME"
-  }
+  },
+  "keywords": "ristrutturazione, costruzioni, Roma, Evo Home, ristrutturazione chiavi in mano",
+  "ogTitle": "🏡 Ristrutturazioni Esclusive a Roma | Trasforma la Tua Casa con Stile",
+  "ogDescription": "👷‍♂️ Ristrutturazioni di lusso a prezzi accessibili nel cuore di Roma. Garantiamo finiture di alto livello. Inizia ora il tuo progetto! 📞 +39 327 986 6412",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
 }

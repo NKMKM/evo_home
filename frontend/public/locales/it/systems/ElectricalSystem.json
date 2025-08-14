@@ -1,6 +1,6 @@
 {
   "title": "⚡ Impianti elettrici di qualità a Roma | Sicurezza e precisione per ogni ambiente",
-  "description":"⚡ Impianti elettrici di qualità a Roma | Sicurezza e precisione per ogni ambiente",
+  "description": "⚡ Impianti elettrici di qualità a Roma | Sicurezza e precisione per ogni ambiente",
   "h": "Impianto Elettrico",
   "header": {
     "h": "Installazione dell'Impianto Elettrico by EVO HOME",
@@ -41,5 +41,10 @@
       }
     },
     "video_text": "Installazione dell'Impianto Elettrico by EVO HOME"
-  }
+  },
+  "keywords": "ristrutturazione, costruzioni, Roma, Evo Home, ristrutturazione chiavi in mano",
+  "ogTitle": "⚡ Impianti elettrici di qualità a Roma | Sicurezza e precisione per ogni ambiente",
+  "ogDescription": "⚡ Impianti elettrici di qualità a Roma | Sicurezza e precisione per ogni ambiente",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import Video from '../../components/Video'
+import { PageWrapper } from '../../components/PageWrapper.tsx'
 import CommercialPremisesLayoutCollection from '../../components/commercial_premises_components/CommercialPremisesLayoutCollection'
 import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from 'react-helmet'
@@ -21,6 +22,8 @@ const Hotel = () => {
   const {t} = useTranslation('commercial_premises/Hotel')
   const selectedLang = localStorage.getItem('language') || 'en';
   return (
+    <PageWrapper pageId="hotel">
+
     <div className='w-full'>
         <Helmet>
             <title>{t('title')}</title>
@@ -105,7 +108,9 @@ const Hotel = () => {
 
         <CommercialPremisesLayoutCollection/>
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default Hotel

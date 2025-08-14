@@ -1,11 +1,16 @@
 {
-    "list":{
-        "first":"УСЛУГИ",
-        "services":"УСЛУГИ",
-        "second":"КТО МЫ",
-        "third":"НАШИ РАБОТЫ",
-        "fourth":"ОТЗЫВЫ",
-        "fifth":"КОНТАКТЫ"
-    },
-    "call_text":"ЗАКАЗАТЬ ЗВОНОК"
+  "list": {
+    "first": "УСЛУГИ",
+    "services": "УСЛУГИ",
+    "second": "КТО МЫ",
+    "third": "НАШИ РАБОТЫ",
+    "fourth": "ОТЗЫВЫ",
+    "fifth": "КОНТАКТЫ"
+  },
+  "call_text": "ЗАКАЗАТЬ ЗВОНОК",
+  "keywords": "ремонт, строительство, Рим, Evo Home, ремонт под ключ",
+  "ogTitle": "Evo Home - Строительная компания в Риме",
+  "ogDescription": "Строительная компания в Риме Evo Home - ваш надежный партнер",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
 }

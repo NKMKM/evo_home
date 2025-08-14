@@ -1,5 +1,6 @@
 import React from 'react'
 import LayoutCollection from '../../components/room_renovation_components/LayoutCollection'
+import { PageWrapper } from '../../components/PageWrapper'
 import Video from '../../components/Video'
 import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from 'react-helmet'
@@ -23,6 +24,8 @@ const Studio = () => {
   const { t } = useTranslation('turnkey_renovation/Studio')
   const selectedLang = localStorage.getItem('language') || 'en'
   return (
+    <PageWrapper pageId="studio">
+
     <div className="w-full min-h-screen">
       <Helmet>
         <title>{t('title')}</title>
@@ -141,7 +144,9 @@ const Studio = () => {
 
       <LayoutCollection />
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default Studio

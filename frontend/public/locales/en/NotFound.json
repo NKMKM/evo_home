@@ -1,5 +1,10 @@
 {
-    "title": "NOT FOUND",
-    "description": "Error 404: Page not found",
-    "p": "Page not found!"
+  "title": "NOT FOUND",
+  "description": "Error 404: Page not found",
+  "p": "Page not found!",
+  "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+  "ogTitle": "NOT FOUND",
+  "ogDescription": "Error 404: Page not found",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
+import { PageWrapper } from '../components/PageWrapper.tsx'
 
 import HomeStart from '../components/mainpage_components/HomeStart'
 import Design from '../components/mainpage_components/Design'
@@ -20,21 +21,21 @@ import Reviews from '../components/mainpage_components/Reviews'
 const Main = () => {
   const {t} = useTranslation('home/HomeStart')
   return (
-    <> 
-        <Helmet>
-            <title>{t('title')}</title>
-            <meta name="description" content={t('description')} />
-        </Helmet>
-        <h1 className="sr-only">{t('title')}</h1>
-        <HomeStart/> 
-        <Projects/>
-        <Advantages/>
-        <Calculator/>
-        <Services/>
-        <AboutCompanyHome/>
-        <Guarantees/>
-        <Reviews/>
-    </>
+    <PageWrapper pageId="home">
+      <Helmet>
+          <title>{t('title')}</title>
+          <meta name="description" content={t('description')} />
+      </Helmet>
+      <h1 className="sr-only">{t('title')}</h1>
+      <HomeStart/> 
+      <Projects/>
+      <Advantages/>
+      <Calculator/>
+      <Services/>
+      <AboutCompanyHome/>
+      <Guarantees/>
+      <Reviews/>
+    </PageWrapper>
   )
 }
 //made

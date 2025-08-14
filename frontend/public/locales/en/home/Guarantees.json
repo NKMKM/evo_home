@@ -1,24 +1,29 @@
 {
-    "h": "Our Guarantees",
-    "p": "EVO HOME — reliability proven by results!",
-    "first_element": {
-      "h": "QUALITY GUARANTEE",
-      "p": "We use trusted materials and modern technologies, monitoring every stage of the work"
-    },
-    "second_element": {
-      "h": "PROFESSIONAL APPROACH",
-      "p": "A team of experienced specialists with attention to detail and industry standards"
-    },
-    "third_element": {
-      "h": "ON-TIME DELIVERY",
-      "p": "Clear work schedule and timely project completion"
-    },
-    "fourth_element": {
-      "h": "LEGAL PROTECTION",
-      "p": "We work under an official contract that defines all terms and conditions"
-    },
-    "fifth_element": {
-      "h": "PRICE TRANSPARENCY",
-      "p": "Fixed estimate with no hidden fees or unexpected charges"
-    }
+  "h": "Our Guarantees",
+  "p": "EVO HOME — reliability proven by results!",
+  "first_element": {
+    "h": "QUALITY GUARANTEE",
+    "p": "We use trusted materials and modern technologies, monitoring every stage of the work"
+  },
+  "second_element": {
+    "h": "PROFESSIONAL APPROACH",
+    "p": "A team of experienced specialists with attention to detail and industry standards"
+  },
+  "third_element": {
+    "h": "ON-TIME DELIVERY",
+    "p": "Clear work schedule and timely project completion"
+  },
+  "fourth_element": {
+    "h": "LEGAL PROTECTION",
+    "p": "We work under an official contract that defines all terms and conditions"
+  },
+  "fifth_element": {
+    "h": "PRICE TRANSPARENCY",
+    "p": "Fixed estimate with no hidden fees or unexpected charges"
+  },
+  "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+  "ogTitle": "Evo Home - Construction Company in Rome",
+  "ogDescription": "Rome construction company Evo Home - your reliable partner",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
 }

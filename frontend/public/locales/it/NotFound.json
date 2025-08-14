@@ -1,6 +1,10 @@
 {
-    "title": "NON TROVATO",
-    "description":"Error 404: Pagina non trovata",
-    "p": "Pagina non trovata!"
-  }
-  
+  "title": "NON TROVATO",
+  "description": "Error 404: Pagina non trovata",
+  "p": "Pagina non trovata!",
+  "keywords": "ristrutturazione, costruzioni, Roma, Evo Home, ristrutturazione chiavi in mano",
+  "ogTitle": "NON TROVATO",
+  "ogDescription": "Error 404: Pagina non trovata",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
+}

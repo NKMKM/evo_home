@@ -1,6 +1,6 @@
 {
   "title": "🏢 Ristrutturazione di Uffici a Roma | Servizio Chiavi in Mano",
-  "description":"Necessiti di una ristrutturazione degli uffici a Roma? Scegli la qualità e l’esperienza dei nostri professionisti per un ufficio funzionale e accogliente. 📞 +39 327 986 6412",
+  "description": "Necessiti di una ristrutturazione degli uffici a Roma? Scegli la qualità e l’esperienza dei nostri professionisti per un ufficio funzionale e accogliente. 📞 +39 327 986 6412",
   "h": "Ristrutturazione Uffici",
   "header": {
     "h": "Ristrutturazione Uffici con EVO HOME",
@@ -33,5 +33,10 @@
       }
     },
     "video_text": "Ristrutturazione Uffici con EVO HOME"
-  }
+  },
+  "keywords": "ristrutturazione, costruzioni, Roma, Evo Home, ristrutturazione chiavi in mano",
+  "ogTitle": "🏢 Ristrutturazione di Uffici a Roma | Servizio Chiavi in Mano",
+  "ogDescription": "Necessiti di una ristrutturazione degli uffici a Roma? Scegli la qualità e l’esperienza dei nostri professionisti per un ufficio funzionale e accogliente. 📞 +39 327 986 6412",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
 }

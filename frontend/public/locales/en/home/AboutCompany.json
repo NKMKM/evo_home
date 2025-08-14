@@ -1,16 +1,20 @@
 {
-    "h": "About EVO HOME",
-    "text": {
-      "span": "EVO HOME ",
-      "p1": "is a team of professionals specializing in the renovation and finishing of apartments, houses, and commercial spaces. We create stylish, comfortable, and functional environments, tailored to client preferences and modern trends.",
-      "p2": "— renovation you can trust!"
-    },
-    "ul": {
-      "li1": "17+ years of experience in renovation and construction",
-      "li2": "Full project cycle — from design to final finishing",
-      "li3": "Guaranteed quality and on-time delivery",
-      "li4": "Transparent pricing and legal protection"
-    },
-    "button": "LEARN MORE"
-  }
-  
+  "h": "About EVO HOME",
+  "text": {
+    "span": "EVO HOME ",
+    "p1": "is a team of professionals specializing in the renovation and finishing of apartments, houses, and commercial spaces. We create stylish, comfortable, and functional environments, tailored to client preferences and modern trends.",
+    "p2": "— renovation you can trust!"
+  },
+  "ul": {
+    "li1": "17+ years of experience in renovation and construction",
+    "li2": "Full project cycle — from design to final finishing",
+    "li3": "Guaranteed quality and on-time delivery",
+    "li4": "Transparent pricing and legal protection"
+  },
+  "button": "LEARN MORE",
+  "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+  "ogTitle": "Evo Home - Construction Company in Rome",
+  "ogDescription": "Rome construction company Evo Home - your reliable partner",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
+}

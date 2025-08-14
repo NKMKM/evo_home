@@ -1,5 +1,6 @@
 import React from 'react'
 import Projects from '../../components/room_renovation_components/Projects'
+import { PageWrapper } from '../../components/PageWrapper.tsx'
 import Calculator from '../../components/mainpage_components/Calculator'
 import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from 'react-helmet'
@@ -21,6 +22,8 @@ const TurnkeyRenovation = () => {
   const { t } = useTranslation('turnkey_renovation/TurnkeyRenovation')
   const selectedLang = localStorage.getItem('language') || 'en'
   return (
+    <PageWrapper pageId="turnkey-renovation">
+
     <div className="w-full min-h-screen">
       <Helmet>
         <title>{t('title')}</title>
@@ -178,7 +181,9 @@ const TurnkeyRenovation = () => {
 
       <Projects />
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default TurnkeyRenovation

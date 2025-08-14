@@ -1,5 +1,6 @@
 import React from 'react'
 import Video from '../../components/Video'
+import { PageWrapper } from '../../components/PageWrapper'
 import LayoutCollection from '../../components/room_renovation_components/LayoutCollection'
 import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from 'react-helmet'
@@ -19,6 +20,8 @@ const ThreeroomApartment = () => {
   const { t } = useTranslation('turnkey_renovation/ThreeroomApartment')
   const selectedLang = localStorage.getItem('language') || 'en'
   return (
+    <PageWrapper pageId="three-room-apartment">
+
     <div className="w-full min-h-screen">
       <Helmet>
         <title>{t('title')}</title>
@@ -126,7 +129,9 @@ const ThreeroomApartment = () => {
 
       <LayoutCollection />
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default ThreeroomApartment

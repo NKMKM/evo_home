@@ -1,5 +1,6 @@
 import React from 'react'
 import Video from '../../components/Video'
+import { PageWrapper } from '../../components/PageWrapper'
 import LayoutCollection from '../../components/room_renovation_components/LayoutCollection'
 import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from 'react-helmet'
@@ -23,6 +24,8 @@ const Bedroom = () => {
   const selectedLang = localStorage.getItem('language') || 'en'
 
   return (
+    <PageWrapper pageId="bedroom">
+
     <div className="min-h-screen bg-white">
       <Helmet>
         <title>{t('title')}</title>
@@ -188,7 +191,9 @@ const Bedroom = () => {
 
       <LayoutCollection />
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default Bedroom

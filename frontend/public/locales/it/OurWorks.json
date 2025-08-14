@@ -1,6 +1,6 @@
 {
   "title": "🏗 Galleria di Progetti Realizzati | Ristrutturazioni a Roma con EvoHome",
-  "description":"Scopri la galleria EvoHome! Video e foto di ristrutturazioni complete: appartamenti, stanze singole, locali commerciali e altri progetti a Roma",
+  "description": "Scopri la galleria EvoHome! Video e foto di ristrutturazioni complete: appartamenti, stanze singole, locali commerciali e altri progetti a Roma",
   "header": {
     "h": "Progetti EVO HOME",
     "p1": "Benvenuti nella galleria di Evo Home, dove ogni immagine riflette la nostra passione per la qualità e l’innovazione. Qui troverete foto e video dei nostri progetti di ristrutturazione completati a Roma: ",
@@ -69,5 +69,10 @@
       "p1": "Modernizziamo gli spazi residenziali con soluzioni personalizzate e funzionali. Scoprite come abbiamo trasformato questo appartamento trilocale unendo comfort e design per soddisfare ogni esigenza.",
       "p2": "Guarda il video per esplorare i dettagli del progetto e contattaci per ristrutturare la tua casa con stile e professionalità!"
     }
-  }
+  },
+  "keywords": "ristrutturazione, costruzioni, Roma, Evo Home, ristrutturazione chiavi in mano",
+  "ogTitle": "🏗 Galleria di Progetti Realizzati | Ristrutturazioni a Roma con EvoHome",
+  "ogDescription": "Scopri la galleria EvoHome! Video e foto di ristrutturazioni complete: appartamenti, stanze singole, locali commerciali e altri progetti a Roma",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
 }

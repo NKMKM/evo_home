@@ -1,5 +1,6 @@
 import React from 'react'
 import LanguageLink from '../../components/LanguageLink'
+import { PageWrapper } from '../../components/PageWrapper.tsx'
 import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
 
@@ -25,6 +26,8 @@ const CommercialPremises = () => {
   const {t} = useTranslation('commercial_premises/CommercialPremises')
   const selectedLang = localStorage.getItem('language') || 'en';	
   return (
+    <PageWrapper pageId="commercial-premises">
+
     <div className='w-full'>
         <Helmet>
             <title>{t('title')}</title>
@@ -111,7 +114,9 @@ const CommercialPremises = () => {
         <Reasons/>
         <CommercialPremisesProjects/>
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default CommercialPremises

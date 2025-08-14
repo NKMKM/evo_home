@@ -1,6 +1,11 @@
 {
     "title":"🏡Evo Home | About us and why you should choose us",
     "description": "Rome construction company Evo Home - your reliable partner in the world of construction and renovation. Your dream project starts here.",
+    "keywords": "construction company, renovation, Rome, Evo Home, construction, reconstruction, turnkey renovation",
+    "ogTitle": "🏡 Evo Home | Construction Company in Rome",
+    "ogDescription": "Rome construction company Evo Home - your reliable partner in the world of construction and renovation. Over 17 years of experience.",
+    "ogImage": "/team_images/founder.png",
+    "canonical": "https://evohome.it/about-construction-company-evo-home",
     "header": {
       "h": "About the Construction Company — Evo Home",
       "p1": "Welcome to Evo Home — your reliable partner in the world of construction and renovation. Over the course of ",

@@ -1,6 +1,7 @@
 //no content to add descriprion
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { PageWrapper } from '../components/PageWrapper.tsx'
 import { useTranslation } from 'react-i18next'
 import left_decoration from '../assets/images/leftside_black_decoration.png'
 import right_decoration from '../assets/images/rightside_black_decoration.png'
@@ -18,6 +19,8 @@ import reviews_vector_2 from '../assets/images/reviews_vector_2.png'
 const ReviewsPage = () => {
   const { t } = useTranslation('Reviews')
   return (
+    <PageWrapper pageId="reviews">
+
     <div className="flex flex-col min-h-screen">
       <Helmet>
         <title>{t('title')}</title>
@@ -267,7 +270,9 @@ const ReviewsPage = () => {
 
       <Reviews />
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default ReviewsPage

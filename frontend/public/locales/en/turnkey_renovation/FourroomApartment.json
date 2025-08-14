@@ -1,48 +1,52 @@
 {
-    "title": "👷‍♂️ Four-Room Apartment Renovation in Rome | Transform Your Home | Choose Quality & Style",
-    "description": "🏡 Want to renovate your four-room apartment in Rome? | Discover premium quality services | Contact us 📞 +39 327 986 6412",
-    "h": "Four-Room Apartments",
-    "header": {
-      "h": "Four-Room Apartments by EVO HOME",
-      "p1": "Are you looking for specialists to renovate your four-room apartment in Rome and turn it into a place that reflects maximum comfort and style? With over 17 years of experience in Rome and its surroundings, EvoHome is the ideal choice for those who seek quality, reliability, and a personalized approach. Starting from €50,000, our renovation projects guarantee excellent results and represent a long-term, valuable investment with an extended 3-year warranty.",
-      "p2": "Our company strives to deliver not only technical expertise and experience but also a deep understanding of your specific needs, ensuring that every project meets your expectations. Whether it’s a kitchen renovation, bathroom remodeling, or the implementation of energy efficiency systems in your home, EvoHome will be with you every step of the way—ensuring confidence and peace of mind.",
-      "button": "ORDER"
-    },
-    "process": {
-      "h": "More About Four-Room Apartment Renovation",
-      "p": "With EvoHome, every step of the renovation process is handled with the utmost attention to detail, ensuring your project is completed according to expectations, with the quality and efficiency that define our work.",
-      "ul": {
-        "1": {
-          "h": "PLANNING AND DESIGN",
-          "li1": "Initial consultation",
-          "li2": "Preliminary evaluation",
-          "li3": "Meeting with designer",
-          "li4": "Final design",
-          "li5": "Detailed estimate"
-        },
-        "2": {
-          "h": "EXECUTION OF WORKS",
-          "li1": "Material supply",
-          "li2": "Demolition",
-          "li3": "Construction and installation",
-          "li4": "Finishing works",
-          "li5": "Flooring",
-          "li6": "Painting"
-        },
-        "3": {
-          "h": "HIGH-QUALITY FINISHING",
-          "p": "High-quality finishing is the final stage of renovation that gives your interior an aesthetic appearance, comfort, and durability. We use only trusted materials, professional equipment, and modern technologies to achieve a flawless result. From ceilings to walls, from flooring to the creation of designer bathrooms and kitchens—every detail is perfected."
-        },
-        "4": {
-          "h": "FINALIZATION AND HANDOVER",
-          "li1": "Lighting and plumbing fixtures",
-          "li2": "Furniture placement",
-          "li3": "Decoration",
-          "li4": "Post-construction cleaning",
-          "li5": "Handover to client"
-        }
+  "title": "👷‍♂️ Four-Room Apartment Renovation in Rome | Transform Your Home | Choose Quality & Style",
+  "description": "🏡 Want to renovate your four-room apartment in Rome? | Discover premium quality services | Contact us 📞 +39 327 986 6412",
+  "h": "Four-Room Apartments",
+  "header": {
+    "h": "Four-Room Apartments by EVO HOME",
+    "p1": "Are you looking for specialists to renovate your four-room apartment in Rome and turn it into a place that reflects maximum comfort and style? With over 17 years of experience in Rome and its surroundings, EvoHome is the ideal choice for those who seek quality, reliability, and a personalized approach. Starting from €50,000, our renovation projects guarantee excellent results and represent a long-term, valuable investment with an extended 3-year warranty.",
+    "p2": "Our company strives to deliver not only technical expertise and experience but also a deep understanding of your specific needs, ensuring that every project meets your expectations. Whether it’s a kitchen renovation, bathroom remodeling, or the implementation of energy efficiency systems in your home, EvoHome will be with you every step of the way—ensuring confidence and peace of mind.",
+    "button": "ORDER"
+  },
+  "process": {
+    "h": "More About Four-Room Apartment Renovation",
+    "p": "With EvoHome, every step of the renovation process is handled with the utmost attention to detail, ensuring your project is completed according to expectations, with the quality and efficiency that define our work.",
+    "ul": {
+      "1": {
+        "h": "PLANNING AND DESIGN",
+        "li1": "Initial consultation",
+        "li2": "Preliminary evaluation",
+        "li3": "Meeting with designer",
+        "li4": "Final design",
+        "li5": "Detailed estimate"
       },
-      "video_text": "Four-Room Apartment Renovation by EVO HOME"
-    }
-  }
-  
+      "2": {
+        "h": "EXECUTION OF WORKS",
+        "li1": "Material supply",
+        "li2": "Demolition",
+        "li3": "Construction and installation",
+        "li4": "Finishing works",
+        "li5": "Flooring",
+        "li6": "Painting"
+      },
+      "3": {
+        "h": "HIGH-QUALITY FINISHING",
+        "p": "High-quality finishing is the final stage of renovation that gives your interior an aesthetic appearance, comfort, and durability. We use only trusted materials, professional equipment, and modern technologies to achieve a flawless result. From ceilings to walls, from flooring to the creation of designer bathrooms and kitchens—every detail is perfected."
+      },
+      "4": {
+        "h": "FINALIZATION AND HANDOVER",
+        "li1": "Lighting and plumbing fixtures",
+        "li2": "Furniture placement",
+        "li3": "Decoration",
+        "li4": "Post-construction cleaning",
+        "li5": "Handover to client"
+      }
+    },
+    "video_text": "Four-Room Apartment Renovation by EVO HOME"
+  },
+  "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+  "ogTitle": "👷‍♂️ Four-Room Apartment Renovation in Rome | Transform Your Home | Choose Quality & Style",
+  "ogDescription": "🏡 Want to renovate your four-room apartment in Rome? | Discover premium quality services | Contact us 📞 +39 327 986 6412",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
+}

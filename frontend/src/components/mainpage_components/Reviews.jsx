@@ -75,8 +75,17 @@ const Reviews = () => {
             <p className="text-sm sm:text-base lg:text-[15px]">{t(review.text)}</p>
             <ul className="flex flex-row justify- gap-2 sm:gap-3 lg:gap-4">
               {review.images.map((img, i) => (
-                <li key={i} className="w-[120px] sm:w-[120px] lg:w-[167px] h-[120px] sm:h-[120px] lg:h-[132px] bg-violet-500 rounded-md">
-                  <img src={img} alt={`review-${index + 1}-${i + 1}`} className="w-full h-full rounded-md object-cover" loading="lazy" />
+                <li key={i} className="w-[120px] sm:w-[120px] lg:w-[167px] h-[120px] sm:h-[120px] lg:h-[132px] bg-gray-200 rounded-md overflow-hidden">
+                  <img 
+                    src={img} 
+                    alt={`review-${index + 1}-${i + 1}`} 
+                    className="w-full h-full rounded-md object-cover" 
+                    loading="lazy"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.parentElement.style.backgroundColor = '#f3f4f6';
+                    }}
+                  />
                 </li>
               ))}
             </ul>

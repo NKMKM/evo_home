@@ -1,38 +1,42 @@
 {
-    "title": "🏡 Bathroom Renovation in Rome | Guaranteed Professionalism | Competitive Prices",
-    "description": "Need bathroom renovation in Rome? Professional services. Custom solutions. Contact us 📞 +39 327 986 6412",
-    "h": "Bathroom Renovation",
-    "header": {
-      "h": "Bathroom Renovation by EVO HOME",
-      "p1": "Are you planning to renovate your bathroom? Evo Home, a leader in renovations in Rome and its surroundings, offers high-quality services starting from €7,000. With over 17 years of experience, we aim to transform your bathroom, ensuring long-lasting results with a minimum 3-year warranty.",
-      "p2": "Each project is created with the utmost attention to detail and using only the best materials, so your bathroom is not only beautiful but also functional. Whether you're looking to update the look of a studio apartment or completely renovate a bathroom in a large four-room flat, Evo Home is the right choice to get the job done flawlessly. Contact us to learn how we can help you create the bathroom of your dreams by optimizing space and enhancing any environment.",
-      "button": "ORDER"
-    },
-    "process": {
-      "h": "More About Bathroom Renovation by EVO HOME",
-      "ul": {
-        "1": {
-          "h": "DEMOLITION AND PREPARATION",
-          "p": "The first stage of the renovation process includes removing old plumbing, pipes, and tiles. It also involves the removal of any old finishes, such as lime plaster, which must be completely removed before starting the new installation. Next, we install new water supply and drainage pipes."
-        },
-        "2": {
-          "h": "ELECTRICAL SYSTEM",
-          "p": "Upgrading your electrical system is essential to support new appliances and lighting. All installations must comply with current regulations to ensure safety and functionality."
-        },
-        "3": {
-          "h": "CEILING FINISH",
-          "p": "The material used for ceiling finishing varies depending on the budget and personal preferences. Materials like plasterboard can be a cost-effective yet aesthetically pleasing choice."
-        },
-        "4": {
-          "h": "TILE INSTALLATION",
-          "p": "Choosing the right tiles is crucial for ensuring durability and ease of maintenance. Ceramic tiles, thanks to their hydrophobic properties, are ideal for humid bathroom environments."
-        },
-        "5": {
-          "h": "INSTALLING ACCESSORIES",
-          "p": "The final stage includes the installation of accessories such as mirrors, towel warmers, and other functional and decorative elements."
-        }
+  "title": "🏡 Bathroom Renovation in Rome | Guaranteed Professionalism | Competitive Prices",
+  "description": "Need bathroom renovation in Rome? Professional services. Custom solutions. Contact us 📞 +39 327 986 6412",
+  "h": "Bathroom Renovation",
+  "header": {
+    "h": "Bathroom Renovation by EVO HOME",
+    "p1": "Are you planning to renovate your bathroom? Evo Home, a leader in renovations in Rome and its surroundings, offers high-quality services starting from €7,000. With over 17 years of experience, we aim to transform your bathroom, ensuring long-lasting results with a minimum 3-year warranty.",
+    "p2": "Each project is created with the utmost attention to detail and using only the best materials, so your bathroom is not only beautiful but also functional. Whether you're looking to update the look of a studio apartment or completely renovate a bathroom in a large four-room flat, Evo Home is the right choice to get the job done flawlessly. Contact us to learn how we can help you create the bathroom of your dreams by optimizing space and enhancing any environment.",
+    "button": "ORDER"
+  },
+  "process": {
+    "h": "More About Bathroom Renovation by EVO HOME",
+    "ul": {
+      "1": {
+        "h": "DEMOLITION AND PREPARATION",
+        "p": "The first stage of the renovation process includes removing old plumbing, pipes, and tiles. It also involves the removal of any old finishes, such as lime plaster, which must be completely removed before starting the new installation. Next, we install new water supply and drainage pipes."
       },
-      "video_text": "Bathroom Renovation by EVO HOME"
-    }
-  }
-  
+      "2": {
+        "h": "ELECTRICAL SYSTEM",
+        "p": "Upgrading your electrical system is essential to support new appliances and lighting. All installations must comply with current regulations to ensure safety and functionality."
+      },
+      "3": {
+        "h": "CEILING FINISH",
+        "p": "The material used for ceiling finishing varies depending on the budget and personal preferences. Materials like plasterboard can be a cost-effective yet aesthetically pleasing choice."
+      },
+      "4": {
+        "h": "TILE INSTALLATION",
+        "p": "Choosing the right tiles is crucial for ensuring durability and ease of maintenance. Ceramic tiles, thanks to their hydrophobic properties, are ideal for humid bathroom environments."
+      },
+      "5": {
+        "h": "INSTALLING ACCESSORIES",
+        "p": "The final stage includes the installation of accessories such as mirrors, towel warmers, and other functional and decorative elements."
+      }
+    },
+    "video_text": "Bathroom Renovation by EVO HOME"
+  },
+  "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+  "ogTitle": "🏡 Bathroom Renovation in Rome | Guaranteed Professionalism | Competitive Prices",
+  "ogDescription": "Need bathroom renovation in Rome? Professional services. Custom solutions. Contact us 📞 +39 327 986 6412",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
+}

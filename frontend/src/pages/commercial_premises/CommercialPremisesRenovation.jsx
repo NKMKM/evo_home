@@ -1,5 +1,6 @@
 import React from 'react'
 import Video from '../../components/Video'
+import { PageWrapper } from '../../components/PageWrapper'
 import CommercialPremisesLayoutCollection from '../../components/commercial_premises_components/CommercialPremisesLayoutCollection'
 import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from 'react-helmet'
@@ -21,6 +22,8 @@ const CommercialPremisesRenovation = () => {
   const {t} = useTranslation('commercial_premises/CommercialSpaces')
   const selectedLang = localStorage.getItem('language') || 'en';	
   return (
+    <PageWrapper pageId="commercial-premises-renovation">
+
     <div className='w-full'>
         <Helmet>
             <title>{t('title')}</title>
@@ -99,7 +102,9 @@ const CommercialPremisesRenovation = () => {
 
         <CommercialPremisesLayoutCollection/>
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default CommercialPremisesRenovation

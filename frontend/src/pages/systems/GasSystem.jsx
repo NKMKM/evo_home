@@ -1,5 +1,6 @@
 import React from 'react'
 import Video from '../../components/Video'
+import { PageWrapper } from '../../components/PageWrapper'
 import SystemLayoutCollection from '../../components/systems_components/SystemLayoutCollection'
 import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from 'react-helmet'
@@ -22,6 +23,8 @@ const GasSystem = () => {
   const {t} = useTranslation('systems/GasSystem')
   const selectedLang = localStorage.getItem('language') || 'en';
   return (
+    <PageWrapper pageId="gas-system">
+
     <div className="font-sans">
       <Helmet>
           <title>{t('title')}</title>
@@ -130,7 +133,9 @@ const GasSystem = () => {
 
       <SystemLayoutCollection />
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default GasSystem;

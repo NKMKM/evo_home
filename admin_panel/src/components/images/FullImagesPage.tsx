@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ImageIcon, Search, Filter, Upload, Edit, RotateCcw, Crop, FolderIcon, MapPin } from 'lucide-react';
+import { ImageEditor } from './ImageEditor';
 
 interface FrontendImage {
   id: string;
@@ -20,28 +21,55 @@ export function FullImagesPage() {
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
   const [loading, setLoading] = useState(true);
   const [editingImage, setEditingImage] = useState<FrontendImage | null>(null);
+  const [showImageEditor, setShowImageEditor] = useState(false);
+  const [selectedImageFile, setSelectedImageFile] = useState<File | null>(null);
+  const [selectedImagePath, setSelectedImagePath] = useState<string>('');
+  const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL || 'http://localhost:3001';
 
-  // Категории изображений из структуры frontend проекта
+  // Категории изображений по страницам сайта
   const categories = [
-    'Декорации',
-    'Команда', 
-    'О нас (достижения)',
-    'Главная',
-    'Фоны',
-    'До/После',
-    'Векторы',
-    'Иконки',
-    'Социальные сети',
-    'Языки',
-    'Рейтинг',
-    'Стрелки',
-    'Услуги',
-    'Иконки работ',
-    'Галерея работ',
+    'Все страницы',
+    'Главная страница',
+    'О нас',
+    'Наши работы',
+    'Контакты',
+    'Отзывы',
+    'Ремонт под ключ',
+    'Дизайнерский ремонт',
+    'Эксклюзивный ремонт',
+    'Студия',
+    'Двухкомнатная квартира',
+    'Трехкомнатная квартира',
+    'Четырехкомнатная квартира',
+    'Двухэтажная квартира',
     'Ремонт комнат',
+    'Гостиная',
+    'Спальня',
+    'Детская комната',
+    'Коридор',
+    'Кухня',
+    'Ванная комната',
+    'Лестница',
     'Системы',
+    'Электрическая система',
+    'Газовая система',
+    'Теплый пол',
+    'Канализация',
+    'Климат-контроль',
     'Коммерческие помещения',
-    'Ремонт под ключ'
+    'Бизнес-центр',
+    'Ресторан',
+    'Ремонт коммерческих помещений',
+    'Офис',
+    'Склад',
+    'Фитнес-клуб',
+    'Отель',
+    'Услуги',
+    'Услуги ремонта под ключ',
+    'Услуги ремонта комнат',
+    'Услуги коммерческих помещений',
+    'Услуги систем',
+    'Общие элементы'
   ];
 
   // Полный список изображений из frontend проекта
@@ -233,41 +261,70 @@ export function FullImagesPage() {
   };
 
   const handleReplaceImage = async (image: FrontendImage) => {
-    // Сначала создаем бэкап
     const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL || 'http://localhost:3001';
-    
     try {
+      // Сначала создаем бэкап
       const backupResponse = await fetch(`${backendUrl}/api/images/backup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
         body: JSON.stringify({ imagePath: image.path })
       });
-      
-      if (!backupResponse.ok) {
-        throw new Error('Ошибка создания бэкапа');
-      }
-      
+      if (!backupResponse.ok) throw new Error('Ошибка создания бэкапа');
       const backupData = await backupResponse.json();
-      console.log('Бэкап создан:', backupData.backupPath);
-      
-      // Теперь показываем файловый диалог
+
+      // Выбор файла и открытие редактора
       const input = document.createElement('input');
       input.type = 'file';
       input.accept = 'image/*';
-      input.onchange = (e) => {
+      input.onchange = async (e) => {
         const file = (e.target as HTMLInputElement).files?.[0];
-        if (file) {
-          console.log('Replacing image:', image.name, 'with:', file.name);
-          alert(`✅ Бэкап создан: ${backupData.backupPath}\n🔄 Изображение ${image.name} будет заменено на ${file.name}\n\nФункция замены будет реализована в следующем обновлении.`);
-        }
+        if (!file) return;
+        
+        setSelectedImageFile(file);
+        setSelectedImagePath(image.path);
+        setShowImageEditor(true);
       };
       input.click();
-      
     } catch (error) {
-      console.error('Ошибка бэкапа:', error);
-      alert('Ошибка создания бэкапа. Замена отменена.');
+      console.error('Ошибка при замене изображения:', error);
+      alert('Ошибка при замене изображения.');
     }
+  };
+
+  const handleImageEditorSave = async (editedFile: File) => {
+    const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL || 'http://localhost:3001';
+    try {
+      const formData = new FormData();
+      formData.append('file', editedFile);
+      formData.append('imagePath', selectedImagePath);
+
+      const replaceRes = await fetch(`${backendUrl}/api/images/replace`, {
+        method: 'POST',
+        credentials: 'include',
+        body: formData
+      });
+      if (!replaceRes.ok) {
+        const errText = await replaceRes.text();
+        throw new Error(errText || 'Ошибка замены изображения');
+      }
+      await replaceRes.json();
+      alert(`✅ Изображение обработано и заменено`);
+      setShowImageEditor(false);
+      setSelectedImageFile(null);
+      setSelectedImagePath('');
+      // Обновим список
+      loadImagesFromBackend();
+    } catch (error) {
+      console.error('Ошибка при сохранении изображения:', error);
+      alert('Ошибка при сохранении изображения.');
+    }
+  };
+
+  const handleImageEditorCancel = () => {
+    setShowImageEditor(false);
+    setSelectedImageFile(null);
+    setSelectedImagePath('');
   };
 
   const handleEditImage = (image: FrontendImage) => {
@@ -406,7 +463,7 @@ export function FullImagesPage() {
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
                       <img
-                        src={`http://localhost:3001/frontend-assets/${image.path}`}
+                        src={`${backendUrl}/frontend-assets/${encodeURI(image.path)}`}
                         alt={image.name}
                         className="w-full h-full object-cover"
                         onError={(e) => {
@@ -506,6 +563,16 @@ export function FullImagesPage() {
           </div>
         </div>
       </motion.div>
+
+      {/* Image Editor Modal */}
+      {showImageEditor && selectedImageFile && (
+        <ImageEditor
+          imageFile={selectedImageFile}
+          onSave={handleImageEditorSave}
+          onCancel={handleImageEditorCancel}
+          originalImagePath={selectedImagePath}
+        />
+      )}
     </div>
   );
 }

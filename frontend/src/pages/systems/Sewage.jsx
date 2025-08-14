@@ -1,5 +1,6 @@
 import React from 'react'
 import Video from '../../components/Video'
+import { PageWrapper } from '../../components/PageWrapper'
 import SystemLayoutCollection from '../../components/systems_components/SystemLayoutCollection'
 import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from 'react-helmet'
@@ -22,6 +23,8 @@ const Sewage = () => {
   const { t } = useTranslation('systems/Sewage')
   const selectedLang = localStorage.getItem('language') || 'en';
   return (
+    <PageWrapper pageId="sewage">
+
     <div className="w-full min-h-screen">
       <Helmet>
         <title>{t('title')}</title>
@@ -146,7 +149,9 @@ const Sewage = () => {
 
       <SystemLayoutCollection />
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default Sewage

@@ -10,7 +10,10 @@ import {
   ImageIcon,
   PlayIcon,
   TypeIcon,
-  ClipboardListIcon
+  ClipboardListIcon,
+  FileTextIcon,
+  RotateCcwIcon,
+  SearchIcon
 } from 'lucide-react';
 interface LayoutProps {
   children: React.ReactNode;
@@ -39,6 +42,9 @@ export function Layout({
     { path: '/dashboard/media', icon: ImageIcon, label: 'Изображения' },
     { path: '/dashboard/videos', icon: PlayIcon, label: 'Видео' },
     { path: '/dashboard/texts', icon: TypeIcon, label: 'Тексты' },
+    { path: '/dashboard/pages', icon: FileTextIcon, label: 'Страницы' },
+    { path: '/dashboard/backups', icon: RotateCcwIcon, label: 'Бэкапы' },
+    { path: '/dashboard/seo', icon: SearchIcon, label: 'SEO' },
   ];
 
   const isActiveRoute = (path: string) => {

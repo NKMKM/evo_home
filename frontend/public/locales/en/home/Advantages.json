@@ -1,35 +1,39 @@
 {
-    "header": {
-      "first_stroke": "Professional renovation,",
-      "second_stroke": " you can trust!"
+  "header": {
+    "first_stroke": "Professional renovation,",
+    "second_stroke": " you can trust!"
+  },
+  "advantages": {
+    "first_step": {
+      "h": "EXPERIENCE",
+      "p": "Over 10 years in the market, hundreds of successfully completed projects and satisfied clients"
     },
-    "advantages": {
-      "first_step": {
-        "h": "EXPERIENCE",
-        "p": "Over 10 years in the market, hundreds of successfully completed projects and satisfied clients"
-      },
-      "second_step": {
-        "h": "QUALITY",
-        "p": "We use only certified materials and the latest technologies"
-      },
-      "third_step": {
-        "h": "SAVINGS",
-        "p": "Optimizing costs without compromising quality, selecting the best solutions for your budget"
-      },
-      "fourth_step": {
-        "h": "RELIABILITY",
-        "p": "Strictly following contracts, fixed prices with no hidden fees"
-      },
-      "fifth_step": {
-        "h": "TIMELINES",
-        "p": "Guaranteed deadlines with penalties for each day of delay"
-      },
-      "sixth_step": {
-        "h": "SUPPORT",
-        "p": "Consultations at every stage, assistance with choosing materials and design solutions"
-      }
+    "second_step": {
+      "h": "QUALITY",
+      "p": "We use only certified materials and the latest technologies"
     },
-    "button": "REQUEST PRICING",
-    "p": "Our team of qualified specialists and unwavering commitment to quality ensure that all your renovation needs are met, guaranteeing agreed deadlines."
-  }
-  
+    "third_step": {
+      "h": "SAVINGS",
+      "p": "Optimizing costs without compromising quality, selecting the best solutions for your budget"
+    },
+    "fourth_step": {
+      "h": "RELIABILITY",
+      "p": "Strictly following contracts, fixed prices with no hidden fees"
+    },
+    "fifth_step": {
+      "h": "TIMELINES",
+      "p": "Guaranteed deadlines with penalties for each day of delay"
+    },
+    "sixth_step": {
+      "h": "SUPPORT",
+      "p": "Consultations at every stage, assistance with choosing materials and design solutions"
+    }
+  },
+  "button": "REQUEST PRICING",
+  "p": "Our team of qualified specialists and unwavering commitment to quality ensure that all your renovation needs are met, guaranteeing agreed deadlines.",
+  "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+  "ogTitle": "Evo Home - Construction Company in Rome",
+  "ogDescription": "Rome construction company Evo Home - your reliable partner",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
+}

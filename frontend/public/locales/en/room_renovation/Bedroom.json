@@ -1,39 +1,43 @@
 {
-    "title": "🏡 Bedroom Renovation in Rome | Transform Your Space | Competitive Prices",
-    "description": "Looking for renovation experts in Rome? Refresh your bedroom with professionalism and style! Contact us 📞 +39 327 986 6412",
-    "h": "Bedroom Renovation",
-    "header": {
-      "h": "Bedroom Renovation by EVO HOME",
-      "p1": "With EvoHome, a leader in bedroom renovations, your dream can become a reality. Starting from just €5000, we offer comprehensive bedroom renovation services tailored to your needs and budget.",
-      "p2": "With over 17 years of experience working in Rome and its surroundings, we have honed our skills to offer innovative solutions — from renovating all types of apartments, including studios, one-, two-, and four-bedroom units, to designing custom modern bedroom projects.",
-      "button": "ORDER"
-    },
-    "process": {
-      "h": "More About Bedroom Renovation by EVO HOME",
-      "p": "Renovating a bedroom is more than just a home improvement project; it’s a complex process that requires attention, experience, and an expert eye for details that directly affect the quality of your rest. With years of expertise in construction and renovation, EvoHome will guide you through every stage of your room’s transformation, delivering results that not only meet but exceed your expectations.",
-      "ul": {
-        "1": {
-          "h": "WALLS",
-          "p": "We choose eco-friendly materials with excellent sound and thermal insulation: natural fiber plaster, acoustic panels, water-based coatings, natural fabrics, and wallpapers free from harmful substances."
-        },
-        "2": {
-          "h": "FLOORING",
-          "p": "Our goal is to create flooring that is both aesthetically pleasing and functional. From natural parquet that brings warmth and coziness, to carpets that absorb sound and welcome every step, and innovative solutions like cork flooring, which combines insulation and durability."
-        },
-        "3": {
-          "h": "CEILING",
-          "p": "Ceiling renovation complements the walls and floors, ensuring additional sound insulation. Drywall with insulation or suspended structures help reduce noise and create soft, relaxing lighting."
-        },
-        "4": {
-          "h": "START WITH A CALL",
-          "p": "Once we receive your request, one of our specialists will contact you within 5–10 minutes to offer a preliminary consultation, provide an estimated timeline, and give you a cost estimate."
-        },
-        "5": {
-          "h": "PROFESSIONAL ON-SITE ASSESSMENT",
-          "p": "We’ll arrange a visit with one of our experienced engineers to your home. If you contact us before 1:00 PM, we guarantee a same-day appointment. This service is absolutely free and carries no obligation."
-        }
+  "title": "🏡 Bedroom Renovation in Rome | Transform Your Space | Competitive Prices",
+  "description": "Looking for renovation experts in Rome? Refresh your bedroom with professionalism and style! Contact us 📞 +39 327 986 6412",
+  "h": "Bedroom Renovation",
+  "header": {
+    "h": "Bedroom Renovation by EVO HOME",
+    "p1": "With EvoHome, a leader in bedroom renovations, your dream can become a reality. Starting from just €5000, we offer comprehensive bedroom renovation services tailored to your needs and budget.",
+    "p2": "With over 17 years of experience working in Rome and its surroundings, we have honed our skills to offer innovative solutions — from renovating all types of apartments, including studios, one-, two-, and four-bedroom units, to designing custom modern bedroom projects.",
+    "button": "ORDER"
+  },
+  "process": {
+    "h": "More About Bedroom Renovation by EVO HOME",
+    "p": "Renovating a bedroom is more than just a home improvement project; it’s a complex process that requires attention, experience, and an expert eye for details that directly affect the quality of your rest. With years of expertise in construction and renovation, EvoHome will guide you through every stage of your room’s transformation, delivering results that not only meet but exceed your expectations.",
+    "ul": {
+      "1": {
+        "h": "WALLS",
+        "p": "We choose eco-friendly materials with excellent sound and thermal insulation: natural fiber plaster, acoustic panels, water-based coatings, natural fabrics, and wallpapers free from harmful substances."
       },
-      "video_text": "Bedroom Renovation by EVO HOME"
-    }
-  }
-  
+      "2": {
+        "h": "FLOORING",
+        "p": "Our goal is to create flooring that is both aesthetically pleasing and functional. From natural parquet that brings warmth and coziness, to carpets that absorb sound and welcome every step, and innovative solutions like cork flooring, which combines insulation and durability."
+      },
+      "3": {
+        "h": "CEILING",
+        "p": "Ceiling renovation complements the walls and floors, ensuring additional sound insulation. Drywall with insulation or suspended structures help reduce noise and create soft, relaxing lighting."
+      },
+      "4": {
+        "h": "START WITH A CALL",
+        "p": "Once we receive your request, one of our specialists will contact you within 5–10 minutes to offer a preliminary consultation, provide an estimated timeline, and give you a cost estimate."
+      },
+      "5": {
+        "h": "PROFESSIONAL ON-SITE ASSESSMENT",
+        "p": "We’ll arrange a visit with one of our experienced engineers to your home. If you contact us before 1:00 PM, we guarantee a same-day appointment. This service is absolutely free and carries no obligation."
+      }
+    },
+    "video_text": "Bedroom Renovation by EVO HOME"
+  },
+  "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+  "ogTitle": "🏡 Bedroom Renovation in Rome | Transform Your Space | Competitive Prices",
+  "ogDescription": "Looking for renovation experts in Rome? Refresh your bedroom with professionalism and style! Contact us 📞 +39 327 986 6412",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
+}

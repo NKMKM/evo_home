@@ -14,50 +14,63 @@ export function VideosPage() {
   const [videos, setVideos] = useState<VideoData[]>([]);
   const [editingVideo, setEditingVideo] = useState<VideoData | null>(null);
   const [loading, setLoading] = useState(true);
+  const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL || 'http://localhost:3001';
 
-  // Список всех видео, найденных в проекте
-  const frontendVideos: VideoData[] = [
-    {
-      id: '1',
-      title: 'Основное видео',
-      youtubeId: '4hUYRlP9iGM',
-      location: 'Video.jsx, AboutUs.jsx, RoomRenovation.jsx',
-      description: 'Основное промо видео компании'
-    },
-    {
-      id: '2', 
-      title: 'Видео о процессе работы',
-      youtubeId: '1ajIodgloag',
-      location: 'AboutUs.jsx, OurWorks.jsx',
-      description: 'Видео показывающее этапы работы'
-    },
-    {
-      id: '3',
-      title: 'Завершающий этап',
-      youtubeId: 'i7l3dHfEA6c',
-      location: 'OurWorks.jsx',
-      description: 'Видео финального этапа ремонта'
+  // Загрузка актуальных встраиваний из исходников через backend
+  const loadVideos = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch(`${backendUrl}/api/videos/scan`, { credentials: 'include' });
+      if (!res.ok) throw new Error('Ошибка загрузки списка видео');
+      const data = await res.json();
+      // Нормализуем
+      const normalized: VideoData[] = data.map((v: any) => ({
+        id: v.id,
+        title: v.title,
+        youtubeId: v.youtubeId,
+        location: v.location,
+        description: `Файл: ${v.location}`
+      }));
+      setVideos(normalized);
+    } catch (e) {
+      console.error(e);
+      setVideos([]);
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
 
   useEffect(() => {
-    // Симуляция загрузки данных
-    setTimeout(() => {
-      setVideos(frontendVideos);
-      setLoading(false);
-    }, 500);
+    loadVideos();
   }, []);
 
   const handleEdit = (video: VideoData) => {
     setEditingVideo({ ...video });
   };
 
-  const handleSave = () => {
-    if (editingVideo) {
-      setVideos(videos.map(v => v.id === editingVideo.id ? editingVideo : v));
+  const handleSave = async () => {
+    if (!editingVideo) return;
+    try {
+      // id кодирует файл и индекс; backend извлечет filePath из списка (мы храним только при сканировании)
+      // Чтобы обновить, нужно повторно получить mapping id->filePath. Упростим: запросим снова и найдем совпадение
+      const resScan = await fetch(`${backendUrl}/api/videos/scan`, { credentials: 'include' });
+      const list = resScan.ok ? await resScan.json() : [];
+      const target = list.find((v: any) => v.id === editingVideo.id);
+      if (!target) throw new Error('Не удалось определить файл для обновления');
+
+      const res = await fetch(`${backendUrl}/api/videos`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ filePath: target.filePath, youtubeId: editingVideo.youtubeId })
+      });
+      if (!res.ok) throw new Error('Ошибка сохранения видео');
       setEditingVideo(null);
-      // Здесь бы был API вызов для сохранения изменений
-      console.log('Saving video:', editingVideo);
+      await loadVideos();
+      alert('Видео обновлено с бэкапом');
+    } catch (e) {
+      console.error(e);
+      alert('Не удалось сохранить изменения');
     }
   };
 

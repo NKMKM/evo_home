@@ -2,6 +2,7 @@ import React from 'react'
 import LanguageLink from '../components/LanguageLink'
 import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
+import { PageWrapper } from '../components/PageWrapper.tsx'
 
 // images imports
 import left_decoration from '../assets/images/leftside_black_decoration.png'
@@ -47,12 +48,14 @@ const AboutUs = () => {
     const {t} = useTranslation('AboutUs')
     const selectedLang = localStorage.getItem('language') || 'en';
   return (
-    <div className="w-full">
-        <Helmet>
-            <title>{t('title')}</title>
-            <meta name="description" content={t('description')} />
-        </Helmet>
-        {/* about us block */}
+    <PageWrapper pageId="about-us">
+      <div className="w-full">
+          <Helmet>
+              <title>{t('title')}</title>
+              <meta name="description" content={t('description')} />
+          </Helmet>
+          
+          {/* about us block */}
         <header className='w-full lg:w-[1640px]  mx-auto mt-6 sm:mt-10 px-4 sm:px-6 md:px-8'>
             {/* header */}
             <div className='w-full flex flex-row justify-between items-center mb-6 sm:mb-8'>
@@ -301,7 +304,8 @@ const AboutUs = () => {
                 <div className='h-[2px] sm:h-[3px] w-[30%] sm:w-[625.5px] bg-[#F9B33B]'></div>
             </div>
         </div>
-    </div>
+      </div>
+    </PageWrapper>
   )
 }
 

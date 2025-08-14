@@ -1,5 +1,6 @@
 import React from 'react'
 import Video from '../../components/Video'
+import { PageWrapper } from '../../components/PageWrapper.tsx'
 import CommercialPremisesLayoutCollection from '../../components/commercial_premises_components/CommercialPremisesLayoutCollection'
 import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from 'react-helmet'
@@ -21,6 +22,8 @@ const FitnessClub = () => {
   const {t} = useTranslation('commercial_premises/FitnessClub')
   const selectedLang = localStorage.getItem('language') || 'en';
   return (
+    <PageWrapper pageId="fitness-club">
+
     <div className='w-full'>
         <Helmet>
             <title>{t('title')}</title>
@@ -106,7 +109,9 @@ const FitnessClub = () => {
 
         <CommercialPremisesLayoutCollection/>
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default FitnessClub

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
+    "start": "node backend.js",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -23,6 +24,7 @@
     "express-session": "^1.18.2",
     "i18next": "^25.3.2",
     "i18next-http-backend": "^3.0.2",
+    "multer": "^1.4.5-lts.1",
     "pg": "^8.16.3",
     "react": "^19.1.0",
     "react-compare-slider": "^3.1.0",

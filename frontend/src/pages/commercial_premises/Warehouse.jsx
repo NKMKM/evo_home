@@ -1,4 +1,5 @@
 import React from 'react'
+import { PageWrapper } from '../../components/PageWrapper.tsx'
 import Video from '../../components/Video'
 import CommercialPremisesLayoutCollection from '../../components/commercial_premises_components/CommercialPremisesLayoutCollection'
 import LanguageLink from '../../components/LanguageLink'
@@ -24,6 +25,8 @@ const Warehouse = () => {
   const selectedLang = localStorage.getItem('language') || 'en'
 
   return (
+    <PageWrapper pageId="warehouse">
+
     <div className="min-h-screen bg-white">
       <Helmet>
         <title>{t('title')}</title>
@@ -210,7 +213,9 @@ const Warehouse = () => {
       {/* Commercial Premises Layout Collection */}
       <CommercialPremisesLayoutCollection />
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default Warehouse

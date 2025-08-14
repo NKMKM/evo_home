@@ -43,8 +43,10 @@ export function DashboardPage() {
         credentials: 'include',
       });
       
+      let submissionsTotal = 0;
       if (submissionsResponse.ok) {
         const submissionsData = await submissionsResponse.json();
+        submissionsTotal = submissionsData.length;
         setSubmissions(submissionsData.slice(0, 5)); // Показываем только последние 5
       }
 
@@ -67,7 +69,7 @@ export function DashboardPage() {
         totalImages: imageCount, // Реальное количество отсканированных изображений
         totalVideos: 6,
         totalTexts: 45,
-        totalSubmissions: submissionsResponse.ok ? (await submissionsResponse.json()).length : 0,
+        totalSubmissions: submissionsTotal,
         recentActivity: [
           { id: 1, action: `Отсканировано ${imageCount} изображений из frontend проекта`, time: '1 минуту назад', type: 'image' },
           { id: 2, action: 'Обновлено YouTube видео на странице "О нас"', time: '4 часа назад', type: 'video' },
@@ -88,23 +90,23 @@ export function DashboardPage() {
     {
       title: 'Управление изображениями',
       description: 'Просмотр и замена изображений сайта',
-      icon: ImageIcon,
-      color: 'bg-blue-500',
-      action: () => navigate('/dashboard/media'),
+        icon: ImageIcon,
+        color: 'bg-blue-500',
+        action: () => navigate('/dashboard/media'),
     },
     {
       title: 'Редактировать видео',
       description: 'Изменить YouTube видео на сайте',
-      icon: PlayIcon,
-      color: 'bg-red-500',
-      action: () => navigate('/dashboard/videos'),
+        icon: PlayIcon,
+        color: 'bg-red-500',
+        action: () => navigate('/dashboard/videos'),
     },
     {
       title: 'Изменить тексты',
       description: 'Редактировать тексты на трех языках',
-      icon: TypeIcon,
-      color: 'bg-green-500',
-      action: () => navigate('/dashboard/texts'),
+        icon: TypeIcon,
+        color: 'bg-green-500',
+        action: () => navigate('/dashboard/texts'),
     },
   ];
 

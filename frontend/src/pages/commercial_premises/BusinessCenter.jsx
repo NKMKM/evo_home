@@ -1,5 +1,6 @@
 import React from 'react'
 import Video from '../../components/Video'
+import { PageWrapper } from '../../components/PageWrapper'
 import CommercialPremisesLayoutCollection from '../../components/commercial_premises_components/CommercialPremisesLayoutCollection'
 import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from "react-helmet";
@@ -23,6 +24,8 @@ const BusinessCenter = () => {
   const selectedLang = localStorage.getItem('language') || 'en';
 
   return (
+    <PageWrapper pageId="business-center">
+
     <div className="w-full max-w-[1641px] mx-auto px-4 sm:px-6 lg:px-8">
       <Helmet>
         <title>{t('title')}</title>
@@ -175,7 +178,9 @@ const BusinessCenter = () => {
 
       <CommercialPremisesLayoutCollection />
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default BusinessCenter

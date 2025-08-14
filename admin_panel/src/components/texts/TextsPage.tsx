@@ -22,6 +22,7 @@ export function TextsPage() {
   const [selectedNamespace, setSelectedNamespace] = useState<string>('');
   const [editingText, setEditingText] = useState<any>(null);
   const [editingPath, setEditingPath] = useState<string>('');
+  const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL || 'http://localhost:3001';
 
   const languages: LanguageInfo[] = [
     { code: 'ru', name: 'Русский', flag: '🇷🇺' },
@@ -29,65 +30,105 @@ export function TextsPage() {
     { code: 'en', name: 'English', flag: '🇬🇧' }
   ];
 
-  // Примерные пространства имен из структуры проекта
+  // Пространства имен из структуры проекта
   const namespaces = [
     'home/HomeStart',
     'home/AboutCompany',
     'home/Calculator',
     'home/Advantages',
+    'home/FiveReasons',
+    'home/Guarantees',
+    'home/Services',
+    'home/Reviews',
+    'home/ImageComparisonSlider',
+    'home/Architect',
+    'home/Design',
+    'home/Discount',
     'AboutUs',
+    'OurWorks',
     'Contacts',
+    'Reviews',
     'components/Nav',
     'components/Footer',
+    'components/LanguageSelector',
+    'turnkey_renovation/TurnkeyRenovation',
     'turnkey_renovation/DesignerRenovation',
+    'turnkey_renovation/ExclusiveRenovation',
+    'turnkey_renovation/Studio',
+    'turnkey_renovation/TworoomApartment',
+    'turnkey_renovation/ThreeroomApartment',
+    'turnkey_renovation/FourroomApartment',
+    'turnkey_renovation/TwostoryApartment',
+    'room_renovation/RoomRenovation',
+    'room_renovation/LivingRoom',
+    'room_renovation/Bedroom',
+    'room_renovation/ChildrenRoom',
+    'room_renovation/Corridor',
+    'room_renovation/Kitchen',
     'room_renovation/Bathroom',
-    'commercial_premises/BusinessCenter',
+    'room_renovation/Stairs',
+    'systems/Systems',
+    'systems/ElectricalSystem',
+    'systems/GasSystem',
+    'systems/FloorHeating',
+    'systems/Sewage',
     'systems/ClimateControl',
+    'commercial_premises/CommercialPremises',
+    'commercial_premises/BusinessCenter',
+    'commercial_premises/Restaurant',
+    'commercial_premises/CommercialPremisesRenovation',
+    'commercial_premises/Office',
+    'commercial_premises/Warehouse',
+    'commercial_premises/FitnessClub',
+    'commercial_premises/Hotel',
+    'services/ServisesPhone',
+    'services/TurnkeyRenovationServices',
+    'services/RoomRenovationServices',
+    'services/CommercialPremisesServices',
+    'services/SystemsServices',
   ];
 
+  // Инициализация из параметров URL (?lang=..&ns=..)
   useEffect(() => {
-    // Симуляция загрузки данных
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const langParam = params.get('lang');
+      const nsParam = params.get('ns');
+      if (langParam) setSelectedLanguage(langParam);
+      if (nsParam) setSelectedNamespace(nsParam);
+    } catch {}
+  }, []);
+
+  useEffect(() => {
     loadTexts();
   }, [selectedLanguage, selectedNamespace]);
 
   const loadTexts = async () => {
     setLoading(true);
-    
-    // Симуляция загрузки JSON файлов
-    setTimeout(() => {
-      const mockData: TextData[] = [];
-      
-      if (selectedNamespace) {
-        // Загружаем конкретный файл
-        const sampleContent = {
-          "title": "EVO HOME – строительная компания, строительство и реконструкция в Риме",
-          "description": "Вам нужен ремонт дома в Риме? Обратитесь к профессионалам.",
-          "list": {
-            "first_stroke": "Мы хотим превратить",
-            "second_stroke": {
-              "text_1": "ваши ",
-              "span": "идеи",
-              "text_2": " в"
-            },
-            "third_stroke": {
-              "text": "необыкновенные пространства для ",
-              "span": "жизни"
-            }
-          },
-          "button": "ЗАПРОСИТЬ РАСЦЕНКИ"
-        };
-
-        mockData.push({
-          language: selectedLanguage,
-          namespace: selectedNamespace,
-          path: `frontend/public/locales/${selectedLanguage}/${selectedNamespace}.json`,
-          content: sampleContent
-        });
+    try {
+      if (!selectedNamespace) {
+        setTexts([]);
+        setLoading(false);
+        return;
       }
-      
-      setTexts(mockData);
+      const url = new URL(`${backendUrl}/api/texts`);
+      url.searchParams.set('lang', selectedLanguage);
+      url.searchParams.set('ns', selectedNamespace);
+      const res = await fetch(url.toString(), { credentials: 'include' });
+      if (!res.ok) {
+        console.error('Ошибка загрузки:', res.status, res.statusText);
+        setTexts([]);
+        return;
+      }
+      const data = await res.json();
+      console.log('Загруженные тексты:', data);
+      setTexts([data]);
+    } catch (e) {
+      console.error('Ошибка загрузки текстов:', e);
+      setTexts([]);
+    } finally {
       setLoading(false);
-    }, 500);
+    }
   };
 
   const handleEditText = (content: any, path: string) => {
@@ -95,20 +136,33 @@ export function TextsPage() {
     setEditingPath(path);
   };
 
-  const handleSaveText = () => {
-    if (editingText && editingPath) {
-      // Обновляем локальное состояние
-      setTexts(texts.map(text => 
-        text.path === editingPath 
-          ? { ...text, content: editingText }
-          : text
-      ));
-      
-      // Здесь бы был API вызов для сохранения
-      console.log('Saving text for path:', editingPath, editingText);
-      
+  const handleSaveText = async () => {
+    if (!editingText || !editingPath) {
+      alert('Нет данных для сохранения');
+      return;
+    }
+    try {
+      console.log('Сохранение текстов:', { language: selectedLanguage, namespace: selectedNamespace, content: editingText });
+      const res = await fetch(`${backendUrl}/api/texts`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ language: selectedLanguage, namespace: selectedNamespace, content: editingText })
+      });
+      if (!res.ok) {
+        const errorText = await res.text();
+        throw new Error(`Ошибка сохранения: ${res.status} ${errorText}`);
+      }
+      const result = await res.json();
+      console.log('Результат сохранения:', result);
+      // Отразим изменения локально
+      setTexts(texts.map(text => text.path === editingPath ? { ...text, content: editingText } : text));
       setEditingText(null);
       setEditingPath('');
+      alert(`Тексты сохранены с бэкапом: ${result.backupPath}`);
+    } catch (err) {
+      console.error('Ошибка сохранения:', err);
+      alert(`Не удалось сохранить тексты: ${err.message}`);
     }
   };
 

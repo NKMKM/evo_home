@@ -1,10 +1,13 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { PageWrapper } from '../components/PageWrapper.tsx'
 import { useTranslation } from 'react-i18next';
 
 const NotFound = () => {
   const { t } = useTranslation('NotFound');
   return (
+    <PageWrapper pageId="not-found">
+
     <>
       <Helmet>
         <title>{t('title')}</title>
@@ -17,7 +20,9 @@ const NotFound = () => {
         <p className="text-7xl font-thin">{t('p')}</p>
       </div>
     </>
-  );
+  
+    </PageWrapper>
+);
 };
 
 export default NotFound;

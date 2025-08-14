@@ -1,5 +1,6 @@
 import React from 'react'
 import LanguageLink from '../components/LanguageLink'
+import { PageWrapper } from '../components/PageWrapper.tsx'
 import left_decoration from '../assets/images/leftside_black_decoration.png'
 import right_decoration from '../assets/images/rightside_black_decoration.png'
 import { Helmet } from 'react-helmet'
@@ -77,6 +78,8 @@ const OurWorks = () => {
   ];
   const [visibleSets, setVisibleSets] = useState(1); // показываем сначала 1 блок
   return (
+    <PageWrapper pageId="our-works">
+
     <div className="flex flex-col min-h-screen">
       <Helmet>
         <title>{t("title")}</title>
@@ -509,7 +512,9 @@ const OurWorks = () => {
       {/* reviews */}
       <Reviews />
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default OurWorks

@@ -1,5 +1,6 @@
 import React from 'react'
 import LanguageLink from '../../components/LanguageLink'
+import { PageWrapper } from '../../components/PageWrapper.tsx'
 import Reasons from '../../components/Reasons'
 import Projects from '../../components/room_renovation_components/Projects'
 import { Helmet } from 'react-helmet'
@@ -26,6 +27,8 @@ const RoomRenovation = () => {
   const selectedLang = localStorage.getItem('language') || 'en'
 
   return (
+    <PageWrapper pageId="room-renovation">
+
     <div className="min-h-screen bg-white">
       <Helmet>
         <title>{t('title')}</title>
@@ -180,7 +183,9 @@ const RoomRenovation = () => {
       <Reasons />
       <Projects />
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default RoomRenovation
