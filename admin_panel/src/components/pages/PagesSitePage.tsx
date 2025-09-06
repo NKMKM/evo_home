@@ -1,7 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { FileText, Image, Globe, Edit, Eye, Layers, Code, Settings, FileCode, Search } from 'lucide-react';
+import { 
+  Image, 
+  FileText, 
+  Search, 
+  Code, 
+  FileCode, 
+  Settings, 
+  Globe, 
+  Eye, 
+  Edit, 
+  Trash2,
+  Plus,
+  Grid3X3,
+  List,
+  Upload,
+  Download
+} from 'lucide-react';
+import { AdvancedImageEditor } from '../images/AdvancedImageEditor';
+import { ImageTest } from './ImageTest';
 
 interface PageData {
   id: string;
@@ -23,6 +41,9 @@ interface PageData {
     ogDescription?: string;
     ogImage?: string;
     canonical?: string;
+    ru?: any;
+    en?: any;
+    it?: any;
   };
   jsonLd?: string;
   customHtml?: string;
@@ -47,6 +68,7 @@ export function PagesSitePage() {
   const [imageAltTexts, setImageAltTexts] = useState<{[key: string]: string}>({});
   const [showImageEditor, setShowImageEditor] = useState(false);
   const [selectedImageForEdit, setSelectedImageForEdit] = useState<string | null>(null);
+  const [selectedImageFile, setSelectedImageFile] = useState<File | null>(null);
   const [htmlPosition, setHtmlPosition] = useState('top');
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const navigate = useNavigate();
@@ -64,13 +86,7 @@ export function PagesSitePage() {
       texts: [
         { language: 'ru', namespace: 'home/HomeStart', path: 'frontend/public/locales/ru/home/HomeStart.json' },
         { language: 'en', namespace: 'home/HomeStart', path: 'frontend/public/locales/en/home/HomeStart.json' },
-        { language: 'it', namespace: 'home/HomeStart', path: 'frontend/public/locales/it/home/HomeStart.json' },
-        { language: 'ru', namespace: 'home/Calculator', path: 'frontend/public/locales/ru/home/Calculator.json' },
-        { language: 'en', namespace: 'home/Calculator', path: 'frontend/public/locales/en/home/Calculator.json' },
-        { language: 'it', namespace: 'home/Calculator', path: 'frontend/public/locales/it/home/Calculator.json' },
-        { language: 'ru', namespace: 'home/Guarantees', path: 'frontend/public/locales/ru/home/Guarantees.json' },
-        { language: 'en', namespace: 'home/Guarantees', path: 'frontend/public/locales/en/home/Guarantees.json' },
-        { language: 'it', namespace: 'home/Guarantees', path: 'frontend/public/locales/it/home/Guarantees.json' }
+        { language: 'it', namespace: 'home/HomeStart', path: 'frontend/public/locales/it/home/HomeStart.json' }
       ],
       description: 'Основная страница сайта с главным контентом'
     },
@@ -79,7 +95,7 @@ export function PagesSitePage() {
       name: 'О нас',
       path: '/about-us',
       url: '/about-construction-company-evo-home',
-      images: ['team_images/founder.png', 'team_images/designer.png', 'team_images/engineer.png', 'team_images/project_manager.png', 'founder_main.png', 'about_us_achievments/first_image.png', 'about_us_achievments/second_image.png', 'about_us_achievments/third_image.png', 'about_us_achievments/fourth_image.png', 'about_us_achievments/image1.png', 'about_us_achievments/image2.png', 'about_us_achievments/image3.png', 'about_us_achievments/image4.png', 'about_us_achievments/vector.png', 'team_images/arrow_1.png', 'team_images/arrow_2.png', 'leftside_black_decoration.png', 'rightside_black_decoration.png', 'leftside_yellow_decoration.png', 'rightside_yellow_decoration.png'],
+      images: ['team_images/founder.png', 'founder_main.png'],
       texts: [
         { language: 'ru', namespace: 'AboutUs', path: 'frontend/public/locales/ru/AboutUs.json' },
         { language: 'en', namespace: 'AboutUs', path: 'frontend/public/locales/en/AboutUs.json' },
@@ -92,7 +108,7 @@ export function PagesSitePage() {
       name: 'Наши работы',
       path: '/our-works',
       url: '/gallery-of-renovation-projects-video-and-photo-in-rome',
-      images: ['our_works_gallery/1.JPG', 'our_works_gallery/2.JPG', 'our_works_gallery/3.JPG', 'our_works_gallery/4.JPG', 'our_works_gallery/5.JPG', 'our_works_gallery/6.JPG', 'our_works_gallery/7.JPG', 'our_works_gallery/8.JPG', 'our_works_gallery/9.JPG', 'our_works_gallery/10.JPG', 'our_works_gallery/11.JPG', 'our_works_gallery/12.JPG', 'our_works_gallery/13.JPG', 'our_works_gallery/14.JPG', 'our_works_gallery/15.JPG', 'our_works_gallery/16.JPG', 'our_works_gallery/17.JPG', 'our_works_gallery/18.JPG', 'our_works_gallery/19.JPG', 'our_works_gallery/20.JPG', 'our_works_gallery/21.JPG', 'our_works_gallery/22.JPG', 'our_works_gallery/23.JPG', 'our_works_gallery/24.JPG', 'our_works_gallery/29.JPG', 'works/mosaic/image1.png', 'works/mosaic/image2.png', 'works/mosaic/image3.png', 'works/mosaic/image4.png', 'works/mosaic/image5.png', 'works/mosaic/image6.png', 'works/mosaic/image7.png', 'works/mosaic/image8.png', 'works/comparison/toilet_before.png', 'works/comparison/toilet_after.png', 'works/comparison/botique_before.png', 'works/comparison/botique_after.png', 'works/bg_vector1.png', 'works/bg_vector2.png', 'before_after_3.png', 'before_after_4.png', 'leftside_black_decoration.png', 'rightside_black_decoration.png'],
+      images: ['our_works_gallery/1.JPG', 'our_works_gallery/2.JPG', 'our_works_gallery/3.JPG'],
       texts: [
         { language: 'ru', namespace: 'OurWorks', path: 'frontend/public/locales/ru/OurWorks.json' },
         { language: 'en', namespace: 'OurWorks', path: 'frontend/public/locales/en/OurWorks.json' },
@@ -131,7 +147,7 @@ export function PagesSitePage() {
       name: 'Ремонт под ключ',
       path: '/turnkey-renovation',
       url: '/renovation-of-an-apartment-turnkey',
-      images: ['turnkey_renovation/turnkey_renovation/image.jpg', 'turnkey_renovation/turnkey_renovation/process/first_step.jpg', 'turnkey_renovation/turnkey_renovation/process/second_step.jpg', 'turnkey_renovation/turnkey_renovation/process/third_step.jpg', 'leftside_black_decoration.png', 'rightside_black_decoration.png', 'room_renovation/room_renovation/arrow_1.png', 'room_renovation/room_renovation/vector.png', 'videos/abouts_us/vector1.png', 'videos/abouts_us/vector2.png'],
+      images: ['turnkey_renovation/turnkey_renovation/image.jpg'],
       texts: [
         { language: 'ru', namespace: 'turnkey_renovation/TurnkeyRenovation', path: 'frontend/public/locales/ru/turnkey_renovation/TurnkeyRenovation.json' },
         { language: 'en', namespace: 'turnkey_renovation/TurnkeyRenovation', path: 'frontend/public/locales/en/turnkey_renovation/TurnkeyRenovation.json' },
@@ -235,7 +251,7 @@ export function PagesSitePage() {
       name: 'Ремонт комнат',
       path: '/room-renovation',
       url: '/room-renovation',
-      images: ['room_renovation/room_renovation/image.jpg', 'room_renovation/room_renovation/process/first_step.png', 'room_renovation/room_renovation/process/second_step.jpg', 'room_renovation/room_renovation/process/third_step.jpg', 'room_renovation/room_renovation/process/fourth_step.jpg', 'room_renovation/room_renovation/process/fifth_step.jpg', 'room_renovation/room_renovation/process/sixth_step.jpg', 'room_renovation/room_renovation/arrow_1.png', 'room_renovation/room_renovation/arrow_2.png', 'leftside_black_decoration.png', 'rightside_black_decoration.png', 'videos/abouts_us/vector1.png', 'videos/abouts_us/vector2.png'],
+      images: ['room_renovation/room_renovation/image.jpg'],
       texts: [
         { language: 'ru', namespace: 'room_renovation/RoomRenovation', path: 'frontend/public/locales/ru/room_renovation/RoomRenovation.json' },
         { language: 'en', namespace: 'room_renovation/RoomRenovation', path: 'frontend/public/locales/en/room_renovation/RoomRenovation.json' },
@@ -248,7 +264,7 @@ export function PagesSitePage() {
       name: 'Гостиная',
       path: '/living-room',
       url: '/living-room-renovation',
-      images: ['room_renovation/living_room/image.jpg', 'room_renovation/living_room/process/first_step.jpg', 'room_renovation/living_room/process/second_step.jpg', 'room_renovation/living_room/process/third_step.jpg', 'room_renovation/living_room/process/fourth_step.png', 'room_renovation/living_room/process/fifth_step.jpg', 'room_renovation/room_renovation/arrow_1.png', 'room_renovation/living_room/arrow_2.png', 'leftside_black_decoration.png', 'rightside_black_decoration.png'],
+      images: ['room_renovation/living_room/image.jpg'],
       texts: [
         { language: 'ru', namespace: 'room_renovation/LivingRoom', path: 'frontend/public/locales/ru/room_renovation/LivingRoom.json' },
         { language: 'en', namespace: 'room_renovation/LivingRoom', path: 'frontend/public/locales/en/room_renovation/LivingRoom.json' },
@@ -339,7 +355,7 @@ export function PagesSitePage() {
       name: 'Системы',
       path: '/systems',
       url: '/systems',
-      images: ['systems/systems/image.png', 'systems/systems/process/first_step.png', 'systems/systems/process/second_step.png', 'systems/systems/process/third_step.png', 'systems/systems/process/fourth_step.png', 'systems/systems/process/fifth_step.png', 'systems/systems/process/sixth_step.png', 'systems/systems/process/seventh_step.png', 'leftside_black_decoration.png', 'rightside_black_decoration.png', 'room_renovation/room_renovation/arrow_1.png', 'room_renovation/living_room/arrow_2.png', 'videos/abouts_us/vector1.png', 'videos/abouts_us/vector2.png'],
+      images: ['systems/systems/image.png'],
       texts: [
         { language: 'ru', namespace: 'systems/Systems', path: 'frontend/public/locales/ru/systems/Systems.json' },
         { language: 'en', namespace: 'systems/Systems', path: 'frontend/public/locales/en/systems/Systems.json' },
@@ -417,7 +433,7 @@ export function PagesSitePage() {
       name: 'Коммерческие помещения',
       path: '/commercial-premises',
       url: '/commercial-premises',
-      images: ['commercial_premises/commercial_premises/image.png', 'commercial_premises/commercial_premises/process/first_step.png', 'commercial_premises/commercial_premises/process/second_step.png', 'commercial_premises/commercial_premises/process/third_step.png', 'commercial_premises/commercial_premises/process/fourth_step.png', 'commercial_premises/commercial_premises/process/sixth_step.png', 'commercial_premises/commercial_premises/process/seventh_step.png', 'leftside_black_decoration.png', 'rightside_black_decoration.png', 'room_renovation/room_renovation/arrow_1.png', 'room_renovation/living_room/arrow_2.png'],
+      images: ['commercial_premises/commercial_premises/image.png'],
       texts: [
         { language: 'ru', namespace: 'commercial_premises/CommercialPremises', path: 'frontend/public/locales/ru/commercial_premises/CommercialPremises.json' },
         { language: 'en', namespace: 'commercial_premises/CommercialPremises', path: 'frontend/public/locales/en/commercial_premises/CommercialPremises.json' },
@@ -430,7 +446,7 @@ export function PagesSitePage() {
       name: 'Бизнес-центр',
       path: '/business-center',
       url: '/business-center',
-      images: ['commercial_premises/business_center/image.png', 'commercial_premises/business_center/process/first_step.png', 'commercial_premises/business_center/process/second_step.png', 'commercial_premises/business_center/process/third_step.png', 'commercial_premises/business_center/process/fourth_step.png', 'commercial_premises/business_center/process/fifth_step.png', 'leftside_black_decoration.png', 'rightside_black_decoration.png', 'room_renovation/room_renovation/arrow_1.png', 'room_renovation/living_room/arrow_2.png'],
+      images: ['commercial_premises/business_center/image.png'],
       texts: [
         { language: 'ru', namespace: 'commercial_premises/BusinessCenter', path: 'frontend/public/locales/ru/commercial_premises/BusinessCenter.json' },
         { language: 'en', namespace: 'commercial_premises/BusinessCenter', path: 'frontend/public/locales/en/commercial_premises/BusinessCenter.json' },
@@ -443,7 +459,7 @@ export function PagesSitePage() {
       name: 'Ресторан',
       path: '/restaurant',
       url: '/restaurant',
-      images: ['commercial_premises/restaurant/image.png', 'commercial_premises/restaurant/process/first_step.png', 'commercial_premises/restaurant/process/second_step.png', 'commercial_premises/restaurant/process/third_step.png', 'commercial_premises/restaurant/process/fourth_step.jpg', 'commercial_premises/restaurant/process/fifth_step.jpg', 'leftside_black_decoration.png', 'rightside_black_decoration.png', 'room_renovation/room_renovation/arrow_1.png', 'room_renovation/living_room/arrow_2.png'],
+      images: ['commercial_premises/restaurant/image.png'],
       texts: [
         { language: 'ru', namespace: 'commercial_premises/Restaurant', path: 'frontend/public/locales/ru/commercial_premises/Restaurant.json' },
         { language: 'en', namespace: 'commercial_premises/Restaurant', path: 'frontend/public/locales/en/commercial_premises/Restaurant.json' },
@@ -456,7 +472,7 @@ export function PagesSitePage() {
       name: 'Ремонт коммерческих помещений',
       path: '/commercial-premises-renovation',
       url: '/commercial-premises-renovation',
-      images: ['commercial_premises/commercial_premises_renovation/image.png', 'commercial_premises/commercial_premises_renovation/process/first_step.png', 'commercial_premises/commercial_premises_renovation/process/second_step.png', 'commercial_premises/commercial_premises_renovation/process/third_step.png', 'commercial_premises/commercial_premises_renovation/process/fourth_step.png', 'commercial_premises/commercial_premises_renovation/process/fifth_step.png', 'leftside_black_decoration.png', 'rightside_black_decoration.png', 'room_renovation/room_renovation/arrow_1.png', 'room_renovation/living_room/arrow_2.png'],
+      images: ['commercial_premises/commercial_premises_renovation/image.png'],
       texts: [
         { language: 'ru', namespace: 'commercial_premises/CommercialSpaces', path: 'frontend/public/locales/ru/commercial_premises/CommercialSpaces.json' },
         { language: 'en', namespace: 'commercial_premises/CommercialSpaces', path: 'frontend/public/locales/en/commercial_premises/CommercialSpaces.json' },
@@ -469,7 +485,7 @@ export function PagesSitePage() {
       name: 'Офис',
       path: '/office',
       url: '/office',
-      images: ['commercial_premises/office/image.png', 'commercial_premises/office/process/first_step.png', 'commercial_premises/office/process/second_step.png', 'commercial_premises/office/process/third_step.png', 'commercial_premises/office/process/fourth_step.jpg', 'commercial_premises/office/process/fifth_step.png', 'leftside_black_decoration.png', 'rightside_black_decoration.png'],
+      images: ['commercial_premises/office/image.png'],
       texts: [
         { language: 'ru', namespace: 'commercial_premises/Ofice', path: 'frontend/public/locales/ru/commercial_premises/Ofice.json' },
         { language: 'en', namespace: 'commercial_premises/Ofice', path: 'frontend/public/locales/en/commercial_premises/Ofice.json' },
@@ -482,7 +498,7 @@ export function PagesSitePage() {
       name: 'Склад',
       path: '/warehouse',
       url: '/warehouse',
-      images: ['commercial_premises/warehouse/image.png', 'commercial_premises/warehouse/process/first_step.png', 'commercial_premises/warehouse/process/second_step.png', 'commercial_premises/warehouse/process/third_step.png', 'commercial_premises/warehouse/process/fourth_step.png', 'commercial_premises/warehouse/process/fifth_step.png', 'leftside_black_decoration.png', 'rightside_black_decoration.png', 'room_renovation/room_renovation/arrow_1.png', 'room_renovation/living_room/arrow_2.png'],
+      images: ['commercial_premises/warehouse/image.png'],
       texts: [
         { language: 'ru', namespace: 'commercial_premises/Warehouse', path: 'frontend/public/locales/ru/commercial_premises/Warehouse.json' },
         { language: 'en', namespace: 'commercial_premises/Warehouse', path: 'frontend/public/locales/en/commercial_premises/Warehouse.json' },
@@ -495,7 +511,7 @@ export function PagesSitePage() {
       name: 'Фитнес-клуб',
       path: '/fitness-club',
       url: '/fitness-club',
-      images: ['commercial_premises/fitness_club/image.png', 'commercial_premises/fitness_club/process/first_step.png', 'commercial_premises/fitness_club/process/second_step.png', 'commercial_premises/fitness_club/process/third_step.png', 'commercial_premises/fitness_club/process/fourth_step.png', 'commercial_premises/fitness_club/process/fifth_step.png', 'leftside_black_decoration.png', 'rightside_black_decoration.png', 'room_renovation/room_renovation/arrow_1.png', 'room_renovation/living_room/arrow_2.png'],
+      images: ['commercial_premises/fitness_club/image.png'],
       texts: [
         { language: 'ru', namespace: 'commercial_premises/FitnessClub', path: 'frontend/public/locales/ru/commercial_premises/FitnessClub.json' },
         { language: 'en', namespace: 'commercial_premises/FitnessClub', path: 'frontend/public/locales/en/commercial_premises/FitnessClub.json' },
@@ -508,7 +524,7 @@ export function PagesSitePage() {
       name: 'Отель',
       path: '/hotel',
       url: '/hotel',
-      images: ['commercial_premises/hotel/image.png', 'commercial_premises/hotel/process/first_step.png', 'commercial_premises/hotel/process/second_step.png', 'commercial_premises/hotel/process/third_step.png', 'commercial_premises/hotel/process/fourth_step.png', 'commercial_premises/hotel/process/fifth_step.png', 'leftside_black_decoration.png', 'rightside_black_decoration.png', 'room_renovation/room_renovation/arrow_1.png', 'room_renovation/living_room/arrow_2.png'],
+      images: ['commercial_premises/hotel/image.png'],
       texts: [
         { language: 'ru', namespace: 'commercial_premises/Hotel', path: 'frontend/public/locales/ru/commercial_premises/Hotel.json' },
         { language: 'en', namespace: 'commercial_premises/Hotel', path: 'frontend/public/locales/en/commercial_premises/Hotel.json' },
@@ -591,14 +607,25 @@ export function PagesSitePage() {
     }, 500);
   }, []);
 
+  useEffect(() => {
+    console.log('PagesSitePage загружен, количество страниц:', pages.length);
+    console.log('Backend URL:', backendUrl);
+    pages.forEach(page => {
+      console.log(`Страница ${page.id}: ${page.images.length} изображений`);
+    });
+  }, [pages, backendUrl]);
+
   // Загружаем динамические данные для выбранной страницы
   const loadPageData = async (pageId: string) => {
     try {
+      console.log(`Загружаем данные для страницы: ${pageId}`);
+      
       // Загружаем изображения страницы
       const imagesResponse = await fetch(`${backendUrl}/api/pages/${pageId}/images`, {
         credentials: 'include'
       });
       const pageImages = imagesResponse.ok ? await imagesResponse.json() : [];
+      console.log(`Найдено изображений для ${pageId}:`, pageImages.length);
 
       // Загружаем тексты страницы
       const textsResponse = await fetch(`${backendUrl}/api/pages/${pageId}/texts`, {
@@ -606,7 +633,13 @@ export function PagesSitePage() {
       });
       const pageTexts = textsResponse.ok ? await textsResponse.json() : [];
 
-      // Загружаем дополнительные данные страницы (alt тексты, SEO, JSON-LD, HTML, robots, sitemap)
+      // Загружаем SEO данные страницы
+      const seoResponse = await fetch(`${backendUrl}/api/pages/${pageId}/seo`, {
+        credentials: 'include'
+      });
+      const seoData = seoResponse.ok ? await seoResponse.json() : { languages: { ru: {}, en: {}, it: {} } };
+
+      // Загружаем дополнительные данные страницы (alt тексты, JSON-LD, HTML, robots, sitemap)
       const dataResponse = await fetch(`${backendUrl}/api/pages/${pageId}/data`, {
         credentials: 'include'
       });
@@ -616,6 +649,8 @@ export function PagesSitePage() {
       const processedImages = pageImages.length > 0 
         ? pageImages.map((img: any) => img.path || img.name).filter(Boolean)
         : [];
+      
+      console.log(`Обработанные изображения для ${pageId}:`, processedImages);
 
       // Обновляем alt тексты
       if (pageData.altTexts) {
@@ -637,6 +672,7 @@ export function PagesSitePage() {
                   namespace: text.namespace,
                   path: text.path
                 })) : page.texts,
+                seo: seoData.languages || page.seo,
                 jsonLd: pageData.jsonLd || page.jsonLd,
                 customHtml: pageData.customHtml || page.customHtml,
                 robots: pageData.robots || page.robots,
@@ -657,6 +693,7 @@ export function PagesSitePage() {
               namespace: text.namespace,
               path: text.path
             })) : prevSelectedPage.texts,
+            seo: seoData.languages || prevSelectedPage.seo,
             jsonLd: pageData.jsonLd || prevSelectedPage.jsonLd,
             customHtml: pageData.customHtml || prevSelectedPage.customHtml,
             robots: pageData.robots || prevSelectedPage.robots,
@@ -777,7 +814,7 @@ export function PagesSitePage() {
 
     try {
       const response = await fetch(`${backendUrl}/api/pages/${selectedPage.id}/seo`, {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -959,9 +996,29 @@ export function PagesSitePage() {
     }
   };
 
-  const handleEditImage = (imagePath: string) => {
-    setSelectedImageForEdit(imagePath);
-    setShowImageEditor(true);
+  const handleEditImage = async (imagePath: string) => {
+    try {
+      // Загружаем изображение с сервера
+      const response = await fetch(`${backendUrl}/frontend-assets/${imagePath}`, {
+        credentials: 'include'
+      });
+      
+      if (!response.ok) {
+        throw new Error('Не удалось загрузить изображение');
+      }
+      
+      const blob = await response.blob();
+      const file = new File([blob], imagePath.split('/').pop() || 'image.jpg', { 
+        type: blob.type || 'image/jpeg' 
+      });
+      
+      setSelectedImageFile(file);
+      setSelectedImageForEdit(imagePath);
+      setShowImageEditor(true);
+    } catch (error) {
+      console.error('Ошибка загрузки изображения:', error);
+      alert('Ошибка загрузки изображения');
+    }
   };
 
   if (loading) {
@@ -1197,10 +1254,36 @@ export function PagesSitePage() {
                     <Search className="w-5 h-5 text-purple-600 mr-2" />
                     <h3 className="text-lg font-medium text-gray-800">SEO настройки</h3>
                   </div>
-                  <SEOForm 
-                    seo={selectedPage.seo || {}} 
-                    onSave={handleSaveSEO}
-                  />
+                  {selectedPage.seo && typeof selectedPage.seo === 'object' && selectedPage.seo.ru ? (
+                    <div className="space-y-6">
+                      <div>
+                        <h4 className="text-md font-medium text-gray-700 mb-3">Русский (RU)</h4>
+                        <SEOForm 
+                          seo={selectedPage.seo.ru || {}} 
+                          onSave={(data) => handleSaveSEO({ languages: { ...selectedPage.seo, ru: data } })}
+                        />
+                      </div>
+                      <div>
+                        <h4 className="text-md font-medium text-gray-700 mb-3">English (EN)</h4>
+                        <SEOForm 
+                          seo={selectedPage.seo.en || {}} 
+                          onSave={(data) => handleSaveSEO({ languages: { ...selectedPage.seo, en: data } })}
+                        />
+                      </div>
+                      <div>
+                        <h4 className="text-md font-medium text-gray-700 mb-3">Italiano (IT)</h4>
+                        <SEOForm 
+                          seo={selectedPage.seo.it || {}} 
+                          onSave={(data) => handleSaveSEO({ languages: { ...selectedPage.seo, it: data } })}
+                        />
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="text-center py-8 text-gray-500">
+                      <Search className="w-12 h-12 mx-auto mb-2 text-gray-300" />
+                      <p>SEO данные не найдены</p>
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -1294,18 +1377,22 @@ export function PagesSitePage() {
           )}
 
           {/* Image Editor Modal */}
-          {showImageEditor && selectedImageForEdit && (
-            <ImageEditor 
-              imagePath={selectedImageForEdit}
-              onClose={() => {
+          {showImageEditor && selectedImageForEdit && selectedImageFile && (
+            <AdvancedImageEditor 
+              imageFile={selectedImageFile}
+              onCancel={() => {
                 setShowImageEditor(false);
                 setSelectedImageForEdit(null);
+                setSelectedImageFile(null);
               }}
               onSave={(editedImage) => {
-                // Handle edited image
+                // Handle the edited image
+                console.log('Edited image:', editedImage);
                 setShowImageEditor(false);
                 setSelectedImageForEdit(null);
+                setSelectedImageFile(null);
               }}
+              originalImagePath={selectedImageForEdit}
             />
           )}
         </motion.div>
@@ -1334,15 +1421,20 @@ export function PagesSitePage() {
               onClick={() => setViewMode('list')}
               className={`p-2 rounded ${viewMode === 'list' ? 'bg-blue-100 text-blue-600' : 'text-gray-400'}`}
             >
-              <Layers className="w-4 h-4" />
+              <List className="w-4 h-4" />
             </button>
             <button
               onClick={() => setViewMode('grid')}
               className={`p-2 rounded ${viewMode === 'grid' ? 'bg-blue-100 text-blue-600' : 'text-gray-400'}`}
             >
-              <Image className="w-4 h-4" />
+              <Grid3X3 className="w-4 h-4" />
             </button>
           </div>
+        </div>
+
+        {/* Временный тест изображений для отладки */}
+        <div className="mb-6">
+          <ImageTest backendUrl={backendUrl} />
         </div>
 
         {viewMode === 'list' ? (
@@ -1358,16 +1450,35 @@ export function PagesSitePage() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-4">
                       <div className="w-16 h-16 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
-                        {page.images.length > 0 && (
+                        {page.images.length > 0 ? (
                           <img
                             src={`${backendUrl}/frontend-assets/${page.images[0]}`}
                             alt={page.name}
                             className="w-full h-full object-cover"
                             onError={(e) => {
+                              console.error(`Ошибка загрузки изображения: ${page.images[0]}`);
                               const target = e.target as HTMLImageElement;
                               target.style.display = 'none';
+                              // Показываем placeholder при ошибке
+                              const parent = target.parentElement;
+                              if (parent) {
+                                parent.innerHTML = `
+                                  <div class="w-full h-full flex items-center justify-center bg-gray-200">
+                                    <span class="text-xs text-gray-500">📷</span>
+                                  </div>
+                                `;
+                              }
+                            }}
+                            onLoad={(e) => {
+                              console.log(`Изображение загружено: ${page.images[0]}`);
+                              const target = e.target as HTMLImageElement;
+                              target.style.display = 'block';
                             }}
                           />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center bg-gray-200">
+                            <span className="text-xs text-gray-500">📷</span>
+                          </div>
                         )}
                       </div>
                       <div>
@@ -1398,7 +1509,7 @@ export function PagesSitePage() {
                 onClick={() => handlePageClick(page)}
               >
                 <div className="h-48 bg-gray-100 relative">
-                  {page.images.length > 0 && (
+                  {page.images.length > 0 ? (
                     <img
                       src={`${backendUrl}/frontend-assets/${page.images[0]}`}
                       alt={page.name}
@@ -1406,8 +1517,25 @@ export function PagesSitePage() {
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
+                        // Показываем placeholder при ошибке
+                        const parent = target.parentElement;
+                        if (parent) {
+                          parent.innerHTML = `
+                            <div class="w-full h-full flex items-center justify-center bg-gray-200">
+                              <span class="text-xs text-gray-500">📷</span>
+                            </div>
+                          `;
+                        }
+                      }}
+                      onLoad={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'block';
                       }}
                     />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-gray-200">
+                      <span className="text-xs text-gray-500">📷</span>
+                    </div>
                   )}
                   <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-200 flex items-center justify-center">
                     <Eye className="w-8 h-8 text-white opacity-0 hover:opacity-100 transition-opacity" />
@@ -1716,158 +1844,6 @@ function SitemapForm({ sitemap, onSave }: { sitemap: boolean, onSave: (data: boo
         <p className="text-sm text-blue-700">
           Sitemap автоматически генерируется и доступен по адресу: <code className="bg-blue-100 px-1 rounded">/sitemap.xml</code>
         </p>
-      </div>
-    </div>
-  );
-}
-
-function ImageEditor({ imagePath, onClose, onSave }: { 
-  imagePath: string; 
-  onClose: () => void; 
-  onSave: (editedImage: string) => void; 
-}) {
-  const [image, setImage] = useState<HTMLImageElement | null>(null);
-  const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [crop, setCrop] = useState({ x: 0, y: 0, width: 200, height: 200 });
-  const [scale, setScale] = useState(1);
-  const [rotation, setRotation] = useState(0);
-
-  useEffect(() => {
-    const img = new window.Image();
-    img.crossOrigin = 'anonymous';
-    img.onload = () => {
-      setImage(img);
-      const canvas = document.createElement('canvas');
-      canvas.width = img.width;
-      canvas.height = img.height;
-      setCanvas(canvas);
-    };
-    img.src = `${(import.meta as any).env?.VITE_BACKEND_URL || 'http://localhost:3001'}/frontend-assets/${imagePath}`;
-  }, [imagePath]);
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
-    // Handle crop area movement
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const handleCrop = () => {
-    if (!canvas || !image) return;
-    
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.save();
-    ctx.translate(canvas.width / 2, canvas.height / 2);
-    ctx.rotate((rotation * Math.PI) / 180);
-    ctx.scale(scale, scale);
-    ctx.drawImage(image, -image.width / 2, -image.height / 2);
-    ctx.restore();
-
-    const croppedCanvas = document.createElement('canvas');
-    croppedCanvas.width = crop.width;
-    croppedCanvas.height = crop.height;
-    const croppedCtx = croppedCanvas.getContext('2d');
-    if (croppedCtx) {
-      croppedCtx.drawImage(canvas, crop.x, crop.y, crop.width, crop.height, 0, 0, crop.width, crop.height);
-      const dataUrl = croppedCanvas.toDataURL('image/jpeg', 0.8);
-      onSave(dataUrl);
-    }
-  };
-
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-6 w-4/5 h-4/5 max-w-4xl">
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-medium">Редактировать изображение</h3>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
-            ✕
-          </button>
-        </div>
-        
-        <div className="flex space-x-4 h-full">
-          <div className="flex-1 border border-gray-300 rounded overflow-hidden">
-            {image && (
-              <div 
-                className="relative cursor-move"
-                onMouseDown={handleMouseDown}
-                onMouseMove={handleMouseMove}
-                onMouseUp={handleMouseUp}
-              >
-                <img
-                  src={image.src}
-                  alt="Редактируемое изображение"
-                  className="max-w-full max-h-full"
-                  style={{
-                    transform: `scale(${scale}) rotate(${rotation}deg)`
-                  }}
-                />
-                <div
-                  className="absolute border-2 border-blue-500 bg-blue-500 bg-opacity-20"
-                  style={{
-                    left: crop.x,
-                    top: crop.y,
-                    width: crop.width,
-                    height: crop.height
-                  }}
-                />
-              </div>
-            )}
-          </div>
-          
-          <div className="w-64 space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Масштаб</label>
-              <input
-                type="range"
-                min="0.1"
-                max="3"
-                step="0.1"
-                value={scale}
-                onChange={(e) => setScale(parseFloat(e.target.value))}
-                className="w-full"
-              />
-              <span className="text-sm text-gray-500">{Math.round(scale * 100)}%</span>
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Поворот</label>
-              <input
-                type="range"
-                min="0"
-                max="360"
-                value={rotation}
-                onChange={(e) => setRotation(parseInt(e.target.value))}
-                className="w-full"
-              />
-              <span className="text-sm text-gray-500">{rotation}°</span>
-            </div>
-            
-            <div className="space-y-2">
-              <button
-                onClick={handleCrop}
-                className="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-              >
-                Обрезать и сохранить
-              </button>
-              <button
-                onClick={onClose}
-                className="w-full bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
-              >
-                Отмена
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { PlayIcon, EditIcon, SaveIcon, XIcon } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface VideoData {
   id: string;
@@ -11,6 +12,7 @@ interface VideoData {
 }
 
 export function VideosPage() {
+  const { t } = useTranslation('common');
   const [videos, setVideos] = useState<VideoData[]>([]);
   const [editingVideo, setEditingVideo] = useState<VideoData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -21,7 +23,7 @@ export function VideosPage() {
     setLoading(true);
     try {
       const res = await fetch(`${backendUrl}/api/videos/scan`, { credentials: 'include' });
-      if (!res.ok) throw new Error('Ошибка загрузки списка видео');
+      if (!res.ok) throw new Error('Video load error');
       const data = await res.json();
       // Нормализуем
       const normalized: VideoData[] = data.map((v: any) => ({
@@ -29,7 +31,7 @@ export function VideosPage() {
         title: v.title,
         youtubeId: v.youtubeId,
         location: v.location,
-        description: `Файл: ${v.location}`
+        description: `File: ${v.location}`
       }));
       setVideos(normalized);
     } catch (e) {
@@ -67,10 +69,10 @@ export function VideosPage() {
       if (!res.ok) throw new Error('Ошибка сохранения видео');
       setEditingVideo(null);
       await loadVideos();
-      alert('Видео обновлено с бэкапом');
+      alert('Video aggiornato con backup');
     } catch (e) {
       console.error(e);
-      alert('Не удалось сохранить изменения');
+      alert('Impossibile salvare le modifiche');
     }
   };
 
@@ -88,7 +90,7 @@ export function VideosPage() {
       <div className="px-6 py-8">
         <div className="text-center">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-500">Загрузка видео...</p>
+          <p className="mt-4 text-gray-500">{t('loading')}</p>
         </div>
       </div>
     );
@@ -102,10 +104,10 @@ export function VideosPage() {
         transition={{ duration: 0.3 }}
       >
         <h1 className="text-2xl font-light text-gray-800 mb-1">
-          Управление YouTube видео
+          {t('action.editVideos.title')}
         </h1>
         <p className="text-sm text-gray-500 mb-6">
-          Изменение YouTube видео, встроенных на сайте
+          {t('action.editVideos.desc')}
         </p>
 
         <div className="grid gap-6">
@@ -123,7 +125,7 @@ export function VideosPage() {
                     </div>
                     <div>
                       <h3 className="text-lg font-medium text-gray-800">{video.title}</h3>
-                      <p className="text-sm text-gray-500">Используется в: {video.location}</p>
+                      <p className="text-sm text-gray-500">In uso in: {video.location}</p>
                     </div>
                   </div>
                   <button
@@ -138,7 +140,7 @@ export function VideosPage() {
                   <div className="space-y-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Название
+                        Titolo
                       </label>
                       <input
                         type="text"
@@ -149,19 +151,19 @@ export function VideosPage() {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">
-                        YouTube URL или ID
+                        URL YouTube o ID
                       </label>
                       <input
                         type="text"
                         value={editingVideo.youtubeId}
                         onChange={(e) => setEditingVideo({...editingVideo, youtubeId: extractVideoId(e.target.value)})}
-                        placeholder="https://youtube.com/watch?v=... или просто ID"
+                        placeholder="https://youtube.com/watch?v=... oppure solo ID"
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Описание
+                        Descrizione
                       </label>
                       <textarea
                         value={editingVideo.description || ''}
@@ -176,14 +178,14 @@ export function VideosPage() {
                         className="flex items-center px-3 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
                       >
                         <SaveIcon size={14} className="mr-1" />
-                        Сохранить
+                        Salva
                       </button>
                       <button
                         onClick={handleCancel}
                         className="flex items-center px-3 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors"
                       >
                         <XIcon size={14} className="mr-1" />
-                        Отмена
+                        Annulla
                       </button>
                     </div>
                   </div>
@@ -210,12 +212,12 @@ export function VideosPage() {
                       </div>
                       {video.description && (
                         <div>
-                          <span className="text-sm font-medium text-gray-600">Описание:</span>
+                          <span className="text-sm font-medium text-gray-600">Descrizione:</span>
                           <p className="text-sm text-gray-800">{video.description}</p>
                         </div>
                       )}
                       <div>
-                        <span className="text-sm font-medium text-gray-600">URL для встраивания:</span>
+                        <span className="text-sm font-medium text-gray-600">URL di incorporamento:</span>
                         <p className="text-xs text-gray-600 font-mono bg-gray-50 px-2 py-1 rounded break-all">
                           https://www.youtube.com/embed/{video.youtubeId}
                         </p>
@@ -229,12 +231,12 @@ export function VideosPage() {
         </div>
 
         <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4">
-          <h3 className="text-sm font-medium text-blue-800 mb-2">Инструкция по использованию</h3>
+          <h3 className="text-sm font-medium text-blue-800 mb-2">Istruzioni</h3>
           <ul className="text-sm text-blue-700 space-y-1">
-            <li>• Нажмите на кнопку редактирования рядом с видео</li>
-            <li>• Вставьте новую ссылку YouTube или ID видео</li>
-            <li>• Сохраните изменения</li>
-            <li>• Изменения автоматически применятся к сайту</li>
+            <li>• Clicca il pulsante modifica vicino al video</li>
+            <li>• Incolla nuovo link YouTube o ID</li>
+            <li>• Salva le modifiche</li>
+            <li>• Le modifiche saranno applicate al sito</li>
           </ul>
         </div>
       </motion.div>

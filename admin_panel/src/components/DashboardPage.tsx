@@ -10,6 +10,7 @@ import {
   Activity
 } from 'lucide-react';
 import { Submission } from '../utils/types';
+import { useTranslation } from 'react-i18next';
 
 interface ActivityItem {
   id: number;
@@ -19,6 +20,7 @@ interface ActivityItem {
 }
 
 export function DashboardPage() {
+  const { t } = useTranslation('common');
   const [submissions, setSubmissions] = useState<Submission[]>([]);
   const [stats, setStats] = useState({
     totalImages: 0,
@@ -71,10 +73,10 @@ export function DashboardPage() {
         totalTexts: 45,
         totalSubmissions: submissionsTotal,
         recentActivity: [
-          { id: 1, action: `Отсканировано ${imageCount} изображений из frontend проекта`, time: '1 минуту назад', type: 'image' },
-          { id: 2, action: 'Обновлено YouTube видео на странице "О нас"', time: '4 часа назад', type: 'video' },
-          { id: 3, action: 'Изменены тексты на итальянском языке для AboutUs', time: '1 день назад', type: 'text' },
-          { id: 4, action: 'Получена новая заявка от клиента', time: '2 дня назад', type: 'submission' },
+          { id: 1, action: t('imagesFound') + `: ${imageCount}`, time: '1m', type: 'image' },
+          { id: 2, action: t('action.editVideos.title'), time: '4h', type: 'video' },
+          { id: 3, action: t('action.editTexts.title'), time: '1d', type: 'text' },
+          { id: 4, action: t('recentSubmissions'), time: '2d', type: 'submission' },
         ]
       };
       
@@ -113,7 +115,7 @@ export function DashboardPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="text-gray-500">Загрузка данных...</div>
+        <div className="text-gray-500">{t('loading')}</div>
       </div>
     );
   }
@@ -127,12 +129,8 @@ export function DashboardPage() {
         >
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-2xl font-light text-gray-800 mb-1">
-            Добро пожаловать в Evo Admin Panel
-          </h1>
-          <p className="text-sm text-gray-500">
-            Управление контентом сайта: изображения, видео, тексты и заявки
-          </p>
+          <h1 className="text-2xl font-light text-gray-800 mb-1">{t('welcomeTitle')}</h1>
+          <p className="text-sm text-gray-500">{t('welcomeSubtitle')}</p>
         </div>
 
         {/* Stats Cards */}
@@ -143,7 +141,7 @@ export function DashboardPage() {
                 <ImageIcon className="w-6 h-6 text-blue-600" />
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Изображения</p>
+                <p className="text-sm font-medium text-gray-600">{t('stats.images')}</p>
                 <p className="text-2xl font-light text-gray-900">{stats.totalImages}</p>
               </div>
             </div>
@@ -155,7 +153,7 @@ export function DashboardPage() {
                 <PlayIcon className="w-6 h-6 text-red-600" />
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Видео</p>
+                <p className="text-sm font-medium text-gray-600">{t('stats.videos')}</p>
                 <p className="text-2xl font-light text-gray-900">{stats.totalVideos}</p>
               </div>
             </div>
@@ -167,7 +165,7 @@ export function DashboardPage() {
                 <TypeIcon className="w-6 h-6 text-green-600" />
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Текстовые блоки</p>
+                <p className="text-sm font-medium text-gray-600">{t('stats.texts')}</p>
                 <p className="text-2xl font-light text-gray-900">{stats.totalTexts}</p>
               </div>
             </div>
@@ -179,7 +177,7 @@ export function DashboardPage() {
                 <ClipboardListIcon className="w-6 h-6 text-orange-600" />
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Заявки</p>
+                <p className="text-sm font-medium text-gray-600">{t('stats.submissions')}</p>
                 <p className="text-2xl font-light text-gray-900">{stats.totalSubmissions}</p>
               </div>
             </div>
@@ -189,7 +187,7 @@ export function DashboardPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Quick Actions */}
           <div className="lg:col-span-1">
-            <h2 className="text-lg font-medium text-gray-900 mb-4">Быстрые действия</h2>
+            <h2 className="text-lg font-medium text-gray-900 mb-4">{t('quickActions')}</h2>
             <div className="space-y-3">
               {quickActions.map((action, index) => {
                 const Icon = action.icon;
@@ -204,8 +202,8 @@ export function DashboardPage() {
                         <Icon className="w-5 h-5 text-white" />
                       </div>
                       <div className="ml-3">
-                        <p className="font-medium text-gray-900">{action.title}</p>
-                        <p className="text-sm text-gray-500">{action.description}</p>
+                        <p className="font-medium text-gray-900">{t(action.title)}</p>
+                        <p className="text-sm text-gray-500">{t(action.description)}</p>
                       </div>
                     </div>
                   </button>
@@ -216,7 +214,7 @@ export function DashboardPage() {
 
           {/* Recent Activity */}
           <div className="lg:col-span-2">
-            <h2 className="text-lg font-medium text-gray-900 mb-4">Последняя активность</h2>
+            <h2 className="text-lg font-medium text-gray-900 mb-4">{t('recentActivity')}</h2>
             <div className="bg-white rounded-lg shadow-sm">
               <div className="divide-y divide-gray-100">
                 {stats.recentActivity.map((activity) => (
@@ -244,12 +242,12 @@ export function DashboardPage() {
         {submissions.length > 0 && (
           <div className="mt-8">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-medium text-gray-900">Последние заявки</h2>
+              <h2 className="text-lg font-medium text-gray-900">{t('recentSubmissions')}</h2>
               <button 
                 onClick={() => navigate('/dashboard/submissions')}
                 className="text-blue-600 hover:text-blue-700 text-sm"
               >
-                Посмотреть все
+                {t('viewAll')}
               </button>
             </div>
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
@@ -265,7 +263,7 @@ export function DashboardPage() {
                         <p className="text-sm text-gray-500">
                           {new Date(submission.date).toLocaleDateString()}
                         </p>
-                        <p className="text-xs text-gray-400">{submission.area} м²</p>
+                        <p className="text-xs text-gray-400">{submission.area} m²</p>
                       </div>
                     </div>
                   </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { TypeIcon, EditIcon, SaveIcon, XIcon, FolderIcon, GlobeIcon } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface TextData {
   language: string;
@@ -16,6 +17,7 @@ interface LanguageInfo {
 }
 
 export function TextsPage() {
+  const { t } = useTranslation('common');
   const [texts, setTexts] = useState<TextData[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedLanguage, setSelectedLanguage] = useState<string>('ru');
@@ -272,7 +274,7 @@ export function TextsPage() {
       <div className="px-6 py-8">
         <div className="text-center">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-500">Загрузка текстов...</p>
+          <p className="mt-4 text-gray-500">{t('loading')}</p>
         </div>
       </div>
     );
@@ -286,10 +288,10 @@ export function TextsPage() {
         transition={{ duration: 0.3 }}
       >
         <h1 className="text-2xl font-light text-gray-800 mb-1">
-          Управление текстами
+          {t('textsLabel')}
         </h1>
         <p className="text-sm text-gray-500 mb-6">
-          Редактирование текстового контента для трех языков
+          {t('action.editTexts.desc')}
         </p>
 
         {/* Фильтры */}
@@ -298,7 +300,7 @@ export function TextsPage() {
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 <GlobeIcon className="inline w-4 h-4 mr-1" />
-                Язык
+                {t('lang.it')}/{t('lang.ru')}
               </label>
               <select
                 value={selectedLanguage}
@@ -315,14 +317,14 @@ export function TextsPage() {
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 <FolderIcon className="inline w-4 h-4 mr-1" />
-                Раздел
+                Sezione
               </label>
               <select
                 value={selectedNamespace}
                 onChange={(e) => setSelectedNamespace(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
               >
-                <option value="">Выберите раздел</option>
+                <option value="">Seleziona sezione</option>
                 {namespaces.map(ns => (
                   <option key={ns} value={ns}>{ns}</option>
                 ))}
@@ -410,26 +412,26 @@ export function TextsPage() {
           <div className="bg-white rounded-lg shadow-sm p-8 text-center">
             <TypeIcon className="w-12 h-12 text-gray-400 mx-auto mb-4" />
             <p className="text-gray-500">
-              Не удалось загрузить тексты для выбранного раздела
+              Impossibile caricare i testi per la sezione selezionata
             </p>
           </div>
         ) : (
           <div className="bg-white rounded-lg shadow-sm p-8 text-center">
             <TypeIcon className="w-12 h-12 text-gray-400 mx-auto mb-4" />
             <p className="text-gray-500">
-              Выберите раздел для редактирования текстов
+              Seleziona una sezione per modificare i testi
             </p>
           </div>
         )}
 
         <div className="mt-8 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-          <h3 className="text-sm font-medium text-yellow-800 mb-2">Инструкция по использованию</h3>
+          <h3 className="text-sm font-medium text-yellow-800 mb-2">Istruzioni</h3>
           <ul className="text-sm text-yellow-700 space-y-1">
-            <li>• Выберите язык и раздел для редактирования</li>
-            <li>• Нажмите на кнопку редактирования</li>
-            <li>• Измените нужные тексты в полях</li>
-            <li>• Сохраните изменения</li>
-            <li>• Тексты автоматически обновятся на сайте</li>
+            <li>• Seleziona lingua e sezione da modificare</li>
+            <li>• Clicca il pulsante modifica</li>
+            <li>• Aggiorna i testi necessari</li>
+            <li>• Salva le modifiche</li>
+            <li>• I testi si aggiorneranno sul sito</li>
           </ul>
         </div>
       </motion.div>

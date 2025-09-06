@@ -22,7 +22,8 @@ class BackupManager {
       'sitemap-config',
       'alt-texts',
       'images',
-      'texts'
+      'texts',
+      'snapshots'
     ];
 
     directories.forEach(dir => {
@@ -31,6 +32,45 @@ class BackupManager {
         fs.mkdirSync(fullPath, { recursive: true });
       }
     });
+  }
+
+  // Рекурсивное копирование директории
+  copyDirectoryRecursiveSync(srcDir, destDir) {
+    if (!fs.existsSync(srcDir)) return { copied: 0, bytes: 0 };
+    if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
+    let filesCopied = 0;
+    let bytesCopied = 0;
+    for (const entry of fs.readdirSync(srcDir)) {
+      const srcPath = path.join(srcDir, entry);
+      const destPath = path.join(destDir, entry);
+      const stat = fs.statSync(srcPath);
+      if (stat.isDirectory()) {
+        const res = this.copyDirectoryRecursiveSync(srcPath, destPath);
+        filesCopied += res.copied;
+        bytesCopied += res.bytes;
+      } else {
+        fs.copyFileSync(srcPath, destPath);
+        filesCopied += 1;
+        bytesCopied += stat.size;
+      }
+    }
+    return { copied: filesCopied, bytes: bytesCopied };
+  }
+
+  // Подсчет размера директории
+  getDirectorySize(dir) {
+    if (!fs.existsSync(dir)) return 0;
+    let total = 0;
+    for (const entry of fs.readdirSync(dir)) {
+      const p = path.join(dir, entry);
+      const stat = fs.statSync(p);
+      if (stat.isDirectory()) {
+        total += this.getDirectorySize(p);
+      } else {
+        total += stat.size;
+      }
+    }
+    return total;
   }
 
   // Создание бэкапа с автоматическим именованием
@@ -214,6 +254,81 @@ class BackupManager {
     });
 
     return stats;
+  }
+
+  // Снапшот всех важных данных (копия директорий в backups/snapshots/<timestamp>)
+  createSnapshot(selected = null) {
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const snapshotRoot = path.join(this.backupDir, 'snapshots', timestamp);
+    fs.mkdirSync(snapshotRoot, { recursive: true });
+
+    const items = [
+      { name: 'locales', src: path.join(__dirname, '../frontend/public/locales') },
+      { name: 'jsonld', src: path.join(__dirname, '../frontend/public/jsonld') },
+      { name: 'custom-html', src: path.join(__dirname, '../frontend/public/custom-html') },
+      { name: 'html-config', src: path.join(__dirname, '../frontend/public/html-config') },
+      { name: 'robots', src: path.join(__dirname, '../frontend/public/robots') },
+      { name: 'sitemap-config', src: path.join(__dirname, '../frontend/public/sitemap-config') },
+      { name: 'alt-texts', src: path.join(__dirname, '../frontend/public/alt-texts') },
+      { name: 'images', src: path.join(__dirname, '../frontend/src/assets/images') },
+    ];
+
+    const toProcess = selected && Array.isArray(selected) ? items.filter(i => selected.includes(i.name)) : items;
+
+    const results = [];
+    let totalBytes = 0;
+    for (const it of toProcess) {
+      const dest = path.join(snapshotRoot, it.name);
+      const res = this.copyDirectoryRecursiveSync(it.src, dest);
+      const srcSize = this.getDirectorySize(it.src);
+      totalBytes += srcSize;
+      results.push({ name: it.name, files: res.copied, bytes: srcSize });
+    }
+
+    return { success: true, timestamp, path: snapshotRoot, totalBytes, items: results };
+  }
+
+  listSnapshots() {
+    const dir = path.join(this.backupDir, 'snapshots');
+    if (!fs.existsSync(dir)) return [];
+    return fs.readdirSync(dir)
+      .filter(d => fs.statSync(path.join(dir, d)).isDirectory())
+      .map(d => {
+        const full = path.join(dir, d);
+        return {
+          timestamp: d,
+          path: full,
+          size: this.getDirectorySize(full)
+        };
+      })
+      .sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1));
+  }
+
+  restoreSnapshot(timestamp, selected = null) {
+    const dir = path.join(this.backupDir, 'snapshots', timestamp);
+    if (!fs.existsSync(dir)) return { success: false, error: 'Снапшот не найден' };
+
+    const mappings = [
+      { name: 'locales', dest: path.join(__dirname, '../frontend/public/locales') },
+      { name: 'jsonld', dest: path.join(__dirname, '../frontend/public/jsonld') },
+      { name: 'custom-html', dest: path.join(__dirname, '../frontend/public/custom-html') },
+      { name: 'html-config', dest: path.join(__dirname, '../frontend/public/html-config') },
+      { name: 'robots', dest: path.join(__dirname, '../frontend/public/robots') },
+      { name: 'sitemap-config', dest: path.join(__dirname, '../frontend/public/sitemap-config') },
+      { name: 'alt-texts', dest: path.join(__dirname, '../frontend/public/alt-texts') },
+      { name: 'images', dest: path.join(__dirname, '../frontend/src/assets/images') },
+    ];
+
+    const items = selected && Array.isArray(selected) ? mappings.filter(i => selected.includes(i.name)) : mappings;
+    const results = [];
+    for (const it of items) {
+      const src = path.join(dir, it.name);
+      if (!fs.existsSync(src)) continue;
+      // копируем поверх
+      this.copyDirectoryRecursiveSync(src, it.dest);
+      results.push({ name: it.name, restored: true });
+    }
+    return { success: true, restored: results };
   }
 }
 

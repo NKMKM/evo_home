@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { 
   HomeIcon, 
   LayoutDashboardIcon, 
@@ -36,20 +37,26 @@ export function Layout({
     }
   };
 
+  const { t, i18n } = useTranslation('common');
   const navItems = [
-    { path: '/dashboard', icon: LayoutDashboardIcon, label: 'Dashboard' },
-    { path: '/dashboard/submissions', icon: ClipboardListIcon, label: 'Заявки' },
-    { path: '/dashboard/media', icon: ImageIcon, label: 'Изображения' },
-    { path: '/dashboard/videos', icon: PlayIcon, label: 'Видео' },
-    { path: '/dashboard/texts', icon: TypeIcon, label: 'Тексты' },
-    { path: '/dashboard/pages', icon: FileTextIcon, label: 'Страницы' },
-    { path: '/dashboard/backups', icon: RotateCcwIcon, label: 'Бэкапы' },
-    { path: '/dashboard/seo', icon: SearchIcon, label: 'SEO' },
+    { path: '/dashboard', icon: LayoutDashboardIcon, labelKey: 'nav.dashboard' },
+    { path: '/dashboard/submissions', icon: ClipboardListIcon, labelKey: 'nav.submissions' },
+    { path: '/dashboard/media', icon: ImageIcon, labelKey: 'nav.images' },
+    { path: '/dashboard/videos', icon: PlayIcon, labelKey: 'nav.videos' },
+    { path: '/dashboard/texts', icon: TypeIcon, labelKey: 'nav.texts' },
+    { path: '/dashboard/pages', icon: FileTextIcon, labelKey: 'nav.pages' },
+    { path: '/dashboard/backups', icon: RotateCcwIcon, labelKey: 'nav.backups' },
+    { path: '/dashboard/seo', icon: SearchIcon, labelKey: 'nav.seo' },
   ];
 
   const isActiveRoute = (path: string) => {
     return location.pathname === path || 
            (path !== '/dashboard' && location.pathname.startsWith(path));
+  };
+  const current = i18n.language as 'ru' | 'it' | string;
+  const setLang = (lng: 'ru' | 'it') => {
+    i18n.changeLanguage(lng);
+    if (typeof window !== 'undefined') localStorage.setItem('admin_lang', lng);
   };
   return <div className="flex h-screen bg-gray-50">
       {/* Desktop Sidebar */}
@@ -68,7 +75,7 @@ export function Layout({
         }} transition={{
           delay: 0.1
         }} className="text-lg font-light text-gray-800">
-              Evo Admin Panel
+              {t('appTitle')}
             </motion.h2>}
           <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="p-1 rounded-md hover:bg-gray-100 text-gray-500">
             <MenuIcon size={18} />
@@ -90,7 +97,7 @@ export function Layout({
                     }`}
                   >
                     <Icon size={18} className="mr-3" />
-                    {isSidebarOpen && <span>{item.label}</span>}
+                    {isSidebarOpen && <span>{t(item.labelKey)}</span>}
                   </button>
                 </li>
               );
@@ -100,7 +107,7 @@ export function Layout({
         <div className="p-4 border-t border-gray-100">
           <button onClick={handleLogout} className="flex items-center text-gray-600 hover:text-gray-800">
             <LogOutIcon size={18} className="mr-3" />
-            {isSidebarOpen && <span>Logout</span>}
+            {isSidebarOpen && <span>{t('logout')}</span>}
           </button>
         </div>
       </motion.div>
@@ -127,7 +134,7 @@ export function Layout({
         }} onClick={e => e.stopPropagation()}>
               <div className="p-4 border-b border-gray-100 flex items-center justify-between">
                 <h2 className="text-lg font-light text-gray-800">
-                  Evo Admin Panel
+                  {t('appTitle')}
                 </h2>
                 <button onClick={() => setIsMobileSidebarOpen(false)} className="p-1 rounded-md hover:bg-gray-100 text-gray-500">
                   <XIcon size={18} />
@@ -152,7 +159,7 @@ export function Layout({
                           }`}
                         >
                           <Icon size={18} className="mr-3" />
-                          <span>{item.label}</span>
+                          <span>{t(item.labelKey)}</span>
                         </button>
                       </li>
                     );
@@ -162,13 +169,22 @@ export function Layout({
               <div className="p-4 border-t border-gray-100">
                 <button onClick={handleLogout} className="flex items-center text-gray-600 hover:text-gray-800">
                   <LogOutIcon size={18} className="mr-3" />
-                  <span>Logout</span>
+                  <span>{t('logout')}</span>
                 </button>
               </div>
             </motion.div>
           </motion.div>}
       </div>
-      {/* Main Content */}
-      <div className="flex-1 overflow-auto">{children}</div>
+      {/* Main Content with top language bar */}
+      <div className="flex-1 overflow-auto">
+        <div className="sticky top-0 z-10 bg-white border-b border-gray-200 px-4 py-2 flex justify-end items-center">
+          <div className="flex items-center space-x-2">
+            <span className="text-xs text-gray-500">Lang:</span>
+            <button onClick={() => setLang('ru')} className={`px-2 py-1 text-xs rounded ${current === 'ru' ? 'bg-gray-200 text-gray-800' : 'text-gray-500 hover:bg-gray-100'}`}>RU</button>
+            <button onClick={() => setLang('it')} className={`px-2 py-1 text-xs rounded ${current === 'it' ? 'bg-gray-200 text-gray-800' : 'text-gray-500 hover:bg-gray-100'}`}>IT</button>
+          </div>
+        </div>
+        {children}
+      </div>
     </div>;
 }

@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SearchIcon, FilterIcon, XIcon } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface FilterBarProps {
   onFilter: (filters: any) => void;
 }
 
 export function FilterBar({ onFilter }: FilterBarProps) {
+  const { t } = useTranslation('common');
   const [search, setSearch] = useState('');
   const [buildingtype, setBuildingType] = useState('');
   const [roomtype, setRoomType] = useState('');
@@ -50,7 +52,7 @@ export function FilterBar({ onFilter }: FilterBarProps) {
           <input
             type="text"
             className="block w-full pl-10 pr-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-100 focus:border-blue-200 transition-all duration-200"
-            placeholder="Поиск заявок..."
+            placeholder={t('submissions') + '...' }
             value={search}
             onChange={handleSearchChange}
           />
@@ -60,14 +62,14 @@ export function FilterBar({ onFilter }: FilterBarProps) {
           className="inline-flex items-center px-3 py-2 border border-gray-200 rounded-lg text-sm font-light text-gray-700 hover:bg-gray-50 transition-colors duration-200"
         >
           <FilterIcon className="h-4 w-4 mr-2" />
-          Фильтр
+          Filter
         </button>
       </div>
       <AnimateFilters isOpen={isFilterOpen}>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4">
           <div>
             <label className="block text-sm font-light text-gray-600 mb-1">
-              Тип здания
+              Tipo di edificio
             </label>
             <select
               className="w-full p-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-100 focus:border-blue-200 transition-all duration-200"
@@ -77,14 +79,14 @@ export function FilterBar({ onFilter }: FilterBarProps) {
                 applyFilters({ buildingtype: e.target.value });
               }}
             >
-              <option value="">Все</option>
-              <option value="Новое здание">Новое здание</option>
-              <option value="Вторичка">Вторичка</option>
+              <option value="">Tutti</option>
+              <option value="Новое здание">Nuovo edificio</option>
+              <option value="Вторичка">Secondario</option>
             </select>
           </div>
           <div>
             <label className="block text-sm font-light text-gray-600 mb-1">
-              Тип помещения
+              Tipo di stanza
             </label>
             <select
               className="w-full p-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-100 focus:border-blue-200 transition-all duration-200"
@@ -94,14 +96,14 @@ export function FilterBar({ onFilter }: FilterBarProps) {
                 applyFilters({ roomtype: e.target.value });
               }}
             >
-              <option value="">Все</option>
-              <option value="Квартира">Квартира</option>
-              <option value="Дом">Дом</option>
+              <option value="">Tutti</option>
+              <option value="Квартира">Appartamento</option>
+              <option value="Дом">Casa</option>
             </select>
           </div>
           <div>
             <label className="block text-sm font-light text-gray-600 mb-1">
-              Тип ремонта
+              Tipo di ristrutturazione
             </label>
             <select
               className="w-full p-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-100 focus:border-blue-200 transition-all duration-200"
@@ -111,14 +113,14 @@ export function FilterBar({ onFilter }: FilterBarProps) {
                 applyFilters({ repairtype: e.target.value });
               }}
             >
-              <option value="">Все</option>
-              <option value="Косметический">Косметический</option>
-              <option value="Капитальный">Капитальный</option>
+              <option value="">Tutti</option>
+              <option value="Косметический">Cosmetico</option>
+              <option value="Капитальный">Capitale</option>
             </select>
           </div>
           <div>
             <label className="block text-sm font-light text-gray-600 mb-1">
-              Срочность
+              Urgenza
             </label>
             <select
               className="w-full p-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-100 focus:border-blue-200 transition-all duration-200"
@@ -128,9 +130,9 @@ export function FilterBar({ onFilter }: FilterBarProps) {
                 applyFilters({ urgency: e.target.value });
               }}
             >
-              <option value="">Все</option>
-              <option value="Обычная">Обычная</option>
-              <option value="Срочная">Срочная</option>
+              <option value="">Tutti</option>
+              <option value="Обычная">Normale</option>
+              <option value="Срочная">Urgente</option>
             </select>
           </div>
         </div>
@@ -140,7 +142,7 @@ export function FilterBar({ onFilter }: FilterBarProps) {
             className="inline-flex items-center px-3 py-1.5 text-sm font-light text-gray-600 hover:text-gray-800 transition-colors duration-200"
           >
             <XIcon className="h-3 w-3 mr-1" />
-            Сбросить фильтры
+            Reimposta filtri
           </button>
         </div>
       </AnimateFilters>

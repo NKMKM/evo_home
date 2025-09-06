@@ -144,7 +144,7 @@ const RoomRenovation = () => {
         {/* Video Section */}
         <div className="w-full my-6 md:my-10 flex flex-col space-y-6 md:space-y-10">
           <h2 className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[50px] text-center break-words">
-                          {t('video_text')}
+                          {t('process.video_text')}
           </h2>
           <div className="w-full relative">
             <div className="absolute bottom-0 -z-10">

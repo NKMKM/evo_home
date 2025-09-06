@@ -10,6 +10,199 @@ import multer from 'multer';
 import { fileURLToPath } from 'url';
 import BackupManager from './backupManager.js';
 
+// Функция для форматирования размера файла
+function formatFileSize(bytes) {
+  if (bytes === 0) return '0 Bytes';
+  const k = 1024;
+  const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+
+// Функция для проверки использования изображения на странице
+function checkImageUsageOnPage(imagePath, pageId) {
+  const frontendDir = path.join(__dirname, '../frontend/src');
+  
+  console.log(`Проверяем изображение: ${imagePath} для страницы: ${pageId}`);
+  
+  // Белый список директорий/файлов для каждой страницы относительно assets/images
+  const allowMap = {
+    'home': {
+      dirs: [],
+      files: [
+        'images/design.jpg', 'images/discount.jpg', 'images/architector.jpg', 'images/founder_main.png',
+        'images/home_start_bg.jpg', 'images/calculator_bg_img.jpg', 'images/reviews_bg.jpg', 'images/review_form_bg.jpg',
+        'images/footer_bg.jpg', 'images/leftside_black_decoration.png', 'images/leftside_yellow_decoration.png',
+        'images/rightside_black_decoration.png', 'images/rightside_yellow_decoration.png'
+      ]
+    },
+    'about-us': { dirs: ['images/team_images/','images/about_us_achievments/'], files: ['images/founder_main.png'] },
+    'our-works': { dirs: ['images/our_works_gallery/'] },
+    'contacts': { files: ['images/contact_form_bg.jpg'] },
+    'reviews': { dirs: ['images/reviews_images/','images/reviews_page_images/'], files: ['images/reviews_bg.jpg'] },
+    'systems': { dirs: ['images/systems/'] },
+    'room-renovation': { dirs: ['images/room_renovation/'] },
+    'turnkey-renovation': { dirs: ['images/turnkey_renovation/'] },
+    'commercial-premises': { dirs: ['images/commercial_premises/'] },
+    // services pages map to respective roots
+    'services': { dirs: ['images/services_images/'] },
+    'turnkey-renovation-services': { dirs: ['images/turnkey_renovation/'] },
+    'room-renovation-services': { dirs: ['images/room_renovation/'] },
+    'commercial-premises-services': { dirs: ['images/commercial_premises/'] },
+    'systems-services': { dirs: ['images/systems/'] },
+    // specific subpages (prefix dir match is enough)
+    'living-room': { dirs: ['images/room_renovation/living_room/'] },
+    'bedroom': { dirs: ['images/room_renovation/bedroom/'] },
+    'children-room': { dirs: ['images/room_renovation/children_room/'] },
+    'corridor': { dirs: ['images/room_renovation/corridor/'] },
+    'kitchen': { dirs: ['images/room_renovation/kitchen/'] },
+    'bathroom': { dirs: ['images/room_renovation/bathroom/'] },
+    'stairs': { dirs: ['images/room_renovation/stairs/'] },
+    'electrical-system': { dirs: ['images/systems/electrical_systems/'] },
+    'gas-system': { dirs: ['images/systems/gas_systems/'] },
+    'floor-heating': { dirs: ['images/systems/floor_heating/'] },
+    'sewage': { dirs: ['images/systems/sewage/'] },
+    'climate-control': { dirs: ['images/systems/climate_control/'] },
+    'business-center': { dirs: ['images/commercial_premises/business_center/'] },
+    'restaurant': { dirs: ['images/commercial_premises/restaurant/'] },
+    'commercial-premises-renovation': { dirs: ['images/commercial_premises/commercial_premises_renovation/'] },
+    'office': { dirs: ['images/commercial_premises/office/'] },
+    'warehouse': { dirs: ['images/commercial_premises/warehouse/'] },
+    'fitness-club': { dirs: ['images/commercial_premises/fitness_club/'] },
+    'hotel': { dirs: ['images/commercial_premises/hotel/'] },
+    'studio': { dirs: ['images/turnkey_renovation/studio/'] },
+    'two-room-apartment': { dirs: ['images/turnkey_renovation/tworoom_apartment/'] },
+    'three-room-apartment': { dirs: ['images/turnkey_renovation/threeroom_apartment/'] },
+    'four-room-apartment': { dirs: ['images/turnkey_renovation/fourroom_apartment/'] },
+    'two-story-apartment': { dirs: ['images/turnkey_renovation/twostory_apartment/','images/turnkey_renovation/twolevel_apartment/'] },
+    'exclusive-renovation': { dirs: ['images/turnkey_renovation/exclusive_renovation/'] },
+    'designer-renovation': { dirs: ['images/turnkey_renovation/designer_renovation/'] },
+  };
+  
+  // Маппинг страниц к их файлам (только основные файлы страниц)
+  const pageFiles = {
+    'home': ['Main.jsx'],
+    'about-us': ['AboutUs.jsx'],
+    'our-works': ['OurWorks.jsx'],
+    'contacts': ['Contacts.jsx'],
+    'reviews': ['Reviews.jsx'],
+    'turnkey-renovation': ['turnkey_renovation/TurnkeyRenovation.jsx'],
+    'designer-renovation': ['turnkey_renovation/DesignerRenovation.jsx'],
+    'exclusive-renovation': ['turnkey_renovation/ExclusiveRenovation.jsx'],
+    'studio': ['turnkey_renovation/Studio.jsx'],
+    'two-room-apartment': ['turnkey_renovation/TworoomApartment.jsx'],
+    'three-room-apartment': ['turnkey_renovation/ThreeroomApartment.jsx'],
+    'four-room-apartment': ['turnkey_renovation/FourroomApartment.jsx'],
+    'two-story-apartment': ['turnkey_renovation/TwostoryApartment.jsx'],
+    'room-renovation': ['room_renovation/RoomRenovation.jsx'],
+    'living-room': ['room_renovation/LivingRoom.jsx'],
+    'bedroom': ['room_renovation/Bedroom.jsx'],
+    'children-room': ['room_renovation/ChildrenRoom.jsx'],
+    'corridor': ['room_renovation/Corridor.jsx'],
+    'kitchen': ['room_renovation/Kitchen.jsx'],
+    'bathroom': ['room_renovation/Bathroom.jsx'],
+    'stairs': ['room_renovation/Stairs.jsx'],
+    'systems': ['systems/Systems.jsx'],
+    'electrical-system': ['systems/ElectricalSystem.jsx'],
+    'gas-system': ['systems/GasSystem.jsx'],
+    'floor-heating': ['systems/FloorHeating.jsx'],
+    'sewage': ['systems/Sewage.jsx'],
+    'climate-control': ['systems/ClimateControl.jsx'],
+    'commercial-premises': ['commercial_premises/CommercialPremises.jsx'],
+    'business-center': ['commercial_premises/BusinessCenter.jsx'],
+    'restaurant': ['commercial_premises/Restaurant.jsx'],
+    'commercial-premises-renovation': ['commercial_premises/CommercialPremisesRenovation.jsx'],
+    'office': ['commercial_premises/Office.jsx'],
+    'warehouse': ['commercial_premises/Warehouse.jsx'],
+    'fitness-club': ['commercial_premises/FitnessClub.jsx'],
+    'hotel': ['commercial_premises/Hotel.jsx'],
+    'services': ['servises/ServisesPhone.jsx'],
+    'turnkey-renovation-services': ['servises/TurnkeyRenovationServices.jsx'],
+    'room-renovation-services': ['servises/RoomRenovationServices.jsx'],
+    'commercial-premises-services': ['servises/CommercialPremisesServices.jsx'],
+    'systems-services': ['servises/SystemsServices.jsx']
+  };
+  
+  const pageFileList = pageFiles[pageId];
+  if (!pageFileList) {
+    console.log(`Страница ${pageId} не найдена в списке`);
+    return false;
+  }
+  
+  const imageName = path.basename(imagePath);
+  const imageNameWithoutExt = path.basename(imagePath, path.extname(imagePath));
+  const imageRelativePath = path.relative(path.join(frontendDir, 'assets'), imagePath).replace(/\\/g, '/');
+  
+  console.log(`Ищем изображение: ${imageName} (${imageNameWithoutExt}) в путях: ${imageRelativePath}`);
+  
+  // Применяем строгий whitelist по директориям/файлам
+  const allow = allowMap[pageId];
+  if (allow) {
+    const rel = imageRelativePath.toLowerCase();
+    if (allow.files && allow.files.some(f => rel === f.toLowerCase())) {
+      return true;
+    }
+    if (allow.dirs && allow.dirs.some(d => rel.startsWith(d.toLowerCase()))) {
+      return true;
+    }
+  }
+  
+  // Функция для проверки содержимого файла
+  function checkFileContent(filePath) {
+    if (!fs.existsSync(filePath)) {
+      console.log(`Файл не существует: ${filePath}`);
+      return false;
+    }
+    
+    try {
+      const content = fs.readFileSync(filePath, 'utf-8');
+      
+      // Проверяем импорты (import statements) - более точный поиск
+      const importPatterns = [
+        new RegExp(`import\\s+\\w+\\s+from\\s+['"][^'"]*${imageNameWithoutExt}[^'"]*['"]`, 'i'),
+        new RegExp(`import\\s+\\w+\\s+from\\s+['"][^'"]*${imageName}[^'"]*['"]`, 'i'),
+        new RegExp(`import\\s+\\w+\\s+from\\s+['"][^'"]*${imageRelativePath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^'"]*['"]`, 'i')
+      ];
+      
+      for (const pattern of importPatterns) {
+        if (pattern.test(content)) {
+          console.log(`Найдено в импорте: ${filePath}`);
+          return true;
+        }
+      }
+      
+      // Проверяем прямые упоминания в src атрибутах
+      const srcPatterns = [
+        new RegExp(`src\\s*=\\s*['"][^'"]*${imageNameWithoutExt}[^'"]*['"]`, 'i'),
+        new RegExp(`src\\s*=\\s*['"][^'"]*${imageName}[^'"]*['"]`, 'i'),
+        new RegExp(`${imageRelativePath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'i')
+      ];
+      
+      for (const pattern of srcPatterns) {
+        if (pattern.test(content)) {
+          console.log(`Найдено в src атрибуте: ${filePath}`);
+          return true;
+        }
+      }
+      
+      return false;
+    } catch (e) {
+      console.error('Ошибка чтения файла при проверке изображения:', e.message);
+      return false;
+    }
+  }
+  
+  // Проверяем только файлы страниц (избегаем переизбытка совпадений в общих компонентах)
+  for (const relFile of pageFileList) {
+    const filePath = path.join(frontendDir, 'pages', relFile);
+    if (checkFileContent(filePath)) {
+      return true;
+    }
+  }
+  
+  return false;
+}
+
 // Загрузка переменных окружения
 dotenv.config();
 
@@ -557,210 +750,319 @@ app.get('/api/pages/:pageId/images', async (req, res) => {
   }
   try {
     const { pageId } = req.params;
-    const frontendDir = path.join(__dirname, '../frontend/src');
+    const frontendSrc = path.join(__dirname, '../frontend/src');
+    const pagesDir = path.join(frontendSrc, 'pages');
+    const componentsDir = path.join(frontendSrc, 'components');
+    const assetsDir = path.join(frontendSrc, 'assets');
+ 
+    const pageFiles = {
+      'home': ['Main.jsx'],
+      'about-us': ['AboutUs.jsx'],
+      'our-works': ['OurWorks.jsx'],
+      'contacts': ['Contacts.jsx'],
+      'reviews': ['Reviews.jsx'],
+      'turnkey-renovation': ['turnkey_renovation/TurnkeyRenovation.jsx'],
+      'designer-renovation': ['turnkey_renovation/DesignerRenovation.jsx'],
+      'exclusive-renovation': ['turnkey_renovation/ExclusiveRenovation.jsx'],
+      'studio': ['turnkey_renovation/Studio.jsx'],
+      'two-room-apartment': ['turnkey_renovation/TworoomApartment.jsx'],
+      'three-room-apartment': ['turnkey_renovation/ThreeroomApartment.jsx'],
+      'four-room-apartment': ['turnkey_renovation/FourroomApartment.jsx'],
+      'two-story-apartment': ['turnkey_renovation/TwostoryApartment.jsx', 'turnkey_renovation/TwostoryApartment.jsx', 'turnkey_renovation/TwostoryApartment.jsx'],
+      'room-renovation': ['room_renovation/RoomRenovation.jsx'],
+      'living-room': ['room_renovation/LivingRoom.jsx'],
+      'bedroom': ['room_renovation/Bedroom.jsx'],
+      'children-room': ['room_renovation/ChildrenRoom.jsx'],
+      'corridor': ['room_renovation/Corridor.jsx'],
+      'kitchen': ['room_renovation/Kitchen.jsx'],
+      'bathroom': ['room_renovation/Bathroom.jsx'],
+      'stairs': ['room_renovation/Stairs.jsx'],
+      'systems': ['systems/Systems.jsx'],
+      'electrical-system': ['systems/ElectricalSystem.jsx'],
+      'gas-system': ['systems/GasSystem.jsx'],
+      'floor-heating': ['systems/FloorHeating.jsx'],
+      'sewage': ['systems/Sewage.jsx'],
+      'climate-control': ['systems/ClimateControl.jsx'],
+      'commercial-premises': ['commercial_premises/CommercialPremises.jsx'],
+      'business-center': ['commercial_premises/BusinessCenter.jsx'],
+      'restaurant': ['commercial_premises/Restaurant.jsx'],
+      'commercial-premises-renovation': ['commercial_premises/CommercialPremisesRenovation.jsx','commercial_premises/CommercialSpaces.jsx','commercial_premises/CommercialSpaces.jsx'],
+      'office': ['commercial_premises/Office.jsx'],
+      'warehouse': ['commercial_premises/Warehouse.jsx'],
+      'fitness-club': ['commercial_premises/FitnessClub.jsx'],
+      'hotel': ['commercial_premises/Hotel.jsx'],
+      'services': ['servises/ServisesPhone.jsx'],
+      'turnkey-renovation-services': ['servises/TurnkeyRenovationServices.jsx'],
+      'room-renovation-services': ['servises/RoomRenovationServices.jsx'],
+      'commercial-premises-services': ['servises/CommercialPremisesServices.jsx'],
+      'systems-services': ['servises/SystemsServices.jsx']
+    };
+ 
+    const entries = pageFiles[pageId];
+    if (!entries) {
+      return res.json([]);
+    }
+ 
+    const visitedFiles = new Set();
+    const imageSet = new Set();
+ 
+    function resolveImport(fromFile, importPath) {
+      if (importPath.startsWith('.')) {
+        // относительный импорт
+        const baseDir = path.dirname(fromFile);
+        let full = path.resolve(baseDir, importPath);
+        // добавляем расширение по умолчанию
+        const candidates = [full, `${full}.jsx`, `${full}.tsx`, `${full}.js`, `${full}.ts`, path.join(full, 'index.jsx'), path.join(full, 'index.js')];
+        for (const c of candidates) {
+          if (fs.existsSync(c)) return c;
+        }
+        return null;
+      }
+      // алиасы не используем — пропускаем
+      return null;
+    }
+ 
+    function addImageIfAssets(importPath) {
+      // ищем сегмент /assets/ в пути импорта
+      const idx = importPath.replace(/\\/g, '/').indexOf('/assets/');
+      if (idx !== -1) {
+        const relFromAssets = importPath.replace(/\\/g, '/').slice(idx + '/assets/'.length);
+        if (/^images\//.test(relFromAssets)) {
+          imageSet.add(relFromAssets);
+        }
+      }
+    }
+ 
+    function parseFile(filePath) {
+      if (!filePath || visitedFiles.has(filePath)) return;
+      visitedFiles.add(filePath);
+      if (!fs.existsSync(filePath)) return;
+      const content = fs.readFileSync(filePath, 'utf-8');
+      const importRegex = /import\s+[^'"\n]*from\s+['\"]([^'\"]+)['\"]/g;
+      let m;
+      while ((m = importRegex.exec(content)) !== null) {
+        const spec = m[1];
+        // Если импорт ведет к ассетам-изображениям
+        if (/\.(png|jpg|jpeg|gif|webp|svg)$/i.test(spec) || spec.includes('/assets/')) {
+          const candidate = resolveImport(filePath, spec) || spec;
+          if (typeof candidate === 'string') {
+            addImageIfAssets(candidate);
+          }
+          continue;
+        }
+        // Если импортируем компонент — рекурсивно парсим
+        const resolved = resolveImport(filePath, spec);
+        if (resolved && resolved.startsWith(frontendSrc)) {
+          // ограничиваемся только src/pages и src/components
+          if (resolved.includes('/pages/') || resolved.includes('/components/')) {
+            parseFile(resolved);
+          }
+        }
+      }
+    }
+ 
+    // Стартуем с entry файлов страницы
+    for (const rel of entries) {
+      const entryPath = path.join(pagesDir, rel);
+      parseFile(entryPath);
+    }
+ 
+    // Готовим ответ
     const images = [];
-    
-    // Сканируем все изображения и определяем, какие используются на странице
-    function scanImagesForPage(dirPath, relativePath = '') {
-      if (!fs.existsSync(dirPath)) return;
-      
-      for (const entry of fs.readdirSync(dirPath)) {
-        const fullPath = path.join(dirPath, entry);
-        const stat = fs.statSync(fullPath);
-        
-        if (stat.isDirectory()) {
-          scanImagesForPage(fullPath, path.join(relativePath, entry));
-        } else if (stat.isFile() && /\.(jpg|jpeg|png|gif|svg|webp)$/i.test(entry)) {
-          // Проверяем, используется ли изображение на указанной странице
-          const isUsedOnPage = checkImageUsageOnPage(fullPath, pageId);
-          if (isUsedOnPage) {
-            const relativeImagePath = path.join(relativePath, entry);
-            const normalizedRelPath = relativeImagePath.split(path.sep).join('/');
-            images.push({
-              id: Buffer.from(normalizedRelPath).toString('base64'),
-              name: entry,
-              path: normalizedRelPath,
-              fullPath: fullPath,
-              size: formatFileSize(stat.size),
-              usedIn: [pageId]
-            });
-          }
-        }
+    for (const relPath of imageSet) {
+      const full = path.join(assetsDir, relPath);
+      if (fs.existsSync(full)) {
+        const stat = fs.statSync(full);
+        images.push({
+          id: Buffer.from(relPath).toString('base64'),
+          name: path.basename(relPath),
+          path: relPath,
+          fullPath: full,
+          size: formatFileSize(stat.size),
+          usedIn: [pageId]
+        });
       }
     }
-    
-    function checkImageUsageOnPage(imagePath, pageId) {
-      // Маппинг страниц к их файлам
-      const pageFiles = {
-        'home': ['Main.jsx'],
-        'about-us': ['AboutUs.jsx'],
-        'our-works': ['OurWorks.jsx'],
-        'contacts': ['Contacts.jsx'],
-        'reviews': ['Reviews.jsx'],
-        'turnkey-renovation': ['turnkey_renovation/TurnkeyRenovation.jsx'],
-        'designer-renovation': ['turnkey_renovation/DesignerRenovation.jsx'],
-        'exclusive-renovation': ['turnkey_renovation/ExclusiveRenovation.jsx'],
-        'studio': ['turnkey_renovation/Studio.jsx'],
-        'two-room-apartment': ['turnkey_renovation/TworoomApartment.jsx'],
-        'three-room-apartment': ['turnkey_renovation/ThreeroomApartment.jsx'],
-        'four-room-apartment': ['turnkey_renovation/FourroomApartment.jsx'],
-        'two-story-apartment': ['turnkey_renovation/TwostoryApartment.jsx'],
-        'room-renovation': ['room_renovation/RoomRenovation.jsx'],
-        'living-room': ['room_renovation/LivingRoom.jsx'],
-        'bedroom': ['room_renovation/Bedroom.jsx'],
-        'children-room': ['room_renovation/ChildrenRoom.jsx'],
-        'corridor': ['room_renovation/Corridor.jsx'],
-        'kitchen': ['room_renovation/Kitchen.jsx'],
-        'bathroom': ['room_renovation/Bathroom.jsx'],
-        'stairs': ['room_renovation/Stairs.jsx'],
-        'systems': ['systems/Systems.jsx'],
-        'electrical-system': ['systems/ElectricalSystem.jsx'],
-        'gas-system': ['systems/GasSystem.jsx'],
-        'floor-heating': ['systems/FloorHeating.jsx'],
-        'sewage': ['systems/Sewage.jsx'],
-        'climate-control': ['systems/ClimateControl.jsx'],
-        'commercial-premises': ['commercial_premises/CommercialPremises.jsx'],
-        'business-center': ['commercial_premises/BusinessCenter.jsx'],
-        'restaurant': ['commercial_premises/Restaurant.jsx'],
-        'commercial-premises-renovation': ['commercial_premises/CommercialPremisesRenovation.jsx'],
-        'office': ['commercial_premises/Office.jsx'],
-        'warehouse': ['commercial_premises/Warehouse.jsx'],
-        'fitness-club': ['commercial_premises/FitnessClub.jsx'],
-        'hotel': ['commercial_premises/Hotel.jsx'],
-        'services': ['servises/ServisesPhone.jsx'],
-        'turnkey-renovation-services': ['servises/TurnkeyRenovationServices.jsx'],
-        'room-renovation-services': ['servises/RoomRenovationServices.jsx'],
-        'commercial-premises-services': ['servises/CommercialPremisesServices.jsx'],
-        'systems-services': ['servises/SystemsServices.jsx']
-      };
-      
-      const pageFileList = pageFiles[pageId];
-      if (!pageFileList) return false;
-      
-      const imageName = path.basename(imagePath);
-      const imageNameWithoutExt = path.basename(imagePath, path.extname(imagePath));
-      const imageRelativePath = path.relative(path.join(frontendDir, 'assets'), imagePath).replace(/\\/g, '/');
-      
-      // Функция для проверки содержимого файла
-      function checkFileContent(filePath) {
-        if (!fs.existsSync(filePath)) return false;
-        
-        try {
-          const content = fs.readFileSync(filePath, 'utf-8');
-          
-          // Проверяем импорты (import statements)
-          const importPattern = new RegExp(`import\\s+\\w+\\s+from\\s+['"][^'"]*${imageNameWithoutExt}[^'"]*['"]`, 'i');
-          if (importPattern.test(content)) {
-            return true;
-          }
-          
-          // Проверяем прямые упоминания
-          if (content.includes(imageName) || 
-              content.includes(imageNameWithoutExt) ||
-              content.includes(imageRelativePath) ||
-              content.includes(imagePath.replace(/\\/g, '/'))) {
-            return true;
-          }
-          
-          // Проверяем использование в src атрибутах
-          const srcPattern = new RegExp(`src\\s*=\\s*['"][^'"]*${imageNameWithoutExt}[^'"]*['"]`, 'i');
-          if (srcPattern.test(content)) {
-            return true;
-          }
-          
-          return false;
-        } catch (error) {
-          console.error(`Ошибка при чтении файла ${filePath}:`, error.message);
-          return false;
-        }
-      }
-      
-      // Проверяем основные файлы страниц
-      for (const pageFile of pageFileList) {
-        const pageFilePath = path.join(frontendDir, 'pages', pageFile);
-        if (checkFileContent(pageFilePath)) {
-          return true;
-        }
-      }
-      
-      // Для главной страницы и о нас также проверяем компоненты
-      if (pageId === 'home' || pageId === 'about-us') {
-        const componentsDir = path.join(frontendDir, 'components');
-        if (fs.existsSync(componentsDir)) {
-          // Проверяем mainpage_components
-          const mainpageComponentsDir = path.join(componentsDir, 'mainpage_components');
-          if (fs.existsSync(mainpageComponentsDir)) {
-            for (const entry of fs.readdirSync(mainpageComponentsDir)) {
-              if (entry.endsWith('.jsx')) {
-                const componentPath = path.join(mainpageComponentsDir, entry);
-                if (checkFileContent(componentPath)) {
-                  return true;
-                }
-              }
-            }
-          }
-        }
-      }
-      
-      // Для страниц систем проверяем systems_components
-      if (pageId.includes('system') || pageId.includes('electrical') || pageId.includes('gas') || pageId.includes('floor') || pageId.includes('sewage') || pageId.includes('climate')) {
-        const componentsDir = path.join(frontendDir, 'components');
-        if (fs.existsSync(componentsDir)) {
-          const systemsComponentsDir = path.join(componentsDir, 'systems_components');
-          if (fs.existsSync(systemsComponentsDir)) {
-            for (const entry of fs.readdirSync(systemsComponentsDir)) {
-              if (entry.endsWith('.jsx')) {
-                const componentPath = path.join(systemsComponentsDir, entry);
-                if (checkFileContent(componentPath)) {
-                  return true;
-                }
-              }
-            }
-          }
-        }
-      }
-      
-      // Для страниц ремонта комнат проверяем room_renovation_components
-      if (pageId.includes('room') || pageId.includes('living') || pageId.includes('bedroom') || pageId.includes('children') || pageId.includes('corridor') || pageId.includes('kitchen') || pageId.includes('bathroom') || pageId.includes('stairs')) {
-        const componentsDir = path.join(frontendDir, 'components');
-        if (fs.existsSync(componentsDir)) {
-          const roomComponentsDir = path.join(componentsDir, 'room_renovation_components');
-          if (fs.existsSync(roomComponentsDir)) {
-            for (const entry of fs.readdirSync(roomComponentsDir)) {
-              if (entry.endsWith('.jsx')) {
-                const componentPath = path.join(roomComponentsDir, entry);
-                if (checkFileContent(componentPath)) {
-                  return true;
-                }
-              }
-            }
-          }
-        }
-      }
-      
-      return false;
-      
-      return false;
-    }
-    
-    function formatFileSize(bytes) {
-      if (bytes === 0) return '0 Bytes';
-      const k = 1024;
-      const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-      const i = Math.floor(Math.log(bytes) / Math.log(k));
-      return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-    }
-    
-    // Важно: передаём базовые префиксы, чтобы формировать корректные относительные пути
-    scanImagesForPage(path.join(frontendDir, 'assets/images'), 'images');
-    scanImagesForPage(path.join(frontendDir, 'assets/icons'), 'icons');
-    
-    console.log(`Found ${images.length} images for page ${pageId}:`, images.map(img => img.path));
-    
+ 
     res.json(images);
-  } catch (err) {
-    console.error('Ошибка при получении изображений страницы:', err.message);
-    res.status(500).json({ error: 'Ошибка получения изображений страницы' });
+  } catch (error) {
+    console.error('Ошибка при получении изображений страницы:', error);
+    res.status(500).json({ error: 'Ошибка сервера' });
+  }
+});
+
+// Список компонентов фронтенда как отдельных элементов (для админ-панели)
+app.get('/api/components/list', async (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Не авторизован' });
+  }
+  try {
+    const frontendSrc = path.join(__dirname, '../frontend/src');
+    const componentsDir = path.join(frontendSrc, 'components');
+
+    if (!fs.existsSync(componentsDir)) {
+      return res.json([]);
+    }
+
+    function listComponentEntries(baseDir) {
+      const results = [];
+      const stack = ['']; // относительные пути от components/
+      while (stack.length) {
+        const rel = stack.pop();
+        const current = path.join(baseDir, rel);
+        const entries = fs.readdirSync(current, { withFileTypes: true });
+        let addedFile = false;
+        // Ищем index.* или любой jsx/tsx как точку входа
+        for (const ext of ['.tsx', '.jsx', '.ts', '.js']) {
+          const candidate = path.join(current, `index${ext}`);
+          if (fs.existsSync(candidate)) {
+            const relPath = path.join(rel, `index${ext}`).replace(/\\/g, '/');
+            results.push({
+              id: Buffer.from(relPath).toString('base64'),
+              name: rel || path.basename(current),
+              relPath
+            });
+            addedFile = true;
+            break;
+          }
+        }
+        if (addedFile) continue;
+        // Ищем любой файл компонента
+        const file = entries.find(e => e.isFile() && /(\.tsx|\.jsx)$/i.test(e.name));
+        if (file) {
+          const relPath = path.join(rel, file.name).replace(/\\/g, '/');
+          results.push({
+            id: Buffer.from(relPath).toString('base64'),
+            name: rel ? `${rel}/${path.parse(file.name).name}` : path.parse(file.name).name,
+            relPath
+          });
+          continue;
+        }
+        // Спускаемся в поддиректории (кроме ассетов)
+        for (const entry of entries) {
+          if (entry.isDirectory()) {
+            const dirName = entry.name;
+            if (dirName === 'icons' || dirName === 'images' || dirName === 'videos' || dirName === '__tests__') continue;
+            stack.push(path.join(rel, dirName));
+          }
+        }
+      }
+      return results;
+    }
+
+    const components = listComponentEntries(componentsDir).map(c => ({
+      id: `component-${c.id}`,
+      name: c.name,
+      url: `-`,
+      relPath: c.relPath
+    }));
+
+    res.json(components);
+  } catch (e) {
+    console.error('Ошибка списка компонентов:', e.message);
+    res.status(500).json({ error: 'Ошибка получения списка компонентов' });
+  }
+});
+
+// Получение изображений для компонента (по id = base64(relPath) с префиксом component-)
+app.get('/api/components/:componentId/images', async (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Не авторизован' });
+  }
+  try {
+    const { componentId } = req.params;
+    if (!componentId || !componentId.startsWith('component-')) {
+      return res.status(400).json({ error: 'Некорректный componentId' });
+    }
+    const b64 = componentId.replace(/^component-/, '');
+    let relPath;
+    try {
+      relPath = Buffer.from(b64, 'base64').toString('utf-8');
+    } catch (e) {
+      return res.status(400).json({ error: 'Некорректный идентификатор компонента' });
+    }
+
+    const frontendSrc = path.join(__dirname, '../frontend/src');
+    const componentsDir = path.join(frontendSrc, 'components');
+    const assetsDir = path.join(frontendSrc, 'assets');
+
+    const entryFile = path.join(componentsDir, relPath);
+    if (!fs.existsSync(entryFile)) {
+      return res.json([]);
+    }
+
+    const visitedFiles = new Set();
+    const imageSet = new Set();
+
+    function resolveImport(fromFile, importPath) {
+      if (importPath.startsWith('.')) {
+        const baseDir = path.dirname(fromFile);
+        let full = path.resolve(baseDir, importPath);
+        const candidates = [full, `${full}.jsx`, `${full}.tsx`, `${full}.js`, `${full}.ts`, path.join(full, 'index.jsx'), path.join(full, 'index.js')];
+        for (const c of candidates) {
+          if (fs.existsSync(c)) return c;
+        }
+        return null;
+      }
+      return null;
+    }
+
+    function addImageIfAssets(importPath) {
+      const idx = importPath.replace(/\\/g, '/').indexOf('/assets/');
+      if (idx !== -1) {
+        const relFromAssets = importPath.replace(/\\/g, '/').slice(idx + '/assets/'.length);
+        if (/^images\//.test(relFromAssets)) {
+          imageSet.add(relFromAssets);
+        }
+      }
+    }
+
+    function parseFile(filePath) {
+      if (!filePath || visitedFiles.has(filePath)) return;
+      visitedFiles.add(filePath);
+      if (!fs.existsSync(filePath)) return;
+      const content = fs.readFileSync(filePath, 'utf-8');
+      const importRegex = /import\s+[^'"\n]*from\s+['\"]([^'\"]+)['\"]/g;
+      let m;
+      while ((m = importRegex.exec(content)) !== null) {
+        const spec = m[1];
+        if (/(\.(png|jpg|jpeg|gif|webp|svg)$)|\/(assets)\//i.test(spec)) {
+          const candidate = resolveImport(filePath, spec) || spec;
+          if (typeof candidate === 'string') {
+            addImageIfAssets(candidate);
+          }
+          continue;
+        }
+        const resolved = resolveImport(filePath, spec);
+        if (resolved && resolved.startsWith(frontendSrc)) {
+          if (resolved.includes('/components/') || resolved.includes('/pages/')) {
+            parseFile(resolved);
+          }
+        }
+      }
+    }
+
+    parseFile(entryFile);
+
+    const images = [];
+    for (const rel of imageSet) {
+      const full = path.join(assetsDir, rel);
+      if (fs.existsSync(full)) {
+        const stat = fs.statSync(full);
+        images.push({
+          id: Buffer.from(rel).toString('base64'),
+          name: path.basename(rel),
+          path: rel,
+          fullPath: full,
+          size: formatFileSize(stat.size)
+        });
+      }
+    }
+
+    res.json(images);
+  } catch (e) {
+    console.error('Ошибка при получении изображений компонента:', e.message);
+    res.status(500).json({ error: 'Ошибка сервера' });
   }
 });
 
@@ -928,7 +1230,7 @@ app.get('/api/pages/:pageId/seo', async (req, res) => {
 						const content = fs.readFileSync(filePath, 'utf-8');
 						const jsonContent = JSON.parse(content);
 						
-						// Извлекаем title и description из файла локализации
+						// Извлекаем все SEO поля из файла локализации
 						if (jsonContent.title && !languages[lang].title) {
 							languages[lang].title = jsonContent.title;
 						}
@@ -1122,9 +1424,54 @@ app.get('/sitemap.xml', async (req, res) => {
       { url: '/systems-services', priority: '0.8', changefreq: 'weekly' }
     ];
     
+    const urlToPageId = {
+      '/': 'home',
+      '/about-us': 'about-us',
+      '/our-works': 'our-works',
+      '/contacts': 'contacts',
+      '/reviews': 'reviews',
+      '/turnkey-renovation': 'turnkey-renovation',
+      '/designer-renovation': 'designer-renovation',
+      '/exclusive-renovation': 'exclusive-renovation',
+      '/studio': 'studio',
+      '/two-room-apartment': 'two-room-apartment',
+      '/three-room-apartment': 'three-room-apartment',
+      '/four-room-apartment': 'four-room-apartment',
+      '/two-story-apartment': 'two-story-apartment',
+      '/room-renovation': 'room-renovation',
+      '/living-room': 'living-room',
+      '/bedroom': 'bedroom',
+      '/children-room': 'children-room',
+      '/corridor': 'corridor',
+      '/kitchen': 'kitchen',
+      '/bathroom': 'bathroom',
+      '/stairs': 'stairs',
+      '/systems': 'systems',
+      '/electrical-system': 'electrical-system',
+      '/gas-system': 'gas-system',
+      '/floor-heating': 'floor-heating',
+      '/sewage': 'sewage',
+      '/climate-control': 'climate-control',
+      '/commercial-premises': 'commercial-premises',
+      '/business-center': 'business-center',
+      '/restaurant': 'restaurant',
+      '/commercial-premises-renovation': 'commercial-premises-renovation',
+      '/office': 'office',
+      '/warehouse': 'warehouse',
+      '/fitness-club': 'fitness-club',
+      '/hotel': 'hotel',
+      '/services': 'services',
+      '/turnkey-renovation-services': 'turnkey-renovation-services',
+      '/room-renovation-services': 'room-renovation-services',
+      '/commercial-premises-services': 'commercial-premises-services',
+      '/systems-services': 'systems-services'
+    };
+
     for (const page of pages) {
+      const pageId = urlToPageId[page.url] || 'home';
+      
       // Проверяем, включена ли страница в sitemap
-      const configFile = path.join(sitemapConfigDir, `${page.url.replace(/\//g, '').replace(/-/g, '') || 'home'}.json`);
+      const configFile = path.join(sitemapConfigDir, `${pageId}.json`);
       let includeInSitemap = true;
       
       if (fs.existsSync(configFile)) {
@@ -1133,6 +1480,7 @@ app.get('/sitemap.xml', async (req, res) => {
           includeInSitemap = config.sitemap !== false;
         } catch (e) {
           console.error('Ошибка чтения конфигурации sitemap:', e.message);
+          includeInSitemap = true; // По умолчанию включаем
         }
       }
       
@@ -1560,4 +1908,102 @@ app.use((err, req, res, next) => {
 // Запуск сервера
 app.listen(PORT, () => {
   console.log(`🚀 Сервер запущен на http://localhost:${PORT}`);
+});
+
+// Снапшоты бэкапов
+app.post('/api/backups/snapshot', async (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Не авторизован' });
+  }
+  try {
+    const { items } = req.body || {};
+    const result = backupManager.createSnapshot(items);
+    res.json(result);
+  } catch (e) {
+    console.error('Ошибка создания снапшота:', e.message);
+    res.status(500).json({ error: 'Ошибка создания снапшота' });
+  }
+});
+
+app.get('/api/backups/snapshots', async (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Не авторизован' });
+  }
+  try {
+    const list = backupManager.listSnapshots();
+    res.json(list);
+  } catch (e) {
+    console.error('Ошибка списка снапшотов:', e.message);
+    res.status(500).json({ error: 'Ошибка чтения снапшотов' });
+  }
+});
+
+app.post('/api/backups/snapshot/restore', async (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Не авторизован' });
+  }
+  try {
+    const { timestamp, items } = req.body || {};
+    if (!timestamp) return res.status(400).json({ error: 'Требуется timestamp' });
+    const result = backupManager.restoreSnapshot(timestamp, items);
+    res.json(result);
+  } catch (e) {
+    console.error('Ошибка восстановления снапшота:', e.message);
+    res.status(500).json({ error: 'Ошибка восстановления снапшота' });
+  }
+});
+
+// Список страниц для админки
+app.get('/api/pages/list', async (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Не авторизован' });
+  }
+  try {
+    const pages = [
+      { id: 'home', name: 'Главная', url: '/' },
+      { id: 'about-us', name: 'О нас', url: '/about-us' },
+      { id: 'our-works', name: 'Наши работы', url: '/our-works' },
+      { id: 'contacts', name: 'Контакты', url: '/contacts' },
+      { id: 'reviews', name: 'Отзывы', url: '/reviews' },
+      { id: 'turnkey-renovation', name: 'Ремонт под ключ', url: '/turnkey-renovation' },
+      { id: 'designer-renovation', name: 'Дизайнерский ремонт', url: '/designer-renovation' },
+      { id: 'exclusive-renovation', name: 'Эксклюзивный ремонт', url: '/exclusive-renovation' },
+      { id: 'studio', name: 'Студия', url: '/studio' },
+      { id: 'two-room-apartment', name: 'Двухкомнатная квартира', url: '/two-room-apartment' },
+      { id: 'three-room-apartment', name: 'Трехкомнатная квартира', url: '/three-room-apartment' },
+      { id: 'four-room-apartment', name: 'Четырехкомнатная квартира', url: '/four-room-apartment' },
+      { id: 'two-story-apartment', name: 'Двухэтажная квартира', url: '/two-story-apartment' },
+      { id: 'room-renovation', name: 'Ремонт комнат', url: '/room-renovation' },
+      { id: 'living-room', name: 'Гостиная', url: '/living-room' },
+      { id: 'bedroom', name: 'Спальня', url: '/bedroom' },
+      { id: 'children-room', name: 'Детская', url: '/children-room' },
+      { id: 'corridor', name: 'Коридор', url: '/corridor' },
+      { id: 'kitchen', name: 'Кухня', url: '/kitchen' },
+      { id: 'bathroom', name: 'Ванная', url: '/bathroom' },
+      { id: 'stairs', name: 'Лестница', url: '/stairs' },
+      { id: 'systems', name: 'Системы', url: '/systems' },
+      { id: 'electrical-system', name: 'Электрическая система', url: '/electrical-system' },
+      { id: 'gas-system', name: 'Газовая система', url: '/gas-system' },
+      { id: 'floor-heating', name: 'Тёплый пол', url: '/floor-heating' },
+      { id: 'sewage', name: 'Канализация', url: '/sewage' },
+      { id: 'climate-control', name: 'Климат-контроль', url: '/climate-control' },
+      { id: 'commercial-premises', name: 'Коммерческие помещения', url: '/commercial-premises' },
+      { id: 'business-center', name: 'Бизнес-центр', url: '/business-center' },
+      { id: 'restaurant', name: 'Ресторан', url: '/restaurant' },
+      { id: 'commercial-premises-renovation', name: 'Ремонт коммерческих помещений', url: '/commercial-premises-renovation' },
+      { id: 'office', name: 'Офис', url: '/office' },
+      { id: 'warehouse', name: 'Склад', url: '/warehouse' },
+      { id: 'fitness-club', name: 'Фитнес-клуб', url: '/fitness-club' },
+      { id: 'hotel', name: 'Отель', url: '/hotel' },
+      { id: 'services', name: 'Услуги', url: '/services' },
+      { id: 'turnkey-renovation-services', name: 'Услуги под ключ', url: '/turnkey-renovation-services' },
+      { id: 'room-renovation-services', name: 'Услуги комнат', url: '/room-renovation-services' },
+      { id: 'commercial-premises-services', name: 'Услуги коммерческих помещений', url: '/commercial-premises-services' },
+      { id: 'systems-services', name: 'Услуги систем', url: '/systems-services' },
+    ];
+    res.json(pages);
+  } catch (e) {
+    console.error('Ошибка списка страниц:', e.message);
+    res.status(500).json({ error: 'Ошибка получения списка страниц' });
+  }
 });

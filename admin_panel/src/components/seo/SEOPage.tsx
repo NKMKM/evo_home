@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Globe, Share2, FileText, Download, Save, Eye, Edit } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface LangSEO {
   title: string;
@@ -20,6 +21,7 @@ interface SEOData {
 }
 
 export function SEOPage() {
+  const { t } = useTranslation('common');
   const [seoData, setSeoData] = useState<SEOData[]>([]);
   const [selectedPage, setSelectedPage] = useState<SEOData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -30,46 +32,46 @@ export function SEOPage() {
 
   // Список всех страниц для SEO
   const pages = [
-    { id: 'home', name: 'Главная страница' },
-    { id: 'about-us', name: 'О нас' },
-    { id: 'our-works', name: 'Наши работы' },
-    { id: 'contacts', name: 'Контакты' },
-    { id: 'reviews', name: 'Отзывы' },
-    { id: 'turnkey-renovation', name: 'Ремонт под ключ' },
-    { id: 'designer-renovation', name: 'Дизайнерский ремонт' },
-    { id: 'exclusive-renovation', name: 'Эксклюзивный ремонт' },
-    { id: 'studio', name: 'Студия' },
-    { id: 'two-room-apartment', name: 'Двухкомнатная квартира' },
-    { id: 'three-room-apartment', name: 'Трехкомнатная квартира' },
-    { id: 'four-room-apartment', name: 'Четырехкомнатная квартира' },
-    { id: 'two-story-apartment', name: 'Двухэтажная квартира' },
-    { id: 'room-renovation', name: 'Ремонт комнат' },
-    { id: 'living-room', name: 'Гостиная' },
-    { id: 'bedroom', name: 'Спальня' },
-    { id: 'children-room', name: 'Детская комната' },
-    { id: 'corridor', name: 'Коридор' },
-    { id: 'kitchen', name: 'Кухня' },
-    { id: 'bathroom', name: 'Ванная комната' },
-    { id: 'stairs', name: 'Лестница' },
-    { id: 'systems', name: 'Системы' },
-    { id: 'electrical-system', name: 'Электрическая система' },
-    { id: 'gas-system', name: 'Газовая система' },
-    { id: 'floor-heating', name: 'Теплый пол' },
-    { id: 'sewage', name: 'Канализация' },
-    { id: 'climate-control', name: 'Климат-контроль' },
-    { id: 'commercial-premises', name: 'Коммерческие помещения' },
-    { id: 'business-center', name: 'Бизнес-центр' },
-    { id: 'restaurant', name: 'Ресторан' },
-    { id: 'commercial-premises-renovation', name: 'Ремонт коммерческих помещений' },
-    { id: 'office', name: 'Офис' },
-    { id: 'warehouse', name: 'Склад' },
-    { id: 'fitness-club', name: 'Фитнес-клуб' },
-    { id: 'hotel', name: 'Отель' },
-    { id: 'services', name: 'Услуги' },
-    { id: 'turnkey-renovation-services', name: 'Услуги ремонта под ключ' },
-    { id: 'room-renovation-services', name: 'Услуги ремонта комнат' },
-    { id: 'commercial-premises-services', name: 'Услуги коммерческих помещений' },
-    { id: 'systems-services', name: 'Услуги систем' }
+    { id: 'home', name: 'Home' },
+    { id: 'about-us', name: 'Chi siamo' },
+    { id: 'our-works', name: 'I nostri lavori' },
+    { id: 'contacts', name: 'Contatti' },
+    { id: 'reviews', name: 'Recensioni' },
+    { id: 'turnkey-renovation', name: 'Ristrutturazione chiavi in mano' },
+    { id: 'designer-renovation', name: 'Ristrutturazione di design' },
+    { id: 'exclusive-renovation', name: 'Ristrutturazione esclusiva' },
+    { id: 'studio', name: 'Monolocale' },
+    { id: 'two-room-apartment', name: 'Bilocale' },
+    { id: 'three-room-apartment', name: 'Trilocale' },
+    { id: 'four-room-apartment', name: 'Quadrilocale' },
+    { id: 'two-story-apartment', name: 'Appartamento su due livelli' },
+    { id: 'room-renovation', name: 'Ristrutturazione stanze' },
+    { id: 'living-room', name: 'Soggiorno' },
+    { id: 'bedroom', name: 'Camera da letto' },
+    { id: 'children-room', name: 'Cameretta' },
+    { id: 'corridor', name: 'Corridoio' },
+    { id: 'kitchen', name: 'Cucina' },
+    { id: 'bathroom', name: 'Bagno' },
+    { id: 'stairs', name: 'Scale' },
+    { id: 'systems', name: 'Sistemi' },
+    { id: 'electrical-system', name: 'Impianto elettrico' },
+    { id: 'gas-system', name: 'Impianto gas' },
+    { id: 'floor-heating', name: 'Riscaldamento a pavimento' },
+    { id: 'sewage', name: 'Fognatura' },
+    { id: 'climate-control', name: 'Climatizzazione' },
+    { id: 'commercial-premises', name: 'Locali commerciali' },
+    { id: 'business-center', name: 'Centro direzionale' },
+    { id: 'restaurant', name: 'Ristorante' },
+    { id: 'commercial-premises-renovation', name: 'Ristrutturazione locali commerciali' },
+    { id: 'office', name: 'Ufficio' },
+    { id: 'warehouse', name: 'Magazzino' },
+    { id: 'fitness-club', name: 'Fitness club' },
+    { id: 'hotel', name: 'Hotel' },
+    { id: 'services', name: 'Servizi' },
+    { id: 'turnkey-renovation-services', name: 'Servizi chiavi in mano' },
+    { id: 'room-renovation-services', name: 'Servizi di ristrutturazione stanze' },
+    { id: 'commercial-premises-services', name: 'Servizi per locali commerciali' },
+    { id: 'systems-services', name: 'Servizi per sistemi' }
   ];
 
   useEffect(() => {
@@ -215,7 +217,7 @@ export function SEOPage() {
       <div className="px-6 py-8">
         <div className="text-center">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-500">Загрузка SEO данных...</p>
+          <p className="mt-4 text-gray-500">{t('loading')}</p>
         </div>
       </div>
     );
@@ -236,10 +238,10 @@ export function SEOPage() {
                 onClick={handleCancel}
                 className="text-blue-600 hover:text-blue-800 mb-2 flex items-center"
               >
-                ← Назад к списку
+                ← Indietro all'elenco
               </button>
               <h1 className="text-2xl font-light text-gray-800 mb-1">
-                Редактирование SEO: {selectedPage.page}
+                Modifica SEO: {selectedPage.page}
               </h1>
             </div>
             <div className="flex items-center space-x-2">
@@ -247,14 +249,14 @@ export function SEOPage() {
                 onClick={handleCancel}
                 className="px-4 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50"
               >
-                Отмена
+                Annulla
               </button>
               <button
                 onClick={handleSave}
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center"
               >
                 <Save className="w-4 h-4 mr-2" />
-                Сохранить
+                Salva
               </button>
             </div>
           </div>
@@ -266,14 +268,14 @@ export function SEOPage() {
               <div className="flex items-center mb-4">
                 <Search className="w-5 h-5 text-blue-600 mr-2" />
                 <h3 className="text-lg font-medium text-gray-800">
-                  Основные мета-теги
+                  Meta tag principali
                 </h3>
               </div>
               
               <div className="space-y-4">
                 {(['ru','en','it'] as const).map((lng) => (
                   <div key={lng} className="border rounded-lg p-4">
-                    <div className="text-xs text-gray-500 mb-2">Язык: {lng.toUpperCase()}</div>
+                    <div className="text-xs text-gray-500 mb-2">Lingua: {lng.toUpperCase()}</div>
                     <div className="grid grid-cols-1 gap-3">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
@@ -285,7 +287,7 @@ export function SEOPage() {
                             languages: { ...editingData.languages, [lng]: { ...editingData.languages[lng], title: e.target.value } }
                           })}
                           className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          placeholder="Заголовок страницы"
+                          placeholder="Titolo pagina"
                         />
                       </div>
                       <div>
@@ -298,7 +300,7 @@ export function SEOPage() {
                           })}
                           rows={3}
                           className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          placeholder="Описание страницы"
+                          placeholder="Descrizione della pagina"
                         />
                       </div>
                       <div>
@@ -311,7 +313,7 @@ export function SEOPage() {
                             languages: { ...editingData.languages, [lng]: { ...editingData.languages[lng], keywords: e.target.value } }
                           })}
                           className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          placeholder="ключевые слова"
+                          placeholder="parole chiave"
                         />
                       </div>
                       <div>
@@ -324,7 +326,7 @@ export function SEOPage() {
                             languages: { ...editingData.languages, [lng]: { ...editingData.languages[lng], canonical: e.target.value } }
                           })}
                           className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          placeholder="https://example.com/page"
+                          placeholder="https://example.com/pagina"
                         />
                       </div>
                     </div>
@@ -338,14 +340,14 @@ export function SEOPage() {
               <div className="flex items-center mb-4">
                 <Share2 className="w-5 h-5 text-green-600 mr-2" />
                 <h3 className="text-lg font-medium text-gray-800">
-                  OpenGraph (социальные сети)
+                  OpenGraph (social)
                 </h3>
               </div>
               
               <div className="space-y-4">
                 {(['ru','en','it'] as const).map((lng) => (
                   <div key={lng} className="border rounded-lg p-4">
-                    <div className="text-xs text-gray-500 mb-2">Язык: {lng.toUpperCase()}</div>
+                    <div className="text-xs text-gray-500 mb-2">Lingua: {lng.toUpperCase()}</div>
                     <div className="grid grid-cols-1 gap-3">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">OG Title</label>
@@ -357,7 +359,7 @@ export function SEOPage() {
                             languages: { ...editingData.languages, [lng]: { ...editingData.languages[lng], ogTitle: e.target.value } }
                           })}
                           className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          placeholder="Заголовок для соцсетей"
+                          placeholder="Titolo per social"
                         />
                       </div>
                       <div>
@@ -370,7 +372,7 @@ export function SEOPage() {
                           })}
                           rows={3}
                           className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          placeholder="Описание для соцсетей"
+                          placeholder="Descrizione per social"
                         />
                       </div>
                       <div>
@@ -383,7 +385,7 @@ export function SEOPage() {
                             languages: { ...editingData.languages, [lng]: { ...editingData.languages[lng], ogImage: e.target.value } }
                           })}
                           className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          placeholder="https://example.com/image.jpg"
+                          placeholder="https://example.com/immagine.jpg"
                         />
                       </div>
                     </div>
@@ -398,20 +400,20 @@ export function SEOPage() {
             <div className="flex items-center mb-4">
               <Eye className="w-5 h-5 text-purple-600 mr-2" />
               <h3 className="text-lg font-medium text-gray-800">
-                Предварительный просмотр
+                Anteprima
               </h3>
             </div>
             
                          <div className="bg-gray-100 rounded-lg p-4">
                <div className="max-w-md">
                   <h4 className="text-lg font-medium text-blue-600 mb-1">
-                    {editingData.languages.ru.title || 'Заголовок страницы'}
+                    {editingData.languages.ru.title || 'Titolo pagina'}
                   </h4>
                   <p className="text-sm text-green-600 mb-2">
-                    {editingData.languages.ru.canonical || 'https://example.com/page'}
+                    {editingData.languages.ru.canonical || 'https://example.com/pagina'}
                   </p>
                   <p className="text-sm text-gray-600">
-                    {editingData.languages.ru.description || 'Описание страницы'}
+                    {editingData.languages.ru.description || 'Descrizione della pagina'}
                   </p>
                </div>
              </div>
@@ -431,10 +433,10 @@ export function SEOPage() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-2xl font-light text-gray-800 mb-1">
-              SEO управление
+              Gestione SEO
             </h1>
             <p className="text-sm text-gray-500">
-              Управление мета-тегами, OpenGraph и sitemap
+              Gestione meta tag, OpenGraph e sitemap
             </p>
           </div>
           <div className="flex items-center space-x-2">
@@ -447,14 +449,14 @@ export function SEOPage() {
               }`}
             >
               <FileText className="w-4 h-4 mr-2" />
-              {sitemapGenerated ? 'Сгенерирован!' : 'Генерировать Sitemap'}
+              {sitemapGenerated ? 'Generato!' : 'Genera Sitemap'}
             </button>
             <button
               onClick={downloadSitemap}
               className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 flex items-center"
             >
               <Download className="w-4 h-4 mr-2" />
-              Скачать Sitemap
+              Scarica Sitemap
             </button>
           </div>
         </div>
@@ -489,7 +491,7 @@ export function SEOPage() {
                       className="px-3 py-1 bg-blue-600 text-white rounded text-sm hover:bg-blue-700 flex items-center"
                     >
                       <Edit className="w-4 h-4 mr-1" />
-                      Редактировать
+                      Modifica
                     </button>
                   </div>
                 </div>
@@ -504,7 +506,7 @@ export function SEOPage() {
             <div className="flex items-center">
               <Search className="w-8 h-8 text-blue-600 mr-3" />
               <div>
-                <p className="text-sm text-gray-500">Всего страниц</p>
+                <p className="text-sm text-gray-500">Totale pagine</p>
                 <p className="text-2xl font-semibold text-gray-800">{seoData.length}</p>
               </div>
             </div>
@@ -514,7 +516,7 @@ export function SEOPage() {
             <div className="flex items-center">
               <Share2 className="w-8 h-8 text-green-600 mr-3" />
               <div>
-                <p className="text-sm text-gray-500">OpenGraph настроен</p>
+                <p className="text-sm text-gray-500">OpenGraph configurato</p>
                 <p className="text-2xl font-semibold text-gray-800">{seoData.length}</p>
               </div>
             </div>
@@ -524,9 +526,9 @@ export function SEOPage() {
             <div className="flex items-center">
               <FileText className="w-8 h-8 text-purple-600 mr-3" />
               <div>
-                <p className="text-sm text-gray-500">Sitemap обновлен</p>
+                <p className="text-sm text-gray-500">Sitemap aggiornato</p>
                 <p className="text-2xl font-semibold text-gray-800">
-                  {sitemapGenerated ? 'Сегодня' : 'Недавно'}
+                  {sitemapGenerated ? 'Oggi' : 'Di recente'}
                 </p>
               </div>
             </div>

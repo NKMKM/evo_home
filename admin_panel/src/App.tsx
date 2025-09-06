@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { LoginPage } from './components/LoginPage';
 import { CMSPage } from './components/CMSPage';
+import { useTranslation } from 'react-i18next';
 
 export function App() {
+  useTranslation();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL || 'http://localhost:3001';
   // Проверка авторизации при загрузке
@@ -48,7 +50,7 @@ export function App() {
   };
 
   if (isAuthenticated === null) {
-    return <div>Загрузка...</div>;
+    return <div>Loading...</div>;
   }
 
   return <Router>
