@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { Upload, Search, Filter, Grid, List, Trash2, Edit, Download, Plus } from 'lucide-react';
+import { Upload, Search, Filter, Grid, List, Trash2, Edit, Download } from 'lucide-react';
 import { useDropzone } from 'react-dropzone';
 import { MediaFile } from '../../utils/types';
 import { formatDistanceToNow } from 'date-fns';
@@ -294,7 +294,7 @@ export function MediaLibrary() {
                       <img
                         src={file.url}
                         alt={file.alt || file.originalName}
-                        className="w-full h-full object-cover"
+                        className="w-full h-auto object-contain"
                       />
                     ) : (
                       <span className="text-4xl">{getFileIcon(file.type)}</span>

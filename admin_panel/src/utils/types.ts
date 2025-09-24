@@ -28,6 +28,7 @@ export interface Page {
   publishedAt?: string;
   author: string;
   versions: PageVersion[];
+  imageCount?: number;
 }
 
 export interface Post {

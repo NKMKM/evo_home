@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Search, Globe, Share2, FileText, Download, Save, Eye, Edit } from 'lucide-react';
+import { Search, Share2, FileText, Download, Save, Eye, Edit, Settings } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { SitemapManager } from '../SitemapManager';
 
 interface LangSEO {
   title: string;
@@ -27,6 +28,7 @@ export function SEOPage() {
   const [loading, setLoading] = useState(true);
   const [editingData, setEditingData] = useState<SEOData | null>(null);
   const [sitemapGenerated, setSitemapGenerated] = useState(false);
+  const [activeTab, setActiveTab] = useState<string>('seo');
 
   const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL || 'http://localhost:3001';
 
@@ -173,43 +175,49 @@ export function SEOPage() {
 
   const generateSitemap = async () => {
     try {
-      // Здесь будет API вызов для генерации sitemap
       console.log('Генерация sitemap.xml...');
       
-      setSitemapGenerated(true);
-      setTimeout(() => setSitemapGenerated(false), 3000);
-      alert('✅ Sitemap.xml успешно сгенерирован');
+      // Проверяем доступность sitemap
+      const response = await fetch(`${backendUrl}/sitemap.xml`, {
+        credentials: 'include'
+      });
+      
+      if (response.ok) {
+        setSitemapGenerated(true);
+        setTimeout(() => setSitemapGenerated(false), 3000);
+        alert('✅ Sitemap.xml успешно сгенерирован');
+      } else {
+        throw new Error('Ошибка генерации sitemap');
+      }
     } catch (error) {
       console.error('Ошибка генерации sitemap:', error);
       alert('❌ Ошибка генерации sitemap');
     }
   };
 
-  const downloadSitemap = () => {
-    // Симуляция скачивания sitemap
-    const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://evohome.it/</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://evohome.it/about-construction-company-evo-home</loc>
-    <lastmod>2024-01-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-</urlset>`;
-    
-    const blob = new Blob([sitemapContent], { type: 'application/xml' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'sitemap.xml';
-    a.click();
-    URL.revokeObjectURL(url);
+  const downloadSitemap = async () => {
+    try {
+      const response = await fetch(`${backendUrl}/sitemap.xml`, {
+        credentials: 'include'
+      });
+      
+      if (response.ok) {
+        const sitemapContent = await response.text();
+        const blob = new Blob([sitemapContent], { type: 'application/xml' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'sitemap.xml';
+        a.click();
+        URL.revokeObjectURL(url);
+        alert('✅ Sitemap.xml скачан');
+      } else {
+        throw new Error('Ошибка скачивания sitemap');
+      }
+    } catch (error) {
+      console.error('Ошибка при скачивании sitemap:', error);
+      alert('❌ Ошибка скачивания sitemap');
+    }
   };
 
   if (loading) {
@@ -423,6 +431,11 @@ export function SEOPage() {
     );
   }
 
+  // Если выбрана вкладка sitemap, показываем SitemapManager
+  if (activeTab === 'sitemap') {
+    return <SitemapManager />;
+  }
+
   return (
     <div className="px-6 py-8 w-full">
       <motion.div
@@ -430,6 +443,7 @@ export function SEOPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
+        {/* Tabs */}
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-2xl font-light text-gray-800 mb-1">
@@ -458,6 +472,36 @@ export function SEOPage() {
               <Download className="w-4 h-4 mr-2" />
               Scarica Sitemap
             </button>
+          </div>
+        </div>
+
+        {/* Tab Navigation */}
+        <div className="mb-6">
+          <div className="border-b border-gray-200">
+            <nav className="-mb-px flex space-x-8">
+              <button
+                onClick={() => setActiveTab('seo')}
+                className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'seo'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+              >
+                <Search className="w-4 h-4 inline mr-2" />
+                SEO Meta Tags
+              </button>
+              <button
+                onClick={() => setActiveTab('sitemap')}
+                className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'sitemap'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+              >
+                <Settings className="w-4 h-4 inline mr-2" />
+                Управление Sitemap
+              </button>
+            </nav>
           </div>
         </div>
 

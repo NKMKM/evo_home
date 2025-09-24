@@ -30,7 +30,6 @@ const resources = {
         videos: 'Видео',
         texts: 'Тексты',
         pages: 'Страницы',
-        backups: 'Бэкапы',
         seo: 'SEO'
       },
       stats: {
@@ -112,7 +111,6 @@ const resources = {
         videos: 'Video',
         texts: 'Testi',
         pages: 'Pagine',
-        backups: 'Backup',
         seo: 'SEO'
       },
       stats: {

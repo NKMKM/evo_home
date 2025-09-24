@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { 
   Image, 
@@ -11,12 +11,8 @@ import {
   Globe, 
   Eye, 
   Edit, 
-  Trash2,
-  Plus,
   Grid3X3,
-  List,
-  Upload,
-  Download
+  List
 } from 'lucide-react';
 import { AdvancedImageEditor } from '../images/AdvancedImageEditor';
 import { ImageTest } from './ImageTest';
@@ -51,11 +47,6 @@ interface PageData {
   sitemap?: boolean;
 }
 
-interface ImageData {
-  path: string;
-  alt: string;
-  title?: string;
-}
 
 export function PagesSitePage() {
   const [pages, setPages] = useState<PageData[]>([]);
@@ -74,6 +65,27 @@ export function PagesSitePage() {
   const navigate = useNavigate();
 
   const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL || 'http://localhost:3001';
+
+  // Нормализует путь изображения к виду, который ожидает backend (/assets/images/* -> relative path)
+  const normalizeImagePath = (raw: string | undefined | null) => {
+    if (!raw) return '';
+    const s = String(raw);
+    // Если это абсолютный URL, возвращаем как есть
+    if (/^https?:\/\//i.test(s)) return s;
+    const fixed = s.replace(/\\\\/g, '/');
+    // Если путь содержит /assets/images/ — извлекаем относительную часть
+    const idxAssets = fixed.indexOf('/assets/images/');
+    if (idxAssets !== -1) return fixed.slice(idxAssets + '/assets/images/'.length);
+    // Убираем префиксы images/ или /images/
+    if (/^images[\/]/i.test(fixed)) return fixed.replace(/^images[\/]/i, '');
+    if (/^\/images[\/]/i.test(fixed)) return fixed.replace(/^\/images[\/]/i, '');
+    // Если путь содержит frontend/src/assets/images
+    const idxFront = fixed.indexOf('/frontend/src/assets/images/');
+    if (idxFront !== -1) return fixed.slice(idxFront + '/frontend/src/assets/images/'.length);
+    // Убираем ведущий слэш
+    if (fixed.startsWith('/')) return fixed.slice(1);
+    return fixed;
+  };
 
   // Список всех страниц сайта
   const sitePages: PageData[] = [
@@ -600,11 +612,78 @@ export function PagesSitePage() {
   ];
 
   useEffect(() => {
-    // Загружаем данные страниц
-    setTimeout(() => {
-      setPages(sitePages);
-      setLoading(false);
-    }, 500);
+    // Загружаем данные страниц — сначала пробуем из backend/pages.json, затем падаем на статический список
+    (async function initPagesAndPrefetch() {
+      try {
+        let initialPages: PageData[] = [];
+        try {
+          const res = await fetch(`${backendUrl}/api/pages`, { credentials: 'include' });
+          if (res.ok) {
+            const data = await res.json();
+            if (Array.isArray(data) && data.length > 0) {
+              initialPages = data.map((p: any) => ({
+                id: p.id,
+                name: p.name || p.id,
+                path: p.path || '/',
+                url: p.url || (p.path || '/'),
+                images: Array.isArray(p.images) ? Array.from(new Set(p.images.map((img: any) => normalizeImagePath(img?.src || img?.path || img?.name || img)).filter(Boolean))) : [],
+                texts: p.texts || [],
+                description: p.description || '',
+                seo: p.seo || undefined,
+                jsonLd: p.jsonLd || undefined,
+                customHtml: p.customHtml || undefined,
+                robots: p.robots || undefined,
+                sitemap: p.sitemap !== undefined ? p.sitemap : undefined
+              } as PageData));
+            }
+          }
+        } catch (err) {
+          // Ошибка при обращении к backend — продолжим с пустым initialPages, затем упадём на sitePages
+          console.error('Ошибка при получении /api/pages:', err);
+        }
+
+        if (!initialPages || initialPages.length === 0) {
+          initialPages = sitePages;
+        }
+
+        setPages(initialPages);
+        setLoading(false);
+
+        // После установки списка страниц — асинхронно обновим их изображения (берём данные с /api/pages/:id/images)
+        try {
+          const promises = initialPages.map(async (pg) => {
+            try {
+              const res = await fetch(`${backendUrl}/api/pages/${pg.id}/images`, { credentials: 'include' });
+              const data = res.ok ? await res.json() : [];
+              const processedImages: string[] = data.length > 0
+                ? Array.from(new Set(data.map((img: any) => {
+                    const raw = img?.src || img?.path || img?.name || img;
+                    return normalizeImagePath(raw);
+                  }).filter(Boolean))) as string[]
+                : [];
+              return { id: pg.id, images: processedImages };
+            } catch (e) {
+              return { id: pg.id, images: [] };
+            }
+          });
+
+          const all = await Promise.all(promises);
+          setPages(prev => prev.map(p => {
+            const found = all.find(a => a.id === p.id);
+            if (found && found.images && found.images.length > 0) {
+              return { ...p, images: found.images } as PageData;
+            }
+            return p;
+          }));
+        } catch (err) {
+          console.error('Ошибка при предварительной загрузке изображений для всех страниц:', err);
+        }
+      } catch (err) {
+        console.error('Ошибка инициализации страниц:', err);
+        setPages(sitePages);
+        setLoading(false);
+      }
+    })();
   }, []);
 
   useEffect(() => {
@@ -626,6 +705,7 @@ export function PagesSitePage() {
       });
       const pageImages = imagesResponse.ok ? await imagesResponse.json() : [];
       console.log(`Найдено изображений для ${pageId}:`, pageImages.length);
+      console.log('Данные изображений:', pageImages);
 
       // Загружаем тексты страницы
       const textsResponse = await fetch(`${backendUrl}/api/pages/${pageId}/texts`, {
@@ -645,16 +725,24 @@ export function PagesSitePage() {
       });
       const pageData = dataResponse.ok ? await dataResponse.json() : {};
 
-      // Обрабатываем изображения - используем все найденные изображения
-      const processedImages = pageImages.length > 0 
-        ? pageImages.map((img: any) => img.path || img.name).filter(Boolean)
+      // Обрабатываем изображения - используем все найденные изображения и нормализуем пути
+      const processedImages: string[] = pageImages.length > 0
+        ? Array.from(new Set(pageImages.map((img: any) => {
+            const raw = img?.src || img?.path || img?.name || img;
+            return normalizeImagePath(raw);
+          }).filter(Boolean))) as string[]
         : [];
       
       console.log(`Обработанные изображения для ${pageId}:`, processedImages);
 
-      // Обновляем alt тексты
-      if (pageData.altTexts) {
-        setImageAltTexts(pageData.altTexts);
+      // Обновляем alt тексты — нормализуем ключи
+      if (pageData.altTexts && typeof pageData.altTexts === 'object') {
+        const normalizedMap: {[key: string]: string} = {};
+        Object.keys(pageData.altTexts).forEach(k => {
+          const nk = normalizeImagePath(k);
+          normalizedMap[nk] = pageData.altTexts[k];
+        });
+        setImageAltTexts(normalizedMap);
       }
 
       // Загружаем расположение HTML блока
@@ -664,7 +752,7 @@ export function PagesSitePage() {
       setPages(prevPages => 
         prevPages.map(page => 
           page.id === pageId 
-            ? { 
+            ? ({ 
                 ...page, 
                 images: processedImages.length > 0 ? processedImages : page.images,
                 texts: pageTexts.length > 0 ? pageTexts.map((text: any) => ({
@@ -677,7 +765,7 @@ export function PagesSitePage() {
                 customHtml: pageData.customHtml || page.customHtml,
                 robots: pageData.robots || page.robots,
                 sitemap: pageData.sitemap !== undefined ? pageData.sitemap : page.sitemap
-              }
+              } as PageData)
             : page
         )
       );
@@ -685,7 +773,7 @@ export function PagesSitePage() {
       // Обновляем selectedPage с новыми данными - приоритет динамическим данным
       setSelectedPage(prevSelectedPage => {
         if (prevSelectedPage && prevSelectedPage.id === pageId) {
-          return {
+          return ({
             ...prevSelectedPage,
             images: processedImages.length > 0 ? processedImages : prevSelectedPage.images,
             texts: pageTexts.length > 0 ? pageTexts.map((text: any) => ({
@@ -698,7 +786,7 @@ export function PagesSitePage() {
             customHtml: pageData.customHtml || prevSelectedPage.customHtml,
             robots: pageData.robots || prevSelectedPage.robots,
             sitemap: pageData.sitemap !== undefined ? pageData.sitemap : prevSelectedPage.sitemap
-          };
+          } as PageData);
         }
         return prevSelectedPage;
       });
@@ -1163,9 +1251,9 @@ export function PagesSitePage() {
                       selectedPage.images.map((image, index) => (
                         <div key={index} className="relative group border rounded-lg overflow-hidden">
                           <img
-                            src={`${backendUrl}/frontend-assets/${image}`}
+                            src={/^https?:\/\//i.test(image) ? image : `${backendUrl}/images/${image.replace(/^images[\\\/]/, '')}`}
                             alt={imageAltTexts[image] || image}
-                            className="w-full h-32 object-cover"
+                            className="w-full h-auto object-contain"
                             onError={(e) => {
                               const target = e.target as HTMLImageElement;
                               target.style.display = 'none';
@@ -1385,12 +1473,34 @@ export function PagesSitePage() {
                 setSelectedImageForEdit(null);
                 setSelectedImageFile(null);
               }}
-              onSave={(editedImage) => {
-                // Handle the edited image
-                console.log('Edited image:', editedImage);
-                setShowImageEditor(false);
-                setSelectedImageForEdit(null);
-                setSelectedImageFile(null);
+              onSave={async (editedImage) => {
+                try {
+                  // Upload edited image to backend replace endpoint
+                  const formData = new FormData();
+                  formData.append('file', editedImage);
+                  formData.append('imagePath', selectedImageForEdit || '');
+
+                  const resp = await fetch(`${backendUrl}/api/images/replace`, {
+                    method: 'POST',
+                    credentials: 'include',
+                    body: formData
+                  });
+
+                  if (!resp.ok) {
+                    const txt = await resp.text();
+                    throw new Error(txt || 'Ошибка при отправке изображения');
+                  }
+
+                  alert('✅ Изображение успешно обновлено');
+                  // Закрываем редактор и обновляем список изображений
+                  setShowImageEditor(false);
+                  setSelectedImageForEdit(null);
+                  setSelectedImageFile(null);
+                  if (selectedPage) await loadPageData(selectedPage.id);
+                } catch (err) {
+                  console.error('Ошибка при отправке отредактированного изображения:', err);
+                  alert('❌ Не удалось загрузить отредактированное изображение');
+                }
               }}
               originalImagePath={selectedImageForEdit}
             />
@@ -1437,6 +1547,18 @@ export function PagesSitePage() {
           <ImageTest backendUrl={backendUrl} />
         </div>
 
+        {/* Отладочная информация */}
+        <div className="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+          <h3 className="text-sm font-medium text-yellow-800 mb-2">🔍 Отладочная информация</h3>
+          <div className="text-xs text-yellow-700 space-y-1">
+            <div>Backend URL: {backendUrl}</div>
+            <div>API Endpoint: {backendUrl}/api/pages/home/images</div>
+            <div>Static URL: {backendUrl}/frontend-assets/images/</div>
+            <div>Всего страниц: {pages.length}</div>
+            <div>Страниц с изображениями: {pages.filter(p => p.images.length > 0).length}</div>
+          </div>
+        </div>
+
         {viewMode === 'list' ? (
           <div className="space-y-4">
             {pages.map(page => (
@@ -1452,9 +1574,9 @@ export function PagesSitePage() {
                       <div className="w-16 h-16 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
                         {page.images.length > 0 ? (
                           <img
-                            src={`${backendUrl}/frontend-assets/${page.images[0]}`}
+                            src={`${backendUrl}/images/${page.images[0].replace(/^images[\\\/]/, '')}`}
                             alt={page.name}
-                            className="w-full h-full object-cover"
+                            className="w-full h-auto object-contain"
                             onError={(e) => {
                               console.error(`Ошибка загрузки изображения: ${page.images[0]}`);
                               const target = e.target as HTMLImageElement;
@@ -1485,7 +1607,7 @@ export function PagesSitePage() {
                         <h3 className="text-lg font-medium text-gray-800">{page.name}</h3>
                         <p className="text-sm text-gray-500">{page.description}</p>
                         <div className="flex items-center space-x-4 mt-2 text-xs text-gray-400">
-                          <span>📷 {Math.min(page.images.length, 8)} изображений{page.images.length > 8 ? ' (макс. 8)' : ''}</span>
+                          <span>📷 {page.images.length} изображений</span>
                           <span>📝 {page.texts.length} языков</span>
                           <span>🔗 {page.url}</span>
                         </div>
@@ -1513,7 +1635,7 @@ export function PagesSitePage() {
                     <img
                       src={`${backendUrl}/frontend-assets/${page.images[0]}`}
                       alt={page.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-auto object-contain"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
@@ -1545,7 +1667,7 @@ export function PagesSitePage() {
                   <h3 className="text-lg font-medium text-gray-800 mb-2">{page.name}</h3>
                   <p className="text-sm text-gray-500 mb-3">{page.description}</p>
                   <div className="flex items-center justify-between text-xs text-gray-400">
-                    <span>📷 {Math.min(page.images.length, 8)}{page.images.length > 8 ? '+' : ''}</span>
+                    <span>📷 {page.images.length}</span>
                     <span>📝 {page.texts.length}</span>
                     <span>🔗 {page.url}</span>
                   </div>

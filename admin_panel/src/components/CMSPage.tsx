@@ -7,7 +7,6 @@ import { SubmissionsPage } from './submissions/SubmissionsPage';
 import { VideosPage } from './videos/VideosPage';
 import { TextsPage } from './texts/TextsPage';
 import { PagesSitePage } from './pages/PagesSitePage';
-import { BackupsPage } from './backups/BackupsPage';
 import { SEOPage } from './seo/SEOPage';
 
 interface CMSPageProps {
@@ -27,7 +26,7 @@ export function CMSPage({ onLogout }: CMSPageProps) {
         <Route path="videos" element={<VideosPage />} />
         <Route path="texts" element={<TextsPage />} />
         <Route path="pages" element={<PagesSitePage />} />
-        <Route path="backups" element={<BackupsPage />} />
+  {/* Backups removed from navigation by request */}
         <Route path="seo" element={<SEOPage />} />
       </Routes>
     </Layout>

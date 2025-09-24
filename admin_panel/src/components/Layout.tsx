@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { 
-  HomeIcon, 
+  
   LayoutDashboardIcon, 
   LogOutIcon, 
   MenuIcon, 
@@ -13,7 +13,7 @@ import {
   TypeIcon,
   ClipboardListIcon,
   FileTextIcon,
-  RotateCcwIcon,
+  
   SearchIcon
 } from 'lucide-react';
 interface LayoutProps {
@@ -44,8 +44,7 @@ export function Layout({
     { path: '/dashboard/media', icon: ImageIcon, labelKey: 'nav.images' },
     { path: '/dashboard/videos', icon: PlayIcon, labelKey: 'nav.videos' },
     { path: '/dashboard/texts', icon: TypeIcon, labelKey: 'nav.texts' },
-    { path: '/dashboard/pages', icon: FileTextIcon, labelKey: 'nav.pages' },
-    { path: '/dashboard/backups', icon: RotateCcwIcon, labelKey: 'nav.backups' },
+  { path: '/dashboard/pages', icon: FileTextIcon, labelKey: 'nav.pages' },
     { path: '/dashboard/seo', icon: SearchIcon, labelKey: 'nav.seo' },
   ];
 

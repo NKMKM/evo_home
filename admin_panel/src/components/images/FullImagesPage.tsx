@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ImageIcon, Search, Filter, Upload, Edit, RotateCcw, Crop, FolderIcon, MapPin } from 'lucide-react';
+import { ImageIcon, Search, Filter, Upload, RotateCcw, FolderIcon, MapPin } from 'lucide-react';
 import { ImageEditor } from './ImageEditor';
 
 interface FrontendImage {
@@ -20,57 +20,17 @@ export function FullImagesPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
   const [loading, setLoading] = useState(true);
-  const [editingImage, setEditingImage] = useState<FrontendImage | null>(null);
   const [showImageEditor, setShowImageEditor] = useState(false);
   const [selectedImageFile, setSelectedImageFile] = useState<File | null>(null);
   const [selectedImagePath, setSelectedImagePath] = useState<string>('');
   const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL || 'http://localhost:3001';
 
-  // Категории изображений по страницам сайта
-  const categories = [
-    'Все страницы',
-    'Главная страница',
-    'О нас',
-    'Наши работы',
-    'Контакты',
-    'Отзывы',
-    'Ремонт под ключ',
-    'Дизайнерский ремонт',
-    'Эксклюзивный ремонт',
-    'Студия',
-    'Двухкомнатная квартира',
-    'Трехкомнатная квартира',
-    'Четырехкомнатная квартира',
-    'Двухэтажная квартира',
-    'Ремонт комнат',
-    'Гостиная',
-    'Спальня',
-    'Детская комната',
-    'Коридор',
-    'Кухня',
-    'Ванная комната',
-    'Лестница',
-    'Системы',
-    'Электрическая система',
-    'Газовая система',
-    'Теплый пол',
-    'Канализация',
-    'Климат-контроль',
-    'Коммерческие помещения',
-    'Бизнес-центр',
-    'Ресторан',
-    'Ремонт коммерческих помещений',
-    'Офис',
-    'Склад',
-    'Фитнес-клуб',
-    'Отель',
-    'Услуги',
-    'Услуги ремонта под ключ',
-    'Услуги ремонта комнат',
-    'Услуги коммерческих помещений',
-    'Услуги систем',
-    'Общие элементы'
-  ];
+  // Категории изображений формируются динамически на основе массива изображений
+  const categories = React.useMemo(() => {
+    const cats = images.map(img => img.category).filter(Boolean);
+    // Уникальные категории, кроме пустых
+    return Array.from(new Set(cats));
+  }, [images]);
 
   // Полный список изображений из frontend проекта
   const frontendImages: FrontendImage[] = [
@@ -271,7 +231,6 @@ export function FullImagesPage() {
         body: JSON.stringify({ imagePath: image.path })
       });
       if (!backupResponse.ok) throw new Error('Ошибка создания бэкапа');
-      const backupData = await backupResponse.json();
 
       // Выбор файла и открытие редактора
       const input = document.createElement('input');
@@ -327,18 +286,7 @@ export function FullImagesPage() {
     setSelectedImagePath('');
   };
 
-  const handleEditImage = (image: FrontendImage) => {
-    setEditingImage(image);
-  };
 
-  const handleSaveEdit = () => {
-    if (editingImage) {
-      setImages(images.map(img => 
-        img.id === editingImage.id ? editingImage : img
-      ));
-      setEditingImage(null);
-    }
-  };
 
   if (loading) {
     return (
@@ -400,10 +348,7 @@ export function FullImagesPage() {
                 <option value="all">Все категории ({images.length})</option>
                 {categories.map(category => {
                   const count = images.filter(img => img.category === category).length;
-                  if (count > 0) {
-                    return <option key={category} value={category}>{category} ({count})</option>;
-                  }
-                  return null;
+                  return <option key={category} value={category}>{category} ({count})</option>;
                 })}
               </select>
             </div>
@@ -465,7 +410,7 @@ export function FullImagesPage() {
                       <img
                         src={`${backendUrl}/frontend-assets/${encodeURI(image.path)}`}
                         alt={image.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-auto object-contain"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.style.display = 'none';

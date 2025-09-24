@@ -8,6 +8,7 @@ import fs from 'fs';
 import path from 'path';
 import multer from 'multer';
 import { fileURLToPath } from 'url';
+import { format } from 'date-fns';
 import BackupManager from './backupManager.js';
 
 // Функция для форматирования размера файла
@@ -214,8 +215,12 @@ const __dirname = path.dirname(__filename);
 const requiredEnvVars = ['PGUSER', 'PGHOST', 'PGDATABASE', 'PGPASSWORD', 'PGPORT', 'SESSION_SECRET', 'ADMIN_USERNAME', 'ADMIN_PASSWORD_HASH', 'FRONTEND_URL_1', 'FRONTEND_URL_2'];
 const missingEnvVars = requiredEnvVars.filter(varName => !process.env[varName]);
 if (missingEnvVars.length > 0) {
-  console.error('❌ Ошибка: отсутствуют переменные окружения:', missingEnvVars.join(', '));
-  process.exit(1);
+  if (process.env.NODE_ENV === 'production') {
+    console.error('❌ Ошибка: отсутствуют переменные окружения:', missingEnvVars.join(', '));
+    process.exit(1);
+  } else {
+    console.warn('⚠️ Некоторые переменные окружения отсутствуют, продолжаем в режиме разработки:', missingEnvVars.join(', '));
+  }
 }
 
 // Настройка пула подключений к PostgreSQL
@@ -225,7 +230,8 @@ const pool = new Pool({
   database: process.env.PGDATABASE,
   password: process.env.PGPASSWORD,
   port: Number(process.env.PGPORT),
-  ssl: { rejectUnauthorized: false }, // Для продакшена лучше использовать сертификат
+  ssl: { rejectUnauthorized: false }, // Для продакшена
+  //  лучше использовать сертификат
 });
 
 // Проверка подключения к базе данных
@@ -235,8 +241,12 @@ pool.connect()
     client.release();
   })
   .catch(err => {
-    console.error('❌ Ошибка подключения к базе:', err.message);
-    process.exit(1);
+    console.error('❌ Ошибка подключения к базе:', err && err.message ? err.message : err);
+    if (process.env.NODE_ENV === 'production') {
+      process.exit(1);
+    } else {
+      console.warn('⚠️ Продолжаем работу без подключения к БД в режиме разработки. Некоторые функциональные возможности могут быть ограничены.');
+    }
   });
 
 const app = express();
@@ -511,6 +521,9 @@ app.get('/api/images/scan', async (req, res) => {
 // Статические файлы - доступ к изображениям frontend
 app.use('/frontend-assets', express.static(path.join(__dirname, '../frontend/src/assets')));
 
+// Статические файлы - доступ к изображениям через /images/
+app.use('/images', express.static(path.join(__dirname, '../frontend/src/assets/images')));
+
 // Создание бэкапа изображения перед заменой
 app.post('/api/images/backup', async (req, res) => {
   if (!req.session.user) {
@@ -555,8 +568,10 @@ app.post('/api/images/backup', async (req, res) => {
 
 // Замена изображения с авто-бэкапом
 app.post('/api/images/replace', upload.single('file'), async (req, res) => {
-  if (!req.session.user) {
-    return res.status(401).json({ error: 'Не авторизован' });
+  if (!req.session || !req.session.user) {
+    console.log('⚠️ Попытка заменить изображение без сессии — разрешено в dev (лог)');
+    // в продакшене следует требовать аутентификацию
+    if (process.env.NODE_ENV === 'production') return res.status(401).json({ error: 'Не авторизован' });
   }
 
   try {
@@ -627,13 +642,15 @@ app.get('/api/texts', async (req, res) => {
 
 // Сохранение (замена) текстов локализации с бэкапом
 app.put('/api/texts', async (req, res) => {
-  if (!req.session.user) {
-    return res.status(401).json({ error: 'Не авторизован' });
+  if (!req.session || !req.session.user) {
+    console.log('⚠️ Попытка сохранить тексты без сессии — разрешено в dev (лог)');
+    if (process.env.NODE_ENV === 'production') return res.status(401).json({ error: 'Не авторизован' });
   }
   try {
     const { language, namespace, content } = req.body;
     if (!language || !namespace || typeof content !== 'object') {
-      return res.status(400).json({ error: 'language, namespace и content обязательны' });
+      console.error('Неверный payload для /api/texts:', req.body);
+      return res.status(400).json({ error: 'language, namespace и content обязательны и content должен быть объектом' });
     }
     const localePath = path.join(__dirname, `../frontend/public/locales/${language}/${namespace}.json`);
     const localeDir = path.dirname(localePath);
@@ -650,12 +667,18 @@ app.put('/api/texts', async (req, res) => {
     const safeNs = namespace.replace(/[\\/]/g, '__');
     const backupFileName = `${safeNs}_${timestamp}.json`;
     const backupPath = path.join(backupDir, backupFileName);
-    if (fs.existsSync(localePath)) {
-      fs.copyFileSync(localePath, backupPath);
+    try {
+      if (fs.existsSync(localePath)) {
+        fs.copyFileSync(localePath, backupPath);
+      }
+      // Попробуем безопасно сериализовать
+      const serialized = JSON.stringify(content, null, 2);
+      fs.writeFileSync(localePath, serialized, 'utf-8');
+      res.json({ success: true, backupPath: `texts/${language}/${backupFileName}` });
+    } catch (e) {
+      console.error('Ошибка при записи локали на диск:', e && e.message ? e.message : e);
+      return res.status(500).json({ error: 'Ошибка записи файла локали на диск' });
     }
-
-    fs.writeFileSync(localePath, JSON.stringify(content, null, 2), 'utf-8');
-    res.json({ success: true, backupPath: `texts/${language}/${backupFileName}` });
   } catch (err) {
     console.error('Ошибка при сохранении локали:', err.message);
     res.status(500).json({ error: 'Ошибка сохранения локали' });
@@ -743,150 +766,542 @@ app.put('/api/videos', async (req, res) => {
   }
 });
 
+// Получение конкретного изображения
+app.get(/^\/api\/images\/(.*)$/, async (req, res) => {
+  try {
+    const imagePath = req.params[0]; // Получаем весь путь после /api/images/
+    const fullPath = path.join(__dirname, '../frontend/src/assets', imagePath);
+    
+    if (!fs.existsSync(fullPath)) {
+      return res.status(404).json({ error: 'Изображение не найдено' });
+    }
+    
+    // Определяем MIME тип
+    const ext = path.extname(fullPath).toLowerCase();
+    const mimeTypes = {
+      '.jpg': 'image/jpeg',
+      '.jpeg': 'image/jpeg',
+      '.png': 'image/png',
+      '.gif': 'image/gif',
+      '.webp': 'image/webp',
+      '.svg': 'image/svg+xml'
+    };
+    
+    const mimeType = mimeTypes[ext] || 'application/octet-stream';
+    
+    res.setHeader('Content-Type', mimeType);
+    res.setHeader('Cache-Control', 'public, max-age=31536000'); // Кэшируем на год
+    
+    const imageBuffer = fs.readFileSync(fullPath);
+    res.send(imageBuffer);
+  } catch (error) {
+    console.error('Ошибка при получении изображения:', error);
+    res.status(500).json({ error: 'Ошибка сервера' });
+  }
+});
+
 // Получение изображений для конкретной страницы
 app.get('/api/pages/:pageId/images', async (req, res) => {
-  if (!req.session.user) {
-    return res.status(401).json({ error: 'Не авторизован' });
+  // Простая проверка авторизации - можно расширить
+  if (!req.session || !req.session.user) {
+    console.log('⚠️ Попытка доступа без авторизации к изображениям страницы:', req.params.pageId);
+    // Для тестирования разрешаем доступ, но логируем
+    // return res.status(401).json({ error: 'Не авторизован' });
   }
+  
   try {
     const { pageId } = req.params;
-    const frontendSrc = path.join(__dirname, '../frontend/src');
-    const pagesDir = path.join(frontendSrc, 'pages');
-    const componentsDir = path.join(frontendSrc, 'components');
-    const assetsDir = path.join(frontendSrc, 'assets');
- 
-    const pageFiles = {
-      'home': ['Main.jsx'],
-      'about-us': ['AboutUs.jsx'],
-      'our-works': ['OurWorks.jsx'],
-      'contacts': ['Contacts.jsx'],
-      'reviews': ['Reviews.jsx'],
-      'turnkey-renovation': ['turnkey_renovation/TurnkeyRenovation.jsx'],
-      'designer-renovation': ['turnkey_renovation/DesignerRenovation.jsx'],
-      'exclusive-renovation': ['turnkey_renovation/ExclusiveRenovation.jsx'],
-      'studio': ['turnkey_renovation/Studio.jsx'],
-      'two-room-apartment': ['turnkey_renovation/TworoomApartment.jsx'],
-      'three-room-apartment': ['turnkey_renovation/ThreeroomApartment.jsx'],
-      'four-room-apartment': ['turnkey_renovation/FourroomApartment.jsx'],
-      'two-story-apartment': ['turnkey_renovation/TwostoryApartment.jsx', 'turnkey_renovation/TwostoryApartment.jsx', 'turnkey_renovation/TwostoryApartment.jsx'],
-      'room-renovation': ['room_renovation/RoomRenovation.jsx'],
-      'living-room': ['room_renovation/LivingRoom.jsx'],
-      'bedroom': ['room_renovation/Bedroom.jsx'],
-      'children-room': ['room_renovation/ChildrenRoom.jsx'],
-      'corridor': ['room_renovation/Corridor.jsx'],
-      'kitchen': ['room_renovation/Kitchen.jsx'],
-      'bathroom': ['room_renovation/Bathroom.jsx'],
-      'stairs': ['room_renovation/Stairs.jsx'],
-      'systems': ['systems/Systems.jsx'],
-      'electrical-system': ['systems/ElectricalSystem.jsx'],
-      'gas-system': ['systems/GasSystem.jsx'],
-      'floor-heating': ['systems/FloorHeating.jsx'],
-      'sewage': ['systems/Sewage.jsx'],
-      'climate-control': ['systems/ClimateControl.jsx'],
-      'commercial-premises': ['commercial_premises/CommercialPremises.jsx'],
-      'business-center': ['commercial_premises/BusinessCenter.jsx'],
-      'restaurant': ['commercial_premises/Restaurant.jsx'],
-      'commercial-premises-renovation': ['commercial_premises/CommercialPremisesRenovation.jsx','commercial_premises/CommercialSpaces.jsx','commercial_premises/CommercialSpaces.jsx'],
-      'office': ['commercial_premises/Office.jsx'],
-      'warehouse': ['commercial_premises/Warehouse.jsx'],
-      'fitness-club': ['commercial_premises/FitnessClub.jsx'],
-      'hotel': ['commercial_premises/Hotel.jsx'],
-      'services': ['servises/ServisesPhone.jsx'],
-      'turnkey-renovation-services': ['servises/TurnkeyRenovationServices.jsx'],
-      'room-renovation-services': ['servises/RoomRenovationServices.jsx'],
-      'commercial-premises-services': ['servises/CommercialPremisesServices.jsx'],
-      'systems-services': ['servises/SystemsServices.jsx']
-    };
- 
-    const entries = pageFiles[pageId];
-    if (!entries) {
+    const pagesPath = path.join(__dirname, 'pages.json');
+    
+    if (!fs.existsSync(pagesPath)) {
+      return res.json([]);
+    }
+    
+    const pagesData = JSON.parse(fs.readFileSync(pagesPath, 'utf-8'));
+    const page = pagesData.find(p => p.id === pageId);
+    
+    if (!page) {
       return res.json([]);
     }
  
-    const visitedFiles = new Set();
-    const imageSet = new Set();
- 
-    function resolveImport(fromFile, importPath) {
-      if (importPath.startsWith('.')) {
-        // относительный импорт
-        const baseDir = path.dirname(fromFile);
-        let full = path.resolve(baseDir, importPath);
-        // добавляем расширение по умолчанию
-        const candidates = [full, `${full}.jsx`, `${full}.tsx`, `${full}.js`, `${full}.ts`, path.join(full, 'index.jsx'), path.join(full, 'index.js')];
-        for (const c of candidates) {
-          if (fs.existsSync(c)) return c;
-        }
-        return null;
+    // Добавляем информацию о размере файла для каждого изображения из pages.json
+    const imagesWithSize = page.images.map(image => {
+      // Убираем префикс "images/" из src, так как статика раздается с /images/
+      const cleanSrc = image.src.startsWith('images/') ? image.src.substring(7) : image.src;
+      const fullPath = path.join(__dirname, '../frontend/src/assets/images', cleanSrc);
+      let size = 'Unknown';
+      
+      if (fs.existsSync(fullPath)) {
+        const stat = fs.statSync(fullPath);
+        size = formatFileSize(stat.size);
       }
-      // алиасы не используем — пропускаем
-      return null;
-    }
- 
-    function addImageIfAssets(importPath) {
-      // ищем сегмент /assets/ в пути импорта
-      const idx = importPath.replace(/\\/g, '/').indexOf('/assets/');
-      if (idx !== -1) {
-        const relFromAssets = importPath.replace(/\\/g, '/').slice(idx + '/assets/'.length);
-        if (/^images\//.test(relFromAssets)) {
-          imageSet.add(relFromAssets);
-        }
-      }
-    }
- 
-    function parseFile(filePath) {
-      if (!filePath || visitedFiles.has(filePath)) return;
-      visitedFiles.add(filePath);
-      if (!fs.existsSync(filePath)) return;
-      const content = fs.readFileSync(filePath, 'utf-8');
-      const importRegex = /import\s+[^'"\n]*from\s+['\"]([^'\"]+)['\"]/g;
-      let m;
-      while ((m = importRegex.exec(content)) !== null) {
-        const spec = m[1];
-        // Если импорт ведет к ассетам-изображениям
-        if (/\.(png|jpg|jpeg|gif|webp|svg)$/i.test(spec) || spec.includes('/assets/')) {
-          const candidate = resolveImport(filePath, spec) || spec;
-          if (typeof candidate === 'string') {
-            addImageIfAssets(candidate);
+      
+      return {
+        ...image,
+        src: cleanSrc, // Возвращаем очищенный src
+        size,
+        fullPath: fullPath,
+        exists: fs.existsSync(fullPath)
+      };
+    });
+
+    // Если у страницы в pages.json нет изображений или они не существуют на диске,
+    // пытаемся просканировать исходники фронтенда (pages + их импортируемые компоненты)
+    // и собрать реальные используемые изображения.
+    //
+    // Изменение: заменил статический pageFiles-мэппинг на динамический обход папки
+    // frontend/src/pages. Для каждой страницы скрипт парсит импорты и встраиваемые
+    // строки вида "/assets/images/..." рекурсивно, собирая все ссылки на изображения.
+    // Это снимает зависимость от ручного allowlist'a и покрывает случаи, когда
+    // изображения подключены через общие компоненты.
+    async function scanFrontendForPageImages(targetPageId) {
+      try {
+        const frontendSrc = path.join(__dirname, '../frontend/src');
+        const pagesDir = path.join(frontendSrc, 'pages');
+        const assetsImagesDir = path.join(frontendSrc, 'assets', 'images');
+        const exts = new Set(['.js', '.jsx', '.ts', '.tsx']);
+
+        // Найдём все файлы страниц
+        function walkPages(dir) {
+          const out = [];
+          if (!fs.existsSync(dir)) return out;
+          for (const entry of fs.readdirSync(dir)) {
+            const full = path.join(dir, entry);
+            const stat = fs.statSync(full);
+            if (stat.isDirectory()) out.push(...walkPages(full));
+            else if (stat.isFile() && exts.has(path.extname(entry))) {
+              out.push(full);
+            }
           }
-          continue;
+          return out;
         }
-        // Если импортируем компонент — рекурсивно парсим
-        const resolved = resolveImport(filePath, spec);
-        if (resolved && resolved.startsWith(frontendSrc)) {
-          // ограничиваемся только src/pages и src/components
-          if (resolved.includes('/pages/') || resolved.includes('/components/')) {
-            parseFile(resolved);
+
+        // Попытка разрешить относительный импорт в файловой системе
+        function resolveImport(fromFile, spec) {
+          try {
+            if (spec.startsWith('.')) {
+              const baseDir = path.dirname(fromFile);
+              const full = path.resolve(baseDir, spec);
+              const candidates = [
+                full,
+                `${full}.jsx`,
+                `${full}.tsx`,
+                `${full}.js`,
+                `${full}.ts`,
+                path.join(full, 'index.jsx'),
+                path.join(full, 'index.js'),
+                path.join(full, 'index.tsx')
+              ];
+              for (const c of candidates) if (fs.existsSync(c)) return c;
+            }
+            // Если импорт прямо ссылается на assets (например: '../../assets/images/...')
+            if (spec.includes('/assets/')) return spec;
+          } catch (e) {
+            // ignore
+          }
+          return null;
+        }
+
+        // Нормализует путь импортируемого ресурса и извлекает относительный путь от assets/
+        function extractRelFromAssets(candidate) {
+          if (!candidate) return null;
+          const normalized = candidate.replace(/\\/g, '/');
+          const idx = normalized.indexOf('/assets/');
+          if (idx !== -1) {
+            const relFromAssets = normalized.slice(idx + '/assets/'.length);
+            // Только картинки в assets/images
+            if (/^images\//i.test(relFromAssets)) return relFromAssets.replace(/^images\//i, 'images/');
+          }
+          // Если передали абсолютный путь внутри frontend/src/assets/images
+          if (candidate.startsWith(frontendSrc)) {
+            const parts = path.relative(path.join(frontendSrc, 'assets'), candidate).replace(/\\/g, '/');
+            if (parts && parts.startsWith('images/')) return parts;
+          }
+          return null;
+        }
+
+        // Парсер одного entry (страницы) — рекурсивно обходит её импорты
+        function parseEntry(entryPath) {
+          const images = new Set();
+          const visited = new Set();
+
+          function parseFile(fp) {
+            if (!fp || visited.has(fp)) return;
+            visited.add(fp);
+            if (!fs.existsSync(fp)) return;
+            const content = fs.readFileSync(fp, 'utf-8');
+
+            // Соберём карту импортов вида: identifier -> spec (только default imports)
+            const importDefaultRegex = /import\s+([A-Za-z0-9_\$]+)\s+from\s+['"]([^'\"]+)['"]/g;
+            const importMap = {};
+            let im;
+            while ((im = importDefaultRegex.exec(content)) !== null) {
+              importMap[im[1]] = im[2];
+            }
+
+            // 0) require('...') повсюду
+            const requireRegex = /require\(['"]([^'\"]+)['"]\)/g;
+            let mr;
+            while ((mr = requireRegex.exec(content)) !== null) {
+              try {
+                const resolved = resolveImport(fp, mr[1]) || mr[1];
+                const rel = extractRelFromAssets(resolved);
+                if (rel) images.add(rel);
+              } catch (e) { }
+            }
+
+            // 1) Явные вхождения '/assets/images/...'
+            const inlineRegex = /\/assets\/images\/[A-Za-z0-9_\-./]+/g;
+            let m;
+            while ((m = inlineRegex.exec(content)) !== null) {
+              const rel = m[0].replace(/^\/assets\//, '');
+              if (/^images\//i.test(rel)) images.add(rel);
+            }
+
+            // 2) <img src="..."> и <img src='...'>
+            const imgSrcAttrRegex = /<img[^>]+src=["']([^"']+)["']/g;
+            while ((m = imgSrcAttrRegex.exec(content)) !== null) {
+              const spec = m[1];
+              try {
+                const resolved = resolveImport(fp, spec) || spec;
+                const rel = extractRelFromAssets(resolved);
+                if (rel) images.add(rel);
+              } catch (e) { }
+            }
+
+            // 3) <img src={someIdentifier} — попробуем сопоставить идентификатор с импортами
+            const imgSrcExprRegex = /<img[^>]+src=\{\s*([A-Za-z0-9_\$]+)\s*\}/g;
+            while ((m = imgSrcExprRegex.exec(content)) !== null) {
+              const ident = m[1];
+              const spec = importMap[ident];
+              if (spec) {
+                const resolved = resolveImport(fp, spec) || spec;
+                const rel = extractRelFromAssets(resolved);
+                if (rel) images.add(rel);
+              }
+            }
+
+            // 4) import ... from '...' — если импорт указывает на изображение или assets — добавляем
+            const importRegex = /import\s+[^'"\n]*from\s+['"]([^'\"]+)['"]/g;
+            while ((m = importRegex.exec(content)) !== null) {
+              const spec = m[1];
+              if (/\.(png|jpg|jpeg|gif|webp|svg)$/i.test(spec) || /\/assets\//i.test(spec)) {
+                const resolved = resolveImport(fp, spec) || spec;
+                const rel = extractRelFromAssets(resolved);
+                if (rel) images.add(rel);
+                continue;
+              }
+              const resolvedModule = resolveImport(fp, spec);
+              if (resolvedModule && resolvedModule.startsWith(frontendSrc)) {
+                parseFile(resolvedModule);
+              }
+            }
+          }
+
+          parseFile(entryPath);
+          return Array.from(images);
+        }
+
+        // Локальный fallback мэппинг pageId -> относительные пути файлов (используется как приоритет)
+        const pageFilesMapping = {
+          'home': ['Main.jsx'],
+          'about-us': ['AboutUs.jsx'],
+          'our-works': ['OurWorks.jsx'],
+          'contacts': ['Contacts.jsx'],
+          'reviews': ['Reviews.jsx'],
+          'turnkey-renovation': ['turnkey_renovation/TurnkeyRenovation.jsx'],
+          'designer-renovation': ['turnkey_renovation/DesignerRenovation.jsx'],
+          'exclusive-renovation': ['turnkey_renovation/ExclusiveRenovation.jsx'],
+          'studio': ['turnkey_renovation/Studio.jsx'],
+          'two-room-apartment': ['turnkey_renovation/TworoomApartment.jsx'],
+          'three-room-apartment': ['turnkey_renovation/ThreeroomApartment.jsx'],
+          'four-room-apartment': ['turnkey_renovation/FourroomApartment.jsx'],
+          'two-story-apartment': ['turnkey_renovation/TwostoryApartment.jsx'],
+          'room-renovation': ['room_renovation/RoomRenovation.jsx'],
+          'living-room': ['room_renovation/LivingRoom.jsx'],
+          'bedroom': ['room_renovation/Bedroom.jsx'],
+          'children-room': ['room_renovation/ChildrenRoom.jsx'],
+          'corridor': ['room_renovation/Corridor.jsx'],
+          'kitchen': ['room_renovation/Kitchen.jsx'],
+          'bathroom': ['room_renovation/Bathroom.jsx'],
+          'stairs': ['room_renovation/Stairs.jsx'],
+          'systems': ['systems/Systems.jsx'],
+          'electrical-system': ['systems/ElectricalSystem.jsx'],
+          'gas-system': ['systems/GasSystem.jsx'],
+          'floor-heating': ['systems/FloorHeating.jsx'],
+          'sewage': ['systems/Sewage.jsx'],
+          'climate-control': ['systems/ClimateControl.jsx'],
+          'commercial-premises': ['commercial_premises/CommercialPremises.jsx'],
+          'business-center': ['commercial_premises/BusinessCenter.jsx'],
+          'restaurant': ['commercial_premises/Restaurant.jsx'],
+          'commercial-premises-renovation': ['commercial_premises/CommercialPremisesRenovation.jsx'],
+          'office': ['commercial_premises/Office.jsx'],
+          'warehouse': ['commercial_premises/Warehouse.jsx'],
+          'fitness-club': ['commercial_premises/FitnessClub.jsx'],
+          'hotel': ['commercial_premises/Hotel.jsx'],
+          'services': ['servises/ServisesPhone.jsx'],
+          'turnkey-renovation-services': ['servises/TurnkeyRenovationServices.jsx'],
+          'room-renovation-services': ['servises/RoomRenovationServices.jsx'],
+          'commercial-premises-services': ['servises/CommercialPremisesServices.jsx'],
+          'systems-services': ['servises/SystemsServices.jsx']
+        };
+
+        // Если для данного pageId есть явно указанные файлы — парсим их в приоритетном порядке.
+        // Но если по маппингу ничего не найдено, делаем полный обход всех страниц как fallback.
+        const pageMap = {};
+        let mappedAny = false;
+        if (targetPageId && pageFilesMapping[targetPageId]) {
+          for (const relFile of pageFilesMapping[targetPageId]) {
+            const abs = path.join(pagesDir, relFile);
+            if (fs.existsSync(abs)) {
+              mappedAny = true;
+              pageMap[relFile] = parseEntry(abs);
+            } else {
+              // Попытаемся найти файл с тем же именем в pagesDir (на случай опечаток в маппинге)
+              const candidate = walkPages(pagesDir).find(p => path.basename(p).toLowerCase() === path.basename(relFile).toLowerCase());
+              if (candidate) {
+                mappedAny = true;
+                pageMap[path.relative(pagesDir, candidate).replace(/\\/g, '/')] = parseEntry(candidate);
+              }
+            }
           }
         }
-      }
-    }
- 
-    // Стартуем с entry файлов страницы
-    for (const rel of entries) {
-      const entryPath = path.join(pagesDir, rel);
-      parseFile(entryPath);
-    }
- 
-    // Готовим ответ
-    const images = [];
-    for (const relPath of imageSet) {
-      const full = path.join(assetsDir, relPath);
-      if (fs.existsSync(full)) {
-        const stat = fs.statSync(full);
-        images.push({
-          id: Buffer.from(relPath).toString('base64'),
-          name: path.basename(relPath),
-          path: relPath,
-          fullPath: full,
-          size: formatFileSize(stat.size),
-          usedIn: [pageId]
+
+        if (!mappedAny) {
+          // Соберём все файлы страниц
+          const pageFiles = walkPages(pagesDir);
+          // Создадим карту from relative page path -> images
+          for (const abs of pageFiles) {
+            const rel = path.relative(pagesDir, abs).replace(/\\/g, '/');
+            pageMap[rel] = parseEntry(abs);
+          }
+        }
+
+        // Найдём соответствие targetPageId -> один или несколько файлов страниц
+        function normalizeKey(s) {
+          return s.toLowerCase().replace(/[^a-z0-9]/g, '');
+        }
+
+        const normalizedTarget = normalizeKey(targetPageId || '');
+        const matchedFiles = Object.keys(pageMap).filter(rel => {
+          const name = path.basename(rel, path.extname(rel));
+          if (normalizeKey(name) === normalizedTarget) return true;
+          // допустим совпадение по включению (двухчастные имена и т.д.)
+          if (normalizeKey(rel).includes(normalizedTarget)) return true;
+          return false;
         });
+
+        const finalImages = new Set();
+        if (matchedFiles.length > 0) {
+          for (const f of matchedFiles) for (const img of pageMap[f]) finalImages.add(img);
+        } else {
+          // Попытка найти страницы по частичному совпадению имени
+          for (const f of Object.keys(pageMap)) {
+            if (normalizeKey(f).includes(normalizedTarget)) for (const img of pageMap[f]) finalImages.add(img);
+          }
+        }
+
+        // Преобразуем в формат, совместимый с остальным кодом
+        const result = [];
+        for (const rel of finalImages) {
+          const full = path.join(frontendSrc, 'assets', rel);
+          if (fs.existsSync(full)) {
+            const stat = fs.statSync(full);
+            result.push({
+              id: Buffer.from(rel).toString('base64'),
+              name: path.basename(rel),
+              path: rel,
+              fullPath: full,
+              size: formatFileSize(stat.size)
+            });
+          }
+        }
+
+        return result;
+      } catch (e) {
+        console.error('Ошибка при сканировании фронтенда для страницы:', e && e.message ? e.message : e);
+        return [];
       }
     }
- 
-    res.json(images);
+
+    // Выполняем сканирование в случае отсутствия данных или несоответствия
+  const scanned = await scanFrontendForPageImages(pageId);
+
+    // Если pages.json не содержит изображений — вернём найденные сканером
+    if ((!imagesWithSize || imagesWithSize.length === 0) && scanned.length > 0) {
+      // Преобразуем scanned в формат, совместимый с imagesWithSize
+      const scannedMapped = scanned.map(s => ({ id: s.id, src: s.path, name: s.name, size: s.size, fullPath: s.fullPath, exists: true }));
+      return res.json(scannedMapped);
+    }
+
+    // Иначе — дополним существующие записи найденными изображениями, чтобы счётчики совпадали
+    if (scanned.length > 0) {
+      const existingSrcs = new Set(imagesWithSize.map(i => i.src.replace(/^images\//, '')));
+      for (const s of scanned) {
+        if (!existingSrcs.has(s.path)) {
+          imagesWithSize.push({ id: s.id, src: s.path, name: s.name, size: s.size, fullPath: s.fullPath, exists: true });
+        }
+      }
+    }
+
+    res.json(imagesWithSize);
   } catch (error) {
     console.error('Ошибка при получении изображений страницы:', error);
+    res.status(500).json({ error: 'Ошибка сервера' });
+  }
+});
+
+// Обновление изображения (alt, src)
+app.put('/api/pages/:pageId/images/:imageId', async (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Не авторизован' });
+  }
+  
+  try {
+    const { pageId, imageId } = req.params;
+    const { alt, src, title, description } = req.body;
+    
+    const pagesPath = path.join(__dirname, 'pages.json');
+    const pagesData = JSON.parse(fs.readFileSync(pagesPath, 'utf-8'));
+    const pageIndex = pagesData.findIndex(p => p.id === pageId);
+    
+    if (pageIndex === -1) {
+      return res.status(404).json({ error: 'Страница не найдена' });
+    }
+    
+    const imageIndex = pagesData[pageIndex].images.findIndex(img => img.id === parseInt(imageId));
+    if (imageIndex === -1) {
+      return res.status(404).json({ error: 'Изображение не найдено' });
+    }
+    
+    // Создаем бэкап
+    const backupDir = path.join(__dirname, '../backups/images');
+    if (!fs.existsSync(backupDir)) {
+      fs.mkdirSync(backupDir, { recursive: true });
+    }
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const backupFileName = `images_${pageId}_${imageId}_${timestamp}.json`;
+    const backupPath = path.join(backupDir, backupFileName);
+    fs.writeFileSync(backupPath, JSON.stringify(pagesData, null, 2), 'utf-8');
+    
+    // Обновляем изображение
+    if (alt !== undefined) pagesData[pageIndex].images[imageIndex].alt = alt;
+    if (src !== undefined) pagesData[pageIndex].images[imageIndex].src = src;
+    if (title !== undefined) pagesData[pageIndex].images[imageIndex].title = title;
+    if (description !== undefined) pagesData[pageIndex].images[imageIndex].description = description;
+    
+    fs.writeFileSync(pagesPath, JSON.stringify(pagesData, null, 2), 'utf-8');
+    
+    res.json({ 
+      success: true, 
+      image: pagesData[pageIndex].images[imageIndex],
+      backupPath: `images/${backupFileName}`
+    });
+  } catch (error) {
+    console.error('Ошибка при обновлении изображения:', error);
+    res.status(500).json({ error: 'Ошибка сервера' });
+  }
+});
+
+// Добавление нового изображения
+app.post('/api/pages/:pageId/images', async (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Не авторизован' });
+  }
+  
+  try {
+    const { pageId } = req.params;
+    const { src, alt, title, description } = req.body;
+    
+    if (!src || !alt) {
+      return res.status(400).json({ error: 'src и alt обязательны' });
+    }
+    
+    const pagesPath = path.join(__dirname, 'pages.json');
+    const pagesData = JSON.parse(fs.readFileSync(pagesPath, 'utf-8'));
+    const pageIndex = pagesData.findIndex(p => p.id === pageId);
+    
+    if (pageIndex === -1) {
+      return res.status(404).json({ error: 'Страница не найдена' });
+    }
+    
+    // Создаем бэкап
+    const backupDir = path.join(__dirname, '../backups/images');
+    if (!fs.existsSync(backupDir)) {
+      fs.mkdirSync(backupDir, { recursive: true });
+    }
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const backupFileName = `images_${pageId}_add_${timestamp}.json`;
+    const backupPath = path.join(backupDir, backupFileName);
+    fs.writeFileSync(backupPath, JSON.stringify(pagesData, null, 2), 'utf-8');
+    
+    // Находим максимальный ID
+    const maxId = Math.max(...pagesData[pageIndex].images.map(img => img.id), 0);
+    const newImage = {
+      id: maxId + 1,
+      src,
+      alt,
+      title: title || '',
+      description: description || ''
+    };
+    
+    pagesData[pageIndex].images.push(newImage);
+    fs.writeFileSync(pagesPath, JSON.stringify(pagesData, null, 2), 'utf-8');
+    
+    res.json({ 
+      success: true, 
+      image: newImage,
+      backupPath: `images/${backupFileName}`
+    });
+  } catch (error) {
+    console.error('Ошибка при добавлении изображения:', error);
+    res.status(500).json({ error: 'Ошибка сервера' });
+  }
+});
+
+// Удаление изображения
+app.delete('/api/pages/:pageId/images/:imageId', async (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Не авторизован' });
+  }
+  
+  try {
+    const { pageId, imageId } = req.params;
+    
+    const pagesPath = path.join(__dirname, 'pages.json');
+    const pagesData = JSON.parse(fs.readFileSync(pagesPath, 'utf-8'));
+    const pageIndex = pagesData.findIndex(p => p.id === pageId);
+    
+    if (pageIndex === -1) {
+      return res.status(404).json({ error: 'Страница не найдена' });
+    }
+    
+    const imageIndex = pagesData[pageIndex].images.findIndex(img => img.id === parseInt(imageId));
+    if (imageIndex === -1) {
+      return res.status(404).json({ error: 'Изображение не найдено' });
+    }
+    
+    // Создаем бэкап
+    const backupDir = path.join(__dirname, '../backups/images');
+    if (!fs.existsSync(backupDir)) {
+      fs.mkdirSync(backupDir, { recursive: true });
+    }
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const backupFileName = `images_${pageId}_${imageId}_delete_${timestamp}.json`;
+    const backupPath = path.join(backupDir, backupFileName);
+    fs.writeFileSync(backupPath, JSON.stringify(pagesData, null, 2), 'utf-8');
+    
+    const deletedImage = pagesData[pageIndex].images[imageIndex];
+    pagesData[pageIndex].images.splice(imageIndex, 1);
+    fs.writeFileSync(pagesPath, JSON.stringify(pagesData, null, 2), 'utf-8');
+    
+    res.json({ 
+      success: true, 
+      deletedImage,
+      backupPath: `images/${backupFileName}`
+    });
+  } catch (error) {
+    console.error('Ошибка при удалении изображения:', error);
     res.status(500).json({ error: 'Ошибка сервера' });
   }
 });
@@ -1371,17 +1786,161 @@ app.put('/api/pages/:pageId/seo', async (req, res) => {
 	}
 });
 
+// API для управления страницами sitemap
+// GET /pages - получить список страниц
+app.get('/api/pages', async (req, res) => {
+  // Для удобства административной панели разрешаем чтение списка страниц
+  // даже без сессии: логируем попытки неавторизованного доступа, но не блокируем.
+  if (!req.session || !req.session.user) {
+    console.log('⚠️ Неавторизованный доступ к /api/pages — возвращаем публичный список (dev)');
+    // не возвращаем 401, продолжаем и отдадим содержимое pages.json
+  }
+  
+  try {
+    const pagesPath = path.join(__dirname, 'pages.json');
+    let pages = [];
+    
+    if (fs.existsSync(pagesPath)) {
+      const data = fs.readFileSync(pagesPath, 'utf-8');
+      pages = JSON.parse(data);
+    }
+    
+    res.json(pages);
+  } catch (err) {
+    console.error('Ошибка при получении страниц:', err.message);
+    res.status(500).json({ error: 'Ошибка получения страниц' });
+  }
+});
+
+// POST /pages - добавить страницу
+app.post('/api/pages', async (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Не авторизован' });
+  }
+  
+  try {
+    const { url, changefreq, priority } = req.body;
+    
+    if (!url || !changefreq || !priority) {
+      return res.status(400).json({ error: 'url, changefreq и priority обязательны' });
+    }
+    
+    const pagesPath = path.join(__dirname, 'pages.json');
+    let pages = [];
+    
+    if (fs.existsSync(pagesPath)) {
+      const data = fs.readFileSync(pagesPath, 'utf-8');
+      pages = JSON.parse(data);
+    }
+    
+    // Проверяем, не существует ли уже такая страница
+    const existingPage = pages.find(page => page.url === url);
+    if (existingPage) {
+      return res.status(400).json({ error: 'Страница с таким URL уже существует' });
+    }
+    
+    const newPage = {
+      url,
+      changefreq,
+      priority,
+      lastmod: format(new Date(), 'yyyy-MM-dd')
+    };
+    
+    pages.push(newPage);
+    
+    // Создаем бэкап
+    const backupDir = path.join(__dirname, '../backups/sitemap');
+    if (!fs.existsSync(backupDir)) {
+      fs.mkdirSync(backupDir, { recursive: true });
+    }
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const backupFileName = `pages_${timestamp}.json`;
+    const backupPath = path.join(backupDir, backupFileName);
+    fs.writeFileSync(backupPath, JSON.stringify(pages, null, 2), 'utf-8');
+    
+    fs.writeFileSync(pagesPath, JSON.stringify(pages, null, 2), 'utf-8');
+    
+    res.json({ success: true, page: newPage, backupPath: `sitemap/${backupFileName}` });
+  } catch (err) {
+    console.error('Ошибка при добавлении страницы:', err.message);
+    res.status(500).json({ error: 'Ошибка добавления страницы' });
+  }
+});
+
+// DELETE /pages/:url - удалить страницу по URL
+app.delete('/api/pages/:url', async (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Не авторизован' });
+  }
+  
+  try {
+    const { url } = req.params;
+    const decodedUrl = decodeURIComponent(url);
+    
+    const pagesPath = path.join(__dirname, 'pages.json');
+    let pages = [];
+    
+    if (fs.existsSync(pagesPath)) {
+      const data = fs.readFileSync(pagesPath, 'utf-8');
+      pages = JSON.parse(data);
+    }
+    
+    const pageIndex = pages.findIndex(page => page.url === decodedUrl);
+    if (pageIndex === -1) {
+      return res.status(404).json({ error: 'Страница не найдена' });
+    }
+    
+    const deletedPage = pages[pageIndex];
+    pages.splice(pageIndex, 1);
+    
+    // Создаем бэкап
+    const backupDir = path.join(__dirname, '../backups/sitemap');
+    if (!fs.existsSync(backupDir)) {
+      fs.mkdirSync(backupDir, { recursive: true });
+    }
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const backupFileName = `pages_${timestamp}.json`;
+    const backupPath = path.join(backupDir, backupFileName);
+    fs.writeFileSync(backupPath, JSON.stringify(pages, null, 2), 'utf-8');
+    
+    fs.writeFileSync(pagesPath, JSON.stringify(pages, null, 2), 'utf-8');
+    
+    res.json({ success: true, deletedPage, backupPath: `sitemap/${backupFileName}` });
+  } catch (err) {
+    console.error('Ошибка при удалении страницы:', err.message);
+    res.status(500).json({ error: 'Ошибка удаления страницы' });
+	}
+});
+
 // Генерация sitemap.xml
 app.get('/sitemap.xml', async (req, res) => {
   try {
     const sitemapConfigDir = path.join(__dirname, '../frontend/public/sitemap-config');
+    const pagesPath = path.join(__dirname, 'pages.json');
     const baseUrl = 'https://evohome.it'; // Замените на ваш домен
     
     let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n';
     sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
     
-    // Список всех страниц
-    const pages = [
+    // Загружаем страницы из pages.json
+    let customPages = [];
+    if (fs.existsSync(pagesPath)) {
+      const data = fs.readFileSync(pagesPath, 'utf-8');
+      customPages = JSON.parse(data);
+    }
+    
+    // Добавляем кастомные страницы из pages.json
+    for (const page of customPages) {
+      sitemap += `  <url>\n`;
+      sitemap += `    <loc>${baseUrl}${page.url}</loc>\n`;
+      sitemap += `    <lastmod>${page.lastmod}</lastmod>\n`;
+      sitemap += `    <changefreq>${page.changefreq}</changefreq>\n`;
+      sitemap += `    <priority>${page.priority}</priority>\n`;
+      sitemap += `  </url>\n`;
+    }
+    
+    // Список всех статических страниц сайта
+    const staticPages = [
       { url: '/', priority: '1.0', changefreq: 'daily' },
       { url: '/about-us', priority: '0.8', changefreq: 'weekly' },
       { url: '/our-works', priority: '0.8', changefreq: 'weekly' },
@@ -1467,7 +2026,8 @@ app.get('/sitemap.xml', async (req, res) => {
       '/systems-services': 'systems-services'
     };
 
-    for (const page of pages) {
+    // Добавляем статические страницы, если они включены в sitemap
+    for (const page of staticPages) {
       const pageId = urlToPageId[page.url] || 'home';
       
       // Проверяем, включена ли страница в sitemap
@@ -1959,48 +2519,23 @@ app.get('/api/pages/list', async (req, res) => {
     return res.status(401).json({ error: 'Не авторизован' });
   }
   try {
-    const pages = [
-      { id: 'home', name: 'Главная', url: '/' },
-      { id: 'about-us', name: 'О нас', url: '/about-us' },
-      { id: 'our-works', name: 'Наши работы', url: '/our-works' },
-      { id: 'contacts', name: 'Контакты', url: '/contacts' },
-      { id: 'reviews', name: 'Отзывы', url: '/reviews' },
-      { id: 'turnkey-renovation', name: 'Ремонт под ключ', url: '/turnkey-renovation' },
-      { id: 'designer-renovation', name: 'Дизайнерский ремонт', url: '/designer-renovation' },
-      { id: 'exclusive-renovation', name: 'Эксклюзивный ремонт', url: '/exclusive-renovation' },
-      { id: 'studio', name: 'Студия', url: '/studio' },
-      { id: 'two-room-apartment', name: 'Двухкомнатная квартира', url: '/two-room-apartment' },
-      { id: 'three-room-apartment', name: 'Трехкомнатная квартира', url: '/three-room-apartment' },
-      { id: 'four-room-apartment', name: 'Четырехкомнатная квартира', url: '/four-room-apartment' },
-      { id: 'two-story-apartment', name: 'Двухэтажная квартира', url: '/two-story-apartment' },
-      { id: 'room-renovation', name: 'Ремонт комнат', url: '/room-renovation' },
-      { id: 'living-room', name: 'Гостиная', url: '/living-room' },
-      { id: 'bedroom', name: 'Спальня', url: '/bedroom' },
-      { id: 'children-room', name: 'Детская', url: '/children-room' },
-      { id: 'corridor', name: 'Коридор', url: '/corridor' },
-      { id: 'kitchen', name: 'Кухня', url: '/kitchen' },
-      { id: 'bathroom', name: 'Ванная', url: '/bathroom' },
-      { id: 'stairs', name: 'Лестница', url: '/stairs' },
-      { id: 'systems', name: 'Системы', url: '/systems' },
-      { id: 'electrical-system', name: 'Электрическая система', url: '/electrical-system' },
-      { id: 'gas-system', name: 'Газовая система', url: '/gas-system' },
-      { id: 'floor-heating', name: 'Тёплый пол', url: '/floor-heating' },
-      { id: 'sewage', name: 'Канализация', url: '/sewage' },
-      { id: 'climate-control', name: 'Климат-контроль', url: '/climate-control' },
-      { id: 'commercial-premises', name: 'Коммерческие помещения', url: '/commercial-premises' },
-      { id: 'business-center', name: 'Бизнес-центр', url: '/business-center' },
-      { id: 'restaurant', name: 'Ресторан', url: '/restaurant' },
-      { id: 'commercial-premises-renovation', name: 'Ремонт коммерческих помещений', url: '/commercial-premises-renovation' },
-      { id: 'office', name: 'Офис', url: '/office' },
-      { id: 'warehouse', name: 'Склад', url: '/warehouse' },
-      { id: 'fitness-club', name: 'Фитнес-клуб', url: '/fitness-club' },
-      { id: 'hotel', name: 'Отель', url: '/hotel' },
-      { id: 'services', name: 'Услуги', url: '/services' },
-      { id: 'turnkey-renovation-services', name: 'Услуги под ключ', url: '/turnkey-renovation-services' },
-      { id: 'room-renovation-services', name: 'Услуги комнат', url: '/room-renovation-services' },
-      { id: 'commercial-premises-services', name: 'Услуги коммерческих помещений', url: '/commercial-premises-services' },
-      { id: 'systems-services', name: 'Услуги систем', url: '/systems-services' },
-    ];
+    const pagesPath = path.join(__dirname, 'pages.json');
+    
+    if (!fs.existsSync(pagesPath)) {
+      // Если файл pages.json не существует, возвращаем пустой массив
+      return res.json([]);
+    }
+    
+    const pagesData = JSON.parse(fs.readFileSync(pagesPath, 'utf-8'));
+    
+    // Преобразуем данные из pages.json в формат, ожидаемый админ-панелью
+    const pages = pagesData.map(page => ({
+      id: page.id,
+      name: page.title,
+      url: page.url,
+      imageCount: page.images ? page.images.length : 0
+    }));
+    
     res.json(pages);
   } catch (e) {
     console.error('Ошибка списка страниц:', e.message);

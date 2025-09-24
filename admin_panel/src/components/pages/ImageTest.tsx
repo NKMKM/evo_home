@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 interface ImageTestProps {
   backendUrl: string;
@@ -23,7 +23,7 @@ export function ImageTest({ backendUrl }: ImageTestProps) {
         
         if (response.ok) {
           const images = await response.json();
-          const imagePaths = images.map((img: any) => img.path).slice(0, 10); // Берем первые 10
+          const imagePaths = images.map((img: any) => img.src || img.path).slice(0, 10); // Берем первые 10
           setPageImages(imagePaths);
           console.log('Получены пути изображений:', imagePaths);
         }
@@ -43,7 +43,7 @@ export function ImageTest({ backendUrl }: ImageTestProps) {
       setTestResults(prev => [...prev, { path: imagePath, status: 'loading' }]);
       
       try {
-        const response = await fetch(`${backendUrl}/frontend-assets/${imagePath}`, {
+        const response = await fetch(`${backendUrl}/frontend-assets/images/${imagePath}`, {
           credentials: 'include'
         });
         
