@@ -1,48 +1,52 @@
 {
-    "title": "🏨 Hotel Renovation in Rome | Professional Services for Complete Renewal",
-    "description": "Hotel renovations in Rome. We offer quality and competitive advantages for your hotel. Call for a customized quote 📞 +39 327 986 6412",
-    "h": "Hotel Renovation",
-    "header": {
-      "h": "Hotel Renovation by EVO HOME",
-      "p1": "In Rome, the hospitality industry is constantly expanding thanks to the steady influx of tourists from around the world. However, maintaining a high level of comfort and hospitality requires regular maintenance and periodic renovations. Competition is fierce, and for hoteliers, the quality of the environment is crucial, as it ensures positive reviews and customer loyalty.",
-      "p2": "Renovation is not just a matter of aesthetics — it directly affects the quality of guest experience. Now more than ever, hotel owners need to ensure that their spaces are modern, functional, and in perfect condition. Not only guest rooms but also common areas, restaurants, spas, and every corner of the hotel contribute to the overall image and appeal of the property.",
-      "button": "ORDER NOW"
-    },
-    "process": {
-      "h": "More About Hotel Renovation",
-      "ul": {
-        "1": {
-          "h": "AESTHETIC RENOVATION",
-          "p": "Ideal for those who want to refresh the hotel’s look without invasive structural work.",
-          "li1": "Painting and refinishing",
-          "li2": "Replacing floors and coverings",
-          "li3": "New lighting and minor design updates",
-          "li4": "Prices from €500/m²"
-        },
-        "2": {
-          "h": "FULL RENOVATION",
-          "p": "This option involves more complex work, which may include reconfiguring floor layouts and upgrading systems.",
-          "li1": "Replacement of windows and doors",
-          "li2": "Bathroom and kitchen renovation",
-          "li3": "Prices from €1000/m²"
-        },
-        "3": {
-          "h": "LUXURY RENOVATION",
-          "p": "For those who want to offer their guests an exclusive experience, we can create elegant spaces.",
-          "li1": "Use of luxurious materials such as marble and fine woods",
-          "li2": "Design of functional and modern environments",
-          "li3": "Prices from €1750/m²"
-        },
-        "4": {
-          "h": "HIGH-QUALITY MATERIALS",
-          "p": "We use only high-quality materials to ensure long-lasting and durable results."
-        },
-        "5": {
-          "h": "ON-TIME DELIVERY",
-          "p": "We understand how important it is to reopen the hotel quickly, and we are committed to meeting agreed deadlines."
-        }
+  "title": "🏨 Hotel Renovation in Rome | Professional Services for Complete Renewal",
+  "description": "Hotel renovations in Rome. We offer quality and competitive advantages for your hotel. Call for a customized quote 📞 +39 327 986 6412",
+  "h": "Hotel Renovation",
+  "header": {
+    "h": "Hotel Renovation by EVO HOME",
+    "p1": "In Rome, the hospitality industry is constantly expanding thanks to the steady influx of tourists from around the world. However, maintaining a high level of comfort and hospitality requires regular maintenance and periodic renovations. Competition is fierce, and for hoteliers, the quality of the environment is crucial, as it ensures positive reviews and customer loyalty.",
+    "p2": "Renovation is not just a matter of aesthetics — it directly affects the quality of guest experience. Now more than ever, hotel owners need to ensure that their spaces are modern, functional, and in perfect condition. Not only guest rooms but also common areas, restaurants, spas, and every corner of the hotel contribute to the overall image and appeal of the property.",
+    "button": "ORDER NOW"
+  },
+  "process": {
+    "h": "More About Hotel Renovation",
+    "ul": {
+      "1": {
+        "h": "AESTHETIC RENOVATION",
+        "p": "Ideal for those who want to refresh the hotel’s look without invasive structural work.",
+        "li1": "Painting and refinishing",
+        "li2": "Replacing floors and coverings",
+        "li3": "New lighting and minor design updates",
+        "li4": "Prices from €500/m²"
       },
-      "video_text": "Hotel Renovation by EVO HOME"
-    }
-  }
-  
+      "2": {
+        "h": "FULL RENOVATION",
+        "p": "This option involves more complex work, which may include reconfiguring floor layouts and upgrading systems.",
+        "li1": "Replacement of windows and doors",
+        "li2": "Bathroom and kitchen renovation",
+        "li3": "Prices from €1000/m²"
+      },
+      "3": {
+        "h": "LUXURY RENOVATION",
+        "p": "For those who want to offer their guests an exclusive experience, we can create elegant spaces.",
+        "li1": "Use of luxurious materials such as marble and fine woods",
+        "li2": "Design of functional and modern environments",
+        "li3": "Prices from €1750/m²"
+      },
+      "4": {
+        "h": "HIGH-QUALITY MATERIALS",
+        "p": "We use only high-quality materials to ensure long-lasting and durable results."
+      },
+      "5": {
+        "h": "ON-TIME DELIVERY",
+        "p": "We understand how important it is to reopen the hotel quickly, and we are committed to meeting agreed deadlines."
+      }
+    },
+    "video_text": "Hotel Renovation by EVO HOME"
+  },
+  "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+  "ogTitle": "🏨 Hotel Renovation in Rome | Professional Services for Complete Renewal",
+  "ogDescription": "Hotel renovations in Rome. We offer quality and competitive advantages for your hotel. Call for a customized quote 📞 +39 327 986 6412",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
+}

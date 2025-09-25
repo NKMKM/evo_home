@@ -1,0 +1,33 @@
+{
+  "pageId": "home",
+  "timestamp": "2025-09-24T17:32:22.736Z",
+  "languages": {
+    "ru": {
+      "title": "2345678",
+      "description": "Вам нужен ремонт дома в Риме? Обратитесь к профессионалам. EVO HOME — самая надежная строительная компания для ремонта «под ключ» домов, квартир, коммерческих помещений и отдельных объектов.",
+      "keywords": "ремонт, строительство, Рим, Evo Home, ремонт под ключ",
+      "ogTitle": "EVO HOME – строительная компания, строительство и реконструкция в Риме",
+      "ogDescription": "Вам нужен ремонт дома в Риме? Обратитесь к профессионалам. EVO HOME — самая надежная строительная компания для ремонта «под ключ» домов, квартир, коммерческих помещений и отдельных объектов.",
+      "ogImage": "https://example.com/21312312.pnf",
+      "canonical": "https://evohome.it"
+    },
+    "en": {
+      "title": "EVO HOME – construction company, building and renovations in Rome",
+      "description": "Need home renovations in Rome? Trust the professionals. EVO HOME is the most reliable construction company for turnkey renovations of houses, apartments, commercial spaces, and independent properties.",
+      "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+      "ogTitle": "EVO HOME – construction company, building and renovations in Rome",
+      "ogDescription": "Need home renovations in Rome? Trust the professionals. EVO HOME is the most reliable construction company for turnkey renovations of houses, apartments, commercial spaces, and independent properties.",
+      "ogImage": "/team_images/founder.png",
+      "canonical": "https://evohome.it"
+    },
+    "it": {
+      "title": "EVO HOME impresa edile, costruzioni e ristrutturazioni a Roma",
+      "description": "Hai bisogno di ristrutturare casa a Roma? Rivolgiti a professionisti del settore. EVO HOME è l'Impresa edile più affidabile per la ristrutturazione chiavi in mano di case, appartamenti, locali commerciali e soluzioni indipendenti.",
+      "keywords": "ristrutturazione, costruzioni, Roma, Evo Home, ristrutturazione chiavi in mano",
+      "ogTitle": "EVO HOME impresa edile, costruzioni e ristrutturazioni a Roma",
+      "ogDescription": "Hai bisogno di ristrutturare casa a Roma? Rivolgiti a professionisti del settore. EVO HOME è l'Impresa edile più affidabile per la ristrutturazione chiavi in mano di case, appartamenti, locali commerciali e soluzioni indipendenti.",
+      "ogImage": "/team_images/founder.png",
+      "canonical": "https://evohome.it"
+    }
+  }
+}

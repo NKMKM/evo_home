@@ -1,11 +1,16 @@
 {
-    "h": "Scegli la Ristrutturazione che Ami",
-    "p": "La tua casa - il nostro lavoro",
-    "p1": "Business Center",
-    "p2": "Ristrutturazione di Lusso",
-    "p3": "Ristrutturazione Monolocale",
-    "p4": "Ristrutturazione Bilocale",
-    "p5": "Ristrutturazione Trilocale",
-    "p6": "Ristrutturazione Attico/Duplex",
-    "button":"SCOPRI"
+  "h": "Scegli la Ristrutturazione che Ami",
+  "p": "La tua casa - il nostro lavoro",
+  "p1": "Business Center",
+  "p2": "Ristrutturazione di Lusso",
+  "p3": "Ristrutturazione Monolocale",
+  "p4": "Ristrutturazione Bilocale",
+  "p5": "Ristrutturazione Trilocale",
+  "p6": "Ristrutturazione Attico/Duplex",
+  "button": "SCOPRI",
+  "keywords": "ristrutturazione, costruzioni, Roma, Evo Home, ristrutturazione chiavi in mano",
+  "ogTitle": "Evo Home - Società di Costruzioni a Roma",
+  "ogDescription": "Società di costruzioni a Roma Evo Home - il tuo partner affidabile",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
 }

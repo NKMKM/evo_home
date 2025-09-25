@@ -38,5 +38,10 @@
   "turnkeyRenovationServices": "Услуги ремонта под ключ",
   "roomRenovationServices": "Услуги ремонта комнат",
   "commercialPremisesServices": "Услуги коммерческих помещений",
-  "systemsServices": "Услуги систем"
+  "systemsServices": "Услуги систем",
+  "keywords": "ремонт, строительство, Рим, Evo Home, ремонт под ключ",
+  "ogTitle": "Evo Home - Строительная компания в Риме",
+  "ogDescription": "Строительная компания в Риме Evo Home - ваш надежный партнер",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
 }

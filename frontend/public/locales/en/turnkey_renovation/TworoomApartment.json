@@ -1,35 +1,39 @@
 {
-    "title": "🏡 Two-Room Apartment Renovations | High Quality in Rome | Make Your Dream Come True",
-    "description": "Two-room apartment renovation in Rome: discover how to transform your space into a work of art. Contact us to get started. 📞 +39 327 986 6412",
-    "h": "Two-Room Apartments",
-    "header": {
-      "h": "Two-Room Apartments by EVO HOME",
-      "p1": "At EvoHome, specialists in the renovation of two-room apartments, we believe in the power of transforming any space into the perfect living environment. With over 17 years of experience in the renovation industry, we proudly offer high-quality services in Rome and its surroundings. Our promise? Impeccable renovation starting at just €500 per square meter.",
-      "p2": "We create functional and stylish interiors for two-room apartments, tailored to your preferences and modern trends. We optimize the space, select quality materials, and implement advanced technologies to ensure comfort and convenience. EVO HOME – renovations that make your apartment the perfect place to live.",
-      "button": "ORDER"
-    },
-    "process": {
-      "h": "More About Two-Room Apartment Renovation",
-      "p": "Our specialist performs accurate on-site measurements. If the project involves reconstruction, we determine which walls can be modified while ensuring compliance with current regulations and maximum safety.",
-      "ul": {
-        "1": {
-          "h": "CUSTOM PLANNING",
-          "p": "We design unique projects tailored to your lifestyle, needs, and preferences. We optimize the layout, create comfortable functional zones, choose stylish materials, and modern lighting. Every interior is meticulously planned to ensure comfort, aesthetics, and practicality. EVO HOME – where design meets style and convenience."
-        },
-        "2": {
-          "h": "SPACE OPTIMIZATION",
-          "p": "We develop smart solutions to make the most of every square meter. Proper zoning, built-in furniture, multi-level lighting, and modern technologies help create a spacious, cozy, and stylish interior. EVO HOME – well-thought-out spaces for comfortable living."
-        },
-        "3": {
-          "h": "HIGH-QUALITY MATERIALS",
-          "p": "We use only trusted and premium materials that ensure durability, eco-friendliness, and visual appeal. Natural wood, wear-resistant coatings, and modern decorative elements – everything to create a cozy and long-lasting interior. EVO HOME – quality you can see and feel."
-        },
-        "4": {
-          "h": "SMART HOME TECHNOLOGY",
-          "p": "We integrate modern automation systems that allow you to control lighting, climate, security, and appliances through your smartphone or voice commands. Smart solutions make your home comfortable, energy-efficient, and reliable. EVO HOME – future-ready technologies for your comfort."
-        }
+  "title": "🏡 Two-Room Apartment Renovations | High Quality in Rome | Make Your Dream Come True",
+  "description": "Two-room apartment renovation in Rome: discover how to transform your space into a work of art. Contact us to get started. 📞 +39 327 986 6412",
+  "h": "Two-Room Apartments",
+  "header": {
+    "h": "Two-Room Apartments by EVO HOME",
+    "p1": "At EvoHome, specialists in the renovation of two-room apartments, we believe in the power of transforming any space into the perfect living environment. With over 17 years of experience in the renovation industry, we proudly offer high-quality services in Rome and its surroundings. Our promise? Impeccable renovation starting at just €500 per square meter.",
+    "p2": "We create functional and stylish interiors for two-room apartments, tailored to your preferences and modern trends. We optimize the space, select quality materials, and implement advanced technologies to ensure comfort and convenience. EVO HOME – renovations that make your apartment the perfect place to live.",
+    "button": "ORDER"
+  },
+  "process": {
+    "h": "More About Two-Room Apartment Renovation",
+    "p": "Our specialist performs accurate on-site measurements. If the project involves reconstruction, we determine which walls can be modified while ensuring compliance with current regulations and maximum safety.",
+    "ul": {
+      "1": {
+        "h": "CUSTOM PLANNING",
+        "p": "We design unique projects tailored to your lifestyle, needs, and preferences. We optimize the layout, create comfortable functional zones, choose stylish materials, and modern lighting. Every interior is meticulously planned to ensure comfort, aesthetics, and practicality. EVO HOME – where design meets style and convenience."
       },
-      "video_text": "Two-Room Apartment Renovation by EVO HOME"
-    }
+      "2": {
+        "h": "SPACE OPTIMIZATION",
+        "p": "We develop smart solutions to make the most of every square meter. Proper zoning, built-in furniture, multi-level lighting, and modern technologies help create a spacious, cozy, and stylish interior. EVO HOME – well-thought-out spaces for comfortable living."
+      },
+      "3": {
+        "h": "HIGH-QUALITY MATERIALS",
+        "p": "We use only trusted and premium materials that ensure durability, eco-friendliness, and visual appeal. Natural wood, wear-resistant coatings, and modern decorative elements – everything to create a cozy and long-lasting interior. EVO HOME – quality you can see and feel."
+      },
+      "4": {
+        "h": "SMART HOME TECHNOLOGY",
+        "p": "We integrate modern automation systems that allow you to control lighting, climate, security, and appliances through your smartphone or voice commands. Smart solutions make your home comfortable, energy-efficient, and reliable. EVO HOME – future-ready technologies for your comfort."
+      }
+    },
+    "video_text": "Two-Room Apartment Renovation by EVO HOME"
+  },
+  "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+  "ogTitle": "🏡 Two-Room Apartment Renovations | High Quality in Rome | Make Your Dream Come True",
+  "ogDescription": "Two-room apartment renovation in Rome: discover how to transform your space into a work of art. Contact us to get started. 📞 +39 327 986 6412",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
 }
-  

@@ -1,6 +1,11 @@
 {
-  "title": "🏡 Evo Home | Chi siamo e perché sceglierci",
-  "description":"La società di costruzioni a Roma Evo Home - il tuo partner affidabile nel mondo della costruzione e della ristrutturazione. Il tu progetto da sogno inizia qui.",
+  "title": "🏡 Evo Home | Chi siamo e perché dovresti scegliere noi",
+  "description": "Società di costruzioni a Roma Evo Home - il tuo partner affidabile nel mondo delle costruzioni e della ristrutturazione. Il tuo progetto dei sogni inizia qui.",
+  "keywords": "società di costruzioni, ristrutturazione, Roma, Evo Home, costruzioni, ricostruzione, ristrutturazione chiavi in mano",
+  "ogTitle": "🏡 Evo Home | Società di Costruzioni a Roma",
+  "ogDescription": "Società di costruzioni a Roma Evo Home - il tuo partner affidabile nel mondo delle costruzioni e della ristrutturazione. Oltre 17 anni di esperienza.",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it/riguardo-alla-societa-di-costruzioni-evo-home",
   "header": {
     "h": "Informazioni sull’azienda di costruzioni — Evo Home",
     "p1": "Benvenuti in Evo Home — il vostro partner affidabile nel mondo delle costruzioni e ristrutturazioni. Nel corso di ",

@@ -1,12 +1,12 @@
 {
   "title": "🏬 Ristrutturazione locali commerciali Roma | Offerte imperdibili per il tuo business",
-  "description":"Cerchi una ditta che si occupi della ristrutturazione di locali commerciali a Roma? Affidati ai nostri esperti. Trasforma il tuo locale con un tocco professionale. Contattaci 📞 +39 327 986 6412",
+  "description": "Cerchi una ditta che si occupi della ristrutturazione di locali commerciali a Roma? Affidati ai nostri esperti. Trasforma il tuo locale con un tocco professionale. Contattaci 📞 +39 327 986 6412",
   "h": "Spazi Commerciali",
   "header": {
-      "h":"Ristrutturazione di locali commerciali",
-      "p1": "La ristrutturazione di spazi commerciali solleva molte domande importanti: come calcolare il budget? Da quale fornitore acquistare i materiali? A chi affidare gli impianti? Quale azienda scegliere per la fornitura e posa del vetro? Queste e molte altre domande richiedono risposte chiare. Con oltre 17 anni di esperienza a Roma, Evo Home è il partner ideale per gestire questi compiti. Il nostro approccio garantisce risultati allineati alle vostre aspettative, offrendo condizioni vantaggiose, servizi di alta qualità e una garanzia di 3 anni.",
-      "p2": "La ristrutturazione di spazi commerciali con EVO HOME significa una trasformazione completa di uffici, negozi, ristoranti e altri ambienti business. Creiamo interni moderni, eleganti e funzionali che migliorano il comfort e l'efficienza della tua attività. Dal progetto alla realizzazione - ci occupiamo dell'intero ciclo.",
-      "button": "ORDINA"
+    "h": "Ristrutturazione di locali commerciali",
+    "p1": "La ristrutturazione di spazi commerciali solleva molte domande importanti: come calcolare il budget? Da quale fornitore acquistare i materiali? A chi affidare gli impianti? Quale azienda scegliere per la fornitura e posa del vetro? Queste e molte altre domande richiedono risposte chiare. Con oltre 17 anni di esperienza a Roma, Evo Home è il partner ideale per gestire questi compiti. Il nostro approccio garantisce risultati allineati alle vostre aspettative, offrendo condizioni vantaggiose, servizi di alta qualità e una garanzia di 3 anni.",
+    "p2": "La ristrutturazione di spazi commerciali con EVO HOME significa una trasformazione completa di uffici, negozi, ristoranti e altri ambienti business. Creiamo interni moderni, eleganti e funzionali che migliorano il comfort e l'efficienza della tua attività. Dal progetto alla realizzazione - ci occupiamo dell'intero ciclo.",
+    "button": "ORDINA"
   },
   "process": {
     "h": "Scopri di più sulla Ristrutturazione Commerciale",
@@ -42,5 +42,10 @@
     },
     "video_text": "Ristrutturazione Commerciale by EVO HOME",
     "video_button": "ORDINA"
-  }
+  },
+  "keywords": "ristrutturazione, costruzioni, Roma, Evo Home, ristrutturazione chiavi in mano",
+  "ogTitle": "🏬 Ristrutturazione locali commerciali Roma | Offerte imperdibili per il tuo business",
+  "ogDescription": "Cerchi una ditta che si occupi della ristrutturazione di locali commerciali a Roma? Affidati ai nostri esperti. Trasforma il tuo locale con un tocco professionale. Contattaci 📞 +39 327 986 6412",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
 }

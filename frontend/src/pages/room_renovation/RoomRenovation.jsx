@@ -1,5 +1,6 @@
 import React from 'react'
 import LanguageLink from '../../components/LanguageLink'
+import { PageWrapper } from '../../components/PageWrapper.tsx'
 import Reasons from '../../components/Reasons'
 import Projects from '../../components/room_renovation_components/Projects'
 import { Helmet } from 'react-helmet'
@@ -26,6 +27,8 @@ const RoomRenovation = () => {
   const selectedLang = localStorage.getItem('language') || 'en'
 
   return (
+    <PageWrapper pageId="room-renovation">
+
     <div className="min-h-screen bg-white">
       <Helmet>
         <title>{t('title')}</title>
@@ -141,7 +144,7 @@ const RoomRenovation = () => {
         {/* Video Section */}
         <div className="w-full my-6 md:my-10 flex flex-col space-y-6 md:space-y-10">
           <h2 className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[50px] text-center break-words">
-                          {t('video_text')}
+                          {t('process.video_text')}
           </h2>
           <div className="w-full relative">
             <div className="absolute bottom-0 -z-10">
@@ -180,7 +183,9 @@ const RoomRenovation = () => {
       <Reasons />
       <Projects />
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default RoomRenovation

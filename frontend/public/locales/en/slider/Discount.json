@@ -1,24 +1,27 @@
 {
-    "h": "10% Discount",
-    "left_block": {
-      "p": "only",
-      "strong": "in 7 days"
-    },
-    "comment": {
-      "p": "Are you following us on social media? Then you have a chance to get an exclusive discount of up to 10% on the",
-      "span": " renovation of your choice!"
-    },
-    "button": "I WANT A DISCOUNT",
-    "condition": {
-      "h": "Discount Conditions:",
-      "li1": "—Follow us on our",
-      "span1": " social media",
-      "li2": "—Contact us within",
-      "span2": " this week",
-      "li3": "—Get a discount",
-      "span3": " up to 10% ",
-      "li4": "on your first project"
-    }
-    
-  }
-  
+  "h": "10% Discount",
+  "left_block": {
+    "p": "only",
+    "strong": "in 7 days"
+  },
+  "comment": {
+    "p": "Are you following us on social media? Then you have a chance to get an exclusive discount of up to 10% on the",
+    "span": " renovation of your choice!"
+  },
+  "button": "I WANT A DISCOUNT",
+  "condition": {
+    "h": "Discount Conditions:",
+    "li1": "—Follow us on our",
+    "span1": " social media",
+    "li2": "—Contact us within",
+    "span2": " this week",
+    "li3": "—Get a discount",
+    "span3": " up to 10% ",
+    "li4": "on your first project"
+  },
+  "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+  "ogTitle": "Evo Home - Construction Company in Rome",
+  "ogDescription": "Rome construction company Evo Home - your reliable partner",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
+}

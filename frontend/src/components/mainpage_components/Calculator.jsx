@@ -10,7 +10,7 @@ const Calculator = () => {
   const { t } = useTranslation('home/Calculator');
 
   // Получение URL бэкенда из переменной окружения
-  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
 
   const handleSubmit = async (e) => {
     e.preventDefault();

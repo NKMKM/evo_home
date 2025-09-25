@@ -1,56 +1,60 @@
 {
-    "title": "REVIEWS - EVO HOME",
-    "description":"Reviews about EVO Home",
-    "header": {
-      "h": "Our Happy Clients",
-      "p1": "For us, renovation is not just about finishes and design. It’s the story of your home — one that we pour our heart into. Every project is a personal journey, where everything matters: your desires, your lifestyle, your feelings. We truly believe that an interior should reflect your character and create a space where you want to live, dream, and relax.",
-      "span1": "At EVO HOME",
-      "p2": " we strive for impeccable quality, pay attention to every detail, and build our partnerships on honesty and respect. We don’t just carry out work — we guide, support, advise, and remain by your side even after the project is complete. Caring for our clients isn’t an option — it’s our foundation. We want every person who chooses us to feel confident and secure at every step of the journey. That’s why the true measure of our success isn’t just beautiful interiors, but the words of gratitude from those who have experienced it with us.",
-      "p3": "Below you’ll find",
-      "span2": " real reviews from our clients",
-      "p4": " — genuine emotions, impressions, and results we’re proud of."
+  "title": "REVIEWS - EVO HOME",
+  "description": "Reviews about EVO Home",
+  "header": {
+    "h": "Our Happy Clients",
+    "p1": "For us, renovation is not just about finishes and design. It’s the story of your home — one that we pour our heart into. Every project is a personal journey, where everything matters: your desires, your lifestyle, your feelings. We truly believe that an interior should reflect your character and create a space where you want to live, dream, and relax.",
+    "span1": "At EVO HOME",
+    "p2": " we strive for impeccable quality, pay attention to every detail, and build our partnerships on honesty and respect. We don’t just carry out work — we guide, support, advise, and remain by your side even after the project is complete. Caring for our clients isn’t an option — it’s our foundation. We want every person who chooses us to feel confident and secure at every step of the journey. That’s why the true measure of our success isn’t just beautiful interiors, but the words of gratitude from those who have experienced it with us.",
+    "p3": "Below you’ll find",
+    "span2": " real reviews from our clients",
+    "p4": " — genuine emotions, impressions, and results we’re proud of."
+  },
+  "reviews": {
+    "1": {
+      "p1": "We entrusted Evo Home with a complete renovation of our apartment and were extremely satisfied with their work. Pietro and his team are true professionals, capable of handling any task with precision and punctuality.",
+      "p2": "We were especially impressed by their ability to handle unexpected situations, always offering effective solutions, as well as their organization and cleanliness on-site — essential for a great final result. Communication was consistent throughout the process, and they were always available.",
+      "p3": "We would choose them again a thousand times over! 💯"
     },
-    "reviews": {
-      "h": "EVO HOME Through the Eyes of Our Clients",
-      "1": {
-        "p1": "We entrusted Evo Home with a complete renovation of our apartment and were extremely satisfied with their work. Pietro and his team are true professionals, capable of handling any task with precision and punctuality.",
-        "p2": "We were especially impressed by their ability to handle unexpected situations, always offering effective solutions, as well as their organization and cleanliness on-site — essential for a great final result. Communication was consistent throughout the process, and they were always available.",
-        "p3": "We would choose them again a thousand times over! 💯"
-      },
-      "2": {
-        "p1": "We chose the construction company EvoHome and never once regretted it! We’re absolutely satisfied! Incredibly professional approach to work! An excellent construction team — fast, skilled, and precise!",
-        "p2": "The materials were high-quality, and the team was polite, tidy, and responsible! Thank you for the great work! Highly recommended!"
-      },
-      "3": {
-        "p1": "We recently entrusted Evo Home with the renovation of our restaurant and are very happy with our choice. The team did an excellent job, strictly meeting the agreed deadlines. During the process, a few unexpected issues came up, but they were handled professionally and on time. This showed their ability to adapt and solve problems competently. Behind this company stands Pietro — a truly honest, professional, and reliable person.",
-        "p2": "If you're looking for a renovation team that delivers on promises and achieves great results, look no further!"
-      },
-      "4": {
-        "p1": "A great experience... A serious and punctual company with a team of outstanding workers. Yuri (the foreman), who took care of the flooring and tile work in the bathroom and kitchen, is a true master — he created a masterpiece, genuine craftsmanship... The guy who handled the painting and drywall work was also excellent. And what can I say about Pietro, the boss — a serious, trustworthy, and kind person... everyone was amazing! I’m very satisfied."
-      },
-      "p1": "Each of our projects is a synthesis of flawless execution, aesthetic appeal, and a personal approach. We don’t just renovate — we create spaces where emotions, details, and atmosphere matter.",
-      "p2": "We work with top-quality materials, trusted suppliers, and high standards. Our team consists of professionals who truly care about creating inspiring results. We listen, advise, offer solutions — and always strike a balance between functionality and beauty.",
-      "p3": "Because at the heart of everything — is you and your home."
+    "2": {
+      "p1": "We chose the construction company EvoHome and never once regretted it! We’re absolutely satisfied! Incredibly professional approach to work! An excellent construction team — fast, skilled, and precise!",
+      "p2": "The materials were high-quality, and the team was polite, tidy, and responsible! Thank you for the great work! Highly recommended!"
     },
-    "form": {
-      "h": "Leave Your Review",
-      "first_section": {
-        "h": "Name",
-        "placeholder": "Your name..."
-      },
-      "second_section": {
-        "h": "E-MAIL",
-        "placeholder": "Your email..."
-      },
-      "third_section": {
-        "h": "City",
-        "placeholder": "Your city..."
-      },
-      "fourth_section": {
-        "h": "Your Review",
-        "placeholder": "Write your review..."
-      },
-      "button": "SUBMIT"
-    }
+    "3": {
+      "p1": "We recently entrusted Evo Home with the renovation of our restaurant and are very happy with our choice. The team did an excellent job, strictly meeting the agreed deadlines. During the process, a few unexpected issues came up, but they were handled professionally and on time. This showed their ability to adapt and solve problems competently. Behind this company stands Pietro — a truly honest, professional, and reliable person.",
+      "p2": "If you're looking for a renovation team that delivers on promises and achieves great results, look no further!"
+    },
+    "4": {
+      "p1": "A great experience... A serious and punctual company with a team of outstanding workers. Yuri (the foreman), who took care of the flooring and tile work in the bathroom and kitchen, is a true master — he created a masterpiece, genuine craftsmanship... The guy who handled the painting and drywall work was also excellent. And what can I say about Pietro, the boss — a serious, trustworthy, and kind person... everyone was amazing! I’m very satisfied."
+    },
+    "h": "EVO HOME Through the Eyes of Our Clients",
+    "p1": "Each of our projects is a synthesis of flawless execution, aesthetic appeal, and a personal approach. We don’t just renovate — we create spaces where emotions, details, and atmosphere matter.",
+    "p2": "We work with top-quality materials, trusted suppliers, and high standards. Our team consists of professionals who truly care about creating inspiring results. We listen, advise, offer solutions — and always strike a balance between functionality and beauty.",
+    "p3": "Because at the heart of everything — is you and your home."
+  },
+  "form": {
+    "h": "Leave Your Review",
+    "first_section": {
+      "h": "Name",
+      "placeholder": "Your name..."
+    },
+    "second_section": {
+      "h": "E-MAIL",
+      "placeholder": "Your email..."
+    },
+    "third_section": {
+      "h": "City",
+      "placeholder": "Your city..."
+    },
+    "fourth_section": {
+      "h": "Your Review",
+      "placeholder": "Write your review..."
+    },
+    "button": "SUBMIT"
+  },
+  "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+  "ogTitle": "REVIEWS - EVO HOME",
+  "ogDescription": "Reviews about EVO Home",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
 }
-  

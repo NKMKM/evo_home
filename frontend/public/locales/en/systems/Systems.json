@@ -1,49 +1,53 @@
 {
-    "title": "⚡ Quality Engineering Systems in Rome | Professional Services for Residential & Commercial Buildings",
-    "description": "Looking for engineering solutions in Rome? We offer certified systems for homes and offices with customized service. 📞 +39 327 986 6412",
-    "h": "Systems",
-    "header": {
-      "h": "Systems by EVO HOME",
-      "p1": "When renovating an apartment, house, or commercial space, it is often necessary to intervene in the building's systems. Whether it's plumbing, electrical, or air conditioning systems, proper design is essential to ensure the safety and functionality of the home or business premises.",
-      "p2": "Evo Home, with over 17 years of experience in this field, is committed to creating the most modern systems that always comply with current regulations and provide all legally required certifications. We specialize in the installation, maintenance, and modernization of complex systems that improve quality of life and increase property value.",
-      "button": "ORDER"
-    },
-    "process": {
-      "h": "More about systems",
-      "ul": {
-        "1": {
-          "h": "ELECTRICAL SYSTEM",
-          "p": "Residential electrical systems are subject to strict standards regulating their design, installation, and testing to ensure high performance and safety. Evo Home designs and installs electrical systems in accordance with CEI 64-8 regulations, issuing a declaration of conformity."
-        },
-        "2": {
-          "h": "GAS SYSTEM",
-          "p": "Installing gas systems requires advanced technical skills and strict safety compliance. Our team guarantees professional installation, paying maximum attention to joint sealing and pipe integrity to ensure perfect system tightness."
-        },
-        "3": {
-          "h": "UNDERFLOOR HEATING",
-          "p": "Underfloor heating is one of the most popular solutions for new builds and renovations. This system not only ensures exceptional comfort through even heat distribution but also allows significant energy savings, especially when combined with renewable energy sources."
-        },
-        "4": {
-          "h": "DRAINAGE AND SEWAGE SYSTEM",
-          "p": "Drainage and sewage systems are crucial components for proper wastewater management. Our company designs and installs drainage systems connected to the main sewer system, ensuring optimal efficiency and maximum safety."
-        },
-        "5": {
-          "h": "THERMO-HYDRAULIC SYSTEMS",
-          "p": "Thermo-hydraulic systems are designed for climate control in both summer and winter. They use hot water as a heat carrier, providing efficient heating. Evo Home designs and installs thermo-hydraulic systems that ensure not only residential comfort but also significant energy savings."
-        },
-        "6": {
-          "h": "AIR CONDITIONING AND CLIMATE CONTROL",
-          "p": "Climate control is essential for ensuring comfort in both residential and commercial premises. The need for modern air quality management systems depends on the characteristics of the space and the local climate."
-        },
-        "7": {
-          "h": "COMMUNICATION NETWORKS AND LOW-VOLTAGE SYSTEMS",
-          "p": "Communication networks, essential for commercial operations, are installed after laying the main plant infrastructures. Laying low-voltage lines includes running cables connecting individual meters with the necessary equipment."
-        }
+  "title": "⚡ Quality Engineering Systems in Rome | Professional Services for Residential & Commercial Buildings",
+  "description": "Looking for engineering solutions in Rome? We offer certified systems for homes and offices with customized service. 📞 +39 327 986 6412",
+  "h": "Systems",
+  "header": {
+    "h": "Systems by EVO HOME",
+    "p1": "When renovating an apartment, house, or commercial space, it is often necessary to intervene in the building's systems. Whether it's plumbing, electrical, or air conditioning systems, proper design is essential to ensure the safety and functionality of the home or business premises.",
+    "p2": "Evo Home, with over 17 years of experience in this field, is committed to creating the most modern systems that always comply with current regulations and provide all legally required certifications. We specialize in the installation, maintenance, and modernization of complex systems that improve quality of life and increase property value.",
+    "button": "ORDER"
+  },
+  "process": {
+    "h": "More about systems",
+    "ul": {
+      "1": {
+        "h": "ELECTRICAL SYSTEM",
+        "p": "Residential electrical systems are subject to strict standards regulating their design, installation, and testing to ensure high performance and safety. Evo Home designs and installs electrical systems in accordance with CEI 64-8 regulations, issuing a declaration of conformity."
       },
-      "video_text": "System installation by EVO HOME",
-      "video_p1": "By choosing Evo Home, you are choosing a reliable partner with over 17 years of experience in systems and renovations. We offer a full range of certified services for the installation, maintenance, and modernization of household systems in Rome, always ensuring safety, efficiency, and regulatory compliance.",
-      "video_p2": "Contact us today at +39 327 986 6412 for a free consultation or to request a personalized quote.",
-      "video_button": "ORDER"
-    }
-  }
-  
+      "2": {
+        "h": "GAS SYSTEM",
+        "p": "Installing gas systems requires advanced technical skills and strict safety compliance. Our team guarantees professional installation, paying maximum attention to joint sealing and pipe integrity to ensure perfect system tightness."
+      },
+      "3": {
+        "h": "UNDERFLOOR HEATING",
+        "p": "Underfloor heating is one of the most popular solutions for new builds and renovations. This system not only ensures exceptional comfort through even heat distribution but also allows significant energy savings, especially when combined with renewable energy sources."
+      },
+      "4": {
+        "h": "DRAINAGE AND SEWAGE SYSTEM",
+        "p": "Drainage and sewage systems are crucial components for proper wastewater management. Our company designs and installs drainage systems connected to the main sewer system, ensuring optimal efficiency and maximum safety."
+      },
+      "5": {
+        "h": "THERMO-HYDRAULIC SYSTEMS",
+        "p": "Thermo-hydraulic systems are designed for climate control in both summer and winter. They use hot water as a heat carrier, providing efficient heating. Evo Home designs and installs thermo-hydraulic systems that ensure not only residential comfort but also significant energy savings."
+      },
+      "6": {
+        "h": "AIR CONDITIONING AND CLIMATE CONTROL",
+        "p": "Climate control is essential for ensuring comfort in both residential and commercial premises. The need for modern air quality management systems depends on the characteristics of the space and the local climate."
+      },
+      "7": {
+        "h": "COMMUNICATION NETWORKS AND LOW-VOLTAGE SYSTEMS",
+        "p": "Communication networks, essential for commercial operations, are installed after laying the main plant infrastructures. Laying low-voltage lines includes running cables connecting individual meters with the necessary equipment."
+      }
+    },
+    "video_text": "System installation by EVO HOME",
+    "video_p1": "By choosing Evo Home, you are choosing a reliable partner with over 17 years of experience in systems and renovations. We offer a full range of certified services for the installation, maintenance, and modernization of household systems in Rome, always ensuring safety, efficiency, and regulatory compliance.",
+    "video_p2": "Contact us today at +39 327 986 6412 for a free consultation or to request a personalized quote.",
+    "video_button": "ORDER"
+  },
+  "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+  "ogTitle": "⚡ Quality Engineering Systems in Rome | Professional Services for Residential & Commercial Buildings",
+  "ogDescription": "Looking for engineering solutions in Rome? We offer certified systems for homes and offices with customized service. 📞 +39 327 986 6412",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
+}

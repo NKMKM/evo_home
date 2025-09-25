@@ -1,6 +1,6 @@
 {
   "title": "🏡 Ristrutturazione di Bar e Ristoranti a Roma | Qualità e Prezzi Competitivi",
-  "description":"Vuoi rinnovare il tuo bar o il tuo ristorante a Roma? Ristrutturazioni professionali. Qualità garantita. Collaborazione vantaggiosa. Contattaci subito 📞 +39 327 986 6412",
+  "description": "Vuoi rinnovare il tuo bar o il tuo ristorante a Roma? Ristrutturazioni professionali. Qualità garantita. Collaborazione vantaggiosa. Contattaci subito 📞 +39 327 986 6412",
   "h": "Ristrutturazione Bar e Ristoranti",
   "header": {
     "h": "Ristrutturazione Bar e Ristoranti con EVO HOME",
@@ -33,5 +33,10 @@
       }
     },
     "video_text": "Ristrutturazione Bar e Ristoranti con EVO HOME"
-  }
+  },
+  "keywords": "ristrutturazione, costruzioni, Roma, Evo Home, ristrutturazione chiavi in mano",
+  "ogTitle": "🏡 Ristrutturazione di Bar e Ristoranti a Roma | Qualità e Prezzi Competitivi",
+  "ogDescription": "Vuoi rinnovare il tuo bar o il tuo ristorante a Roma? Ristrutturazioni professionali. Qualità garantita. Collaborazione vantaggiosa. Contattaci subito 📞 +39 327 986 6412",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
 }

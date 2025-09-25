@@ -1,6 +1,6 @@
 {
   "title": "🏡 Trasforma la Tua Casa | Design Unico a Roma",
-  "description":"🏬 Ristrutturazioni di alta qualità a Roma per il tuo appartamento di design. Realizza il tuo progetto ideale. 📞 +39 327 986 6412",
+  "description": "🏬 Ristrutturazioni di alta qualità a Roma per il tuo appartamento di design. Realizza il tuo progetto ideale. 📞 +39 327 986 6412",
   "h": "Ristrutturazione Appartamento di Design",
   "header": {
     "h": "Ristrutturazione di Design by EVO HOME",
@@ -34,5 +34,10 @@
       }
     },
     "video_text": "Ristrutturazione Appartamento di Design by EVO HOME"
-  }
+  },
+  "keywords": "ristrutturazione, costruzioni, Roma, Evo Home, ristrutturazione chiavi in mano",
+  "ogTitle": "🏡 Trasforma la Tua Casa | Design Unico a Roma",
+  "ogDescription": "🏬 Ristrutturazioni di alta qualità a Roma per il tuo appartamento di design. Realizza il tuo progetto ideale. 📞 +39 327 986 6412",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
 }

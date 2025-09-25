@@ -1,19 +1,61 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
-import { HomeIcon, LayoutDashboardIcon, SettingsIcon, LogOutIcon, MenuIcon, XIcon } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { 
+  
+  LayoutDashboardIcon, 
+  LogOutIcon, 
+  MenuIcon, 
+  XIcon,
+  ImageIcon,
+  PlayIcon,
+  TypeIcon,
+  ClipboardListIcon,
+  FileTextIcon,
+  
+  SearchIcon
+} from 'lucide-react';
 interface LayoutProps {
   children: React.ReactNode;
+  onLogout?: () => void;
 }
 export function Layout({
-  children
+  children,
+  onLogout
 }: LayoutProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  
   const handleLogout = () => {
-    // In a real app, you would clear auth tokens, etc.
-    navigate('/login');
+    if (onLogout) {
+      onLogout();
+    } else {
+      navigate('/login');
+    }
+  };
+
+  const { t, i18n } = useTranslation('common');
+  const navItems = [
+    { path: '/dashboard', icon: LayoutDashboardIcon, labelKey: 'nav.dashboard' },
+    { path: '/dashboard/submissions', icon: ClipboardListIcon, labelKey: 'nav.submissions' },
+    { path: '/dashboard/media', icon: ImageIcon, labelKey: 'nav.images' },
+    { path: '/dashboard/videos', icon: PlayIcon, labelKey: 'nav.videos' },
+    { path: '/dashboard/texts', icon: TypeIcon, labelKey: 'nav.texts' },
+  { path: '/dashboard/pages', icon: FileTextIcon, labelKey: 'nav.pages' },
+    { path: '/dashboard/seo', icon: SearchIcon, labelKey: 'nav.seo' },
+  ];
+
+  const isActiveRoute = (path: string) => {
+    return location.pathname === path || 
+           (path !== '/dashboard' && location.pathname.startsWith(path));
+  };
+  const current = i18n.language as 'ru' | 'it' | string;
+  const setLang = (lng: 'ru' | 'it') => {
+    i18n.changeLanguage(lng);
+    if (typeof window !== 'undefined') localStorage.setItem('admin_lang', lng);
   };
   return <div className="flex h-screen bg-gray-50">
       {/* Desktop Sidebar */}
@@ -32,7 +74,7 @@ export function Layout({
         }} transition={{
           delay: 0.1
         }} className="text-lg font-light text-gray-800">
-              Evo Admin Panel
+              {t('appTitle')}
             </motion.h2>}
           <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="p-1 rounded-md hover:bg-gray-100 text-gray-500">
             <MenuIcon size={18} />
@@ -40,18 +82,31 @@ export function Layout({
         </div>
         <nav className="flex-1 py-4">
           <ul className="space-y-1">
-            <li>
-              <a href="#" className="flex items-center px-4 py-2 text-gray-800 bg-blue-50 text-blue-600">
-                <LayoutDashboardIcon size={18} className="mr-3" />
-                {isSidebarOpen && <span>Dashboard</span>}
-              </a>
-            </li>
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = isActiveRoute(item.path);
+              return (
+                <li key={item.path}>
+                  <button
+                    onClick={() => navigate(item.path)}
+                    className={`w-full flex items-center px-4 py-2 transition-colors ${
+                      isActive 
+                        ? 'bg-blue-50 text-blue-600' 
+                        : 'text-gray-600 hover:bg-gray-50 hover:text-gray-800'
+                    }`}
+                  >
+                    <Icon size={18} className="mr-3" />
+                    {isSidebarOpen && <span>{t(item.labelKey)}</span>}
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         </nav>
         <div className="p-4 border-t border-gray-100">
           <button onClick={handleLogout} className="flex items-center text-gray-600 hover:text-gray-800">
             <LogOutIcon size={18} className="mr-3" />
-            {isSidebarOpen && <span>Logout</span>}
+            {isSidebarOpen && <span>{t('logout')}</span>}
           </button>
         </div>
       </motion.div>
@@ -78,7 +133,7 @@ export function Layout({
         }} onClick={e => e.stopPropagation()}>
               <div className="p-4 border-b border-gray-100 flex items-center justify-between">
                 <h2 className="text-lg font-light text-gray-800">
-                  Evo Admin Panel
+                  {t('appTitle')}
                 </h2>
                 <button onClick={() => setIsMobileSidebarOpen(false)} className="p-1 rounded-md hover:bg-gray-100 text-gray-500">
                   <XIcon size={18} />
@@ -86,36 +141,49 @@ export function Layout({
               </div>
               <nav className="py-4">
                 <ul className="space-y-1">
-                  <li>
-                    <a href="#" className="flex items-center px-4 py-2 text-gray-800 bg-blue-50 text-blue-600">
-                      <LayoutDashboardIcon size={18} className="mr-3" />
-                      <span>Dashboard</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-50">
-                      <HomeIcon size={18} className="mr-3" />
-                      <span>Home</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-50">
-                      <SettingsIcon size={18} className="mr-3" />
-                      <span>Settings</span>
-                    </a>
-                  </li>
+                  {navItems.map((item) => {
+                    const Icon = item.icon;
+                    const isActive = isActiveRoute(item.path);
+                    return (
+                      <li key={item.path}>
+                        <button
+                          onClick={() => {
+                            navigate(item.path);
+                            setIsMobileSidebarOpen(false);
+                          }}
+                          className={`w-full flex items-center px-4 py-2 transition-colors ${
+                            isActive 
+                              ? 'bg-blue-50 text-blue-600' 
+                              : 'text-gray-600 hover:bg-gray-50 hover:text-gray-800'
+                          }`}
+                        >
+                          <Icon size={18} className="mr-3" />
+                          <span>{t(item.labelKey)}</span>
+                        </button>
+                      </li>
+                    );
+                  })}
                 </ul>
               </nav>
               <div className="p-4 border-t border-gray-100">
                 <button onClick={handleLogout} className="flex items-center text-gray-600 hover:text-gray-800">
                   <LogOutIcon size={18} className="mr-3" />
-                  <span>Logout</span>
+                  <span>{t('logout')}</span>
                 </button>
               </div>
             </motion.div>
           </motion.div>}
       </div>
-      {/* Main Content */}
-      <div className="flex-1 overflow-auto">{children}</div>
+      {/* Main Content with top language bar */}
+      <div className="flex-1 overflow-auto">
+        <div className="sticky top-0 z-10 bg-white border-b border-gray-200 px-4 py-2 flex justify-end items-center">
+          <div className="flex items-center space-x-2">
+            <span className="text-xs text-gray-500">Lang:</span>
+            <button onClick={() => setLang('ru')} className={`px-2 py-1 text-xs rounded ${current === 'ru' ? 'bg-gray-200 text-gray-800' : 'text-gray-500 hover:bg-gray-100'}`}>RU</button>
+            <button onClick={() => setLang('it')} className={`px-2 py-1 text-xs rounded ${current === 'it' ? 'bg-gray-200 text-gray-800' : 'text-gray-500 hover:bg-gray-100'}`}>IT</button>
+          </div>
+        </div>
+        {children}
+      </div>
     </div>;
 }

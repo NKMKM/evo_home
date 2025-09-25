@@ -6,6 +6,7 @@ import Discount from './Discount';
 import Ideas from './Ideas';
 import Design from './Design';
 import Architect from './Architect';
+import { PageWrapper } from '../../components/PageWrapper';
 
 const HomeStart = () => {
   const slides = [
@@ -16,32 +17,34 @@ const HomeStart = () => {
   ];
 
   return (
-    <div className="relative w-full">
-      <Swiper
-        modules={[Autoplay]}
-           autoplay={{
-            delay: 4000,
-           disableOnInteraction: false,
-        }}
-        spaceBetween={20}
-        loop={true}
-        slidesPerView={1}
-        className="w-full"
-        breakpoints={{
-          640: { slidesPerView: 1 },
-          768: { slidesPerView: 1 },
-          1024: { slidesPerView: 1 },
-        }}
-      >
-        {slides.map((item, index) => (
-          <SwiperSlide key={index}>
-            <div className="bg-white rounded-xl shadow-md">
-              {item}
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
+    <PageWrapper pageId="home">
+      <div className="relative w-full">
+        <Swiper
+          modules={[Autoplay]}
+             autoplay={{
+              delay: 4000,
+             disableOnInteraction: false,
+          }}
+          spaceBetween={20}
+          loop={true}
+          slidesPerView={1}
+          className="w-full"
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 1 },
+            1024: { slidesPerView: 1 },
+          }}
+        >
+          {slides.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div className="bg-white rounded-xl shadow-md">
+                {item}
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </PageWrapper>
   );
 };
 

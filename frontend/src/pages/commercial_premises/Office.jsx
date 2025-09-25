@@ -1,5 +1,6 @@
 import React from 'react'
 import Video from '../../components/Video'
+import { PageWrapper } from '../../components/PageWrapper.tsx'
 import CommercialPremisesLayoutCollection from '../../components/commercial_premises_components/CommercialPremisesLayoutCollection'
 import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from 'react-helmet'
@@ -21,6 +22,8 @@ const Office = () => {
   const selectedLang = localStorage.getItem('language') || 'en';
 
   return (
+    <PageWrapper pageId="office">
+
     <div>
       <Helmet>
         <title>{t('title')}</title>
@@ -124,7 +127,9 @@ const Office = () => {
 
       <CommercialPremisesLayoutCollection />
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default Office

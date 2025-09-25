@@ -15,6 +15,10 @@ const ImageComparisonSlider = ({ beforeSrc, afterSrc }) => {
             src={beforeSrc}
             alt="До"
             className="object-cover w-full h-full  rounded-[10px]"
+            onError={(e) => {
+              e.target.style.display = 'none';
+              e.target.parentElement.style.backgroundColor = '#f3f4f6';
+            }}
           />
         }
         itemTwo={
@@ -22,6 +26,10 @@ const ImageComparisonSlider = ({ beforeSrc, afterSrc }) => {
             src={afterSrc}
             alt="После"
             className="object-cover w-full h-full  rounded-[10px]"
+            onError={(e) => {
+              e.target.style.display = 'none';
+              e.target.parentElement.style.backgroundColor = '#f3f4f6';
+            }}
           />
         }
         className="w-full h-full  shadow-lg overflow-hidden"

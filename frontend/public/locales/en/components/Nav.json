@@ -1,11 +1,16 @@
 {
-    "list":{
-        "first":"SERVICES",
-        "services":"SERVICES",
-        "second":"ABOUT US",
-        "third":"OUR WORKS",
-        "fourth":"REVIEWS",
-        "fifth":"CONTACTS"
-    },
-    "call_text":"ORDER A CALL"
+  "list": {
+    "first": "SERVICES",
+    "services": "SERVICES",
+    "second": "ABOUT US",
+    "third": "OUR WORKS",
+    "fourth": "REVIEWS",
+    "fifth": "CONTACTS"
+  },
+  "call_text": "ORDER A CALL",
+  "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+  "ogTitle": "Evo Home - Construction Company in Rome",
+  "ogDescription": "Rome construction company Evo Home - your reliable partner",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
 }

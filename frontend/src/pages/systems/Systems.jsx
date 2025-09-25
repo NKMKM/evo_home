@@ -1,5 +1,6 @@
 import React from 'react'
 import LanguageLink from '../../components/LanguageLink'
+import { PageWrapper } from '../../components/PageWrapper.tsx'
 import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
 
@@ -27,6 +28,8 @@ const System = () => {
   const { t } = useTranslation('systems/Systems')
   const selectedLang = localStorage.getItem('language') || 'en'
   return (
+    <PageWrapper pageId="systems">
+
     <div className="w-full min-h-screen">
       <Helmet>
         <title>{t('title')}</title>
@@ -179,7 +182,9 @@ const System = () => {
       </div>
       <CommercialPremisesProjects />
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default System

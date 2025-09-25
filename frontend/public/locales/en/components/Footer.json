@@ -1,57 +1,61 @@
 {
-    "turnkey_renovation_h": "TURNKEY APARTMENT RENOVATION",
-    "turnkey_renovation_ul": {
-      "li1": "Designer renovation",
-      "li2": "Exclusive renovation",
-      "li3": "Studio apartment renovation",
-      "li4": "Two-Room apartment renovation",
-      "li5": "Three-Room apartment renovation",
-      "li6": "Four-Room apartment renovation",
-      "li7": "Two-Level apartment renovation"
-    },
-    "room_renovation_h": "ROOM RENOVATION",
-    "room_renovation_ul": {
-      "li1": "Living room renovation",
-      "li2": "Bedroom renovation",
-      "li3": "Children’s room renovation",
-      "li4": "Hallway renovation",
-      "li5": "Kitchen renovation",
-      "li6": "Bathroom renovation",
-      "li7": "Staircase renovation"
-    },
-    "commercial_premises_h": "COMMERCIAL SPACES",
-    "commercial_premises_ul": {
-      "li1": "Business center renovation",
-      "li2": "Bar and restaurant renovation",
-      "li3": "Commercial property renovation",
-      "li4": "Office renovation",
-      "li5": "Warehouse renovation",
-      "li6": "Fitness club renovation",
-      "li7": "Hotel renovation"
-    },
-    "systems_h": "SYSTEMS",
-    "systems_ul": {
-      "li1": "Electrical system",
-      "li2": "Gas system",
-      "li3": "Underfloor heating",
-      "li4": "Drainage and sewerage system",
-      "li5": "Air conditioning and climate control"
-    },
-    "main_h": "MAIN",
-    "main_ul": {
-      "li1": "Who we are",
-      "li2": "Our projects",
-      "li3": "Reviews",
-      "li4": "Contacts"
-    },
-    "adress_h": "ADDRESS",
-    "adress_p1": "00162 ROME",
-    "adress_p2": "Nomentana ring road, 214",
-    "contacts_h": "CONTACTS",
-    "contacts_p1": "Phone: +39 327 986 6412",
-    "contacts_p2": "Phone: +39 06 69353277",
-    "contacts_p3": "Email: info@evohome.it",
-    "copyright":"© Copyright 2025 | CONSTRUCTION COMPANY MCSrl | VAT 17325141004 |",
-    "cookies":"Cookie & Privacy Policy"
-  }
-  
+  "turnkey_renovation_h": "TURNKEY APARTMENT RENOVATION",
+  "turnkey_renovation_ul": {
+    "li1": "Designer renovation",
+    "li2": "Exclusive renovation",
+    "li3": "Studio apartment renovation",
+    "li4": "Two-Room apartment renovation",
+    "li5": "Three-Room apartment renovation",
+    "li6": "Four-Room apartment renovation",
+    "li7": "Two-Level apartment renovation"
+  },
+  "room_renovation_h": "ROOM RENOVATION",
+  "room_renovation_ul": {
+    "li1": "Living room renovation",
+    "li2": "Bedroom renovation",
+    "li3": "Children’s room renovation",
+    "li4": "Hallway renovation",
+    "li5": "Kitchen renovation",
+    "li6": "Bathroom renovation",
+    "li7": "Staircase renovation"
+  },
+  "commercial_premises_h": "COMMERCIAL SPACES",
+  "commercial_premises_ul": {
+    "li1": "Business center renovation",
+    "li2": "Bar and restaurant renovation",
+    "li3": "Commercial property renovation",
+    "li4": "Office renovation",
+    "li5": "Warehouse renovation",
+    "li6": "Fitness club renovation",
+    "li7": "Hotel renovation"
+  },
+  "systems_h": "SYSTEMS",
+  "systems_ul": {
+    "li1": "Electrical system",
+    "li2": "Gas system",
+    "li3": "Underfloor heating",
+    "li4": "Drainage and sewerage system",
+    "li5": "Air conditioning and climate control"
+  },
+  "main_h": "MAIN",
+  "main_ul": {
+    "li1": "Who we are",
+    "li2": "Our projects",
+    "li3": "Reviews",
+    "li4": "Contacts"
+  },
+  "adress_h": "ADDRESS",
+  "adress_p1": "00162 ROME",
+  "adress_p2": "Nomentana ring road, 214",
+  "contacts_h": "CONTACTS",
+  "contacts_p1": "Phone: +39 327 986 6412",
+  "contacts_p2": "Phone: +39 06 69353277",
+  "contacts_p3": "Email: info@evohome.it",
+  "copyright": "© Copyright 2025 | CONSTRUCTION COMPANY MCSrl | VAT 17325141004 |",
+  "cookies": "Cookie & Privacy Policy",
+  "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+  "ogTitle": "Evo Home - Construction Company in Rome",
+  "ogDescription": "Rome construction company Evo Home - your reliable partner",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
+}

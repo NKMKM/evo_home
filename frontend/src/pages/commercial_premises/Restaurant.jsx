@@ -1,5 +1,6 @@
 import React from 'react'
 import Video from '../../components/Video'
+import { PageWrapper } from '../../components/PageWrapper.tsx'
 import CommercialPremisesLayoutCollection from '../../components/commercial_premises_components/CommercialPremisesLayoutCollection'
 import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from 'react-helmet'
@@ -24,6 +25,8 @@ const Restaurant = () => {
   const selectedLang = localStorage.getItem('language') || 'en'
 
   return (
+    <PageWrapper pageId="restaurant">
+
     <div className="min-h-screen bg-white">
       <Helmet>
         <title>{t('title')}</title>
@@ -205,7 +208,9 @@ const Restaurant = () => {
       {/* Commercial Premises Layout Collection */}
       <CommercialPremisesLayoutCollection />
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default Restaurant

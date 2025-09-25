@@ -1,45 +1,49 @@
 {
-    "title": "👷‍♂️ Three-Room Apartment Renovation in Rome | Modern Design & Comfort | Turnkey Service",
-    "description": "✅ Looking for three-room apartment renovation in Rome? | Choose professionalism and quality | Competitive prices and flawless work. 📞 +39 327 986 6412",
-    "h": "Three-Room Apartments",
-    "header": {
-      "h": "Three-Room Apartments by EVO HOME",
-      "p1": "Looking for the best solution to renovate your three-room apartment in Rome and its surroundings? EvoHome is ready to meet all your needs, with over 17 years of experience in the construction and renovation sector. We offer you a complete, reliable, and personalized service to transform your three-room apartment into a unique and comfortable living environment that fully meets your expectations.",
-      "p2": "Your home is the heart of your daily life, and at EvoHome, we understand that well. That’s why we strive to provide high-quality renovation solutions starting from €50,000, ensuring improvements to every aspect of your three-room apartment. Operating in Rome and nearby areas, EvoHome is the ideal choice for those seeking professionalism, experience, and customer-oriented service. Offering a minimum 3-year warranty on results, we are a trusted reference in the industry, ensuring reliable and long-term investments.",
-      "button": "ORDER"
-    },
-    "process": {
-      "h": "More About Three-Room Apartment Renovation",
-      "p": "Our specialist performs accurate on-site measurements. If the project involves reconstruction, we determine which walls can be modified while ensuring compliance with current regulations and maximum safety.",
-      "ul": {
-        "1": {
-          "h": "INITIATION AND DESIGN",
-          "li1": "Space planning",
-          "li2": "Preliminary evaluation",
-          "li3": "Concept development with interior designer",
-          "li4": "Interior design project development",
-          "li5": "Detailed and final estimate"
-        },
-        "2": {
-          "h": "EXECUTION OF WORK",
-          "li1": "Procurement of materials",
-          "li2": "Demolition and disposal",
-          "li3": "Reconstruction and structural modifications",
-          "li4": "Installation of equipment",
-          "li5": "Wall and ceiling finishes",
-          "li6": "Painting"
-        },
-        "3": {
-          "h": "FINALIZATION AND HANDOVER",
-          "li1": "Lighting and finishing touches",
-          "li2": "Plumbing fixtures",
-          "li3": "Furniture and accessories",
-          "li4": "Interior detailing",
-          "li5": "Final cleaning",
-          "li6": "Project handover to client"
-        }
+  "title": "👷‍♂️ Three-Room Apartment Renovation in Rome | Modern Design & Comfort | Turnkey Service",
+  "description": "✅ Looking for three-room apartment renovation in Rome? | Choose professionalism and quality | Competitive prices and flawless work. 📞 +39 327 986 6412",
+  "h": "Three-Room Apartments",
+  "header": {
+    "h": "Three-Room Apartments by EVO HOME",
+    "p1": "Looking for the best solution to renovate your three-room apartment in Rome and its surroundings? EvoHome is ready to meet all your needs, with over 17 years of experience in the construction and renovation sector. We offer you a complete, reliable, and personalized service to transform your three-room apartment into a unique and comfortable living environment that fully meets your expectations.",
+    "p2": "Your home is the heart of your daily life, and at EvoHome, we understand that well. That’s why we strive to provide high-quality renovation solutions starting from €50,000, ensuring improvements to every aspect of your three-room apartment. Operating in Rome and nearby areas, EvoHome is the ideal choice for those seeking professionalism, experience, and customer-oriented service. Offering a minimum 3-year warranty on results, we are a trusted reference in the industry, ensuring reliable and long-term investments.",
+    "button": "ORDER"
+  },
+  "process": {
+    "h": "More About Three-Room Apartment Renovation",
+    "p": "Our specialist performs accurate on-site measurements. If the project involves reconstruction, we determine which walls can be modified while ensuring compliance with current regulations and maximum safety.",
+    "ul": {
+      "1": {
+        "h": "INITIATION AND DESIGN",
+        "li1": "Space planning",
+        "li2": "Preliminary evaluation",
+        "li3": "Concept development with interior designer",
+        "li4": "Interior design project development",
+        "li5": "Detailed and final estimate"
       },
-      "video_text": "Three-Room Apartment Renovation by EVO HOME"
-    }
+      "2": {
+        "h": "EXECUTION OF WORK",
+        "li1": "Procurement of materials",
+        "li2": "Demolition and disposal",
+        "li3": "Reconstruction and structural modifications",
+        "li4": "Installation of equipment",
+        "li5": "Wall and ceiling finishes",
+        "li6": "Painting"
+      },
+      "3": {
+        "h": "FINALIZATION AND HANDOVER",
+        "li1": "Lighting and finishing touches",
+        "li2": "Plumbing fixtures",
+        "li3": "Furniture and accessories",
+        "li4": "Interior detailing",
+        "li5": "Final cleaning",
+        "li6": "Project handover to client"
+      }
+    },
+    "video_text": "Three-Room Apartment Renovation by EVO HOME"
+  },
+  "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+  "ogTitle": "👷‍♂️ Three-Room Apartment Renovation in Rome | Modern Design & Comfort | Turnkey Service",
+  "ogDescription": "✅ Looking for three-room apartment renovation in Rome? | Choose professionalism and quality | Competitive prices and flawless work. 📞 +39 327 986 6412",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
 }
-  

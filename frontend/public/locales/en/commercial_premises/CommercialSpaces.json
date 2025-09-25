@@ -1,38 +1,42 @@
 {
-    "title": "🏬 Ремонт коммерческих помещений в Риме | Непревзойденные предложения для вашего бизнеса",
-    "description": "Looking for a company to renovate commercial spaces in Rome? Trust our experts. Transform your space with a professional touch. Contact us 📞 +39 327 986 6412",
-    "h": "Commercial Premises Renovation",
-    "header": {
-      "h": "Commercial Renovation by EVO HOME",
-      "p1": "Renovation is one of the key elements of successful business operations. For over 17 years, Evo Home has been offering comprehensive renovation services for shops, business centers, offices, bars, and restaurants in Rome and its surroundings. We guarantee functional and modern environments that attract and retain customers, with renovation prices starting from €400 per square meter.",
-      "p2": "Evo Home specializes in renovating a wide range of commercial premises, each with its own characteristics and specific needs. We offer a personalized approach to optimizing both the functionality and aesthetics of every space.",
-      "button": "ORDER NOW"
-    },
-    "process": {
-      "h": "More About Commercial Renovation",
-      "ul": {
-        "1": {
-          "h": "SHOPPING MALLS",
-          "p": "Renovating shopping malls requires detailed planning to ensure optimal customer flow, accessibility, and safety. We improve the aesthetics and functionality of common areas, individual shops, restrooms, and food courts."
-        },
-        "2": {
-          "h": "ENTERTAINMENT COMPLEXES",
-          "p": "In entertainment complexes like cinemas and amusement parks, we focus on upgrading technical, acoustic, and visual features. We create comfortable and attractive environments that enhance the customer experience."
-        },
-        "3": {
-          "h": "LARGE SUPERMARKETS",
-          "p": "In supermarkets, key factors include space efficiency and product placement. We offer solutions that improve internal logistics, lighting, and product presentation, enhancing customer satisfaction."
-        },
-        "4": {
-          "h": "SPECIALTY STORES",
-          "p": "Niche stores require design that reflects the brand's identity and attracts the target audience. We create custom interiors using high-quality materials and cutting-edge technologies to establish a unique atmosphere."
-        },
-        "5": {
-          "h": "CAFÉS, RESTAURANTS AND BARS",
-          "p": "When renovating food service establishments, we focus on aspects such as kitchen ergonomics, indoor ambiance, safety, and compliance with hygiene standards. We design cozy spaces that customers want to return to."
-        }
+  "title": "🏬 Ремонт коммерческих помещений в Риме | Непревзойденные предложения для вашего бизнеса",
+  "description": "Looking for a company to renovate commercial spaces in Rome? Trust our experts. Transform your space with a professional touch. Contact us 📞 +39 327 986 6412",
+  "h": "Commercial Premises Renovation",
+  "header": {
+    "h": "Commercial Renovation by EVO HOME",
+    "p1": "Renovation is one of the key elements of successful business operations. For over 17 years, Evo Home has been offering comprehensive renovation services for shops, business centers, offices, bars, and restaurants in Rome and its surroundings. We guarantee functional and modern environments that attract and retain customers, with renovation prices starting from €400 per square meter.",
+    "p2": "Evo Home specializes in renovating a wide range of commercial premises, each with its own characteristics and specific needs. We offer a personalized approach to optimizing both the functionality and aesthetics of every space.",
+    "button": "ORDER NOW"
+  },
+  "process": {
+    "h": "More About Commercial Renovation",
+    "ul": {
+      "1": {
+        "h": "SHOPPING MALLS",
+        "p": "Renovating shopping malls requires detailed planning to ensure optimal customer flow, accessibility, and safety. We improve the aesthetics and functionality of common areas, individual shops, restrooms, and food courts."
       },
-      "video_text": "Commercial Premises Renovation by EVO HOME"
-    }
-  }
-  
+      "2": {
+        "h": "ENTERTAINMENT COMPLEXES",
+        "p": "In entertainment complexes like cinemas and amusement parks, we focus on upgrading technical, acoustic, and visual features. We create comfortable and attractive environments that enhance the customer experience."
+      },
+      "3": {
+        "h": "LARGE SUPERMARKETS",
+        "p": "In supermarkets, key factors include space efficiency and product placement. We offer solutions that improve internal logistics, lighting, and product presentation, enhancing customer satisfaction."
+      },
+      "4": {
+        "h": "SPECIALTY STORES",
+        "p": "Niche stores require design that reflects the brand's identity and attracts the target audience. We create custom interiors using high-quality materials and cutting-edge technologies to establish a unique atmosphere."
+      },
+      "5": {
+        "h": "CAFÉS, RESTAURANTS AND BARS",
+        "p": "When renovating food service establishments, we focus on aspects such as kitchen ergonomics, indoor ambiance, safety, and compliance with hygiene standards. We design cozy spaces that customers want to return to."
+      }
+    },
+    "video_text": "Commercial Premises Renovation by EVO HOME"
+  },
+  "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+  "ogTitle": "🏬 Ремонт коммерческих помещений в Риме | Непревзойденные предложения для вашего бизнеса",
+  "ogDescription": "Looking for a company to renovate commercial spaces in Rome? Trust our experts. Transform your space with a professional touch. Contact us 📞 +39 327 986 6412",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
+}

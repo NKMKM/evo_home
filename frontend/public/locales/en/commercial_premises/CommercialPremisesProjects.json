@@ -1,12 +1,16 @@
 {
-    "h": "Choose the Renovation You Love",
-    "p": "Your home – our work",
-    "p1": "Business Centers",
-    "p2": "Exclusive Renovation",
-    "p3": "Studio Apartment Renovation",
-    "p4": "Two-Room Apartment Renovation",
-    "p5": "Three-Room Apartment Renovation",
-    "p6": "Duplex Apartment Renovation",
-    "button":"LOOK"
+  "h": "Choose the Renovation You Love",
+  "p": "Your home – our work",
+  "p1": "Business Centers",
+  "p2": "Exclusive Renovation",
+  "p3": "Studio Apartment Renovation",
+  "p4": "Two-Room Apartment Renovation",
+  "p5": "Three-Room Apartment Renovation",
+  "p6": "Duplex Apartment Renovation",
+  "button": "LOOK",
+  "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+  "ogTitle": "Evo Home - Construction Company in Rome",
+  "ogDescription": "Rome construction company Evo Home - your reliable partner",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
 }
-  

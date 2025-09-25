@@ -1,23 +1,27 @@
 {
-    "h": "Sconto del 10%",
-    "left_block": {
-      "p": "mancano",
-      "strong": "7 giorni"
-    },
-    "comment": {
-      "p": "Ci segui già sui social? Allora hai la possibilità di ottenere uno sconto esclusivo fino al 10% sulla",
-      "span": " ristrutturazione che desideri!"
-    },
-    "button": "VOGLIO LO SCONTO",
-    "condition": {
-      "h": "Come ottenere lo sconto:",
-      "li1": "—Seguici ",
-      "span1":" reti sociali ",
-      "li2": "—Contattaci",
-      "span2":" questa settimana ",
-      "li3": "—Ottieni di sconto ",
-      "span3":" fino al 10% ",
-      "li4":"per il primo progetto"
-    }
-  }
-  
+  "h": "Sconto del 10%",
+  "left_block": {
+    "p": "mancano",
+    "strong": "7 giorni"
+  },
+  "comment": {
+    "p": "Ci segui già sui social? Allora hai la possibilità di ottenere uno sconto esclusivo fino al 10% sulla",
+    "span": " ristrutturazione che desideri!"
+  },
+  "button": "VOGLIO LO SCONTO",
+  "condition": {
+    "h": "Come ottenere lo sconto:",
+    "li1": "—Seguici ",
+    "span1": " reti sociali ",
+    "li2": "—Contattaci",
+    "span2": " questa settimana ",
+    "li3": "—Ottieni di sconto ",
+    "span3": " fino al 10% ",
+    "li4": "per il primo progetto"
+  },
+  "keywords": "ristrutturazione, costruzioni, Roma, Evo Home, ristrutturazione chiavi in mano",
+  "ogTitle": "Evo Home - Società di Costruzioni a Roma",
+  "ogDescription": "Società di costruzioni a Roma Evo Home - il tuo partner affidabile",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import Video from '../../components/Video'
+import { PageWrapper } from '../../components/PageWrapper'
 import LayoutCollection from '../../components/room_renovation_components/LayoutCollection'
 import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from 'react-helmet'
@@ -21,6 +22,8 @@ const ExclusiveRenovation = () => {
   const { t } = useTranslation('turnkey_renovation/ExclusiveRenovation')
   const selectedLang = localStorage.getItem('language') || 'en'
   return (
+    <PageWrapper pageId="exclusive-renovation">
+
     <div className="w-full min-h-screen">
       <Helmet>
         <title>{t('title')}</title>
@@ -118,7 +121,9 @@ const ExclusiveRenovation = () => {
 
       <LayoutCollection />
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default ExclusiveRenovation

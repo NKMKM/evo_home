@@ -1,5 +1,6 @@
 import React from 'react'
 import LanguageLink from '../../components/LanguageLink'
+import { PageWrapper } from '../../components/PageWrapper.tsx'
 import LayoutCollection from '../../components/room_renovation_components/LayoutCollection'
 import Video from '../../components/Video'
 import { Helmet } from 'react-helmet'
@@ -22,6 +23,8 @@ const DesignerRenovation = () => {
   const { t } = useTranslation('turnkey_renovation/DesignerRenovation')
   const selectedLang = localStorage.getItem('language') || 'en'
   return (
+    <PageWrapper pageId="designer-renovation">
+
     <div className="w-full min-h-screen">
       <Helmet>
         <title>{t('title')}</title>
@@ -133,7 +136,9 @@ const DesignerRenovation = () => {
 
       <LayoutCollection />
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default DesignerRenovation

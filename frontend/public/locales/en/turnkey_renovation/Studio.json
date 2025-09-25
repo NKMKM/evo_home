@@ -1,44 +1,48 @@
 {
-    "title": "👷‍♂️ Studio Apartment Renovations in Rome | Comfort & Style | Competitive Prices",
-    "description": "🏡 Looking for studio apartment renovations in Rome? Trust us for quality and professionalism. Contact us to get started 📞 +39 327 986 6412",
-    "h": "Studio Apartment Renovation",
-    "header": {
-      "h": "Studio Apartment Renovation by EVO HOME",
-      "p1": "Studio renovations by EVO HOME offer stylish and functional solutions for compact spaces. We create cozy interiors, optimize zoning, and use modern materials to make your studio as comfortable and stylish as possible.",
-      "p2": "EvoHome, a leader in the studio apartment renovation sector, provides personalized solutions that turn your space into a unique, functional, and elegant environment. With over 17 years of experience in construction and renovation, EvoHome is the ideal partner for those seeking quality, reliability, and tailored service.",
-      "p3": "Operating in Rome and its nearby surroundings, we guarantee a professional and efficient approach that will turn your home into a true dream at a competitive price starting from just €500 per square meter.",
-      "button": "ORDER"
-    },
-    "process": {
-      "h": "More About Studio Renovation",
-      "p": "Every renovation project with EvoHome starts with thorough planning and precise design tailored to your needs and desires, aiming to maximize the use of your studio apartment space.",
-      "ul": {
-        "1": {
-          "h": "PROFESSIONAL CONSULTATION",
-          "p": "Our specialists help you develop the best renovation plan for your studio, considering ergonomics, style, and budget. We advise on how to efficiently zone the space, choose materials, lighting, and furniture to create a cozy and functional interior. EVO HOME – expert approach to every project."
-        },
-        "2": {
-          "h": "PREMIUM MATERIALS",
-          "p": "We use only high-quality and certified materials to ensure reliability, eco-friendliness, and visual appeal. Our work includes wear-resistant finishes, natural materials, innovative technologies, and advanced solutions for maximum comfort and durability."
-        },
-        "3": {
-          "h": "TAILORED SOLUTIONS",
-          "p": "We design unique projects that reflect your style, preferences, and spatial characteristics. Each solution is a blend of aesthetics, functionality, and comfort. From layout to material selection and decor — every detail is carefully personalized to reflect your personality."
-        },
-        "4": {
-          "h": "TRANSPARENCY AND RELIABILITY",
-          "p": "Transparency is at the core of our philosophy. At EvoHome, we strive to provide clear and detailed estimates, ensuring that the renovation cost is always predictable and free of surprises. With prices starting from €500 per square meter, we offer affordable solutions without compromising quality."
-        },
-        "5": {
-          "h": "EXPERIENCE AND WARRANTY",
-          "p": "With over 17 years of experience, we offer a 3-year warranty on all renovations — proof of the reliability and durability of our work. By choosing EvoHome, you’re trusting industry professionals who can transform any space to suit your needs."
-        },
-        "6": {
-          "h": "STUDIO RENOVATION IN ROME AND SURROUNDINGS",
-          "p": "Our services cover the city of Rome and its nearby areas, allowing us to provide fast and efficient service. Whether you live in the heart of the capital or in the surrounding areas, the EvoHome team can turn your studio apartment into a masterpiece of comfort and design."
-        }
+  "title": "👷‍♂️ Studio Apartment Renovations in Rome | Comfort & Style | Competitive Prices",
+  "description": "🏡 Looking for studio apartment renovations in Rome? Trust us for quality and professionalism. Contact us to get started 📞 +39 327 986 6412",
+  "h": "Studio Apartment Renovation",
+  "header": {
+    "h": "Studio Apartment Renovation by EVO HOME",
+    "p1": "Studio renovations by EVO HOME offer stylish and functional solutions for compact spaces. We create cozy interiors, optimize zoning, and use modern materials to make your studio as comfortable and stylish as possible.",
+    "p2": "EvoHome, a leader in the studio apartment renovation sector, provides personalized solutions that turn your space into a unique, functional, and elegant environment. With over 17 years of experience in construction and renovation, EvoHome is the ideal partner for those seeking quality, reliability, and tailored service.",
+    "p3": "Operating in Rome and its nearby surroundings, we guarantee a professional and efficient approach that will turn your home into a true dream at a competitive price starting from just €500 per square meter.",
+    "button": "ORDER"
+  },
+  "process": {
+    "h": "More About Studio Renovation",
+    "p": "Every renovation project with EvoHome starts with thorough planning and precise design tailored to your needs and desires, aiming to maximize the use of your studio apartment space.",
+    "ul": {
+      "1": {
+        "h": "PROFESSIONAL CONSULTATION",
+        "p": "Our specialists help you develop the best renovation plan for your studio, considering ergonomics, style, and budget. We advise on how to efficiently zone the space, choose materials, lighting, and furniture to create a cozy and functional interior. EVO HOME – expert approach to every project."
       },
-      "video_text": "Studio Apartment Renovation by EVO HOME"
-    }
+      "2": {
+        "h": "PREMIUM MATERIALS",
+        "p": "We use only high-quality and certified materials to ensure reliability, eco-friendliness, and visual appeal. Our work includes wear-resistant finishes, natural materials, innovative technologies, and advanced solutions for maximum comfort and durability."
+      },
+      "3": {
+        "h": "TAILORED SOLUTIONS",
+        "p": "We design unique projects that reflect your style, preferences, and spatial characteristics. Each solution is a blend of aesthetics, functionality, and comfort. From layout to material selection and decor — every detail is carefully personalized to reflect your personality."
+      },
+      "4": {
+        "h": "TRANSPARENCY AND RELIABILITY",
+        "p": "Transparency is at the core of our philosophy. At EvoHome, we strive to provide clear and detailed estimates, ensuring that the renovation cost is always predictable and free of surprises. With prices starting from €500 per square meter, we offer affordable solutions without compromising quality."
+      },
+      "5": {
+        "h": "EXPERIENCE AND WARRANTY",
+        "p": "With over 17 years of experience, we offer a 3-year warranty on all renovations — proof of the reliability and durability of our work. By choosing EvoHome, you’re trusting industry professionals who can transform any space to suit your needs."
+      },
+      "6": {
+        "h": "STUDIO RENOVATION IN ROME AND SURROUNDINGS",
+        "p": "Our services cover the city of Rome and its nearby areas, allowing us to provide fast and efficient service. Whether you live in the heart of the capital or in the surrounding areas, the EvoHome team can turn your studio apartment into a masterpiece of comfort and design."
+      }
+    },
+    "video_text": "Studio Apartment Renovation by EVO HOME"
+  },
+  "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+  "ogTitle": "👷‍♂️ Studio Apartment Renovations in Rome | Comfort & Style | Competitive Prices",
+  "ogDescription": "🏡 Looking for studio apartment renovations in Rome? Trust us for quality and professionalism. Contact us to get started 📞 +39 327 986 6412",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
 }
-  

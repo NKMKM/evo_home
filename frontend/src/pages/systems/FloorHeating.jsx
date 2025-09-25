@@ -1,5 +1,6 @@
 import React from 'react'
 import Video from '../../components/Video'
+import { PageWrapper } from '../../components/PageWrapper'
 import SystemLayoutCollection from '../../components/systems_components/SystemLayoutCollection'
 import LanguageLink from '../../components/LanguageLink'
 import { Helmet } from 'react-helmet'
@@ -22,6 +23,8 @@ const FloorHeating = () => {
   const selectedLang = localStorage.getItem('language') || 'en'
 
   return (
+    <PageWrapper pageId="floor-heating">
+
     <div className="min-h-screen bg-white">
       <Helmet>
         <title>{t('title')}</title>
@@ -141,7 +144,9 @@ const FloorHeating = () => {
 
       <SystemLayoutCollection />
     </div>
-  )
+  
+    </PageWrapper>
+)
 }
 
 export default FloorHeating

@@ -1,6 +1,6 @@
 {
   "title": "🏡 Ristrutturazione Scale a Roma | Restauro di Qualità | Prezzi Competitivi",
-  "description":"Le tue scale hanno bisogno di un restauro? Ristrutturazione professionale a Roma. Contattaci 📞 +39 327 986 6412",
+  "description": "Le tue scale hanno bisogno di un restauro? Ristrutturazione professionale a Roma. Contattaci 📞 +39 327 986 6412",
   "h": "Ristrutturazione Scale",
   "header": {
     "h": "Ristrutturazione Scale by EVO HOME",
@@ -30,5 +30,10 @@
       }
     },
     "video_text": "Ristrutturazione Scale by EVO HOME"
-  }
+  },
+  "keywords": "ristrutturazione, costruzioni, Roma, Evo Home, ristrutturazione chiavi in mano",
+  "ogTitle": "🏡 Ristrutturazione Scale a Roma | Restauro di Qualità | Prezzi Competitivi",
+  "ogDescription": "Le tue scale hanno bisogno di un restauro? Ristrutturazione professionale a Roma. Contattaci 📞 +39 327 986 6412",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
 }

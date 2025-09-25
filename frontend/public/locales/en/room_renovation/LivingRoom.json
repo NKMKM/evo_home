@@ -1,39 +1,43 @@
 {
-    "title": "🏡 Living Room Renovation in Rome | Turnkey Service | Highest Quality",
-    "description": "Want to transform your living room? Efficient and stylish renovations in Rome. Rely on our expertise. Contact us 📞 +39 327 986 6412",
-    "h": "Living Room Renovation",
-    "header": {
-      "h": "Living Room Renovation by EVO HOME",
-      "p1": "Welcome to EvoHome — your choice for excellence in designer renovation. Looking for a solution to transform your living room that combines elegance, functionality, and innovation? With EvoHome, operating in Rome and its surroundings, you can access living room renovation options starting from just €10,000. With over 17 years of renovation experience, we’re ready to help you create the living room of your dreams, guaranteeing flawless service with a minimum 3-year warranty.",
-      "p2": "Whether you have a studio, one-bedroom, two-bedroom, four-room, or duplex apartment, EvoHome offers a wide range of services to meet the renovation needs of various apartment types, ensuring tailored solutions for every size and lifestyle.",
-      "button": "ORDER"
-    },
-    "process": {
-      "h": "More About Living Room Renovation",
-      "p": "Living room renovation aims for one major goal: to make the space not only aesthetically pleasing but also functional — especially in smaller rooms.",
-      "ul": {
-        "1": {
-          "h": "IT ALL STARTS WITH A SIMPLE CALL",
-          "p": "Want to breathe new life into your living room? Contact us by phone or through our online form. One of our specialists will call you back within 5–10 minutes for a preliminary consultation, timeline overview, and a rough cost estimate."
-        },
-        "2": {
-          "h": "FREE ENGINEER VISIT",
-          "p": "To ensure maximum estimate accuracy, we organize a free visit from one of our design engineers directly to your home. Let’s schedule a convenient time together; if your request comes before 1:00 PM, we can send a specialist the same day. This service is completely free and carries no obligation."
-        },
-        "3": {
-          "h": "CUSTOMIZED ESTIMATE",
-          "p": "On-site, we’ll conduct all necessary assessments and prepare a detailed estimate based on measurements. Our engineer will be available to advise you on material selection, project stages, and how to optimize your budget without compromising final quality."
-        },
-        "4": {
-          "h": "MEETING WITH THE SITE MANAGER",
-          "p": "Before work begins, you’ll meet the site manager, who will verify the estimate’s completeness and accuracy, listen to your additional requests, and make any necessary changes to the quote. After approving the final version, we’ll agree on contract terms, completion timeline, and start date."
-        },
-        "5": {
-          "h": "WORK BEGINS",
-          "p": "The transformation of your living room begins. Our team follows a precise work plan — starting with demolition and preparation, then rough construction, and finally finishing. Throughout the process, we provide weekly updates and progress reports while ensuring transparent payment management broken into phases."
-        }
+  "title": "🏡 Living Room Renovation in Rome | Turnkey Service | Highest Quality",
+  "description": "Want to transform your living room? Efficient and stylish renovations in Rome. Rely on our expertise. Contact us 📞 +39 327 986 6412",
+  "h": "Living Room Renovation",
+  "header": {
+    "h": "Living Room Renovation by EVO HOME",
+    "p1": "Welcome to EvoHome — your choice for excellence in designer renovation. Looking for a solution to transform your living room that combines elegance, functionality, and innovation? With EvoHome, operating in Rome and its surroundings, you can access living room renovation options starting from just €10,000. With over 17 years of renovation experience, we’re ready to help you create the living room of your dreams, guaranteeing flawless service with a minimum 3-year warranty.",
+    "p2": "Whether you have a studio, one-bedroom, two-bedroom, four-room, or duplex apartment, EvoHome offers a wide range of services to meet the renovation needs of various apartment types, ensuring tailored solutions for every size and lifestyle.",
+    "button": "ORDER"
+  },
+  "process": {
+    "h": "More About Living Room Renovation",
+    "p": "Living room renovation aims for one major goal: to make the space not only aesthetically pleasing but also functional — especially in smaller rooms.",
+    "ul": {
+      "1": {
+        "h": "IT ALL STARTS WITH A SIMPLE CALL",
+        "p": "Want to breathe new life into your living room? Contact us by phone or through our online form. One of our specialists will call you back within 5–10 minutes for a preliminary consultation, timeline overview, and a rough cost estimate."
       },
-      "video_text": "Living Room Renovation by EVO HOME"
-    }
-  }
-  
+      "2": {
+        "h": "FREE ENGINEER VISIT",
+        "p": "To ensure maximum estimate accuracy, we organize a free visit from one of our design engineers directly to your home. Let’s schedule a convenient time together; if your request comes before 1:00 PM, we can send a specialist the same day. This service is completely free and carries no obligation."
+      },
+      "3": {
+        "h": "CUSTOMIZED ESTIMATE",
+        "p": "On-site, we’ll conduct all necessary assessments and prepare a detailed estimate based on measurements. Our engineer will be available to advise you on material selection, project stages, and how to optimize your budget without compromising final quality."
+      },
+      "4": {
+        "h": "MEETING WITH THE SITE MANAGER",
+        "p": "Before work begins, you’ll meet the site manager, who will verify the estimate’s completeness and accuracy, listen to your additional requests, and make any necessary changes to the quote. After approving the final version, we’ll agree on contract terms, completion timeline, and start date."
+      },
+      "5": {
+        "h": "WORK BEGINS",
+        "p": "The transformation of your living room begins. Our team follows a precise work plan — starting with demolition and preparation, then rough construction, and finally finishing. Throughout the process, we provide weekly updates and progress reports while ensuring transparent payment management broken into phases."
+      }
+    },
+    "video_text": "Living Room Renovation by EVO HOME"
+  },
+  "keywords": "renovation, construction, Rome, Evo Home, turnkey renovation",
+  "ogTitle": "🏡 Living Room Renovation in Rome | Turnkey Service | Highest Quality",
+  "ogDescription": "Want to transform your living room? Efficient and stylish renovations in Rome. Rely on our expertise. Contact us 📞 +39 327 986 6412",
+  "ogImage": "/team_images/founder.png",
+  "canonical": "https://evohome.it"
+}
