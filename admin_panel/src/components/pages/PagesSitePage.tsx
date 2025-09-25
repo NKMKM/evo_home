@@ -1541,10 +1541,7 @@ export function PagesSitePage() {
           </div>
         </div>
 
-        {/* Временный тест изображений для отладки */}
-        <div className="mb-6">
-          <ImageTest backendUrl={backendUrl} />
-        </div>
+        {/* Временный тест изображений для отладки - удален */}
 
         {/* Отладочная информация */}
         <div className="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
