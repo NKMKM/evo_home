@@ -115,13 +115,11 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
           ...prev,
           [pageId]: newStatus
         }));
-        alert(`✅ Страница ${newStatus ? 'включена' : 'исключена'} из sitemap`);
       } else {
         throw new Error('Ошибка обновления статуса sitemap');
       }
     } catch (error) {
       console.error('Ошибка при переключении статуса sitemap:', error);
-      alert('❌ Ошибка обновления статуса sitemap');
     }
   };
 

@@ -158,13 +158,13 @@ export function SEOPage() {
         
         setEditingData(null);
         setSelectedPage(null);
-        alert(`✅ SEO данные сохранены с бэкапом: ${result.backupPath}`);
+        
       } else {
         throw new Error('Ошибка сохранения SEO данных');
       }
     } catch (error) {
       console.error('Ошибка сохранения SEO данных:', error);
-      alert('❌ Ошибка сохранения SEO данных');
+      
     }
   };
 
@@ -185,13 +185,13 @@ export function SEOPage() {
       if (response.ok) {
         setSitemapGenerated(true);
         setTimeout(() => setSitemapGenerated(false), 3000);
-        alert('✅ Sitemap.xml успешно сгенерирован');
+        
       } else {
         throw new Error('Ошибка генерации sitemap');
       }
     } catch (error) {
       console.error('Ошибка генерации sitemap:', error);
-      alert('❌ Ошибка генерации sitemap');
+      
     }
   };
 
@@ -210,13 +210,13 @@ export function SEOPage() {
         a.download = 'sitemap.xml';
         a.click();
         URL.revokeObjectURL(url);
-        alert('✅ Sitemap.xml скачан');
+        
       } else {
         throw new Error('Ошибка скачивания sitemap');
       }
     } catch (error) {
       console.error('Ошибка при скачивании sitemap:', error);
-      alert('❌ Ошибка скачивания sitemap');
+      
     }
   };
 

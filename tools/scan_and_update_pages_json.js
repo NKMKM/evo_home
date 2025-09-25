@@ -182,7 +182,7 @@ const pageFilesMapping = {
 
 function normalizeKey(s) { return String(s || '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
 
-const newPages = pagesData.map(p => {
+let newPages = pagesData.map(p => {
   const pid = p.id;
   let imgs = [];
   if (pageFilesMapping[pid]) {
@@ -215,6 +215,99 @@ const newPages = pagesData.map(p => {
   }
 
   return { ...p, images: merged };
+});
+
+// EXTRA: ensure service pages (with servises-* ids) get images by scanning category directories
+const assetsImagesDir = path.join(frontendSrc, 'assets', 'images');
+function getAllImageFiles(dir, out) {
+  if (!fs.existsSync(dir)) return;
+  for (const entry of fs.readdirSync(dir)) {
+    const full = path.join(dir, entry);
+    const st = fs.statSync(full);
+    if (st.isDirectory()) getAllImageFiles(full, out);
+    else if (/\.(png|jpg|jpeg|webp|gif|svg)$/i.test(entry)) out.push(full);
+  }
+}
+
+const serviceDirMap = {
+  'servises-servisesphone': ['turnkey_renovation/','room_renovation/','commercial_premises/','systems/'],
+  'servises-turnkeyrenovationservices': ['turnkey_renovation/'],
+  'servises-roomrenovationservices': ['room_renovation/'],
+  'servises-commercialpremisesservices': ['commercial_premises/'],
+  'servises-systemsservices': ['systems/']
+};
+
+// helper: pick evenly spread N items from array
+function pickEvenlySpread(arr, count) {
+  if (arr.length <= count) return arr.slice();
+  const out = [];
+  const step = (arr.length - 1) / (count - 1);
+  for (let i = 0; i < count; i++) {
+    const idx = Math.round(i * step);
+    out.push(arr[idx]);
+  }
+  return Array.from(new Set(out));
+}
+
+// Select one or two representative images per direct subfolder
+function pickCoversPerSubfolder(baseDir, relDirs, maxPerSub = 2, allowedExts = /(png|jpg|jpeg|webp|gif)$/i) {
+  const picks = [];
+  for (const rel of relDirs) {
+    const root = path.join(baseDir, rel);
+    if (!fs.existsSync(root)) continue;
+    const entries = fs.readdirSync(root);
+    for (const entry of entries) {
+      const full = path.join(root, entry);
+      const st = fs.statSync(full);
+      if (st.isDirectory()) {
+        // pick first 1-2 images in this subfolder
+        const files = fs.readdirSync(full)
+          .filter(f => allowedExts.test(f))
+          .slice(0, maxPerSub)
+          .map(f => path.join(full, f));
+        picks.push(...files);
+      }
+    }
+    // if folder has images directly, include a couple
+    const directFiles = fs.readdirSync(root)
+      .filter(f => allowedExts.test(f))
+      .slice(0, maxPerSub)
+      .map(f => path.join(root, f));
+    picks.push(...directFiles);
+  }
+  // dedupe
+  return Array.from(new Set(picks));
+}
+
+// limits per page
+const perPageLimit = {
+  'servises-servisesphone': 24,
+  'servises-turnkeyrenovationservices': 12,
+  'servises-roomrenovationservices': 12,
+  'servises-commercialpremisesservices': 12,
+  'servises-systemsservices': 12
+};
+
+newPages = newPages.map(p => {
+  if (!serviceDirMap[p.id]) return p;
+  const dirs = serviceDirMap[p.id];
+  // Prefer covers per immediate subfolder
+  let collected = pickCoversPerSubfolder(assetsImagesDir, dirs, 2);
+  // Fallback to all images if not enough
+  if (collected.length < (perPageLimit[p.id] || 12)) {
+    for (const d of dirs) {
+      const abs = path.join(assetsImagesDir, d);
+      getAllImageFiles(abs, collected);
+    }
+    collected = Array.from(new Set(collected));
+  }
+  // stable sort by path to make selection deterministic
+  const unique = Array.from(new Set(collected)).sort((a,b) => a.localeCompare(b));
+  const limit = perPageLimit[p.id] || 12;
+  const limited = pickEvenlySpread(unique, limit);
+  const relLimited = limited.map(f => path.relative(assetsImagesDir, f).replace(/\\/g, '/'));
+  const images = relLimited.map((rel, idx) => ({ id: idx + 1, src: 'images/' + rel, alt: '', title: '', description: '' }));
+  return { ...p, images };
 });
 
 fs.writeFileSync(pagesJsonPath, JSON.stringify(newPages, null, 2), 'utf-8');

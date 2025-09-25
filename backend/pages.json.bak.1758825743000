@@ -4705,76 +4705,370 @@
       },
       {
         "id": 2,
-        "src": "images/commercial_premises/business_center/process/third_step.png",
+        "src": "images/commercial_premises/business_center/process/fifth_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 3,
-        "src": "images/commercial_premises/commercial_premises_renovation/process/second_step.png",
+        "src": "images/commercial_premises/business_center/process/first_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 4,
-        "src": "images/commercial_premises/commercial_premises/process/fourth_step.png",
+        "src": "images/commercial_premises/business_center/process/fourth_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 5,
-        "src": "images/commercial_premises/fitness_club/image.png",
+        "src": "images/commercial_premises/business_center/process/second_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 6,
-        "src": "images/commercial_premises/fitness_club/process/third_step.png",
+        "src": "images/commercial_premises/business_center/process/third_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 7,
-        "src": "images/commercial_premises/grid_images/third_image.jpg",
+        "src": "images/commercial_premises/commercial_premises/image.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 8,
-        "src": "images/commercial_premises/hotel/process/second_step.png",
+        "src": "images/commercial_premises/commercial_premises/process/first_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 9,
-        "src": "images/commercial_premises/office/process/fourth_step.jpg",
+        "src": "images/commercial_premises/commercial_premises/process/fourth_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 10,
-        "src": "images/commercial_premises/restaurant/process/fifth_step.jpg",
+        "src": "images/commercial_premises/commercial_premises/process/second_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 11,
-        "src": "images/commercial_premises/warehouse/image.png",
+        "src": "images/commercial_premises/commercial_premises/process/seventh_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 12,
+        "src": "images/commercial_premises/commercial_premises/process/sixth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 13,
+        "src": "images/commercial_premises/commercial_premises/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 14,
+        "src": "images/commercial_premises/commercial_premises_renovation/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 15,
+        "src": "images/commercial_premises/commercial_premises_renovation/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 16,
+        "src": "images/commercial_premises/commercial_premises_renovation/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 17,
+        "src": "images/commercial_premises/commercial_premises_renovation/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 18,
+        "src": "images/commercial_premises/commercial_premises_renovation/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 19,
+        "src": "images/commercial_premises/commercial_premises_renovation/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 20,
+        "src": "images/commercial_premises/fitness_club/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 21,
+        "src": "images/commercial_premises/fitness_club/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 22,
+        "src": "images/commercial_premises/fitness_club/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 23,
+        "src": "images/commercial_premises/fitness_club/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 24,
+        "src": "images/commercial_premises/fitness_club/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 25,
+        "src": "images/commercial_premises/fitness_club/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 26,
+        "src": "images/commercial_premises/grid_images/fifth_image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 27,
+        "src": "images/commercial_premises/grid_images/fourth_image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 28,
+        "src": "images/commercial_premises/grid_images/second_image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 29,
+        "src": "images/commercial_premises/grid_images/sixth_image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 30,
+        "src": "images/commercial_premises/grid_images/third_image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 31,
+        "src": "images/commercial_premises/hotel/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 32,
+        "src": "images/commercial_premises/hotel/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 33,
+        "src": "images/commercial_premises/hotel/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 34,
+        "src": "images/commercial_premises/hotel/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 35,
+        "src": "images/commercial_premises/hotel/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 36,
+        "src": "images/commercial_premises/hotel/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 37,
+        "src": "images/commercial_premises/office/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 38,
+        "src": "images/commercial_premises/office/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 39,
+        "src": "images/commercial_premises/office/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 40,
+        "src": "images/commercial_premises/office/process/fourth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 41,
+        "src": "images/commercial_premises/office/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 42,
+        "src": "images/commercial_premises/office/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 43,
+        "src": "images/commercial_premises/restaurant/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 44,
+        "src": "images/commercial_premises/restaurant/process/fifth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 45,
+        "src": "images/commercial_premises/restaurant/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 46,
+        "src": "images/commercial_premises/restaurant/process/fourth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 47,
+        "src": "images/commercial_premises/restaurant/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 48,
+        "src": "images/commercial_premises/restaurant/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 49,
+        "src": "images/commercial_premises/warehouse/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 50,
+        "src": "images/commercial_premises/warehouse/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 51,
+        "src": "images/commercial_premises/warehouse/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 52,
+        "src": "images/commercial_premises/warehouse/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 53,
+        "src": "images/commercial_premises/warehouse/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 54,
         "src": "images/commercial_premises/warehouse/process/third_step.png",
         "alt": "",
         "title": "",
@@ -4795,76 +5089,342 @@
       },
       {
         "id": 2,
-        "src": "images/room_renovation/bathroom/process/second_step.jpg",
+        "src": "images/room_renovation/bathroom/process/fifth_step.jpg",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 3,
-        "src": "images/room_renovation/bedroom/process/walls.jpg",
+        "src": "images/room_renovation/bathroom/process/first_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 4,
-        "src": "images/room_renovation/children_room/process/fourth_step.png",
+        "src": "images/room_renovation/bathroom/process/fourth_step.jpg",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 5,
-        "src": "images/room_renovation/corridor/process/first_step.jpg",
+        "src": "images/room_renovation/bathroom/process/second_step.jpg",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 6,
-        "src": "images/room_renovation/kitchen/image.png",
+        "src": "images/room_renovation/bathroom/process/third_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 7,
-        "src": "images/room_renovation/kitchen/process/third_step.png",
+        "src": "images/room_renovation/bedroom/image.jpg",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 8,
-        "src": "images/room_renovation/living_room/process/first_step.jpg",
+        "src": "images/room_renovation/bedroom/process/ceiling.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 9,
-        "src": "images/room_renovation/room_renovation/arrow_2.png",
+        "src": "images/room_renovation/bedroom/process/floor.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 10,
-        "src": "images/room_renovation/room_renovation/process/fourth_step.jpg",
+        "src": "images/room_renovation/bedroom/process/walls.jpg",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 11,
-        "src": "images/room_renovation/stairs/image.png",
+        "src": "images/room_renovation/children_room/image.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 12,
+        "src": "images/room_renovation/children_room/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 13,
+        "src": "images/room_renovation/children_room/process/first_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 14,
+        "src": "images/room_renovation/children_room/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 15,
+        "src": "images/room_renovation/children_room/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 16,
+        "src": "images/room_renovation/children_room/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 17,
+        "src": "images/room_renovation/corridor/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 18,
+        "src": "images/room_renovation/corridor/process/fifth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 19,
+        "src": "images/room_renovation/corridor/process/first_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 20,
+        "src": "images/room_renovation/corridor/process/fourth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 21,
+        "src": "images/room_renovation/corridor/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 22,
+        "src": "images/room_renovation/corridor/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 23,
+        "src": "images/room_renovation/kitchen/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 24,
+        "src": "images/room_renovation/kitchen/process/fifth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 25,
+        "src": "images/room_renovation/kitchen/process/first_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 26,
+        "src": "images/room_renovation/kitchen/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 27,
+        "src": "images/room_renovation/kitchen/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 28,
+        "src": "images/room_renovation/kitchen/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 29,
+        "src": "images/room_renovation/living_room/arrow_2.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 30,
+        "src": "images/room_renovation/living_room/image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 31,
+        "src": "images/room_renovation/living_room/process/fifth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 32,
+        "src": "images/room_renovation/living_room/process/first_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 33,
+        "src": "images/room_renovation/living_room/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 34,
+        "src": "images/room_renovation/living_room/process/second_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 35,
+        "src": "images/room_renovation/living_room/process/third_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 36,
+        "src": "images/room_renovation/room_renovation/arrow_1.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 37,
+        "src": "images/room_renovation/room_renovation/arrow_2.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 38,
+        "src": "images/room_renovation/room_renovation/image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 39,
+        "src": "images/room_renovation/room_renovation/process/fifth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 40,
+        "src": "images/room_renovation/room_renovation/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 41,
+        "src": "images/room_renovation/room_renovation/process/fourth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 42,
+        "src": "images/room_renovation/room_renovation/process/second_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 43,
+        "src": "images/room_renovation/room_renovation/process/sixth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 44,
+        "src": "images/room_renovation/room_renovation/process/third_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 45,
+        "src": "images/room_renovation/room_renovation/vector.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 46,
+        "src": "images/room_renovation/stairs/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 47,
+        "src": "images/room_renovation/stairs/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 48,
+        "src": "images/room_renovation/stairs/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 49,
+        "src": "images/room_renovation/stairs/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 50,
         "src": "images/room_renovation/stairs/process/third_step.png",
         "alt": "",
         "title": "",
@@ -4878,168 +5438,1302 @@
     "images": [
       {
         "id": 1,
-        "src": "images/commercial_premises/business_center/image.png",
-        "alt": "",
-        "title": "",
-        "description": ""
-      },
-      {
-        "id": 2,
-        "src": "images/commercial_premises/commercial_premises_renovation/image.png",
-        "alt": "",
-        "title": "",
-        "description": ""
-      },
-      {
-        "id": 3,
-        "src": "images/commercial_premises/fitness_club/image.png",
-        "alt": "",
-        "title": "",
-        "description": ""
-      },
-      {
-        "id": 4,
-        "src": "images/commercial_premises/grid_images/fifth_image.jpg",
-        "alt": "",
-        "title": "",
-        "description": ""
-      },
-      {
-        "id": 5,
-        "src": "images/commercial_premises/hotel/image.png",
-        "alt": "",
-        "title": "",
-        "description": ""
-      },
-      {
-        "id": 6,
-        "src": "images/commercial_premises/office/image.png",
-        "alt": "",
-        "title": "",
-        "description": ""
-      },
-      {
-        "id": 7,
-        "src": "images/commercial_premises/restaurant/image.png",
-        "alt": "",
-        "title": "",
-        "description": ""
-      },
-      {
-        "id": 8,
-        "src": "images/room_renovation/bathroom/image.png",
-        "alt": "",
-        "title": "",
-        "description": ""
-      },
-      {
-        "id": 9,
-        "src": "images/room_renovation/bedroom/image.jpg",
-        "alt": "",
-        "title": "",
-        "description": ""
-      },
-      {
-        "id": 10,
-        "src": "images/room_renovation/corridor/image.png",
-        "alt": "",
-        "title": "",
-        "description": ""
-      },
-      {
-        "id": 11,
-        "src": "images/room_renovation/kitchen/image.png",
-        "alt": "",
-        "title": "",
-        "description": ""
-      },
-      {
-        "id": 12,
-        "src": "images/room_renovation/living_room/arrow_2.png",
-        "alt": "",
-        "title": "",
-        "description": ""
-      },
-      {
-        "id": 13,
-        "src": "images/room_renovation/room_renovation/arrow_1.png",
-        "alt": "",
-        "title": "",
-        "description": ""
-      },
-      {
-        "id": 14,
-        "src": "images/room_renovation/room_renovation/arrow_2.png",
-        "alt": "",
-        "title": "",
-        "description": ""
-      },
-      {
-        "id": 15,
-        "src": "images/room_renovation/stairs/image.png",
-        "alt": "",
-        "title": "",
-        "description": ""
-      },
-      {
-        "id": 16,
-        "src": "images/systems/electrical_systems/image.png",
-        "alt": "",
-        "title": "",
-        "description": ""
-      },
-      {
-        "id": 17,
-        "src": "images/systems/floor_heating/image.png",
-        "alt": "",
-        "title": "",
-        "description": ""
-      },
-      {
-        "id": 18,
-        "src": "images/systems/systems/image.png",
-        "alt": "",
-        "title": "",
-        "description": ""
-      },
-      {
-        "id": 19,
         "src": "images/turnkey_renovation/designer_renovation/image.jpg",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
-        "id": 20,
+        "id": 2,
+        "src": "images/turnkey_renovation/designer_renovation/process/fifth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 3,
+        "src": "images/turnkey_renovation/designer_renovation/process/first_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 4,
+        "src": "images/turnkey_renovation/designer_renovation/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 5,
+        "src": "images/turnkey_renovation/designer_renovation/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 6,
+        "src": "images/turnkey_renovation/designer_renovation/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 7,
         "src": "images/turnkey_renovation/exclusive_renovation/image.jpg",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
-        "id": 21,
+        "id": 8,
+        "src": "images/turnkey_renovation/exclusive_renovation/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 9,
+        "src": "images/turnkey_renovation/exclusive_renovation/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 10,
+        "src": "images/turnkey_renovation/exclusive_renovation/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 11,
+        "src": "images/turnkey_renovation/exclusive_renovation/process/third_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 12,
+        "src": "images/turnkey_renovation/fourroom_apartment/image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 13,
+        "src": "images/turnkey_renovation/fourroom_apartment/process/first_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 14,
+        "src": "images/turnkey_renovation/fourroom_apartment/process/fourth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 15,
+        "src": "images/turnkey_renovation/fourroom_apartment/process/second_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 16,
+        "src": "images/turnkey_renovation/fourroom_apartment/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 17,
         "src": "images/turnkey_renovation/studio/image.jpg",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
+        "id": 18,
+        "src": "images/turnkey_renovation/studio/process/fifth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 19,
+        "src": "images/turnkey_renovation/studio/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 20,
+        "src": "images/turnkey_renovation/studio/process/fourth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 21,
+        "src": "images/turnkey_renovation/studio/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
         "id": 22,
-        "src": "images/turnkey_renovation/threeroom_apartment/image.jpg",
+        "src": "images/turnkey_renovation/studio/process/sixth_step.jpg",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 23,
-        "src": "images/turnkey_renovation/tworoom_apartment/image.jpg",
+        "src": "images/turnkey_renovation/studio/process/third_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 24,
+        "src": "images/turnkey_renovation/threeroom_apartment/image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 25,
+        "src": "images/turnkey_renovation/threeroom_apartment/process/first_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 26,
+        "src": "images/turnkey_renovation/threeroom_apartment/process/second_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 27,
+        "src": "images/turnkey_renovation/threeroom_apartment/process/third_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 28,
+        "src": "images/turnkey_renovation/turnkey_renovation/image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 29,
+        "src": "images/turnkey_renovation/turnkey_renovation/process/first_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 30,
+        "src": "images/turnkey_renovation/turnkey_renovation/process/second_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 31,
+        "src": "images/turnkey_renovation/turnkey_renovation/process/third_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 32,
+        "src": "images/turnkey_renovation/tworoom_apartment/image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 33,
+        "src": "images/turnkey_renovation/tworoom_apartment/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 34,
+        "src": "images/turnkey_renovation/tworoom_apartment/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 35,
         "src": "images/turnkey_renovation/twostory_apartment/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 36,
+        "src": "images/turnkey_renovation/twostory_apartment/process/first_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 37,
+        "src": "images/turnkey_renovation/twostory_apartment/process/fourth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 38,
+        "src": "images/turnkey_renovation/twostory_apartment/process/second_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 39,
+        "src": "images/turnkey_renovation/twostory_apartment/process/third_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 40,
+        "src": "images/room_renovation/bathroom/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 41,
+        "src": "images/room_renovation/bathroom/process/fifth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 42,
+        "src": "images/room_renovation/bathroom/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 43,
+        "src": "images/room_renovation/bathroom/process/fourth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 44,
+        "src": "images/room_renovation/bathroom/process/second_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 45,
+        "src": "images/room_renovation/bathroom/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 46,
+        "src": "images/room_renovation/bedroom/image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 47,
+        "src": "images/room_renovation/bedroom/process/ceiling.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 48,
+        "src": "images/room_renovation/bedroom/process/floor.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 49,
+        "src": "images/room_renovation/bedroom/process/walls.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 50,
+        "src": "images/room_renovation/children_room/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 51,
+        "src": "images/room_renovation/children_room/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 52,
+        "src": "images/room_renovation/children_room/process/first_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 53,
+        "src": "images/room_renovation/children_room/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 54,
+        "src": "images/room_renovation/children_room/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 55,
+        "src": "images/room_renovation/children_room/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 56,
+        "src": "images/room_renovation/corridor/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 57,
+        "src": "images/room_renovation/corridor/process/fifth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 58,
+        "src": "images/room_renovation/corridor/process/first_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 59,
+        "src": "images/room_renovation/corridor/process/fourth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 60,
+        "src": "images/room_renovation/corridor/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 61,
+        "src": "images/room_renovation/corridor/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 62,
+        "src": "images/room_renovation/kitchen/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 63,
+        "src": "images/room_renovation/kitchen/process/fifth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 64,
+        "src": "images/room_renovation/kitchen/process/first_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 65,
+        "src": "images/room_renovation/kitchen/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 66,
+        "src": "images/room_renovation/kitchen/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 67,
+        "src": "images/room_renovation/kitchen/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 68,
+        "src": "images/room_renovation/living_room/arrow_2.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 69,
+        "src": "images/room_renovation/living_room/image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 70,
+        "src": "images/room_renovation/living_room/process/fifth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 71,
+        "src": "images/room_renovation/living_room/process/first_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 72,
+        "src": "images/room_renovation/living_room/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 73,
+        "src": "images/room_renovation/living_room/process/second_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 74,
+        "src": "images/room_renovation/living_room/process/third_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 75,
+        "src": "images/room_renovation/room_renovation/arrow_1.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 76,
+        "src": "images/room_renovation/room_renovation/arrow_2.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 77,
+        "src": "images/room_renovation/room_renovation/image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 78,
+        "src": "images/room_renovation/room_renovation/process/fifth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 79,
+        "src": "images/room_renovation/room_renovation/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 80,
+        "src": "images/room_renovation/room_renovation/process/fourth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 81,
+        "src": "images/room_renovation/room_renovation/process/second_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 82,
+        "src": "images/room_renovation/room_renovation/process/sixth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 83,
+        "src": "images/room_renovation/room_renovation/process/third_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 84,
+        "src": "images/room_renovation/room_renovation/vector.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 85,
+        "src": "images/room_renovation/stairs/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 86,
+        "src": "images/room_renovation/stairs/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 87,
+        "src": "images/room_renovation/stairs/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 88,
+        "src": "images/room_renovation/stairs/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 89,
+        "src": "images/room_renovation/stairs/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 90,
+        "src": "images/commercial_premises/business_center/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 91,
+        "src": "images/commercial_premises/business_center/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 92,
+        "src": "images/commercial_premises/business_center/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 93,
+        "src": "images/commercial_premises/business_center/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 94,
+        "src": "images/commercial_premises/business_center/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 95,
+        "src": "images/commercial_premises/business_center/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 96,
+        "src": "images/commercial_premises/commercial_premises/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 97,
+        "src": "images/commercial_premises/commercial_premises/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 98,
+        "src": "images/commercial_premises/commercial_premises/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 99,
+        "src": "images/commercial_premises/commercial_premises/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 100,
+        "src": "images/commercial_premises/commercial_premises/process/seventh_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 101,
+        "src": "images/commercial_premises/commercial_premises/process/sixth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 102,
+        "src": "images/commercial_premises/commercial_premises/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 103,
+        "src": "images/commercial_premises/commercial_premises_renovation/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 104,
+        "src": "images/commercial_premises/commercial_premises_renovation/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 105,
+        "src": "images/commercial_premises/commercial_premises_renovation/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 106,
+        "src": "images/commercial_premises/commercial_premises_renovation/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 107,
+        "src": "images/commercial_premises/commercial_premises_renovation/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 108,
+        "src": "images/commercial_premises/commercial_premises_renovation/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 109,
+        "src": "images/commercial_premises/fitness_club/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 110,
+        "src": "images/commercial_premises/fitness_club/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 111,
+        "src": "images/commercial_premises/fitness_club/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 112,
+        "src": "images/commercial_premises/fitness_club/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 113,
+        "src": "images/commercial_premises/fitness_club/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 114,
+        "src": "images/commercial_premises/fitness_club/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 115,
+        "src": "images/commercial_premises/grid_images/fifth_image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 116,
+        "src": "images/commercial_premises/grid_images/fourth_image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 117,
+        "src": "images/commercial_premises/grid_images/second_image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 118,
+        "src": "images/commercial_premises/grid_images/sixth_image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 119,
+        "src": "images/commercial_premises/grid_images/third_image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 120,
+        "src": "images/commercial_premises/hotel/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 121,
+        "src": "images/commercial_premises/hotel/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 122,
+        "src": "images/commercial_premises/hotel/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 123,
+        "src": "images/commercial_premises/hotel/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 124,
+        "src": "images/commercial_premises/hotel/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 125,
+        "src": "images/commercial_premises/hotel/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 126,
+        "src": "images/commercial_premises/office/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 127,
+        "src": "images/commercial_premises/office/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 128,
+        "src": "images/commercial_premises/office/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 129,
+        "src": "images/commercial_premises/office/process/fourth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 130,
+        "src": "images/commercial_premises/office/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 131,
+        "src": "images/commercial_premises/office/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 132,
+        "src": "images/commercial_premises/restaurant/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 133,
+        "src": "images/commercial_premises/restaurant/process/fifth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 134,
+        "src": "images/commercial_premises/restaurant/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 135,
+        "src": "images/commercial_premises/restaurant/process/fourth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 136,
+        "src": "images/commercial_premises/restaurant/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 137,
+        "src": "images/commercial_premises/restaurant/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 138,
+        "src": "images/commercial_premises/warehouse/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 139,
+        "src": "images/commercial_premises/warehouse/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 140,
+        "src": "images/commercial_premises/warehouse/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 141,
+        "src": "images/commercial_premises/warehouse/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 142,
+        "src": "images/commercial_premises/warehouse/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 143,
+        "src": "images/commercial_premises/warehouse/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 144,
+        "src": "images/systems/climate_control/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 145,
+        "src": "images/systems/climate_control/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 146,
+        "src": "images/systems/climate_control/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 147,
+        "src": "images/systems/climate_control/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 148,
+        "src": "images/systems/climate_control/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 149,
+        "src": "images/systems/climate_control/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 150,
+        "src": "images/systems/electrical_systems/grid_images/fifth_image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 151,
+        "src": "images/systems/electrical_systems/grid_images/first_image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 152,
+        "src": "images/systems/electrical_systems/grid_images/fourth_image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 153,
+        "src": "images/systems/electrical_systems/grid_images/second_image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 154,
+        "src": "images/systems/electrical_systems/grid_images/sixth_image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 155,
+        "src": "images/systems/electrical_systems/grid_images/third_image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 156,
+        "src": "images/systems/electrical_systems/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 157,
+        "src": "images/systems/electrical_systems/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 158,
+        "src": "images/systems/electrical_systems/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 159,
+        "src": "images/systems/electrical_systems/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 160,
+        "src": "images/systems/electrical_systems/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 161,
+        "src": "images/systems/electrical_systems/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 162,
+        "src": "images/systems/floor_heating/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 163,
+        "src": "images/systems/floor_heating/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 164,
+        "src": "images/systems/floor_heating/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 165,
+        "src": "images/systems/floor_heating/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 166,
+        "src": "images/systems/floor_heating/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 167,
+        "src": "images/systems/floor_heating/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 168,
+        "src": "images/systems/gas_systems/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 169,
+        "src": "images/systems/gas_systems/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 170,
+        "src": "images/systems/gas_systems/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 171,
+        "src": "images/systems/gas_systems/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 172,
+        "src": "images/systems/gas_systems/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 173,
+        "src": "images/systems/sewage/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 174,
+        "src": "images/systems/sewage/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 175,
+        "src": "images/systems/sewage/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 176,
+        "src": "images/systems/sewage/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 177,
+        "src": "images/systems/sewage/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 178,
+        "src": "images/systems/sewage/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 179,
+        "src": "images/systems/systems/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 180,
+        "src": "images/systems/systems/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 181,
+        "src": "images/systems/systems/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 182,
+        "src": "images/systems/systems/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 183,
+        "src": "images/systems/systems/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 184,
+        "src": "images/systems/systems/process/seventh_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 185,
+        "src": "images/systems/systems/process/sixth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 186,
+        "src": "images/systems/systems/process/third_step.png",
         "alt": "",
         "title": "",
         "description": ""
@@ -5059,76 +6753,293 @@
       },
       {
         "id": 2,
-        "src": "images/systems/climate_control/process/second_step.png",
+        "src": "images/systems/climate_control/process/fifth_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 3,
-        "src": "images/systems/electrical_systems/grid_images/fourth_image.jpg",
+        "src": "images/systems/climate_control/process/first_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 4,
-        "src": "images/systems/electrical_systems/grid_images/third_image.jpg",
+        "src": "images/systems/climate_control/process/fourth_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 5,
-        "src": "images/systems/electrical_systems/process/fourth_step.png",
+        "src": "images/systems/climate_control/process/second_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 6,
-        "src": "images/systems/floor_heating/process/fifth_step.png",
+        "src": "images/systems/climate_control/process/third_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 7,
-        "src": "images/systems/floor_heating/process/third_step.png",
+        "src": "images/systems/electrical_systems/grid_images/fifth_image.jpg",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 8,
-        "src": "images/systems/gas_systems/process/second_step.png",
+        "src": "images/systems/electrical_systems/grid_images/first_image.jpg",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 9,
-        "src": "images/systems/sewage/process/first_step.png",
+        "src": "images/systems/electrical_systems/grid_images/fourth_image.jpg",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 10,
-        "src": "images/systems/sewage/process/third_step.png",
+        "src": "images/systems/electrical_systems/grid_images/second_image.jpg",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 11,
-        "src": "images/systems/systems/process/fourth_step.png",
+        "src": "images/systems/electrical_systems/grid_images/sixth_image.jpg",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 12,
+        "src": "images/systems/electrical_systems/grid_images/third_image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 13,
+        "src": "images/systems/electrical_systems/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 14,
+        "src": "images/systems/electrical_systems/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 15,
+        "src": "images/systems/electrical_systems/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 16,
+        "src": "images/systems/electrical_systems/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 17,
+        "src": "images/systems/electrical_systems/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 18,
+        "src": "images/systems/electrical_systems/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 19,
+        "src": "images/systems/floor_heating/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 20,
+        "src": "images/systems/floor_heating/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 21,
+        "src": "images/systems/floor_heating/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 22,
+        "src": "images/systems/floor_heating/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 23,
+        "src": "images/systems/floor_heating/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 24,
+        "src": "images/systems/floor_heating/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 25,
+        "src": "images/systems/gas_systems/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 26,
+        "src": "images/systems/gas_systems/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 27,
+        "src": "images/systems/gas_systems/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 28,
+        "src": "images/systems/gas_systems/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 29,
+        "src": "images/systems/gas_systems/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 30,
+        "src": "images/systems/sewage/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 31,
+        "src": "images/systems/sewage/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 32,
+        "src": "images/systems/sewage/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 33,
+        "src": "images/systems/sewage/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 34,
+        "src": "images/systems/sewage/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 35,
+        "src": "images/systems/sewage/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 36,
+        "src": "images/systems/systems/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 37,
+        "src": "images/systems/systems/process/fifth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 38,
+        "src": "images/systems/systems/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 39,
+        "src": "images/systems/systems/process/fourth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 40,
+        "src": "images/systems/systems/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 41,
+        "src": "images/systems/systems/process/seventh_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 42,
+        "src": "images/systems/systems/process/sixth_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 43,
         "src": "images/systems/systems/process/third_step.png",
         "alt": "",
         "title": "",
@@ -5149,76 +7060,265 @@
       },
       {
         "id": 2,
-        "src": "images/turnkey_renovation/designer_renovation/process/fourth_step.png",
+        "src": "images/turnkey_renovation/designer_renovation/process/fifth_step.jpg",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 3,
-        "src": "images/turnkey_renovation/exclusive_renovation/process/first_step.png",
+        "src": "images/turnkey_renovation/designer_renovation/process/first_step.jpg",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 4,
-        "src": "images/turnkey_renovation/exclusive_renovation/process/third_step.jpg",
+        "src": "images/turnkey_renovation/designer_renovation/process/fourth_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 5,
-        "src": "images/turnkey_renovation/fourroom_apartment/process/second_step.jpg",
+        "src": "images/turnkey_renovation/designer_renovation/process/second_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 6,
-        "src": "images/turnkey_renovation/studio/process/fifth_step.jpg",
+        "src": "images/turnkey_renovation/designer_renovation/process/third_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 7,
-        "src": "images/turnkey_renovation/studio/process/sixth_step.jpg",
+        "src": "images/turnkey_renovation/exclusive_renovation/image.jpg",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 8,
-        "src": "images/turnkey_renovation/threeroom_apartment/process/first_step.jpg",
+        "src": "images/turnkey_renovation/exclusive_renovation/process/first_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 9,
-        "src": "images/turnkey_renovation/turnkey_renovation/process/first_step.jpg",
+        "src": "images/turnkey_renovation/exclusive_renovation/process/fourth_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 10,
-        "src": "images/turnkey_renovation/tworoom_apartment/image.jpg",
+        "src": "images/turnkey_renovation/exclusive_renovation/process/second_step.png",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 11,
-        "src": "images/turnkey_renovation/twostory_apartment/process/first_step.jpg",
+        "src": "images/turnkey_renovation/exclusive_renovation/process/third_step.jpg",
         "alt": "",
         "title": "",
         "description": ""
       },
       {
         "id": 12,
+        "src": "images/turnkey_renovation/fourroom_apartment/image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 13,
+        "src": "images/turnkey_renovation/fourroom_apartment/process/first_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 14,
+        "src": "images/turnkey_renovation/fourroom_apartment/process/fourth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 15,
+        "src": "images/turnkey_renovation/fourroom_apartment/process/second_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 16,
+        "src": "images/turnkey_renovation/fourroom_apartment/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 17,
+        "src": "images/turnkey_renovation/studio/image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 18,
+        "src": "images/turnkey_renovation/studio/process/fifth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 19,
+        "src": "images/turnkey_renovation/studio/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 20,
+        "src": "images/turnkey_renovation/studio/process/fourth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 21,
+        "src": "images/turnkey_renovation/studio/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 22,
+        "src": "images/turnkey_renovation/studio/process/sixth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 23,
+        "src": "images/turnkey_renovation/studio/process/third_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 24,
+        "src": "images/turnkey_renovation/threeroom_apartment/image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 25,
+        "src": "images/turnkey_renovation/threeroom_apartment/process/first_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 26,
+        "src": "images/turnkey_renovation/threeroom_apartment/process/second_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 27,
+        "src": "images/turnkey_renovation/threeroom_apartment/process/third_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 28,
+        "src": "images/turnkey_renovation/turnkey_renovation/image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 29,
+        "src": "images/turnkey_renovation/turnkey_renovation/process/first_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 30,
+        "src": "images/turnkey_renovation/turnkey_renovation/process/second_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 31,
+        "src": "images/turnkey_renovation/turnkey_renovation/process/third_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 32,
+        "src": "images/turnkey_renovation/tworoom_apartment/image.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 33,
+        "src": "images/turnkey_renovation/tworoom_apartment/process/first_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 34,
+        "src": "images/turnkey_renovation/tworoom_apartment/process/second_step.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 35,
+        "src": "images/turnkey_renovation/twostory_apartment/image.png",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 36,
+        "src": "images/turnkey_renovation/twostory_apartment/process/first_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 37,
+        "src": "images/turnkey_renovation/twostory_apartment/process/fourth_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 38,
+        "src": "images/turnkey_renovation/twostory_apartment/process/second_step.jpg",
+        "alt": "",
+        "title": "",
+        "description": ""
+      },
+      {
+        "id": 39,
         "src": "images/turnkey_renovation/twostory_apartment/process/third_step.jpg",
         "alt": "",
         "title": "",

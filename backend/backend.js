@@ -24,7 +24,7 @@ function formatFileSize(bytes) {
 function checkImageUsageOnPage(imagePath, pageId) {
   const frontendDir = path.join(__dirname, '../frontend/src');
   
-  console.log(`Проверяем изображение: ${imagePath} для страницы: ${pageId}`);
+  if (process.env.NODE_ENV !== 'production') console.log(`Проверяем изображение: ${imagePath} для страницы: ${pageId}`);
   
   // Белый список директорий/файлов для каждой страницы относительно assets/images
   const allowMap = {
@@ -126,7 +126,7 @@ function checkImageUsageOnPage(imagePath, pageId) {
   
   const pageFileList = pageFiles[pageId];
   if (!pageFileList) {
-    console.log(`Страница ${pageId} не найдена в списке`);
+    if (process.env.NODE_ENV !== 'production') console.log(`Страница ${pageId} не найдена в списке`);
     return false;
   }
   
@@ -134,7 +134,7 @@ function checkImageUsageOnPage(imagePath, pageId) {
   const imageNameWithoutExt = path.basename(imagePath, path.extname(imagePath));
   const imageRelativePath = path.relative(path.join(frontendDir, 'assets'), imagePath).replace(/\\/g, '/');
   
-  console.log(`Ищем изображение: ${imageName} (${imageNameWithoutExt}) в путях: ${imageRelativePath}`);
+  if (process.env.NODE_ENV !== 'production') console.log(`Ищем изображение: ${imageName} (${imageNameWithoutExt}) в путях: ${imageRelativePath}`);
   
   // Применяем строгий whitelist по директориям/файлам
   const allow = allowMap[pageId];
@@ -151,7 +151,7 @@ function checkImageUsageOnPage(imagePath, pageId) {
   // Функция для проверки содержимого файла
   function checkFileContent(filePath) {
     if (!fs.existsSync(filePath)) {
-      console.log(`Файл не существует: ${filePath}`);
+      if (process.env.NODE_ENV !== 'production') console.log(`Файл не существует: ${filePath}`);
       return false;
     }
     
@@ -167,7 +167,7 @@ function checkImageUsageOnPage(imagePath, pageId) {
       
       for (const pattern of importPatterns) {
         if (pattern.test(content)) {
-          console.log(`Найдено в импорте: ${filePath}`);
+          if (process.env.NODE_ENV !== 'production') console.log(`Найдено в импорте: ${filePath}`);
           return true;
         }
       }
@@ -181,7 +181,7 @@ function checkImageUsageOnPage(imagePath, pageId) {
       
       for (const pattern of srcPatterns) {
         if (pattern.test(content)) {
-          console.log(`Найдено в src атрибуте: ${filePath}`);
+          if (process.env.NODE_ENV !== 'production') console.log(`Найдено в src атрибуте: ${filePath}`);
           return true;
         }
       }
@@ -282,8 +282,10 @@ app.use(express.json());
 
 // Отладка входящих куки
 app.use((req, res, next) => {
-  console.log('Request URL:', req.url);
-  console.log('Cookies:', req.headers.cookie);
+  if (process.env.NODE_ENV !== 'production') {
+    console.log('Request URL:', req.url);
+    console.log('Cookies:', req.headers.cookie);
+  }
   next();
 });
 
@@ -315,7 +317,7 @@ app.post('/api/login', async (req, res) => {
       await bcrypt.compare(password, process.env.ADMIN_PASSWORD_HASH)
     ) {
       req.session.user = { username, role: 'admin' };
-      console.log('Login success, session:', req.session.user);
+      if (process.env.NODE_ENV !== 'production') console.log('Login success, session:', req.session.user);
       return res.json({ success: true });
     }
 
@@ -329,7 +331,7 @@ app.post('/api/login', async (req, res) => {
       const valid = await bcrypt.compare(password, user.password);
       if (valid) {
         req.session.user = { username: user.username, role: 'user' };
-        console.log('Login success, session:', req.session.user);
+        if (process.env.NODE_ENV !== 'production') console.log('Login success, session:', req.session.user);
         return res.json({ success: true });
       }
     }
@@ -343,7 +345,7 @@ app.post('/api/login', async (req, res) => {
 
 // Проверка авторизации
 app.get('/check-auth', (req, res) => {
-  console.log('Check-auth session:', req.session.user);
+  if (process.env.NODE_ENV !== 'production') console.log('Check-auth session:', req.session.user);
   if (req.session.user) {
     res.json({ authenticated: true, user: req.session.user });
   } else {
@@ -509,7 +511,7 @@ app.get('/api/images/scan', async (req, res) => {
     
     const allImages = scanImages(frontendAssetsPath);
     
-    console.log(`Найдено изображений: ${allImages.length}`);
+    if (process.env.NODE_ENV !== 'production') console.log(`Найдено изображений: ${allImages.length}`);
     res.json(allImages);
     
   } catch (err) {
@@ -569,7 +571,7 @@ app.post('/api/images/backup', async (req, res) => {
 // Замена изображения с авто-бэкапом
 app.post('/api/images/replace', upload.single('file'), async (req, res) => {
   if (!req.session || !req.session.user) {
-    console.log('⚠️ Попытка заменить изображение без сессии — разрешено в dev (лог)');
+    if (process.env.NODE_ENV !== 'production') console.log('⚠️ Попытка заменить изображение без сессии — разрешено в dev (лог)');
     // в продакшене следует требовать аутентификацию
     if (process.env.NODE_ENV === 'production') return res.status(401).json({ error: 'Не авторизован' });
   }
@@ -603,16 +605,114 @@ app.post('/api/images/replace', upload.single('file'), async (req, res) => {
     const fileName = path.basename(imagePath);
     const fileBaseName = path.basename(fileName, originalExt);
     const backupFileName = `${fileBaseName}_${timestamp}${originalExt}`;
-    const backupPath = path.join(backupDir, backupFileName);
-    fs.copyFileSync(originalPath, backupPath);
+    // убран бэкап
 
     // Запись нового файла
     fs.writeFileSync(originalPath, file.buffer);
 
-    res.json({ success: true, backupPath: backupFileName, message: 'Изображение заменено' });
+    res.json({ success: true, message: 'Изображение заменено' });
   } catch (err) {
     console.error('Ошибка при замене изображения:', err.message);
     res.status(500).json({ error: 'Ошибка замены изображения' });
+  }
+});
+
+// Загрузка нового изображения для страницы с автоматическим размещением и добавлением в pages.json
+app.post('/api/pages/:pageId/images/upload', upload.single('file'), async (req, res) => {
+  if (!req.session || !req.session.user) {
+    if (process.env.NODE_ENV !== 'production') console.log('⚠️ Попытка загрузки изображения без сессии — разрешено в dev (лог)');
+    if (process.env.NODE_ENV === 'production') return res.status(401).json({ error: 'Не авторизован' });
+  }
+  try {
+    let { pageId } = req.params;
+    const file = req.file;
+    const originalName = (req.body && req.body.filename) || (file && file.originalname) || 'upload.jpg';
+    if (!file || !file.buffer) {
+      return res.status(400).json({ error: 'Файл не получен' });
+    }
+
+    // Нормализуем id для связки с pages.json и выбора директории
+    const toPagesJson = {
+      'services': 'servises-servisesphone',
+      'turnkey-renovation-services': 'servises-turnkeyrenovationservices',
+      'room-renovation-services': 'servises-roomrenovationservices',
+      'commercial-premises-services': 'servises-commercialpremisesservices',
+      'systems-services': 'servises-systemsservices'
+    };
+    const toNormalized = {
+      'servises-servisesphone': 'services',
+      'servises-turnkeyrenovationservices': 'turnkey-renovation-services',
+      'servises-roomrenovationservices': 'room-renovation-services',
+      'servises-commercialpremisesservices': 'commercial-premises-services',
+      'servises-systemsservices': 'systems-services'
+    };
+    const normalizedId = toNormalized[pageId] || pageId;
+    const pagesJsonId = toPagesJson[normalizedId] || pageId;
+
+    // Определяем базовую директорию для сохранения
+    const frontendAssetsImages = path.join(__dirname, '../frontend/src/assets/images');
+    const pageDirMap = {
+      'services': 'services_images/',
+      'turnkey-renovation-services': 'turnkey_renovation/uploads/',
+      'room-renovation-services': 'room_renovation/uploads/',
+      'commercial-premises-services': 'commercial_premises/uploads/',
+      'systems-services': 'systems/uploads/'
+    };
+    const relDir = pageDirMap[normalizedId] || 'uploads/';
+    const destDir = path.join(frontendAssetsImages, relDir);
+    if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
+
+    // Уникальное имя файла
+    const ext = path.extname(originalName) || '.jpg';
+    const base = path.basename(originalName, ext).replace(/[^a-z0-9_-]/gi, '_').slice(0, 40) || 'upload';
+    const ts = new Date().toISOString().replace(/[:.]/g, '-');
+    const filename = `${base}_${ts}${ext.toLowerCase()}`;
+    const fullPath = path.join(destDir, filename);
+
+    // Сохраняем файл на диск
+    fs.writeFileSync(fullPath, file.buffer);
+
+    // Путь, который будет использовать фронтенд/админка (относительно images/)
+    const relFromImages = path.relative(frontendAssetsImages, fullPath).replace(/\\/g, '/');
+    const src = `images/${relFromImages}`;
+
+    // Обновляем pages.json: добавляем запись изображения на соответствующую страницу
+    const pagesPath = path.join(__dirname, 'pages.json');
+    let pagesData = [];
+    if (fs.existsSync(pagesPath)) {
+      pagesData = JSON.parse(fs.readFileSync(pagesPath, 'utf-8'));
+    }
+    const pageIndex = pagesData.findIndex(p => p.id === pagesJsonId);
+    if (pageIndex === -1) {
+      return res.status(404).json({ error: 'Страница не найдена в pages.json' });
+    }
+
+    // Бэкап перед изменением
+    const backupDir = path.join(__dirname, '../backups/images');
+    if (!fs.existsSync(backupDir)) fs.mkdirSync(backupDir, { recursive: true });
+    const backupFileName = `images_${pagesJsonId}_upload_${ts}.json`;
+    fs.writeFileSync(path.join(backupDir, backupFileName), JSON.stringify(pagesData, null, 2), 'utf-8');
+
+    const existing = pagesData[pageIndex].images || [];
+    const maxId = existing.reduce((acc, cur) => Math.max(acc, cur.id || 0), 0);
+    const newImage = {
+      id: maxId + 1,
+      src,
+      alt: req.body && req.body.alt ? String(req.body.alt) : '',
+      title: req.body && req.body.title ? String(req.body.title) : '',
+      description: req.body && req.body.description ? String(req.body.description) : ''
+    };
+    existing.push(newImage);
+    pagesData[pageIndex].images = existing;
+    fs.writeFileSync(pagesPath, JSON.stringify(pagesData, null, 2), 'utf-8');
+
+    // Вернём сводную информацию
+    let size = 'Unknown';
+    try { size = formatFileSize(fs.statSync(fullPath).size); } catch {}
+    return res.json({ success: true, image: { ...newImage, size, exists: true }, backupPath: `images/${backupFileName}` });
+  } catch (e) {
+    console.error('Ошибка при загрузке изображения страницы:', e && e.message ? e.message : e);
+    return res.status(500).json({ error: 'Ошибка загрузки изображения' });
   }
 });
 
@@ -643,7 +743,7 @@ app.get('/api/texts', async (req, res) => {
 // Сохранение (замена) текстов локализации с бэкапом
 app.put('/api/texts', async (req, res) => {
   if (!req.session || !req.session.user) {
-    console.log('⚠️ Попытка сохранить тексты без сессии — разрешено в dev (лог)');
+    if (process.env.NODE_ENV !== 'production') console.log('⚠️ Попытка сохранить тексты без сессии — разрешено в dev (лог)');
     if (process.env.NODE_ENV === 'production') return res.status(401).json({ error: 'Не авторизован' });
   }
   try {
@@ -658,23 +758,10 @@ app.put('/api/texts', async (req, res) => {
       fs.mkdirSync(localeDir, { recursive: true });
     }
 
-    // Бэкап
-    const backupDir = path.join(__dirname, `../backups/texts/${language}`);
-    if (!fs.existsSync(backupDir)) {
-      fs.mkdirSync(backupDir, { recursive: true });
-    }
-    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-    const safeNs = namespace.replace(/[\\/]/g, '__');
-    const backupFileName = `${safeNs}_${timestamp}.json`;
-    const backupPath = path.join(backupDir, backupFileName);
     try {
-      if (fs.existsSync(localePath)) {
-        fs.copyFileSync(localePath, backupPath);
-      }
-      // Попробуем безопасно сериализовать
       const serialized = JSON.stringify(content, null, 2);
       fs.writeFileSync(localePath, serialized, 'utf-8');
-      res.json({ success: true, backupPath: `texts/${language}/${backupFileName}` });
+      res.json({ success: true });
     } catch (e) {
       console.error('Ошибка при записи локали на диск:', e && e.message ? e.message : e);
       return res.status(500).json({ error: 'Ошибка записи файла локали на диск' });
@@ -804,13 +891,29 @@ app.get(/^\/api\/images\/(.*)$/, async (req, res) => {
 app.get('/api/pages/:pageId/images', async (req, res) => {
   // Простая проверка авторизации - можно расширить
   if (!req.session || !req.session.user) {
-    console.log('⚠️ Попытка доступа без авторизации к изображениям страницы:', req.params.pageId);
+    if (process.env.NODE_ENV !== 'production') console.log('⚠️ Попытка доступа без авторизации к изображениям страницы:', req.params.pageId);
     // Для тестирования разрешаем доступ, но логируем
     // return res.status(401).json({ error: 'Не авторизован' });
   }
   
   try {
-    const { pageId } = req.params;
+    let { pageId } = req.params;
+    // Нормализуем id сервиса для соответствия frontend мэппингу
+    const toNormalized = {
+      'servises-servisesphone': 'services',
+      'servises-turnkeyrenovationservices': 'turnkey-renovation-services',
+      'servises-roomrenovationservices': 'room-renovation-services',
+      'servises-commercialpremisesservices': 'commercial-premises-services',
+      'servises-systemsservices': 'systems-services'
+    };
+    const toPagesJson = {
+      'services': 'servises-servisesphone',
+      'turnkey-renovation-services': 'servises-turnkeyrenovationservices',
+      'room-renovation-services': 'servises-roomrenovationservices',
+      'commercial-premises-services': 'servises-commercialpremisesservices',
+      'systems-services': 'servises-systemsservices'
+    };
+    if (toNormalized[pageId]) pageId = toNormalized[pageId];
     const pagesPath = path.join(__dirname, 'pages.json');
     
     if (!fs.existsSync(pagesPath)) {
@@ -818,9 +921,53 @@ app.get('/api/pages/:pageId/images', async (req, res) => {
     }
     
     const pagesData = JSON.parse(fs.readFileSync(pagesPath, 'utf-8'));
-    const page = pagesData.find(p => p.id === pageId);
+    let page = pagesData.find(p => p.id === pageId) || pagesData.find(p => p.id === toPagesJson[pageId]);
     
     if (!page) {
+      // Нет страницы в pages.json — пробуем просканировать фронтенд
+      const scanned = await scanFrontendForPageImages(pageId);
+      if (scanned.length > 0) {
+        const result = scanned.map((s, idx) => {
+          const rel = typeof s === 'string' ? s : s.path;
+          const clean = rel.replace(/^images\//, '');
+          const full = path.join(__dirname, '../frontend/src/assets/images', clean);
+          let size = 'Unknown';
+          if (fs.existsSync(full)) size = formatFileSize(fs.statSync(full).size);
+          return { id: idx + 1, src: clean, alt: '', title: '', description: '', size, fullPath: full, exists: fs.existsSync(full) };
+        });
+        return res.json(result);
+      }
+      // Если сканер ничего не нашёл — пробуем подобрать изображения по директориям категорий
+      const serviceDirMap = {
+        'services': ['turnkey_renovation/','room_renovation/','commercial_premises/','systems/'],
+        'turnkey-renovation-services': ['turnkey_renovation/'],
+        'room-renovation-services': ['room_renovation/'],
+        'commercial-premises-services': ['commercial_premises/'],
+        'systems-services': ['systems/']
+      };
+      const dirs = serviceDirMap[pageId] || [];
+      if (dirs.length > 0) {
+        const base = path.join(__dirname, '../frontend/src/assets/images');
+        const collected = [];
+        function walkDir(dir) {
+          if (!fs.existsSync(dir)) return;
+          for (const entry of fs.readdirSync(dir)) {
+            const full = path.join(dir, entry);
+            const stat = fs.statSync(full);
+            if (stat.isDirectory()) walkDir(full);
+            else if (/\.(png|jpg|jpeg|webp|gif|svg)$/i.test(entry)) collected.push(full);
+            if (collected.length >= 100) return; // ограничим объём
+          }
+        }
+        for (const d of dirs) walkDir(path.join(base, d));
+        const result = collected.slice(0, 100).map((full, idx) => {
+          const rel = path.relative(path.join(__dirname, '../frontend/src/assets/images'), full).replace(/\\/g, '/');
+          let size = 'Unknown';
+          try { size = formatFileSize(fs.statSync(full).size); } catch {}
+          return { id: idx + 1, src: rel, alt: '', title: '', description: '', size, fullPath: full, exists: true };
+        });
+        return res.json(result);
+      }
       return res.json([]);
     }
  
@@ -1124,24 +1271,52 @@ app.get('/api/pages/:pageId/images', async (req, res) => {
       }
     }
 
-    // Выполняем сканирование в случае отсутствия данных или несоответствия
-  const scanned = await scanFrontendForPageImages(pageId);
-
-    // Если pages.json не содержит изображений — вернём найденные сканером
-    if ((!imagesWithSize || imagesWithSize.length === 0) && scanned.length > 0) {
-      // Преобразуем scanned в формат, совместимый с imagesWithSize
-      const scannedMapped = scanned.map(s => ({ id: s.id, src: s.path, name: s.name, size: s.size, fullPath: s.fullPath, exists: true }));
-      return res.json(scannedMapped);
-    }
-
-    // Иначе — дополним существующие записи найденными изображениями, чтобы счётчики совпадали
-    if (scanned.length > 0) {
-      const existingSrcs = new Set(imagesWithSize.map(i => i.src.replace(/^images\//, '')));
-      for (const s of scanned) {
-        if (!existingSrcs.has(s.path)) {
-          imagesWithSize.push({ id: s.id, src: s.path, name: s.name, size: s.size, fullPath: s.fullPath, exists: true });
-        }
+    // Если pages.json пустой по этой странице или все файлы отсутствуют — fallback к сканированию
+    if ((!page.images || page.images.length === 0) || imagesWithSize.every(img => !img.exists)) {
+      const scanned = await scanFrontendForPageImages(pageId);
+      if (scanned.length > 0) {
+        const fallback = scanned.map((s, idx) => {
+          const rel = typeof s === 'string' ? s : s.path;
+          const clean = rel.replace(/^images\//, '');
+          const full = path.join(__dirname, '../frontend/src/assets/images', clean);
+          let size = 'Unknown';
+          if (fs.existsSync(full)) size = formatFileSize(fs.statSync(full).size);
+          return { id: idx + 1, src: clean, alt: '', title: '', description: '', size, fullPath: full, exists: fs.existsSync(full) };
+        });
+        return res.json(fallback);
       }
+      // Директории по категориям как последний рубеж
+      const serviceDirMap = {
+        'services': ['turnkey_renovation/','room_renovation/','commercial_premises/','systems/'],
+        'turnkey-renovation-services': ['turnkey_renovation/'],
+        'room-renovation-services': ['room_renovation/'],
+        'commercial-premises-services': ['commercial_premises/'],
+        'systems-services': ['systems/']
+      };
+      const dirs = serviceDirMap[pageId] || [];
+      if (dirs.length > 0) {
+        const base = path.join(__dirname, '../frontend/src/assets/images');
+        const collected = [];
+        function walkDir(dir) {
+          if (!fs.existsSync(dir)) return;
+          for (const entry of fs.readdirSync(dir)) {
+            const full = path.join(dir, entry);
+            const stat = fs.statSync(full);
+            if (stat.isDirectory()) walkDir(full);
+            else if (/\.(png|jpg|jpeg|webp|gif|svg)$/i.test(entry)) collected.push(full);
+            if (collected.length >= 100) return;
+          }
+        }
+        for (const d of dirs) walkDir(path.join(base, d));
+        const result = collected.slice(0, 100).map((full, idx) => {
+          const rel = path.relative(path.join(__dirname, '../frontend/src/assets/images'), full).replace(/\\/g, '/');
+          let size = 'Unknown';
+          try { size = formatFileSize(fs.statSync(full).size); } catch {}
+          return { id: idx + 1, src: rel, alt: '', title: '', description: '', size, fullPath: full, exists: true };
+        });
+        return res.json(result);
+      }
+      return res.json([]);
     }
 
     res.json(imagesWithSize);
@@ -1174,15 +1349,7 @@ app.put('/api/pages/:pageId/images/:imageId', async (req, res) => {
       return res.status(404).json({ error: 'Изображение не найдено' });
     }
     
-    // Создаем бэкап
-    const backupDir = path.join(__dirname, '../backups/images');
-    if (!fs.existsSync(backupDir)) {
-      fs.mkdirSync(backupDir, { recursive: true });
-    }
-    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-    const backupFileName = `images_${pageId}_${imageId}_${timestamp}.json`;
-    const backupPath = path.join(backupDir, backupFileName);
-    fs.writeFileSync(backupPath, JSON.stringify(pagesData, null, 2), 'utf-8');
+    // убран бэкап
     
     // Обновляем изображение
     if (alt !== undefined) pagesData[pageIndex].images[imageIndex].alt = alt;
@@ -1192,11 +1359,7 @@ app.put('/api/pages/:pageId/images/:imageId', async (req, res) => {
     
     fs.writeFileSync(pagesPath, JSON.stringify(pagesData, null, 2), 'utf-8');
     
-    res.json({ 
-      success: true, 
-      image: pagesData[pageIndex].images[imageIndex],
-      backupPath: `images/${backupFileName}`
-    });
+    res.json({ success: true, image: pagesData[pageIndex].images[imageIndex] });
   } catch (error) {
     console.error('Ошибка при обновлении изображения:', error);
     res.status(500).json({ error: 'Ошибка сервера' });
@@ -1225,15 +1388,7 @@ app.post('/api/pages/:pageId/images', async (req, res) => {
       return res.status(404).json({ error: 'Страница не найдена' });
     }
     
-    // Создаем бэкап
-    const backupDir = path.join(__dirname, '../backups/images');
-    if (!fs.existsSync(backupDir)) {
-      fs.mkdirSync(backupDir, { recursive: true });
-    }
-    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-    const backupFileName = `images_${pageId}_add_${timestamp}.json`;
-    const backupPath = path.join(backupDir, backupFileName);
-    fs.writeFileSync(backupPath, JSON.stringify(pagesData, null, 2), 'utf-8');
+    // убран бэкап
     
     // Находим максимальный ID
     const maxId = Math.max(...pagesData[pageIndex].images.map(img => img.id), 0);
@@ -1248,11 +1403,7 @@ app.post('/api/pages/:pageId/images', async (req, res) => {
     pagesData[pageIndex].images.push(newImage);
     fs.writeFileSync(pagesPath, JSON.stringify(pagesData, null, 2), 'utf-8');
     
-    res.json({ 
-      success: true, 
-      image: newImage,
-      backupPath: `images/${backupFileName}`
-    });
+    res.json({ success: true, image: newImage });
   } catch (error) {
     console.error('Ошибка при добавлении изображения:', error);
     res.status(500).json({ error: 'Ошибка сервера' });
@@ -1281,25 +1432,13 @@ app.delete('/api/pages/:pageId/images/:imageId', async (req, res) => {
       return res.status(404).json({ error: 'Изображение не найдено' });
     }
     
-    // Создаем бэкап
-    const backupDir = path.join(__dirname, '../backups/images');
-    if (!fs.existsSync(backupDir)) {
-      fs.mkdirSync(backupDir, { recursive: true });
-    }
-    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-    const backupFileName = `images_${pageId}_${imageId}_delete_${timestamp}.json`;
-    const backupPath = path.join(backupDir, backupFileName);
-    fs.writeFileSync(backupPath, JSON.stringify(pagesData, null, 2), 'utf-8');
+    // убран бэкап
     
     const deletedImage = pagesData[pageIndex].images[imageIndex];
     pagesData[pageIndex].images.splice(imageIndex, 1);
     fs.writeFileSync(pagesPath, JSON.stringify(pagesData, null, 2), 'utf-8');
     
-    res.json({ 
-      success: true, 
-      deletedImage,
-      backupPath: `images/${backupFileName}`
-    });
+    res.json({ success: true, deletedImage });
   } catch (error) {
     console.error('Ошибка при удалении изображения:', error);
     res.status(500).json({ error: 'Ошибка сервера' });
@@ -1487,7 +1626,15 @@ app.get('/api/pages/:pageId/texts', async (req, res) => {
     return res.status(401).json({ error: 'Не авторизован' });
   }
   try {
-    const { pageId } = req.params;
+    let { pageId } = req.params;
+    const aliasMap = {
+      'servises-servisesphone': 'services',
+      'servises-turnkeyrenovationservices': 'turnkey-renovation-services',
+      'servises-roomrenovationservices': 'room-renovation-services',
+      'servises-commercialpremisesservices': 'commercial-premises-services',
+      'servises-systemsservices': 'systems-services'
+    };
+    if (aliasMap[pageId]) pageId = aliasMap[pageId];
     const localesDir = path.join(__dirname, '../frontend/public/locales');
     const texts = [];
     
@@ -1571,7 +1718,15 @@ app.get('/api/pages/:pageId/seo', async (req, res) => {
 		return res.status(401).json({ error: 'Не авторизован' });
 	}
 	try {
-		const { pageId } = req.params;
+		let { pageId } = req.params;
+		const aliasMap = {
+		  'servises-servisesphone': 'services',
+		  'servises-turnkeyrenovationservices': 'turnkey-renovation-services',
+		  'servises-roomrenovationservices': 'room-renovation-services',
+		  'servises-commercialpremisesservices': 'commercial-premises-services',
+		  'servises-systemsservices': 'systems-services'
+		};
+		if (aliasMap[pageId]) pageId = aliasMap[pageId];
 		const localesBase = path.join(__dirname, '../frontend/public/locales');
 		const languagesList = ['ru', 'en', 'it'];
 		const languages = { ru: {}, en: {}, it: {} };
@@ -1687,10 +1842,32 @@ app.put('/api/pages/:pageId/seo', async (req, res) => {
 		return res.status(401).json({ error: 'Не авторизован' });
 	}
 	try {
-		const { pageId } = req.params;
-		const { languages } = req.body;
+		let { pageId } = req.params;
+		let { languages } = req.body;
+
+		// Нормализуем возможные servises-* айди из pages.json к поддерживаемым
+		const aliasMap = {
+		  'servises-servisesphone': 'services',
+		  'servises-turnkeyrenovationservices': 'turnkey-renovation-services',
+		  'servises-roomrenovationservices': 'room-renovation-services',
+		  'servises-commercialpremisesservices': 'commercial-premises-services',
+		  'servises-systemsservices': 'systems-services'
+		};
+		if (aliasMap[pageId]) {
+		  pageId = aliasMap[pageId];
+		}
+
+		// Поддержка плоского объекта SEO: { title, description, ... }
 		if (!languages || typeof languages !== 'object') {
-			return res.status(400).json({ error: 'Ожидаются SEO данные в формате { languages: { ru, en, it } }' });
+		  const flat = req.body || {};
+		  const isFlat = typeof flat === 'object' && (
+		    flat.title || flat.description || flat.keywords || flat.ogTitle || flat.ogDescription || flat.ogImage || flat.canonical
+		  );
+		  if (isFlat) {
+		    languages = { ru: flat, en: flat, it: flat };
+		  } else {
+		    return res.status(400).json({ error: 'Ожидаются SEO данные в формате { languages: { ru, en, it } }' });
+		  }
 		}
 
 		// Маппинг страниц к их namespace (используем существующий)
@@ -1742,13 +1919,7 @@ app.put('/api/pages/:pageId/seo', async (req, res) => {
 			return res.status(400).json({ error: 'Неизвестная страница' });
 		}
 
-		// Бэкап
-		const backupDir = path.join(__dirname, '../backups/seo');
-		if (!fs.existsSync(backupDir)) fs.mkdirSync(backupDir, { recursive: true });
-		const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-		const backupFileName = `seo_${pageId}_${timestamp}.json`;
-		const backupPath = path.join(backupDir, backupFileName);
-		fs.writeFileSync(backupPath, JSON.stringify({ pageId, timestamp: new Date().toISOString(), languages }, null, 2), 'utf-8');
+    // убран бэкап
 
 		// Запись в основные файлы локализации
 		const localesBase = path.join(__dirname, '../frontend/public/locales');
@@ -1779,7 +1950,7 @@ app.put('/api/pages/:pageId/seo', async (req, res) => {
 			}
 		}
 
-		return res.json({ success: true, backupPath: `seo/${backupFileName}` });
+    return res.json({ success: true });
 	} catch (err) {
 		console.error('Ошибка при сохранении SEO данных:', err.message);
 		res.status(500).json({ error: 'Ошибка сохранения SEO данных' });
@@ -1792,7 +1963,7 @@ app.get('/api/pages', async (req, res) => {
   // Для удобства административной панели разрешаем чтение списка страниц
   // даже без сессии: логируем попытки неавторизованного доступа, но не блокируем.
   if (!req.session || !req.session.user) {
-    console.log('⚠️ Неавторизованный доступ к /api/pages — возвращаем публичный список (dev)');
+    if (process.env.NODE_ENV !== 'production') console.log('⚠️ Неавторизованный доступ к /api/pages — возвращаем публичный список (dev)');
     // не возвращаем 401, продолжаем и отдадим содержимое pages.json
   }
   
@@ -2163,15 +2334,7 @@ app.post('/api/pages/:pageId/jsonld', async (req, res) => {
     const jsonLdFilePath = path.join(jsonLdDir, `${pageId}.json`);
     fs.writeFileSync(jsonLdFilePath, JSON.stringify({ jsonLd, pageId, timestamp: new Date().toISOString() }, null, 2), 'utf-8');
 
-    // Создаем бэкап
-    const backupDir = path.join(__dirname, '../backups/jsonld');
-    if (!fs.existsSync(backupDir)) fs.mkdirSync(backupDir, { recursive: true });
-    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-    const backupFileName = `jsonld_${pageId}_${timestamp}.json`;
-    const backupPath = path.join(backupDir, backupFileName);
-    fs.writeFileSync(backupPath, JSON.stringify({ pageId, jsonLd, timestamp: new Date().toISOString() }, null, 2), 'utf-8');
-
-    res.json({ success: true, backupPath: `jsonld/${backupFileName}` });
+    res.json({ success: true });
   } catch (err) {
     console.error('Ошибка при сохранении JSON-LD:', err.message);
     res.status(500).json({ error: 'Ошибка сохранения JSON-LD' });

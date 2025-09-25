@@ -85,7 +85,6 @@ export function PageEditor({ page, onSave, onCancel }: PageEditorProps) {
 
   const handleSave = async () => {
     if (!title.trim()) {
-      alert('Введите заголовок страницы');
       return;
     }
 
@@ -120,11 +119,10 @@ export function PageEditor({ page, onSave, onCancel }: PageEditorProps) {
       if (response.ok) {
         onSave(pageData);
       } else {
-        alert('Ошибка при сохранении страницы');
+        console.error('Ошибка при сохранении страницы');
       }
     } catch (error) {
       console.error('Ошибка при сохранении:', error);
-      alert('Ошибка при сохранении страницы');
     } finally {
       setSaving(false);
     }

@@ -140,7 +140,6 @@ export function TextsPage() {
 
   const handleSaveText = async () => {
     if (!editingText || !editingPath) {
-      alert('Нет данных для сохранения');
       return;
     }
     try {
@@ -161,10 +160,9 @@ export function TextsPage() {
       setTexts(texts.map(text => text.path === editingPath ? { ...text, content: editingText } : text));
       setEditingText(null);
       setEditingPath('');
-      alert(`Тексты сохранены с бэкапом: ${result.backupPath}`);
+      
     } catch (err) {
       console.error('Ошибка сохранения:', err);
-      alert(`Не удалось сохранить тексты: ${err.message}`);
     }
   };
 
@@ -189,6 +187,7 @@ export function TextsPage() {
   };
 
   const renderEditableFields = (obj: any, prefix = '', level = 0) => {
+    if (!obj || typeof obj !== 'object') return null;
     return Object.keys(obj).map(key => {
       const fullPath = prefix ? `${prefix}.${key}` : key;
       const value = obj[key];
@@ -259,7 +258,7 @@ export function TextsPage() {
               </div>
             </div>
             <div className="space-y-3">
-              {renderEditableFields(value, fullPath, level + 1)}
+                        {renderEditableFields(value, fullPath, level + 1)}
             </div>
           </div>
         );

@@ -15,7 +15,6 @@ import {
   List
 } from 'lucide-react';
 import { AdvancedImageEditor } from '../images/AdvancedImageEditor';
-import { ImageTest } from './ImageTest';
 
 interface PageData {
   id: string;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CustomHtmlRenderer } from './CustomHtmlRenderer';
+import { SEOHead } from './SEOHead';
 
 interface PageWrapperProps {
   children: React.ReactNode;
@@ -65,6 +66,7 @@ export function PageWrapper({ children, pageId }: PageWrapperProps) {
   if (htmlPosition === 'top') {
     return (
       <>
+        {pageId ? <SEOHead pageId={pageId} /> : null}
         {renderJsonLd()}
         {renderHtmlBlock()}
         {children}
@@ -75,6 +77,7 @@ export function PageWrapper({ children, pageId }: PageWrapperProps) {
   if (htmlPosition === 'bottom') {
     return (
       <>
+        {pageId ? <SEOHead pageId={pageId} /> : null}
         {renderJsonLd()}
         {children}
         {renderHtmlBlock()}
@@ -85,6 +88,7 @@ export function PageWrapper({ children, pageId }: PageWrapperProps) {
   // Для других позиций пока просто вверху
   return (
     <>
+      {pageId ? <SEOHead pageId={pageId} /> : null}
       {renderJsonLd()}
       {renderHtmlBlock()}
       {children}

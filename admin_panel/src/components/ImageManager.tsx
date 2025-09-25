@@ -43,6 +43,8 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
   });
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
   const [showCropper, setShowCropper] = useState<{ imageUrl: string; imageId: number } | null>(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [pendingUploadBlob, setPendingUploadBlob] = useState<Blob | null>(null);
 
   const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL || 'http://localhost:3001';
 
@@ -139,6 +141,32 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
     } catch (error) {
       console.error('Ошибка при добавлении изображения:', error);
       showMessage('error', error instanceof Error ? error.message : 'Ошибка добавления изображения');
+    }
+  };
+
+  const uploadFile = async (file: Blob, alt: string, title: string, description: string) => {
+    try {
+      const form = new FormData();
+      form.append('file', file, (file as any).name || 'upload.jpg');
+      form.append('alt', alt);
+      form.append('title', title);
+      form.append('description', description);
+
+      const res = await fetch(`${backendUrl}/api/pages/${pageId}/images/upload`, {
+        method: 'POST',
+        credentials: 'include',
+        body: form
+      });
+      if (!res.ok) {
+        const t = await res.text();
+        throw new Error(`Ошибка загрузки: ${res.status} ${t}`);
+      }
+      const result = await res.json();
+      setImages(prev => [...prev, result.image]);
+      showMessage('success', `Изображение загружено. Бэкап: ${result.backupPath}`);
+    } catch (e) {
+      console.error(e);
+      showMessage('error', e instanceof Error ? e.message : 'Ошибка загрузки файла');
     }
   };
 
@@ -284,6 +312,22 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="images/example.jpg"
                 />
+                <div className="mt-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Или загрузить файл</label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => {
+                      const f = e.target.files && e.target.files[0];
+                      setSelectedFile(f || null);
+                      setPendingUploadBlob(null);
+                    }}
+                    className="w-full"
+                  />
+                  {selectedFile && (
+                    <div className="text-xs text-gray-500 mt-1">{selectedFile.name} • {(selectedFile.size / 1024).toFixed(1)} KB</div>
+                  )}
+                </div>
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Alt текст</label>
@@ -318,14 +362,26 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
             </div>
             <div className="flex items-center space-x-2 mt-4">
               <button
-                onClick={addImage}
+                onClick={async () => {
+                  if (selectedFile) {
+                    // Предложить обрезку перед загрузкой
+                    const reader = new FileReader();
+                    reader.onload = () => {
+                      const url = String(reader.result || '');
+                      setShowCropper({ imageUrl: url, imageId: -1 });
+                    };
+                    reader.readAsDataURL(selectedFile);
+                  } else {
+                    await addImage();
+                  }
+                }}
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center"
               >
                 <Save className="w-4 h-4 mr-2" />
                 Добавить
               </button>
               <button
-                onClick={() => setShowAddForm(false)}
+                onClick={() => { setShowAddForm(false); setSelectedFile(null); setPendingUploadBlob(null); }}
                 className="px-4 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50"
               >
                 Отмена
@@ -518,7 +574,19 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
         {showCropper && (
           <ImageCropper
             imageUrl={showCropper.imageUrl}
-            onSave={handleCropSave}
+            onSave={async (blob) => {
+              setShowCropper(null);
+              if (selectedFile) {
+                await uploadFile(blob, newImage.alt, newImage.title, newImage.description);
+                setSelectedFile(null);
+                setPendingUploadBlob(null);
+                setShowAddForm(false);
+                setNewImage({ src: '', alt: '', title: '', description: '' });
+              } else if (showCropper.imageId !== -1) {
+                // Обрезка существующего изображения (старый поток)
+                await handleCropSave(blob);
+              }
+            }}
             onCancel={() => setShowCropper(null)}
           />
         )}
