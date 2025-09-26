@@ -1640,7 +1640,7 @@ app.get('/api/pages/:pageId/texts', async (req, res) => {
     
     // Маппинг страниц к их namespace
     const pageNamespaces = {
-      'home': ['home/HomeStart', 'home/AboutCompany', 'home/Calculator', 'home/Advantages', 'home/Guarantees', 'home/Services', 'home/Reviews', 'slider/Architect', 'slider/Design', 'slider/Discount'],
+      'home': ['home/HomeStart', 'home/Calculator', 'home/Guarantees'],
       'about-us': ['AboutUs'],
       'our-works': ['OurWorks'],
       'contacts': ['Contacts'],
