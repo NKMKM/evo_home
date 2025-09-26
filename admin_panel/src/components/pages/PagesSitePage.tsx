@@ -817,7 +817,14 @@ export function PagesSitePage() {
         // Создаем FormData для отправки файла
         const formData = new FormData();
         formData.append('file', file);
-        formData.append('imagePath', imagePath);
+        // нормализуем к images/... для бэкенда
+        const toAssetsPath = (p: string) => {
+          const s = String(p || '').replace(/\\/g, '/');
+          if (/^images\//i.test(s)) return s;
+          if (/^https?:\/\//i.test(s)) return s;
+          return `images/${s.replace(/^\//, '')}`;
+        };
+        formData.append('imagePath', toAssetsPath(imagePath));
 
         try {
           const response = await fetch(`${backendUrl}/api/images/replace`, {
@@ -1085,8 +1092,16 @@ export function PagesSitePage() {
 
   const handleEditImage = async (imagePath: string) => {
     try {
+      // Нормализуем путь: всегда под /frontend-assets/images/
+      const toAssetsPath = (p: string) => {
+        const s = String(p || '').replace(/\\/g, '/');
+        if (/^https?:\/\//i.test(s)) return s;
+        if (/^images\//i.test(s)) return s;
+        return `images/${s.replace(/^\//, '')}`;
+      };
+      const normalized = toAssetsPath(imagePath);
       // Загружаем изображение с сервера
-      const response = await fetch(`${backendUrl}/frontend-assets/${imagePath}`, {
+      const response = await fetch(`${backendUrl}/frontend-assets/${normalized}`, {
         credentials: 'include'
       });
       
@@ -1166,28 +1181,7 @@ export function PagesSitePage() {
                   <Image className="w-4 h-4 inline mr-2" />
                   Изображения
                 </button>
-                <button
-                  onClick={() => setActiveTab('texts')}
-                  className={`py-4 px-1 border-b-2 font-medium text-sm ${
-                    activeTab === 'texts'
-                      ? 'border-blue-500 text-blue-600'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                  }`}
-                >
-                  <FileText className="w-4 h-4 inline mr-2" />
-                  Тексты
-                </button>
-                <button
-                  onClick={() => setActiveTab('seo')}
-                  className={`py-4 px-1 border-b-2 font-medium text-sm ${
-                    activeTab === 'seo'
-                      ? 'border-blue-500 text-blue-600'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                  }`}
-                >
-                  <Search className="w-4 h-4 inline mr-2" />
-                  SEO
-                </button>
+                
                 <button
                   onClick={() => setActiveTab('jsonld')}
                   className={`py-4 px-1 border-b-2 font-medium text-sm ${
@@ -1477,7 +1471,13 @@ export function PagesSitePage() {
                   // Upload edited image to backend replace endpoint
                   const formData = new FormData();
                   formData.append('file', editedImage);
-                  formData.append('imagePath', selectedImageForEdit || '');
+                  const toAssetsPath = (p: string) => {
+                    const s = String(p || '').replace(/\\/g, '/');
+                    if (/^images\//i.test(s)) return s;
+                    if (/^https?:\/\//i.test(s)) return s;
+                    return `images/${s.replace(/^\//, '')}`;
+                  };
+                  formData.append('imagePath', toAssetsPath(selectedImageForEdit || ''));
 
                   const resp = await fetch(`${backendUrl}/api/images/replace`, {
                     method: 'POST',
@@ -1542,9 +1542,7 @@ export function PagesSitePage() {
         </div>
 
         {/* Временный тест изображений для отладки */}
-        <div className="mb-6">
-          <ImageTest backendUrl={backendUrl} />
-        </div>
+
 
         {/* Отладочная информация */}
         <div className="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
