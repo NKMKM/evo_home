@@ -1128,7 +1128,7 @@ export function PagesSitePage() {
       <div className="px-6 py-8">
         <div className="text-center">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-500">Загрузка страниц...</p>
+          <p className="mt-4 text-gray-500">Caricamento pagine...</p>
         </div>
       </div>
     );
@@ -1149,7 +1149,7 @@ export function PagesSitePage() {
                 onClick={handleBackToList}
                 className="text-blue-600 hover:text-blue-800 mb-2 flex items-center"
               >
-                ← Назад к списку
+                ← Torna all’elenco
               </button>
               <h1 className="text-2xl font-light text-gray-800 mb-1">
                 {selectedPage.name}
@@ -1179,7 +1179,7 @@ export function PagesSitePage() {
                   }`}
                 >
                   <Image className="w-4 h-4 inline mr-2" />
-                  Изображения
+                  Immagini
                 </button>
                 
                 <button
@@ -1236,7 +1236,7 @@ export function PagesSitePage() {
                   <div className="flex items-center mb-4">
                     <Image className="w-5 h-5 text-blue-600 mr-2" />
                     <h3 className="text-lg font-medium text-gray-800">
-                      Изображения ({selectedPage.images.length})
+                      Immagini ({selectedPage.images.length})
                     </h3>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
@@ -1257,7 +1257,7 @@ export function PagesSitePage() {
                               onClick={() => handleReplaceImage(image)}
                               className="opacity-0 group-hover:opacity-100 bg-white text-gray-800 px-3 py-1 rounded text-sm transition-opacity hover:bg-gray-100"
                             >
-                              Заменить
+                              Sostituisci
                             </button>
                             <button 
                               onClick={() => handleEditAlt(image, imageAltTexts[image] || '')}
@@ -1269,7 +1269,7 @@ export function PagesSitePage() {
                               onClick={() => handleEditImage(image)}
                               className="opacity-0 group-hover:opacity-100 bg-green-500 text-white px-3 py-1 rounded text-sm transition-opacity hover:bg-green-600"
                             >
-                              Обрезать
+                              Ritaglia
                             </button>
                           </div>
                           <div className="p-2">
@@ -1285,7 +1285,7 @@ export function PagesSitePage() {
                     ) : (
                       <div className="col-span-2 text-center py-8 text-gray-500">
                         <Image className="w-12 h-12 mx-auto mb-2 text-gray-300" />
-                        <p>Изображения не найдены</p>
+                        <p>Immagini non trovate</p>
                       </div>
                     )}
                   </div>

@@ -2,87 +2,6 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 const resources = {
-  ru: {
-    common: {
-      appTitle: 'Панель управления',
-      welcome: 'Добро пожаловать',
-      selectSection: 'Выберите раздел слева для управления контентом.',
-      welcomeTitle: 'Добро пожаловать в Evo Admin Panel',
-      welcomeSubtitle: 'Управление контентом сайта: изображения, видео, тексты и заявки',
-      quickActions: 'Быстрые действия',
-      recentActivity: 'Последняя активность',
-      recentSubmissions: 'Последние заявки',
-      viewAll: 'Посмотреть все',
-      logout: 'Выйти',
-      loading: 'Загрузка данных...',
-      login: {
-        title: 'Вход в систему',
-        username: 'Имя пользователя',
-        password: 'Пароль',
-        submit: 'Войти',
-        loading: 'Входим...',
-        error: 'Неверные данные для входа'
-      },
-      nav: {
-        dashboard: 'Дашборд',
-        submissions: 'Заявки',
-        images: 'Изображения',
-        videos: 'Видео',
-        texts: 'Тексты',
-        pages: 'Страницы',
-        seo: 'SEO'
-      },
-      stats: {
-        images: 'Изображения',
-        videos: 'Видео',
-        texts: 'Текстовые блоки',
-        submissions: 'Заявки'
-      },
-      action: {
-        manageImages: { title: 'Управление изображениями', desc: 'Просмотр и замена изображений сайта' },
-        editVideos: { title: 'Редактировать видео', desc: 'Изменить YouTube видео на сайте' },
-        editTexts: { title: 'Изменить тексты', desc: 'Редактировать тексты на трех языках' }
-      },
-      tab: {
-        images: 'Изображения',
-        texts: 'Тексты',
-        seo: 'SEO',
-        jsonld: 'JSON-LD',
-        html: 'HTML',
-        robots: 'Robots.txt',
-        sitemap: 'Sitemap',
-        diagnostics: 'Диагностика',
-      },
-      imagesNotFound: 'Изображения не найдены',
-      images: 'Изображения',
-      textsLabel: 'Тексты',
-      replace: 'Заменить',
-      alt: 'Alt',
-      crop: 'Обрезать',
-      seoSettings: 'SEO настройки',
-      jsonLd: 'JSON-LD микроразметка',
-      customHtml: 'Пользовательский HTML код',
-      robotsTxt: 'Robots.txt директивы',
-      sitemapSettings: 'Sitemap настройки',
-      sitemapInfo: 'Информация о Sitemap',
-      sitemapInfoText: 'Sitemap автоматически генерируется и доступен по адресу: /sitemap.xml',
-      missingRuSeo: 'Отсутствует RU SEO',
-      missingEnSeo: 'Отсутствует EN SEO',
-      missingItSeo: 'Отсутствует IT SEO',
-      partialSeo: 'SEO присутствует для некоторых языков',
-      jsonldAndHtml: 'JSON-LD и HTML',
-      jsonldMissing: 'JSON-LD не задан',
-      jsonldPresent: 'JSON-LD задан',
-      customHtmlMissing: 'Кастомный HTML не задан',
-      customHtmlPresent: 'Кастомный HTML задан',
-      imagesFound: 'Найдено изображений',
-      imagesMissing: 'Изображения не найдены этой странице',
-      lang: {
-        ru: 'Русский',
-        it: 'Итальянский',
-      },
-    },
-  },
   it: {
     common: {
       appTitle: 'Pannello di controllo',
@@ -159,7 +78,6 @@ const resources = {
       imagesFound: 'Immagini trovate',
       imagesMissing: 'Nessuna immagine trovata per questa pagina',
       lang: {
-        ru: 'Russo',
         it: 'Italiano',
       },
     },
@@ -170,7 +88,7 @@ const saved = typeof window !== 'undefined' ? localStorage.getItem('admin_lang')
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: saved || 'it',
+  lng: 'it',
   fallbackLng: 'it',
   ns: ['common'],
   defaultNS: 'common',
