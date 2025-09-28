@@ -53,7 +53,7 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
     if (!src) return '';
     const s = String(src).replace(/\\/g, '/');
     if (/^https?:\/\//i.test(s)) return s;
-    const cleaned = s.replace(/^\/+/, '').replace(/^images[\/]?/i, '').replace(/^\//, '');
+  const cleaned = s.replace(/^\/+/, '').replace(/^images\/?/i, '').replace(/^\//, '');
     return `${backendUrl}/images/${cleaned}`;
   };
 
@@ -68,19 +68,19 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
         credentials: 'include'
       });
       
-      if (response.ok) {
-        const data = await response.json();
-        setImages(data);
-        console.log(`Загружено ${data.length} изображений для страницы ${pageId}`);
+  if (response.ok) {
+    const data = await response.json();
+    setImages(data);
+    console.log(`Caricate ${data.length} immagini per la pagina ${pageId}`);
       } else if (response.status === 401) {
-        showMessage('error', 'Необходима авторизация для просмотра изображений');
+  showMessage('error', 'Autenticazione richiesta per visualizzare le immagini');
       } else {
-        const errorData = await response.json().catch(() => ({ error: 'Неизвестная ошибка' }));
-        throw new Error(errorData.error || 'Ошибка загрузки изображений');
+  const errorData = await response.json().catch(() => ({ error: 'Errore sconosciuto' }));
+  throw new Error(errorData.error || 'Errore caricamento immagini');
       }
     } catch (error) {
-      console.error('Ошибка при загрузке изображений:', error);
-      showMessage('error', error instanceof Error ? error.message : 'Ошибка загрузки изображений');
+  console.error('Errore caricamento immagini:', error);
+  showMessage('error', error instanceof Error ? error.message : 'Errore caricamento immagini');
     } finally {
       setLoading(false);
     }
@@ -99,22 +99,22 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
 
       if (response.ok) {
         const result = await response.json();
-        setImages(images.map(img => img.id === imageId ? result.image : img));
-        setEditingImage(null);
-        showMessage('success', `Изображение обновлено. Бэкап: ${result.backupPath}`);
+  setImages(images.map(img => img.id === imageId ? result.image : img));
+  setEditingImage(null);
+  showMessage('success', `Immagine aggiornata. Backup: ${result.backupPath}`);
       } else {
-        const error = await response.json();
-        throw new Error(error.error || 'Ошибка обновления изображения');
+  const error = await response.json();
+  throw new Error(error.error || 'Errore aggiornamento immagine');
       }
     } catch (error) {
-      console.error('Ошибка при обновлении изображения:', error);
-      showMessage('error', error instanceof Error ? error.message : 'Ошибка обновления изображения');
+  console.error('Errore durante l\'aggiornamento dell\'immagine:', error);
+  showMessage('error', error instanceof Error ? error.message : 'Errore aggiornamento immagine');
     }
   };
 
   const addImage = async () => {
     if (!newImage.src || !newImage.alt) {
-      showMessage('error', 'Поля src и alt обязательны');
+      showMessage('error', 'I campi src e alt sono obbligatori');
       return;
     }
 
@@ -133,14 +133,14 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
         setImages([...images, result.image]);
         setNewImage({ src: '', alt: '', title: '', description: '' });
         setShowAddForm(false);
-        showMessage('success', `Изображение добавлено. Бэкап: ${result.backupPath}`);
+        showMessage('success', `Immagine aggiunta. Backup: ${result.backupPath}`);
       } else {
         const error = await response.json();
-        throw new Error(error.error || 'Ошибка добавления изображения');
+        throw new Error(error.error || 'Errore aggiunta immagine');
       }
     } catch (error) {
-      console.error('Ошибка при добавлении изображения:', error);
-      showMessage('error', error instanceof Error ? error.message : 'Ошибка добавления изображения');
+      console.error('Errore aggiunta immagine:', error);
+      showMessage('error', error instanceof Error ? error.message : 'Errore aggiunta immagine');
     }
   };
 
@@ -159,19 +159,19 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
       });
       if (!res.ok) {
         const t = await res.text();
-        throw new Error(`Ошибка загрузки: ${res.status} ${t}`);
+        throw new Error(`Errore caricamento: ${res.status} ${t}`);
       }
       const result = await res.json();
       setImages(prev => [...prev, result.image]);
-      showMessage('success', `Изображение загружено. Бэкап: ${result.backupPath}`);
+      showMessage('success', `Immagine caricata. Backup: ${result.backupPath}`);
     } catch (e) {
       console.error(e);
-      showMessage('error', e instanceof Error ? e.message : 'Ошибка загрузки файла');
+      showMessage('error', e instanceof Error ? e.message : 'Errore caricamento file');
     }
   };
 
   const deleteImage = async (imageId: number) => {
-    if (!confirm('Вы уверены, что хотите удалить это изображение?')) {
+    if (!confirm('Sei sicuro di voler eliminare questa immagine?')) {
       return;
     }
 
@@ -184,14 +184,14 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
       if (response.ok) {
         const result = await response.json();
         setImages(images.filter(img => img.id !== imageId));
-        showMessage('success', `Изображение удалено. Бэкап: ${result.backupPath}`);
+        showMessage('success', `Immagine eliminata. Backup: ${result.backupPath}`);
       } else {
         const error = await response.json();
-        throw new Error(error.error || 'Ошибка удаления изображения');
+        throw new Error(error.error || 'Errore eliminazione immagine');
       }
     } catch (error) {
-      console.error('Ошибка при удалении изображения:', error);
-      showMessage('error', error instanceof Error ? error.message : 'Ошибка удаления изображения');
+      console.error('Errore durante l\'eliminazione dell\'immagine:', error);
+      showMessage('error', error instanceof Error ? error.message : 'Errore eliminazione immagine');
     }
   };
 
@@ -204,12 +204,12 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
     if (!showCropper) return;
 
     try {
-      // Создаем FormData для загрузки файла
+  // Creiamo FormData per caricare il file
       const formData = new FormData();
       formData.append('file', croppedImageBlob, 'cropped-image.jpg');
       formData.append('imagePath', images.find(img => img.id === showCropper.imageId)?.src || '');
 
-      // Загружаем обрезанное изображение
+      // Carichiamo l'immagine ritagliata
       const uploadResponse = await fetch(`${backendUrl}/api/images/replace`, {
         method: 'POST',
         credentials: 'include',
@@ -218,16 +218,16 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
 
       if (uploadResponse.ok) {
         const result = await uploadResponse.json();
-        showMessage('success', `Изображение обрезано и сохранено. Бэкап: ${result.backupPath}`);
+        showMessage('success', `Immagine ritagliata e salvata. Backup: ${result.backupPath}`);
         setShowCropper(null);
         // Обновляем список изображений
         fetchImages();
       } else {
-        throw new Error('Ошибка загрузки обрезанного изображения');
+        throw new Error('Errore caricamento immagine ritagliata');
       }
     } catch (error) {
-      console.error('Ошибка при сохранении обрезанного изображения:', error);
-      showMessage('error', 'Ошибка сохранения обрезанного изображения');
+      console.error('Errore durante il salvataggio dell\'immagine ritagliata:', error);
+      showMessage('error', 'Errore salvataggio immagine ritagliata');
     }
   };
 
@@ -235,9 +235,9 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
     return (
       <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
         <div className="bg-white rounded-lg p-8">
-          <div className="text-center">
+            <div className="text-center">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
-            <p className="mt-4 text-gray-500">Загрузка изображений...</p>
+            <p className="mt-4 text-gray-500">Caricamento immagini...</p>
           </div>
         </div>
       </div>
@@ -251,10 +251,10 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
         <div className="flex items-center justify-between p-6 border-b">
           <div>
             <h2 className="text-xl font-semibold text-gray-800">
-              Управление изображениями: {pageTitle}
+              Gestione immagini: {pageTitle}
             </h2>
             <p className="text-sm text-gray-500">
-              Найдено изображений: {images.length}
+              Immagini trovate: {images.length}
             </p>
           </div>
           <div className="flex items-center space-x-2">
@@ -263,7 +263,7 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
               className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center"
             >
               <Plus className="w-4 h-4 mr-2" />
-              Добавить
+              Aggiungi
             </button>
             <button
               onClick={onClose}
@@ -301,10 +301,10 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
             animate={{ opacity: 1, height: 'auto' }}
             className="mx-6 mt-4 p-4 bg-gray-50 rounded-lg"
           >
-            <h3 className="text-lg font-medium text-gray-800 mb-4">Добавить новое изображение</h3>
+            <h3 className="text-lg font-medium text-gray-800 mb-4">Aggiungi nuova immagine</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Путь к файлу</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Percorso file</label>
                 <input
                   type="text"
                   value={newImage.src}
@@ -313,7 +313,7 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
                   placeholder="images/example.jpg"
                 />
                 <div className="mt-2">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Или загрузить файл</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Oppure carica un file</label>
                   <input
                     type="file"
                     accept="image/*"
@@ -330,38 +330,38 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Alt текст</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Testo Alt</label>
                 <input
                   type="text"
                   value={newImage.alt}
                   onChange={(e) => setNewImage({ ...newImage, alt: e.target.value })}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Описание изображения"
+                  placeholder="Descrizione immagine"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Заголовок</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Titolo</label>
                 <input
                   type="text"
                   value={newImage.title}
                   onChange={(e) => setNewImage({ ...newImage, title: e.target.value })}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Заголовок изображения"
+                  placeholder="Titolo immagine"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Описание</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Descrizione</label>
                 <input
                   type="text"
                   value={newImage.description}
                   onChange={(e) => setNewImage({ ...newImage, description: e.target.value })}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Подробное описание"
+                  placeholder="Descrizione dettagliata"
                 />
               </div>
             </div>
             <div className="flex items-center space-x-2 mt-4">
-              <button
+                <button
                 onClick={async () => {
                   if (selectedFile) {
                     // Предложить обрезку перед загрузкой
@@ -378,13 +378,13 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center"
               >
                 <Save className="w-4 h-4 mr-2" />
-                Добавить
+                Aggiungi
               </button>
               <button
                 onClick={() => { setShowAddForm(false); setSelectedFile(null); setPendingUploadBlob(null); }}
                 className="px-4 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50"
               >
-                Отмена
+                Annulla
               </button>
             </div>
           </motion.div>
@@ -418,7 +418,7 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
                     ) : null}
                     <div className="flex flex-col items-center justify-center text-gray-400" style={{ display: image.exists ? 'none' : 'flex' }}>
                       <ImageIcon className="w-12 h-12 mb-2" />
-                      <span className="text-sm">Файл не найден</span>
+                      <span className="text-sm">File non trovato</span>
                     </div>
                   </div>
 
@@ -454,7 +454,7 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
                         <button
                           onClick={() => setEditingImage(image)}
                           className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                          title="Редактировать"
+                          title="Modifica"
                         >
                           <Edit className="w-4 h-4" />
                         </button>
@@ -464,20 +464,20 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
                               imageId: image.id 
                             })}
                           className="p-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors"
-                          title="Обрезать"
+                          title="Ritaglia"
                         >
                           <Crop className="w-4 h-4" />
                         </button>
                         <button
                           onClick={() => deleteImage(image.id)}
                           className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
-                          title="Удалить"
+                          title="Elimina"
                         >
                           <Trash2 className="w-4 h-4" />
                         </button>
                       </div>
                       {!image.exists && (
-                        <span className="text-xs text-red-500">Файл отсутствует</span>
+                        <span className="text-xs text-red-500">File mancante</span>
                       )}
                     </div>
                   </div>
@@ -487,15 +487,15 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
           ) : (
             <div className="text-center py-12">
               <ImageIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <h3 className="text-lg font-medium text-gray-900 mb-2">Нет изображений</h3>
+              <h3 className="text-lg font-medium text-gray-900 mb-2">Nessuna immagine</h3>
               <p className="text-gray-500 mb-4">
-                На этой странице пока нет изображений
+                Non ci sono immagini su questa pagina
               </p>
               <button
                 onClick={() => setShowAddForm(true)}
                 className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
               >
-                Добавить первое изображение
+                Aggiungi la prima immagine
               </button>
             </div>
           )}
@@ -506,12 +506,12 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-60">
             <div className="bg-white rounded-lg p-6 max-w-2xl w-full mx-4">
               <h3 className="text-lg font-medium text-gray-800 mb-4">
-                Редактировать изображение ID: {editingImage.id}
+                Modifica immagine ID: {editingImage.id}
               </h3>
               
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Alt текст</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Testo Alt</label>
                   <input
                     type="text"
                     value={editingImage.alt}
@@ -521,7 +521,7 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Путь к файлу</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Percorso file</label>
                   <input
                     type="text"
                     value={editingImage.src}
@@ -531,7 +531,7 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Заголовок</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Titolo</label>
                   <input
                     type="text"
                     value={editingImage.title}
@@ -541,7 +541,7 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Описание</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Descrizione</label>
                   <textarea
                     value={editingImage.description}
                     onChange={(e) => setEditingImage({ ...editingImage, description: e.target.value })}
@@ -556,14 +556,14 @@ export function ImageManager({ pageId, pageTitle, onClose }: ImageManagerProps) 
                   onClick={() => setEditingImage(null)}
                   className="px-4 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50"
                 >
-                  Отмена
+                  Annulla
                 </button>
                 <button
                   onClick={() => updateImage(editingImage.id, editingImage)}
                   className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center"
                 >
                   <Save className="w-4 h-4 mr-2" />
-                  Сохранить
+                  Salva
                 </button>
               </div>
             </div>

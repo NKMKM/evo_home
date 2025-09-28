@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Plus, Edit, Trash2, Eye, Search, Filter, Globe, Globe2, Image, ChevronDown, ChevronRight, FileText, Code, Layers } from 'lucide-react';
 import { Page } from '../../utils/types';
 import { formatDistanceToNow } from 'date-fns';
-import { ru } from 'date-fns/locale';
+import { it } from 'date-fns/locale';
 import { PageImagesManager } from '../PageImagesManager';
 import { ComponentManager } from '../ComponentManager';
 import { PagesStats } from '../PagesStats';
@@ -60,7 +60,7 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
         setPages(pagesData);
       }
     } catch (error) {
-      console.error('Ошибка при загрузке страниц:', error);
+      console.error('Errore durante il caricamento delle pagine:', error);
     } finally {
       setLoading(false);
     }
@@ -92,7 +92,7 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
       
       setSitemapStatus(statusMap);
     } catch (error) {
-      console.error('Ошибка при загрузке статуса sitemap:', error);
+      console.error('Errore durante il caricamento dello stato della sitemap:', error);
     }
   };
 
@@ -119,7 +119,7 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
         throw new Error('Ошибка обновления статуса sitemap');
       }
     } catch (error) {
-      console.error('Ошибка при переключении статуса sitemap:', error);
+      console.error('Errore durante l\'aggiornamento dello stato della sitemap:', error);
     }
   };
 
@@ -176,7 +176,7 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
   };
 
   const deletePage = async (pageId: string) => {
-    if (!confirm('Вы уверены, что хотите удалить эту страницу?')) {
+    if (!confirm('Sei sicuro di voler eliminare questa pagina?')) {
       return;
     }
 
@@ -190,7 +190,7 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
         setPages(pages.filter(page => page.id !== pageId));
       }
     } catch (error) {
-      console.error('Ошибка при удалении страницы:', error);
+      console.error('Errore durante l\'eliminazione della pagina:', error);
     }
   };
 
@@ -202,9 +202,9 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
     };
 
     const statusText = {
-      draft: 'Черновик',
-      published: 'Опубликована',
-      archived: 'Архив',
+      draft: 'Bozza',
+      published: 'Pubblicata',
+      archived: 'Archiviata',
     };
 
     return (
@@ -217,7 +217,7 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="text-gray-500">Загрузка страниц...</div>
+        <div className="text-gray-500">Caricamento pagine...</div>
       </div>
     );
   }
@@ -232,9 +232,9 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <div>
-            <h1 className="text-2xl font-light text-gray-800 mb-1">Страницы и компоненты</h1>
+            <h1 className="text-2xl font-light text-gray-800 mb-1">Pagine e componenti</h1>
             <p className="text-sm text-gray-500">
-              Управление страницами и компонентами сайта ({getTotalItems()} элементов)
+              Gestione di pagine e componenti del sito ({getTotalItems()} elementi)
             </p>
           </div>
           <button
@@ -242,7 +242,7 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
             className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
           >
             <Plus size={16} />
-            Создать страницу
+            Crea pagina
           </button>
         </div>
 
@@ -262,7 +262,7 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
               <Search size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
-                placeholder="Поиск по названию, пути или файлу..."
+                placeholder="Cerca per titolo, percorso o file..."
                 className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -275,9 +275,9 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
                 value={typeFilter}
                 onChange={(e) => setTypeFilter(e.target.value as any)}
               >
-                <option value="all">Все типы</option>
-                <option value="page">Страницы</option>
-                <option value="component">Компоненты</option>
+                <option value="all">Tutti i tipi</option>
+                <option value="page">Pagine</option>
+                <option value="component">Componenti</option>
               </select>
             </div>
             <div className="flex items-center gap-2">
@@ -286,10 +286,10 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value as any)}
               >
-                <option value="all">Все статусы</option>
-                <option value="published">Опубликованные</option>
-                <option value="draft">Черновики</option>
-                <option value="archived">Архив</option>
+                <option value="all">Tutti gli stati</option>
+                <option value="published">Pubblicate</option>
+                <option value="draft">Bozze</option>
+                <option value="archived">Archiviati</option>
               </select>
             </div>
           </div>
@@ -307,9 +307,9 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
                 <div className="flex items-center gap-3">
                   <span className="text-lg">{category.icon}</span>
                   <div>
-                    <h3 className="font-medium text-gray-900">{category.name}</h3>
-                    <p className="text-sm text-gray-500">{category.pages.length} элементов</p>
-                  </div>
+                          <h3 className="font-medium text-gray-900">{category.name}</h3>
+                          <p className="text-sm text-gray-500">{category.pages.length} elementi</p>
+                        </div>
                 </div>
                 <div className="flex items-center gap-2">
                   {expandedCategories.has(category.name) ? (
@@ -337,7 +337,7 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
                             {getStatusBadge(page.status)}
                             {page.type === 'component' && (
                               <span className="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">
-                                Компонент
+                                Componente
                               </span>
                             )}
                           </div>
@@ -346,10 +346,10 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
                               {page.path}
                             </span>
                           </div>
-                          <div className="text-xs text-gray-400 flex items-center gap-4">
-                            <span>Файл: {page.fileName}</span>
-                            {page.hasImages && <span>📷 Изображения</span>}
-                            {page.hasTranslations && <span>🌐 Переводы</span>}
+                            <div className="text-xs text-gray-400 flex items-center gap-4">
+                            <span>File: {page.fileName}</span>
+                            {page.hasImages && <span>📷 Immagini</span>}
+                            {page.hasTranslations && <span>🌐 Traduzioni</span>}
                           </div>
                         </div>
                         <div className="flex items-center gap-2">
@@ -362,7 +362,7 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
                             <button
                               onClick={() => setShowPageImagesManager({ pageId: page.id, pageTitle: page.title })}
                               className="p-2 text-purple-600 hover:text-purple-700 transition-colors"
-                              title="Управление изображениями"
+                              title="Gestione immagini"
                             >
                               <Image size={16} />
                             </button>
@@ -375,7 +375,7 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
                                   ? 'text-green-600 hover:text-green-700'
                                   : 'text-gray-400 hover:text-gray-600'
                               }`}
-                              title={sitemapStatus[page.id] !== false ? 'Исключить из sitemap' : 'Включить в sitemap'}
+                              title={sitemapStatus[page.id] !== false ? 'Escludi dalla sitemap' : 'Includi nella sitemap'}
                             >
                               {sitemapStatus[page.id] !== false ? <Globe size={16} /> : <Globe2 size={16} />}
                             </button>
@@ -394,12 +394,12 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
                               }
                             }}
                             className="p-2 text-gray-400 hover:text-blue-600 transition-colors"
-                            title={page.type === 'component' ? 'Информация о компоненте' : 'Редактировать страницу'}
+                            title={page.type === 'component' ? 'Informazioni componente' : 'Modifica pagina'}
                           >
                             <Edit size={16} />
                           </button>
                           {page.type === 'page' && (
-                            <button
+                              <button
                               onClick={() => deletePage(page.id)}
                               className="p-2 text-gray-400 hover:text-red-600 transition-colors"
                             >
@@ -420,11 +420,11 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
               <div className="text-gray-400 mb-4">
                 <Layers size={48} className="mx-auto mb-4 opacity-20" />
               </div>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">Нет элементов</h3>
+              <h3 className="text-lg font-medium text-gray-900 mb-2">Nessun elemento</h3>
               <p className="text-gray-500 mb-4">
                 {searchTerm || statusFilter !== 'all' || typeFilter !== 'all'
-                  ? 'Не найдено элементов по заданным критериям'
-                  : 'Создайте первую страницу для начала работы'
+                  ? 'Nessun elemento trovato per i criteri specificati'
+                  : 'Crea la prima pagina per iniziare'
                 }
               </p>
               {!searchTerm && statusFilter === 'all' && typeFilter === 'all' && (
@@ -432,7 +432,7 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
                   onClick={onCreatePage}
                   className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
                 >
-                  Создать страницу
+                  Crea pagina
                 </button>
               )}
             </div>
@@ -447,17 +447,17 @@ export function PagesPage({ onEditPage, onCreatePage }: PagesPageProps) {
               disabled={currentPage === 1}
               className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Назад
+              Indietro
             </button>
             <span className="text-sm text-gray-600">
-              Страница {currentPage} из {Math.ceil(getTotalItems() / itemsPerPage)}
+              Pagina {currentPage} di {Math.ceil(getTotalItems() / itemsPerPage)}
             </span>
             <button
               onClick={() => setCurrentPage(prev => Math.min(Math.ceil(getTotalItems() / itemsPerPage), prev + 1))}
               disabled={currentPage >= Math.ceil(getTotalItems() / itemsPerPage)}
               className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Вперед
+              Avanti
             </button>
           </div>
         )}

@@ -58,20 +58,20 @@ export function DirectImagesManager({ pageId, pageTitle, onClose }: DirectImages
   }, [pageId]);
 
   const fetchImages = async () => {
-    try {
-      setLoading(true);
-      console.log(`🔄 Загружаем изображения для страницы: ${pageId}`);
+  try {
+  setLoading(true);
+  console.log(`🔄 Caricamento immagini per la pagina: ${pageId}`);
       
       // Прямой запрос к API
       const response = await fetch(`${backendUrl}/api/pages/${pageId}/images`, {
         credentials: 'include'
       });
       
-      console.log(`📡 Ответ API: ${response.status} ${response.statusText}`);
+  console.log(`📡 Risposta API: ${response.status} ${response.statusText}`);
       
       if (response.ok) {
         const data = await response.json();
-        console.log(`📊 Получено данных:`, data);
+  console.log(`📊 Dati ricevuti:`, data);
         
         const imagesWithUrls = data.map((img: ImageData) => ({
           ...img,
@@ -79,28 +79,28 @@ export function DirectImagesManager({ pageId, pageTitle, onClose }: DirectImages
         }));
         
         setImages(imagesWithUrls);
-        console.log(`✅ Загружено ${imagesWithUrls.length} изображений`);
+  console.log(`✅ Caricate ${imagesWithUrls.length} immagini`);
       } else {
-        console.error(`❌ Ошибка API: ${response.status}`);
+  console.error(`❌ Errore API: ${response.status}`);
         const errorText = await response.text();
-        console.error('Ответ сервера:', errorText);
-        showMessage('error', `Ошибка API: ${response.status} - ${errorText}`);
+  console.error('Risposta server:', errorText);
+  showMessage('error', `Errore API: ${response.status} - ${errorText}`);
       }
     } catch (error) {
-      console.error('❌ Ошибка при загрузке изображений:', error);
-      showMessage('error', `Ошибка сети: ${error instanceof Error ? error.message : 'Неизвестная ошибка'}`);
+      console.error('❌ Errore durante il caricamento delle immagini:', error);
+      showMessage('error', `Errore di rete: ${error instanceof Error ? error.message : 'Errore sconosciuto'}`);
     } finally {
       setLoading(false);
     }
   };
 
   const handleImageError = (imageSrc: string) => {
-    console.log(`❌ Ошибка загрузки изображения: ${imageSrc}`);
+    console.log(`❌ Errore caricamento immagine: ${imageSrc}`);
     setImageErrors(prev => new Set([...prev, imageSrc]));
   };
 
   const handleImageLoad = (imageSrc: string) => {
-    console.log(`✅ Изображение загружено: ${imageSrc}`);
+    console.log(`✅ Immagine caricata: ${imageSrc}`);
     setImageErrors(prev => {
       const newSet = new Set(prev);
       newSet.delete(imageSrc);
@@ -123,20 +123,20 @@ export function DirectImagesManager({ pageId, pageTitle, onClose }: DirectImages
         const result = await response.json();
         setImages(images.map(img => img.id === imageId ? { ...result.image, url: `${backendUrl}/images/${result.image.src}` } : img));
         setEditingImage(null);
-        showMessage('success', 'Изображение обновлено');
+        showMessage('success', 'Immagine aggiornata');
       } else {
         const error = await response.json();
-        throw new Error(error.error || 'Ошибка обновления изображения');
+        throw new Error(error.error || 'Errore aggiornamento immagine');
       }
     } catch (error) {
-      console.error('Ошибка при обновлении изображения:', error);
-      showMessage('error', error instanceof Error ? error.message : 'Ошибка обновления изображения');
+      console.error('Errore durante l\'aggiornamento dell\'immagine:', error);
+      showMessage('error', error instanceof Error ? error.message : 'Errore aggiornamento immagine');
     }
   };
 
   const addImage = async () => {
     if (!newImage.src || !newImage.alt) {
-      showMessage('error', 'Поля src и alt обязательны');
+      showMessage('error', 'I campi src e alt sono obbligatori');
       return;
     }
 
@@ -156,19 +156,19 @@ export function DirectImagesManager({ pageId, pageTitle, onClose }: DirectImages
         setImages([...images, newImageWithUrl]);
         setNewImage({ src: '', alt: '', title: '', description: '' });
         setShowAddForm(false);
-        showMessage('success', 'Изображение добавлено');
+        showMessage('success', 'Immagine aggiunta');
       } else {
         const error = await response.json();
-        throw new Error(error.error || 'Ошибка добавления изображения');
+        throw new Error(error.error || 'Errore aggiunta immagine');
       }
     } catch (error) {
-      console.error('Ошибка при добавлении изображения:', error);
-      showMessage('error', error instanceof Error ? error.message : 'Ошибка добавления изображения');
+      console.error('Errore durante l\'aggiunta dell\'immagine:', error);
+      showMessage('error', error instanceof Error ? error.message : 'Errore aggiunta immagine');
     }
   };
 
   const deleteImage = async (imageId: number) => {
-    if (!confirm('Вы уверены, что хотите удалить это изображение?')) {
+    if (!confirm('Sei sicuro di voler eliminare questa immagine?')) {
       return;
     }
 
@@ -180,20 +180,20 @@ export function DirectImagesManager({ pageId, pageTitle, onClose }: DirectImages
 
       if (response.ok) {
         setImages(images.filter(img => img.id !== imageId));
-        showMessage('success', 'Изображение удалено');
+        showMessage('success', 'Immagine eliminata');
       } else {
         const error = await response.json();
-        throw new Error(error.error || 'Ошибка удаления изображения');
+        throw new Error(error.error || 'Errore eliminazione immagine');
       }
     } catch (error) {
-      console.error('Ошибка при удалении изображения:', error);
-      showMessage('error', error instanceof Error ? error.message : 'Ошибка удаления изображения');
+      console.error('Errore durante l\'eliminazione dell\'immagine:', error);
+      showMessage('error', error instanceof Error ? error.message : 'Errore eliminazione immagine');
     }
   };
 
   const copyImageUrl = (image: ImageData) => {
     navigator.clipboard.writeText(image.url || '');
-    showMessage('success', 'URL скопирован в буфер обмена');
+    showMessage('success', 'URL copiato negli appunti');
   };
 
   const downloadImage = (image: ImageData) => {
@@ -230,7 +230,7 @@ export function DirectImagesManager({ pageId, pageTitle, onClose }: DirectImages
         <div className="bg-white rounded-lg p-8">
           <div className="text-center">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
-            <p className="mt-4 text-gray-500">Загрузка изображений...</p>
+            <p className="mt-4 text-gray-500">Caricamento immagini...</p>
           </div>
         </div>
       </div>
@@ -244,24 +244,24 @@ export function DirectImagesManager({ pageId, pageTitle, onClose }: DirectImages
         <div className="flex items-center justify-between p-6 border-b bg-gray-50">
           <div>
             <h2 className="text-xl font-semibold text-gray-800">
-              Изображения: {pageTitle}
+              Immagini: {pageTitle}
             </h2>
             <p className="text-sm text-gray-500">
-              {images.length} изображений • {selectedImages.size} выбрано
+              {images.length} immagini • {selectedImages.size} selezionate
             </p>
           </div>
           <div className="flex items-center space-x-2">
-            <button
+              <button
               onClick={() => setViewMode(viewMode === 'grid' ? 'list' : 'grid')}
               className="p-2 text-gray-600 hover:bg-gray-200 rounded-lg transition-colors"
-              title={viewMode === 'grid' ? 'Список' : 'Сетка'}
+              title={viewMode === 'grid' ? 'Elenco' : 'Griglia'}
             >
               {viewMode === 'grid' ? <Eye size={20} /> : <EyeOff size={20} />}
             </button>
             <button
               onClick={fetchImages}
               className="p-2 text-gray-600 hover:bg-gray-200 rounded-lg transition-colors"
-              title="Обновить"
+              title="Aggiorna"
             >
               <RefreshCw size={20} />
             </button>
@@ -270,9 +270,9 @@ export function DirectImagesManager({ pageId, pageTitle, onClose }: DirectImages
               className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center"
             >
               <Plus className="w-4 h-4 mr-2" />
-              Добавить
+              Aggiungi
             </button>
-            <button
+              <button
               onClick={onClose}
               className="px-4 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50"
             >
@@ -305,14 +305,14 @@ export function DirectImagesManager({ pageId, pageTitle, onClose }: DirectImages
         </AnimatePresence>
 
         {/* Debug Info */}
-        <div className="mx-6 mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-          <h3 className="text-sm font-medium text-yellow-800 mb-2">🔍 Отладочная информация</h3>
+          <div className="mx-6 mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+          <h3 className="text-sm font-medium text-yellow-800 mb-2">🔍 Informazioni di debug</h3>
           <div className="text-xs text-yellow-700 space-y-1">
             <div>Backend URL: {backendUrl}</div>
             <div>API Endpoint: {backendUrl}/api/pages/{pageId}/images</div>
             <div>Static URL: {backendUrl}/images/</div>
-            <div>Загружено изображений: {images.length}</div>
-            <div>Ошибки загрузки: {imageErrors.size}</div>
+            <div>Immagini caricate: {images.length}</div>
+            <div>Errori di caricamento: {imageErrors.size}</div>
           </div>
         </div>
 

@@ -181,10 +181,10 @@ export function SitemapManager() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-2xl font-light text-gray-800 mb-1">
-              Управление Sitemap
+              Gestione Sitemap
             </h1>
             <p className="text-sm text-gray-500">
-              Добавление и удаление страниц в sitemap.xml
+              Aggiungere e rimuovere pagine in una sitemap.xml
             </p>
           </div>
           <div className="flex items-center space-x-2">
@@ -193,14 +193,14 @@ export function SitemapManager() {
               className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center"
             >
               <Plus className="w-4 h-4 mr-2" />
-              Добавить страницу
+              Aggiungi pagina
             </button>
             <button
               onClick={downloadSitemap}
               className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 flex items-center"
             >
               <Download className="w-4 h-4 mr-2" />
-              Скачать Sitemap
+              Scarica Sitemap
             </button>
           </div>
         </div>
@@ -232,7 +232,7 @@ export function SitemapManager() {
             animate={{ opacity: 1, height: 'auto' }}
             className="bg-white rounded-lg shadow-sm p-6 mb-6"
           >
-            <h3 className="text-lg font-medium text-gray-800 mb-4">Добавить новую страницу</h3>
+            <h3 className="text-lg font-medium text-gray-800 mb-4">Aggiungi una nuova pagina</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">URL</label>

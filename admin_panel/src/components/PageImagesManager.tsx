@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 interface ImageData {
-  id: number | string;
+  id: number;
   src: string;
   alt: string;
   title: string;
@@ -46,25 +46,10 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
   });
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-  const [selectedImages, setSelectedImages] = useState<Set<number | string>>(new Set());
+  const [selectedImages, setSelectedImages] = useState<Set<number>>(new Set());
   const [searchTerm, setSearchTerm] = useState('');
 
   const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL || 'http://localhost:3001';
-
-  const makeImageUrl = (src?: string) => {
-    if (!src) return '';
-    // absolute urls passthrough
-    if (/^https?:\/\//i.test(src)) return src;
-    // remove leading slashes
-    let cleaned = src.replace(/^\/+/, '');
-    // normalize common prefixes
-    cleaned = cleaned.replace(/^assets[\\\/]images[\\\/]/i, '');
-    cleaned = cleaned.replace(/^src[\\\/]assets[\\\/]images[\\\/]/i, '');
-    cleaned = cleaned.replace(/^images[\\\/]/i, '');
-    // ensure no double slashes
-    cleaned = cleaned.replace(/^[\\\/]+/, '');
-    return `${backendUrl}/images/${cleaned}`;
-  };
 
   useEffect(() => {
     fetchImages();
@@ -79,33 +64,27 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
       
       if (response.ok) {
         const data = await response.json();
-        const imagesWithUrls = data.map((img: any, idx: number) => ({
-          id: img.id ?? idx,
-          src: img.src || img.path || img.name || (typeof img === 'string' ? img : ''),
-          alt: img.alt || '',
-          title: img.title || '',
-          description: img.description || '',
-          size: img.size,
-          exists: true,
-          url: makeImageUrl(img.src || img.path || img.name || (typeof img === 'string' ? img : ''))
-        } as ImageData));
+        const imagesWithUrls = data.map((img: ImageData) => ({
+          ...img,
+          url: `${backendUrl}/images/${img.src.replace(/^images[\/]/, '')}`
+        }));
         setImages(imagesWithUrls);
-        console.log(`✅ Загружено ${imagesWithUrls.length} изображений для страницы ${pageId}`);
+        console.log(`✅ Caricate ${imagesWithUrls.length} immagini per la pagina ${pageId}`);
       } else if (response.status === 401) {
-        showMessage('error', 'Необходима авторизация для просмотра изображений');
+  showMessage('error', 'Autenticazione richiesta per visualizzare le immagini');
       } else {
-        const errorData = await response.json().catch(() => ({ error: 'Неизвестная ошибка' }));
-        throw new Error(errorData.error || 'Ошибка загрузки изображений');
+  const errorData = await response.json().catch(() => ({ error: 'Errore sconosciuto' }));
+  throw new Error(errorData.error || 'Errore durante il caricamento delle immagini');
       }
     } catch (error) {
-      console.error('Ошибка при загрузке изображений:', error);
-      showMessage('error', error instanceof Error ? error.message : 'Ошибка загрузки изображений');
+  console.error('Errore durante il caricamento delle immagini:', error);
+  showMessage('error', error instanceof Error ? error.message : 'Errore durante il caricamento delle immagini');
     } finally {
       setLoading(false);
     }
   };
 
-  const updateImage = async (imageId: number | string, updates: Partial<ImageData>) => {
+  const updateImage = async (imageId: number, updates: Partial<ImageData>) => {
     try {
       const response = await fetch(`${backendUrl}/api/pages/${pageId}/images/${imageId}`, {
         method: 'PUT',
@@ -118,22 +97,22 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
 
       if (response.ok) {
         const result = await response.json();
-        setImages(images.map(img => img.id === imageId ? { ...result.image, url: makeImageUrl(result.image.src) } : img));
+  setImages(images.map(img => img.id === imageId ? { ...result.image, url: `${backendUrl}/images/${result.image.src}` } : img));
         setEditingImage(null);
-        showMessage('success', 'Изображение обновлено');
+  showMessage('success', 'Immagine aggiornata');
       } else {
         const error = await response.json();
-        throw new Error(error.error || 'Ошибка обновления изображения');
+  throw new Error(error.error || 'Errore durante l\'aggiornamento dell\'immagine');
       }
     } catch (error) {
-      console.error('Ошибка при обновлении изображения:', error);
-      showMessage('error', error instanceof Error ? error.message : 'Ошибка обновления изображения');
+  console.error('Errore durante l\'aggiornamento dell\'immagine:', error);
+  showMessage('error', error instanceof Error ? error.message : 'Errore durante l\'aggiornamento dell\'immagine');
     }
   };
 
   const addImage = async () => {
     if (!newImage.src || !newImage.alt) {
-      showMessage('error', 'Поля src и alt обязательны');
+      showMessage('error', 'I campi src e alt sono obbligatori');
       return;
     }
 
@@ -149,23 +128,23 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
 
       if (response.ok) {
         const result = await response.json();
-        const newImageWithUrl = { ...result.image, url: makeImageUrl(result.image.src), exists: true } as ImageData;
+        const newImageWithUrl = { ...result.image, url: `${backendUrl}/images/${result.image.src}` };
         setImages([...images, newImageWithUrl]);
-        setNewImage({ src: '', alt: '', title: '', description: '' });
-        setShowAddForm(false);
-        showMessage('success', 'Изображение добавлено');
+  setNewImage({ src: '', alt: '', title: '', description: '' });
+  setShowAddForm(false);
+  showMessage('success', 'Immagine aggiunta');
       } else {
         const error = await response.json();
-        throw new Error(error.error || 'Ошибка добавления изображения');
+  throw new Error(error.error || 'Errore durante l\'aggiunta dell\'immagine');
       }
     } catch (error) {
-      console.error('Ошибка при добавлении изображения:', error);
-      showMessage('error', error instanceof Error ? error.message : 'Ошибка добавления изображения');
+  console.error('Errore durante l\'aggiunta dell\'immagine:', error);
+  showMessage('error', error instanceof Error ? error.message : 'Errore durante l\'aggiunta dell\'immagine');
     }
   };
 
-  const deleteImage = async (imageId: number | string) => {
-    if (!confirm('Вы уверены, что хотите удалить это изображение?')) {
+  const deleteImage = async (imageId: number) => {
+    if (!confirm('Sei sicuro di voler eliminare questa immagine?')) {
       return;
     }
 
@@ -176,22 +155,22 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
       });
 
       if (response.ok) {
-        setImages(images.filter(img => img.id !== imageId));
-        showMessage('success', 'Изображение удалено');
+  setImages(images.filter(img => img.id !== imageId));
+  showMessage('success', 'Immagine eliminata');
       } else {
         const error = await response.json();
-        throw new Error(error.error || 'Ошибка удаления изображения');
+  throw new Error(error.error || 'Errore durante l\'eliminazione dell\'immagine');
       }
     } catch (error) {
-      console.error('Ошибка при удалении изображения:', error);
-      showMessage('error', error instanceof Error ? error.message : 'Ошибка удаления изображения');
+  console.error('Errore durante l\'eliminazione dell\'immagine:', error);
+  showMessage('error', error instanceof Error ? error.message : 'Errore durante l\'eliminazione dell\'immagine');
     }
   };
 
   const deleteSelectedImages = async () => {
     if (selectedImages.size === 0) return;
     
-    if (!confirm(`Вы уверены, что хотите удалить ${selectedImages.size} изображений?`)) {
+    if (!confirm(`Sei sicuro di voler eliminare ${selectedImages.size} immagini?`)) {
       return;
     }
 
@@ -205,17 +184,17 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
 
       await Promise.all(deletePromises);
       setImages(images.filter(img => !selectedImages.has(img.id)));
-      setSelectedImages(new Set());
-      showMessage('success', `Удалено ${selectedImages.size} изображений`);
+  setSelectedImages(new Set());
+  showMessage('success', `Eliminate ${selectedImages.size} immagini`);
     } catch (error) {
-      console.error('Ошибка при удалении изображений:', error);
-      showMessage('error', 'Ошибка удаления изображений');
+  console.error('Errore durante l\'eliminazione delle immagini:', error);
+  showMessage('error', 'Errore durante l\'eliminazione delle immagini');
     }
   };
 
   const copyImageUrl = (image: ImageData) => {
-    navigator.clipboard.writeText(image.url || '');
-    showMessage('success', 'URL скопирован в буфер обмена');
+  navigator.clipboard.writeText(image.url || '');
+  showMessage('success', 'URL copiato negli appunti');
   };
 
   const downloadImage = (image: ImageData) => {
@@ -225,8 +204,8 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
     link.click();
   };
 
-  const toggleImageSelection = (imageId: number | string) => {
-    const newSelected = new Set(selectedImages as Set<number | string>);
+  const toggleImageSelection = (imageId: number) => {
+    const newSelected = new Set(selectedImages);
     if (newSelected.has(imageId)) {
       newSelected.delete(imageId);
     } else {
@@ -260,7 +239,7 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
         <div className="bg-white rounded-lg p-8">
           <div className="text-center">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
-            <p className="mt-4 text-gray-500">Загрузка изображений...</p>
+            <p className="mt-4 text-gray-500">Caricamento immagini...</p>
           </div>
         </div>
       </div>
@@ -274,24 +253,24 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
         <div className="flex items-center justify-between p-6 border-b bg-gray-50">
           <div>
             <h2 className="text-xl font-semibold text-gray-800">
-              Изображения: {pageTitle}
+              Immagini: {pageTitle}
             </h2>
             <p className="text-sm text-gray-500">
-              {images.length} изображений • {selectedImages.size} выбрано
+              {images.length} immagini • {selectedImages.size} selezionate
             </p>
           </div>
           <div className="flex items-center space-x-2">
             <button
               onClick={() => setViewMode(viewMode === 'grid' ? 'list' : 'grid')}
               className="p-2 text-gray-600 hover:bg-gray-200 rounded-lg transition-colors"
-              title={viewMode === 'grid' ? 'Список' : 'Сетка'}
+              title={viewMode === 'grid' ? 'Elenco' : 'Griglia'}
             >
               {viewMode === 'grid' ? <Eye size={20} /> : <EyeOff size={20} />}
             </button>
             <button
               onClick={fetchImages}
               className="p-2 text-gray-600 hover:bg-gray-200 rounded-lg transition-colors"
-              title="Обновить"
+              title="Aggiorna"
             >
               <RefreshCw size={20} />
             </button>
@@ -300,7 +279,7 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
               className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center"
             >
               <Plus className="w-4 h-4 mr-2" />
-              Добавить
+              Aggiungi
             </button>
             <button
               onClick={onClose}
@@ -341,7 +320,7 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
               <div className="relative">
                 <input
                   type="text"
-                  placeholder="Поиск изображений..."
+                  placeholder="Cerca immagini..."
                   className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
@@ -353,19 +332,19 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
             {selectedImages.size > 0 && (
               <div className="flex items-center space-x-2">
                 <span className="text-sm text-gray-600">
-                  Выбрано: {selectedImages.size}
+                  Selezionate: {selectedImages.size}
                 </span>
                 <button
                   onClick={deleteSelectedImages}
                   className="px-3 py-1 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm"
                 >
-                  Удалить выбранные
+                  Elimina selezionate
                 </button>
                 <button
                   onClick={clearSelection}
                   className="px-3 py-1 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 text-sm"
                 >
-                  Отменить выбор
+                  Annulla selezione
                 </button>
               </div>
             )}
@@ -377,13 +356,13 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
                 onClick={selectAllImages}
                 className="px-3 py-1 text-sm text-blue-600 hover:bg-blue-50 rounded-lg"
               >
-                Выбрать все
+                Seleziona tutto
               </button>
               <button
                 onClick={clearSelection}
                 className="px-3 py-1 text-sm text-gray-600 hover:bg-gray-50 rounded-lg"
               >
-                Очистить выбор
+                Deseleziona tutto
               </button>
             </div>
             
@@ -402,10 +381,10 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
               exit={{ opacity: 0, height: 0 }}
               className="mx-6 mt-4 p-4 bg-gray-50 rounded-lg"
             >
-              <h3 className="text-lg font-medium text-gray-800 mb-4">Добавить новое изображение</h3>
+              <h3 className="text-lg font-medium text-gray-800 mb-4">Aggiungi nuova immagine</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Путь к файлу</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Percorso file</label>
                   <input
                     type="text"
                     value={newImage.src}
@@ -421,27 +400,27 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
                     value={newImage.alt}
                     onChange={(e) => setNewImage({ ...newImage, alt: e.target.value })}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Описание изображения"
+                    placeholder="Descrizione immagine"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Заголовок</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Titolo</label>
                   <input
                     type="text"
                     value={newImage.title}
                     onChange={(e) => setNewImage({ ...newImage, title: e.target.value })}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Заголовок изображения"
+                    placeholder="Titolo immagine"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Описание</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Descrizione</label>
                   <input
                     type="text"
                     value={newImage.description}
                     onChange={(e) => setNewImage({ ...newImage, description: e.target.value })}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Подробное описание"
+                    placeholder="Descrizione dettagliata"
                   />
                 </div>
               </div>
@@ -451,13 +430,13 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
                   className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center"
                 >
                   <Save className="w-4 h-4 mr-2" />
-                  Добавить
+                  Aggiungi
                 </button>
                 <button
                   onClick={() => setShowAddForm(false)}
                   className="px-4 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50"
                 >
-                  Отмена
+                  Annulla
                 </button>
               </div>
             </motion.div>
@@ -497,18 +476,16 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
                         src={image.url}
                         alt={image.alt}
                         className="w-full h-auto object-contain"
-                        onError={() => {
-                          // mark as missing in state so fallback renders
-                          setImages(prev => prev.map(i => i.id === image.id ? { ...i, exists: false } : i));
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                          (e.target as HTMLImageElement).nextElementSibling!.style.display = 'flex';
                         }}
                       />
                     ) : null}
-                    {!image.exists && (
-                      <div className="flex flex-col items-center justify-center text-gray-400">
-                        <ImageIcon className="w-12 h-12 mb-2" />
-                        <span className="text-sm">Файл не найден</span>
-                      </div>
-                    )}
+                    <div className="flex flex-col items-center justify-center text-gray-400" style={{ display: image.exists ? 'none' : 'flex' }}>
+                      <ImageIcon className="w-12 h-12 mb-2" />
+                      <span className="text-sm">File non trovato</span>
+                    </div>
                   </div>
 
                   {/* Image Info */}
@@ -581,12 +558,12 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
             <div className="text-center py-12">
               <ImageIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
               <h3 className="text-lg font-medium text-gray-900 mb-2">
-                {searchTerm ? 'Изображения не найдены' : 'Нет изображений'}
+                {searchTerm ? 'Immagini non trovate' : 'Nessuna immagine'}
               </h3>
               <p className="text-gray-500 mb-4">
                 {searchTerm 
-                  ? 'Попробуйте изменить поисковый запрос'
-                  : 'На этой странице пока нет изображений'
+                  ? 'Prova a modificare la query di ricerca'
+                  : 'Non ci sono immagini su questa pagina'
                 }
               </p>
               {!searchTerm && (
@@ -594,7 +571,7 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
                   onClick={() => setShowAddForm(true)}
                   className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
                 >
-                  Добавить первое изображение
+                  Aggiungi la prima immagine
                 </button>
               )}
             </div>
@@ -612,12 +589,12 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
             >
               <div className="bg-white rounded-lg p-6 max-w-2xl w-full mx-4">
                 <h3 className="text-lg font-medium text-gray-800 mb-4">
-                  Редактировать изображение ID: {editingImage.id}
+                  Modifica immagine ID: {editingImage.id}
                 </h3>
                 
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Alt текст</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Testo Alt</label>
                     <input
                       type="text"
                       value={editingImage.alt}
@@ -627,7 +604,7 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Путь к файлу</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Percorso file</label>
                     <input
                       type="text"
                       value={editingImage.src}
@@ -637,7 +614,7 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Заголовок</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Titolo</label>
                     <input
                       type="text"
                       value={editingImage.title}
@@ -647,7 +624,7 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Описание</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Descrizione</label>
                     <textarea
                       value={editingImage.description}
                       onChange={(e) => setEditingImage({ ...editingImage, description: e.target.value })}
@@ -662,14 +639,14 @@ export function PageImagesManager({ pageId, pageTitle, onClose }: PageImagesMana
                     onClick={() => setEditingImage(null)}
                     className="px-4 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50"
                   >
-                    Отмена
+                    Annulla
                   </button>
                   <button
-                    onClick={() => editingImage && updateImage(editingImage.id, editingImage)}
+                    onClick={() => updateImage(editingImage.id, editingImage)}
                     className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center"
                   >
                     <Save className="w-4 h-4 mr-2" />
-                    Сохранить
+                    Salva
                   </button>
                 </div>
               </div>

@@ -88,16 +88,16 @@ export function SEOPage() {
       
       for (const page of pages) {
         try {
-          console.log(`Загружаем SEO данные для страницы: ${page.name} (${page.id})`);
+          console.log(`Caricamento dati SEO per la pagina: ${page.name} (${page.id})`);
           const response = await fetch(`${backendUrl}/api/pages/${page.id}/seo`, {
             credentials: 'include'
           });
           
-          console.log(`Ответ для ${page.name}:`, response.status, response.statusText);
+          console.log(`Risposta per ${page.name}:`, response.status, response.statusText);
           
           if (response.ok) {
             const payload = await response.json();
-            console.log(`SEO данные для ${page.name}:`, payload);
+            console.log(`Dati SEO per ${page.name}:`, payload);
             const empty: LangSEO = { title: '', description: '', keywords: '', ogTitle: '', ogDescription: '', ogImage: '', canonical: '' };
             const languages = payload.languages || { ru: empty, en: empty, it: empty };
             seoDataArray.push({
@@ -111,30 +111,30 @@ export function SEOPage() {
               lastModified: new Date().toISOString().split('T')[0]
             });
           } else {
-            console.error(`Ошибка HTTP для ${page.name}:`, response.status, response.statusText);
+            console.error(`Errore HTTP per ${page.name}:`, response.status, response.statusText);
             // Добавляем пустые данные для страниц с ошибками
             const empty: LangSEO = { title: '', description: '', keywords: '', ogTitle: '', ogDescription: '', ogImage: '', canonical: '' };
             seoDataArray.push({ id: page.id, page: page.name, languages: { ru: empty, en: empty, it: empty }, lastModified: new Date().toISOString().split('T')[0] });
           }
-        } catch (error) {
-          console.error(`Ошибка загрузки SEO данных для страницы ${page.name}:`, error);
+          } catch (error) {
+          console.error(`Errore durante il caricamento dei dati SEO per la pagina ${page.name}:`, error);
           // Добавляем пустые данные для страниц с ошибками
           const empty: LangSEO = { title: '', description: '', keywords: '', ogTitle: '', ogDescription: '', ogImage: '', canonical: '' };
           seoDataArray.push({ id: page.id, page: page.name, languages: { ru: empty, en: empty, it: empty }, lastModified: new Date().toISOString().split('T')[0] });
         }
       }
       
-      console.log('Все SEO данные:', seoDataArray);
+  console.log('Tutti i dati SEO:', seoDataArray);
       setSeoData(seoDataArray);
     } catch (error) {
-      console.error('Ошибка загрузки SEO данных:', error);
+      console.error('Errore durante il caricamento dei dati SEO:', error);
     } finally {
       setLoading(false);
     }
   };
 
   const handleEdit = (data: SEOData) => {
-    console.log('Редактирование SEO данных:', data);
+  console.log('Modifica dati SEO:', data);
     setEditingData({ ...data });
     setSelectedPage(data);
   };
@@ -156,15 +156,15 @@ export function SEOPage() {
         const result = await response.json();
         setSeoData(seoData.map(item => item.id === editingData.id ? editingData : item));
         
-        setEditingData(null);
-        setSelectedPage(null);
-        
+  setEditingData(null);
+  setSelectedPage(null);
+  alert(`✅ Dati SEO salvati con backup: ${result.backupPath}`);
       } else {
         throw new Error('Ошибка сохранения SEO данных');
       }
     } catch (error) {
-      console.error('Ошибка сохранения SEO данных:', error);
-      
+      console.error('Errore durante il salvataggio dei dati SEO:', error);
+      alert('❌ Errore durante il salvataggio dei dati SEO');
     }
   };
 
@@ -175,7 +175,7 @@ export function SEOPage() {
 
   const generateSitemap = async () => {
     try {
-      console.log('Генерация sitemap.xml...');
+  console.log('Generazione sitemap.xml...');
       
       // Проверяем доступность sitemap
       const response = await fetch(`${backendUrl}/sitemap.xml`, {
@@ -183,15 +183,15 @@ export function SEOPage() {
       });
       
       if (response.ok) {
-        setSitemapGenerated(true);
-        setTimeout(() => setSitemapGenerated(false), 3000);
-        
+  setSitemapGenerated(true);
+  setTimeout(() => setSitemapGenerated(false), 3000);
+  alert('✅ Sitemap.xml generato con successo');
       } else {
         throw new Error('Ошибка генерации sitemap');
       }
-    } catch (error) {
-      console.error('Ошибка генерации sitemap:', error);
-      
+      } catch (error) {
+      console.error('Errore durante la generazione della sitemap:', error);
+      alert('❌ Errore durante la generazione della sitemap');
     }
   };
 
@@ -210,13 +210,13 @@ export function SEOPage() {
         a.download = 'sitemap.xml';
         a.click();
         URL.revokeObjectURL(url);
-        
+  alert('✅ Sitemap.xml scaricato');
       } else {
         throw new Error('Ошибка скачивания sitemap');
       }
-    } catch (error) {
-      console.error('Ошибка при скачивании sitemap:', error);
-      
+      } catch (error) {
+      console.error('Errore durante il download della sitemap:', error);
+      alert('❌ Errore durante il download della sitemap');
     }
   };
 
@@ -499,7 +499,7 @@ export function SEOPage() {
                 }`}
               >
                 <Settings className="w-4 h-4 inline mr-2" />
-                Управление Sitemap
+                Gestione Sitemap
               </button>
             </nav>
           </div>

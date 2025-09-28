@@ -24,7 +24,7 @@ export function ImageCropper({ imageUrl, onSave, onCancel }: ImageCropperProps) 
       const { naturalWidth, naturalHeight } = imageRef.current;
       setImageSize({ width: naturalWidth, height: naturalHeight });
       
-      // Устанавливаем начальный размер обрезки
+      // Imposta le dimensioni iniziali del ritaglio
       const minSize = Math.min(naturalWidth, naturalHeight);
       setCrop({
         x: (naturalWidth - minSize) / 2,
@@ -72,7 +72,7 @@ export function ImageCropper({ imageUrl, onSave, onCancel }: ImageCropperProps) 
       const deltaX = moveEvent.clientX - startX;
       const deltaY = moveEvent.clientY - startY;
 
-      let newCrop = { ...startCrop };
+    const newCrop = { ...startCrop };
 
       switch (direction) {
         case 'se':
@@ -97,7 +97,7 @@ export function ImageCropper({ imageUrl, onSave, onCancel }: ImageCropperProps) 
           break;
       }
 
-      // Ограничиваем размеры в пределах изображения
+      // Limita le dimensioni entro i confini dell'immagine
       if (newCrop.x + newCrop.width > imageSize.width) {
         newCrop.width = imageSize.width - newCrop.x;
       }
@@ -124,29 +124,29 @@ export function ImageCropper({ imageUrl, onSave, onCancel }: ImageCropperProps) 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Устанавливаем размеры canvas
+  // Imposta le dimensioni del canvas
     canvas.width = crop.width;
     canvas.height = crop.height;
 
-    // Очищаем canvas
+  // Pulisce il canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Применяем трансформации
+  // Applica le trasformazioni
     ctx.save();
     
-    // Поворот
+  // Rotazione
     if (rotation !== 0) {
       ctx.translate(canvas.width / 2, canvas.height / 2);
       ctx.rotate((rotation * Math.PI) / 180);
       ctx.translate(-canvas.width / 2, -canvas.height / 2);
     }
 
-    // Масштабирование
+    // Scala
     if (scale !== 1) {
       ctx.scale(scale, scale);
     }
 
-    // Рисуем обрезанную часть изображения
+    // Disegna la parte ritagliata dell'immagine
     ctx.drawImage(
       imageRef.current,
       crop.x, crop.y, crop.width, crop.height,
@@ -155,7 +155,7 @@ export function ImageCropper({ imageUrl, onSave, onCancel }: ImageCropperProps) 
 
     ctx.restore();
 
-    // Конвертируем в blob
+    // Converte in blob
     canvas.toBlob((blob) => {
       if (blob) {
         onSave(blob);
@@ -168,14 +168,14 @@ export function ImageCropper({ imageUrl, onSave, onCancel }: ImageCropperProps) 
       <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b">
-          <h3 className="text-lg font-semibold text-gray-800">Обрезка изображения</h3>
+          <h3 className="text-lg font-semibold text-gray-800">Ritaglia immagine</h3>
           <div className="flex items-center space-x-2">
             <button
               onClick={cropImage}
               className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center"
             >
               <Save className="w-4 h-4 mr-2" />
-              Сохранить
+              Salva
             </button>
             <button
               onClick={onCancel}
@@ -190,7 +190,7 @@ export function ImageCropper({ imageUrl, onSave, onCancel }: ImageCropperProps) 
         <div className="p-4 border-b bg-gray-50">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
-              <label className="text-sm font-medium text-gray-700">Масштаб:</label>
+              <label className="text-sm font-medium text-gray-700">Scala:</label>
               <button
                 onClick={() => setScale(Math.max(0.5, scale - 0.1))}
                 className="p-1 text-gray-600 hover:text-gray-800"
@@ -207,7 +207,7 @@ export function ImageCropper({ imageUrl, onSave, onCancel }: ImageCropperProps) 
             </div>
 
             <div className="flex items-center space-x-2">
-              <label className="text-sm font-medium text-gray-700">Поворот:</label>
+              <label className="text-sm font-medium text-gray-700">Rotazione:</label>
               <button
                 onClick={() => setRotation((rotation + 90) % 360)}
                 className="p-1 text-gray-600 hover:text-gray-800"

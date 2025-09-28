@@ -20,19 +20,19 @@ export function TextsPage() {
   const { t } = useTranslation('common');
   const [texts, setTexts] = useState<TextData[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedLanguage, setSelectedLanguage] = useState<string>('ru');
+  const [selectedLanguage, setSelectedLanguage] = useState<string>('it');
   const [selectedNamespace, setSelectedNamespace] = useState<string>('');
   const [editingText, setEditingText] = useState<any>(null);
   const [editingPath, setEditingPath] = useState<string>('');
   const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL || 'http://localhost:3001';
 
   const languages: LanguageInfo[] = [
-    { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+    { code: 'ru', name: 'Russo', flag: '🇷🇺' },
     { code: 'it', name: 'Italiano', flag: '🇮🇹' },
     { code: 'en', name: 'English', flag: '🇬🇧' }
   ];
 
-  // Пространства имен из структуры проекта
+  // Spazi dei namespace dalla struttura del progetto
   const namespaces = [
     'home/HomeStart',
     'home/AboutCompany',
@@ -90,7 +90,7 @@ export function TextsPage() {
     'services/SystemsServices',
   ];
 
-  // Инициализация из параметров URL (?lang=..&ns=..)
+  // Inizializzazione dai parametri URL (?lang=..&ns=..)
   useEffect(() => {
     try {
       const params = new URLSearchParams(window.location.search);
@@ -98,7 +98,11 @@ export function TextsPage() {
       const nsParam = params.get('ns');
       if (langParam) setSelectedLanguage(langParam);
       if (nsParam) setSelectedNamespace(nsParam);
-    } catch {}
+    } catch (e) {
+      // Ignora parametri URL malformati ma logga per debug
+      // eslint-disable-next-line no-console
+      console.warn('Impossibile analizzare i parametri URL per TextsPage', e);
+    }
   }, []);
 
   useEffect(() => {
@@ -118,15 +122,15 @@ export function TextsPage() {
       url.searchParams.set('ns', selectedNamespace);
       const res = await fetch(url.toString(), { credentials: 'include' });
       if (!res.ok) {
-        console.error('Ошибка загрузки:', res.status, res.statusText);
+    console.error('Errore caricamento:', res.status, res.statusText);
         setTexts([]);
         return;
       }
       const data = await res.json();
-      console.log('Загруженные тексты:', data);
+  console.log('Testi caricati:', data);
       setTexts([data]);
     } catch (e) {
-      console.error('Ошибка загрузки текстов:', e);
+      console.error('Errore caricamento testi:', e);
       setTexts([]);
     } finally {
       setLoading(false);
@@ -139,11 +143,12 @@ export function TextsPage() {
   };
 
   const handleSaveText = async () => {
-    if (!editingText || !editingPath) {
+      if (!editingText || !editingPath) {
+      alert('Nessun dato da salvare');
       return;
     }
     try {
-      console.log('Сохранение текстов:', { language: selectedLanguage, namespace: selectedNamespace, content: editingText });
+      console.log('Salvataggio testi:', { language: selectedLanguage, namespace: selectedNamespace, content: editingText });
       const res = await fetch(`${backendUrl}/api/texts`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -152,17 +157,19 @@ export function TextsPage() {
       });
       if (!res.ok) {
         const errorText = await res.text();
-        throw new Error(`Ошибка сохранения: ${res.status} ${errorText}`);
+        throw new Error(`Errore salvataggio: ${res.status} ${errorText}`);
       }
       const result = await res.json();
-      console.log('Результат сохранения:', result);
-      // Отразим изменения локально
+      console.log('Risultato salvataggio:', result);
+  // Riflettiamo le modifiche localmente
       setTexts(texts.map(text => text.path === editingPath ? { ...text, content: editingText } : text));
       setEditingText(null);
       setEditingPath('');
-      
+      alert(`Testi salvati con backup: ${result.backupPath}`);
     } catch (err) {
-      console.error('Ошибка сохранения:', err);
+      console.error('Errore salvataggio:', err);
+      const msg = err instanceof Error ? err.message : String(err);
+      alert(`Impossibile salvare i testi: ${msg}`);
     }
   };
 
@@ -187,7 +194,6 @@ export function TextsPage() {
   };
 
   const renderEditableFields = (obj: any, prefix = '', level = 0) => {
-    if (!obj || typeof obj !== 'object') return null;
     return Object.keys(obj).map(key => {
       const fullPath = prefix ? `${prefix}.${key}` : key;
       const value = obj[key];
@@ -210,7 +216,7 @@ export function TextsPage() {
               </div>
             </div>
             <div className="relative">
-              {value.length > 100 ? (
+                  {value.length > 100 ? (
                 <textarea
                   value={value}
                   onChange={(e) => {
@@ -219,7 +225,7 @@ export function TextsPage() {
                   }}
                   rows={Math.min(Math.max(Math.ceil(value.length / 80), 2), 6)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none shadow-sm text-sm leading-relaxed"
-                  placeholder="Введите текст..."
+                  placeholder="Inserisci il testo..."
                 />
               ) : (
                 <input
@@ -230,11 +236,11 @@ export function TextsPage() {
                     setEditingText(newObj);
                   }}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm text-sm"
-                  placeholder="Введите текст..."
+                  placeholder="Inserisci il testo..."
                 />
               )}
               <div className="absolute bottom-2 right-2 text-xs text-gray-400">
-                {value.length} символов
+                {value.length} caratteri
               </div>
             </div>
           </div>
@@ -258,7 +264,7 @@ export function TextsPage() {
               </div>
             </div>
             <div className="space-y-3">
-                        {renderEditableFields(value, fullPath, level + 1)}
+              {renderEditableFields(value, fullPath, level + 1)}
             </div>
           </div>
         );
@@ -372,21 +378,21 @@ export function TextsPage() {
                           className="flex items-center px-3 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
                         >
                           <SaveIcon size={14} className="mr-1" />
-                          Сохранить
+                          Salva
                         </button>
                         <button
                           onClick={handleCancelEdit}
                           className="flex items-center px-3 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors"
                         >
                           <XIcon size={14} className="mr-1" />
-                          Отмена
+                          Annulla
                         </button>
                       </div>
                     </div>
                   ) : (
                     <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-4 border border-gray-200">
                       <div className="text-xs text-gray-500 mb-3 flex items-center justify-between">
-                        <span>Предварительный просмотр</span>
+                        <span>Anteprima</span>
                         <span className="bg-gray-200 px-2 py-1 rounded">JSON</span>
                       </div>
                       <div className="space-y-3 max-h-64 overflow-y-auto">

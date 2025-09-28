@@ -158,10 +158,10 @@ export function SubmissionsPage() {
         transition={{ duration: 0.3 }}
       >
         <h1 className="text-2xl font-light text-gray-800 mb-1">
-          Заявки на ремонт
+          Richieste di riparazione
         </h1>
         <p className="text-sm text-gray-500 mb-6">
-          Просмотр и управление заявками из калькулятора ремонта
+    Visualizza e gestisci i Ticket dal calcolatore di riparazione
         </p>
         <FilterBar onFilter={handleFilter} />
         <div className="mt-6 grid gap-4">
@@ -178,7 +178,7 @@ export function SubmissionsPage() {
           ) : (
             <div className="bg-white rounded-lg shadow-sm p-8 text-center">
               <p className="text-gray-500">
-                Нет заявок, соответствующих фильтрам
+                Nessuna applicazione corrispondente ai filtri
               </p>
             </div>
           )}

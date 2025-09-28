@@ -8,7 +8,7 @@ export function App() {
   useTranslation();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL || 'http://localhost:3001';
-  // Проверка авторизации при загрузке
+  // Controllo autenticazione all'avvio
   useEffect(() => {
     fetch(`${backendUrl}/check-auth`, {
       credentials: 'include',
@@ -18,7 +18,7 @@ export function App() {
       .catch(() => setIsAuthenticated(false));
   }, []);
 
-  // Логин через backend
+  // Login tramite backend
   const handleLogin = async (username: string, password: string) => {
     try {
       const res = await fetch(`${backendUrl}/api/login`, {
@@ -40,7 +40,7 @@ export function App() {
     }
   };
 
-  // Логаут (можно вызвать из компонента Layout)
+  // Logout (può essere richiamato dal componente Layout)
   const handleLogout = async () => {
     await fetch(`${backendUrl}/api/logout`, {
       method: 'POST',

@@ -191,7 +191,7 @@ export function AdvancedImageEditor({ imageFile, onSave, onCancel, originalImage
       onSave(processedImage);
     } catch (error) {
       console.error('Error processing image:', error);
-      alert('Ошибка при обработке изображения');
+      alert('Errore durante l\'elaborazione dell\'immagine');
     }
   };
 
@@ -208,17 +208,17 @@ export function AdvancedImageEditor({ imageFile, onSave, onCancel, originalImage
       URL.revokeObjectURL(url);
     } catch (error) {
       console.error('Error downloading image:', error);
-      alert('Ошибка при скачивании изображения');
+      alert('Errore durante il download dell\'immagine');
     }
   };
 
   const aspectRatioOptions = [
-    { label: 'Свободно', value: undefined },
-    { label: '1:1 (Квадрат)', value: 1 },
+    { label: 'Libero', value: undefined },
+    { label: '1:1 (Quadrato)', value: 1 },
     { label: '4:3', value: 4 / 3 },
     { label: '16:9', value: 16 / 9 },
     { label: '3:2', value: 3 / 2 },
-    { label: '2:3 (Портрет)', value: 2 / 3 },
+    { label: '2:3 (Ritratto)', value: 2 / 3 },
   ];
 
   return (
@@ -237,7 +237,7 @@ export function AdvancedImageEditor({ imageFile, onSave, onCancel, originalImage
         >
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50">
-            <h2 className="text-lg font-medium text-gray-800">Продвинутый редактор изображений</h2>
+            <h2 className="text-lg font-medium text-gray-800">Editor avanzato immagini</h2>
             <div className="flex items-center space-x-2">
               <button
                 onClick={() => setShowSettings(!showSettings)}
@@ -294,18 +294,18 @@ export function AdvancedImageEditor({ imageFile, onSave, onCancel, originalImage
               <div className="p-4 space-y-6">
                 {/* Image Info */}
                 <div className="bg-white p-3 rounded-lg border">
-                  <h3 className="text-sm font-medium text-gray-700 mb-2">Информация</h3>
+                  <h3 className="text-sm font-medium text-gray-700 mb-2">Informazioni</h3>
                   <div className="text-xs text-gray-500 space-y-1">
-                    <p>Имя: {imageFile.name}</p>
-                    <p>Размер: {(imageFile.size / 1024 / 1024).toFixed(2)} MB</p>
-                    <p>Тип: {imageFile.type}</p>
-                    {originalImagePath && <p>Путь: {originalImagePath}</p>}
+                    <p>Nome: {imageFile.name}</p>
+                    <p>Dimensione: {(imageFile.size / 1024 / 1024).toFixed(2)} MB</p>
+                    <p>Tipo: {imageFile.type}</p>
+                    {originalImagePath && <p>Percorso: {originalImagePath}</p>}
                   </div>
                 </div>
 
                 {/* Aspect Ratio */}
                 <div className="bg-white p-3 rounded-lg border">
-                  <h3 className="text-sm font-medium text-gray-700 mb-2">Соотношение сторон</h3>
+                  <h3 className="text-sm font-medium text-gray-700 mb-2">Proporzioni</h3>
                   <select
                     value={aspect || ''}
                     onChange={(e) => setAspect(e.target.value ? Number(e.target.value) : undefined)}
@@ -321,7 +321,7 @@ export function AdvancedImageEditor({ imageFile, onSave, onCancel, originalImage
 
                 {/* Zoom Controls */}
                 <div className="bg-white p-3 rounded-lg border">
-                  <h3 className="text-sm font-medium text-gray-700 mb-2">Масштаб</h3>
+                  <h3 className="text-sm font-medium text-gray-700 mb-2">Scala</h3>
                   <div className="flex items-center space-x-2">
                     <button
                       onClick={handleZoomOut}
@@ -343,28 +343,28 @@ export function AdvancedImageEditor({ imageFile, onSave, onCancel, originalImage
 
                 {/* Rotation */}
                 <div className="bg-white p-3 rounded-lg border">
-                  <h3 className="text-sm font-medium text-gray-700 mb-2">Поворот</h3>
+                  <h3 className="text-sm font-medium text-gray-700 mb-2">Rotazione</h3>
                   <button
                     onClick={handleRotate}
                     className="flex items-center space-x-2 p-2 bg-gray-100 border border-gray-300 rounded hover:bg-gray-200 w-full"
                   >
                     <RotateCw size={16} />
-                    <span className="text-sm">Повернуть на 90°</span>
+                    <span className="text-sm">Ruota di 90°</span>
                   </button>
                   <p className="text-xs text-gray-500 mt-1">
-                    Текущий угол: {rotation}°
+                    Angolo attuale: {rotation}°
                   </p>
                 </div>
 
                 {/* Advanced Settings */}
                 {showSettings && (
                   <div className="bg-white p-3 rounded-lg border">
-                    <h3 className="text-sm font-medium text-gray-700 mb-2">Дополнительные настройки</h3>
+                    <h3 className="text-sm font-medium text-gray-700 mb-2">Impostazioni avanzate</h3>
                     
                     <div className="space-y-3">
                       <div>
                         <label className="block text-xs text-gray-600 mb-1">
-                          Качество: {quality}%
+                          Qualità: {quality}%
                         </label>
                         <input
                           type="range"
@@ -378,7 +378,7 @@ export function AdvancedImageEditor({ imageFile, onSave, onCancel, originalImage
 
                       <div>
                         <label className="block text-xs text-gray-600 mb-1">
-                          Максимальная ширина: {maxWidth}px
+                          Larghezza massima: {maxWidth}px
                         </label>
                         <input
                           type="range"
@@ -393,7 +393,7 @@ export function AdvancedImageEditor({ imageFile, onSave, onCancel, originalImage
 
                       <div>
                         <label className="block text-xs text-gray-600 mb-1">
-                          Максимальная высота: {maxHeight}px
+                          Altezza massima: {maxHeight}px
                         </label>
                         <input
                           type="range"
@@ -416,7 +416,7 @@ export function AdvancedImageEditor({ imageFile, onSave, onCancel, originalImage
                     className="w-full flex items-center justify-center space-x-2 p-2 bg-gray-100 border border-gray-300 rounded hover:bg-gray-200"
                   >
                     <Download size={16} />
-                    <span className="text-sm">Скачать</span>
+                    <span className="text-sm">Scarica</span>
                   </button>
                   
                   <button
@@ -424,7 +424,7 @@ export function AdvancedImageEditor({ imageFile, onSave, onCancel, originalImage
                     className="w-full flex items-center justify-center space-x-2 p-2 bg-blue-600 text-white rounded hover:bg-blue-700"
                   >
                     <Save size={16} />
-                    <span className="text-sm">Сохранить и заменить</span>
+                    <span className="text-sm">Salva e sostituisci</span>
                   </button>
                 </div>
               </div>

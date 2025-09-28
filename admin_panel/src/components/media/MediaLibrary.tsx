@@ -4,7 +4,7 @@ import { Upload, Search, Filter, Grid, List, Trash2, Edit, Download } from 'luci
 import { useDropzone } from 'react-dropzone';
 import { MediaFile } from '../../utils/types';
 import { formatDistanceToNow } from 'date-fns';
-import { ru } from 'date-fns/locale';
+import { it } from 'date-fns/locale';
 
 export function MediaLibrary() {
   const [mediaFiles, setMediaFiles] = useState<MediaFile[]>([]);
@@ -36,7 +36,7 @@ export function MediaLibrary() {
         setMediaFiles(files);
       }
     } catch (error) {
-      console.error('Ошибка при загрузке медиафайлов:', error);
+      console.error('Errore durante il caricamento dei file multimediali:', error);
     } finally {
       setLoading(false);
     }
@@ -79,7 +79,7 @@ export function MediaLibrary() {
         }
       }
     } catch (error) {
-      console.error('Ошибка при загрузке файлов:', error);
+      console.error('Errore durante il caricamento dei file:', error);
     } finally {
       setUploading(false);
     }
@@ -96,7 +96,7 @@ export function MediaLibrary() {
   });
 
   const deleteFile = async (fileId: string) => {
-    if (!confirm('Вы уверены, что хотите удалить этот файл?')) {
+    if (!confirm('Sei sicuro di voler eliminare questo file?')) {
       return;
     }
 
@@ -111,14 +111,14 @@ export function MediaLibrary() {
         setSelectedFiles(selected => selected.filter(id => id !== fileId));
       }
     } catch (error) {
-      console.error('Ошибка при удалении файла:', error);
+      console.error('Errore durante l\'eliminazione del file:', error);
     }
   };
 
   const deleteSelectedFiles = async () => {
     if (selectedFiles.length === 0) return;
     
-    if (!confirm(`Вы уверены, что хотите удалить ${selectedFiles.length} файл(ов)?`)) {
+    if (!confirm(`Sei sicuro di voler eliminare ${selectedFiles.length} file?`)) {
       return;
     }
 
@@ -135,7 +135,7 @@ export function MediaLibrary() {
       setMediaFiles(files => files.filter(file => !selectedFiles.includes(file.id)));
       setSelectedFiles([]);
     } catch (error) {
-      console.error('Ошибка при удалении файлов:', error);
+      console.error('Errore durante l\'eliminazione dei file:', error);
     }
   };
 
@@ -171,7 +171,7 @@ export function MediaLibrary() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="text-gray-500">Загрузка медиафайлов...</div>
+        <div className="text-gray-500">Caricamento media...</div>
       </div>
     );
   }
@@ -186,9 +186,9 @@ export function MediaLibrary() {
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <div>
-            <h1 className="text-2xl font-light text-gray-800 mb-1">Медиа-библиотека</h1>
+            <h1 className="text-2xl font-light text-gray-800 mb-1">Libreria media</h1>
             <p className="text-sm text-gray-500">
-              Управление изображениями, видео и документами
+              Gestione di immagini, video e documenti
             </p>
           </div>
           <div className="flex items-center gap-3">
@@ -198,7 +198,7 @@ export function MediaLibrary() {
                 className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors flex items-center gap-2"
               >
                 <Trash2 size={16} />
-                Удалить ({selectedFiles.length})
+                Elimina ({selectedFiles.length})
               </button>
             )}
             <div className="flex items-center gap-1 bg-gray-100 rounded-lg p-1">
@@ -228,18 +228,18 @@ export function MediaLibrary() {
           }`}
         >
           <input {...getInputProps()} />
-          <Upload size={48} className="mx-auto mb-4 text-gray-400" />
+                <Upload size={48} className="mx-auto mb-4 text-gray-400" />
           {uploading ? (
-            <p className="text-gray-600">Загрузка файлов...</p>
+            <p className="text-gray-600">Caricamento file...</p>
           ) : isDragActive ? (
-            <p className="text-blue-600">Отпустите файлы для загрузки</p>
+            <p className="text-blue-600">Rilascia i file per caricare</p>
           ) : (
             <div>
               <p className="text-gray-600 mb-2">
-                Перетащите файлы сюда или нажмите для выбора
+                Trascina i file qui o clicca per selezionare
               </p>
               <p className="text-sm text-gray-500">
-                Поддерживаются: изображения, видео, PDF
+                Supportati: immagini, video, PDF
               </p>
             </div>
           )}
@@ -252,7 +252,7 @@ export function MediaLibrary() {
               <Search size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
-                placeholder="Поиск файлов..."
+                placeholder="Cerca file..."
                 className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -265,10 +265,10 @@ export function MediaLibrary() {
                 value={typeFilter}
                 onChange={(e) => setTypeFilter(e.target.value as any)}
               >
-                <option value="all">Все типы</option>
-                <option value="image">Изображения</option>
-                <option value="video">Видео</option>
-                <option value="document">Документы</option>
+                <option value="all">Tutti i tipi</option>
+                <option value="image">Immagini</option>
+                <option value="video">Video</option>
+                <option value="document">Documenti</option>
               </select>
             </div>
           </div>
@@ -345,7 +345,7 @@ export function MediaLibrary() {
                           {formatFileSize(file.size)} • {file.type} • 
                           {formatDistanceToNow(new Date(file.uploadedAt), { 
                             addSuffix: true, 
-                            locale: ru 
+                            locale: it 
                           })}
                         </p>
                       </div>
@@ -377,11 +377,11 @@ export function MediaLibrary() {
             <div className="text-gray-400 mb-4">
               <Upload size={48} className="mx-auto mb-4 opacity-20" />
             </div>
-            <h3 className="text-lg font-medium text-gray-900 mb-2">Нет файлов</h3>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">Nessun file</h3>
             <p className="text-gray-500">
               {searchTerm || typeFilter !== 'all' 
-                ? 'Не найдено файлов по заданным критериям'
-                : 'Загрузите первые файлы для начала работы'
+                ? 'Nessun file trovato per i criteri specificati'
+                : 'Carica i primi file per iniziare'
               }
             </p>
           </div>
