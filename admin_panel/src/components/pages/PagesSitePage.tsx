@@ -1372,7 +1372,7 @@ export function PagesSitePage() {
                 <div>
                   <div className="flex items-center mb-4">
                     <Code className="w-5 h-5 text-orange-600 mr-2" />
-                    <h3 className="text-lg font-medium text-gray-800">JSON-LD микроразметка</h3>
+                    <h3 className="text-lg font-medium text-gray-800">JSON-LD Micro-partizionamento</h3>
                   </div>
                   <JsonLdForm 
                     jsonLd={selectedPage.jsonLd || ''} 
@@ -1385,7 +1385,7 @@ export function PagesSitePage() {
                 <div>
                   <div className="flex items-center mb-4">
                     <FileCode className="w-5 h-5 text-green-600 mr-2" />
-                    <h3 className="text-lg font-medium text-gray-800">Пользовательский HTML код</h3>
+                    <h3 className="text-lg font-medium text-gray-800">Codice HTML personalizzato</h3>
                   </div>
                   <HtmlForm 
                     customHtml={selectedPage.customHtml || ''} 
@@ -1403,7 +1403,7 @@ export function PagesSitePage() {
                 <div>
                   <div className="flex items-center mb-4">
                     <Settings className="w-5 h-5 text-gray-600 mr-2" />
-                    <h3 className="text-lg font-medium text-gray-800">Robots.txt директивы</h3>
+                    <h3 className="text-lg font-medium text-gray-800">Robots.txt direttive </h3>
                   </div>
                   <RobotsForm 
                     robots={selectedPage.robots || 'index, follow'} 
@@ -1416,7 +1416,7 @@ export function PagesSitePage() {
                 <div>
                   <div className="flex items-center mb-4">
                     <Globe className="w-5 h-5 text-blue-600 mr-2" />
-                    <h3 className="text-lg font-medium text-gray-800">Sitemap настройки</h3>
+                    <h3 className="text-lg font-medium text-gray-800">Sitemap regolazioni</h3>
                   </div>
                   <SitemapForm 
                     sitemap={selectedPage.sitemap || false} 
@@ -1519,10 +1519,10 @@ export function PagesSitePage() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-2xl font-light text-gray-800 mb-1">
-              Страницы сайта
+              Pagine del sito
             </h1>
             <p className="text-sm text-gray-500">
-              Управление страницами, их изображениями и текстами
+              Gestisci le pagine, le loro immagini e testi
             </p>
           </div>
           <div className="flex items-center space-x-2">
@@ -1543,18 +1543,6 @@ export function PagesSitePage() {
 
         {/* Временный тест изображений для отладки */}
 
-
-        {/* Отладочная информация */}
-        <div className="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-          <h3 className="text-sm font-medium text-yellow-800 mb-2">🔍 Отладочная информация</h3>
-          <div className="text-xs text-yellow-700 space-y-1">
-            <div>Backend URL: {backendUrl}</div>
-            <div>API Endpoint: {backendUrl}/api/pages/home/images</div>
-            <div>Static URL: {backendUrl}/frontend-assets/images/</div>
-            <div>Всего страниц: {pages.length}</div>
-            <div>Страниц с изображениями: {pages.filter(p => p.images.length > 0).length}</div>
-          </div>
-        </div>
 
         {viewMode === 'list' ? (
           <div className="space-y-4">
@@ -1604,8 +1592,8 @@ export function PagesSitePage() {
                         <h3 className="text-lg font-medium text-gray-800">{page.name}</h3>
                         <p className="text-sm text-gray-500">{page.description}</p>
                         <div className="flex items-center space-x-4 mt-2 text-xs text-gray-400">
-                          <span>📷 {page.images.length} изображений</span>
-                          <span>📝 {page.texts.length} языков</span>
+                          <span>📷 {page.images.length} immagini</span>
+                          <span>📝 {page.texts.length} lingua</span>
                           <span>🔗 {page.url}</span>
                         </div>
                       </div>
@@ -1784,7 +1772,7 @@ function JsonLdForm({ jsonLd, onSave }: { jsonLd: string, onSave: (data: string)
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">JSON-LD код</label>
+        <label className="block text-sm font-medium text-gray-700 mb-2">Codice JSON-LD</label>
         <textarea
           value={code}
           onChange={(e) => setCode(e.target.value)}
@@ -1832,30 +1820,30 @@ function HtmlForm({
     <div className="space-y-4">
       {/* Выбор расположения */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">Расположение HTML блока на странице</label>
+        <label className="block text-sm font-medium text-gray-700 mb-2">Posizione del blocco HTML sulla pagina</label>
         <select
           value={position}
           onChange={(e) => onPositionChange(e.target.value)}
           className="w-full border border-gray-300 rounded p-2"
         >
-          <option value="top">Вверху страницы</option>
-          <option value="after-header">После заголовка</option>
-          <option value="before-footer">Перед футером</option>
-          <option value="bottom">Внизу страницы</option>
+          <option value="top">Nella parte superiore della pagina</option>
+          <option value="after-header">Dopo il titolo</option>
+          <option value="before-footer">Prima del Piè di pagina</option>
+          <option value="bottom">In fondo alla pagina</option>
         </select>
         <p className="text-xs text-gray-500 mt-1">
-          Выберите, где будет отображаться HTML блок на странице
+         Selezionare dove verrà visualizzato il blocco HTML nella pagina
         </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Пользовательский HTML код</label>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Codice HTML personalizzato</label>
           <textarea
             value={code}
             onChange={(e) => setCode(e.target.value)}
             className="w-full h-64 border border-gray-300 rounded p-3 font-mono text-sm"
-            placeholder="<div>Ваш HTML код здесь</div>"
+            placeholder="<div>Il tuo codice HTML è qui</div>"
           />
         </div>
         <div className="flex justify-between">
@@ -1864,13 +1852,13 @@ function HtmlForm({
             onClick={() => onShowDeleteConfirm(true)}
             className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
           >
-            Удалить HTML
+            Rimuovere HTML
           </button>
           <button
             type="submit"
             className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
           >
-            Сохранить HTML
+            Mantenere HTML
           </button>
         </div>
       </form>
@@ -1915,7 +1903,7 @@ function RobotsForm({ robots, onSave }: { robots: string, onSave: (data: string)
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">Robots.txt директивы</label>
+        <label className="block text-sm font-medium text-gray-700 mb-2">Robots.txt direttive </label>
         <textarea
           value={directives}
           onChange={(e) => setDirectives(e.target.value)}
@@ -1923,7 +1911,7 @@ function RobotsForm({ robots, onSave }: { robots: string, onSave: (data: string)
           placeholder="index, follow"
         />
         <p className="text-xs text-gray-500 mt-1">
-          Примеры: index, follow | noindex, nofollow | index, nofollow
+          Esempi: index, follow | noindex, nofollow | index, nofollow
         </p>
       </div>
       <div className="flex justify-end">
@@ -1931,7 +1919,7 @@ function RobotsForm({ robots, onSave }: { robots: string, onSave: (data: string)
           type="submit"
           className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700"
         >
-          Сохранить Robots
+          Mantenere Robots
         </button>
       </div>
     </form>
@@ -1943,9 +1931,9 @@ function SitemapForm({ sitemap, onSave }: { sitemap: boolean, onSave: (data: boo
     <div className="space-y-4">
       <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
         <div>
-          <h4 className="font-medium text-gray-800">Включить в sitemap</h4>
+          <h4 className="font-medium text-gray-800">Includere nella sitemap</h4>
           <p className="text-sm text-gray-500">
-            Добавить эту страницу в автоматически генерируемый sitemap.xml
+            Aggiungi questa pagina a una sitemap generata automaticamente.xml
           </p>
         </div>
         <label className="relative inline-flex items-center cursor-pointer">
@@ -1959,9 +1947,9 @@ function SitemapForm({ sitemap, onSave }: { sitemap: boolean, onSave: (data: boo
         </label>
       </div>
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-        <h4 className="font-medium text-blue-800 mb-2">Информация о Sitemap</h4>
+        <h4 className="font-medium text-blue-800 mb-2">Informazioni sulla Sitemap</h4>
         <p className="text-sm text-blue-700">
-          Sitemap автоматически генерируется и доступен по адресу: <code className="bg-blue-100 px-1 rounded">/sitemap.xml</code>
+          La Sitemap viene generata automaticamente e accessibile all'indirizzo: <code className="bg-blue-100 px-1 rounded">/sitemap.xml</code>
         </p>
       </div>
     </div>

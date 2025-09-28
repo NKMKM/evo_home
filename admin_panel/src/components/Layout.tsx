@@ -8,7 +8,7 @@ import {
   LogOutIcon, 
   MenuIcon, 
   XIcon,
-  ImageIcon,
+  
   PlayIcon,
   TypeIcon,
   ClipboardListIcon,
@@ -41,7 +41,6 @@ export function Layout({
   const navItems = [
     { path: '/dashboard', icon: LayoutDashboardIcon, labelKey: 'nav.dashboard' },
     { path: '/dashboard/submissions', icon: ClipboardListIcon, labelKey: 'nav.submissions' },
-    { path: '/dashboard/media', icon: ImageIcon, labelKey: 'nav.images' },
     { path: '/dashboard/videos', icon: PlayIcon, labelKey: 'nav.videos' },
     { path: '/dashboard/texts', icon: TypeIcon, labelKey: 'nav.texts' },
   { path: '/dashboard/pages', icon: FileTextIcon, labelKey: 'nav.pages' },

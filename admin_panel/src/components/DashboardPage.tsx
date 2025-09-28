@@ -92,7 +92,7 @@ export function DashboardPage() {
       description: 'Visualizza e sostituisci le immagini del sito',
         icon: ImageIcon,
         color: 'bg-blue-500',
-        action: () => navigate('/dashboard/media'),
+        action: () => navigate('/dashboard'),
     },
     {
       title: 'Modifica video',

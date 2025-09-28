@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { Layout } from './Layout';
 import { DashboardPage } from './DashboardPage';
-import { FullImagesPage } from './images/FullImagesPage';
 import { SubmissionsPage } from './submissions/SubmissionsPage';
 import { VideosPage } from './videos/VideosPage';
 import { TextsPage } from './texts/TextsPage';
@@ -22,7 +21,7 @@ export function CMSPage({ onLogout }: CMSPageProps) {
       <Routes>
         <Route path="" element={<DashboardPage />} />
         <Route path="submissions" element={<SubmissionsPage />} />
-        <Route path="media" element={<FullImagesPage />} />
+  {/* Media (FullImagesPage) removed */}
         <Route path="videos" element={<VideosPage />} />
         <Route path="texts" element={<TextsPage />} />
         <Route path="pages" element={<PagesSitePage />} />
