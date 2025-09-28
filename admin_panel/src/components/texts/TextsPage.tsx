@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { TypeIcon, EditIcon, SaveIcon, XIcon, FolderIcon, GlobeIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -38,14 +38,13 @@ export function TextsPage() {
     'home/AboutCompany',
     'home/Calculator',
     'home/Advantages',
-    'home/FiveReasons',
     'home/Guarantees',
     'home/Services',
     'home/Reviews',
     'home/ImageComparisonSlider',
-    'home/Architect',
-    'home/Design',
-    'home/Discount',
+    'slider/Architect',
+    'slider/Design',
+    'slider/Discount',
     'AboutUs',
     'OurWorks',
     'Contacts',
@@ -60,11 +59,11 @@ export function TextsPage() {
     'turnkey_renovation/TworoomApartment',
     'turnkey_renovation/ThreeroomApartment',
     'turnkey_renovation/FourroomApartment',
-    'turnkey_renovation/TwostoryApartment',
+    'turnkey_renovation/TwolevelApartment',
     'room_renovation/RoomRenovation',
     'room_renovation/LivingRoom',
     'room_renovation/Bedroom',
-    'room_renovation/ChildrenRoom',
+    'room_renovation/ChildrenRoomRenovation',
     'room_renovation/Corridor',
     'room_renovation/Kitchen',
     'room_renovation/Bathroom',
@@ -78,17 +77,19 @@ export function TextsPage() {
     'commercial_premises/CommercialPremises',
     'commercial_premises/BusinessCenter',
     'commercial_premises/Restaurant',
-    'commercial_premises/CommercialPremisesRenovation',
-    'commercial_premises/Office',
+    'commercial_premises/CommercialPremisesProjects',
+    'commercial_premises/Ofice',
     'commercial_premises/Warehouse',
     'commercial_premises/FitnessClub',
     'commercial_premises/Hotel',
-    'services/ServisesPhone',
-    'services/TurnkeyRenovationServices',
-    'services/RoomRenovationServices',
-    'services/CommercialPremisesServices',
-    'services/SystemsServices',
+    'turnkey_renovation/TurnkeyRenovation',
+    'room_renovation/RoomRenovation',
+    'commercial_premises/CommercialSpaces',
+    'systems/Systems',
   ];
+
+  // Evita duplicati che causano warning React sulle chiavi
+  const uniqueNamespaces = Array.from(new Set(namespaces));
 
   // Inizializzazione dai parametri URL (?lang=..&ns=..)
   useEffect(() => {
@@ -165,11 +166,9 @@ export function TextsPage() {
       setTexts(texts.map(text => text.path === editingPath ? { ...text, content: editingText } : text));
       setEditingText(null);
       setEditingPath('');
-      alert(`Testi salvati con backup: ${result.backupPath}`);
     } catch (err) {
       console.error('Errore salvataggio:', err);
       const msg = err instanceof Error ? err.message : String(err);
-      alert(`Impossibile salvare i testi: ${msg}`);
     }
   };
 
@@ -179,22 +178,27 @@ export function TextsPage() {
   };
 
   const updateNestedValue = (obj: any, path: string, value: string) => {
+    // Work on a deep copy so we don't mutate state directly and handle null/undefined
+    const copy = JSON.parse(JSON.stringify(obj || {}));
     const keys = path.split('.');
-    let current = obj;
-    
+    let current: any = copy;
+
     for (let i = 0; i < keys.length - 1; i++) {
-      if (!(keys[i] in current)) {
+      if (!(keys[i] in current) || typeof current[keys[i]] !== 'object' || current[keys[i]] === null) {
         current[keys[i]] = {};
       }
       current = current[keys[i]];
     }
-    
+
     current[keys[keys.length - 1]] = value;
-    return { ...obj };
+    return copy;
   };
 
   const renderEditableFields = (obj: any, prefix = '', level = 0) => {
-    return Object.keys(obj).map(key => {
+    if (!obj || typeof obj !== 'object') return null;
+    // handle arrays as well
+    const keys = Array.isArray(obj) ? Object.keys(obj) : Object.keys(obj);
+    return keys.map(key => {
       const fullPath = prefix ? `${prefix}.${key}` : key;
       const value = obj[key];
       
@@ -216,13 +220,13 @@ export function TextsPage() {
               </div>
             </div>
             <div className="relative">
-                  {value.length > 100 ? (
-                <textarea
-                  value={value}
-                  onChange={(e) => {
-                    const newObj = updateNestedValue(editingText, fullPath, e.target.value);
-                    setEditingText(newObj);
-                  }}
+                  {value && value.length > 100 ? (
+                  <textarea
+                    value={value ?? ''}
+                    onChange={(e) => {
+                      const newObj = updateNestedValue(editingText || {}, fullPath, e.target.value);
+                      setEditingText(newObj);
+                    }}
                   rows={Math.min(Math.max(Math.ceil(value.length / 80), 2), 6)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none shadow-sm text-sm leading-relaxed"
                   placeholder="Inserisci il testo..."
@@ -230,9 +234,9 @@ export function TextsPage() {
               ) : (
                 <input
                   type="text"
-                  value={value}
+                    value={value ?? ''}
                   onChange={(e) => {
-                    const newObj = updateNestedValue(editingText, fullPath, e.target.value);
+                    const newObj = updateNestedValue(editingText || {}, fullPath, e.target.value);
                     setEditingText(newObj);
                   }}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm text-sm"
@@ -240,7 +244,7 @@ export function TextsPage() {
                 />
               )}
               <div className="absolute bottom-2 right-2 text-xs text-gray-400">
-                {value.length} caratteri
+                  {value ? value.length : 0} caratteri
               </div>
             </div>
           </div>
@@ -263,13 +267,54 @@ export function TextsPage() {
                 {fullPath}
               </div>
             </div>
-            <div className="space-y-3">
-              {renderEditableFields(value, fullPath, level + 1)}
-            </div>
+              <div className="space-y-3">
+                {renderEditableFields(value, fullPath, level + 1)}
+              </div>
           </div>
         );
       }
       
+      return null;
+    });
+  };
+
+  // Render di anteprima ricorsiva per mostrare anche campi annidati nel view-mode
+  const renderPreviewFields = (obj: any, prefix = '', level = 0) => {
+    if (!obj || typeof obj !== 'object') return null;
+    const keys = Array.isArray(obj) ? Object.keys(obj) : Object.keys(obj);
+    return keys.map(key => {
+      const fullPath = prefix ? `${prefix}.${key}` : key;
+      const value = obj[key];
+
+      if (typeof value === 'string') {
+        return (
+          <div key={fullPath} className="border-l-4 border-blue-400 pl-3 py-2 bg-white rounded-r mb-2">
+            <div className="text-xs font-medium text-blue-600 mb-1">
+              {key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1')}
+            </div>
+            <div className="text-sm text-gray-700">
+              {value}
+            </div>
+          </div>
+        );
+      } else if (typeof value === 'object' && value !== null) {
+        return (
+          <div key={fullPath} className={`mb-3 border rounded p-3 ${
+            level === 0 ? 'border-blue-200 bg-blue-50' : level === 1 ? 'border-green-200 bg-green-50' : 'border-purple-200 bg-purple-50'
+          }`}>
+            <div className="flex items-center mb-2">
+              <div className={`w-3 h-3 rounded mr-2 ${
+                level === 0 ? 'bg-blue-500' : level === 1 ? 'bg-green-500' : 'bg-purple-500'
+              }`}></div>
+              <div className="text-sm font-semibold text-gray-800">{key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1')}</div>
+            </div>
+            <div className="pl-4">
+              {renderPreviewFields(value, fullPath, level + 1)}
+            </div>
+          </div>
+        );
+      }
+
       return null;
     });
   };
@@ -330,7 +375,7 @@ export function TextsPage() {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
               >
                 <option value="">Seleziona sezione</option>
-                {namespaces.map(ns => (
+                {uniqueNamespaces.map(ns => (
                   <option key={ns} value={ns}>{ns}</option>
                 ))}
               </select>
@@ -396,16 +441,7 @@ export function TextsPage() {
                         <span className="bg-gray-200 px-2 py-1 rounded">JSON</span>
                       </div>
                       <div className="space-y-3 max-h-64 overflow-y-auto">
-                        {Object.entries(text.content).map(([key, value]) => (
-                          <div key={key} className="border-l-4 border-blue-400 pl-3 py-2 bg-white rounded-r">
-                            <div className="text-xs font-medium text-blue-600 mb-1">
-                              {key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1')}
-                            </div>
-                            <div className="text-sm text-gray-700">
-                              {typeof value === 'string' ? value : JSON.stringify(value, null, 2)}
-                            </div>
-                          </div>
-                        ))}
+                        {renderPreviewFields(text.content)}
                       </div>
                     </div>
                   )}
