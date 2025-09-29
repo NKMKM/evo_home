@@ -242,6 +242,9 @@ pool.connect()
   });
 
 const app = express();
+// За обратным прокси (nginx) нужно доверять первому хопу, иначе secure cookies не выставляются
+// и req.secure будет false. Это ломает установку сессионной куки при CORS/HTTPS.
+app.set('trust proxy', 1);
 const PORT = process.env.PORT || 3001;
 const upload = multer({ storage: multer.memoryStorage() });
 const backupManager = new BackupManager();
