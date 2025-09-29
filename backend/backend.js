@@ -505,41 +505,10 @@ app.get('/api/images/scan', async (req, res) => {
 app.use('/frontend-assets', express.static(path.join(__dirname, '../frontend/dist/assets')));
 
 // Плоская выдача изображений: поддержка как вложенных путей, так и поиска по имени файла
-app.get('/images/:rest(*)', (req, res, next) => {
-  try {
-    const imagesRoot = path.join(__dirname, '../frontend/dist/assets/images');
-    const requested = (req.params.rest || '').replace(/\\/g, '/').replace(/^\/+/, '');
-    const exactPath = path.join(imagesRoot, requested);
-    if (fs.existsSync(exactPath) && fs.statSync(exactPath).isFile()) {
-      return res.sendFile(exactPath);
-    }
-    // Если файла по указанному (вложенному) пути нет — ищем по basename по всему дереву
-    const base = path.basename(requested);
-    let found = '';
-    const stack = [''];
-    while (stack.length) {
-      const rel = stack.pop();
-      const dir = path.join(imagesRoot, rel);
-      if (!fs.existsSync(dir)) continue;
-      const entries = fs.readdirSync(dir, { withFileTypes: true });
-      for (const entry of entries) {
-        if (entry.isDirectory()) {
-          stack.push(path.join(rel, entry.name));
-        } else if (entry.isFile() && entry.name === base) {
-          found = path.join(dir, entry.name);
-          break;
-        }
-      }
-      if (found) break;
-    }
-    if (found) {
-      return res.sendFile(found);
-    }
-    return res.status(404).json({ error: 'Изображение не найдено' });
-  } catch (e) {
-    return next(e);
-  }
-});
+
+
+app.use('/images', express.static(path.join(__dirname, '../frontend/dist/assets/')));
+
 
 // Создание бэкапа изображения перед заменой
 app.post('/api/images/backup', async (req, res) => {
