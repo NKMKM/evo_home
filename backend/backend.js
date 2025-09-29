@@ -506,74 +506,7 @@ app.use('/frontend-assets', express.static(path.join(__dirname, '../frontend/dis
 
 // Плоская выдача изображений: поддержка как вложенных путей, так и поиска по имени файла
 
-
-// Resilient image serving: try exact path under frontend/dist/assets, else search assets for a matching filename.
-// This replaces the simple express.static so requests like /images/our_works_gallery/1.jpg
-// still succeed even if the build flattened or hashed asset filenames.
-app.get('/images/*', (req, res, next) => {
-  try {
-    const imagePath = req.params[0] || '';
-    const assetsRoot = path.join(__dirname, '../frontend/dist/assets');
-    const tryFull = path.join(assetsRoot, imagePath);
-
-    function sendIfExists(fullPath) {
-      if (fs.existsSync(fullPath) && fs.statSync(fullPath).isFile()) {
-        // set mime type and caching
-        const ext = path.extname(fullPath).toLowerCase();
-        const mimeTypes = {
-          '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.gif': 'image/gif', '.webp': 'image/webp', '.svg': 'image/svg+xml'
-        };
-        const mimeType = mimeTypes[ext] || 'application/octet-stream';
-        res.setHeader('Content-Type', mimeType);
-        res.setHeader('Cache-Control', 'public, max-age=31536000');
-        return res.sendFile(fullPath);
-      }
-      return false;
-    }
-
-    // 1) direct file
-    if (sendIfExists(tryFull)) return;
-
-    // 2) if imagePath contains subfolders, try just basename match in assets root (recursive)
-    const targetBase = path.basename(imagePath).toLowerCase();
-
-    let found = null;
-    function walk(dir) {
-      if (found) return;
-      if (!fs.existsSync(dir)) return;
-      for (const entry of fs.readdirSync(dir)) {
-        const full = path.join(dir, entry);
-        try {
-          const stat = fs.statSync(full);
-          if (stat.isDirectory()) {
-            walk(full);
-            if (found) return;
-          } else if (stat.isFile()) {
-            if (entry.toLowerCase() === targetBase || entry.toLowerCase().endsWith(targetBase)) {
-              found = full;
-              return;
-            }
-          }
-        } catch (e) {
-          // ignore
-        }
-      }
-    }
-
-    walk(assetsRoot);
-
-    if (found) {
-      if (sendIfExists(found)) return;
-    }
-
-    // 3) not found -> pass to next (will result in 404)
-    next();
-  } catch (e) {
-    console.error('Ошибка в обработчике /images/*:', e && e.message ? e.message : e);
-    next();
-  }
-});
-
+app.use('/images', express.static(path.join(__dirname, '../frontend/dist/assets/')));
 
 // Создание бэкапа изображения перед заменой
 app.post('/api/images/backup', async (req, res) => {
@@ -2490,7 +2423,8 @@ const frontendDist = path.join(__dirname, '../frontend/dist');
 if (fs.existsSync(frontendDist)) {
   app.use(express.static(frontendDist));
   // SPA fallback for client-side routing
-  app.get('*', (req, res, next) => {
+  // Use a regex route instead of '*' to avoid path-to-regexp '*' parsing issues on some versions
+  app.get(/.*/, (req, res, next) => {
     // skip API routes
     if (req.path.startsWith('/api/') || req.path.startsWith('/images') || req.path.startsWith('/frontend-assets')) return next();
     const indexPath = path.join(frontendDist, 'index.html');
@@ -2506,7 +2440,8 @@ const adminDist = path.join(__dirname, '../admin_panel/dist');
 if (fs.existsSync(adminDist)) {
   app.use('/admin', express.static(adminDist));
   // SPA fallback for /admin routes
-  app.get('/admin/*', (req, res) => {
+  // Use a regex route to avoid path-to-regexp errors with '*' patterns
+  app.get(/^\/admin(\/.*)?$/, (req, res) => {
     const indexPath = path.join(adminDist, 'index.html');
     if (fs.existsSync(indexPath)) {
       return res.sendFile(indexPath);
