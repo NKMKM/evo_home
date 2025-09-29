@@ -78,9 +78,9 @@ export function PagesSitePage() {
     // Убираем префиксы images/ или /images/
     if (/^images[\/]/i.test(fixed)) return fixed.replace(/^images[\/]/i, '');
     if (/^\/images[\/]/i.test(fixed)) return fixed.replace(/^\/images[\/]/i, '');
-    // Если путь содержит frontend/src/assets/images
-    const idxFront = fixed.indexOf('/frontend/src/assets/images/');
-    if (idxFront !== -1) return fixed.slice(idxFront + '/frontend/src/assets/images/'.length);
+    // Если путь содержит frontend/dist/assets/images
+    const idxFront = fixed.indexOf('/frontend/dist/assets/images/');
+    if (idxFront !== -1) return fixed.slice(idxFront + '/frontend/dist/assets/images/'.length);
     // Убираем ведущий слэш
     if (fixed.startsWith('/')) return fixed.slice(1);
     return fixed;
@@ -95,9 +95,9 @@ export function PagesSitePage() {
       url: '/',
       images: ['design.jpg', 'discount.jpg', 'architector.jpg', 'founder_main.png'],
       texts: [
-        { language: 'ru', namespace: 'home/HomeStart', path: 'frontend/public/locales/ru/home/HomeStart.json' },
-        { language: 'en', namespace: 'home/HomeStart', path: 'frontend/public/locales/en/home/HomeStart.json' },
-        { language: 'it', namespace: 'home/HomeStart', path: 'frontend/public/locales/it/home/HomeStart.json' }
+  { language: 'ru', namespace: 'home/HomeStart', path: 'frontend/dist/locales/ru/home/HomeStart.json' },
+  { language: 'en', namespace: 'home/HomeStart', path: 'frontend/dist/locales/en/home/HomeStart.json' },
+  { language: 'it', namespace: 'home/HomeStart', path: 'frontend/dist/locales/it/home/HomeStart.json' }
       ],
       description: 'Основная страница сайта с главным контентом'
     },
@@ -108,9 +108,9 @@ export function PagesSitePage() {
       url: '/about-construction-company-evo-home',
       images: ['team_images/founder.png', 'founder_main.png'],
       texts: [
-        { language: 'ru', namespace: 'AboutUs', path: 'frontend/public/locales/ru/AboutUs.json' },
-        { language: 'en', namespace: 'AboutUs', path: 'frontend/public/locales/en/AboutUs.json' },
-        { language: 'it', namespace: 'AboutUs', path: 'frontend/public/locales/it/AboutUs.json' }
+  { language: 'ru', namespace: 'AboutUs', path: 'frontend/dist/locales/ru/AboutUs.json' },
+  { language: 'en', namespace: 'AboutUs', path: 'frontend/dist/locales/en/AboutUs.json' },
+  { language: 'it', namespace: 'AboutUs', path: 'frontend/dist/locales/it/AboutUs.json' }
       ],
       description: 'Страница о компании и команде'
     },
@@ -121,9 +121,9 @@ export function PagesSitePage() {
       url: '/gallery-of-renovation-projects-video-and-photo-in-rome',
       images: ['our_works_gallery/1.JPG', 'our_works_gallery/2.JPG', 'our_works_gallery/3.JPG'],
       texts: [
-        { language: 'ru', namespace: 'OurWorks', path: 'frontend/public/locales/ru/OurWorks.json' },
-        { language: 'en', namespace: 'OurWorks', path: 'frontend/public/locales/en/OurWorks.json' },
-        { language: 'it', namespace: 'OurWorks', path: 'frontend/public/locales/it/OurWorks.json' }
+  { language: 'ru', namespace: 'OurWorks', path: 'frontend/dist/locales/ru/OurWorks.json' },
+  { language: 'en', namespace: 'OurWorks', path: 'frontend/dist/locales/en/OurWorks.json' },
+  { language: 'it', namespace: 'OurWorks', path: 'frontend/dist/locales/it/OurWorks.json' }
       ],
       description: 'Галерея выполненных проектов'
     },
@@ -134,9 +134,9 @@ export function PagesSitePage() {
       url: '/contact-information',
       images: ['contact_form_bg.jpg'],
       texts: [
-        { language: 'ru', namespace: 'Contacts', path: 'frontend/public/locales/ru/Contacts.json' },
-        { language: 'en', namespace: 'Contacts', path: 'frontend/public/locales/en/Contacts.json' },
-        { language: 'it', namespace: 'Contacts', path: 'frontend/public/locales/it/Contacts.json' }
+  { language: 'ru', namespace: 'Contacts', path: 'frontend/dist/locales/ru/Contacts.json' },
+  { language: 'en', namespace: 'Contacts', path: 'frontend/dist/locales/en/Contacts.json' },
+  { language: 'it', namespace: 'Contacts', path: 'frontend/dist/locales/it/Contacts.json' }
       ],
       description: 'Контактная информация и форма обратной связи'
     },
@@ -147,9 +147,9 @@ export function PagesSitePage() {
       url: '/reviews',
       images: ['reviews_bg.jpg'],
       texts: [
-        { language: 'ru', namespace: 'Reviews', path: 'frontend/public/locales/ru/Reviews.json' },
-        { language: 'en', namespace: 'Reviews', path: 'frontend/public/locales/en/Reviews.json' },
-        { language: 'it', namespace: 'Reviews', path: 'frontend/public/locales/it/Reviews.json' }
+  { language: 'ru', namespace: 'Reviews', path: 'frontend/dist/locales/ru/Reviews.json' },
+  { language: 'en', namespace: 'Reviews', path: 'frontend/dist/locales/en/Reviews.json' },
+  { language: 'it', namespace: 'Reviews', path: 'frontend/dist/locales/it/Reviews.json' }
       ],
       description: 'Отзывы клиентов о нашей работе'
     },

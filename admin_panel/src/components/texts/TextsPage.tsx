@@ -88,9 +88,6 @@ export function TextsPage() {
     'systems/Systems',
   ];
 
-  // Evita duplicati che causano warning React sulle chiavi
-  const uniqueNamespaces = Array.from(new Set(namespaces));
-
   // Inizializzazione dai parametri URL (?lang=..&ns=..)
   useEffect(() => {
     try {
@@ -178,27 +175,22 @@ export function TextsPage() {
   };
 
   const updateNestedValue = (obj: any, path: string, value: string) => {
-    // Work on a deep copy so we don't mutate state directly and handle null/undefined
-    const copy = JSON.parse(JSON.stringify(obj || {}));
     const keys = path.split('.');
-    let current: any = copy;
-
+    let current = obj;
+    
     for (let i = 0; i < keys.length - 1; i++) {
-      if (!(keys[i] in current) || typeof current[keys[i]] !== 'object' || current[keys[i]] === null) {
+      if (!(keys[i] in current)) {
         current[keys[i]] = {};
       }
       current = current[keys[i]];
     }
-
+    
     current[keys[keys.length - 1]] = value;
-    return copy;
+    return { ...obj };
   };
 
   const renderEditableFields = (obj: any, prefix = '', level = 0) => {
-    if (!obj || typeof obj !== 'object') return null;
-    // handle arrays as well
-    const keys = Array.isArray(obj) ? Object.keys(obj) : Object.keys(obj);
-    return keys.map(key => {
+    return Object.keys(obj).map(key => {
       const fullPath = prefix ? `${prefix}.${key}` : key;
       const value = obj[key];
       
@@ -220,13 +212,13 @@ export function TextsPage() {
               </div>
             </div>
             <div className="relative">
-                  {value && value.length > 100 ? (
-                  <textarea
-                    value={value ?? ''}
-                    onChange={(e) => {
-                      const newObj = updateNestedValue(editingText || {}, fullPath, e.target.value);
-                      setEditingText(newObj);
-                    }}
+                  {value.length > 100 ? (
+                <textarea
+                  value={value}
+                  onChange={(e) => {
+                    const newObj = updateNestedValue(editingText, fullPath, e.target.value);
+                    setEditingText(newObj);
+                  }}
                   rows={Math.min(Math.max(Math.ceil(value.length / 80), 2), 6)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none shadow-sm text-sm leading-relaxed"
                   placeholder="Inserisci il testo..."
@@ -234,9 +226,9 @@ export function TextsPage() {
               ) : (
                 <input
                   type="text"
-                    value={value ?? ''}
+                  value={value}
                   onChange={(e) => {
-                    const newObj = updateNestedValue(editingText || {}, fullPath, e.target.value);
+                    const newObj = updateNestedValue(editingText, fullPath, e.target.value);
                     setEditingText(newObj);
                   }}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm text-sm"
@@ -244,7 +236,7 @@ export function TextsPage() {
                 />
               )}
               <div className="absolute bottom-2 right-2 text-xs text-gray-400">
-                  {value ? value.length : 0} caratteri
+                {value.length} caratteri
               </div>
             </div>
           </div>
@@ -267,9 +259,9 @@ export function TextsPage() {
                 {fullPath}
               </div>
             </div>
-              <div className="space-y-3">
-                {renderEditableFields(value, fullPath, level + 1)}
-              </div>
+            <div className="space-y-3">
+              {renderEditableFields(value, fullPath, level + 1)}
+            </div>
           </div>
         );
       }
@@ -280,9 +272,7 @@ export function TextsPage() {
 
   // Render di anteprima ricorsiva per mostrare anche campi annidati nel view-mode
   const renderPreviewFields = (obj: any, prefix = '', level = 0) => {
-    if (!obj || typeof obj !== 'object') return null;
-    const keys = Array.isArray(obj) ? Object.keys(obj) : Object.keys(obj);
-    return keys.map(key => {
+    return Object.keys(obj).map(key => {
       const fullPath = prefix ? `${prefix}.${key}` : key;
       const value = obj[key];
 
@@ -375,7 +365,7 @@ export function TextsPage() {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
               >
                 <option value="">Seleziona sezione</option>
-                {uniqueNamespaces.map(ns => (
+                {namespaces.map(ns => (
                   <option key={ns} value={ns}>{ns}</option>
                 ))}
               </select>

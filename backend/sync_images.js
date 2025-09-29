@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 const pagesPath = path.join(__dirname, 'pages.json');
-const imagesDir = path.join(__dirname, '../frontend/src/assets/images');
+const imagesDir = path.join(__dirname, '../frontend/dist/assets/images');
 
 // Маппинг страниц к папкам/файлам (по аналогии с backend.js)
 const allowMap = {
