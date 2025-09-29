@@ -22,7 +22,7 @@ function formatFileSize(bytes) {
 
 // Функция для проверки использования изображения на странице
 function checkImageUsageOnPage(imagePath, pageId) {
-  const frontendDir = path.join(__dirname, '../frontend/src');
+  const frontendDir = path.join(__dirname, '../frontend/dist');
   
   console.log(`Проверяем изображение: ${imagePath} для страницы: ${pageId}`);
   
@@ -243,7 +243,6 @@ pool.connect()
 
 const app = express();
 // За обратным прокси (nginx) нужно доверять первому хопу, иначе secure cookies не выставляются
-// и req.secure будет false. Это ломает установку сессионной куки при CORS/HTTPS.
 app.set('trust proxy', 1);
 const PORT = process.env.PORT || 3001;
 const upload = multer({ storage: multer.memoryStorage() });
@@ -259,18 +258,7 @@ const allowedOrigins = [
   'http://localhost:3001'   // Backend development (for testing)
 ];
 
-// Настройка CORS
-app.use(cors({
-  origin: (origin, callback) => {
-    console.log('CORS origin:', origin);
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, origin || true);
-    } else {
-      callback(new Error(`CORS error: origin ${origin} not allowed`));
-    }
-  },
-  credentials: true
-}));
+
 
 // Парсинг JSON
 app.use(express.json());
@@ -430,7 +418,7 @@ app.get('/api/images/scan', async (req, res) => {
   }
 
   try {
-    const frontendAssetsPath = path.join(__dirname, '../frontend/src/assets');
+    const frontendAssetsPath = path.join(__dirname, '../frontend/dist/assets');
     
     function scanImages(dirPath, relativePath = '') {
       const images = [];
@@ -463,7 +451,7 @@ app.get('/api/images/scan', async (req, res) => {
               category: category,
               size: `${sizeKB} KB`,
               dimensions: { width: 0, height: 0 }, // Можно добавить определение размеров
-              fullPath: `frontend/src/assets/${relativeItemPath}`,
+              fullPath: `frontend/dist/assets/${relativeItemPath}`,
               usedIn: [], // Можно добавить анализ использования
               lastModified: stat.mtime.toISOString()
             });
@@ -514,10 +502,10 @@ app.get('/api/images/scan', async (req, res) => {
 });
 
 // Статические файлы - доступ к изображениям frontend
-app.use('/frontend-assets', express.static(path.join(__dirname, '../frontend/src/assets')));
+app.use('/frontend-assets', express.static(path.join(__dirname, '../frontend/dist/assets')));
 
 // Статические файлы - доступ к изображениям через /images/
-app.use('/images', express.static(path.join(__dirname, '../frontend/src/assets/images')));
+app.use('/images', express.static(path.join(__dirname, '../frontend/dist/assets/images')));
 
 // Создание бэкапа изображения перед заменой
 app.post('/api/images/backup', async (req, res) => {
@@ -527,7 +515,7 @@ app.post('/api/images/backup', async (req, res) => {
 
   try {
     const { imagePath } = req.body;
-    const originalPath = path.join(__dirname, '../frontend/src/assets', imagePath);
+    const originalPath = path.join(__dirname, '../frontend/dist/assets', imagePath);
     
     if (!fs.existsSync(originalPath)) {
       return res.status(404).json({ error: 'Файл не найден' });
@@ -575,7 +563,7 @@ app.post('/api/images/replace', upload.single('file'), async (req, res) => {
       return res.status(400).json({ error: 'imagePath и файл обязательны' });
     }
 
-    const originalPath = path.join(__dirname, '../frontend/src/assets', imagePath);
+    const originalPath = path.join(__dirname, '../frontend/dist/assets', imagePath);
 
     if (!fs.existsSync(originalPath)) {
       return res.status(404).json({ error: 'Файл не найден' });
@@ -676,7 +664,7 @@ app.get('/api/videos/scan', async (req, res) => {
     return res.status(401).json({ error: 'Не авторизован' });
   }
   try {
-    const srcDir = path.join(__dirname, '../frontend/src');
+    const srcDir = path.join(__dirname, '../frontend/dist');
     const results = [];
     const exts = new Set(['.jsx', '.js', '.tsx', '.ts']);
 
@@ -755,7 +743,7 @@ app.put('/api/videos', async (req, res) => {
 app.get(/^\/api\/images\/(.*)$/, async (req, res) => {
   try {
     const imagePath = req.params[0]; // Получаем весь путь после /api/images/
-    const fullPath = path.join(__dirname, '../frontend/src/assets', imagePath);
+    const fullPath = path.join(__dirname, '../frontend/dist/assets', imagePath);
     
     if (!fs.existsSync(fullPath)) {
       return res.status(404).json({ error: 'Изображение не найдено' });
@@ -813,7 +801,7 @@ app.get('/api/pages/:pageId/images', async (req, res) => {
     const imagesWithSize = page.images.map(image => {
       // Убираем префикс "images/" из src, так как статика раздается с /images/
       const cleanSrc = image.src.startsWith('images/') ? image.src.substring(7) : image.src;
-      const fullPath = path.join(__dirname, '../frontend/src/assets/images', cleanSrc);
+      const fullPath = path.join(__dirname, '../frontend/dist/assets/images', cleanSrc);
       let size = 'Unknown';
       
       if (fs.existsSync(fullPath)) {
@@ -835,13 +823,13 @@ app.get('/api/pages/:pageId/images', async (req, res) => {
     // и собрать реальные используемые изображения.
     //
     // Изменение: заменил статический pageFiles-мэппинг на динамический обход папки
-    // frontend/src/pages. Для каждой страницы скрипт парсит импорты и встраиваемые
+    // frontend/dist/pages. Для каждой страницы скрипт парсит импорты и встраиваемые
     // строки вида "/assets/images/..." рекурсивно, собирая все ссылки на изображения.
     // Это снимает зависимость от ручного allowlist'a и покрывает случаи, когда
     // изображения подключены через общие компоненты.
     async function scanFrontendForPageImages(targetPageId) {
       try {
-        const frontendSrc = path.join(__dirname, '../frontend/src');
+        const frontendSrc = path.join(__dirname, '../frontend/dist');
         const pagesDir = path.join(frontendSrc, 'pages');
         const assetsImagesDir = path.join(frontendSrc, 'assets', 'images');
         const exts = new Set(['.js', '.jsx', '.ts', '.tsx']);
@@ -897,7 +885,7 @@ app.get('/api/pages/:pageId/images', async (req, res) => {
             // Только картинки в assets/images
             if (/^images\//i.test(relFromAssets)) return relFromAssets.replace(/^images\//i, 'images/');
           }
-          // Если передали абсолютный путь внутри frontend/src/assets/images
+          // Если передали абсолютный путь внутри frontend/dist/assets/images
           if (candidate.startsWith(frontendSrc)) {
             const parts = path.relative(path.join(frontendSrc, 'assets'), candidate).replace(/\\/g, '/');
             if (parts && parts.startsWith('images/')) return parts;
@@ -1232,7 +1220,7 @@ app.get('/api/components/list', async (req, res) => {
     return res.status(401).json({ error: 'Не авторизован' });
   }
   try {
-    const frontendSrc = path.join(__dirname, '../frontend/src');
+    const frontendSrc = path.join(__dirname, '../frontend/dist');
     const componentsDir = path.join(frontendSrc, 'components');
 
     if (!fs.existsSync(componentsDir)) {
@@ -1317,7 +1305,7 @@ app.get('/api/components/:componentId/images', async (req, res) => {
       return res.status(400).json({ error: 'Некорректный идентификатор компонента' });
     }
 
-    const frontendSrc = path.join(__dirname, '../frontend/src');
+    const frontendSrc = path.join(__dirname, '../frontend/dist');
     const componentsDir = path.join(frontendSrc, 'components');
     const assetsDir = path.join(frontendSrc, 'assets');
 
