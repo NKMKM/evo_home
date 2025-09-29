@@ -263,14 +263,14 @@ class BackupManager {
     fs.mkdirSync(snapshotRoot, { recursive: true });
 
     const items = [
-      { name: 'locales', src: path.join(__dirname, '../frontend/public/locales') },
-      { name: 'jsonld', src: path.join(__dirname, '../frontend/public/jsonld') },
-      { name: 'custom-html', src: path.join(__dirname, '../frontend/public/custom-html') },
-      { name: 'html-config', src: path.join(__dirname, '../frontend/public/html-config') },
-      { name: 'robots', src: path.join(__dirname, '../frontend/public/robots') },
-      { name: 'sitemap-config', src: path.join(__dirname, '../frontend/public/sitemap-config') },
-      { name: 'alt-texts', src: path.join(__dirname, '../frontend/public/alt-texts') },
-      { name: 'images', src: path.join(__dirname, '../frontend/src/assets/images') },
+      { name: 'locales', src: path.join(__dirname, '../frontend/dist/locales') },
+      { name: 'jsonld', src: path.join(__dirname, '../frontend/dist/jsonld') },
+      { name: 'custom-html', src: path.join(__dirname, '../frontend/dist/custom-html') },
+      { name: 'html-config', src: path.join(__dirname, '../frontend/dist/html-config') },
+      { name: 'robots', src: path.join(__dirname, '../frontend/dist/robots') },
+      { name: 'sitemap-config', src: path.join(__dirname, '../frontend/dist/sitemap-config') },
+      { name: 'alt-texts', src: path.join(__dirname, '../frontend/dist/alt-texts') },
+      { name: 'images', src: path.join(__dirname, '../frontend/dist/assets/images') },
     ];
 
     const toProcess = selected && Array.isArray(selected) ? items.filter(i => selected.includes(i.name)) : items;
@@ -309,14 +309,14 @@ class BackupManager {
     if (!fs.existsSync(dir)) return { success: false, error: 'Снапшот не найден' };
 
     const mappings = [
-      { name: 'locales', dest: path.join(__dirname, '../frontend/public/locales') },
-      { name: 'jsonld', dest: path.join(__dirname, '../frontend/public/jsonld') },
-      { name: 'custom-html', dest: path.join(__dirname, '../frontend/public/custom-html') },
-      { name: 'html-config', dest: path.join(__dirname, '../frontend/public/html-config') },
-      { name: 'robots', dest: path.join(__dirname, '../frontend/public/robots') },
-      { name: 'sitemap-config', dest: path.join(__dirname, '../frontend/public/sitemap-config') },
-      { name: 'alt-texts', dest: path.join(__dirname, '../frontend/public/alt-texts') },
-      { name: 'images', dest: path.join(__dirname, '../frontend/src/assets/images') },
+  { name: 'locales', dest: path.join(__dirname, '../frontend/dist/locales') },
+  { name: 'jsonld', dest: path.join(__dirname, '../frontend/dist/jsonld') },
+  { name: 'custom-html', dest: path.join(__dirname, '../frontend/dist/custom-html') },
+  { name: 'html-config', dest: path.join(__dirname, '../frontend/dist/html-config') },
+  { name: 'robots', dest: path.join(__dirname, '../frontend/dist/robots') },
+  { name: 'sitemap-config', dest: path.join(__dirname, '../frontend/dist/sitemap-config') },
+  { name: 'alt-texts', dest: path.join(__dirname, '../frontend/dist/alt-texts') },
+  { name: 'images', dest: path.join(__dirname, '../frontend/dist/assets/images') },
     ];
 
     const items = selected && Array.isArray(selected) ? mappings.filter(i => selected.includes(i.name)) : mappings;
