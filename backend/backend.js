@@ -507,72 +507,7 @@ app.use('/frontend-assets', express.static(path.join(__dirname, '../frontend/dis
 // Плоская выдача изображений: поддержка как вложенных путей, так и поиска по имени файла
 
 
-// Resilient image serving: try exact path under frontend/dist/assets, else search assets for a matching filename.
-// This replaces the simple express.static so requests like /images/our_works_gallery/1.jpg
-// still succeed even if the build flattened or hashed asset filenames.
-app.get('/images/*', (req, res, next) => {
-  try {
-    const imagePath = req.params[0] || '';
-    const assetsRoot = path.join(__dirname, '../frontend/dist/assets');
-    const tryFull = path.join(assetsRoot, imagePath);
-
-    function sendIfExists(fullPath) {
-      if (fs.existsSync(fullPath) && fs.statSync(fullPath).isFile()) {
-        // set mime type and caching
-        const ext = path.extname(fullPath).toLowerCase();
-        const mimeTypes = {
-          '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.gif': 'image/gif', '.webp': 'image/webp', '.svg': 'image/svg+xml'
-        };
-        const mimeType = mimeTypes[ext] || 'application/octet-stream';
-        res.setHeader('Content-Type', mimeType);
-        res.setHeader('Cache-Control', 'public, max-age=31536000');
-        return res.sendFile(fullPath);
-      }
-      return false;
-    }
-
-    // 1) direct file
-    if (sendIfExists(tryFull)) return;
-
-    // 2) if imagePath contains subfolders, try just basename match in assets root (recursive)
-    const targetBase = path.basename(imagePath).toLowerCase();
-
-    let found = null;
-    function walk(dir) {
-      if (found) return;
-      if (!fs.existsSync(dir)) return;
-      for (const entry of fs.readdirSync(dir)) {
-        const full = path.join(dir, entry);
-        try {
-          const stat = fs.statSync(full);
-          if (stat.isDirectory()) {
-            walk(full);
-            if (found) return;
-          } else if (stat.isFile()) {
-            if (entry.toLowerCase() === targetBase || entry.toLowerCase().endsWith(targetBase)) {
-              found = full;
-              return;
-            }
-          }
-        } catch (e) {
-          // ignore
-        }
-      }
-    }
-
-    walk(assetsRoot);
-
-    if (found) {
-      if (sendIfExists(found)) return;
-    }
-
-    // 3) not found -> pass to next (will result in 404)
-    next();
-  } catch (e) {
-    console.error('Ошибка в обработчике /images/*:', e && e.message ? e.message : e);
-    next();
-  }
-});
+app.use('/images', express.static(path.join(__dirname, '../frontend/dist/assets/')));
 
 
 // Создание бэкапа изображения перед заменой
@@ -676,40 +611,13 @@ app.get('/api/texts', async (req, res) => {
     if (!lang || !ns) {
       return res.status(400).json({ error: 'Параметры lang и ns обязательны' });
     }
-    const localesRoot = path.join(__dirname, '../frontend/dist/locales');
-
-    function findNamespaceFile(langDir, namespace) {
-      const candidate = path.join(langDir, `${namespace}.json`);
-      if (fs.existsSync(candidate)) return candidate;
-      // try recursive search for a file that ends with namespace.json
-      let found = null;
-      function walk(dir) {
-        if (found) return;
-        if (!fs.existsSync(dir)) return;
-        for (const entry of fs.readdirSync(dir)) {
-          const full = path.join(dir, entry);
-          const stat = fs.statSync(full);
-          if (stat.isDirectory()) walk(full);
-          else if (stat.isFile() && entry.toLowerCase() === `${namespace.toLowerCase()}.json`) {
-            found = full; return;
-          } else if (stat.isFile() && entry.toLowerCase().endsWith(`${namespace.toLowerCase()}.json`)) {
-            found = full; return;
-          }
-        }
-      }
-      walk(langDir);
-      return found;
-    }
-
-    const langDir = path.join(localesRoot, lang);
-    const localePath = findNamespaceFile(langDir, ns);
-    if (!localePath) {
-      console.warn(`Локаль не найдена: lang=${lang} ns=${ns}. Searched under ${langDir}`);
+    const localePath = path.join(__dirname, `../frontend/dist/public/locales/${lang}/${ns}.json`);
+    if (!fs.existsSync(localePath)) {
       return res.status(404).json({ error: 'Файл локализации не найден' });
     }
     const raw = fs.readFileSync(localePath, 'utf-8');
     const json = JSON.parse(raw);
-    res.json({ language: lang, namespace: ns, path: path.relative(path.join(__dirname, '..'), localePath).replace(/\\/g, '/'), content: json });
+    res.json({ language: lang, namespace: ns, path: `frontend/dist/public/locales/${lang}/${ns}.json`, content: json });
   } catch (err) {
     console.error('Ошибка при чтении локали:', err.message);
     res.status(500).json({ error: 'Ошибка чтения локали' });
@@ -726,7 +634,7 @@ app.put('/api/texts', async (req, res) => {
     if (!language || !namespace || typeof content !== 'object') {
       return res.status(400).json({ error: 'language, namespace и content обязательны' });
     }
-  const localePath = path.join(__dirname, `../frontend/dist/locales/${language}/${namespace}.json`);
+    const localePath = path.join(__dirname, `../frontend/dist/public/locales/${language}/${namespace}.json`);
     const localeDir = path.dirname(localePath);
     if (!fs.existsSync(localeDir)) {
       fs.mkdirSync(localeDir, { recursive: true });
@@ -759,7 +667,7 @@ app.get('/api/videos/scan', async (req, res) => {
     return res.status(401).json({ error: 'Не авторизован' });
   }
   try {
-  const srcDir = path.join(__dirname, '../frontend/dist');
+    const srcDir = path.join(__dirname, '../frontend/dist');
     const results = [];
     const exts = new Set(['.jsx', '.js', '.tsx', '.ts']);
 
@@ -838,7 +746,7 @@ app.put('/api/videos', async (req, res) => {
 app.get(/^\/api\/images\/(.*)$/, async (req, res) => {
   try {
     const imagePath = req.params[0]; // Получаем весь путь после /api/images/
-  const fullPath = path.join(__dirname, '../frontend/dist/assets', imagePath);
+    const fullPath = path.join(__dirname, '../frontend/dist/assets', imagePath);
     
     if (!fs.existsSync(fullPath)) {
       return res.status(404).json({ error: 'Изображение не найдено' });
@@ -1491,7 +1399,7 @@ app.get('/api/pages/:pageId/texts', async (req, res) => {
   }
   try {
     const { pageId } = req.params;
-  const localesDir = path.join(__dirname, '../frontend/dist/locales');
+    const localesDir = path.join(__dirname, '../frontend/dist/public/locales');
     const texts = [];
     
     // Маппинг страниц к их namespace
@@ -1542,44 +1450,25 @@ app.get('/api/pages/:pageId/texts', async (req, res) => {
     if (!namespaces) {
       return res.json([]);
     }
-
+    
     const languages = ['ru', 'en', 'it'];
-
-    function findNamespaceFile(langDir, namespace) {
-      const candidate = path.join(langDir, `${namespace}.json`);
-      if (fs.existsSync(candidate)) return candidate;
-      let found = null;
-      function walk(dir) {
-        if (found) return;
-        if (!fs.existsSync(dir)) return;
-        for (const entry of fs.readdirSync(dir)) {
-          const full = path.join(dir, entry);
-          const stat = fs.statSync(full);
-          if (stat.isDirectory()) walk(full);
-          else if (stat.isFile() && entry.toLowerCase() === `${namespace.toLowerCase()}.json`) { found = full; return; }
-          else if (stat.isFile() && entry.toLowerCase().endsWith(`${namespace.toLowerCase()}.json`)) { found = full; return; }
-        }
-      }
-      walk(langDir);
-      return found;
-    }
-
+    
     for (const namespace of namespaces) {
       for (const language of languages) {
-        const langDir = path.join(localesDir, language);
-        const filePath = findNamespaceFile(langDir, namespace);
-        if (filePath) {
-          try {
-            const content = fs.readFileSync(filePath, 'utf-8');
-            const jsonContent = JSON.parse(content);
-            texts.push({ language, namespace, path: filePath, content: jsonContent });
-          } catch (e) {
-            console.error('Ошибка при парсинге локали', filePath, e.message);
-          }
+        const filePath = path.join(localesDir, language, `${namespace}.json`);
+        if (fs.existsSync(filePath)) {
+          const content = fs.readFileSync(filePath, 'utf-8');
+          const jsonContent = JSON.parse(content);
+          texts.push({
+            language,
+            namespace,
+            path: filePath,
+            content: jsonContent
+          });
         }
       }
     }
-
+    
     res.json(texts);
   } catch (err) {
     console.error('Ошибка при получении текстов страницы:', err.message);
@@ -1594,7 +1483,7 @@ app.get('/api/pages/:pageId/seo', async (req, res) => {
 	}
 	try {
 		const { pageId } = req.params;
-    const localesBase = path.join(__dirname, '../frontend/dist/locales');
+		const localesBase = path.join(__dirname, '../frontend/dist/public/locales');
 		const languagesList = ['ru', 'en', 'it'];
 		const languages = { ru: {}, en: {}, it: {} };
 
@@ -1773,7 +1662,7 @@ app.put('/api/pages/:pageId/seo', async (req, res) => {
 		fs.writeFileSync(backupPath, JSON.stringify({ pageId, timestamp: new Date().toISOString(), languages }, null, 2), 'utf-8');
 
 		// Запись в основные файлы локализации
-    const localesBase = path.join(__dirname, '../frontend/dist/locales');
+		const localesBase = path.join(__dirname, '../frontend/dist/public/locales');
 		for (const lang of ['ru', 'en', 'it']) {
 			const seoData = languages[lang] || {};
 			
@@ -1934,7 +1823,7 @@ app.delete('/api/pages/:url', async (req, res) => {
 // Генерация sitemap.xml
 app.get('/sitemap.xml', async (req, res) => {
   try {
-  const sitemapConfigDir = path.join(__dirname, '../frontend/dist/sitemap-config');
+    const sitemapConfigDir = path.join(__dirname, '../frontend/dist/public/sitemap-config');
     const pagesPath = path.join(__dirname, 'pages.json');
     const baseUrl = 'https://evohome.it'; // Замените на ваш домен
     
@@ -2127,7 +2016,7 @@ app.post('/api/images/alt', async (req, res) => {
     }
 
     // Создаем директорию для alt текстов если её нет
-  const altDir = path.join(__dirname, '../frontend/dist/alt-texts');
+    const altDir = path.join(__dirname, '../frontend/dist/public/alt-texts');
     if (!fs.existsSync(altDir)) {
       fs.mkdirSync(altDir, { recursive: true });
     }
@@ -2173,7 +2062,7 @@ app.post('/api/pages/:pageId/jsonld', async (req, res) => {
     }
 
     // Создаем директорию для JSON-LD если её нет
-  const jsonLdDir = path.join(__dirname, '../frontend/dist/jsonld');
+    const jsonLdDir = path.join(__dirname, '../frontend/dist/public/jsonld');
     if (!fs.existsSync(jsonLdDir)) {
       fs.mkdirSync(jsonLdDir, { recursive: true });
     }
@@ -2212,7 +2101,7 @@ app.post('/api/pages/:pageId/html', async (req, res) => {
     }
 
     // Создаем директорию для HTML если её нет
-  const htmlDir = path.join(__dirname, '../frontend/dist/custom-html');
+    const htmlDir = path.join(__dirname, '../frontend/dist/public/custom-html');
     if (!fs.existsSync(htmlDir)) {
       fs.mkdirSync(htmlDir, { recursive: true });
     }
@@ -2251,7 +2140,7 @@ app.post('/api/pages/:pageId/robots', async (req, res) => {
     }
 
     // Создаем директорию для robots если её нет
-  const robotsDir = path.join(__dirname, '../frontend/dist/robots');
+    const robotsDir = path.join(__dirname, '../frontend/dist/public/robots');
     if (!fs.existsSync(robotsDir)) {
       fs.mkdirSync(robotsDir, { recursive: true });
     }
@@ -2290,7 +2179,7 @@ app.post('/api/pages/:pageId/sitemap', async (req, res) => {
     }
 
     // Создаем директорию для sitemap если её нет
-  const sitemapDir = path.join(__dirname, '../frontend/dist/sitemap-config');
+    const sitemapDir = path.join(__dirname, '../frontend/dist/public/sitemap-config');
     if (!fs.existsSync(sitemapDir)) {
       fs.mkdirSync(sitemapDir, { recursive: true });
     }
@@ -2320,7 +2209,7 @@ app.get('/api/pages/:pageId/html', async (req, res) => {
     const { pageId } = req.params;
     
     // Путь к HTML файлу
-  const htmlFilePath = path.join(__dirname, '../frontend/dist/custom-html', `${pageId}.html`);
+    const htmlFilePath = path.join(__dirname, '../frontend/dist/public/custom-html', `${pageId}.html`);
     
     if (fs.existsSync(htmlFilePath)) {
       const htmlContent = fs.readFileSync(htmlFilePath, 'utf-8');
@@ -2345,7 +2234,7 @@ app.delete('/api/pages/:pageId/html', async (req, res) => {
     const { pageId } = req.params;
     
     // Путь к HTML файлу
-  const htmlFilePath = path.join(__dirname, '../frontend/dist/custom-html', `${pageId}.html`);
+    const htmlFilePath = path.join(__dirname, '../frontend/dist/public/custom-html', `${pageId}.html`);
     
     if (fs.existsSync(htmlFilePath)) {
       // Создаем бэкап перед удалением
@@ -2383,14 +2272,14 @@ app.post('/api/pages/:pageId/html-position', async (req, res) => {
       return res.status(400).json({ error: 'Неверная позиция. Допустимые значения: top, bottom, after-header, before-footer' });
     }
 
-  // Создаем директорию для конфигурации если её нет
-  const configDir = path.join(__dirname, '../frontend/dist/html-config');
+    // Создаем директорию для конфигурации если её нет
+    const configDir = path.join(__dirname, '../frontend/public/html-config');
     if (!fs.existsSync(configDir)) {
       fs.mkdirSync(configDir, { recursive: true });
     }
 
     // Сохраняем конфигурацию расположения
-  const configFilePath = path.join(configDir, `${pageId}.json`);
+    const configFilePath = path.join(configDir, `${pageId}.json`);
     fs.writeFileSync(configFilePath, JSON.stringify({ pageId, position, timestamp: new Date().toISOString() }, null, 2), 'utf-8');
 
     // Создаем бэкап
@@ -2413,8 +2302,8 @@ app.get('/api/pages/:pageId/html-position', async (req, res) => {
   try {
     const { pageId } = req.params;
     
-  // Путь к файлу конфигурации
-  const configFilePath = path.join(__dirname, '../frontend/dist/html-config', `${pageId}.json`);
+    // Путь к файлу конфигурации
+    const configFilePath = path.join(__dirname, '../frontend/public/html-config', `${pageId}.json`);
     
     if (fs.existsSync(configFilePath)) {
       const configContent = fs.readFileSync(configFilePath, 'utf-8');
@@ -2440,32 +2329,32 @@ app.get('/api/pages/:pageId/data', async (req, res) => {
     const data = {};
 
     // Загружаем alt тексты
-  const altFilePath = path.join(__dirname, '../frontend/dist/alt-texts', `${pageId}_alt.json`);
+    const altFilePath = path.join(__dirname, '../frontend/public/alt-texts', `${pageId}_alt.json`);
     if (fs.existsSync(altFilePath)) {
       data.altTexts = JSON.parse(fs.readFileSync(altFilePath, 'utf-8'));
     }
 
     // Загружаем JSON-LD
-  const jsonLdFilePath = path.join(__dirname, '../frontend/dist/jsonld', `${pageId}.json`);
+    const jsonLdFilePath = path.join(__dirname, '../frontend/public/jsonld', `${pageId}.json`);
     if (fs.existsSync(jsonLdFilePath)) {
       const jsonLdData = JSON.parse(fs.readFileSync(jsonLdFilePath, 'utf-8'));
       data.jsonLd = jsonLdData.jsonLd;
     }
 
     // Загружаем HTML
-  const htmlFilePath = path.join(__dirname, '../frontend/dist/custom-html', `${pageId}.html`);
+    const htmlFilePath = path.join(__dirname, '../frontend/public/custom-html', `${pageId}.html`);
     if (fs.existsSync(htmlFilePath)) {
       data.customHtml = fs.readFileSync(htmlFilePath, 'utf-8');
     }
 
     // Загружаем robots
-  const robotsFilePath = path.join(__dirname, '../frontend/dist/robots', `${pageId}.txt`);
+    const robotsFilePath = path.join(__dirname, '../frontend/public/robots', `${pageId}.txt`);
     if (fs.existsSync(robotsFilePath)) {
       data.robots = fs.readFileSync(robotsFilePath, 'utf-8');
     }
 
     // Загружаем sitemap
-  const sitemapFilePath = path.join(__dirname, '../frontend/dist/sitemap-config', `${pageId}.json`);
+    const sitemapFilePath = path.join(__dirname, '../frontend/public/sitemap-config', `${pageId}.json`);
     if (fs.existsSync(sitemapFilePath)) {
       const sitemapData = JSON.parse(fs.readFileSync(sitemapFilePath, 'utf-8'));
       data.sitemap = sitemapData.sitemap;
@@ -2483,37 +2372,6 @@ app.use((err, req, res, next) => {
   console.error('Глобальная ошибка:', err.stack);
   res.status(500).json({ error: 'Внутренняя ошибка сервера' });
 });
-
-// --- Static serving for built frontends (production dist) ---
-// Serve main frontend at root
-const frontendDist = path.join(__dirname, '../frontend/dist');
-if (fs.existsSync(frontendDist)) {
-  app.use(express.static(frontendDist));
-  // SPA fallback for client-side routing
-  app.get('*', (req, res, next) => {
-    // skip API routes
-    if (req.path.startsWith('/api/') || req.path.startsWith('/images') || req.path.startsWith('/frontend-assets')) return next();
-    const indexPath = path.join(frontendDist, 'index.html');
-    if (fs.existsSync(indexPath)) {
-      return res.sendFile(indexPath);
-    }
-    next();
-  });
-}
-
-// Serve admin panel at /admin
-const adminDist = path.join(__dirname, '../admin_panel/dist');
-if (fs.existsSync(adminDist)) {
-  app.use('/admin', express.static(adminDist));
-  // SPA fallback for /admin routes
-  app.get('/admin/*', (req, res) => {
-    const indexPath = path.join(adminDist, 'index.html');
-    if (fs.existsSync(indexPath)) {
-      return res.sendFile(indexPath);
-    }
-    res.status(404).end();
-  });
-}
 
 // Запуск сервера
 app.listen(PORT, () => {
